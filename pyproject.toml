@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-to-hoi"
+version = "0.1.0"
+description = "Monocular third-person video to metric 4D human-object interaction (V2D Challenge Track 1)."
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "pandas",
+    "pyarrow",
+    "trimesh",
+    "huggingface_hub",
+]
+
+[project.optional-dependencies]
+# SOMA-X body model for human joints and meshes. torch is not listed: install
+# the CUDA build that matches the machine first.
+soma = ["py-soma-x==0.2.1"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

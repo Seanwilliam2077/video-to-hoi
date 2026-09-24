@@ -9,3 +9,5 @@ outputs/
 *.mp4
 *.glb
 *.obj
+scores/
+*.egg-info/

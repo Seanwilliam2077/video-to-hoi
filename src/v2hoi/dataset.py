@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 import numpy as np
 import pandas as pd
@@ -57,33 +57,62 @@ def list_episodes(root: Path) -> list[int]:
     return sorted(read_metadata(root))
 
 
+def _child_path(root: Path, relative: str, field: str) -> Path:
+    """Resolve a metadata path without allowing it to leave its selected root."""
+    if not isinstance(relative, str) or not relative:
+        raise ValueError(f"{field} must be a nonempty relative path")
+    rel_path = Path(relative)
+    if rel_path.is_absolute() or PureWindowsPath(relative).anchor:
+        raise ValueError(f"{field} must be relative: {relative!r}")
+    base = Path(root).resolve()
+    path = (base / rel_path).resolve()
+    if not path.is_relative_to(base):
+        raise ValueError(f"{field} escapes {base}: {relative!r}")
+    return path
+
+
+def _object_name(name: str) -> str:
+    """Object identifiers are directory names, not paths."""
+    if (
+        not isinstance(name, str)
+        or name in ("", ".", "..")
+        or "/" in name
+        or "\\" in name
+        or PureWindowsPath(name).anchor
+    ):
+        raise ValueError(f"invalid object name: {name!r}")
+    return name
+
+
 def _parquet_path(root: Path, index: int) -> Path:
     info = json.loads((root / "meta" / "info.json").read_text(encoding="utf-8"))
     rel = info["data_path"].format(
         episode_chunk=index // info.get("chunks_size", 1000), episode_index=index
     )
-    return root / rel
+    return _child_path(root, rel, "data_path")
 
 
 def load_episode(root: Path, index: int, mesh_dir: Path | None = None) -> Episode:
     """Load one episode. ``mesh_dir`` overrides where ``<object>/<object>.glb`` is found."""
     root = Path(root)
     meta = read_metadata(root)[index]
-    obj = meta["object"]
+    obj = _object_name(meta["object"])
     df = pd.read_parquet(_parquet_path(root, index))
 
     def col(name: str) -> np.ndarray:
         return np.stack(df[name].to_numpy()).astype(np.float32)
 
     if mesh_dir is not None:
-        mesh_path = Path(mesh_dir) / obj / f"{obj}.glb"
+        mesh_path = _child_path(mesh_dir, f"{obj}/{obj}.glb", "object mesh")
     else:
-        mesh_path = root / meta.get("mesh", f"mesh/{obj}/{obj}.glb")
+        mesh_path = _child_path(root, meta.get("mesh", f"mesh/{obj}/{obj}.glb"), "mesh")
 
     plane = None
     plane_rel = meta.get("ground_plane")
-    if plane_rel and (root / plane_rel).is_file():
-        plane = np.asarray(json.loads((root / plane_rel).read_text())["plane"], dtype=np.float64)
+    if plane_rel:
+        plane_path = _child_path(root, plane_rel, "ground_plane")
+        if plane_path.is_file():
+            plane = np.asarray(json.loads(plane_path.read_text())["plane"], dtype=np.float64)
 
     visible = df["observation.object.visible"].to_numpy().astype(bool)
     obj_T = pose7_to_matrix(col("observation.object.pose"))

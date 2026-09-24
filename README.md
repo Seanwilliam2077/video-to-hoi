@@ -35,13 +35,13 @@ uv pip install --python .venv/Scripts/python.exe --no-deps -e .
 
 ## 评分
 
-预测目录和 Tier 1 同构：`data/chunk-000/episode_XXXXXX.parquet`（Tier 1 的列）加 `mesh/<物体>/<物体>.glb`。
+预测目录和 Tier 1 同构：`meta/info.json`、`meta/episodes_metadata.jsonl`、`data/chunk-000/episode_XXXXXX.parquet`（Tier 1 的列）和 `mesh/<物体>/<物体>.glb`。
 
 ```bash
 .venv/Scripts/python.exe -m v2hoi.score --pred <预测目录>
 ```
 
-常用参数：`--episodes 7 9` 只评部分片段；`--stride 3` 逐帧网格指标隔帧算；`--align se3|sim3|none` 选对齐方式（默认 SE(3)，按身体关节）；`--pred-mesh-dir` 从别处找预测网格。结果打印成表，完整报告写到 `scores/`。
+常用参数：`--episodes 7 9` 只评部分片段；`--stride 3` 逐帧网格指标隔帧算；`--align se3|sim3|none` 选对齐方式（默认 SE(3)，按身体关节）；`--pred-mesh-dir` 从别处找预测网格。默认要求预测覆盖所有真值片段和所有真值可见的物体帧；`--allow-incomplete` 可用于缺帧诊断，报告会标记为不可用于排名比较。结果打印成表，完整报告写到 `scores/`。
 
 两个自检：
 
@@ -50,7 +50,7 @@ uv pip install --python .venv/Scripts/python.exe --no-deps -e .
 ```
 
 ```bash
-.venv/Scripts/python.exe -m v2hoi.score --pred data/v2d/track_2/tier_2_synthetic_noise --pred-mesh-dir data/v2d/track_2/tier_1_multiview_caption/mesh --align none
+.venv/Scripts/python.exe -m v2hoi.score --pred data/v2d/track_2/tier_2_synthetic_noise --pred-mesh-dir data/v2d/track_2/tier_1_multiview_caption/mesh --align none --allow-incomplete
 ```
 
 第一条真值对真值，所有误差应接近 0。第二条是主办方按 Track 1 误差分布加的噪声，可作参照。指标定义见 `docs/design.md` 第 5 节。

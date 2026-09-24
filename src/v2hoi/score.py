@@ -42,6 +42,7 @@ class Config:
     stride: int = 1  # frame stride for the per-frame mesh metrics
     object_samples: int = 10_000
     shape_frames: int = 10
+    allow_incomplete: bool = False  # diagnostic runs with missing predicted objects
 
 
 @dataclass
@@ -76,6 +77,12 @@ def _posed(model: ObjectModel, T: np.ndarray) -> np.ndarray:
 def _mean(values) -> float:
     values = [v for v in values if np.isfinite(v)]
     return float(np.mean(values)) if values else float("nan")
+
+
+def _complete_mean(values) -> float:
+    """Do not let a missing episode silently improve a reported mean."""
+    values = list(values)
+    return float(np.mean(values)) if values and all(np.isfinite(v) for v in values) else float("nan")
 
 
 def _norm(x: np.ndarray) -> np.ndarray:
@@ -144,8 +151,8 @@ def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: 
         "false_visible": int((pred.obj_visible & ~gt.obj_visible).sum()) / n_gt_hidden if n_gt_hidden else 0.0,
     }
 
-    # Penetration is invariant to the rigid alignment, so each side is measured
-    # in its own world, on the same frames.
+    # Penetration is invariant to rigid alignment. A Sim(3) alignment also
+    # changes length units, so convert predicted depths to the GT scale.
     def penetration(verts, obj_T, model) -> np.ndarray:
         def depth(t):
             R, tr = obj_T[t, :3, :3], obj_T[t, :3, 3]
@@ -153,7 +160,7 @@ def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: 
 
         return np.asarray(_pmap(depth, obj_frames))
 
-    pen_pred, pen_gt = penetration(pv, pT, pm), penetration(gv, gT, gm)
+    pen_pred, pen_gt = penetration(pv, pT, pm) * align.s, penetration(gv, gT, gm)
     contact = {
         "penetration_err_mm": float(np.abs(pen_pred - pen_gt).mean()) * MM if len(pen_gt) else float("nan"),
         "penetration_pred_mm": float(pen_pred.mean()) * MM if len(pen_pred) else float("nan"),
@@ -194,8 +201,11 @@ def aggregate(per_episode: dict[int, dict]) -> dict:
     out: dict[str, dict] = {}
     for section in SECTIONS:
         keys = {k for res in per_episode.values() for k in res[section]}
-        out[section] = {k: _mean(res[section].get(k, float("nan")) for res in per_episode.values()) for k in sorted(keys)}
-    out["align"] = {"sim3_scale": _mean(res["align"]["sim3_scale"] for res in per_episode.values())}
+        out[section] = {
+            k: _complete_mean(res[section].get(k, float("nan")) for res in per_episode.values())
+            for k in sorted(keys)
+        }
+    out["align"] = {"sim3_scale": _complete_mean(res["align"]["sim3_scale"] for res in per_episode.values())}
     return out
 
 
@@ -211,8 +221,14 @@ def score(
     from v2hoi.body import SomaBody
 
     cfg = cfg or Config()
+    gt_available = set(list_episodes(gt_root))
     available = set(list_episodes(pred_root))
-    episodes = episodes or [e for e in list_episodes(gt_root) if e in available]
+    episodes = sorted(gt_available) if episodes is None else episodes
+    if not episodes:
+        raise ValueError("no ground-truth episodes selected")
+    unknown = [e for e in episodes if e not in gt_available]
+    if unknown:
+        raise ValueError(f"ground-truth root has no episodes {unknown}")
     missing = [e for e in episodes if e not in available]
     if missing:
         raise ValueError(f"prediction root has no episodes {missing}")
@@ -223,6 +239,12 @@ def score(
     for e in episodes:
         start = time.time()
         res = score_episode(load_episode(gt_root, e), load_episode(pred_root, e, pred_mesh_dir), body, objects, cfg)
+        if res["object_metrics"]["coverage"] < 1.0 and not cfg.allow_incomplete:
+            raise ValueError(
+                f"episode {e} has object coverage {res['object_metrics']['coverage']:.1%}; "
+                "supply poses for every ground-truth-visible frame or use "
+                "--allow-incomplete for a diagnostic report"
+            )
         per_episode[e] = res
         log(f"episode {e:2d} {res['object']:<20} {time.time() - start:5.0f}s")
     return {
@@ -232,6 +254,7 @@ def score(
         "config": asdict(cfg),
         "git": _git_rev(),
         "created": datetime.now().isoformat(timespec="seconds"),
+        "complete_coverage": all(res["object_metrics"]["coverage"] == 1.0 for res in per_episode.values()),
         "mean": aggregate(per_episode),
         "per_episode": per_episode,
     }
@@ -263,6 +286,8 @@ def format_table(report: dict) -> str:
     widths = [max(len(r[i]) for r in rows) for i in range(len(header))]
     lines = ["  ".join(c.ljust(w) for c, w in zip(r, widths)) for r in rows]
     units = "units: cham/shape/pen_err mm, acc mm/frame^2, angacc deg/frame^2, coverage fraction"
+    if not report.get("complete_coverage", True):
+        lines.append("WARNING: object coverage is incomplete; observed-frame errors are not comparable for ranking")
     return "\n".join(lines + [units])
 
 
@@ -292,14 +317,15 @@ def main() -> None:
     parser.add_argument("--pred", type=Path, required=True, help="prediction root (Tier 1 layout)")
     parser.add_argument("--gt", type=Path, default=TIER1_ROOT, help="ground-truth root")
     parser.add_argument("--pred-mesh-dir", type=Path, help="look up prediction meshes here instead of <pred>/mesh")
-    parser.add_argument("--episodes", type=int, nargs="*", help="default: every episode in both roots")
+    parser.add_argument("--episodes", type=int, nargs="*", help="default: every ground-truth episode")
+    parser.add_argument("--allow-incomplete", action="store_true", help="diagnose missing object frames; report is not comparable for ranking")
     parser.add_argument("--align", choices=["se3", "sim3", "none"], default="se3")
     parser.add_argument("--stride", type=int, default=1, help="frame stride for per-frame mesh metrics")
     parser.add_argument("--device", help="torch device for SOMA-X (default: cuda if available)")
     parser.add_argument("--out", type=Path, help="report JSON (default: scores/<pred>_<time>.json)")
     args = parser.parse_args()
 
-    cfg = Config(align=args.align, stride=args.stride)
+    cfg = Config(align=args.align, stride=args.stride, allow_incomplete=args.allow_incomplete)
     report = score(args.gt, args.pred, args.episodes, cfg, args.pred_mesh_dir, args.device)
     out = args.out or Path("scores") / f"{args.pred.name}_{datetime.now():%Y%m%d-%H%M%S}.json"
     out.parent.mkdir(parents=True, exist_ok=True)

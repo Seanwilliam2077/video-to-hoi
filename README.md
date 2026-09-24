@@ -10,7 +10,7 @@
 
 - 设计：`docs/design.md`
 - Tier 1 本地评分器：`python -m v2hoi.score`，可用
-- 重建管线：尚未实现
+- 测试管线：`python -m v2hoi.pipeline --out work/demo`，用假后端把物体层和视频层跑通。重建模型尚未接入。
 
 ## 安装
 

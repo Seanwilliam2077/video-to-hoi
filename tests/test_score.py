@@ -10,7 +10,9 @@ from scipy.spatial.transform import Rotation
 
 from v2hoi.dataset import TIER1_ROOT, Episode, load_episode
 from v2hoi.geometry import matrix_to_pose7
-from v2hoi.score import LEADERBOARD, Config, ObjectModels, aggregate, check_mesh, score, score_episode
+from v2hoi.score import (
+    LEADERBOARD, TIER2_CM, Config, ObjectModels, aggregate, check_mesh, internal_score, score, score_episode,
+)
 
 BOX = np.array([0.2, 0.1, 0.3])
 
@@ -180,6 +182,24 @@ def test_leaderboard_is_in_cm(box_path):
     for key, (section, local) in LEADERBOARD.items():
         assert np.isclose(res["leaderboard"][key], res[section][local] / 10, equal_nan=True)
     assert res["leaderboard"]["cd_h_cm"] > 0.1
+
+
+def test_first_object_alignment_ignores_the_human(box_path):
+    gt = make_episode(box_path)
+    pred = make_episode(box_path)
+    pred.obj_T = some_world() @ pred.obj_T  # objects in another world, human untouched
+    res = score_episode(gt, pred, FakeBody(), ObjectModels(3000), Config(align="first-object", object_samples=3000))
+    assert res["object_metrics"]["chamfer_mm"] < 1e-3
+    assert np.isclose(res["object_metrics"]["accel_mm_f2"], res["object_metrics"]["accel_ref_mm_f2"], rtol=1e-3)
+    assert res["human"]["chamfer_mm"] > 100
+    assert Config(align="first-object").deviations()
+
+
+def test_internal_score_puts_tier2_at_one():
+    assert np.isclose(internal_score(TIER2_CM), 1.0)
+    assert internal_score({k: 0.0 for k in TIER2_CM}) == 0.0
+    # the accuracy axis has two metrics, the physical axis three; each axis weighs half
+    assert np.isclose(internal_score({**TIER2_CM, "cd_h_cm": 3 * TIER2_CM["cd_h_cm"]}), 1.5)
 
 
 def test_config_deviations():

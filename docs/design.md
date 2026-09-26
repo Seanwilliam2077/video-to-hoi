@@ -52,17 +52,20 @@ It is the reference method for Track 2 Tier 3. Its inputs are the video, human a
 
 ## 3. Architecture
 
+Six stages exchange files in a run directory, owned by four modules. [contracts.md](contracts.md) specifies the files; [workflow.md](workflow.md) explains the module split and who owns what.
+
 ```
-objects/<object>/        once: candidate meshes, the chosen mesh, merged scale, symmetry
-cameras/<camera>/        merged intrinsics, gravity direction
-episodes/<id>/           Track 1: depth, masks, human, poses, export
-dev/tier1/<id>/          Tier 1: same layout as episodes/, used for scoring
-scores/<run>/            scores and git hash of each run
+runs/<run_id>/inputs/<episode>/    camera intrinsics, masks, depth          1 platform & perception
+              human/<episode>/     MHR and SOMA-X, the metric depth scale   2 human
+              objects/<object>/    one metric mesh per object               3 object
+              motion/<episode>/    object pose and confidence, every frame  3 object
+              refine/<episode>/    smoothed and contact-refined both        4 temporal & physics
+              export/              Tier 1 layout, scored by v2hoi.score     1 platform & perception
 ```
 
-The internal representation lives in the **camera frame**: the human as MHR / SOMA-X parameters and joints, the object as a mesh id, `T_cam_obj`, visibility, and confidence. The world transform is one 4×4 applied at export, so a change in the evaluation convention only touches export.
+Everything lives in the **camera frame**: the human as MHR and SOMA-X parameters, the object as a mesh plus `T_cam_obj` and a confidence. The camera is static, and the official first-frame Sim(3) absorbs any rigid choice of world, so the camera frame is also the submission's world frame and export copies poses unchanged. A gravity-aligned world is only needed if the official format asks for one.
 
-Resuming is keyed on **input hashes**, not on "skip if the output exists": after a mesh scale or a parameter changes, the latter lets downstream stages silently reuse stale results. CARI4D's `.stages` works this way.
+A run can read the stages it does not run from an upstream run, so each stage is developed against a fixed snapshot of the others. Resuming should be keyed on **input hashes**, not on "skip if the output exists": after a mesh scale or a parameter changes, the latter lets downstream stages silently reuse stale results. CARI4D's `.stages` works this way. This is not implemented yet; for now, rerun the stages you changed.
 
 ### 3.1 What we write ourselves
 

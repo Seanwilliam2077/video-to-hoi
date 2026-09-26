@@ -52,6 +52,30 @@ LEADERBOARD = {
     "interpenetration_cm": ("contact", "penetration_err_mm"),
 }
 
+ALIGNMENTS = ("first", "first-object", "se3", "sim3", "none")
+
+# Bump when a metric's definition changes; scores from different versions are
+# not compared.
+SCORER_VERSION = 1
+
+# Tier 2 against Tier 1 (design 5.2), the organizer's model of Track 1 errors.
+# Dividing by it puts the five metrics on one scale, on which Tier 2 scores 1.
+TIER2_CM = {
+    "cd_h_cm": 1.99, "cd_o_cm": 2.95, "acc_h_cm": 0.35, "acc_o_cm": 0.18, "interpenetration_cm": 1.17,
+}
+AXES = {"accuracy": ("cd_h_cm", "cd_o_cm"), "physical": ("acc_h_cm", "acc_o_cm", "interpenetration_cm")}
+
+
+def internal_score(leaderboard: dict) -> float:
+    """One number for merge and submission decisions; not the official ranking.
+
+    Each metric is divided by its Tier 2 value, each axis takes the mean of its
+    metrics, and the two axes weigh equally, as the challenge page says. Lower
+    is better; Tier 2 scores 1.
+    """
+    return float(np.mean([np.mean([leaderboard[k] / TIER2_CM[k] for k in keys]) for keys in AXES.values()]))
+
+
 # Largest side of an object mesh's bounding box. Track 1 objects run from a
 # brush to a desk; outside this range the mesh is almost surely in mm or cm.
 MESH_EXTENT_M = (0.02, 3.0)
@@ -192,6 +216,20 @@ def check_mesh(name: str, path: Path, model: ObjectModel, reference_root: Path) 
     return problems
 
 
+def first_object_alignment(gT: np.ndarray, pT: np.ndarray, both: np.ndarray) -> Similarity:
+    """The rigid transform taking the prediction's object pose onto the reference's,
+    on the first frame where both have one.
+
+    Development only: it assumes the prediction uses the reference mesh (so the
+    canonical frames agree), and it keeps human errors out of the object metrics.
+    """
+    frames = np.flatnonzero(both)
+    if not len(frames):
+        raise ValueError("first-object alignment needs a frame where both sides have an object pose")
+    A = gT[frames[0]] @ np.linalg.inv(pT[frames[0]])
+    return Similarity(1.0, A[:3, :3], A[:3, 3])
+
+
 def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: Config) -> dict:
     check_scorable(gt, pred)
     T = len(gt)
@@ -199,6 +237,13 @@ def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: 
 
     gj, gv = body(gt)
     pj, pv = body(pred)
+
+    # The prediction's visibility flag is ignored: a valid submission has a pose
+    # on every frame. Frames without one are skipped here and flagged by
+    # check_prediction.
+    gT, pT = gt.obj_T, pred.obj_T
+    has_pose = _has_pose(pT)
+    both = gt.obj_visible & has_pose
 
     # Put the prediction into the ground-truth world using body joints only.
     # The organizer did not say which points the first-frame fit uses; body
@@ -208,6 +253,7 @@ def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: 
     sim3 = Similarity.fit(src, dst, with_scale=True)
     align = {
         "first": lambda: Similarity.fit(pj[0, bj], gj[0, bj], with_scale=True),
+        "first-object": lambda: first_object_alignment(gT, pT, both),
         "none": Similarity.identity,
         "se3": lambda: Similarity.fit(src, dst, with_scale=False),
         "sim3": lambda: sim3,
@@ -230,13 +276,7 @@ def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: 
         "accel_err_fingers_mm_f2": M.accel_error(pj_w[:, fj], gj[:, fj]) * MM,
     }
 
-    # The prediction's visibility flag is ignored: a valid submission has a pose
-    # on every frame. Frames without one are skipped here and flagged by
-    # check_prediction.
     gm, pm = objects(gt.mesh_path), objects(pred.mesh_path)
-    gT, pT = gt.obj_T, pred.obj_T
-    has_pose = _has_pose(pT)
-    both = gt.obj_visible & has_pose
     obj_frames = frames[both[frames]]
     shape_frames = obj_frames[
         np.unique(np.linspace(0, len(obj_frames) - 1, min(cfg.shape_frames, len(obj_frames))).astype(int))
@@ -374,7 +414,9 @@ def score(
     deviations = cfg.deviations()
     if set(episodes) != set(reference):
         deviations.append(f"scored {len(episodes)} of {len(reference)} episodes")
+    mean = aggregate(per_episode)
     return {
+        "scorer_version": SCORER_VERSION,
         "gt": str(gt_root),
         "pred": str(pred_root),
         "pred_mesh_dir": str(pred_mesh_dir) if pred_mesh_dir else None,
@@ -391,8 +433,25 @@ def score(
             "valid": not violations,
             "violations": violations,
         },
-        "mean": aggregate(per_episode),
+        "mean": mean,
+        "internal_score": internal_score(mean["leaderboard"]),
         "per_episode": per_episode,
+    }
+
+
+def summary(report: dict) -> dict:
+    """The part of a report that goes into benchmarks/: small, and diffable across PRs."""
+    return {
+        "scorer_version": report["scorer_version"],
+        "git": report["git"],
+        "created": report["created"],
+        "pred": report["pred"],
+        "config": report["config"],
+        "episodes": list(report["per_episode"]),
+        "submission": report["submission"],
+        "internal_score": report["internal_score"],
+        "leaderboard": report["mean"]["leaderboard"],
+        "per_episode": {e: res["leaderboard"] for e, res in report["per_episode"].items()},
     }
 
 
@@ -426,6 +485,10 @@ def format_table(report: dict) -> str:
     lines.append(
         "units: cm as on the leaderboard (ACC per frame^2 at 30 fps, prediction alone; "
         "_ref = same on the reference); PEN is a proxy, no live competition yet; coverage fraction"
+    )
+
+    lines.append(
+        f"internal score: {report['internal_score']:.3f} (Tier 2 = 1, lower is better; not the official ranking)"
     )
 
     sub = report["submission"]
@@ -465,12 +528,14 @@ def main() -> None:
     parser.add_argument("--pred-mesh-dir", type=Path, help="look up prediction meshes here instead of <pred>/mesh")
     parser.add_argument("--episodes", type=int, nargs="*", help="default: every reference episode, all required")
     parser.add_argument(
-        "--align", choices=["first", "se3", "sim3", "none"], default="first",
-        help="first: Sim(3) on frame 0 (official rule); se3/sim3: whole clip; none: as submitted",
+        "--align", choices=ALIGNMENTS, default="first",
+        help="first: Sim(3) on frame 0 (official rule); first-object: rigid, on the first object pose "
+        "(development, needs the reference mesh); se3/sim3: whole clip; none: as submitted",
     )
     parser.add_argument("--stride", type=int, default=1, help="frame stride for per-frame mesh metrics")
     parser.add_argument("--device", help="torch device for SOMA-X (default: cuda if available)")
     parser.add_argument("--out", type=Path, help="report JSON (default: scores/<pred>_<time>.json)")
+    parser.add_argument("--summary", type=Path, help="also write the compact summary, e.g. benchmarks/<name>.json")
     parser.add_argument(
         "--strict", action="store_true",
         help="exit 1 unless the settings are official and the prediction is a valid submission",
@@ -482,6 +547,9 @@ def main() -> None:
     out = args.out or Path("scores") / f"{args.pred.name}_{datetime.now():%Y%m%d-%H%M%S}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(_jsonable(report), indent=1, ensure_ascii=False), encoding="utf-8")
+    if args.summary:
+        args.summary.parent.mkdir(parents=True, exist_ok=True)
+        args.summary.write_text(json.dumps(_jsonable(summary(report)), indent=1), encoding="utf-8")
     print(format_table(report))
     print(f"\n{out}")
     sub = report["submission"]

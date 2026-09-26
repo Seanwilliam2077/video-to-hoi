@@ -1,20 +1,20 @@
 # video-to-hoi
 
-从一段单目第三人称视频恢复人和物体的三维运动（V2D Challenge Track 1）。
+Recover 3D human and object motion from a single third-person video, for Track 1 of the NVIDIA Video to Data (V2D) Challenge.
 
-输入是一台静止 RGB 相机拍的视频，以及要跟踪的物体描述。输出是米制尺度、统一坐标系里的人体、物体形状和逐帧物体位姿。
+The input is a video from one static RGB camera and a description of the object to track. The output is the human body, the object's shape, and the object's pose in every frame, at metric scale in one world frame.
 
-架构、取舍和待确认的问题见 [docs/design.md](docs/design.md)。
+Architecture, trade-offs, and open questions are in [docs/design.md](docs/design.md).
 
-## 状态
+## Status
 
-- 设计：`docs/design.md`
-- Tier 1 本地评分器：`python -m v2hoi.score`，可用
-- 测试管线：`python -m v2hoi.pipeline --out work/demo`，用假后端把物体层和视频层跑通。重建模型尚未接入。
+- Design: `docs/design.md`
+- Local Tier 1 scorer: `python -m v2hoi.score`, working
+- Test pipeline: `python -m v2hoi.pipeline --out work/demo` runs the object and video layers end to end with stand-in backends. No reconstruction models are wired in yet.
 
-## 安装
+## Setup
 
-需要 Python 3.10+，以及已装好的 CUDA 版 PyTorch。下面的 venv 复用系统里的 torch，不会再装一份 CPU 版：
+Requires Python 3.10+ and a CUDA build of PyTorch already installed. The venv below reuses the system torch instead of installing a CPU build:
 
 ```bash
 uv venv .venv --python 3.10 --system-site-packages
@@ -23,31 +23,31 @@ uv pip install --python .venv/Scripts/python.exe --no-deps "py-soma-x==0.2.1"
 uv pip install --python .venv/Scripts/python.exe --no-deps -e .
 ```
 
-`py-soma-x` 第一次运行时从 Hugging Face 下载 SOMA-X 资产，版本固定在官方工具链用的那一版。
+On first use, `py-soma-x` downloads the SOMA-X assets from Hugging Face, pinned to the revision the official toolkit uses.
 
-## 数据
+## Data
 
 ```bash
 .venv/Scripts/python.exe -m v2hoi.download
 ```
 
-下载到 `data/v2d/`：Track 2 Tier 1 的真值（人体、物体位姿、网格、地面）、Tier 2 的加噪版本、Track 1 的元数据，约 400 MB。加 `--videos` 同时下载 Tier 1 和 Track 1 的视频。
+Downloads into `data/v2d/`: Track 2 Tier 1 ground truth (human, object poses, meshes, ground planes), the Tier 2 noisy labels, and Track 1 metadata, about 400 MB. `--videos` also fetches the Tier 1 and Track 1 videos.
 
-## 评分
+## Scoring
 
-预测目录和 Tier 1 同构：`meta/info.json`、`meta/episodes_metadata.jsonl`、`data/chunk-000/episode_XXXXXX.parquet`（Tier 1 的列）和 `mesh/<物体>/<物体>.glb`。
+A prediction root has the Tier 1 layout: `meta/info.json`, `meta/episodes_metadata.jsonl`, `data/chunk-000/episode_XXXXXX.parquet` (Tier 1 columns), and `mesh/<object>/<object>.glb`.
 
 ```bash
-.venv/Scripts/python.exe -m v2hoi.score --pred <预测目录>
+.venv/Scripts/python.exe -m v2hoi.score --pred <prediction root>
 ```
 
-表格前 5 列是 Track 1 排行榜的 5 个数（CD-H、CD-O、ACC-H、ACC-O、PEN），单位 cm，和 Kaggle 一致；其余是诊断。表下写明这次是否按官方设置评、预测是不是合法提交，不是的话列出原因。完整报告写到 `scores/`。
+The first five columns of the table are the Track 1 leaderboard metrics (CD-H, CD-O, ACC-H, ACC-O, PEN) in cm, as on Kaggle; the rest are diagnostics. Below the table, the scorer says whether the run used the official settings and whether the prediction is a valid submission, with the reasons if not. The full report is written to `scores/`.
 
-常用参数：`--episodes 7 9` 只评部分片段（默认要求全部片段）；`--stride 3` 逐帧网格指标隔帧算；`--align first|se3|sim3|none` 选对齐方式（默认 `first`：按官方规则，用第一帧身体关节做一次 Sim(3)）；`--pred-mesh-dir` 从别处找预测网格；`--strict` 在不是官方设置或不是合法提交时退出码为 1，交 Kaggle 前用。
+Options: `--episodes 7 9` scores a subset (by default every episode is required); `--stride 3` evaluates the per-frame mesh metrics on every third frame; `--align first|se3|sim3|none` picks the alignment (default `first`: one Sim(3) on the first frame's body joints, the official rule); `--pred-mesh-dir` looks for prediction meshes elsewhere; `--strict` exits with status 1 unless the settings are official and the submission is valid, so run it before submitting to Kaggle.
 
-官方提交是什么、本地评分器执行哪些规则，见 `docs/design.md` 第 6 节和 5.1 节。
+What the official submission is, and which rules the scorer enforces: `docs/design.md`, sections 6 and 5.1.
 
-两个自检：
+Two self-checks:
 
 ```bash
 .venv/Scripts/python.exe -m v2hoi.score --pred data/v2d/track_2/tier_1_multiview_caption
@@ -57,9 +57,9 @@ uv pip install --python .venv/Scripts/python.exe --no-deps -e .
 .venv/Scripts/python.exe -m v2hoi.score --pred data/v2d/track_2/tier_2_synthetic_noise --pred-mesh-dir data/v2d/track_2/tier_1_multiview_caption/mesh
 ```
 
-第一条真值对真值，所有误差应接近 0。第二条是主办方按 Track 1 误差分布加的噪声，可作参照。两条都会显示不是合法提交，因为预测网格就是参考网格。指标定义见 `docs/design.md` 第 5 节。
+The first scores the ground truth against itself, so every error should be close to 0. The second scores the organizer's Tier 2 labels, noise sampled from Track 1 error distributions, as a reference. Both are reported as invalid submissions because their meshes are the reference meshes. Metric definitions: `docs/design.md`, section 5.
 
-## 测试
+## Tests
 
 ```bash
 .venv/Scripts/python.exe -m pytest

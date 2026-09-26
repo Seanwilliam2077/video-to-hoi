@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" width="1000" height="780" role="img" aria-label="The video-to-hoi pipeline: a Track 1 video flows through six stages owned by four modules. Inputs produce masks, intrinsics, and depth; the human stage produces MHR and SOMA-X parameters and the depth scale that anchors metric scale for the object module, where mesh generation and tracking feed each other; refine smooths and applies contact to both trajectories; export writes the Tier 1 layout that the scorer turns into the five leaderboard metrics. Development-only inputs from Tier 1 and Tier 2 let each module start on its own.">
+  <title>video-to-hoi pipeline: six stages, four modules, five leaderboard metrics</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B45309"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <g font-family="'Segoe UI', -apple-system, Helvetica, Arial, sans-serif" fill="#0F172A">
+    <rect x="0.5" y="0.5" width="999" height="779" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+
+    <!-- header -->
+    <text x="40" y="44" font-size="22" font-weight="700">video-to-hoi pipeline</text>
+    <text x="40" y="68" font-size="13" fill="#475569">Six stages in four modules. Each arrow is a file in runs/&lt;run_id&gt;/, specified in docs/contracts.md.</text>
+
+    <!-- input video -->
+    <rect x="220" y="96" width="300" height="52" rx="10" fill="#FFFFFF" stroke="#334155"/>
+    <text x="370" y="118" font-size="14" font-weight="700" text-anchor="middle">Track 1 video + object prompt</text>
+    <text x="370" y="137" font-size="12" fill="#475569" text-anchor="middle">one static RGB camera · 30 fps</text>
+    <line x1="370" y1="148" x2="370" y2="182" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="380" y="170" font-size="12" fill="#475569">frames</text>
+
+    <!-- 1 inputs -->
+    <rect x="40" y="184" width="660" height="100" rx="12" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+    <text x="60" y="212" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">inputs</text>
+    <text x="680" y="212" font-size="12" font-weight="700" fill="#475569" text-anchor="end">① Platform &amp; perception</text>
+    <text x="60" y="244" font-size="13" font-weight="700">masks</text>
+    <text x="60" y="264" font-size="12" fill="#475569">GroundingDINO → SAM2</text>
+    <text x="280" y="244" font-size="13" font-weight="700">intrinsics</text>
+    <text x="280" y="264" font-size="12" fill="#475569">one set per physical camera</text>
+    <text x="500" y="244" font-size="13" font-weight="700">depth</text>
+    <text x="500" y="264" font-size="12" fill="#475569">MoGe2, not yet metric</text>
+
+    <line x1="180" y1="284" x2="180" y2="321" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="190" y="308" font-size="12" fill="#475569">masks</text>
+    <line x1="550" y1="284" x2="550" y2="321" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="560" y="308" font-size="12" fill="#475569">masks · depth · intrinsics</text>
+
+    <!-- 2 human -->
+    <rect x="40" y="324" width="280" height="150" rx="12" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+    <text x="60" y="352" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">human</text>
+    <text x="246" y="352" font-size="12" font-weight="700" fill="#1D4ED8" text-anchor="end">② Human</text>
+    <rect x="254" y="338" width="50" height="20" rx="10" fill="#2563EB"/>
+    <text x="279" y="352" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-H</text>
+    <text x="60" y="384" font-size="13">SAM 3D Body → MHR</text>
+    <text x="60" y="406" font-size="12" fill="#475569">MHR → SOMA-X for local scoring</text>
+    <text x="60" y="426" font-size="12" fill="#475569">one identity per clip</text>
+    <text x="60" y="446" font-size="12" fill="#475569">the first frame matters most</text>
+
+    <!-- the scale anchor -->
+    <line x1="320" y1="412" x2="398" y2="412" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow-blue)"/>
+    <text x="359" y="403" font-size="12" font-weight="700" fill="#1D4ED8" text-anchor="middle">DepthScale</text>
+    <text x="359" y="429" font-size="11" fill="#1D4ED8" text-anchor="middle">metric anchor</text>
+
+    <!-- 3 object: objects and motion -->
+    <rect x="400" y="324" width="300" height="150" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="420" y="352" font-size="12" font-weight="700" fill="#B45309">③ Object</text>
+    <rect x="636" y="338" width="50" height="20" rx="10" fill="#B45309"/>
+    <text x="661" y="352" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-O</text>
+
+    <rect x="414" y="366" width="118" height="94" rx="8" fill="#FFFFFF" stroke="#D97706"/>
+    <text x="473" y="387" font-size="14" font-weight="700" text-anchor="middle" font-family="Consolas, Menlo, monospace">objects</text>
+    <text x="473" y="407" font-size="12" text-anchor="middle">SAM 3D Objects</text>
+    <text x="473" y="423" font-size="12" text-anchor="middle">Hunyuan3D-2</text>
+    <text x="473" y="441" font-size="12" fill="#475569" text-anchor="middle">→ metric mesh</text>
+
+    <rect x="568" y="366" width="118" height="94" rx="8" fill="#FFFFFF" stroke="#D97706"/>
+    <text x="627" y="387" font-size="14" font-weight="700" text-anchor="middle" font-family="Consolas, Menlo, monospace">motion</text>
+    <text x="627" y="407" font-size="12" text-anchor="middle">FoundationPose</text>
+    <text x="627" y="423" font-size="12" text-anchor="middle">pose, every frame</text>
+    <text x="627" y="441" font-size="12" fill="#475569" text-anchor="middle">+ confidence</text>
+
+    <line x1="532" y1="400" x2="566" y2="400" stroke="#B45309" stroke-width="1.6" marker-end="url(#arrow-amber)"/>
+    <text x="550" y="393" font-size="11" fill="#B45309" text-anchor="middle">mesh</text>
+    <line x1="568" y1="432" x2="534" y2="432" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrow-amber)"/>
+    <text x="550" y="450" font-size="11" fill="#B45309" text-anchor="middle">fit</text>
+
+    <line x1="180" y1="474" x2="180" y2="511" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="190" y="498" font-size="12" fill="#475569">MHR + SOMA-X</text>
+    <line x1="550" y1="474" x2="550" y2="511" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="560" y="498" font-size="12" fill="#475569">mesh · pose · confidence</text>
+
+    <!-- 4 refine -->
+    <rect x="40" y="514" width="660" height="100" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+    <text x="60" y="542" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">refine</text>
+    <text x="502" y="542" font-size="12" font-weight="700" fill="#047857" text-anchor="end">④ Temporal &amp; physics</text>
+    <rect x="512" y="528" width="54" height="20" rx="10" fill="#047857"/>
+    <text x="539" y="542" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">ACC-H</text>
+    <rect x="570" y="528" width="54" height="20" rx="10" fill="#047857"/>
+    <text x="597" y="542" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">ACC-O</text>
+    <rect x="628" y="528" width="54" height="20" rx="10" fill="#047857"/>
+    <text x="655" y="542" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">PEN</text>
+    <text x="60" y="574" font-size="13" font-weight="700">smoothing</text>
+    <text x="60" y="594" font-size="12" fill="#475569">fingers on their own</text>
+    <text x="220" y="574" font-size="13" font-weight="700">static segments</text>
+    <text x="220" y="594" font-size="12" fill="#475569">pose held still</text>
+    <text x="380" y="574" font-size="13" font-weight="700">occlusions</text>
+    <text x="380" y="594" font-size="12" fill="#475569">low-confidence frames</text>
+    <text x="540" y="574" font-size="13" font-weight="700">contact</text>
+    <text x="540" y="594" font-size="12" fill="#475569">human–object, ground</text>
+
+    <line x1="170" y1="614" x2="170" y2="651" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="180" y="638" font-size="12" fill="#475569">refined human + object</text>
+
+    <!-- 1 export -->
+    <rect x="40" y="654" width="260" height="100" rx="12" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+    <text x="60" y="682" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">export</text>
+    <text x="280" y="682" font-size="12" font-weight="700" fill="#475569" text-anchor="end">① Platform</text>
+    <text x="60" y="712" font-size="13">Tier 1 layout</text>
+    <text x="60" y="732" font-size="12" fill="#475569">+ MHR for the official format</text>
+
+    <line x1="300" y1="704" x2="398" y2="704" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text x="349" y="696" font-size="12" fill="#475569" text-anchor="middle" font-family="Consolas, Menlo, monospace">export/</text>
+
+    <!-- scorer -->
+    <rect x="400" y="654" width="300" height="100" rx="12" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <text x="420" y="682" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">score</text>
+    <text x="680" y="682" font-size="12" fill="#475569" text-anchor="end">Kaggle's five metrics, cm</text>
+    <rect x="420" y="696" width="48" height="20" rx="10" fill="#2563EB"/>
+    <text x="444" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-H</text>
+    <rect x="474" y="696" width="48" height="20" rx="10" fill="#B45309"/>
+    <text x="498" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-O</text>
+    <rect x="536" y="696" width="50" height="20" rx="10" fill="#047857"/>
+    <text x="561" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">ACC-H</text>
+    <rect x="592" y="696" width="50" height="20" rx="10" fill="#047857"/>
+    <text x="617" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">ACC-O</text>
+    <rect x="648" y="696" width="40" height="20" rx="10" fill="#047857"/>
+    <text x="668" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">PEN</text>
+    <path d="M420,724 v4 h102 v-4 M536,724 v4 h152 v-4" fill="none" stroke="#94A3B8"/>
+    <text x="471" y="744" font-size="12" fill="#475569" text-anchor="middle">accuracy · 50%</text>
+    <text x="612" y="744" font-size="12" fill="#475569" text-anchor="middle">physical · 50%</text>
+
+    <!-- development-only inputs -->
+    <text x="740" y="352" font-size="11" font-weight="700" fill="#64748B" letter-spacing="0.6">DEVELOPMENT ONLY</text>
+    <text x="740" y="370" font-size="12" fill="#64748B">Tier 1 runs; refused on Track 1</text>
+
+    <rect x="740" y="384" width="220" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 4"/>
+    <text x="756" y="406" font-size="13" font-weight="700">Tier 1 reference mesh</text>
+    <text x="756" y="426" font-size="12" fill="#475569" font-family="Consolas, Menlo, monospace">objects=reference</text>
+    <line x1="740" y1="412" x2="703" y2="412" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
+
+    <rect x="740" y="536" width="220" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 4"/>
+    <text x="756" y="558" font-size="13" font-weight="700">Tier 2 noisy trajectories</text>
+    <text x="756" y="578" font-size="12" fill="#475569" font-family="Consolas, Menlo, monospace">human=tier2 motion=tier2</text>
+    <line x1="740" y1="564" x2="703" y2="564" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
+
+    <rect x="740" y="676" width="220" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 4"/>
+    <text x="756" y="698" font-size="13" font-weight="700">Tier 1 ground truth</text>
+    <text x="756" y="718" font-size="12" fill="#475569">scores every development run</text>
+    <line x1="740" y1="704" x2="703" y2="704" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
+  </g>
+</svg>

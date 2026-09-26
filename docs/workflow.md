@@ -10,7 +10,7 @@ The pipeline is coupled in three places, and the module boundaries follow them:
 2. **Mesh and tracking.** Choosing among candidate meshes needs the tracking, and tracking needs a mesh. Split between two people, each would wait on the other, so one module owns both.
 3. **Contact refinement changes the human and the object together.** It belongs to neither of them, so it is a module of its own that runs after both.
 
-The result is one module per group of leaderboard metrics:
+The result is one module per group of leaderboard metrics. [pipeline.svg](pipeline.svg) draws it.
 
 | Module | Owner | Stages | Metrics | Develops on, from day one | Main risk |
 |---|---|---|---|---|---|
@@ -42,7 +42,7 @@ Tier 1 and Tier 2 serve development and scoring only. The development backends t
 ## Branches and pull requests
 
 - `main` stays green and runnable. Everything reaches it through a pull request.
-- Each module works on its own branch and merges `main` into it at least once a week.
+- Each module works on its own branch: `platform` (module 1), `human` (2), `object` (3), and `physics` (4). Merge `main` into your branch at least once a week, and open a pull request from your branch into `main` when a change passes the merge gate.
 - **Contracts first.** A change to a contract (a field's meaning or shape) goes in a small PR of its own, bumps `CONTRACT_VERSION`, and is approved by the owners of the stages that read it. Implementation PRs follow.
 - The scorer (`score.py`, `metrics.py`, `dataset.py`, `body.py`), `contracts.py`, and CI belong to module 1. A change to a metric bumps `SCORER_VERSION`; scores from different versions are not compared.
 - The repository is in English: code, docs, commit messages, and PR descriptions.

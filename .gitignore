@@ -11,3 +11,6 @@ outputs/
 *.obj
 scores/
 *.egg-info/
+third_party/
+weights/
+vendor/

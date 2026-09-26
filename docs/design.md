@@ -2,7 +2,7 @@
 
 从一段静止的单目第三人称 RGB 视频，恢复米制、统一坐标系下的人体（含手）、物体网格和逐帧物体 6D 位姿。本文记录架构、取舍和待确认的问题。结论只写依据，依据变了就改这里。
 
-最后更新：2026-09-24
+最后更新：2026-09-26。第 6 节是主办方 2026-09-26 的书面答复。
 
 ## 1. 约束
 
@@ -31,7 +31,7 @@ Track 2 Tier 1（`track_2/tier_1_multiview_caption`）是同一个 FORM-HOI 棚�
 - Track 1 的 10 个物体里，`iron`、`big_red_bowl`、`white_desk` 在 Tier 1 有 MV 网格。Tier 1 ep10 和 Track 1 ep11 是同一个动作（桌子放倒）；Tier 1 ep7 和 Track 1 ep6 都是熨斗，同一天录，相差 4 分钟。
 - Tier 2（`track_2/tier_2_synthetic_noise`）= Tier 1 + "按 Track 1 误差分布采样"的抖动、丢帧和接触误差，网格不变。
 
-用法：同一套管线同时跑 Track 1（提交）和 Tier 1（打分）。所有取舍按 Tier 1 分数定。Tier 2 对 Tier 1 的分数用来验证评分器，也能看出主办方预期的误差量级。
+用法：Tier 1 / Tier 2 只用于本地评分器的自检。主办方已写明，重建物体和估计参数只能用 Track 1 给出的数据，不能把 Track 2 的网格、位姿或由此反推的相机参数带进 Track 1。见第 6 节。
 
 ### 2.2 视频层已有现成实现：CARI4D
 
@@ -110,7 +110,7 @@ SOMA-X 的 77 个关节里有 48 个是手指关节（不含两个手腕）。�
 
 ### 3.5 物理项
 
-- 加速度误差是和 MV 的差，快动作（跳绳 ep2、钻圈）平滑过头也会扣分。
+- 加速度只看提交轨迹自己的二阶差分，衡量平滑，不和多目参考相减。平滑会直接降低这一项；平滑过头则把物体拉离正确位姿，Chamfer 变差。
 - 穿透交给联合优化（CARI4D 接触项 + 地面不可穿透 + 桌上物体贴桌面），不做事后推开，否则会改物体轨迹、伤到物体加速度和 Chamfer。
 - 静止段（拿起前、放下后、坐凳子时）锁定位姿：抖动归零、Chamfer 更稳，实现便宜。
 
@@ -133,17 +133,19 @@ SOMA-X 的 77 个关节里有 48 个是手指关节（不含两个手腕）。�
 
 预测根目录和 Tier 1 同构（LeRobot v2.1）：`data/chunk-000/episode_XXXXXX.parquet`（Tier 1 的列）加 `mesh/<物体>/<物体>.glb`。Tier 2 根目录可以直接当预测。管线导出也写这个格式，因为它是目前对 Track 1 提交格式的最好猜测。
 
-人体用 SOMA-X（`py-soma-x==0.2.1`，资产版本 `466879a8`，和工具链的 `setup_soma_assets.py` 一致）正向计算得到关节和网格。预测和真值在比较前先对齐，默认用身体关节（不含手指）做 SE(3) Umeyama，不带尺度，尺度误差会显示出来；另报 Sim(3) 的尺度作诊断。
+人体用 SOMA-X（`py-soma-x==0.2.1`，资产版本 `466879a8`，和工具链的 `setup_soma_assets.py` 一致）正向计算得到关节和网格。这是本地评分器的实现。官方提交要的是 MHR 轨迹，不是 SOMA-X，也不是逐帧网格。
+
+本地评分器仍按全身轨迹做 SE(3) 对齐。官方评测是另一套：用参考轨迹的第一帧做一次 Sim(3)，再套到整段。两套分数不能直接对比。官方口径见第 6 节。
 
 | 指标 | 定义 |
 |---|---|
 | `human.chamfer_mm` | 每帧预测与真值 SOMA 顶点的对称 Chamfer，帧平均 |
 | `human.mpjpe_mm` | 对齐后关节位置误差（诊断） |
-| `human.accel_err` | 每关节二阶差分之差的范数，mm/frame²；分身体和手指 |
+| `human.accel_err` | 本地评分器：预测与真值二阶差分之差，mm/frame²，分身体和手指。官方只对预测轨迹做二阶差分，不减参考 |
 | `object.chamfer_mm` | 两边都可见的帧上，摆好位姿的表面采样点对称 Chamfer |
 | `object.shape_chamfer_mm` | 在摆好位姿的基础上再做刚体 ICP 的残差，只看形状 |
 | `object.coverage` | 真值可见帧里预测也可见的比例 |
-| `object.accel_err` | 物体表面质心的二阶差分之差，mm/frame² |
+| `object.accel_err` | 本地评分器：预测与真值质心二阶差分之差，mm/frame²。官方只看预测轨迹自身的平滑 |
 | `object.ang_accel_err` | 世界系角速度差分之差，deg/frame²（对网格规范系的选取不敏感） |
 | `contact.penetration_mm` | 每帧人体顶点进入物体的最大深度，报预测、真值和两者之差 |
 | `contact.ground_penetration_mm` | 人体和物体低于真值地面的最大深度（诊断） |
@@ -169,20 +171,31 @@ SOMA-X 的 77 个关节里有 48 个是手指关节（不含两个手腕）。�
 
 几点观察：
 
-- **对齐方式影响很大。** ep7 上按人体做 SE(3) 对齐，人体 Chamfer 从 24.6 降到 10.5 mm，物体 Chamfer 却从 12.8 升到 18.5 mm：Tier 2 的人体噪声里有物体不共享的整体偏移。官方怎么对齐（第 6 节问题 1）会直接改变排名的依据。
+- **对齐方式影响很大。** ep7 上按人体做 SE(3) 对齐，人体 Chamfer 从 24.6 降到 10.5 mm，物体 Chamfer 却从 12.8 升到 18.5 mm：Tier 2 的人体噪声里有物体不共享的整体偏移。官方现在定为第一帧 Sim(3)，见第 6 节。
 - **穿透是最不可靠的指标。** Tier 1 网格都不是水密的，符号距离靠近邻采样点法向投票近似。round table（ep14）的真值穿透算出 143 mm，基本是假象；其余真值在 0–29 mm。之后换成广义环绕数（generalized winding number）再看。
 - **形状分对大旋转误差敏感。** 同一个网格，Tier 2 上仍有 0–5.5 mm（碗、篮子、圆桌这类对称物体），因为 ICP 从带噪声的朝向出发会停在局部极小。只把它当诊断看。
 
-## 6. 待主办方确认
+## 6. 主办方答复
 
-1. 世界系：放在给定相机系下（他们用自己的标定换算），还是评测对齐？对齐用 SE(3) 还是 Sim(3)？基于首帧还是全段？
-2. 人体格式：SOMA-X 参数（同 Track 2 parquet）、MHR，还是逐帧网格？
-3. 物体网格的 Chamfer 在摆好位姿的世界系里算，还是只比形状？
-4. 加速度误差是"预测减 MV"的差，还是只看预测？手指算不算？
-5. 物体不可见的帧要不要输出？
-6. Track 1 能否使用 Tier 1 的网格（iron、bowl、desk 和道具）以及用 Tier 1 数据反推相机参数？
+2026-09-26，主办方回复 Zijun。原文如下，随后是对管线的约束。
 
-收到答复前，Tier 1 的网格只用来评估，不进提交。
+> The eval script does Sim(3) alignment of submitted results with the first frame of the reference trajectory.
+> Please submit human trajectories in MHR representation.
+> Object chamfer distance is computed from the posed mesh in world frame.
+> Acceleration error is computed as the second order difference from predicted trajectories alone. It measures the smoothness of trajectories.
+> Yes, please provide a continuous trajectory for each object, including frames where it may be occluded.
+> Are you referring to Tier 1 assets for Track 2? Please do not use the assets from Track 2. Instead, reconstruct objects and estimate parameters only from data provided by Track 1. We will clarify this for other participants as well.
+
+| 问题 | 决定 |
+|---|---|
+| 对齐 | 评测脚本用参考轨迹的第一帧做一次 Sim(3)，作用到整段。不再逐帧对齐 |
+| 人体 | 提交 MHR 参数轨迹 |
+| 物体 Chamfer | 世界系里、已经摆好位姿的网格。位姿误差算进这个分数 |
+| 加速度 | 只对提交轨迹做二阶差分，衡量平滑，不减去多目参考 |
+| 遮挡 | 每个物体都要连续轨迹，被挡住的帧也要有位姿 |
+| Track 2 | 不用 Track 2 的网格、位姿，也不用它们反推的相机参数。物体和参数只从 Track 1 的数据估计 |
+
+因此：第一帧的人和物体必须可靠，序列内部不能有尺度漂移。遮挡处要插值或继续跟踪，不能缺帧，也不能填全 0。平滑能降低加速度分，但会伤害 Chamfer，两边一起看。Tier 1 可以留在本地评分器里做自检，不能进入重建或提交。
 
 ## 7. 时间线
 

@@ -2,14 +2,17 @@
 
     runs/<run_id>/
       run.json                          dataset, upstream run, history of invocations
-      inputs/<episode>/camera.json      Camera                 platform
-      inputs/<episode>/masks.npz        Masks                  platform
-      human/<episode>/human.npz         Human                  human
-      objects/<object>/object.json      ObjectAsset            objects
-      objects/<object>/mesh.glb         the object's mesh      objects
-      motion/<episode>/motion.npz       Motion                 motion
-      motion/<episode>/human.npz        RefinedHuman, optional motion
-      export/                           Tier 1 layout for v2hoi.score
+      inputs/<episode>/camera.json      Camera          inputs    platform & perception
+      inputs/<episode>/masks.npz        Masks           inputs    platform & perception
+      inputs/<episode>/depth.npz        Depth           inputs    platform & perception
+      human/<episode>/human.npz         Human           human     human
+      human/<episode>/depth_scale.json  DepthScale      human     human
+      objects/<object>/object.json      ObjectAsset     objects   object
+      objects/<object>/mesh.glb         the mesh        objects   object
+      motion/<episode>/motion.npz       Motion          motion    object
+      refine/<episode>/human.npz        RefinedHuman    refine    temporal & physics
+      refine/<episode>/motion.npz       RefinedMotion   refine    temporal & physics
+      export/                           Tier 1 layout   export    platform & perception
 
 Frames: everything is in the clip's camera frame (OpenCV: x right, y down,
 z forward, metres). The camera is static, so this is also the submission's
@@ -54,6 +57,11 @@ class _Arrays:
 
     REL: ClassVar[str]
 
+    @classmethod
+    def like(cls, other: "_Arrays"):
+        """The same arrays under another artifact type, e.g. Human → RefinedHuman."""
+        return cls(**{f.name: getattr(other, f.name) for f in fields(cls)})
+
     def validate(self, n_frames: int) -> None:
         for f in fields(self):
             x = np.asarray(getattr(self, f.name))
@@ -77,8 +85,23 @@ class _Arrays:
             return cls(**{f.name: z[f.name] for f in fields(cls)})
 
 
+class _Json:
+    """A small record stored as JSON."""
+
+    REL: ClassVar[str]
+
+    def save(self, path: Path) -> None:
+        path.write_text(json.dumps({"contract": CONTRACT_VERSION, **asdict(self)}, indent=1), encoding="utf-8")
+
+    @classmethod
+    def load(cls, path: Path):
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        _check_version(data.pop("contract"), path)
+        return cls(**data)
+
+
 @dataclass
-class Camera:
+class Camera(_Json):
     """Pinhole intrinsics of the clip's video, in pixels."""
 
     REL: ClassVar[str] = "inputs/{episode:06d}/camera.json"
@@ -100,15 +123,6 @@ class Camera:
             raise ContractError(f"focal length must be positive, got fx={self.fx} fy={self.fy}")
         if not (0 <= self.cx <= self.width and 0 <= self.cy <= self.height):
             raise ContractError(f"principal point ({self.cx}, {self.cy}) lies outside the image")
-
-    def save(self, path: Path) -> None:
-        path.write_text(json.dumps({"contract": CONTRACT_VERSION, **asdict(self)}, indent=1), encoding="utf-8")
-
-    @classmethod
-    def load(cls, path: Path) -> "Camera":
-        data = json.loads(Path(path).read_text(encoding="utf-8"))
-        _check_version(data.pop("contract"), path)
-        return cls(**data)
 
 
 @dataclass
@@ -159,6 +173,61 @@ class Masks:
 
 
 @dataclass
+class Depth:
+    """Per-frame depth from the depth model, in its own metres, before scaling to the human.
+
+    ``depth`` is (n_frames, ceil(height / stride), ceil(width / stride)) float16;
+    video pixel (u, v) maps to depth[:, v // stride, u // stride]. 0 means unknown.
+    Metric depth is DepthScale.scale * depth.
+    """
+
+    REL: ClassVar[str] = "inputs/{episode:06d}/depth.npz"
+
+    depth: np.ndarray
+    stride: int
+
+    @classmethod
+    def constant(cls, n_frames: int, height: int, width: int, stride: int, metres: float) -> "Depth":
+        shape = (n_frames, -(-height // stride), -(-width // stride))
+        return cls(np.full(shape, metres, np.float16), stride)
+
+    def validate(self, n_frames: int, height: int, width: int) -> None:
+        want = (n_frames, -(-height // self.stride), -(-width // self.stride))
+        if self.depth.shape != want:
+            raise ContractError(f"Depth.depth has shape {self.depth.shape}, expected {want} at stride {self.stride}")
+        if not np.isfinite(self.depth).all() or (self.depth < 0).any():
+            raise ContractError("Depth.depth must be finite and non-negative")
+
+    def save(self, path: Path) -> None:
+        np.savez_compressed(path, contract=np.int64(CONTRACT_VERSION), depth=self.depth.astype(np.float16),
+                            stride=np.int64(self.stride))
+
+    @classmethod
+    def load(cls, path: Path) -> "Depth":
+        with np.load(path) as z:
+            _check_version(z["contract"], path)
+            return cls(z["depth"], int(z["stride"]))
+
+
+@dataclass
+class DepthScale(_Json):
+    """The one factor that makes the clip's Depth agree with the metric human (design 3.2).
+
+    The human is the only metric anchor: object mesh scales and tracking use
+    scale * Depth.depth, so objects end up at the same depth as the hands.
+    """
+
+    REL: ClassVar[str] = "human/{episode:06d}/depth_scale.json"
+
+    scale: float
+    method: str = ""
+
+    def validate(self) -> None:
+        if not (np.isfinite(self.scale) and self.scale > 0):
+            raise ContractError(f"DepthScale.scale must be positive, got {self.scale}")
+
+
+@dataclass
 class Human(_Arrays):
     """The person in one clip, camera frame.
 
@@ -184,20 +253,13 @@ class Human(_Arrays):
 
 
 @dataclass
-class RefinedHuman(Human):
-    """The human after joint human-object refinement; export prefers it over Human."""
-
-    REL: ClassVar[str] = "motion/{episode:06d}/human.npz"
-
-
-@dataclass
 class Motion(_Arrays):
     """The object's pose on every frame, occluded ones included, camera frame."""
 
     REL: ClassVar[str] = "motion/{episode:06d}/motion.npz"
 
     T_cam_obj: np.ndarray = _per_frame(4, 4)  # maps object mesh coordinates to the camera frame
-    confidence: np.ndarray = _per_frame()  # 0..1, how much the tracker trusts the frame
+    confidence: np.ndarray = _per_frame()  # 0..1; 0 marks a frame the tracker filled without evidence
 
     def validate(self, n_frames: int) -> None:
         super().validate(n_frames)
@@ -205,13 +267,27 @@ class Motion(_Arrays):
         if not np.allclose(R @ np.swapaxes(R, 1, 2), np.eye(3), atol=1e-4) or not np.allclose(
             np.linalg.det(R), 1.0, atol=1e-4
         ):
-            raise ContractError("Motion.T_cam_obj rotations are not proper rotations")
+            raise ContractError(f"{type(self).__name__}.T_cam_obj rotations are not proper rotations")
         if not np.allclose(self.T_cam_obj[:, 3], [0.0, 0.0, 0.0, 1.0]):
-            raise ContractError("Motion.T_cam_obj last row must be [0, 0, 0, 1]")
+            raise ContractError(f"{type(self).__name__}.T_cam_obj last row must be [0, 0, 0, 1]")
 
 
 @dataclass
-class ObjectAsset:
+class RefinedHuman(Human):
+    """The human after temporal and contact refinement; export reads this."""
+
+    REL: ClassVar[str] = "refine/{episode:06d}/human.npz"
+
+
+@dataclass
+class RefinedMotion(Motion):
+    """The object trajectory after temporal and contact refinement; export reads this."""
+
+    REL: ClassVar[str] = "refine/{episode:06d}/motion.npz"
+
+
+@dataclass
+class ObjectAsset(_Json):
     """One object's mesh, shared by all of its clips. The mesh sits next to this file as mesh.glb,
     in metres, in the object's canonical frame."""
 
@@ -234,15 +310,6 @@ class ObjectAsset:
         lo, hi = MESH_EXTENT_M
         if not lo <= extent <= hi:
             raise ContractError(f"object {self.name} mesh is {extent:.3g} across; expected metres ({lo}-{hi})")
-
-    def save(self, path: Path) -> None:
-        path.write_text(json.dumps({"contract": CONTRACT_VERSION, **asdict(self)}, indent=1), encoding="utf-8")
-
-    @classmethod
-    def load(cls, path: Path) -> "ObjectAsset":
-        data = json.loads(Path(path).read_text(encoding="utf-8"))
-        _check_version(data.pop("contract"), path)
-        return cls(**data)
 
 
 def _git_rev() -> str | None:
@@ -273,21 +340,27 @@ class Run:
         artifact.save(path)
         return path
 
-    def find(self, cls, **keys) -> Path:
-        """This run's copy of an artifact, else the nearest upstream's."""
-        run = self
+    def origin(self, cls, **keys) -> int:
+        """How many upstream hops away the artifact was found: 0 is this run."""
+        run, hops = self, 0
         while run is not None:
-            path = run.path(cls, **keys)
-            if path.is_file():
-                return path
-            run = run.upstream
+            if run.path(cls, **keys).is_file():
+                return hops
+            run, hops = run.upstream, hops + 1
         raise ContractError(
             f"{cls.REL.format(**keys)} not found in run {self.root} or its upstream runs; run that stage first"
         )
 
+    def find(self, cls, **keys) -> Path:
+        """This run's copy of an artifact, else the nearest upstream's."""
+        run = self
+        for _ in range(self.origin(cls, **keys)):
+            run = run.upstream
+        return run.path(cls, **keys)
+
     def has(self, cls, **keys) -> bool:
         try:
-            self.find(cls, **keys)
+            self.origin(cls, **keys)
             return True
         except ContractError:
             return False

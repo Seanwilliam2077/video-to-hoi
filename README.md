@@ -9,7 +9,7 @@ Architecture, trade-offs, and open questions are in [docs/design.md](docs/design
 ## Status
 
 - Local Tier 1 scorer: `python -m v2hoi.score`, following the organizer's Track 1 rules.
-- Pipeline skeleton: `python -m v2hoi.run`, five stages (inputs, human, objects, motion, export) with fake backends. It runs end to end into the scorer. No reconstruction models are wired in yet.
+- Pipeline skeleton: `python -m v2hoi.run`, six stages (inputs, human, objects, motion, refine, export) owned by four modules, all with fake backends. It runs end to end into the scorer. No reconstruction models are wired in yet.
 
 ## Setup
 

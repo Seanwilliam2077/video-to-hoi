@@ -7,10 +7,12 @@ import trimesh
 from scipy.spatial.transform import Rotation
 
 from v2hoi.contracts import (
-    CONTRACT_VERSION, Camera, ContractError, Human, Masks, Motion, ObjectAsset, RefinedHuman, Run,
+    CONTRACT_VERSION, Camera, ContractError, Depth, DepthScale, Human, Masks, Motion, ObjectAsset, RefinedHuman,
+    RefinedMotion, Run,
 )
 from v2hoi.stages.human import lock_identity
 from v2hoi.stages.inputs import merge_intrinsics
+from v2hoi.stages.motion import hold_missing
 from v2hoi.stages.objects import merge_scale
 
 
@@ -77,12 +79,40 @@ def test_masks_pack_and_unpack(tmp_path):
         back.validate(3, 5, 16)
 
 
-def test_motion_needs_proper_rotations():
+def test_depth_and_its_scale(tmp_path):
+    depth = Depth.constant(4, 48, 64, stride=5, metres=2.5)
+    assert depth.depth.shape == (4, 10, 13)  # ceil(48 / 5), ceil(64 / 5)
+    depth.validate(4, 48, 64)
+    depth.save(tmp_path / "depth.npz")
+    back = Depth.load(tmp_path / "depth.npz")
+    assert back.stride == 5 and back.depth.dtype == np.float16 and np.all(back.depth == 2.5)
+    back.depth[0, 0, 0] = -1
+    with pytest.raises(ContractError, match="non-negative"):
+        back.validate(4, 48, 64)
+
+    DepthScale(1.3, "median over frames").validate()
+    with pytest.raises(ContractError, match="positive"):
+        DepthScale(0.0).validate()
+
+
+def test_motion_needs_proper_rotations(tmp_path):
     motion = make_motion()
     motion.validate(5)
+    refined = RefinedMotion.like(motion)
+    refined.save(tmp_path / "m.npz")
+    assert np.allclose(RefinedMotion.load(tmp_path / "m.npz").T_cam_obj, motion.T_cam_obj, atol=1e-6)
     motion.T_cam_obj[2, :3, :3] *= 2.0
-    with pytest.raises(ContractError, match="proper rotations"):
+    with pytest.raises(ContractError, match="Motion.T_cam_obj rotations are not proper rotations"):
         motion.validate(5)
+
+
+def test_missing_poses_are_held_with_zero_confidence():
+    T = make_motion(6).T_cam_obj
+    T[[0, 3, 4]] = np.nan
+    filled, confidence = hold_missing(T)
+    assert np.isfinite(filled).all()
+    assert confidence.tolist() == [0, 1, 1, 0, 0, 1]
+    assert np.allclose(filled[0], T[1]) and np.allclose(filled[4], T[2])
 
 
 def test_object_mesh_must_be_metric(tmp_path):
@@ -102,6 +132,7 @@ def test_run_reads_fall_back_to_upstream(tmp_path):
 
     assert child.find(Human, episode=7) == base.path(Human, episode=7)
     assert child.find(Motion, episode=7) == child.path(Motion, episode=7)
+    assert (child.origin(Motion, episode=7), child.origin(Human, episode=7)) == (0, 1)
     assert not child.has(RefinedHuman, episode=7)
     with pytest.raises(ContractError, match="human/000009/human.npz not found"):
         child.load(Human, episode=9)

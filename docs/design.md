@@ -52,14 +52,15 @@ It is the reference method for Track 2 Tier 3. Its inputs are the video, human a
 
 ## 3. Architecture
 
-Five stages exchange files in a run directory. [contracts.md](contracts.md) specifies the files; [workflow.md](workflow.md) says who owns which stage.
+Six stages exchange files in a run directory, owned by four modules. [contracts.md](contracts.md) specifies the files; [workflow.md](workflow.md) explains the module split and who owns what.
 
 ```
-runs/<run_id>/inputs/<episode>/    camera intrinsics, human and object masks
-              human/<episode>/     MHR and SOMA-X parameters
-              objects/<object>/    one metric mesh per object, its scale and symmetry
-              motion/<episode>/    object pose on every frame, refined human
-              export/              Tier 1 layout, scored by v2hoi.score
+runs/<run_id>/inputs/<episode>/    camera intrinsics, masks, depth          1 platform & perception
+              human/<episode>/     MHR and SOMA-X, the metric depth scale   2 human
+              objects/<object>/    one metric mesh per object               3 object
+              motion/<episode>/    object pose and confidence, every frame  3 object
+              refine/<episode>/    smoothed and contact-refined both        4 temporal & physics
+              export/              Tier 1 layout, scored by v2hoi.score     1 platform & perception
 ```
 
 Everything lives in the **camera frame**: the human as MHR and SOMA-X parameters, the object as a mesh plus `T_cam_obj` and a confidence. The camera is static, and the official first-frame Sim(3) absorbs any rigid choice of world, so the camera frame is also the submission's world frame and export copies poses unchanged. A gravity-aligned world is only needed if the official format asks for one.

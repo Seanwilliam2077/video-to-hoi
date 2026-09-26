@@ -1,4 +1,4 @@
-"""Export (platform): a run → the Tier 1 layout that v2hoi.score reads.
+"""Export (module 1, platform & perception): a run → the Tier 1 layout that v2hoi.score reads.
 
     export/meta/info.json
     export/meta/episodes_metadata.jsonl
@@ -6,9 +6,10 @@
     export/mesh/<object>/<object>.glb
     export/mhr/episode_XXXXXX.npz                   MHR parameters, for the official format
 
-The world frame is the camera frame (see v2hoi.contracts), so poses are
-copied, not transformed. Once eval_reconstruction.py is published, a second
-backend writes the official artifact from the same run.
+It reads the refine stage's output. The world frame is the camera frame (see
+v2hoi.contracts), so poses are copied, not transformed. Once
+eval_reconstruction.py is published, a second backend writes the official
+artifact from the same run.
 """
 from __future__ import annotations
 
@@ -20,7 +21,9 @@ import numpy as np
 import pandas as pd
 
 from v2hoi.clips import Clip
-from v2hoi.contracts import CONTRACT_VERSION, Human, Motion, ObjectAsset, RefinedHuman, Run
+from v2hoi.contracts import (
+    CONTRACT_VERSION, ContractError, Human, Motion, ObjectAsset, RefinedHuman, RefinedMotion, Run,
+)
 from v2hoi.geometry import matrix_to_pose7
 
 DATA_PATH = "data/chunk-{episode_chunk:03d}/episode_{episode_index:06d}.parquet"
@@ -28,6 +31,20 @@ DATA_PATH = "data/chunk-{episode_chunk:03d}/episode_{episode_index:06d}.parquet"
 
 def _rows(x: np.ndarray) -> list[np.ndarray]:
     return list(np.asarray(x, dtype=np.float32).reshape(len(x), -1))
+
+
+def load_refined(run: Run, refined, raw, **keys):
+    """The refine stage's output, unless its input was re-run more recently.
+
+    Without this check, a run that re-runs motion but not refine would export
+    the upstream run's refined trajectory and silently ignore the new tracking.
+    """
+    if run.origin(raw, **keys) < run.origin(refined, **keys):
+        raise ContractError(
+            f"{raw.REL.format(**keys)} is newer than {refined.REL.format(**keys)}; "
+            "run the refine stage again (add refine to --stages)"
+        )
+    return run.load(refined, **keys)
 
 
 class Tier1Export:
@@ -41,9 +58,9 @@ class Tier1Export:
         rows, index = [], 0
         for clip in clips:
             e, name, T = clip.episode, clip.object_name, clip.n_frames
-            human = run.load(RefinedHuman if run.has(RefinedHuman, episode=e) else Human, episode=e)
+            human = load_refined(run, RefinedHuman, Human, episode=e)
             human.validate(T)
-            motion = run.load(Motion, episode=e)
+            motion = load_refined(run, RefinedMotion, Motion, episode=e)
             motion.validate(T)
             asset = run.load(ObjectAsset, name=name)
             mesh = run.mesh(name)

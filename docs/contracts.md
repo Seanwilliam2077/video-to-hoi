@@ -7,16 +7,21 @@ The pipeline's stages exchange data only through files in a run directory. This 
 ```
 runs/<run_id>/
   run.json                          dataset, upstream run, history of invocations
-  inputs/<episode>/camera.json      Camera                  inputs   (platform)
-  inputs/<episode>/masks.npz        Masks                   inputs   (platform)
-  human/<episode>/human.npz         Human                   human
-  objects/<object>/object.json      ObjectAsset             objects
-  objects/<object>/mesh.glb         the object's mesh       objects
-  motion/<episode>/motion.npz       Motion                  motion
-  motion/<episode>/human.npz        RefinedHuman, optional  motion
-  export/                           Tier 1 layout           export   (platform)
+  inputs/<episode>/camera.json      Camera          inputs    1 platform & perception
+  inputs/<episode>/masks.npz        Masks           inputs    1 platform & perception
+  inputs/<episode>/depth.npz        Depth           inputs    1 platform & perception
+  human/<episode>/human.npz         Human           human     2 human
+  human/<episode>/depth_scale.json  DepthScale      human     2 human
+  objects/<object>/object.json      ObjectAsset     objects   3 object
+  objects/<object>/mesh.glb         the mesh        objects   3 object
+  motion/<episode>/motion.npz       Motion          motion    3 object
+  refine/<episode>/human.npz        RefinedHuman    refine    4 temporal & physics
+  refine/<episode>/motion.npz       RefinedMotion   refine    4 temporal & physics
+  export/                           Tier 1 layout   export    1 platform & perception
   score.json, summary.json          written by --score
 ```
+
+Stages run in this order: inputs, human, objects, motion, refine, export.
 
 `<episode>` is the six-digit episode index, as in the datasets. `runs/` is not committed.
 
@@ -44,6 +49,10 @@ A physical camera gets one set of intrinsics, merged over its clips (`stages.inp
 
 `human` and `obj`: `(n_frames, height, ceil(width / 8))` uint8, one bit per pixel packed along the width. Build with `Masks.pack(human_bool, obj_bool)` and read one frame with `masks.frame("obj", t)`.
 
+### Depth: `inputs/<episode>/depth.npz`
+
+`depth`: `(n_frames, ceil(height / stride), ceil(width / stride))` float16, in the depth model's own metres, before any scaling to the human. Video pixel `(u, v)` maps to `depth[:, v // stride, u // stride]`; 0 means unknown. `stride` is stored with it; the producer picks it to keep files manageable (a full-resolution clip is about 3 GB).
+
 ### Human: `human/<episode>/human.npz`
 
 | Field | Per-frame shape | Meaning |
@@ -62,9 +71,14 @@ A physical camera gets one set of intrinsics, merged over its clips (`stages.inp
 
 The SOMA-X fields match the Tier 1 columns and feed export and local scoring. The MHR fields are what the official submission asks for. Their shapes follow SAM 3D Body's output (toolkit `v2d_sam3d_body`) until the official format is published. A clip has one person, so the identity should be one vector repeated over frames (`stages.human.lock_identity`).
 
-### RefinedHuman: `motion/<episode>/human.npz` (optional)
+### DepthScale: `human/<episode>/depth_scale.json`
 
-Same fields as Human. The motion stage writes it when joint human–object refinement changes the human; export uses it instead of Human.
+| Field | Meaning |
+|---|---|
+| `scale` | metric depth = `scale` × `Depth.depth`; one value per clip, positive |
+| `method` | how it was estimated |
+
+The human is the only metric anchor (design 3.2): object mesh scales and tracking use the scaled depth, so objects land at the same depth as the hands.
 
 ### ObjectAsset: `objects/<object>/object.json` and `mesh.glb`
 
@@ -83,9 +97,13 @@ One per object, shared by all of its clips. `mesh.glb` is in metres, in the obje
 | Field | Per-frame shape | Meaning |
 |---|---|---|
 | `T_cam_obj` | 4 × 4 | maps mesh coordinates to the camera frame; proper rotation, last row `[0, 0, 0, 1]` |
-| `confidence` | scalar | 0–1, how much the tracker trusts the frame |
+| `confidence` | scalar | 0–1, how much the tracker trusts the frame; 0 marks a frame filled without evidence |
 
-Every frame has a pose, occluded ones included.
+Every frame has a pose, occluded ones included. The tracker fills frames it cannot see simply (holding the last pose, `stages.motion.hold_missing`) with confidence 0; the refine stage decides how to fill them properly.
+
+### RefinedHuman and RefinedMotion: `refine/<episode>/human.npz`, `refine/<episode>/motion.npz`
+
+Same fields as Human and Motion, after temporal and contact refinement: smoothing, static segments, low-confidence frames, contact. Export reads these. If a run re-runs human or motion but not refine, export stops with an error rather than silently exporting the upstream run's stale refinement.
 
 ### Export: `export/`
 
@@ -103,14 +121,31 @@ Poses are copied unchanged, since the camera frame is the world frame. Once `eva
 
 ## Upstream runs
 
-A run can name an upstream run (`--upstream`). Reads look in the run first, then in its upstream, then in that run's upstream. So a person working on one stage runs only that stage (and export) against a fixed snapshot of the others:
+A run can name an upstream run (`--upstream`). Reads look in the run first, then in its upstream, then in that run's upstream. So a person working on one stage runs only that stage, plus refine and export after it, against a fixed snapshot of the others:
 
 ```bash
 python -m v2hoi.run --run-id motion-fp-1 --dataset tier1 --episodes 7 9 10 19 21 \
-    --upstream runs/baseline-v1 --stages motion export --backend motion=<name> --score
+    --upstream runs/baseline-v1 --stages motion refine export --backend motion=<name> --score
 ```
 
 Re-running stages in an existing run overwrites their outputs and keeps the rest. `run.json` records every invocation: stages, backends, episodes, and git revision.
+
+## Development backends
+
+Three backends read Track 2 data. They exist so that each module can start before the modules upstream of it have real output. They refuse Track 1, and the scorer marks runs that use a reference mesh as invalid submissions.
+
+| Backend | Gives | Used by |
+|---|---|---|
+| `objects=reference` | the Tier 1 ground-truth mesh | module 3 (tracking before generated meshes exist), module 4 |
+| `human=tier2` | the Tier 2 human: Tier 1 with the organizer's Track 1-like noise; SOMA-X only | module 4 |
+| `motion=tier2` | the Tier 2 object poses, dropped frames held with confidence 0 | module 4 |
+
+Module 4 develops with all three and scores against Tier 1:
+
+```bash
+python -m v2hoi.run --run-id refine-t2-1 --dataset tier1 --episodes 7 9 10 19 21 \
+    --backend human=tier2 motion=tier2 objects=reference refine=<name> --score
+```
 
 ## Adding a backend
 
@@ -141,4 +176,5 @@ Changing a field's meaning or shape bumps `CONTRACT_VERSION`. Do it in a small P
 ## Known gaps
 
 - Resuming by input hash (design section 3) is not implemented yet. For now, rerun the stages you changed.
+- Depth has no real producer yet. The fake one writes a flat wall at stride 8.
 - Masks are stored whole-clip: about 0.4 MB compressed for an empty 900-frame clip, and about 400 MB in memory once loaded. If real masks turn out too large, they will move to per-frame chunks under a new contract version.

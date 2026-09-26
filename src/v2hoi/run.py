@@ -5,12 +5,13 @@
 
     # iterate on one stage against a fixed snapshot of the others
     python -m v2hoi.run --run-id fp-try1 --dataset tier1 --episodes 7 9 \
-        --upstream runs/demo --stages motion export --backend motion=<name> --score
+        --upstream runs/demo --stages motion refine export --backend motion=<name> --score
 
 Stages read what they need from this run and fall back to --upstream, so each
-person can work on their stage without waiting for the others. Re-running
-stages in an existing run overwrites their outputs and keeps the rest.
-See docs/contracts.md and docs/workflow.md.
+person can work on their stage without waiting for the others. A run that
+re-runs human or motion must re-run refine too; export refuses otherwise.
+Re-running stages in an existing run overwrites their outputs and keeps the
+rest. See docs/contracts.md and docs/workflow.md.
 """
 from __future__ import annotations
 
@@ -74,8 +75,8 @@ def main() -> None:
     parser.add_argument("--dataset", choices=sorted(DATASETS), default="tier1")
     parser.add_argument("--episodes", type=int, nargs="+", help="default: every episode of the dataset")
     parser.add_argument("--stages", nargs="+", choices=STAGES, help="default: all, in pipeline order")
-    parser.add_argument("--backend", action="append", default=[], metavar="STAGE=NAME",
-                        help="replace a stage's backend; repeatable")
+    parser.add_argument("--backend", action="extend", nargs="+", default=[], metavar="STAGE=NAME",
+                        help="replace stage backends, e.g. --backend human=tier2 motion=tier2")
     parser.add_argument("--upstream", type=Path, help="run to read missing artifacts from")
     parser.add_argument("--score", action="store_true", help="score the export against Tier 1 (tier1 only)")
     parser.add_argument("--stride", type=int, default=1, help="frame stride for scoring")

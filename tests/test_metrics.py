@@ -37,6 +37,30 @@ def test_accel_error():
     assert np.isclose(M.accel_error(spike, gt, valid), 0.0)
 
 
+def test_accel_magnitude():
+    T = 20
+    line = np.arange(T)[:, None, None] * np.array([0.01, 0.02, 0.0]) * np.ones((1, 3, 1))
+    assert np.isclose(M.accel_magnitude(line), 0.0)
+    spike = line.copy()
+    spike[5] += [0.0, 0.0, 1.0]
+    assert np.isclose(M.accel_magnitude(spike), 4.0 / (T - 2))
+    valid = np.ones(T, dtype=bool)
+    valid[5] = False
+    assert np.isclose(M.accel_magnitude(spike, valid), 0.0)
+
+
+def test_angular_accel_magnitude():
+    T = 30
+    t = np.arange(T)
+    steady = Rotation.from_rotvec(np.stack([0.05 * t, np.zeros(T), np.zeros(T)], 1)).as_matrix()
+    valid = np.ones(T, dtype=bool)
+    assert M.angular_accel_magnitude(steady, valid) < 1e-9
+    C = Rotation.from_rotvec([0.3, -1.2, 0.7]).as_matrix()
+    speeding = Rotation.from_rotvec(np.stack([0.01 * t**2, np.zeros(T), np.zeros(T)], 1)).as_matrix()
+    assert np.isclose(M.angular_accel_magnitude(speeding, valid), 0.02)
+    assert np.isclose(M.angular_accel_magnitude(speeding @ C, valid), 0.02)
+
+
 def test_angular_accel_ignores_canonical_offset():
     T = 30
     t = np.arange(T)

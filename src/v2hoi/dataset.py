@@ -9,8 +9,10 @@ share one layout, so the scorer reads them all the same way:
     <root>/mesh/<object>/<object>.glb
 
 Human columns are SOMA-X (MHR identity) parameters in the SOMA Y-up world.
-Object poses are world_T_object in the OpenCV world; invisible frames are
-zero-filled and flagged by ``observation.object.visible``.
+Object poses are world_T_object in the OpenCV world. In the reference,
+invisible frames are zero-filled and flagged by ``observation.object.visible``.
+A prediction must give a pose on every frame; its visibility flag is not
+used for scoring (see ``load_episode(mask_hidden=False)``).
 """
 from __future__ import annotations
 
@@ -92,8 +94,13 @@ def _parquet_path(root: Path, index: int) -> Path:
     return _child_path(root, rel, "data_path")
 
 
-def load_episode(root: Path, index: int, mesh_dir: Path | None = None) -> Episode:
-    """Load one episode. ``mesh_dir`` overrides where ``<object>/<object>.glb`` is found."""
+def load_episode(root: Path, index: int, mesh_dir: Path | None = None, mask_hidden: bool = True) -> Episode:
+    """Load one episode. ``mesh_dir`` overrides where ``<object>/<object>.glb`` is found.
+
+    Zero quaternions always become NaN poses. ``mask_hidden`` also blanks frames
+    flagged invisible; the scorer turns it off for predictions, which must
+    carry a pose through occlusions.
+    """
     root = Path(root)
     meta = read_metadata(root)[index]
     obj = _object_name(meta["object"])
@@ -116,7 +123,8 @@ def load_episode(root: Path, index: int, mesh_dir: Path | None = None) -> Episod
 
     visible = df["observation.object.visible"].to_numpy().astype(bool)
     obj_T = pose7_to_matrix(col("observation.object.pose"))
-    obj_T[~visible] = np.nan
+    if mask_hidden:
+        obj_T[~visible] = np.nan
 
     return Episode(
         index=index,

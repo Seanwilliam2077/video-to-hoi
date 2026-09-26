@@ -10,7 +10,7 @@
 
 - 设计：`docs/design.md`
 - Tier 1 本地评分器：`python -m v2hoi.score`，可用
-- 重建管线：尚未实现
+- 测试管线：`python -m v2hoi.pipeline --out work/demo`，用假后端把物体层和视频层跑通。重建模型尚未接入。
 
 ## 安装
 
@@ -41,7 +41,11 @@ uv pip install --python .venv/Scripts/python.exe --no-deps -e .
 .venv/Scripts/python.exe -m v2hoi.score --pred <预测目录>
 ```
 
-常用参数：`--episodes 7 9` 只评部分片段；`--stride 3` 逐帧网格指标隔帧算；`--align se3|sim3|none` 选对齐方式（默认 SE(3)，按身体关节）；`--pred-mesh-dir` 从别处找预测网格。默认要求预测覆盖所有真值片段和所有真值可见的物体帧；`--allow-incomplete` 可用于缺帧诊断，报告会标记为不可用于排名比较。结果打印成表，完整报告写到 `scores/`。
+表格前 5 列是 Track 1 排行榜的 5 个数（CD-H、CD-O、ACC-H、ACC-O、PEN），单位 cm，和 Kaggle 一致；其余是诊断。表下写明这次是否按官方设置评、预测是不是合法提交，不是的话列出原因。完整报告写到 `scores/`。
+
+常用参数：`--episodes 7 9` 只评部分片段（默认要求全部片段）；`--stride 3` 逐帧网格指标隔帧算；`--align first|se3|sim3|none` 选对齐方式（默认 `first`：按官方规则，用第一帧身体关节做一次 Sim(3)）；`--pred-mesh-dir` 从别处找预测网格；`--strict` 在不是官方设置或不是合法提交时退出码为 1，交 Kaggle 前用。
+
+官方提交是什么、本地评分器执行哪些规则，见 `docs/design.md` 第 6 节和 5.1 节。
 
 两个自检：
 
@@ -50,10 +54,10 @@ uv pip install --python .venv/Scripts/python.exe --no-deps -e .
 ```
 
 ```bash
-.venv/Scripts/python.exe -m v2hoi.score --pred data/v2d/track_2/tier_2_synthetic_noise --pred-mesh-dir data/v2d/track_2/tier_1_multiview_caption/mesh --align none --allow-incomplete
+.venv/Scripts/python.exe -m v2hoi.score --pred data/v2d/track_2/tier_2_synthetic_noise --pred-mesh-dir data/v2d/track_2/tier_1_multiview_caption/mesh
 ```
 
-第一条真值对真值，所有误差应接近 0。第二条是主办方按 Track 1 误差分布加的噪声，可作参照。指标定义见 `docs/design.md` 第 5 节。
+第一条真值对真值，所有误差应接近 0。第二条是主办方按 Track 1 误差分布加的噪声，可作参照。两条都会显示不是合法提交，因为预测网格就是参考网格。指标定义见 `docs/design.md` 第 5 节。
 
 ## 测试
 

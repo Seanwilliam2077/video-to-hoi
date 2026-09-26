@@ -1,12 +1,16 @@
 """Score predictions against Track 2 Tier 1 ground truth.
 
-    python -m v2hoi.score --pred <root> [--gt <tier1 root>] [--episodes 7 9] [--stride 2]
+    python -m v2hoi.score --pred <root> [--gt <tier1 root>] [--episodes 7 9] [--stride 2] [--strict]
 
-Both roots use the Tier 1 layout (see v2hoi.dataset). Metric definitions are
-in docs/design.md, section 5. They approximate the official Track 1 metrics,
-which are not published yet.
+Both roots use the Tier 1 layout (see v2hoi.dataset). The report leads with
+the five Track 1 leaderboard numbers in cm (CD-H, CD-O, ACC-H, ACC-O, PEN);
+everything else is a diagnostic. It also says whether the run used the
+official settings and whether the prediction would be a valid submission.
+Rules and metric definitions: docs/design.md, sections 5 and 6. The official
+script is not published, so the metric internals are an approximation.
 
-Sanity checks:
+Sanity checks (both are flagged as invalid submissions, because the
+prediction meshes are the reference meshes):
 
     # ground truth against itself: every error ~0
     python -m v2hoi.score --pred data/v2d/track_2/tier_1_multiview_caption
@@ -17,10 +21,12 @@ Sanity checks:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import os
 import subprocess
+import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict, dataclass
@@ -35,14 +41,39 @@ from v2hoi.geometry import Similarity, SurfaceSDF, load_mesh, sample_surface
 
 MM = 1000.0
 
+# Track 1 leaderboard: one Kaggle competition per metric
+# (v2d-challenge-track1-cd-h, -cd-o, -acc-h, -acc-o, -pen), lower is better, cm.
+# key -> (section, local key in mm). PEN has no live competition yet.
+LEADERBOARD = {
+    "cd_h_cm": ("human", "chamfer_mm"),
+    "cd_o_cm": ("object_metrics", "chamfer_mm"),
+    "acc_h_cm": ("human", "accel_mm_f2"),
+    "acc_o_cm": ("object_metrics", "accel_mm_f2"),
+    "interpenetration_cm": ("contact", "penetration_err_mm"),
+}
+
+# Largest side of an object mesh's bounding box. Track 1 objects run from a
+# brush to a desk; outside this range the mesh is almost surely in mm or cm.
+MESH_EXTENT_M = (0.02, 3.0)
+
 
 @dataclass
 class Config:
-    align: str = "se3"  # se3 | sim3 | none; fitted on body joints over all frames
+    # first: Sim(3) on the first frame's body joints, applied to the whole clip
+    # (the official rule). se3 / sim3: fitted on body joints over all frames.
+    align: str = "first"
     stride: int = 1  # frame stride for the per-frame mesh metrics
     object_samples: int = 10_000
     shape_frames: int = 10
-    allow_incomplete: bool = False  # diagnostic runs with missing predicted objects
+
+    def deviations(self) -> list[str]:
+        """Settings that make the numbers differ from an official run."""
+        out = []
+        if self.align != "first":
+            out.append(f"align={self.align} (official: first-frame Sim(3))")
+        if self.stride != 1:
+            out.append(f"stride={self.stride} (official: every frame)")
+        return out
 
 
 @dataclass
@@ -50,6 +81,10 @@ class ObjectModel:
     samples: np.ndarray  # (N, 3) surface samples, canonical frame
     centroid: np.ndarray  # (3,)
     sdf: SurfaceSDF
+
+    @property
+    def extent(self) -> float:
+        return float(np.ptp(self.samples, axis=0).max())
 
 
 class ObjectModels:
@@ -95,46 +130,119 @@ def _pmap(fn, frames) -> list:
         return list(pool.map(fn, frames))
 
 
+def _has_pose(obj_T: np.ndarray) -> np.ndarray:
+    return np.isfinite(obj_T).all(axis=(1, 2))
+
+
+def check_scorable(gt: Episode, pred: Episode) -> None:
+    """Breaks that make an episode impossible to score at all."""
+    if len(pred) != len(gt):
+        raise ValueError(f"episode {gt.index}: prediction has {len(pred)} frames, ground truth has {len(gt)}")
+    human = {
+        "pose": pred.pose, "translation": pred.transl, "identity": pred.identity,
+        "scale": pred.scale, "bone_flex": pred.bone_flex,
+    }
+    bad = [name for name, x in human.items() if not np.isfinite(x).all()]
+    if bad:
+        raise ValueError(f"episode {gt.index}: human parameters not finite: {', '.join(bad)}")
+
+
+def check_prediction(pred: Episode) -> list[str]:
+    """Submission rules that still leave the episode scorable."""
+    problems = []
+    missing = np.flatnonzero(~_has_pose(pred.obj_T))
+    if len(missing):
+        problems.append(
+            f"object pose missing on {len(missing)} of {len(pred)} frames "
+            f"(first: {missing[:5].tolist()}); occluded frames need a pose too"
+        )
+    return problems
+
+
+def _sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for block in iter(lambda: f.read(1 << 20), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def reference_copy(mesh: Path, reference_root: Path) -> Path | None:
+    """The reference mesh file that ``mesh`` is a byte copy of, if any.
+
+    Track 1 may not use Track 2 assets. This only catches verbatim copies,
+    which is the likely accident (pointing the pipeline at the GT mesh folder).
+    """
+    size = Path(mesh).stat().st_size
+    candidates = [p for p in (Path(reference_root) / "mesh").rglob("*") if p.is_file() and p.stat().st_size == size]
+    if not candidates:
+        return None
+    digest = _sha256(mesh)
+    return next((p for p in candidates if _sha256(p) == digest), None)
+
+
+def check_mesh(name: str, path: Path, model: ObjectModel, reference_root: Path) -> list[str]:
+    problems = []
+    lo, hi = MESH_EXTENT_M
+    if not lo <= model.extent <= hi:
+        problems.append(f"mesh {name} is {model.extent:.3g} across; expected metres ({lo}-{hi})")
+    copy = reference_copy(path, reference_root)
+    if copy is not None:
+        problems.append(f"mesh {name} is a copy of reference asset {copy.name}; Track 2 assets are not allowed")
+    return problems
+
+
 def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: Config) -> dict:
+    check_scorable(gt, pred)
     T = len(gt)
-    if len(pred) != T:
-        raise ValueError(f"episode {gt.index}: prediction has {len(pred)} frames, ground truth has {T}")
     frames = np.arange(0, T, cfg.stride)
 
     gj, gv = body(gt)
     pj, pv = body(pred)
 
-    # Put the prediction into the ground-truth world using body joints only;
-    # the Sim(3) scale is always reported as a diagnostic.
+    # Put the prediction into the ground-truth world using body joints only.
+    # The organizer did not say which points the first-frame fit uses; body
+    # joints are our choice. The whole-clip Sim(3) scale is a diagnostic.
     bj, fj = body.body_ids, body.finger_ids
     src, dst = pj[:, bj].reshape(-1, 3), gj[:, bj].reshape(-1, 3)
     sim3 = Similarity.fit(src, dst, with_scale=True)
     align = {
-        "none": Similarity.identity(),
-        "se3": Similarity.fit(src, dst, with_scale=False),
-        "sim3": sim3,
-    }[cfg.align]
+        "first": lambda: Similarity.fit(pj[0, bj], gj[0, bj], with_scale=True),
+        "none": Similarity.identity,
+        "se3": lambda: Similarity.fit(src, dst, with_scale=False),
+        "sim3": lambda: sim3,
+    }[cfg.align]()
     pj_w, pv_w = align.points(pj), align.points(pv)
 
     human = {
         "chamfer_mm": _mean(_pmap(lambda t: M.chamfer(pv_w[t], gv[t], workers=1), frames)) * MM,
         "mpjpe_mm": float(_norm(pj_w - gj).mean()) * MM,
         "mpjpe_body_mm": float(_norm(pj_w[:, bj] - gj[:, bj]).mean()) * MM,
+        # Official smoothness: second difference of the prediction alone.
+        # *_ref is the same quantity on the reference, for scale.
+        "accel_mm_f2": M.accel_magnitude(pj_w) * MM,
+        "accel_body_mm_f2": M.accel_magnitude(pj_w[:, bj]) * MM,
+        "accel_fingers_mm_f2": M.accel_magnitude(pj_w[:, fj]) * MM,
+        "accel_ref_mm_f2": M.accel_magnitude(gj) * MM,
+        # Diagnostic: difference from the reference's acceleration.
         "accel_err_mm_f2": M.accel_error(pj_w, gj) * MM,
         "accel_err_body_mm_f2": M.accel_error(pj_w[:, bj], gj[:, bj]) * MM,
         "accel_err_fingers_mm_f2": M.accel_error(pj_w[:, fj], gj[:, fj]) * MM,
     }
 
+    # The prediction's visibility flag is ignored: a valid submission has a pose
+    # on every frame. Frames without one are skipped here and flagged by
+    # check_prediction.
     gm, pm = objects(gt.mesh_path), objects(pred.mesh_path)
     gT, pT = gt.obj_T, pred.obj_T
-    both = gt.obj_visible & pred.obj_visible
+    has_pose = _has_pose(pT)
+    both = gt.obj_visible & has_pose
     obj_frames = frames[both[frames]]
     shape_frames = obj_frames[
         np.unique(np.linspace(0, len(obj_frames) - 1, min(cfg.shape_frames, len(obj_frames))).astype(int))
     ] if len(obj_frames) else obj_frames
     g_cen = gT[:, :3, :3] @ gm.centroid + gT[:, :3, 3]
     p_cen = align.points(pT[:, :3, :3] @ pm.centroid + pT[:, :3, 3])
-    n_gt_vis, n_gt_hidden = int(gt.obj_visible.sum()), int((~gt.obj_visible).sum())
 
     obj = {
         "chamfer_mm": _mean(_pmap(
@@ -143,16 +251,24 @@ def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: 
         "shape_chamfer_mm": float(np.median(_pmap(
             lambda t: M.icp_residual(align.points(_posed(pm, pT[t])), _posed(gm, gT[t]), workers=1), shape_frames
         ))) * MM if len(shape_frames) else float("nan"),
+        # Official smoothness of the predicted trajectory alone, over the whole
+        # clip including occluded frames, on the mesh centroid so the choice
+        # of mesh origin does not matter.
+        "accel_mm_f2": M.accel_magnitude(p_cen, has_pose) * MM,
+        "ang_accel_deg_f2": math.degrees(M.angular_accel_magnitude(pT[:, :3, :3], has_pose)),
+        "accel_ref_mm_f2": M.accel_magnitude(g_cen, gt.obj_visible) * MM,
+        "ang_accel_ref_deg_f2": math.degrees(M.angular_accel_magnitude(gT[:, :3, :3], gt.obj_visible)),
+        # Diagnostics: difference from the reference.
         "accel_err_mm_f2": M.accel_error(p_cen, g_cen, both) * MM,
         "ang_accel_err_deg_f2": math.degrees(
             M.angular_accel_error(align.R @ pT[:, :3, :3], gT[:, :3, :3], both)
         ),
-        "coverage": int(both.sum()) / max(1, n_gt_vis),
-        "false_visible": int((pred.obj_visible & ~gt.obj_visible).sum()) / n_gt_hidden if n_gt_hidden else 0.0,
+        # Share of the reference's visible frames where the prediction has a pose.
+        "coverage": int(both.sum()) / max(1, int(gt.obj_visible.sum())),
     }
 
-    # Penetration is invariant to rigid alignment. A Sim(3) alignment also
-    # changes length units, so convert predicted depths to the GT scale.
+    # Each side is measured in its own world, on the same frames. Rotation and
+    # translation do not change depths; the alignment scale does, so apply it.
     def penetration(verts, obj_T, model) -> np.ndarray:
         def depth(t):
             R, tr = obj_T[t, :3, :3], obj_T[t, :3, 3]
@@ -177,13 +293,14 @@ def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: 
             "ground_object_gt_mm": _mean(M.plane_penetration(_posed(gm, gT[t]), plane) for t in obj_frames) * MM,
         })
 
-    return {
+    res = {
         "sequence_id": gt.sequence_id,
         "object": gt.object_name,
         "frames": T,
         "evaluated_frames": int(len(frames)),
         "align": {
             "mode": cfg.align,
+            "scale": align.s,
             "rot_deg": align.angle_deg,
             "trans_m": float(np.linalg.norm(align.t)),
             "sim3_scale": sim3.s,
@@ -191,10 +308,13 @@ def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: 
         "human": human,
         "object_metrics": obj,
         "contact": contact,
+        "violations": check_prediction(pred),
     }
+    res["leaderboard"] = {key: res[s][k] / 10.0 for key, (s, k) in LEADERBOARD.items()}
+    return res
 
 
-SECTIONS = ("human", "object_metrics", "contact")
+SECTIONS = ("leaderboard", "human", "object_metrics", "contact")
 
 
 def aggregate(per_episode: dict[int, dict]) -> dict:
@@ -205,7 +325,9 @@ def aggregate(per_episode: dict[int, dict]) -> dict:
             k: _complete_mean(res[section].get(k, float("nan")) for res in per_episode.values())
             for k in sorted(keys)
         }
-    out["align"] = {"sim3_scale": _complete_mean(res["align"]["sim3_scale"] for res in per_episode.values())}
+    out["align"] = {
+        key: _complete_mean(res["align"][key] for res in per_episode.values()) for key in ("scale", "sim3_scale")
+    }
     return out
 
 
@@ -221,32 +343,37 @@ def score(
     from v2hoi.body import SomaBody
 
     cfg = cfg or Config()
-    gt_available = set(list_episodes(gt_root))
+    reference = list_episodes(gt_root)
     available = set(list_episodes(pred_root))
-    episodes = sorted(gt_available) if episodes is None else episodes
+    subset = episodes is not None
+    episodes = reference if episodes is None else episodes
     if not episodes:
         raise ValueError("no ground-truth episodes selected")
-    unknown = [e for e in episodes if e not in gt_available]
+    unknown = [e for e in episodes if e not in reference]
     if unknown:
         raise ValueError(f"ground-truth root has no episodes {unknown}")
     missing = [e for e in episodes if e not in available]
     if missing:
-        raise ValueError(f"prediction root has no episodes {missing}")
+        hint = "" if subset else "; pass --episodes to score a subset"
+        raise ValueError(f"prediction root has no episodes {missing}{hint}")
 
     body = SomaBody(device=device)
     objects = ObjectModels(cfg.object_samples)
-    per_episode = {}
+    per_episode, meshes = {}, {}
     for e in episodes:
         start = time.time()
-        res = score_episode(load_episode(gt_root, e), load_episode(pred_root, e, pred_mesh_dir), body, objects, cfg)
-        if res["object_metrics"]["coverage"] < 1.0 and not cfg.allow_incomplete:
-            raise ValueError(
-                f"episode {e} has object coverage {res['object_metrics']['coverage']:.1%}; "
-                "supply poses for every ground-truth-visible frame or use "
-                "--allow-incomplete for a diagnostic report"
-            )
+        pred = load_episode(pred_root, e, pred_mesh_dir, mask_hidden=False)
+        res = score_episode(load_episode(gt_root, e), pred, body, objects, cfg)
         per_episode[e] = res
+        meshes[pred.object_name] = pred.mesh_path
         log(f"episode {e:2d} {res['object']:<20} {time.time() - start:5.0f}s")
+
+    violations = [f"episode {e}: {msg}" for e, res in per_episode.items() for msg in res["violations"]]
+    for name, path in meshes.items():
+        violations += check_mesh(name, path, objects(path), gt_root)
+    deviations = cfg.deviations()
+    if set(episodes) != set(reference):
+        deviations.append(f"scored {len(episodes)} of {len(reference)} episodes")
     return {
         "gt": str(gt_root),
         "pred": str(pred_root),
@@ -254,41 +381,60 @@ def score(
         "config": asdict(cfg),
         "git": _git_rev(),
         "created": datetime.now().isoformat(timespec="seconds"),
-        "complete_coverage": all(res["object_metrics"]["coverage"] == 1.0 for res in per_episode.values()),
+        # official_settings: the run matches the official evaluation settings.
+        # valid: the prediction obeys the submission rules. Only when both hold
+        # are the leaderboard numbers comparable to Kaggle (up to the metric
+        # approximations).
+        "submission": {
+            "official_settings": not deviations,
+            "deviations": deviations,
+            "valid": not violations,
+            "violations": violations,
+        },
         "mean": aggregate(per_episode),
         "per_episode": per_episode,
     }
 
 
+# (section, key, label, factor to the printed unit). The five leaderboard
+# columns come first; the rest are diagnostics, also in cm.
 COLUMNS = [
-    ("human", "chamfer_mm", "h_cham"),
-    ("human", "accel_err_body_mm_f2", "h_acc_body"),
-    ("human", "accel_err_fingers_mm_f2", "h_acc_fing"),
-    ("object_metrics", "chamfer_mm", "o_cham"),
-    ("object_metrics", "shape_chamfer_mm", "o_shape"),
-    ("object_metrics", "accel_err_mm_f2", "o_acc"),
-    ("object_metrics", "ang_accel_err_deg_f2", "o_angacc"),
-    ("contact", "penetration_err_mm", "pen_err"),
-    ("object_metrics", "coverage", "coverage"),
+    ("leaderboard", "cd_h_cm", "CD-H", 1.0),
+    ("leaderboard", "cd_o_cm", "CD-O", 1.0),
+    ("leaderboard", "acc_h_cm", "ACC-H", 1.0),
+    ("leaderboard", "acc_o_cm", "ACC-O", 1.0),
+    ("leaderboard", "interpenetration_cm", "PEN", 1.0),
+    ("human", "accel_ref_mm_f2", "ACC-H_ref", 0.1),
+    ("object_metrics", "accel_ref_mm_f2", "ACC-O_ref", 0.1),
+    ("object_metrics", "shape_chamfer_mm", "o_shape", 0.1),
+    ("object_metrics", "coverage", "coverage", 1.0),
 ]
 
 
 def format_table(report: dict) -> str:
-    def fmt(v) -> str:
-        return "-" if v is None or not np.isfinite(v) else f"{v:.2f}"
+    def fmt(v, factor) -> str:
+        return "-" if v is None or not np.isfinite(v) else f"{v * factor:.3f}"
 
     header = ["ep", "object"] + [c[2] for c in COLUMNS]
     rows = [header]
     for e, res in report["per_episode"].items():
-        rows.append([str(e), res["object"]] + [fmt(res[s].get(k)) for s, k, _ in COLUMNS])
+        rows.append([str(e), res["object"]] + [fmt(res[s].get(k), f) for s, k, _, f in COLUMNS])
     mean = report["mean"]
-    rows.append(["mean", ""] + [fmt(mean[s].get(k)) for s, k, _ in COLUMNS])
+    rows.append(["mean", ""] + [fmt(mean[s].get(k), f) for s, k, _, f in COLUMNS])
     widths = [max(len(r[i]) for r in rows) for i in range(len(header))]
     lines = ["  ".join(c.ljust(w) for c, w in zip(r, widths)) for r in rows]
-    units = "units: cham/shape/pen_err mm, acc mm/frame^2, angacc deg/frame^2, coverage fraction"
-    if not report.get("complete_coverage", True):
-        lines.append("WARNING: object coverage is incomplete; observed-frame errors are not comparable for ranking")
-    return "\n".join(lines + [units])
+    lines.append(
+        "units: cm as on the leaderboard (ACC per frame^2 at 30 fps, prediction alone; "
+        "_ref = same on the reference); PEN is a proxy, no live competition yet; coverage fraction"
+    )
+
+    sub = report["submission"]
+    lines.append("")
+    lines.append("official settings: " + ("yes" if sub["official_settings"] else "no"))
+    lines += [f"  - {d}" for d in sub["deviations"]]
+    lines.append("valid submission: " + ("yes" if sub["valid"] else "NO"))
+    lines += [f"  - {v}" for v in sub["violations"]]
+    return "\n".join(lines)
 
 
 def _git_rev() -> str | None:
@@ -317,21 +463,30 @@ def main() -> None:
     parser.add_argument("--pred", type=Path, required=True, help="prediction root (Tier 1 layout)")
     parser.add_argument("--gt", type=Path, default=TIER1_ROOT, help="ground-truth root")
     parser.add_argument("--pred-mesh-dir", type=Path, help="look up prediction meshes here instead of <pred>/mesh")
-    parser.add_argument("--episodes", type=int, nargs="*", help="default: every ground-truth episode")
-    parser.add_argument("--allow-incomplete", action="store_true", help="diagnose missing object frames; report is not comparable for ranking")
-    parser.add_argument("--align", choices=["se3", "sim3", "none"], default="se3")
+    parser.add_argument("--episodes", type=int, nargs="*", help="default: every reference episode, all required")
+    parser.add_argument(
+        "--align", choices=["first", "se3", "sim3", "none"], default="first",
+        help="first: Sim(3) on frame 0 (official rule); se3/sim3: whole clip; none: as submitted",
+    )
     parser.add_argument("--stride", type=int, default=1, help="frame stride for per-frame mesh metrics")
     parser.add_argument("--device", help="torch device for SOMA-X (default: cuda if available)")
     parser.add_argument("--out", type=Path, help="report JSON (default: scores/<pred>_<time>.json)")
+    parser.add_argument(
+        "--strict", action="store_true",
+        help="exit 1 unless the settings are official and the prediction is a valid submission",
+    )
     args = parser.parse_args()
 
-    cfg = Config(align=args.align, stride=args.stride, allow_incomplete=args.allow_incomplete)
+    cfg = Config(align=args.align, stride=args.stride)
     report = score(args.gt, args.pred, args.episodes, cfg, args.pred_mesh_dir, args.device)
     out = args.out or Path("scores") / f"{args.pred.name}_{datetime.now():%Y%m%d-%H%M%S}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(_jsonable(report), indent=1, ensure_ascii=False), encoding="utf-8")
     print(format_table(report))
     print(f"\n{out}")
+    sub = report["submission"]
+    if args.strict and not (sub["official_settings"] and sub["valid"]):
+        sys.exit(1)
 
 
 if __name__ == "__main__":

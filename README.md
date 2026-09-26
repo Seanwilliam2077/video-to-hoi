@@ -35,7 +35,7 @@ uv pip install --python .venv/Scripts/python.exe --no-deps -e .
 
 ## 评分
 
-预测目录和 Tier 1 同构：`data/chunk-000/episode_XXXXXX.parquet`（Tier 1 的列）加 `mesh/<物体>/<物体>.glb`。
+预测目录和 Tier 1 同构：`meta/info.json`、`meta/episodes_metadata.jsonl`、`data/chunk-000/episode_XXXXXX.parquet`（Tier 1 的列）和 `mesh/<物体>/<物体>.glb`。
 
 ```bash
 .venv/Scripts/python.exe -m v2hoi.score --pred <预测目录>

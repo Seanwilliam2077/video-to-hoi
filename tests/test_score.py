@@ -10,7 +10,7 @@ from scipy.spatial.transform import Rotation
 
 from v2hoi.dataset import TIER1_ROOT, Episode, load_episode
 from v2hoi.geometry import matrix_to_pose7
-from v2hoi.score import LEADERBOARD, Config, ObjectModels, check_mesh, score, score_episode
+from v2hoi.score import LEADERBOARD, Config, ObjectModels, aggregate, check_mesh, score, score_episode
 
 BOX = np.array([0.2, 0.1, 0.3])
 
@@ -257,6 +257,69 @@ def test_score_applies_the_submission_rules(tmp_path, box_path, monkeypatch):
     )
     with pytest.raises(ValueError, match="pass --episodes"):
         score(gt_root, pred_root, cfg=cfg, log=lambda *_: None)
+
+
+def test_missing_object_metrics_do_not_improve_aggregate(box_path):
+    gt = make_episode(box_path, T=5)
+    complete = score_episode(gt, gt, FakeBody(), ObjectModels(1000), Config(object_samples=1000))
+    missing = make_episode(box_path, T=5)
+    missing.obj_visible[:] = False
+    missing.obj_T[:] = np.nan
+    incomplete = score_episode(gt, missing, FakeBody(), ObjectModels(1000), Config(object_samples=1000))
+    mean = aggregate({0: complete, 1: incomplete})
+    assert incomplete["object_metrics"]["coverage"] == 0.0
+    assert np.isnan(mean["object_metrics"]["chamfer_mm"])
+    assert np.isnan(mean["contact"]["penetration_err_mm"])
+
+
+def test_default_score_requires_every_gt_episode(monkeypatch, tmp_path):
+    import v2hoi.score as scorer
+
+    gt, pred = tmp_path / "gt", tmp_path / "pred"
+    monkeypatch.setattr(scorer, "list_episodes", lambda root: [0, 1] if root == gt else [0])
+    with pytest.raises(ValueError, match=r"prediction root has no episodes \[1\]"):
+        score(gt, pred)
+
+
+def test_missing_frames_are_scored_but_invalid(monkeypatch, tmp_path, box_path):
+    import v2hoi.body as body_module
+    import v2hoi.score as scorer
+
+    gt_root, pred_root = tmp_path / "gt", tmp_path / "pred"
+    gt = make_episode(box_path, T=5)
+    pred = make_episode(box_path, T=5)
+    pred.obj_T[0] = np.nan
+    monkeypatch.setattr(scorer, "list_episodes", lambda root: [0])
+    monkeypatch.setattr(scorer, "load_episode", lambda root, index, *_, **__: gt if root == gt_root else pred)
+    monkeypatch.setattr(body_module, "SomaBody", lambda device=None: FakeBody())
+
+    report = score(gt_root, pred_root, cfg=Config(object_samples=1000), log=lambda _: None)
+    assert not report["submission"]["valid"]
+    assert report["mean"]["object_metrics"]["coverage"] == 0.8
+
+
+def test_sim3_penetration_uses_ground_truth_scale(tmp_path, box_path):
+    scaled_path = tmp_path / "scaled_box.glb"
+    trimesh.creation.box(extents=[0.4, 0.2, 0.6]).export(scaled_path)
+    gt = make_episode(box_path, T=5)
+    pred = make_episode(scaled_path, T=5)
+    pred.transl *= 2
+    pred.obj_T[:, :3, 3] *= 2
+
+    class ScaledBody(FakeBody):
+        def __call__(self, ep):
+            joints, verts = super().__call__(ep)
+            if ep is pred:
+                joints += joints - ep.transl[:, None]
+                verts += verts - ep.transl[:, None]
+            return joints, verts
+
+    body = ScaledBody()
+    body.vert_offsets[0] = [0.3, 0.0, 0.0]  # a point inside the box
+    res = score_episode(gt, pred, body, ObjectModels(3000), Config(align="sim3", object_samples=3000))
+    assert np.isclose(res["align"]["sim3_scale"], 0.5, atol=1e-6)
+    assert res["contact"]["penetration_gt_mm"] > 10
+    assert res["contact"]["penetration_err_mm"] < 1
 
 
 @pytest.mark.skipif(not (TIER1_ROOT / "meta" / "info.json").is_file(), reason="Tier 1 not downloaded")

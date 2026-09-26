@@ -114,6 +114,12 @@ def _mean(values) -> float:
     return float(np.mean(values)) if values else float("nan")
 
 
+def _complete_mean(values) -> float:
+    """Do not let a missing episode silently improve a reported mean."""
+    values = list(values)
+    return float(np.mean(values)) if values and all(np.isfinite(v) for v in values) else float("nan")
+
+
 def _norm(x: np.ndarray) -> np.ndarray:
     return np.linalg.norm(x, axis=-1)
 
@@ -315,9 +321,12 @@ def aggregate(per_episode: dict[int, dict]) -> dict:
     out: dict[str, dict] = {}
     for section in SECTIONS:
         keys = {k for res in per_episode.values() for k in res[section]}
-        out[section] = {k: _mean(res[section].get(k, float("nan")) for res in per_episode.values()) for k in sorted(keys)}
+        out[section] = {
+            k: _complete_mean(res[section].get(k, float("nan")) for res in per_episode.values())
+            for k in sorted(keys)
+        }
     out["align"] = {
-        key: _mean(res["align"][key] for res in per_episode.values()) for key in ("scale", "sim3_scale")
+        key: _complete_mean(res["align"][key] for res in per_episode.values()) for key in ("scale", "sim3_scale")
     }
     return out
 
@@ -336,8 +345,13 @@ def score(
     cfg = cfg or Config()
     reference = list_episodes(gt_root)
     available = set(list_episodes(pred_root))
-    subset = bool(episodes)
-    episodes = episodes or reference
+    subset = episodes is not None
+    episodes = reference if episodes is None else episodes
+    if not episodes:
+        raise ValueError("no ground-truth episodes selected")
+    unknown = [e for e in episodes if e not in reference]
+    if unknown:
+        raise ValueError(f"ground-truth root has no episodes {unknown}")
     missing = [e for e in episodes if e not in available]
     if missing:
         hint = "" if subset else "; pass --episodes to score a subset"

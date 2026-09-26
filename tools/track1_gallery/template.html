@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Track 1 Videos</title>
+<style>
+:root {
+  color-scheme: light;
+  --canvas: #ffffff; --canvas-subtle: #f6f8fa; --canvas-inset: #f6f8fa;
+  --border: #d1d9e0; --border-muted: #d8dee4;
+  --fg: #1f2328; --fg-muted: #59636e; --link: #0969da; --neutral-muted: #818b981f;
+  --btn-bg: #f6f8fa; --focus: #0969da; --tab: #fd8c73;
+  --g-thin: #8250df; --g-hand: #0969da; --g-furniture: #9a6700; --g-contact: #bf3989;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --canvas: #0d1117; --canvas-subtle: #151b23; --canvas-inset: #010409;
+    --border: #3d444d; --border-muted: #3d444db3;
+    --fg: #f0f6fc; --fg-muted: #9198a1; --link: #4493f8; --neutral-muted: #656c7633;
+    --btn-bg: #212830; --focus: #1f6feb; --tab: #f78166;
+    --g-thin: #ab7df8; --g-hand: #4493f8; --g-furniture: #d29922; --g-contact: #db61a2;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--canvas); color: var(--fg); font: 14px/1.5 var(--font); }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; border-radius: 6px; }
+code { font-family: var(--mono); font-size: 85%; padding: .2em .4em; border-radius: 6px; background: var(--neutral-muted); overflow-wrap: anywhere; }
+svg.oct { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: none; vertical-align: text-bottom; }
+.container { max-width: 1280px; margin: 0 auto; padding-inline: 32px; }
+@media (max-width: 768px) { .container { padding-inline: 16px; } }
+header { background: var(--canvas-subtle); border-bottom: 1px solid var(--border); padding-block: 16px 0; }
+.crumbs { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 20px; color: var(--fg-muted); }
+.crumbs strong { color: var(--fg); font-weight: 600; }
+.pill { border: 1px solid var(--border); border-radius: 2em; padding: 0 8px; font-size: 12px; font-weight: 500; line-height: 20px; color: var(--fg-muted); }
+.tabline { display: flex; gap: 8px; margin-top: 12px; }
+.tabline span { display: inline-flex; gap: 8px; align-items: center; padding: 8px 8px 10px; border-bottom: 2px solid var(--tab); font-weight: 600; }
+.counter { display: inline-block; min-width: 20px; padding: 0 6px; border-radius: 2em; background: var(--neutral-muted); font-size: 12px; font-weight: 500; line-height: 18px; text-align: center; }
+main { padding-block: 24px 48px; }
+.intro { max-width: 80ch; color: var(--fg-muted); margin: 0 0 12px; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0 0 16px; color: var(--fg-muted); }
+.stats b { color: var(--fg); font-variant-numeric: tabular-nums; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.input { min-height: 32px; padding: 5px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--canvas); color: var(--fg); font: 14px/20px var(--font); }
+.search { position: relative; flex: 1 1 260px; min-width: 0; }
+.search svg { position: absolute; left: 10px; top: 8px; color: var(--fg-muted); }
+.search .input { width: 100%; padding-left: 32px; }
+.chipbar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.chipbar button { border: 1px solid var(--border); background: var(--btn-bg); color: var(--fg); border-radius: 2em; padding: 0 10px; font: 500 12px/24px var(--font); cursor: pointer; }
+.chipbar button[aria-pressed="true"] { background: var(--fg); color: var(--canvas); border-color: var(--fg); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.card { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; background: var(--canvas); }
+.media { position: relative; aspect-ratio: 4 / 3; background: var(--canvas-inset); border-bottom: 1px solid var(--border); max-width: 100%; }
+.media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.media .ep { position: absolute; left: 8px; top: 8px; background: #000000b3; color: #fff; font: 600 12px/20px var(--mono); padding: 0 8px; border-radius: 2em; }
+.body { padding: 12px 16px 16px; display: grid; gap: 8px; }
+.obj { font-weight: 600; font-size: 16px; line-height: 1.3; }
+.prompt { color: var(--fg-muted); font-style: italic; overflow-wrap: anywhere; }
+.task { font-size: 13px; overflow-wrap: anywhere; }
+.facts { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--fg-muted); align-items: center; }
+.facts span { display: inline-flex; gap: 4px; align-items: center; }
+.label { display: inline-flex; align-items: center; gap: 5px; padding: 0 8px; border-radius: 2em; font-size: 12px; font-weight: 500; line-height: 20px; border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--fg); }
+.label::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.empty { border: 1px solid var(--border); border-radius: 6px; padding: 32px 16px; text-align: center; color: var(--fg-muted); grid-column: 1 / -1; }
+footer { border-top: 1px solid var(--border-muted); margin-top: 32px; padding-top: 16px; color: var(--fg-muted); font-size: 12px; }
+@media (max-width: 544px) { .crumbs { font-size: 16px; } }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="crumbs"><span id="repo-icon"></span><span>video-to-hoi</span><span>/</span><span>docs</span><span>/</span><strong>track1-videos</strong><span class="pill">Organizer data</span></div>
+    <div class="tabline"><span id="tab"></span></div>
+  </div>
+</header>
+<main class="container">
+  <p class="intro" id="intro"></p>
+  <div class="stats" id="stats"></div>
+  <div class="toolbar">
+    <label class="search"><span id="search-icon"></span><input class="input" id="search" type="search" placeholder="Search actions, prompts, sequences" aria-label="Search videos"></label>
+    <select class="input" id="camera" aria-label="Camera"></select>
+  </div>
+  <div class="chipbar" id="objects" role="group" aria-label="Object"></div>
+  <div class="grid" id="grid"></div>
+  <footer id="footer"></footer>
+</main>
+<script>
+const DATA = __GALLERY_JSON__;
+const ICONS = {
+  repo: '<path d="M3 13.5V2.5A1.5 1.5 0 0 1 4.5 1H13v11H4.5A1.5 1.5 0 0 0 3 13.5Zm0 0A1.5 1.5 0 0 0 4.5 15H13v-3"/>',
+  video: '<rect x="1.75" y="3.25" width="9" height="9.5" rx="1.5"/><path d="m10.75 7 3.5-2v6l-3.5-2"/>',
+  search: '<circle cx="7" cy="7" r="4.75"/><path d="m10.5 10.5 3.75 3.75"/>',
+  camera: '<path d="M1.75 5.25h2.5L5.5 3.5h5l1.25 1.75h2.5v7.25H1.75Z"/><circle cx="8" cy="8.75" r="2.25"/>',
+  clock: '<circle cx="8" cy="8" r="6.25"/><path d="M8 4.5V8l2.5 1.5"/>',
+  calendar: '<rect x="1.75" y="2.75" width="12.5" height="11.5" rx="1.5"/><path d="M1.75 6.25h12.5M5 1.25v3M11 1.25v3"/>',
+  file: '<path d="M3.75 1.75h5.5l3 3v9.5h-8.5Z"/><path d="M9.25 1.75v3h3"/>',
+  external: '<path d="M9.5 2h4.5v4.5M14 2 8 8M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5"/>',
+};
+function icon(name, size = 16) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 16 16"); svg.setAttribute("width", size); svg.setAttribute("height", size);
+  svg.setAttribute("class", "oct"); svg.setAttribute("aria-hidden", "true");
+  svg.innerHTML = ICONS[name];
+  return svg;
+}
+function h(tag, attrs, ...children) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k.startsWith("on") && typeof v === "function") el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const c of children.flat(Infinity)) { if (c == null || c === false) continue; el.append(c instanceof Node ? c : document.createTextNode(String(c))); }
+  return el;
+}
+const $ = (id) => document.getElementById(id);
+const state = { object: "all", camera: "all", query: "" };
+
+function render() {
+  const words = state.query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  $("objects").replaceChildren(
+    h("button", { type: "button", "aria-pressed": state.object === "all", onclick: () => { state.object = "all"; render(); } }, "All objects"),
+    ...DATA.objects.map((o) => h("button", { type: "button", "aria-pressed": state.object === o.id, onclick: () => { state.object = o.id; render(); } }, o.name)));
+  const vids = DATA.videos
+    .filter((v) => (state.object === "all" || v.object === state.object) && (state.camera === "all" || v.camera === state.camera))
+    .filter((v) => { const hay = [v.task, v.prompt, v.sequence, v.objectName, v.group].join(" ").toLowerCase(); return words.every((w) => hay.includes(w)); });
+  if (!vids.length) { $("grid").replaceChildren(h("div", { class: "empty" }, "No episodes match. Clear a filter or try another word.")); return; }
+  $("grid").replaceChildren(...vids.map((v) => h("article", { class: "card" },
+    h("div", { class: "media" },
+      h("video", { src: v.preview, poster: v.poster, controls: true, muted: true, playsinline: true, loop: true, preload: "none", "aria-label": `Episode ${v.ep} preview` }),
+      h("span", { class: "ep" }, `ep ${v.ep}`)),
+    h("div", { class: "body" },
+      h("div", { class: "obj" }, v.objectName),
+      h("div", { class: "prompt" }, `“${v.prompt}”`),
+      h("div", { class: "facts" },
+        h("span", {}, icon("camera", 12), `${v.camera.split("_")[0]} camera`),
+        h("span", {}, icon("clock", 12), `${v.seconds.toFixed(1)} s · ${v.frames} frames`),
+        h("span", {}, icon("calendar", 12), v.recorded),
+        h("span", { class: "label", style: `--c: var(--g-${v.groupKey})` }, v.group)),
+      h("div", { class: "task" }, v.task),
+      h("div", { class: "facts" }, h("code", {}, v.sequence)),
+      h("div", { class: "facts" },
+        h("a", { href: v.local }, icon("file", 12), " Full resolution (local copy)"),
+        h("a", { href: v.hf, target: "_blank", rel: "noopener" }, icon("external", 12), " Hugging Face"))))));
+}
+
+$("repo-icon").replaceChildren(icon("repo"));
+$("tab").replaceChildren(icon("video"), "Track 1 videos", h("span", { class: "counter" }, DATA.videos.length));
+$("search-icon").replaceChildren(icon("search"));
+$("intro").textContent = DATA.intro;
+const s = DATA.stats;
+$("stats").replaceChildren(
+  h("span", {}, h("b", {}, s.episodes), " episodes"), h("span", {}, h("b", {}, s.frames.toLocaleString("en-US")), " frames"),
+  h("span", {}, h("b", {}, s.duration), " at 30 fps"), h("span", {}, h("b", {}, "10"), " objects × 3 clips"),
+  h("span", {}, "cameras: ", s.cameras), h("span", {}, "previews ", s.preview));
+$("camera").replaceChildren(h("option", { value: "all" }, "All cameras"), ...DATA.cameras.map((c) => h("option", { value: c }, `${c.split("_")[0]} camera`)));
+$("camera").addEventListener("change", (e) => { state.camera = e.target.value; render(); });
+$("search").addEventListener("input", (e) => { state.query = e.target.value; render(); });
+$("footer").replaceChildren(DATA.attribution, " ", h("a", { href: DATA.license, target: "_blank", rel: "noopener" }, "CC BY 4.0"), ". ", DATA.regenerate);
+render();
+</script>
+</body>
+</html>

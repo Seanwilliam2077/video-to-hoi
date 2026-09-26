@@ -28,7 +28,7 @@ What each module does:
 
 Balancing the load: module 3 is the heaviest, and CARI4D already includes FoundationPose tracking, so module 3 starts with the meshes. Module 1 is busiest in weeks 1–2 and lighter afterwards, when it can take one of module 3's hard cases. Each module sets up the environment for its own models on the GPU machine: module 2 for SAM 3D Body, module 3 for SAM 3D Objects and FoundationPose.
 
-Each module also has a page on claude.ai for its tasks, progress updates (including run results), and reading list: [Platform](https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg), [Human](https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk), [Object](https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8), and [Physics](https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV). Post a result there whenever a run goes into `benchmarks/`.
+Each module also has a page on claude.ai for its tasks, progress updates (including run results), and reading list: [Platform](https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg), [Human](https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk), [Object](https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8), and [Physics](https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV). Post a result there whenever a run goes into `benchmarks/`. The organizer's data, rules, and our questions to the organizer are on the [Track 1 reference](https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b) page; record every new answer from the organizer there.
 
 ## Data
 

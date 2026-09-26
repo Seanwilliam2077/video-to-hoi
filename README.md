@@ -2,6 +2,20 @@
 
 Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Data (V2D) Challenge.
 
+## Team pages
+
+| Page | What it holds |
+|---|---|
+| **[Track 1 reference](https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b)** | The organizer's data: challenge rules and scoring, the 30 Track 1 videos, the Tier 1 and Tier 2 development sets, and our questions to the organizer |
+| [① Platform & perception](https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg) | Module 1: tasks, progress and run results, reading list |
+| [② Human](https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk) | Module 2: tasks, progress and run results, reading list |
+| [③ Object](https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8) | Module 3: tasks, progress and run results, reading list |
+| [④ Temporal & physics](https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV) | Module 4: tasks, progress and run results, reading list |
+
+The pages live on claude.ai and are shared with the team. Post progress and run results on your module's page, and record every answer from the organizer on the reference page.
+
+## Overview
+
 From one video taken by a single static RGB camera, and a text description of the object, the pipeline recovers the person (body and hands, as MHR parameters), the object's mesh, and the object's 6D pose in every frame, at metric scale in one world frame. It is scored against a multi-view reconstruction on five leaderboard metrics: human and object Chamfer distance (CD-H, CD-O), joint and object acceleration (ACC-H, ACC-O), and human–object penetration (PEN).
 
 ![The video-to-hoi pipeline: six stages owned by four modules](docs/pipeline.svg)
@@ -12,18 +26,20 @@ The human sets the metric scale that the object module uses (`DepthScale`). Mesh
 
 Four people build the pipeline in parallel, one module and one branch each. Every stage has a fake backend, so `main` runs end to end from day one and each module replaces its fakes with real models.
 
-| Module | Stages | Metrics it moves | Branch | Module page |
-|---|---|---|---|---|
-| ① Platform & perception | inputs, export | all, as gatekeeper | `platform` | [Platform](https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg) |
-| ② Human | human | CD-H | `human` | [Human](https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk) |
-| ③ Object | objects, motion | CD-O | `object` | [Object](https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8) |
-| ④ Temporal & physics | refine | ACC-H, ACC-O, PEN | `physics` | [Physics](https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV) |
-
-Each module page is where its people keep their tasks, post progress and run results, and collect papers, code, models and data. The pages are shared on claude.ai; ask the repository owner for access.
+| Module | Stages | Metrics it moves | Branch |
+|---|---|---|---|
+| ① Platform & perception | inputs, export | all, as gatekeeper | `platform` |
+| ② Human | human | CD-H | `human` |
+| ③ Object | objects, motion | CD-O | `object` |
+| ④ Temporal & physics | refine | ACC-H, ACC-O, PEN | `physics` |
 
 - [docs/workflow.md](docs/workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
 - [docs/contracts.md](docs/contracts.md): the files the stages exchange.
 - [docs/design.md](docs/design.md): the architecture, its evidence, and what is known about the official submission.
+
+## Track 1 videos
+
+[docs/track1-videos/index.html](docs/track1-videos/index.html) previews all 30 Track 1 videos, filterable by object and camera. GitHub shows its source, so open it from a clone. `python tools/track1_gallery/build.py` rebuilds it from the downloaded videos.
 
 ## Status
 

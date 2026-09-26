@@ -12,12 +12,14 @@ The human sets the metric scale that the object module uses (`DepthScale`). Mesh
 
 Four people build the pipeline in parallel, one module and one branch each. Every stage has a fake backend, so `main` runs end to end from day one and each module replaces its fakes with real models.
 
-| Module | Stages | Metrics it moves | Branch |
-|---|---|---|---|
-| ① Platform & perception | inputs, export | all, as gatekeeper | `platform` |
-| ② Human | human | CD-H | `human` |
-| ③ Object | objects, motion | CD-O | `object` |
-| ④ Temporal & physics | refine | ACC-H, ACC-O, PEN | `physics` |
+| Module | Stages | Metrics it moves | Branch | Module page |
+|---|---|---|---|---|
+| ① Platform & perception | inputs, export | all, as gatekeeper | `platform` | [Platform](https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg) |
+| ② Human | human | CD-H | `human` | [Human](https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk) |
+| ③ Object | objects, motion | CD-O | `object` | [Object](https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8) |
+| ④ Temporal & physics | refine | ACC-H, ACC-O, PEN | `physics` | [Physics](https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV) |
+
+Each module page is where its people keep their tasks, post progress and run results, and collect papers, code, models and data. The pages are shared on claude.ai; ask the repository owner for access.
 
 - [docs/workflow.md](docs/workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
 - [docs/contracts.md](docs/contracts.md): the files the stages exchange.

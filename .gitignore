@@ -15,3 +15,5 @@ third_party/
 weights/
 vendor/
 runs/
+# Track 1 video previews for docs/track1-videos/index.html (full videos stay in data/)
+!docs/track1-videos/media/*.mp4

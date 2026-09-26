@@ -21,6 +21,11 @@ Four people build the pipeline in parallel, one module and one branch each. Ever
 
 Each module page is where its people keep their tasks, post progress and run results, and collect papers, code, models and data. The pages are shared on claude.ai; ask the repository owner for access.
 
+## Organizer data
+
+- [Track 1 reference](https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b): the challenge rules and scoring, the 30 Track 1 videos with their metadata, the Tier 1 and Tier 2 development sets, and our questions to the organizer with their answers.
+- [docs/track1-videos/index.html](docs/track1-videos/index.html): previews of all 30 Track 1 videos, filterable by object and camera. GitHub shows its source, so open it from a clone. `python tools/track1_gallery/build.py` rebuilds it from the downloaded videos.
+
 - [docs/workflow.md](docs/workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
 - [docs/contracts.md](docs/contracts.md): the files the stages exchange.
 - [docs/design.md](docs/design.md): the architecture, its evidence, and what is known about the official submission.

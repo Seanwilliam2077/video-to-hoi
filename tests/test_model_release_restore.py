@@ -102,6 +102,20 @@ def test_symlink_part_is_rejected(tmp_path: Path):
         restorer.restore(manifest_path, parts_dir, tmp_path / "output")
 
 
+def test_symlink_parent_directory_is_rejected(tmp_path: Path):
+    manifest_path, _, _, _, _ = _fixture(tmp_path)
+    actual = tmp_path / "actual"
+    actual.mkdir()
+    linked = tmp_path / "linked"
+    try:
+        os.symlink(actual, linked, target_is_directory=True)
+    except OSError:
+        pytest.skip("creating directory symlinks is unavailable on this host")
+    with pytest.raises(restorer.RestoreError, match="contains a symlink"):
+        restorer.restore(manifest_path, linked / "parts", tmp_path / "output", download=True)
+    assert not (actual / "parts").exists()
+
+
 def test_explicit_download_fetches_only_missing_part_with_mock_network(tmp_path: Path, monkeypatch):
     manifest_path, manifest, parts_dir, payload, chunks = _fixture(tmp_path)
     missing = parts_dir / "body.zip.part002"
@@ -121,6 +135,28 @@ def test_explicit_download_fetches_only_missing_part_with_mock_network(tmp_path:
     assert (tmp_path / "downloaded/body.zip").read_bytes() == payload
     assert missing.read_bytes() == chunks[1]
     assert opened == [(manifest["assets"][0]["parts"][1]["url"], "body.zip.part002")]
+
+
+def test_download_creates_missing_parts_directory_with_mock_network(tmp_path: Path, monkeypatch):
+    manifest_path, manifest, _, payload, chunks = _fixture(tmp_path)
+    parts_dir = tmp_path / "fresh" / "parts"
+    with pytest.raises(restorer.RestoreError, match="parts directory is missing"):
+        restorer.restore(manifest_path, parts_dir, tmp_path / "offline")
+    assert not parts_dir.exists()
+
+    payloads = {part["name"]: chunk for part, chunk in zip(manifest["assets"][0]["parts"], chunks)}
+    opened = []
+
+    def fake_open(url, part_name):
+        opened.append(part_name)
+        return io.BytesIO(payloads[part_name])
+
+    monkeypatch.setattr(restorer, "open_release_url", fake_open)
+    result = restorer.restore(manifest_path, parts_dir, tmp_path / "downloaded", download=True)
+    assert result[0]["status"] == "created"
+    assert (tmp_path / "downloaded/body.zip").read_bytes() == payload
+    assert sorted(opened) == sorted(payloads)
+    assert sorted(path.name for path in parts_dir.iterdir()) == sorted(payloads)
 
 
 @pytest.mark.parametrize("field,value", [

@@ -145,7 +145,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <header>
     <div>
       <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 9 月 27 日</div>
-      <h1>框架已搭好，AI 模型还没开始运行</h1>
+      <h1>模型文件已齐，按计划暂不部署</h1>
     </div>
     <div class="count">
       <div class="l">距比赛截止还有</div>
@@ -157,7 +157,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>整体方案、分工和协作工具已就绪；<b>已取得的 AI 模型文件和配套软件已下载并核对无误</b>，之前被拦截的文件也已上传，同事可直接下载。但 AI 模型还没真正跑起来，还在等两件事：<b>选定服务器</b>（现在有三种可选）和<b>三个关键模型的使用权限</b>（正在申请）。服务器一选定、权限一批下来，就做前两段视频的第一批结果。</p>
+  <p class="lead"><b>一句话：</b>整体方案、分工和协作工具已就绪；<b>三个关键模型的使用权限已获批，全部必需模型文件已下载并核对无误</b>。现在正在打包上传，准备交给同事。按项目负责人的安排，<b>本轮暂不部署服务器，也不运行 AI 模型</b>；前两段视频的真实结果仍待后续开展。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -224,7 +224,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
           <dt>负责</dt><dd>准备服务器和运行环境；从视频里提取基础信息（人和物体在画面中的位置、画面远近）；把四块成果整合起来、检查质量、向主办方提交；维护团队页面和进度。</dd>
           <dt>交给别人</dt><dd>给人体、物体两块提供视频预处理结果；每周产出一个“团队基准版本”，大家都在它的基础上改进。</dd>
           <dt>需要别人</dt><dd>其他三块按时交付成果。</dd>
-          <dt>前两周</dt><dd>服务器和模型权限到位；用官方参考方法把前两段视频完整跑通。</dd>
+          <dt>前两周</dt><dd>完成模型文件交接；确认服务器方案后，用官方参考方法把前两段视频完整跑通。</dd>
           <dt>适合</dt><dd>熟悉服务器部署、数据处理和工程整合。</dd>
         </dl>
         <a class="more" href="https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg" target="_blank" rel="noopener">技术资料与任务 →</a>
@@ -237,7 +237,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
           <dt>负责</dt><dd>从视频里还原人每一帧的三维姿态，包括手；以人的身高为尺子，确定整个场景的真实尺寸。</dd>
           <dt>交给别人</dt><dd>每一帧的人体动作；场景的真实尺寸（物体那块要用它来确定物体有多大）。</dd>
           <dt>需要别人</dt><dd>平台提供的视频预处理结果。</dd>
-          <dt>前两周</dt><dd>拿到模型使用权限，在几段视频上跑通；重点检查第一帧，因为官方按第一帧对齐，第一帧错了整段都会偏。</dd>
+          <dt>前两周</dt><dd>接收已准备好的模型文件，后续在几段视频上跑通；重点检查第一帧，因为官方按第一帧对齐，第一帧错了整段都会偏。</dd>
           <dt>适合</dt><dd>做过人体姿态估计或人体三维重建。</dd>
         </dl>
         <a class="more" href="https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk" target="_blank" rel="noopener">技术资料与任务 →</a>
@@ -301,7 +301,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <li><b>物体那块怎么减负</b>它的工作量最大。基准跑通后，平台是否接手其中一两个难点物体（比如呼啦圈）？</li>
       <li><b>各块的第一个交付物和日期</b>对照上面的表，确认每个人 10 月 8 日前交什么。</li>
       <li><b>每周同步的时间</b>建议每周二合并并开短会，确认时间和形式。</li>
-      <li><b>权限申请分工</b>每人都要申请模型使用权限；确认谁申请哪几个、谁跟进申请结果。</li>
+      <li><b>模型文件交接</b>使用权限已经获批；确认谁接收文件、谁核对完整性，以及何时开始后续运行。</li>
     </ol>
   </section>
 
@@ -310,7 +310,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <ol class="steps">
       <li class="done"><div class="t">读懂规则</div><div class="s">已完成</div><div class="d">已向主办方书面确认</div></li>
       <li class="done"><div class="t">搭建框架</div><div class="s">已完成</div><div class="d">四人可并行开发</div></li>
-      <li class="stuck"><div class="t">接入 AI 模型</div><div class="s">受阻</div><div class="d">等服务器和权限</div></li>
+      <li class="now"><div class="t">接入 AI 模型</div><div class="s">材料已齐</div><div class="d">按计划暂不部署</div></li>
       <li class="next"><div class="t">第一批结果</div><div class="s">未开始</div><div class="d">目标 10 月 8 日</div></li>
       <li class="next"><div class="t">全部出结果</div><div class="s">未开始</div><div class="d">目标 10 月 15 日</div></li>
       <li class="next"><div class="t">优化与提交</div><div class="s">未开始</div><div class="d">截止 11 月 4 日</div></li>
@@ -324,10 +324,10 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <li>搭好了整体框架：把工作拆成四块，四个人可以各做一块、互不等待。</li>
       <li>建好了团队协作页面：每块工作有自己的任务、进展和资料页，已邀请三位同学。</li>
       <li>下载并整理好了比赛的全部 30 段视频，可以直接浏览。</li>
-      <li>已取得的 AI 模型文件已下载并核对（约 5.7 GB），记下了来源和版本；还有 3 组关键文件在等使用权限（正在申请）。</li>
+      <li>全部必需 AI 模型文件已下载并逐一核对（约 24 GB），来源和版本已记录；三个关键模型的使用权限已获批。</li>
       <li>准备好了服务器上要装的基础软件（约 120 MB），以及“打包上传、到达后自动核对”的工具；不需要远程登录服务器也能把文件交过去。</li>
       <li>之前被公司安全策略拦截的两组物体跟踪文件，已由项目负责人下载、逐一核对，并上传成<a href="https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927" target="_blank" rel="noopener">可直接下载的补充包</a>，这个问题已解决。</li>
-      <li>自动检查全部通过。不过这只说明文件完整、各环节衔接正确；真正用视频跑出结果、服务器能不能跑起来，还没有验证。</li>
+      <li>文件与协作流程的自动检查已通过；这不代表真实视频结果或服务器运行已经验证。</li>
     </ul>
   </section>
 
@@ -335,7 +335,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <h2>卡在哪里</h2>
     <div class="issues">
       <div class="issue">
-        <b>服务器还没选定：现在有三种可选</b>
+        <b>服务器方案保留，按计划暂不部署</b>
         <p style="margin:4px 0 0">AI 模型要在带大容量显卡的服务器上运行，显卡内存越大，能跑的步骤越完整。除了之前那台候选服务器，现在还有 L20 和 A10 两种服务器可用，各有长短：</p>
         <div class="tablewrap" style="margin-top:10px">
           <table>
@@ -347,17 +347,17 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
             </tbody>
           </table>
         </div>
-        <div class="need">选定服务器。建议先用 L20 跑出第一批结果；需要确认 L20 能用几台、怎么登录和上传文件。</div>
+        <div class="need">需要：后续启动运行前，由项目负责人确认服务器方案。建议优先 L20，并确认能用几台、怎么登录和上传文件；本轮先完成文件交接。</div>
       </div>
       <div class="issue mid">
-        <b>三个关键模型的使用权限正在申请</b>
-        <p style="margin:4px 0 0">这三个模型要单独向发布方申请使用权限，光能登录模型网站还不够。申请正在进行，批准之前只能先准备其余部分。</p>
-        <div class="need">跟进审批进度；批准后确认下载用的账号能读取这三个模型。</div>
+        <b>模型文件已齐，交接包正在上传</b>
+        <p style="margin:4px 0 0">三个关键模型已经获批并完成下载核对，权限问题已解决。新增文件约 18 GB，正在整理成可供同事下载和自动核对的交接包。</p>
+        <div class="need">需要：项目负责人完成上传后，把下载位置和核对方法交给同事；本轮不启动服务器运行。</div>
       </div>
       <div class="issue mid">
         <b>主办方的评分工具和提交格式还没公布</b>
         <p style="margin:4px 0 0">在它公布之前，我们本地看不到正式分数，只能先按已知规则准备，公布后立刻对接。</p>
-        <div class="need">不需要额外支持，我们持续关注。</div>
+        <div class="need">需要：平台负责人持续关注正式工具公布，无需额外支持。</div>
       </div>
     </div>
   </section>
@@ -368,7 +368,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <table>
         <thead><tr><th>时间</th><th>目标</th><th>状态</th></tr></thead>
         <tbody>
-          <tr><td class="date">10 月 1 日</td><td>服务器和模型使用权限到位</td><td><span class="tag now">进行中</span></td></tr>
+          <tr><td class="date">10 月 1 日</td><td>服务器和模型使用权限到位</td><td><span class="tag now">权限已到位，服务器待确认</span></td></tr>
           <tr><td class="date">10 月 8 日</td><td>拿到第一批结果（2 段视频）</td><td><span class="tag stuck">有风险</span></td></tr>
           <tr><td class="date">10 月 15 日</td><td>30 段视频全部出结果，第一次正式提交</td><td><span class="tag next">未开始</span></td></tr>
           <tr><td class="date">10 月 29 日</td><td>攻克难点：细长物体、大件家具、人坐在物体上等情况</td><td><span class="tag next">未开始</span></td></tr>
@@ -376,19 +376,19 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         </tbody>
       </table>
     </div>
-    <p class="muted" style="margin-top:12px">比赛期间每周最多提交 5 次，最后 3 天不限次数。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。如果服务器和权限在 10 月 1 日前不能到位，后面每一步都会顺延，留给优化的时间会被压缩。</p>
+    <p class="muted" style="margin-top:12px">比赛期间每周最多提交 5 次，最后 3 天不限次数。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。模型使用权限已到位，本轮按计划暂不部署。如果服务器在 10 月 1 日前仍不能到位，后面每一步都会顺延，留给优化的时间会被压缩。</p>
   </section>
 
   <section>
     <h2>需要支持的事</h2>
     <ol class="asks">
-      <li><b>拍板服务器方案</b>建议先用 L20 服务器跑出第一批结果；RTX PRO 5000 服务器适配好之后，用来同时跑多段视频；A10 服务器分担较轻的步骤。需要确认 L20 能用几台、怎么登录。</li>
+      <li><b>安排文件交接和后续启动时间</b>本轮先完成打包上传，暂不部署。后续建议先用 L20 服务器跑出第一批结果；RTX PRO 5000 服务器适配好之后，用来同时跑多段视频；A10 服务器分担较轻的步骤。</li>
       <li><b>确认团队分工</b>三位同学分别负责哪一块工作（见上方“团队分工”）。</li>
     </ol>
   </section>
 
 
-  <footer>数据截至 2026 年 9 月 27 日；本次更新：服务器新增 L20、A10 两个选项；三个关键模型的使用权限正在申请；被拦截的两组文件已下载、核对并上传，同事可直接下载。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 9 月 27 日；本次更新：三个关键模型的使用权限已获批，全部必需模型文件已下载核对，交接包正在上传；保留三种服务器方案，按计划暂不部署。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

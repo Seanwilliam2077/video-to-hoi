@@ -42,6 +42,22 @@ def _is_link(path: Path) -> bool:
     return path.is_symlink() or (hasattr(path, "is_junction") and path.is_junction())
 
 
+def _has_linked_component(path: Path) -> bool:
+    """Reject symlinks and junctions in an explicitly supplied path's parents."""
+    absolute = path if path.is_absolute() else Path.cwd() / path
+    current = Path(absolute.anchor)
+    if _is_link(current):
+        return True
+    for component in absolute.parts[1:]:
+        if component == "..":
+            current = current.parent
+        elif component != ".":
+            current /= component
+            if _is_link(current):
+                return True
+    return False
+
+
 def _safe_name(value: object, label: str) -> str:
     if (not isinstance(value, str) or not SAFE_NAME.fullmatch(value) or ".." in value
             or value.endswith(".") or value.split(".", 1)[0].upper() in WINDOWS_DEVICES):
@@ -257,11 +273,19 @@ def _restore_asset(asset: dict, parts_dir: Path, output_dir: Path, download: boo
 def restore(manifest: Path, parts_dir: Path, output_dir: Path, *, download: bool = False) -> list[dict]:
     assets = read_manifest(Path(manifest))
     parts_dir, output_dir = Path(parts_dir), Path(output_dir)
-    if _is_link(parts_dir) or not parts_dir.is_dir():
-        raise RestoreError(f"parts directory is missing or a symlink: {parts_dir}")
-    if _is_link(output_dir):
-        raise RestoreError(f"output directory is a symlink: {output_dir}")
+    if _has_linked_component(parts_dir):
+        raise RestoreError(f"parts directory contains a symlink: {parts_dir}")
+    if not parts_dir.is_dir():
+        if not download or parts_dir.exists():
+            raise RestoreError(f"parts directory is missing or is not a directory: {parts_dir}")
+        parts_dir.mkdir(parents=True, exist_ok=True)
+    if _has_linked_component(parts_dir):
+        raise RestoreError(f"parts directory contains a symlink: {parts_dir}")
+    if _has_linked_component(output_dir):
+        raise RestoreError(f"output directory contains a symlink: {output_dir}")
     output_dir.mkdir(parents=True, exist_ok=True)
+    if _has_linked_component(output_dir):
+        raise RestoreError(f"output directory contains a symlink: {output_dir}")
     return [_restore_asset(asset, parts_dir, output_dir, download) for asset in assets]
 
 

@@ -1,6 +1,8 @@
 # Remote platform and baseline deployment
 
-Status: ZIP handoff preparation, 2026-09-27. Deployment is deferred. The owner
+Status: all required model downloads verified; GitHub release upload in progress,
+2026-09-27. The owner requested acquisition and GitHub handoff only. Deployment
+and model execution remain deferred. The owner
 cannot connect to the server through SSH; code and preparation materials will
 be transferred as ZIP files and used through the server's available console.
 See [deployment/README.md](../deployment/README.md) for the preparation commands.
@@ -94,15 +96,21 @@ four simultaneous model jobs require separate memory and scheduling estimates.
   containers before the first full reconstruction. Do not assume VRAM capacity
   alone establishes compatibility with every native extension.
 
-## Access needed before renting compute
+## Model access and handoff
 
-Confirm Hugging Face access to `facebook/sam-3d-body-dinov3`,
-`facebook/sam-3d-objects`, and `nvidia/cari4d_commercial`. As of 2026-09-27
-the access requests for these three models are in progress. The
+Access to `facebook/sam-3d-body-dinov3`, `facebook/sam-3d-objects`, and
+`nvidia/cari4d_commercial` is approved. Fresh access checks and complete downloads
+resolved the earlier HTTP 403 failures. Their 28 selected files total
+17,995,612,997 bytes and passed size/SHA-256 verification. The
 [official CARI4D instructions](https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/README.md)
 explain the Body approval requirement and the separate Objects checkpoint.
-Use a read token on the remote machine; keep credentials out of the repository,
-run manifests, logs, and shared baseline archives.
+All 12 required model entries are now present locally. Redistribution review
+permits these three model packages under their respective NVIDIA/SAM terms;
+[MODEL_RELEASES.md](../deployment/MODEL_RELEASES.md) records the license copies,
+provenance, and restore procedure. The [model release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927)
+is being uploaded and remains a draft until upload verification finishes.
+No remote token setup or deployment is part of this task. Keep credentials
+out of the repository, run manifests, logs, and shared archives.
 
 The selected provider must allow Docker GPU access. A notebook container that
 cannot launch the required per-module containers needs a different deployment
@@ -174,12 +182,15 @@ comparison. The automated fetch/check tool still does not contact Drive.
 See [manual commands](../deployment/README.md) and
 [preparation status](../deployment/PREPARATION_STATUS.md).
 
-The completed required-model count is now 9/12; the remaining three gated
-Hugging Face models have not been reacquired or reprobed. The 43
-downloader/bundle tests passed with synthetic files only. No Drive download
-was executed by Codex, and no model inference or server deployment has been
-performed. The owner reported on 2026-09-27 that the FoundationPose files
-have been uploaded. The online status page was republished the same day.
+The completed required-model count is now 12/12 following the approved
+Hugging Face downloads. Across 12 source and 12 model receipts, all 7,930 files
+passed size/SHA-256 verification. The model scope occupies 23,731,473,555 bytes,
+including 80 bytes of pinned cache refs. This confirms the prepared files,
+not model execution. No Drive download was executed by Codex, and no model
+inference or server deployment has been performed. The FoundationPose
+add-on was published on 2026-09-27; the three additional model packages are
+being uploaded separately. The revised local status page must be republished
+to its existing online address after the final release update.
 
 ### Published add-on
 

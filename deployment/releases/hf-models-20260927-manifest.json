@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927",
+  "assets": [
+    {
+      "id": "cari4d",
+      "repo_id": "nvidia/cari4d_commercial",
+      "revision": "1f7287ac6fd5f72c30ce2222fb345a3e7d779fc9",
+      "license_name": "NVIDIA Open Model Agreement",
+      "asset_spec_sha256": "6b985778fb01051b5cfff2e01038b59684e949dd0a32e6ad0912e128f71785cc",
+      "archive": {
+        "name": "cari4d.zip",
+        "bytes": 2084585480,
+        "sha256": "e9cc7b63f89939e8caaebec724d1fd0d10b8da1918feab9097b15ec455ff86f1"
+      },
+      "parts": [
+        {
+          "name": "cari4d.zip.part001",
+          "bytes": 1992294400,
+          "sha256": "1e4da6411db68244894caf0de397812add57509141ee060bb51da7b449bd9a75",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/cari4d.zip.part001"
+        },
+        {
+          "name": "cari4d.zip.part002",
+          "bytes": 92291080,
+          "sha256": "85faf4917c3ef443907294cc04d38190828db30845348437c995007e85444e31",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/cari4d.zip.part002"
+        }
+      ]
+    },
+    {
+      "id": "sam3d-body",
+      "repo_id": "facebook/sam-3d-body-dinov3",
+      "revision": "11aaa346c7204874a1cbafe3d39a979080b2c55a",
+      "license_name": "SAM License",
+      "asset_spec_sha256": "57fd4c995ce99c96709250da57b8db341e9cf827db2cd83e2f8f50b28a353903",
+      "archive": {
+        "name": "sam3d-body.zip",
+        "bytes": 2805287890,
+        "sha256": "ff0edb99b1260dc1e3036081569d6519040a50cb8c05332da1cbf0dcd88805fb"
+      },
+      "parts": [
+        {
+          "name": "sam3d-body.zip.part001",
+          "bytes": 1992294400,
+          "sha256": "bd9c6cd12ae00e1aea006ee9c191015396b669c254a4746628d40c2e77970660",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-body.zip.part001"
+        },
+        {
+          "name": "sam3d-body.zip.part002",
+          "bytes": 812993490,
+          "sha256": "059556ad1f82d7e31fe7be8e9911757ba803f75f6084ed6bbec8156e6ffc5a72",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-body.zip.part002"
+        }
+      ]
+    },
+    {
+      "id": "sam3d-objects",
+      "repo_id": "facebook/sam-3d-objects",
+      "revision": "2e73555018d2741ccd486e56c24fac41155a1dc6",
+      "license_name": "SAM License",
+      "asset_spec_sha256": "6207fd7b41ead7d456c8ec75d8397183b3c0c799f29ea86cf00b24d1aeafa5e5",
+      "archive": {
+        "name": "sam3d-objects.zip",
+        "bytes": 13105897044,
+        "sha256": "3825f5766eb672dba192372f56d71286573825cfaf55ce2f7e81bf1f19bb5567"
+      },
+      "parts": [
+        {
+          "name": "sam3d-objects.zip.part001",
+          "bytes": 1992294400,
+          "sha256": "96fb97b0c9b04d8b493e58ed85da638ccab97ed98f35a9fbc75cfc8e0a9ba7df",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part001"
+        },
+        {
+          "name": "sam3d-objects.zip.part002",
+          "bytes": 1992294400,
+          "sha256": "b17c33415142ee28bed8121c271202b698eec95a389650d9c9ac060f8b8d439c",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part002"
+        },
+        {
+          "name": "sam3d-objects.zip.part003",
+          "bytes": 1992294400,
+          "sha256": "29fe5dd6b499dac7549f3d056b1659a976e53b8caaa548def3a388a7d2b421d7",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part003"
+        },
+        {
+          "name": "sam3d-objects.zip.part004",
+          "bytes": 1992294400,
+          "sha256": "bf0a3e0c0a61a389ff80da4aa85f0207ef25b351922e6df5fd40f04e11e19bac",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part004"
+        },
+        {
+          "name": "sam3d-objects.zip.part005",
+          "bytes": 1992294400,
+          "sha256": "092915008da76102332df7c20b2a1fdaa5f933d99a9db946f1a5047df151e32b",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part005"
+        },
+        {
+          "name": "sam3d-objects.zip.part006",
+          "bytes": 1992294400,
+          "sha256": "e1cf2b00a8e9d5878fa89f333e48c8c8b16f5e748e4549572829b049121e5f68",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part006"
+        },
+        {
+          "name": "sam3d-objects.zip.part007",
+          "bytes": 1152130644,
+          "sha256": "4e5fb20635e45114b2560c7973d7ef3f3c4277008d06ddbbe3e84af5064f579d",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part007"
+        }
+      ]
+    }
+  ]
+}

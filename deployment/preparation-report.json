@@ -2,7 +2,7 @@
   "schema_version": 1,
   "date": "2026-09-27",
   "scope": "Track 1 preparation only; no deployment or model execution",
-  "complete_required_assets": false,
+  "complete_required_assets": true,
   "asset_lock_sha256": "69976eeac1fee802ec9dd309509fb9b6d8365129a2b2af7066db567846607719",
   "assets": [
     {
@@ -130,24 +130,33 @@
       "group": "models",
       "required": true,
       "target": "weights/cari4d/cari4d",
-      "status": "access_required",
-      "last_probe_http_status": 403
+      "status": "downloaded_and_verified",
+      "files": 3,
+      "bytes": 2084494424,
+      "receipt_sha256": "f9f73ec2818823edc3ad3c1322ce44c66157bdc32be9c38781a8fc3c83c9cd03",
+      "historical_denied_probe_http_status": 403
     },
     {
       "id": "sam3d-body",
       "group": "models",
       "required": true,
       "target": "weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3",
-      "status": "access_required",
-      "last_probe_http_status": 403
+      "status": "downloaded_and_verified",
+      "files": 5,
+      "bytes": 2805255047,
+      "receipt_sha256": "9bc479b335234a79f4e0fff9ef822967b250a381f7245f3037b83e1587031adc",
+      "historical_denied_probe_http_status": 403
     },
     {
       "id": "sam3d-objects",
       "group": "models",
       "required": true,
       "target": "weights/sam3d/hf-download",
-      "status": "access_required",
-      "last_probe_http_status": 403
+      "status": "downloaded_and_verified",
+      "files": 20,
+      "bytes": 13105863526,
+      "receipt_sha256": "f8fc01af188439e2745e396a9720dad7f7d253fb0f32a5b4edbd0ca9b3eb8844",
+      "historical_denied_probe_http_status": 403
     },
     {
       "id": "sam2",
@@ -266,7 +275,7 @@
     }
   },
   "validation": {
-    "local_downloader_and_bundle_tests": 43,
+    "local_downloader_and_bundle_tests": 59,
     "github_initial_ci": {
       "commit": "a3cc89843b4f7e9dca7da3b1a87782381ea9b806",
       "url": "https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/36295376997",
@@ -274,7 +283,7 @@
     },
     "gpu_inference": false,
     "server_deployment": false,
-    "local_synthetic_allowlist_tests": 88,
+    "local_synthetic_allowlist_tests": 104,
     "foundationpose_local_verification": {
       "files": 4,
       "bytes": 258450984,
@@ -282,13 +291,39 @@
       "network_access": false,
       "model_execution": false,
       "note": "Local SHA256 and sizes verified; no upstream hash was supplied. Existing asset-lock access fields reflect the inventory snapshot, not current readiness."
+    },
+    "gated_model_access": {
+      "checked_at": "2026-09-27",
+      "result": "all_locked_files_accessible_and_downloaded",
+      "ids": [
+        "cari4d",
+        "sam3d-body",
+        "sam3d-objects"
+      ],
+      "new_files": 28,
+      "new_bytes": 17995612997
+    },
+    "sam3d_pipeline_asset_coverage": {
+      "config_files_checked": 12,
+      "all_declared": true,
+      "new_required_models": false,
+      "inference_performed": false
+    },
+    "reviewed_model_release_tests": 16,
+    "model_release_offline_restore": {
+      "archives": 3,
+      "parts": 11,
+      "archive_bytes": 17995770414,
+      "all_size_and_sha256_checks_passed": true,
+      "network_access": false,
+      "model_execution": false
     }
   },
   "prepared_totals": {
     "sources": 12,
-    "required_models": 9,
-    "receipts": 21,
-    "files": 7902,
-    "model_bytes": 5735860558
+    "required_models": 12,
+    "receipts": 24,
+    "files": 7930,
+    "model_bytes": 23731473555
   }
 }

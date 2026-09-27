@@ -34,6 +34,8 @@ def test_github_zip_checkout_code_only_and_sha256(tmp_path: Path):
     _put(root, "src/v2hoi/stages/inputs.py", b"pass\n")
     _put(root, "tools/prepare_bundle.py", b"pass\n")
     _put(root, "deployment/assets.lock.json", b'{"schema_version":1,"assets":[]}')
+    _put(root, ".gitattributes", b"deployment/licenses/* -text\n")
+    _put(root, "deployment/licenses/NVIDIA_OPEN_MODEL_AGREEMENT_2026-04-02.pdf", b"synthetic license PDF")
     _put(root, "docs/track1-videos/media/ep00.mp4", b"video")
     _put(root, "data/v2d/track_2/secret.parquet", b"forbidden")
     _put(root, "weights/model.pt", b"weights")
@@ -49,7 +51,8 @@ def test_github_zip_checkout_code_only_and_sha256(tmp_path: Path):
     assert manifest["track2_included"] is False
     assert _names(output) == {
         "README.md", "src/v2hoi/stages/inputs.py", "tools/prepare_bundle.py",
-        "deployment/assets.lock.json", "bundle-manifest.json",
+        "deployment/assets.lock.json", "bundle-manifest.json", ".gitattributes",
+        "deployment/licenses/NVIDIA_OPEN_MODEL_AGREEMENT_2026-04-02.pdf",
     }
     with zipfile.ZipFile(output) as archive:
         archived = json.loads(archive.read("bundle-manifest.json"))

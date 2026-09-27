@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "cari4d",
+  "status": "complete",
+  "source": {
+    "kind": "huggingface",
+    "repo_id": "nvidia/cari4d_commercial",
+    "revision": "1f7287ac6fd5f72c30ce2222fb345a3e7d779fc9",
+    "license": "unverified-model-terms",
+    "gated": "auto"
+  },
+  "target": "weights/cari4d/cari4d",
+  "asset_spec_sha256": "6b985778fb01051b5cfff2e01038b59684e949dd0a32e6ad0912e128f71785cc",
+  "files": [
+    {
+      "path": "weights/cari4d/cari4d/2026-08-25-09-35-57/manifest.json",
+      "bytes": 449,
+      "sha256": "886038d938984a332ba386a3541bb6690fbc7ff0e0bb032ddcaef13e2df298de"
+    },
+    {
+      "path": "weights/cari4d/cari4d/2026-08-25-09-35-57/resolved_config.yaml",
+      "bytes": 9842,
+      "sha256": "ea8d3279eb63ea1595232a1c69e235381e8021b7e0acdd823cab44e587228697"
+    },
+    {
+      "path": "weights/cari4d/cari4d/2026-08-25-09-35-57/step200000.pth",
+      "bytes": 2084484133,
+      "sha256": "78ff5cb874dd012a272382e3f2d8bc11226d5b7d0ecc739a60fbb4a97a5a5ba3"
+    }
+  ]
+}

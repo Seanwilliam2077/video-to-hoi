@@ -20,7 +20,7 @@ from pathlib import Path, PurePosixPath
 SCHEMA_VERSION = 1
 MANIFEST_NAME = "bundle-manifest.json"
 ROOT_FILES = {
-    ".gitignore", "README.md", "pyproject.toml", "uv.lock", "poetry.lock",
+    ".gitignore", ".gitattributes", "README.md", "pyproject.toml", "uv.lock", "poetry.lock",
     "requirements.txt", "requirements-dev.txt", "environment.yml",
     "environment.yaml", "LICENSE", "LICENSE.md", "NOTICE", "NOTICE.md",
 }
@@ -122,7 +122,7 @@ def _allowed_code(relative: str) -> bool:
     if any(
         part.startswith(".")
         and not (i == 0 and part == ".github")
-        and not (len(parts) == 1 and part == ".gitignore")
+        and not (len(parts) == 1 and part in {".gitignore", ".gitattributes"})
         and not (parts[0] == "deployment" and i == len(parts) - 1 and part == ".dockerignore")
         for i, part in enumerate(parts)
     ):
@@ -147,7 +147,8 @@ def _allowed_code(relative: str) -> bool:
     if top == "tools":
         return path.suffix in SOURCE_SUFFIXES
     if top == "deployment":
-        return path.suffix in DEPLOY_SUFFIXES or path.name == "Dockerfile"
+        return (path.suffix in DEPLOY_SUFFIXES or path.name == "Dockerfile"
+                or rel == "deployment/licenses/NVIDIA_OPEN_MODEL_AGREEMENT_2026-04-02.pdf")
     return False
 
 

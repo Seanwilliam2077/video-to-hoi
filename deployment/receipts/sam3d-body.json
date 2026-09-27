@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "sam3d-body",
+  "status": "complete",
+  "source": {
+    "kind": "huggingface",
+    "repo_id": "facebook/sam-3d-body-dinov3",
+    "revision": "11aaa346c7204874a1cbafe3d39a979080b2c55a",
+    "license": "SAM License",
+    "gated": "manual"
+  },
+  "target": "weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3",
+  "asset_spec_sha256": "57fd4c995ce99c96709250da57b8db341e9cf827db2cd83e2f8f50b28a353903",
+  "files": [
+    {
+      "path": "weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/assets/mhr_model.pt",
+      "bytes": 696110248,
+      "sha256": "352e271a6c42729c68554ceaea0c955e866970160c31e35506d782dc0f7377bc"
+    },
+    {
+      "path": "weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/LICENSE",
+      "bytes": 8204,
+      "sha256": "b3a5a0e2d973ab80e6610ccf1cffc40756050d0ace3cd4fec879b3ec290b2e9b"
+    },
+    {
+      "path": "weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/model.ckpt",
+      "bytes": 2109129346,
+      "sha256": "b5a2f9d305dd02626b967aa2e86021fba07065df66ce7a7e00ffb9664f150abf"
+    },
+    {
+      "path": "weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/model_config.yaml",
+      "bytes": 1488,
+      "sha256": "1012fc3f39cb5e90e3f8fbadf7bded31604bfafdce0321d17a7c1a2d3f08b88d"
+    },
+    {
+      "path": "weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/README.md",
+      "bytes": 5761,
+      "sha256": "93d4d9b963b2b8d30c465f3b7b06843576e0c0a8c12711a8d03c9dc47817ddba"
+    }
+  ]
+}

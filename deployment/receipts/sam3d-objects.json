@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "sam3d-objects",
+  "status": "complete",
+  "source": {
+    "kind": "huggingface",
+    "repo_id": "facebook/sam-3d-objects",
+    "revision": "2e73555018d2741ccd486e56c24fac41155a1dc6",
+    "license": "SAM License",
+    "gated": "manual"
+  },
+  "target": "weights/sam3d/hf-download",
+  "asset_spec_sha256": "6207fd7b41ead7d456c8ec75d8397183b3c0c799f29ea86cf00b24d1aeafa5e5",
+  "files": [
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/pipeline.yaml",
+      "bytes": 3548,
+      "sha256": "53c3d226b21df85c0bb3d16e6e4fa63abde0d6167525765eb929d02bfa9d358c"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_decoder_gs.ckpt",
+      "bytes": 171476155,
+      "sha256": "f8077c36a06eaf890dd93cda1937411f793dea1eb80b3dd9329f2038ba84a111"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_decoder_gs.yaml",
+      "bytes": 576,
+      "sha256": "53f054e02a0c185f0a6885d30bb6ca0ec92efe0a98148688e7f05f7c26afe670"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_decoder_gs_4.ckpt",
+      "bytes": 170269801,
+      "sha256": "731a0eceaa47945b52aa27f650d695b2aea9cc70945751e5609e5cb5b49f0186"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_decoder_gs_4.yaml",
+      "bytes": 575,
+      "sha256": "3d1dfd4c56cdac56f30e0cf5eb310d4df973fe25c60ac0a462c86ca4e3bf8b48"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_decoder_mesh.ckpt",
+      "bytes": 363726862,
+      "sha256": "85907b37b67d8ce5b099a96629bdcfbd873eb407dee6b3aa9a75deb15038db33"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_decoder_mesh.pt",
+      "bytes": 363728714,
+      "sha256": "93333fcd57a3e36ded0b3bca6969e05ce2b35142029dadab514f41df46d2f985"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_decoder_mesh.yaml",
+      "bytes": 300,
+      "sha256": "8f46952764aa985c50109a56f0b4f07625cdb06457aaded74957d26f3520c69e"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_encoder.ckpt",
+      "bytes": 173263986,
+      "sha256": "6485623145535f42c8afa4cbb68ab9953e54e2f0c1cb1eaf95dcb41051e10181"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_encoder.yaml",
+      "bytes": 268,
+      "sha256": "ca80da7f1395a2acef9c6cea30ec3ccc89321ef890c644860f316a4ef1e8ebdb"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_generator.ckpt",
+      "bytes": 4906537684,
+      "sha256": "91529bde8e7daa12d09618a66c319e3a5a6398db6b23b958cedcb1c3f28faabb"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/slat_generator.yaml",
+      "bytes": 1986,
+      "sha256": "53029fadff6fe34a0344381a16d64d65d0567d603484952712e8969319559c4e"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/ss_decoder.ckpt",
+      "bytes": 147609242,
+      "sha256": "6dac1cd7b7fda5a38e0614fadae441f1794f80e39ea2981f1ac8aff0a7e99340"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/ss_decoder.yaml",
+      "bytes": 244,
+      "sha256": "baacff269b664f84f7aa1896ebd66128065f6568cdb88d419d5c3d2ccb4193ae"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/ss_encoder.ckpt",
+      "bytes": 119085402,
+      "sha256": "dcc47810ac568b11fe6e4821ea1c8d6b960dfbda3e5f68e94c19f44b3bf9e83b"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/ss_encoder.yaml",
+      "bytes": 231,
+      "sha256": "d3df5e18b2cbe87697d319adce0fe7e4fb6266809ad9d2f8c502761739bc4a06"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/ss_generator.ckpt",
+      "bytes": 6690136964,
+      "sha256": "225f40479e4cff4f39d6fa14c55be3abad1475bf55b61af3bec1e19ed2f6c146"
+    },
+    {
+      "path": "weights/sam3d/hf-download/checkpoints/ss_generator.yaml",
+      "bytes": 5076,
+      "sha256": "3c265448bca7c057f94e3ef56adea3a895a10bcd9f15f992a41dd03fa35412cd"
+    },
+    {
+      "path": "weights/sam3d/hf-download/LICENSE",
+      "bytes": 8204,
+      "sha256": "b3a5a0e2d973ab80e6610ccf1cffc40756050d0ace3cd4fec879b3ec290b2e9b"
+    },
+    {
+      "path": "weights/sam3d/hf-download/README.md",
+      "bytes": 7708,
+      "sha256": "0181e7ad54cc11501d467b427f2bc3a0509245f0256b2b7a2f8b216b1e104944"
+    }
+  ]
+}

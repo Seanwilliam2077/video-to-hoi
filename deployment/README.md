@@ -1,6 +1,6 @@
 # Deployment preparation (Linux x86_64)
 
-This directory records the software and asset inputs for a future Track 1 run. It is preparation material, not a deployed or validated GPU environment. The source ZIP can be uploaded manually; no SSH connection or server has been selected yet. Do not use Track 2 data, assets, trajectories, or reference meshes.
+This directory records the software and asset inputs for a future Track 1 run. It is preparation material, not a deployed or validated GPU environment. The owner currently requests downloads and a GitHub handoff only; server deployment and model execution are deferred. The source ZIP can be uploaded manually; no SSH connection has been made. Do not use Track 2 data, assets, trajectories, or reference meshes.
 
 ## What is pinned
 
@@ -9,7 +9,8 @@ This directory records the software and asset inputs for a future Track 1 run. I
 | `requirements/requirements.bootstrap.in` and `.txt` | CPython 3.10, Linux x86_64 download/build tooling. `huggingface_hub==1.32.0` is a direct pin; `.txt` pins its resolved Python dependencies. |
 | `requirements/requirements.core.lock` | The 26 host runtime packages resolved from this repository's `pyproject.toml` for CPython 3.10 and manylinux2014 x86_64. It excludes optional SOMA-X, PyTorch, and CUDA packages. |
 | `requirements/upstream-containers.lock.json` | The upstream `video_to_data` commit and SHA-256 of its SAM2, SAM3D, SAM3D-Body/MHR, and CARI4D Dockerfiles, plus their Git refs and unresolved dependencies. |
-| `assets.lock.json` | Model and source identities, revisions, access requirements, and destination paths consumed by `tools/fetch_assets.py`. |
+| `assets.lock.json` | Historical model/source identities, revisions, access requirements, and destination paths consumed by `tools/fetch_assets.py`; retained unchanged to preserve receipt identity. |
+| `model-redistribution.json` and `licenses/` | Redistribution review for the three approved Hugging Face models, bound to their asset-spec hashes and full license/notice bytes. |
 
 The host lock and model containers are **separate environments**. In particular, the host lock resolves NumPy 2.2.6, while the upstream CARI4D container constrains NumPy to 1.26.3. Do not install the host lock into the CARI4D image.
 
@@ -90,11 +91,11 @@ py -m pip install gdown==5.2.0
 py tools/download_foundationpose.py --root "C:/Video TO HOI/artifacts/preparation"
 ```
 
-If the user has already placed both folders under the target paths in `assets.lock.json`, run the same script with `--register-only` to validate and register those local files without a Drive request. The script checks both `model_best.pth` and `config.yml`, rejects missing/empty files and HTML error pages, and records local size/SHA-256 in `.receipts/`. Upstream SHA-256 values are unavailable: these receipts check later transfer integrity, not upstream authenticity or model inference. Both FoundationPose entries are now registered, bringing the completed required-model count to **9 / 12**; the other three require gated Hugging Face access.
+If the user has already placed both folders under the target paths in `assets.lock.json`, run the same script with `--register-only` to validate and register those local files without a Drive request. The script checks both `model_best.pth` and `config.yml`, rejects missing/empty files and HTML error pages, and records local size/SHA-256 in `.receipts/`. Upstream SHA-256 values are unavailable: these receipts check later transfer integrity, not upstream authenticity or model inference. Both FoundationPose entries are registered. The three Hugging Face approvals have also been granted, fresh checks succeeded, and all 28 newly selected files were downloaded and verified. The completed required-model count is now **12 / 12**.
 
-The default bundle contains source and manifests only. If verified, permitted assets are later included with `--receipts artifacts/.receipts --asset-root artifacts` when creating a new bundle. A skipped gated asset is incomplete and cannot be treated as verified.
+The default bundle contains source and manifests only. Verified permitted assets can be included with `--receipts artifacts/.receipts --asset-root artifacts`. The general bundle tool still excludes gated models. The three reviewed models use `tools/prepare_model_release.py`, which requires matching receipts and the separate redistribution policy. See [MODEL_RELEASES.md](MODEL_RELEASES.md) for packaging and restoration; a permission check alone never substitutes for downloaded-file verification.
 
-The existing `video-to-hoi-public-assets-20260927.zip` contains the original seven model entries. The `video-to-hoi-foundationpose-addon-20260927.zip` carries the two newly verified folders, their receipts, and current project code. Extract the original public-assets ZIP first, then overlay the add-on. Neither ZIP contains the three gated models.
+The existing `video-to-hoi-public-assets-20260927.zip` contains the original seven model entries. The `video-to-hoi-foundationpose-addon-20260927.zip` carries the two newly verified folders, their receipts, and current project code. Extract the original public-assets ZIP first, then overlay the add-on. Neither existing ZIP contains the three newly approved models. Their separately reviewed [release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927) is currently being uploaded as a draft; after publication, restore and extract the three model ZIPs into the same root, then run `python tools/fetch_assets.py verify --root . --group all`. Local preparation already verifies all 24 source/model receipts and 7,930 files. The model scope is 23,731,473,555 bytes including cache refs. This handoff does not install or run the models.
 
 ## GPU and native boundaries
 

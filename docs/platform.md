@@ -1,5 +1,7 @@
 # Remote platform and baseline deployment
 
+Persistent owner constraint, reaffirmed 2026-09-27: Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
+
 Status: all required model downloads verified; GitHub model release published and verified,
 2026-09-27. The owner requested acquisition and GitHub handoff only. Deployment
 and model execution remain deferred. The owner

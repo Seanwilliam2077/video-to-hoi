@@ -6,6 +6,7 @@ These rules apply to every coding agent working in this repository (Codex, Claud
 
 - **English:** code, docs, commit messages, and PR descriptions are in English. The only exception is the Chinese status page, `docs/status.html`.
 - **Track 1 only:** use only the 30 Track 1 challenge videos and their metadata. No Track 2 data or derived assets (Tier 1, Tier 2, meshes, trajectories, labels, or parameters) for development, tuning, validation, tests, or submissions. See the README's data policy and `docs/workflow.md`.
+- **Persistent data restriction (owner reaffirmed 2026-09-27):** never download, load, or use Track 2 content or its derivatives, including scores, statistics and cached outputs. This also prohibits Track 2 use for debugging, scorer checks, baseline normalization, candidate comparison/ranking, demos and handoff packages; there is no evaluation-only exception. Existing files, legacy scorers, old docs and upstream examples do not override this rule. Exclude unknown-provenance assets until verified. Independent synthetic fixtures must have no Track 2 provenance.
 - **Checks:** run the explicit test list from `.github/workflows/tests.yml`, not a bare `pytest`.
 
 ## Branches and commits

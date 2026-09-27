@@ -41,6 +41,10 @@ h1 { font-size: 30px; line-height: 1.3; margin: 4px 0 0; text-wrap: balance; }
 @media (max-width: 640px) { .count { text-align: left; } }
 .count .n { font-size: 44px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
 .count .l { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.clock { display: flex; gap: 6px; justify-content: flex-end; margin: 8px 0 6px; font-size: 13px; color: var(--muted); }
+@media (max-width: 640px) { .clock { justify-content: flex-start; } }
+.clock span { display: inline-flex; align-items: baseline; gap: 2px; }
+.clock b { display: inline-block; min-width: 2.2ch; padding: 2px 5px; border-radius: 6px; background: var(--subtle); border: 1px solid var(--border); color: var(--fg); font-size: 18px; text-align: center; font-variant-numeric: tabular-nums; }
 section { margin-top: 40px; }
 h2 { font-size: 20px; margin: 0 0 14px; }
 p { margin: 0 0 12px; max-width: 70ch; }
@@ -143,10 +147,13 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 9 月 27 日</div>
       <h1>框架已搭好，AI 模型还没开始运行</h1>
     </div>
-    <div class="count" aria-label="距比赛截止">
+    <div class="count">
       <div class="l">距比赛截止还有</div>
-      <div class="n" id="days">39 天</div>
-      <div class="l">北京时间 11 月 5 日 早 6:00</div>
+      <div class="n" id="cd-days">38 天</div>
+      <div class="clock" id="cd-clock" role="timer" aria-label="距比赛截止的剩余时间">
+        <span><b id="cd-h">--</b>时</span><span><b id="cd-m">--</b>分</span><span><b id="cd-s">--</b>秒</span>
+      </div>
+      <div class="l">截止：北京时间 11 月 5 日 早 6:00<br>（美东时间 11 月 4 日 17:00）</div>
     </div>
   </header>
 
@@ -379,8 +386,28 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
 
 <script>
 (function () {
-  var days = Math.ceil((Date.parse("2026-11-04T22:00:00Z") - Date.now()) / 86400000);
-  var el = document.getElementById("days");
-  if (el) el.textContent = days > 0 ? days + " 天" : "已截止";
+  // Deadline: 2026-11-04 17:00 EST = 2026-11-05 06:00 Beijing = 22:00 UTC.
+  var deadline = Date.parse("2026-11-04T22:00:00Z");
+  var days = document.getElementById("cd-days");
+  var clock = document.getElementById("cd-clock");
+  var parts = { h: document.getElementById("cd-h"), m: document.getElementById("cd-m"), s: document.getElementById("cd-s") };
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function tick() {
+    var left = deadline - Date.now();
+    if (left <= 0) {
+      days.textContent = "已截止";
+      clock.hidden = true;
+      return false;
+    }
+    var sec = Math.floor(left / 1000);
+    days.textContent = Math.floor(sec / 86400) + " 天";
+    parts.h.textContent = pad(Math.floor(sec % 86400 / 3600));
+    parts.m.textContent = pad(Math.floor(sec % 3600 / 60));
+    parts.s.textContent = pad(sec % 60);
+    return true;
+  }
+  if (tick()) {
+    var timer = setInterval(function () { if (!tick()) clearInterval(timer); }, 1000);
+  }
 })();
 </script>

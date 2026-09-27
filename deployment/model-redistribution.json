@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-09-27",
+  "assets": [
+    {
+      "id": "cari4d",
+      "revision": "1f7287ac6fd5f72c30ce2222fb345a3e7d779fc9",
+      "asset_spec_sha256": "6b985778fb01051b5cfff2e01038b59684e949dd0a32e6ad0912e128f71785cc",
+      "redistribution_allowed": true,
+      "license_name": "NVIDIA Open Model Agreement",
+      "license_url": "https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-agreement/",
+      "evidence": [
+        "https://huggingface.co/nvidia/cari4d_commercial/blob/6e064f8b261599a4e563d72cb8457256929d7455/README.md",
+        "https://huggingface.co/nvidia/cari4d_commercial/blob/1f7287ac6fd5f72c30ce2222fb345a3e7d779fc9/2026-08-25-09-35-57/step200000.pth",
+        "https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-agreement/",
+        "https://www.nvidia.com/content/dam/en-zz/Solutions/license-agreements/enterprise-services/nvidia-open-model-agreement-2026-04-02.pdf"
+      ],
+      "notices": [
+        {
+          "path": "deployment/licenses/NVIDIA_OPEN_MODEL_AGREEMENT_2026-04-02.pdf",
+          "sha256": "679cc672f7c10322db9426b1e0f4b1dc48148438e3c9e9133228ab13c00ec13c"
+        },
+        {
+          "path": "deployment/licenses/cari4d-model-card.md",
+          "sha256": "fa3c521fb47f9965386a9569e562af414d6227e8db21c77a4658aa30184ec2f5"
+        },
+        {
+          "path": "deployment/licenses/MODEL_NOTICE.md",
+          "sha256": "0c781a070fbf9901c78a76e10b79ed2ba25ac04e2f66adf370674238aaef2eb2"
+        }
+      ]
+    },
+    {
+      "id": "sam3d-body",
+      "revision": "11aaa346c7204874a1cbafe3d39a979080b2c55a",
+      "asset_spec_sha256": "57fd4c995ce99c96709250da57b8db341e9cf827db2cd83e2f8f50b28a353903",
+      "redistribution_allowed": true,
+      "license_name": "SAM License",
+      "license_url": "https://huggingface.co/facebook/sam-3d-body-dinov3/blob/11aaa346c7204874a1cbafe3d39a979080b2c55a/LICENSE",
+      "evidence": [
+        "https://huggingface.co/facebook/sam-3d-body-dinov3/blob/11aaa346c7204874a1cbafe3d39a979080b2c55a/LICENSE",
+        "https://huggingface.co/facebook/sam-3d-body-dinov3/blob/11aaa346c7204874a1cbafe3d39a979080b2c55a/README.md",
+        "https://github.com/facebookresearch/MHR/blob/d96fafa33bbf018647c70c3525e91f53e79d2a14/LICENSE",
+        "https://github.com/facebookresearch/MHR/blob/d96fafa33bbf018647c70c3525e91f53e79d2a14/README.md"
+      ],
+      "notices": [
+        {
+          "path": "deployment/licenses/SAM_LICENSE.txt",
+          "sha256": "b3a5a0e2d973ab80e6610ccf1cffc40756050d0ace3cd4fec879b3ec290b2e9b"
+        },
+        {
+          "path": "deployment/licenses/MODEL_NOTICE.md",
+          "sha256": "0c781a070fbf9901c78a76e10b79ed2ba25ac04e2f66adf370674238aaef2eb2"
+        },
+        {
+          "path": "deployment/licenses/MHR_LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ]
+    },
+    {
+      "id": "sam3d-objects",
+      "revision": "2e73555018d2741ccd486e56c24fac41155a1dc6",
+      "asset_spec_sha256": "6207fd7b41ead7d456c8ec75d8397183b3c0c799f29ea86cf00b24d1aeafa5e5",
+      "redistribution_allowed": true,
+      "license_name": "SAM License",
+      "license_url": "https://huggingface.co/facebook/sam-3d-objects/blob/2e73555018d2741ccd486e56c24fac41155a1dc6/LICENSE",
+      "evidence": [
+        "https://huggingface.co/facebook/sam-3d-objects/blob/2e73555018d2741ccd486e56c24fac41155a1dc6/LICENSE",
+        "https://huggingface.co/facebook/sam-3d-objects/blob/2e73555018d2741ccd486e56c24fac41155a1dc6/README.md"
+      ],
+      "notices": [
+        {
+          "path": "deployment/licenses/SAM_LICENSE.txt",
+          "sha256": "b3a5a0e2d973ab80e6610ccf1cffc40756050d0ace3cd4fec879b3ec290b2e9b"
+        },
+        {
+          "path": "deployment/licenses/MODEL_NOTICE.md",
+          "sha256": "0c781a070fbf9901c78a76e10b79ed2ba25ac04e2f66adf370674238aaef2eb2"
+        }
+      ]
+    }
+  ]
+}

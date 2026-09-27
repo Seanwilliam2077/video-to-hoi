@@ -25,6 +25,8 @@ jobs:
           tests/test_dataset.py
           tests/test_fetch_assets.py
           tests/test_download_foundationpose.py
+          tests/test_model_release_prepare.py
+          tests/test_model_release_restore.py
           tests/test_geometry.py
           tests/test_metrics.py
           tests/test_run.py

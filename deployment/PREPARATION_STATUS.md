@@ -28,11 +28,11 @@ The following artifacts are generated under `dist/` on the preparation machine a
 
 | ZIP | Contents | Checksum companion |
 | --- | --- | --- |
-| `video-to-hoi-code-20260927.zip` | Project source, preparation tools, docs, locks, and verification records | Same filename plus `.sha256` |
-| `video-to-hoi-public-assets-20260927.zip` | Project code plus all 12 source trees, 7 public models, and their portable `.receipts/` | Same filename plus `.sha256` |
+| `video-to-hoi-code-latest-20260927.zip` | Project source, updated progress page, preparation tools, docs, locks, and verification records | Same filename plus `.sha256` |
+| `video-to-hoi-public-assets-20260927.zip` | Preparation snapshot `6dc5903` plus all 12 source trees, 7 public models, and their portable `.receipts/` | Same filename plus `.sha256` |
 | `linux-cp310-wheelhouse.zip` | 28 locked host/bootstrap wheels and their manifest | `linux-cp310-wheelhouse.sha256` |
 
-The public-assets ZIP already includes the project code. Extract it into a fresh directory, preserve its folder structure, then verify the public scope without network access:
+Extract the public-assets ZIP into a fresh directory, then extract the latest code ZIP over it to bring the project status page and docs up to date. Preserve the folder structure. The later code ZIP has the same asset lock and does not overwrite `weights/`, `third_party/`, or `.receipts/`. Verify the public scope without network access:
 
 ```bash
 python tools/fetch_assets.py verify --root . --skip-gated

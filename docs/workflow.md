@@ -67,6 +67,12 @@ The Track 1-only quantitative evaluator, automated baseline comparison, and data
 
 A stage can be developed against a fixed Track 1 upstream run using `--upstream`. For example, a human backend can run with `--dataset track1 --episodes 0 6 9 16 24 --upstream runs/baseline-vN --stages human refine export --backend human=<name>`. This is a run command, not a score command. Use only Track 1-derived upstream artifacts; a fake upstream verifies plumbing but cannot establish reconstruction quality.
 
+## Progress reporting after each task
+
+The project owner requests an update to the [project progress page](https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1) after completed project work. Keep its versioned source, [status.html](status.html), current as part of task completion. This Chinese page is intended for leadership and product updates; preserve its existing layout and explain progress in plain language.
+
+Record the update date, completed deliverables, what was actually verified, outstanding blockers, and the next required action. Link to the supporting PR or run artifacts. Distinguish downloaded files, installed environments, synthetic tests, real baselines, and official submissions. Publish the updated artifact through an available authorized editing session. If direct publication is unavailable, deliver the updated source and explicitly state that the public Claude URL has not been republished; a Git commit alone does not update that URL.
+
 ## Weekly integration
 
 - **Tuesday:** merge reviewed PRs, run `dev-full` on Track 1 with the newest real backends, inspect coverage and visual evidence, and pin the result as the next baseline (`runs/baseline-vN`, never overwritten). Everyone moves their `--upstream` to it.

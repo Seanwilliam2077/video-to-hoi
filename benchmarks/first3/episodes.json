@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "dataset": "track1",
+  "selection": "first three by episode index, complete videos",
+  "object": "hula_hoop",
+  "camera": "back_stereo_camera_left",
+  "verified_by": "full CPU video decoding and SHA-256; no model execution",
+  "total_frames": 2324,
+  "episodes": [
+    {
+      "id": 0,
+      "frames": 790,
+      "fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "bytes": 21716125,
+      "video_sha256": "1eb6293e4552397668a5013adbcee95e0bf230dd8c79a594aa7d7f8ea4991ab1",
+      "source_path": "videos/chunk-000/observation.images.exo_camera/episode_000000.mp4",
+      "video": "videos/episode_000000.0.color.mp4",
+      "source_revision": "5f68335f3acc802033d1e80728c1633197521de8",
+      "source_url": "https://huggingface.co/datasets/nvidia/video_to_data_challenge/resolve/5f68335f3acc802033d1e80728c1633197521de8/track_1/videos/chunk-000/observation.images.exo_camera/episode_000000.mp4"
+    },
+    {
+      "id": 1,
+      "frames": 668,
+      "fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "bytes": 18324428,
+      "video_sha256": "1198635d7f04f73aa9466e02d105fa89b3630b2aa92a5e4f249898023ecfed30",
+      "source_path": "videos/chunk-000/observation.images.exo_camera/episode_000001.mp4",
+      "video": "videos/episode_000001.0.color.mp4",
+      "source_revision": "5f68335f3acc802033d1e80728c1633197521de8",
+      "source_url": "https://huggingface.co/datasets/nvidia/video_to_data_challenge/resolve/5f68335f3acc802033d1e80728c1633197521de8/track_1/videos/chunk-000/observation.images.exo_camera/episode_000001.mp4"
+    },
+    {
+      "id": 2,
+      "frames": 866,
+      "fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "bytes": 28822754,
+      "video_sha256": "2ccb43dd362c2a430d341611e888ef1ea79e3a3989e8af2a015d34e0b2196747",
+      "source_path": "videos/chunk-000/observation.images.exo_camera/episode_000002.mp4",
+      "video": "videos/episode_000002.0.color.mp4",
+      "source_revision": "5f68335f3acc802033d1e80728c1633197521de8",
+      "source_url": "https://huggingface.co/datasets/nvidia/video_to_data_challenge/resolve/5f68335f3acc802033d1e80728c1633197521de8/track_1/videos/chunk-000/observation.images.exo_camera/episode_000002.mp4"
+    }
+  ],
+  "source_repository": "https://huggingface.co/datasets/nvidia/video_to_data_challenge",
+  "revision_evidence": "Existing Hugging Face per-file download metadata; content hashes independently checked locally."
+}

@@ -1,0 +1,15 @@
+{
+  "python": "/path/to/host-wrapper-env/bin/python",
+  "python_by_candidate": {
+    "moge2": "/path/to/moge-env/bin/python",
+    "moge3": "/path/to/moge-env/bin/python"
+  },
+  "assets": "/path/to/combined-assets",
+  "toolkit": "/path/to/combined-assets/third_party/video_to_data",
+  "shared": "/path/to/frozen-track1-upstream",
+  "paths": {
+    "moge3_checkpoint": "/path/to/moge3/model.pt"
+  },
+  "machine_id": null,
+  "environment_id": null
+}

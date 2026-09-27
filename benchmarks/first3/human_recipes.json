@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "recipes": [
+    {
+      "id": "sam3d_body_mhr",
+      "module": 2,
+      "group": "independent_body_mhr",
+      "repository": "https://github.com/nvidia-isaac/video_to_data",
+      "revision": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+      "status": "needs_track1_upstream",
+      "blockers": [
+        "Track 1 human masks and CameraIntrinsics JSON must be generated and provenance-audited for each episode.",
+        "The pinned Docker image and GPU runtime have not been built or validated on the remote host."
+      ],
+      "required_paths": [
+        {"path": "{video}", "kind": "file"},
+        {"path": "{shared}/episode_{episode6}/metadata.json", "kind": "file"},
+        {"path": "{shared}/episode_{episode6}/human_masks", "kind": "directory"},
+        {"path": "{shared}/episode_{episode6}/intrinsics.json", "kind": "file"},
+        {"path": "{assets}/weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/model.ckpt", "kind": "file"},
+        {"path": "{assets}/weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/assets/mhr_model.pt", "kind": "file"},
+        {"path": "{assets}/weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main", "kind": "directory"}
+      ],
+      "steps": [
+        {
+          "name": "estimate_mhr",
+          "argv": [
+            "{python}", "-m", "v2d.sam3d_body.docker.run_estimate_mhr_params",
+            "--rgb_path", "{video}",
+            "--mask_path", "{shared}/episode_{episode6}/human_masks",
+            "--cam_intrinsics_path", "{shared}/episode_{episode6}/intrinsics.json",
+            "--weights_dir", "{assets}/weights/cari4d/sam3d_body",
+            "--output_params_path", "{output}/mhr_params.pt",
+            "--output_mesh_path", "{output}/mhr_mesh.pt"
+          ],
+          "cwd": "{toolkit}/reconstruction"
+        }
+      ],
+      "expected_outputs": [
+        "mhr_params.pt",
+        "mhr_params.pt.meta.json",
+        "mhr_mesh.pt"
+      ],
+      "notes": "Official pinned video_to_data wrapper uses --rgb_path, despite its older README example using --video_path. The output is per-frame native MHR parameters and mesh, without temporal HOI refinement. Shared intrinsics avoid the optional standalone Body MoGe FOV download. Output existence alone does not establish full-frame coverage or reconstruction quality."
+    },
+    {
+      "id": "cari4d_joint_mhr",
+      "module": 2,
+      "group": "joint_hoi_mhr",
+      "repository": "https://github.com/nvidia-isaac/video_to_data",
+      "revision": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+      "status": "needs_track1_upstream",
+      "blockers": [
+        "Track 1 human and object masks must be packed into the required H5 schema; the metric object mesh must be reconstructed from Track 1 rather than supplied as a reference.",
+        "The input video must be a byte-identical, provenance-recorded copy named episode_{episode6}.0.color.mp4.",
+        "The pinned Docker image and GPU runtime have not been built or validated on the remote host."
+      ],
+      "required_paths": [
+        {"path": "{video}", "kind": "file"},
+        {"path": "{shared}/episode_{episode6}/metadata.json", "kind": "file"},
+        {"path": "{shared}/episode_{episode6}/human_masks", "kind": "directory"},
+        {"path": "{shared}/episode_{episode6}/object_masks", "kind": "directory"},
+        {"path": "{shared}/episode_{episode6}/masks.h5", "kind": "file"},
+        {"path": "{shared}/episode_{episode6}/object_mesh.glb", "kind": "file"},
+        {"path": "{assets}/weights/cari4d/cari4d/2026-08-25-09-35-57/step200000.pth", "kind": "file"},
+        {"path": "{assets}/weights/cari4d/cari4d/2026-08-25-09-35-57/resolved_config.yaml", "kind": "file"},
+        {"path": "{assets}/weights/cari4d/cari4d/2026-08-25-09-35-57/manifest.json", "kind": "file"},
+        {"path": "{assets}/weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/model.ckpt", "kind": "file"},
+        {"path": "{assets}/weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/assets/mhr_model.pt", "kind": "file"},
+        {"path": "{assets}/weights/cari4d/foundationpose/nvlabs_pytorch", "kind": "directory"},
+        {"path": "{assets}/weights/cari4d/hf_home/hub", "kind": "directory"}
+      ],
+      "steps": [
+        {
+          "name": "joint_hoi_inference",
+          "argv": [
+            "{python}", "-m", "v2d.cari4d.docker.run_inference",
+            "--video_path", "{video}",
+            "--mask_h5_path", "{shared}/episode_{episode6}/masks.h5",
+            "--object_mesh_path", "{shared}/episode_{episode6}/object_mesh.glb",
+            "--weights_path", "{assets}/weights/cari4d",
+            "--output_dir", "{output}",
+            "--expected_frames", "{frames}",
+            "--skip_weight_download"
+          ],
+          "cwd": "{toolkit}/reconstruction"
+        }
+      ],
+      "expected_outputs": [
+        "episode_*/mhr_init/*.pkl",
+        "episode_*/inference/refined.pth",
+        "episode_*/pipeline_report.json"
+      ],
+      "notes": "CARI4D jointly estimates human MHR and rigid-object motion, starting from SAM 3D Body. The final refined.pth bundle contains per-frame 'frames' and a 'pr' block with MHR parameters; pipeline_report.json records stage identities. This group consumes additional Track 1-derived masks and metric mesh, so it is an ablation or end-to-end candidate, not a directly rankable independent-human baseline. Glob matches only confirm files exist, not complete frames or quality."
+    }
+  ],
+  "research_candidates": [
+    {
+      "id": "gvhmr",
+      "module": 2,
+      "repository": "https://github.com/zju3dv/GVHMR",
+      "revision": "ee960bb6e2ea2d381aa97f08e9b71ef320b624b1",
+      "blockers": [
+        "Official model and detector weights plus SMPL-X/SMPL files are not in the prepared asset set.",
+        "Official weights are distributed through Google Drive, which Codex cannot access in this organization.",
+        "SMPL-family output needs a documented conversion and metric/camera alignment before MHR comparison; the code license restricts use to educational, research, and non-profit purposes."
+      ]
+    },
+    {
+      "id": "wham",
+      "module": 2,
+      "repository": "https://github.com/yohanshin/WHAM",
+      "revision": "2b54f7797391c94876848b905ed875b154c4a295",
+      "blockers": [
+        "Official WHAM, detector, and pose-estimator weights and separately licensed SMPL files are not in the prepared asset set.",
+        "Official demo data are fetched from Google Drive, which Codex cannot access in this organization.",
+        "SMPL-family output needs a documented conversion and metric/camera alignment before MHR comparison; its historical CUDA stack has not been validated on the remote GPU."
+      ]
+    }
+  ]
+}

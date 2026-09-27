@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "frozen": false,
+  "scope": "internal diagnostics only; freeze references and runtime before results",
+  "episodes": [
+    {
+      "id": 0,
+      "frames": 790,
+      "video_sha256": "1eb6293e4552397668a5013adbcee95e0bf230dd8c79a594aa7d7f8ea4991ab1"
+    },
+    {
+      "id": 1,
+      "frames": 668,
+      "video_sha256": "1198635d7f04f73aa9466e02d105fa89b3630b2aa92a5e4f249898023ecfed30"
+    },
+    {
+      "id": 2,
+      "frames": 866,
+      "video_sha256": "2ccb43dd362c2a430d341611e888ef1ea79e3a3989e8af2a015d34e0b2196747"
+    }
+  ],
+  "groups": [
+    {
+      "id": "depth",
+      "module": 1,
+      "evaluator": {
+        "id": "track1-internal-diagnostics",
+        "version": "draft-v1",
+        "config": {
+          "official_score": false
+        }
+      },
+      "upstream_fingerprint": "pending:freeze-real-track1-upstream",
+      "reference_fingerprint": "pending:freeze-independent-video-observations",
+      "budget": {
+        "episodes": [
+          0,
+          1,
+          2
+        ],
+        "full_frames": true,
+        "fps": 30,
+        "resolution": [
+          1536,
+          1152
+        ],
+        "hardware": "pending",
+        "prompt_budget": "pending-per-group"
+      },
+      "metrics": [
+        {
+          "id": "wall_seconds",
+          "direction": "min",
+          "unit": "s"
+        },
+        {
+          "id": "valid_pixel_fraction",
+          "direction": "max",
+          "unit": "fraction"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "moge2"
+        },
+        {
+          "id": "moge3"
+        }
+      ]
+    },
+    {
+      "id": "segmentation_prompted",
+      "module": 1,
+      "evaluator": {
+        "id": "track1-internal-diagnostics",
+        "version": "draft-v1",
+        "config": {
+          "official_score": false
+        }
+      },
+      "upstream_fingerprint": "pending:freeze-real-track1-upstream",
+      "reference_fingerprint": "pending:freeze-independent-video-observations",
+      "budget": {
+        "episodes": [
+          0,
+          1,
+          2
+        ],
+        "full_frames": true,
+        "fps": 30,
+        "resolution": [
+          1536,
+          1152
+        ],
+        "hardware": "pending",
+        "prompt_budget": "pending-per-group"
+      },
+      "metrics": [
+        {
+          "id": "object_mask_iou",
+          "direction": "max",
+          "unit": "fraction"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "sam2_prompted"
+        }
+      ]
+    },
+    {
+      "id": "segmentation_text",
+      "module": 1,
+      "evaluator": {
+        "id": "track1-internal-diagnostics",
+        "version": "draft-v1",
+        "config": {
+          "official_score": false
+        }
+      },
+      "upstream_fingerprint": "pending:freeze-real-track1-upstream",
+      "reference_fingerprint": "pending:freeze-independent-video-observations",
+      "budget": {
+        "episodes": [
+          0,
+          1,
+          2
+        ],
+        "full_frames": true,
+        "fps": 30,
+        "resolution": [
+          1536,
+          1152
+        ],
+        "hardware": "pending",
+        "prompt_budget": "pending-per-group"
+      },
+      "metrics": [
+        {
+          "id": "object_mask_iou",
+          "direction": "max",
+          "unit": "fraction"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "sam3"
+        },
+        {
+          "id": "yoloe"
+        }
+      ]
+    },
+    {
+      "id": "independent_body_mhr",
+      "module": 2,
+      "evaluator": {
+        "id": "track1-internal-diagnostics",
+        "version": "draft-v1",
+        "config": {
+          "official_score": false
+        }
+      },
+      "upstream_fingerprint": "pending:freeze-real-track1-upstream",
+      "reference_fingerprint": "pending:freeze-independent-video-observations",
+      "budget": {
+        "episodes": [
+          0,
+          1,
+          2
+        ],
+        "full_frames": true,
+        "fps": 30,
+        "resolution": [
+          1536,
+          1152
+        ],
+        "hardware": "pending",
+        "prompt_budget": "pending-per-group"
+      },
+      "metrics": [
+        {
+          "id": "keypoint_reprojection_px",
+          "direction": "min",
+          "unit": "px"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "sam3d_body_mhr"
+        }
+      ]
+    },
+    {
+      "id": "joint_hoi_mhr",
+      "module": 2,
+      "evaluator": {
+        "id": "track1-internal-diagnostics",
+        "version": "draft-v1",
+        "config": {
+          "official_score": false
+        }
+      },
+      "upstream_fingerprint": "pending:freeze-real-track1-upstream",
+      "reference_fingerprint": "pending:freeze-independent-video-observations",
+      "budget": {
+        "episodes": [
+          0,
+          1,
+          2
+        ],
+        "full_frames": true,
+        "fps": 30,
+        "resolution": [
+          1536,
+          1152
+        ],
+        "hardware": "pending",
+        "prompt_budget": "pending-per-group"
+      },
+      "metrics": [
+        {
+          "id": "keypoint_reprojection_px",
+          "direction": "min",
+          "unit": "px"
+        }
+      ],
+      "candidates": [
+        {
+          "id": "cari4d_joint_mhr"
+        }
+      ]
+    },
+    {
+      "id": "temporal_mhr",
+      "module": 4,
+      "evaluator": {
+        "id": "track1-internal-diagnostics",
+        "version": "draft-v1",
+        "config": {
+          "official_score": false
+        }
+      },
+      "upstream_fingerprint": "pending:freeze-real-track1-upstream",
+      "reference_fingerprint": "pending:freeze-independent-video-observations",
+      "budget": {
+        "episodes": [
+          0,
+          1,
+          2
+        ],
+        "full_frames": true,
+        "fps": 30,
+        "resolution": [
+          1536,
+          1152
+        ],
+        "hardware": "pending",
+        "prompt_budget": "pending-per-group"
+      },
+      "metrics": [
+        {
+          "id": "keypoint_reprojection_px",
+          "direction": "min",
+          "unit": "px"
+        },
+        {
+          "id": "acceleration",
+          "direction": "min",
+          "unit": "m/s^2",
+          "requires_fidelity_gate": true
+        }
+      ],
+      "candidates": [
+        {
+          "id": "raw_cari4d"
+        },
+        {
+          "id": "smoothnet"
+        },
+        {
+          "id": "htd_refine"
+        },
+        {
+          "id": "physpt"
+        }
+      ]
+    }
+  ]
+}

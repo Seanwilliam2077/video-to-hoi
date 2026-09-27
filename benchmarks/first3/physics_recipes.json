@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "recipes": [],
+  "research_candidates": [
+    {
+      "id": "smoothnet",
+      "module": 4,
+      "repository": "https://github.com/cure-lab/SmoothNet",
+      "revision": "c03e93e8a14f55b9aa087dced2751a7a5e2d50b0",
+      "license": "Apache-2.0",
+      "status": "mhr_adapter_and_weights_pending",
+      "blockers": [
+        "Official checkpoint handoff pending (manual Drive/Baidu route).",
+        "MHR joint/rotation mapping and constrained fitting back to valid MHR are unimplemented.",
+        "No object-contact model."
+      ]
+    },
+    {
+      "id": "htd_refine",
+      "module": 4,
+      "repository": "https://github.com/ant-research/HTD-Refine",
+      "revision": "2fcd6ddef3c4eb75a636062245f80a0136c09b7e",
+      "license": "AGPL-3.0-only",
+      "status": "mhr_adapter_and_weights_pending",
+      "blockers": [
+        "Official PVA checkpoint handoff pending (manual Drive route).",
+        "SMPL/SMPL-X implementation needs MHR forward model and joint mapping.",
+        "No ready object-contact interface."
+      ]
+    },
+    {
+      "id": "physpt",
+      "module": 4,
+      "repository": "https://github.com/zhangy76/PhysPT",
+      "revision": "40d869927e53a3cade8ba657cacdaeb993f085b8",
+      "license": "MIT code; SMPL assets separately licensed",
+      "status": "mhr_adapter_and_weights_pending",
+      "blockers": [
+        "PhysPT/GlobalTrajPredictor weights, SMPL assets and video initialization are not prepared.",
+        "SMPL24-joint/10-shape system needs MHR conversion and scale/hand preservation.",
+        "Human-ground physics cannot establish human-object contact quality."
+      ]
+    }
+  ]
+}

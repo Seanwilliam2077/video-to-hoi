@@ -12,6 +12,10 @@ Start with [deployment/README.md](deployment/README.md) for the source ZIP, pinn
 
 **New model download:** [CARI4D, SAM3D Body, and SAM3D Objects (18 GB / 11 parts)](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927). The release includes a manifest, SHA-256 checks, restore script, and model license notice. Follow [download and restore instructions](deployment/MODEL_RELEASES.md), then extract all three reconstructed ZIPs into the same handoff directory. GitHub's Source code ZIP does not contain model weights.
 
+## First-three-video comparison kit
+
+[Benchmark instructions and candidate readiness](benchmarks/first3/README.md) cover Track 1 episodes 0, 1, 2 (2,324 frames), five execution recipes, and internal per-metric ranking with missing/fairness checks. The remote entry point is not yet available: no models were run, no scores or winners are reported, and MHR adapters for the temporal research candidates remain pending.
+
 ## Team pages
 
 | Page | What it holds |
@@ -111,7 +115,7 @@ The old Track 2 self-check commands and the Tier 2-normalized internal score are
 CI runs this explicit list of independent synthetic tests, including the download/bundle tools and fake-stage wiring:
 
 ```bash
-python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_download_foundationpose.py tests/test_model_release_prepare.py tests/test_model_release_restore.py tests/test_geometry.py tests/test_metrics.py tests/test_run.py
+python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_download_foundationpose.py tests/test_model_release_prepare.py tests/test_model_release_restore.py tests/test_benchmark_first3.py tests/test_rank_first3.py tests/test_geometry.py tests/test_metrics.py tests/test_run.py
 ```
 
 These files create their own synthetic fixtures. `test_run.py` uses generated metadata and never invokes the legacy scorer. Do not run a bare `pytest`: `test_score.py` still contains Tier 2-derived benchmark assertions and can read Track 2 files when present, so CI excludes it. Passing these tests verifies the covered contracts and wiring, not real model quality, complete data provenance, or the official submission format.

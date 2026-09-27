@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "recipes": [
+    {
+      "id": "moge2",
+      "module": 1,
+      "group": "depth",
+      "repository": "https://github.com/microsoft/MoGe",
+      "revision": "74fbce054ebed49800de42d0ad0e83495065719a",
+      "model_revision": "b135031bae30b5ac2ae141a0e68717795ce38340",
+      "status": "runtime_unverified",
+      "blockers": [
+        "Remote GPU runtime and pinned MoGe environment are not installed/validated."
+      ],
+      "required_paths": [
+        {
+          "path": "{assets}/weights/cari4d/hf_home/hub/models--Ruicheng--moge-2-vitl-normal/snapshots/b135031bae30b5ac2ae141a0e68717795ce38340/model.pt",
+          "kind": "file"
+        }
+      ],
+      "steps": [
+        {
+          "name": "full_video_depth",
+          "argv": [
+            "{python}",
+            "{package}/tools/benchmark_moge_video.py",
+            "--video",
+            "{video}",
+            "--checkpoint",
+            "{assets}/weights/cari4d/hf_home/hub/models--Ruicheng--moge-2-vitl-normal/snapshots/b135031bae30b5ac2ae141a0e68717795ce38340/model.pt",
+            "--version",
+            "v2",
+            "--output",
+            "{output}/prediction",
+            "--expected-frames",
+            "{frames}"
+          ],
+          "cwd": "{package}"
+        }
+      ],
+      "expected_outputs": [
+        "prediction/execution.json",
+        "prediction/frames/000000.npz"
+      ],
+      "notes": "One complete 30fps video, batch1, original resolution, resolution_level9; v3 refine_steps3. Separate runtime per candidate; report cost separately. No reference depth or official score is available."
+    },
+    {
+      "id": "moge3",
+      "module": 1,
+      "group": "depth",
+      "repository": "https://github.com/microsoft/MoGe",
+      "revision": "74fbce054ebed49800de42d0ad0e83495065719a",
+      "model_revision": "184008f877d7ad1ad4c2cd2182a9bd1f63d0e5be",
+      "status": "runtime_unverified",
+      "blockers": [
+        "Remote GPU runtime and pinned MoGe environment are not installed/validated.",
+        "MoGe3 checkpoint is not part of the 12 prepared baseline model assets."
+      ],
+      "required_paths": [
+        {
+          "path": "{moge3_checkpoint}",
+          "kind": "file"
+        }
+      ],
+      "steps": [
+        {
+          "name": "full_video_depth",
+          "argv": [
+            "{python}",
+            "{package}/tools/benchmark_moge_video.py",
+            "--video",
+            "{video}",
+            "--checkpoint",
+            "{moge3_checkpoint}",
+            "--version",
+            "v3",
+            "--output",
+            "{output}/prediction",
+            "--expected-frames",
+            "{frames}"
+          ],
+          "cwd": "{package}"
+        }
+      ],
+      "expected_outputs": [
+        "prediction/execution.json",
+        "prediction/frames/000000.npz"
+      ],
+      "notes": "One complete 30fps video, batch1, original resolution, resolution_level9; v3 refine_steps3. Separate runtime per candidate; report cost separately. No reference depth or official score is available."
+    },
+    {
+      "id": "sam2_prompted",
+      "module": 1,
+      "group": "segmentation_prompted",
+      "repository": "https://github.com/nvidia-isaac/video_to_data",
+      "revision": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+      "status": "needs_track1_prompts",
+      "blockers": [
+        "Fixed human/object prompts drawn from each Track1 input and pinned SAM2 Docker runtime are required."
+      ],
+      "required_paths": [
+        {
+          "path": "{shared}/episode_{episode6}/prompts.json",
+          "kind": "file"
+        },
+        {
+          "path": "{shared}/episode_{episode6}/metadata.json",
+          "kind": "file"
+        },
+        {
+          "path": "{assets}/weights/sam2/sam2.1_hiera_large.pt",
+          "kind": "file"
+        }
+      ],
+      "steps": [
+        {
+          "name": "masks",
+          "argv": [
+            "{python}",
+            "-m",
+            "v2d.sam2.docker.run_video_to_masks",
+            "--video_path",
+            "{video}",
+            "--prompts_path",
+            "{shared}/episode_{episode6}/prompts.json",
+            "--masks_dir",
+            "{output}/masks",
+            "--weights_dir",
+            "{assets}/weights/sam2"
+          ],
+          "cwd": "{toolkit}/reconstruction"
+        }
+      ],
+      "expected_outputs": [
+        "masks/0/*.png",
+        "masks/1/*.png"
+      ],
+      "notes": "Fixed object IDs: human0, hula-hoop1. Prompted segmentation must not be mixed with text-only ranking."
+    }
+  ],
+  "research_candidates": [
+    {
+      "id": "sam3",
+      "module": 1,
+      "repository": "https://github.com/facebookresearch/sam3",
+      "revision": "2345a4ad109ac29c569da749c91d84f10dc08c40",
+      "status": "adapter_and_checkpoint_pending",
+      "blockers": [
+        "SAM3 video checkpoint/approval is distinct from SAM3D Body/Objects approval.",
+        "Needs normalized per-frame mask adapter and equal prompt budget."
+      ]
+    },
+    {
+      "id": "yoloe",
+      "module": 1,
+      "repository": "https://github.com/THU-MIG/yoloe",
+      "revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+      "status": "adapter_and_checkpoint_pending",
+      "blockers": [
+        "Needs pinned YOLOE and text encoder checkpoint receipts.",
+        "Needs human/object mask adapter and consistent text-only prompt evaluation."
+      ]
+    }
+  ]
+}

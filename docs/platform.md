@@ -195,3 +195,14 @@ to its existing online address after the final release update.
 ### Published add-on
 
 The [FoundationPose add-on release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927) provides the 239,097,418-byte ZIP, SHA-256 companion, and metadata. All three uploaded assets matched their local SHA-256 values reported by GitHub. The ZIP keeps its verified code snapshot `5205666`; the [release index](../deployment/releases/foundationpose-addon-20260927.json) records the permanent URLs. Extract the separately supplied public-assets base first, then this add-on. This publication adds a downloadable handoff location, not a deployed environment or real baseline result.
+
+
+## First-three-video comparison preparation (2026-09-27)
+
+The owner requested comparisons for modules 1, 2 and 4, then clarified that the remote entry point is not ready and only the test handoff should be prepared. [The kit](../benchmarks/first3/README.md) fixes Track 1 episodes 0, 1 and 2, all hula-hoop clips: 790/668/866 frames at 30 fps, original 1536 x 1152 resolution. Full CPU decoding and SHA-256 verification checked inputs only; no model execution occurred.
+
+Five recipes cover MoGe2, MoGe3, prompted SAM2, standalone SAM3D Body and joint CARI4D. SAM3/YOLOE, GVHMR/WHAM and SmoothNet/HTD-Refine/PhysPT are recorded as research candidates with source pins and explicit weight/adapter blockers. The three temporal methods do not yet have MHR adapters. MoGe3 adds a separately pinned checkpoint not included in the prior baseline model inventory. No server environment is installed or certified by this kit.
+
+The ranking tool groups comparable tasks and metrics, requires the same three complete episodes, and rejects missing or mismatched evidence. Its protocol remains unfrozen until runtime, upstream, and independent observations exist. Acceleration ranking also requires reviewed video fidelity for each episode. No official score, actual measurements or ranking is supplied. Automatic quality extraction from native candidate outputs is still to be implemented; the tool validates submitted metric records and does not prove their truth.
+
+The package keeps the original input bytes, recipe/protocol files, an empty result report and per-file checksums. Future execution must run on the selected Linux GPU machine. The previous two-baseline acceptance target remains pending; this additional hula-hoop screening does not replace it.

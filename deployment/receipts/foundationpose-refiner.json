@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "foundationpose-refiner",
+  "status": "complete",
+  "acquisition": "user_manual",
+  "source": {
+    "kind": "gdrive_folder",
+    "url": "https://drive.google.com/drive/folders/1BEQLZH69UO5EOfah-K9bfI3JyP9Hf7wC",
+    "license": "NVIDIA Source Code License; model-specific terms require review",
+    "gated": false
+  },
+  "target": "weights/cari4d/foundationpose/nvlabs_pytorch/2023-10-28-18-33-37",
+  "asset_spec_sha256": "5d8f8260ad1b9906403fb40d7a750c279d265f45ec8bbf8a5787d6da2fc438f4",
+  "integrity_note": "Local size/SHA256 recorded for transfer integrity; no upstream SHA256 is available.",
+  "files": [
+    {
+      "path": "weights/cari4d/foundationpose/nvlabs_pytorch/2023-10-28-18-33-37/model_best.pth",
+      "bytes": 68220109,
+      "sha256": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60"
+    },
+    {
+      "path": "weights/cari4d/foundationpose/nvlabs_pytorch/2023-10-28-18-33-37/config.yml",
+      "bytes": 708,
+      "sha256": "28a6ba94a33230ee5fc3c51939486281578b0972542bd9e38ca6123e75605686"
+    }
+  ]
+}

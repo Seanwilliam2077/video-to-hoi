@@ -231,14 +231,22 @@
       "group": "models",
       "required": true,
       "target": "weights/cari4d/foundationpose/nvlabs_pytorch/2024-01-11-20-02-45",
-      "status": "awaiting_user_download"
+      "status": "downloaded_and_verified",
+      "acquisition": "user_manual",
+      "files": 2,
+      "bytes": 190230167,
+      "receipt_sha256": "a67d3e9f22a400af92401d64898fbda79768c512b413786f4466762f163de237"
     },
     {
       "id": "foundationpose-refiner",
       "group": "models",
       "required": true,
       "target": "weights/cari4d/foundationpose/nvlabs_pytorch/2023-10-28-18-33-37",
-      "status": "awaiting_user_download"
+      "status": "downloaded_and_verified",
+      "acquisition": "user_manual",
+      "files": 2,
+      "bytes": 68220817,
+      "receipt_sha256": "ac708bd19c7033f43503d9457dba263891953cd67df3ea0bad70431da891a61a"
     },
     {
       "id": "soma-export",
@@ -266,6 +274,21 @@
     },
     "gpu_inference": false,
     "server_deployment": false,
-    "local_synthetic_allowlist_tests": 88
+    "local_synthetic_allowlist_tests": 88,
+    "foundationpose_local_verification": {
+      "files": 4,
+      "bytes": 258450984,
+      "matches_user_receipts": true,
+      "network_access": false,
+      "model_execution": false,
+      "note": "Local SHA256 and sizes verified; no upstream hash was supplied. Existing asset-lock access fields reflect the inventory snapshot, not current readiness."
+    }
+  },
+  "prepared_totals": {
+    "sources": 12,
+    "required_models": 9,
+    "receipts": 21,
+    "files": 7902,
+    "model_bytes": 5735860558
   }
 }

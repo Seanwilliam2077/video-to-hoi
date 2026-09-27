@@ -96,11 +96,45 @@ td.date { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 
 .asks li::before { content: counter(a); position: absolute; left: 16px; top: 14px; width: 28px; height: 28px; border-radius: 50%; background: var(--fg); color: var(--canvas); font-weight: 700; display: grid; place-items: center; font-size: 15px; }
 .asks b { display: block; }
 
-.team { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-.team div { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
-.team b { display: block; }
-.team span { color: var(--muted); font-size: 14px; }
 footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+:root { --r1: #57606a; --r2: #2563eb; --r3: #b45309; --r4: #047857; --r1-bg: #f6f8fa; --r2-bg: #eff6ff; --r3-bg: #fffbeb; --r4-bg: #ecfdf5; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --r1: #9198a1; --r2: #60a5fa; --r3: #f59e0b; --r4: #34d399; --r1-bg: #151b23; --r2-bg: #172554; --r3-bg: #2b1d08; --r4-bg: #052e22; } }
+:root[data-theme="dark"] { --r1: #9198a1; --r2: #60a5fa; --r3: #f59e0b; --r4: #34d399; --r1-bg: #151b23; --r2-bg: #172554; --r3-bg: #2b1d08; --r4-bg: #052e22; }
+h3 { font-size: 17px; margin: 28px 0 10px; }
+.handoff { border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin: 16px 0 20px; overflow-x: auto; background: var(--canvas); }
+.handoff svg { display: block; width: 100%; min-width: 600px; height: auto; }
+.h-node { stroke-width: 1.5; }
+.h-node.r1 { fill: var(--r1-bg); stroke: var(--r1); }
+.h-node.r2 { fill: var(--r2-bg); stroke: var(--r2); }
+.h-node.r3 { fill: var(--r3-bg); stroke: var(--r3); }
+.h-node.r4 { fill: var(--r4-bg); stroke: var(--r4); }
+.h-title { font: 700 15px var(--font); fill: var(--fg); }
+.h-sub { font: 13px var(--font); fill: var(--muted); }
+.h-line { fill: none; stroke: var(--muted); stroke-width: 1.6; }
+.h-line.strong { stroke: var(--r2); stroke-width: 2; }
+.h-line.dash { stroke-dasharray: 6 4; }
+.h-head { fill: var(--muted); }
+.h-label { font: 12px var(--font); fill: var(--muted); }
+.h-label.strong { fill: var(--r2); font-weight: 700; }
+.roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .roles { grid-template-columns: minmax(0, 1fr); } }
+.role { border: 1px solid var(--border); border-top: 4px solid var(--c); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.role.r1 { --c: var(--r1); } .role.r2 { --c: var(--r2); } .role.r3 { --c: var(--r3); } .role.r4 { --c: var(--r4); }
+.role header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.role header b { font-size: 17px; color: var(--c); }
+.who { font-size: 13px; font-weight: 600; border-radius: 2em; padding: 0 10px; line-height: 24px; background: var(--subtle); border: 1px solid var(--border); white-space: nowrap; }
+.who.pending { color: var(--now); background: var(--now-bg); border-color: transparent; }
+.role .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: 13px; color: var(--muted); }
+.load { white-space: nowrap; }
+.load i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--next-bg); margin-left: 2px; vertical-align: middle; }
+.load i.on { background: var(--c); }
+.role dl { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 6px 10px; margin: 4px 0 0; font-size: 15px; }
+.role dt { color: var(--muted); font-weight: 700; font-size: 14px; }
+.role dd { margin: 0; }
+.role .more { margin-top: auto; font-size: 14px; font-weight: 600; }
+td.who-cell { font-weight: 700; white-space: nowrap; border-left: 4px solid var(--c); }
+td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cell.r3 { --c: var(--r3); } td.who-cell.r4 { --c: var(--r4); }
+.rules { padding-left: 1.2em; margin: 0; display: grid; gap: 6px; }
 </style>
 
 <div class="wrap">
@@ -134,6 +168,134 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border
       <div><b>顺不顺</b>动作是否平稳、不抖动</div>
       <div><b>真不真实</b>人和物体接触时有没有互相穿过去</div>
     </div>
+  </section>
+
+  <section id="team">
+    <h2>团队分工</h2>
+    <p>按最终评分的三类指标，把工作拆成四块，一人一块。每块之间约定好“交什么、交给谁”，所以四个人可以同时开工，不用互相等。</p>
+
+    <div class="handoff" role="img" aria-label="交接关系：平台与数据把视频预处理结果交给人体和物体两块；人体把人体动作和场景尺寸交给物体，并把人体动作交给动作流畅与真实感；物体把物体模型和运动交给动作流畅与真实感；动作流畅与真实感把修正后的结果交回平台与数据，由平台整合并提交。">
+      <svg viewBox="0 0 860 336" aria-hidden="true">
+        <defs><marker id="h-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="h-head"/></marker></defs>
+        <rect class="h-node r1" x="20" y="110" width="170" height="70" rx="12"/>
+        <text class="h-title" x="105" y="140" text-anchor="middle">① 平台与数据</text>
+        <text class="h-sub" x="105" y="162" text-anchor="middle">起点，也是终点</text>
+        <rect class="h-node r2" x="300" y="20" width="200" height="70" rx="12"/>
+        <text class="h-title" x="400" y="50" text-anchor="middle">② 人体动作还原</text>
+        <text class="h-sub" x="400" y="72" text-anchor="middle">人的三维姿态</text>
+        <rect class="h-node r3" x="300" y="200" width="200" height="70" rx="12"/>
+        <text class="h-title" x="400" y="230" text-anchor="middle">③ 物体形状与运动</text>
+        <text class="h-sub" x="400" y="252" text-anchor="middle">物体模型与移动</text>
+        <rect class="h-node r4" x="640" y="110" width="200" height="70" rx="12"/>
+        <text class="h-title" x="740" y="140" text-anchor="middle">④ 动作流畅与真实感</text>
+        <text class="h-sub" x="740" y="162" text-anchor="middle">平稳、不穿模</text>
+
+        <path class="h-line" d="M190,130 C240,130 250,55 298,55" marker-end="url(#h-arrow)"/>
+        <path class="h-line" d="M190,160 C240,160 250,235 298,235" marker-end="url(#h-arrow)"/>
+        <text class="h-label" x="222" y="92" text-anchor="middle">视频预处理结果</text>
+        <text class="h-label" x="222" y="206" text-anchor="middle">视频预处理结果</text>
+
+        <path class="h-line strong" d="M400,90 L400,198" marker-end="url(#h-arrow)"/>
+        <text class="h-label strong" x="410" y="140">场景的真实尺寸</text>
+        <text class="h-label" x="410" y="158">（以人的身高为尺子）</text>
+
+        <path class="h-line" d="M500,55 C570,55 580,125 638,125" marker-end="url(#h-arrow)"/>
+        <path class="h-line" d="M500,235 C570,235 580,165 638,165" marker-end="url(#h-arrow)"/>
+        <text class="h-label" x="578" y="80" text-anchor="middle">人体动作</text>
+        <text class="h-label" x="578" y="222" text-anchor="middle">物体模型与运动</text>
+
+        <path class="h-line dash" d="M740,180 C740,330 105,330 105,182" marker-end="url(#h-arrow)"/>
+        <text class="h-label" x="430" y="326" text-anchor="middle">修正后的结果 → 整合、检查、提交</text>
+      </svg>
+    </div>
+
+    <div class="roles">
+      <article class="role r1">
+        <header><b>① 平台与数据</b><span class="who">Sean</span></header>
+        <div class="meta"><span class="tagline">对应评分：全部（负责把关）</span><span class="load" title="前两周最重，之后减轻">工作量 <i class="on"></i><i class="on"></i><i class="on"></i><i></i> 前重后轻</span></div>
+        <dl>
+          <dt>负责</dt><dd>准备服务器和运行环境；从视频里提取基础信息（人和物体在画面中的位置、画面远近）；把四块成果整合起来、检查质量、向主办方提交；维护团队页面和进度。</dd>
+          <dt>交给别人</dt><dd>给人体、物体两块提供视频预处理结果；每周产出一个“团队基准版本”，大家都在它的基础上改进。</dd>
+          <dt>需要别人</dt><dd>其他三块按时交付成果。</dd>
+          <dt>前两周</dt><dd>服务器和模型权限到位；用官方参考方法把前两段视频完整跑通。</dd>
+          <dt>适合</dt><dd>熟悉服务器部署、数据处理和工程整合。</dd>
+        </dl>
+        <a class="more" href="https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg" target="_blank" rel="noopener">技术资料与任务 →</a>
+      </article>
+
+      <article class="role r2">
+        <header><b>② 人体动作还原</b><span class="who pending">待认领</span></header>
+        <div class="meta"><span class="tagline">对应评分：人体的准确度</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i></i><i></i> 中等</span></div>
+        <dl>
+          <dt>负责</dt><dd>从视频里还原人每一帧的三维姿态，包括手；以人的身高为尺子，确定整个场景的真实尺寸。</dd>
+          <dt>交给别人</dt><dd>每一帧的人体动作；场景的真实尺寸（物体那块要用它来确定物体有多大）。</dd>
+          <dt>需要别人</dt><dd>平台提供的视频预处理结果。</dd>
+          <dt>前两周</dt><dd>拿到模型使用权限，在几段视频上跑通；重点检查第一帧，因为官方按第一帧对齐，第一帧错了整段都会偏。</dd>
+          <dt>适合</dt><dd>做过人体姿态估计或人体三维重建。</dd>
+        </dl>
+        <a class="more" href="https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk" target="_blank" rel="noopener">技术资料与任务 →</a>
+      </article>
+
+      <article class="role r3">
+        <header><b>③ 物体形状与运动</b><span class="who pending">待认领</span></header>
+        <div class="meta"><span class="tagline">对应评分：物体的准确度</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i> 最重</span></div>
+        <dl>
+          <dt>负责</dt><dd>给 10 种物体各做一个真实尺寸的三维模型；在每一帧里跟踪物体的位置和朝向，被人挡住时也不能断。</dd>
+          <dt>交给别人</dt><dd>物体的三维模型，以及每一帧的位置和朝向。</dd>
+          <dt>需要别人</dt><dd>平台的视频预处理结果；人体那块给出的场景尺寸。</dd>
+          <dt>前两周</dt><dd>先给前两段视频里的泡沫块和平底锅做出三维模型；和平台一起解决跟踪工具那个被拦截的文件。</dd>
+          <dt>难点</dt><dd>细长反光的呼啦圈、白色无纹理的桌子和推车、用脚推动的物体。</dd>
+          <dt>适合</dt><dd>做过三维重建或物体跟踪。</dd>
+        </dl>
+        <a class="more" href="https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8" target="_blank" rel="noopener">技术资料与任务 →</a>
+      </article>
+
+      <article class="role r4">
+        <header><b>④ 动作流畅与真实感</b><span class="who pending">待认领</span></header>
+        <div class="meta"><span class="tagline">对应评分：动作平稳度 + 接触真实感（占总评分一半）</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i></i><i></i> 中等</span></div>
+        <dl>
+          <dt>负责</dt><dd>让人和物体的动作平稳不抖；物体放着不动时保持静止；补全被遮挡的画面；人和物体接触时不互相穿过去。</dd>
+          <dt>交给别人</dt><dd>修正后的人体和物体动作，交给平台整合提交。</dd>
+          <dt>需要别人</dt><dd>人体、物体两块的结果。</dd>
+          <dt>前两周</dt><dd>不用等别人：先用自己构造的模拟数据把方法做出来，等真实结果出来再调整。</dd>
+          <dt>注意</dt><dd>平滑过头会让位置变得不准，需要在“顺”和“准”之间取舍。</dd>
+          <dt>适合</dt><dd>做过优化、物理仿真或时间序列处理。</dd>
+        </dl>
+        <a class="more" href="https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV" target="_blank" rel="noopener">技术资料与任务 →</a>
+      </article>
+    </div>
+
+    <h3>第一批结果（目标 10 月 8 日）：每块要交什么</h3>
+    <p>第一批只做两段视频（泡沫块、平底锅），先用官方参考方法整体跑一遍，作为大家后续改进的起点。</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>分工</th><th>要交的东西</th></tr></thead>
+        <tbody>
+          <tr><td class="who-cell r1">① 平台与数据</td><td>服务器可用；两段视频的预处理结果；把各块成果串起来跑通，定为第一个团队基准版本</td></tr>
+          <tr><td class="who-cell r2">② 人体动作还原</td><td>检查这两段视频的人体结果，尤其是第一帧；确认场景尺寸是否合理，列出要改进的地方</td></tr>
+          <tr><td class="who-cell r3">③ 物体形状与运动</td><td>泡沫块和平底锅的三维模型（真实尺寸）；检查跟踪是否在遮挡时断掉</td></tr>
+          <tr><td class="who-cell r4">④ 动作流畅与真实感</td><td>用模拟数据做好的初版平滑和接触方法；接到第一批结果上试一遍，看改进多少</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>怎么协作</h3>
+    <ul class="rules">
+      <li><b>各做各的，定期合并：</b>每人在自己的工作分支上开发，每周二合并一次，产出新的团队基准版本。</li>
+      <li><b>进展写在各自的页面上：</b>任务、进展、结果和参考资料都记在对应的模块页面，方便其他人随时查看。</li>
+      <li><b>改交接内容先打招呼：</b>要改变交给别人的东西（内容或格式），先和接收的人商量好再动手。</li>
+      <li><b>只用比赛给的 30 段视频：</b>不使用其他赛道的数据，这是比赛规则的要求。</li>
+      <li><b>提交统一由平台负责：</b>每周最多提交 5 次，由平台统一安排，避免浪费次数。</li>
+    </ul>
+
+    <h3>会上要定的分工问题</h3>
+    <ol class="asks">
+      <li><b>谁认领哪一块</b>三位同学结合各自擅长，分别认领 ② 人体、③ 物体、④ 流畅与真实感。</li>
+      <li><b>物体那块怎么减负</b>它的工作量最大。基准跑通后，平台是否接手其中一两个难点物体（比如呼啦圈）？</li>
+      <li><b>各块的第一个交付物和日期</b>对照上面的表，确认每个人 10 月 8 日前交什么。</li>
+      <li><b>每周同步的时间</b>建议每周二合并并开短会，确认时间和形式。</li>
+      <li><b>权限申请分工</b>每人都要申请模型使用权限；确认谁申请哪几个、谁跟进 IT 流程。</li>
+    </ol>
   </section>
 
   <section>
@@ -207,19 +369,10 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border
     <ol class="asks">
       <li><b>拍板服务器方案</b>继续适配现有候选服务器，还是另租一台常用型号先跑起来；同时协调远程访问方式。</li>
       <li><b>IT 部门协助</b>通过合规渠道获取被安全策略拦截的模型文件。</li>
-      <li><b>确认团队分工</b>三位同学分别负责哪一块工作。</li>
+      <li><b>确认团队分工</b>三位同学分别负责哪一块工作（见上方“团队分工”）。</li>
     </ol>
   </section>
 
-  <section>
-    <h2>团队分工</h2>
-    <div class="team">
-      <div><b>平台与数据</b><span>Sean · 服务器、数据准备、整合与提交</span></div>
-      <div><b>人体动作还原</b><span>待定 · 还原人的三维姿态</span></div>
-      <div><b>物体形状与运动</b><span>待定 · 还原物体的形状和移动</span></div>
-      <div><b>动作流畅与真实感</b><span>待定 · 让动作平稳、接触合理</span></div>
-    </div>
-  </section>
 
   <footer>数据截至 2026 年 9 月 27 日。技术细节见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>

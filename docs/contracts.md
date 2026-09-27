@@ -1,6 +1,8 @@
 # Stage contracts
 
-The pipeline's stages exchange data only through files in a run directory. This page specifies those files; `src/v2hoi/contracts.py` implements them, and export validates every artifact before writing a submission. How the team splits the stages is in [workflow.md](workflow.md).
+The pipeline's stages exchange data through files in a run directory. This page specifies those files; `src/v2hoi/contracts.py` implements their formats. The current exporter writes an internal artifact, not a verified official submission, and validates only the refined human, motion, and object mesh. How the team splits the stages is in [workflow.md](workflow.md).
+
+**Data boundary:** Develop, tune, self-check, and validate with Track 1-derived artifacts or self-created synthetic tests. Submission assets must come from Track 1 inputs and the reconstruction built from them; synthetic fixtures are tests, not submission assets. Do not use Track 2 data, assets, trajectories, reference meshes, or labels for any of these purposes. Track 1 has no public ground truth, so an official ground-truth-based local score is unavailable.
 
 ## Run directory
 
@@ -17,8 +19,7 @@ runs/<run_id>/
   motion/<episode>/motion.npz       Motion          motion    3 object
   refine/<episode>/human.npz        RefinedHuman    refine    4 temporal & physics
   refine/<episode>/motion.npz       RefinedMotion   refine    4 temporal & physics
-  export/                           Tier 1 layout   export    1 platform & perception
-  score.json, summary.json          written by --score
+  export/                           internal schema export    1 platform & perception
 ```
 
 Stages run in this order: inputs, human, objects, motion, refine, export.
@@ -28,7 +29,7 @@ Stages run in this order: inputs, human, objects, motion, refine, export.
 ## Conventions
 
 - **Frame.** Everything is in the clip's camera frame: OpenCV axes (x right, y down, z forward), metres. The camera is static within a clip, so the camera frame is also the submission's world frame. The official evaluation fits one Sim(3) on the first frame, which makes every rigid choice of world equivalent.
-- **Human convention.** SOMA-X parameters are stored in the SOMA convention (y up). `body.SomaBody` output multiplied by `diag(1, -1, -1)` is in the camera frame. The Tier 1 layout relates its human and its objects the same way.
+- **Human convention.** SOMA-X parameters are stored in the SOMA convention (y up). `body.SomaBody` output multiplied by `diag(1, -1, -1)` is in the camera frame. This conversion is part of the internal schema and does not require Track 2 labels.
 - **Time.** One entry per video frame. Every per-frame array covers every frame of the clip and holds no NaN or inf. Occluded frames are filled, never left out.
 - **Units.** Metres, radians, pixels.
 - **Version.** Every file records `CONTRACT_VERSION`. Loading a file with another version fails.
@@ -41,7 +42,7 @@ Stages run in this order: inputs, human, objects, motion, refine, export.
 |---|---|
 | `width`, `height` | video size in pixels |
 | `fx`, `fy`, `cx`, `cy` | pinhole intrinsics in pixels; the principal point lies inside the image |
-| `camera` | physical camera name, when the dataset gives it (Track 1 does, Tier 1 does not) |
+| `camera` | physical camera name, when the Track 1 metadata gives it |
 
 A physical camera gets one set of intrinsics, merged over its clips (`stages.inputs.merge_intrinsics`).
 
@@ -69,7 +70,7 @@ A physical camera gets one set of intrinsics, merged over its clips (`stages.inp
 | `mhr_shape` | 45 | MHR shape parameters |
 | `mhr_transl` | 3 | MHR translation, camera frame |
 
-The SOMA-X fields match the Tier 1 columns and feed export and local scoring. The MHR fields are what the official submission asks for. Their shapes follow SAM 3D Body's output (toolkit `v2d_sam3d_body`) until the official format is published. A clip has one person, so the identity should be one vector repeated over frames (`stages.human.lock_identity`).
+The SOMA-X fields feed the current internal parquet serializer and can support self-created synthetic checks. The MHR fields are intended for the official submission; their shapes follow SAM 3D Body's output (toolkit `v2d_sam3d_body`) until the official format is published. This schema compatibility does not authorize reading Track 2 data. A clip has one person, so the identity should be one vector repeated over frames (`stages.human.lock_identity`).
 
 ### DepthScale: `human/<episode>/depth_scale.json`
 
@@ -103,11 +104,11 @@ Every frame has a pose, occluded ones included. The tracker fills frames it cann
 
 ### RefinedHuman and RefinedMotion: `refine/<episode>/human.npz`, `refine/<episode>/motion.npz`
 
-Same fields as Human and Motion, after temporal and contact refinement: smoothing, static segments, low-confidence frames, contact. Export reads these. If a run re-runs human or motion but not refine, export stops with an error rather than silently exporting the upstream run's stale refinement.
+Same fields as Human and Motion, after temporal and contact refinement: smoothing, static segments, low-confidence frames, contact. Export reads these. It detects a raw human or motion artifact from a nearer upstream run than the refined artifact, but it does not yet detect a same-run overwrite or all changed dependencies. Re-run refine whenever its inputs change.
 
-### Export: `export/`
+### Internal export schema: `export/`
 
-The Tier 1 layout that `v2hoi.score` reads, plus `mhr/episode_XXXXXX.npz` with the MHR fields for the official format:
+The current backend writes a parquet layout that `v2hoi.score` can read, plus `mhr/episode_XXXXXX.npz` with MHR fields. The name `tier1` in the backend is a legacy serialization label, not permission to read Track 2 or a claim that this is the official submission format:
 
 ```
 export/meta/info.json
@@ -117,35 +118,25 @@ export/mesh/<object>/<object>.glb
 export/mhr/episode_XXXXXX.npz
 ```
 
-Poses are copied unchanged, since the camera frame is the world frame. Once `eval_reconstruction.py` is published, a second export backend will write the official artifact from the same run.
+Poses are copied unchanged, since the camera frame is the world frame. The official submission exporter is not implemented. A ground-truth-based score of Track 1 is unavailable locally because Track 1 has no public ground truth.
 
 ## Upstream runs
 
-A run can name an upstream run (`--upstream`). Reads look in the run first, then in its upstream, then in that run's upstream. So a person working on one stage runs only that stage, plus refine and export after it, against a fixed snapshot of the others:
+A run can name an upstream run (`--upstream`). Reads look in the run first, then in its upstream, then in that run's upstream. Start a Track 1 run, then run a replacement stage against that snapshot. The commands below use only registered fake backends and exercise orchestration, not reconstruction quality. These placeholders use Track 1 metadata to select clips but do not inspect the video:
 
 ```bash
-python -m v2hoi.run --run-id motion-fp-1 --dataset tier1 --episodes 7 9 10 19 21 \
-    --upstream runs/baseline-v1 --stages motion refine export --backend motion=<name> --score
+python -m v2hoi.run --run-id track1-smoke-base --dataset track1 --episodes 0 6 9 16 24
+python -m v2hoi.run --run-id motion-smoke-1 --dataset track1 --episodes 0 6 9 16 24 \
+    --upstream runs/track1-smoke-base --stages motion refine export
 ```
 
-Re-running stages in an existing run overwrites their outputs and keeps the rest. `run.json` records every invocation: stages, backends, episodes, and git revision.
+Once a real backend is registered, select it with `--backend motion=<registered-name>` in a new Track 1 run. Re-running stages in an existing run overwrites their outputs and keeps the rest; dependency invalidation is incomplete, so re-run downstream stages after changing any input. `run.json` records every invocation: stages, backends, episodes, and git revision.
 
-## Development backends
+## Legacy Track 2 entry points: not permitted
 
-Three backends read Track 2 data. They exist so that each module can start before the modules upstream of it have real output. They refuse Track 1, and the scorer marks runs that use a reference mesh as invalid submissions.
+The runner now rejects `--dataset tier1`, `human=tier2`, `motion=tier2`, and `objects=reference`; the legacy data-reader classes also refuse execution. These initial restrictions await remote runtime verification. Historical outputs from those paths are **not permitted** for development, tuning, self-checks, validation, or submission provenance. Do not use them as upstream runs. Full artifact-source validation remains to be implemented.
 
-| Backend | Gives | Used by |
-|---|---|---|
-| `objects=reference` | the Tier 1 ground-truth mesh | module 3 (tracking before generated meshes exist), module 4 |
-| `human=tier2` | the Tier 2 human: Tier 1 with the organizer's Track 1-like noise; SOMA-X only | module 4 |
-| `motion=tier2` | the Tier 2 object poses, dropped frames held with confidence 0 | module 4 |
-
-Module 4 develops with all three and scores against Tier 1:
-
-```bash
-python -m v2hoi.run --run-id refine-t2-1 --dataset tier1 --episodes 7 9 10 19 21 \
-    --backend human=tier2 motion=tier2 objects=reference refine=<name> --score
-```
+Use Track 1-derived artifacts to develop a real stage, and self-created synthetic fixtures to exercise its contracts. The current fake backends provide only a file-format and orchestration smoke test. Real reconstruction backends remain to be implemented.
 
 ## Adding a backend
 
@@ -177,4 +168,5 @@ Changing a field's meaning or shape bumps `CONTRACT_VERSION`. Do it in a small P
 
 - Resuming by input hash (design section 3) is not implemented yet. For now, rerun the stages you changed.
 - Depth has no real producer yet. The fake one writes a flat wall at stride 8.
+- There is no public Track 1 ground truth for local official scoring. Test metric primitives with independently generated geometry using the test command in the README. The full legacy scorer still uses Tier 2-derived normalization values, so its CLI is outside this workflow even with synthetic reference files.
 - Masks are stored whole-clip: about 0.4 MB compressed for an empty 900-frame clip, and about 400 MB in memory once loaded. If real masks turn out too large, they will move to per-frame chunks under a new contract version.

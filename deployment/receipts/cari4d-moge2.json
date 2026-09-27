@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "cari4d-moge2",
+  "status": "complete",
+  "source": {
+    "kind": "huggingface",
+    "repo_id": "Ruicheng/moge-2-vitl-normal",
+    "revision": "b135031bae30b5ac2ae141a0e68717795ce38340",
+    "license": "mit",
+    "gated": false
+  },
+  "target": "weights/cari4d/hf_home/hub",
+  "asset_spec_sha256": "0d18770d75e0adad5cc0f78d24f9fd690dde75cc7dea09242205296620833150",
+  "files": [
+    {
+      "path": "weights/cari4d/hf_home/hub/models--Ruicheng--moge-2-vitl-normal/refs/main",
+      "bytes": 40,
+      "sha256": "b8befb1f66ad028197df0ae692403f84326d498e4d42884525a0b632c0cede1b"
+    },
+    {
+      "path": "weights/cari4d/hf_home/hub/models--Ruicheng--moge-2-vitl-normal/snapshots/b135031bae30b5ac2ae141a0e68717795ce38340/model.pt",
+      "bytes": 1323815904,
+      "sha256": "280741fd09bc3f403ccff9967784c2a391b52d2c0742ae3efdb21d9f90cc1a01"
+    },
+    {
+      "path": "weights/cari4d/hf_home/hub/models--Ruicheng--moge-2-vitl-normal/snapshots/b135031bae30b5ac2ae141a0e68717795ce38340/README.md",
+      "bytes": 24,
+      "sha256": "d8d7a46d41a1a37fe4f0a5f637bf55c649310185329127d8a2204632e480be17"
+    }
+  ]
+}

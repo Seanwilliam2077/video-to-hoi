@@ -2,13 +2,17 @@
 
 Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Data (V2D) Challenge.
 
+## Prepare a server handoff
+
+Start with [deployment/README.md](deployment/README.md) for the source ZIP, pinned model/source inventory, dependency locks, and download/verification commands. This preparation works without SSH. Git holds code, manifests, and instructions; large pretrained weights and Python wheels are separate transfer artifacts. See [deployment/PREPARATION_STATUS.md](deployment/PREPARATION_STATUS.md) for actual downloaded files and outstanding access requirements. GPU deployment and the two real baselines remain pending.
+
 **Project status (in Chinese), for leadership and product updates: [open the status page](https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1)** · source: [docs/status.html](docs/status.html)
 
 ## Team pages
 
 | Page | What it holds |
 |---|---|
-| **[Track 1 reference](https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b)** | The organizer's data: challenge rules and scoring, the 30 Track 1 videos, the Tier 1 and Tier 2 development sets, and our questions to the organizer |
+| **[Track 1 reference](https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b)** | Challenge rules and scoring, the 30 Track 1 videos, and our questions to the organizer |
 | [① Platform & perception](https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg) | Module 1: tasks, progress and run results, reading list |
 | [② Human](https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk) | Module 2: tasks, progress and run results, reading list |
 | [③ Object](https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8) | Module 3: tasks, progress and run results, reading list |
@@ -16,13 +20,19 @@ Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Da
 
 The pages live on claude.ai and are shared with the team. Post progress and run results on your module's page, and record every answer from the organizer on the reference page.
 
+## Data policy
+
+**Use Track 1 only.** Track 2 data, including Tier 1 and Tier 2, must not be used for this project's reconstruction, development, parameter tuning, validation, scorer self-checks, baseline normalization, or submissions. This includes videos, meshes, human/object trajectories, labels, and camera, scale, or tuning parameters derived from them.
+
+Develop against Track 1 videos and artifacts reconstructed from those videos. Use independently generated synthetic geometry and trajectories for unit tests; do not derive fixtures or noise distributions from Track 2. Older team pages or code paths that suggest Track 2 use are superseded by this policy. See [docs/workflow.md](docs/workflow.md).
+
 ## Overview
 
 From one video taken by a single static RGB camera, and a text description of the object, the pipeline recovers the person (body and hands, as MHR parameters), the object's mesh, and the object's 6D pose in every frame, at metric scale in one world frame. It is scored against a multi-view reconstruction on five leaderboard metrics: human and object Chamfer distance (CD-H, CD-O), joint and object acceleration (ACC-H, ACC-O), and human–object penetration (PEN).
 
 ![The video-to-hoi pipeline: six stages owned by four modules](docs/pipeline.svg)
 
-The human sets the metric scale that the object module uses (`DepthScale`). Mesh generation and tracking feed each other inside one module. Refine applies smoothing and contact to the human and the object together before export. Dashed inputs are Track 2 data, used only in Tier 1 development runs so that each module can start on its own.
+The human sets the metric scale that the object module uses (`DepthScale`). Mesh generation and tracking feed each other inside one module. Refine applies smoothing and contact to the human and the object together before export. Modules develop against fixed snapshots reconstructed from Track 1, with independent synthetic fixtures for interface tests.
 
 ## Modules
 
@@ -38,6 +48,7 @@ Four people build the pipeline in parallel, one module and one branch each. Ever
 - [docs/workflow.md](docs/workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
 - [docs/contracts.md](docs/contracts.md): the files the stages exchange.
 - [docs/design.md](docs/design.md): the architecture, its evidence, and what is known about the official submission.
+- [docs/platform.md](docs/platform.md): remote machine sizing, the candidate Blackwell host, and baseline acceptance requirements. Remote deployment and the two real baselines are still pending.
 
 ## Track 1 videos
 
@@ -45,8 +56,9 @@ Four people build the pipeline in parallel, one module and one branch each. Ever
 
 ## Status
 
-- **Scorer:** `python -m v2hoi.score` follows the organizer's Track 1 rules and reports the five leaderboard metrics in cm.
-- **Pipeline:** `python -m v2hoi.run` runs all six stages with fake backends into the scorer. No reconstruction models are wired in yet.
+- **Validation:** Track 1 has no public ground truth. Local review uses reprojection, trajectory completeness, smoothness, and visual inspection; the five official scores require the organizer's evaluation. Automated Track 1 diagnostic reports are still to be implemented.
+- **Legacy scorer:** `v2hoi.score` contains metric primitives, but its default reference and internal score depend on Track 2. Its existing command-line workflow is outside the approved project workflow.
+- **Pipeline:** `python -m v2hoi.run` runs all six stages with fake backends through export. No reconstruction models are wired in yet.
 - **Challenge:** the leaderboard freezes on 2026-11-04 at 17:00 EST.
 
 ## Setup
@@ -64,54 +76,38 @@ On first use, `py-soma-x` downloads the SOMA-X assets from Hugging Face, pinned 
 
 ## Data
 
+Download only the Track 1 subtree, including its videos:
+
 ```bash
-.venv/Scripts/python.exe -m v2hoi.download
+.venv/Scripts/python.exe -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='nvidia/video_to_data_challenge', repo_type='dataset', local_dir='data/v2d', allow_patterns=['track_1/**'])"
 ```
 
-Downloads into `data/v2d/`: Track 2 Tier 1 ground truth (human, object poses, meshes, ground planes), the Tier 2 noisy labels, and Track 1 metadata, about 400 MB. `--videos` also fetches the Tier 1 and Track 1 videos.
+This writes to `data/v2d/track_1/`. The current `v2hoi.download --videos` implementation is also restricted to Track 1 and accepts `--revision` to pin the dataset snapshot; this change is awaiting remote runtime verification. Neither command removes data already on disk. Existing Track 2 files and derived artifacts must stay out of project runs and baselines.
 
 ## Running the pipeline
 
 ```bash
-.venv/Scripts/python.exe -m v2hoi.run --run-id demo --dataset tier1 --episodes 7 9 --score
+.venv/Scripts/python.exe -m v2hoi.run --run-id track1-smoke --dataset track1 --episodes 16 12
 ```
 
-Runs every stage on Tier 1 episodes 7 and 9 into `runs/demo/`, exports the result in the Tier 1 layout, and scores it. `--stages` runs only some stages, `--upstream runs/<run>` reads the other stages' outputs from an earlier run, and `--backend <stage>=<name>` picks a backend. `--dataset track1` runs on the challenge videos, which have no public ground truth.
+Runs every stage on Track 1 episodes 16 and 12 into `runs/track1-smoke/` and exports the result in the internal schema. The current fake outputs test the interfaces, not reconstruction quality. `--stages` runs only some stages, `--upstream runs/<run>` reads outputs reconstructed from Track 1 in a fixed earlier run, and `--backend <stage>=<name>` picks an implemented backend.
 
-## Scoring
+The runner now defaults to and accepts only `track1`; keep `--dataset track1` explicit in shared commands. It rejects `--score`, `human=tier2`, `motion=tier2`, and `objects=reference`. These code changes await remote runtime verification. The default exporter is still named `tier1`; this is a serializer name only and does not read Track 2 data.
 
-A prediction root has the Tier 1 layout: `meta/info.json`, `meta/episodes_metadata.jsonl`, `data/chunk-000/episode_XXXXXX.parquet` (Tier 1 columns), and `mesh/<object>/<object>.glb`.
+## Validation and official scoring
 
-```bash
-.venv/Scripts/python.exe -m v2hoi.score --pred <prediction root>
-```
+The internal export contains `meta/info.json`, `meta/episodes_metadata.jsonl`, `data/chunk-000/episode_XXXXXX.parquet`, `mesh/<object>/<object>.glb`, and the corresponding MHR files. This storage schema does not authorize using another dataset's assets.
 
-The first five columns of the table are the Track 1 leaderboard metrics in cm, as on Kaggle; the rest are diagnostics. Below the table is the internal score, which puts the five metrics on one scale where Tier 2 scores 1 (see `docs/workflow.md`). Then the scorer says whether the run used the official settings and whether the prediction is a valid submission, with the reasons if not. The full report is written to `scores/`.
+Review a fixed Track 1 subset (`0 6 9 16 24`) for every stage change and all 30 episodes for integration. Check all-frame coverage, reprojection against the input video, shared object scale, human-object contact, smoothness, and failure cases. Model-estimated depth, masks, and these diagnostics are not ground truth or official leaderboard scores. Keep the run manifest, before/after visuals, and measurements in the PR; the comparison tooling is planned in [docs/workflow.md](docs/workflow.md).
 
-Options:
-- `--episodes 7 9` scores a subset; by default every episode is required.
-- `--stride 3` evaluates the per-frame mesh metrics on every third frame.
-- `--align first|first-object|se3|sim3|none` picks the alignment. The default, `first`, is the official rule: one Sim(3) on the first frame's body joints. `first-object` is for tracking work with the reference mesh.
-- `--pred-mesh-dir` looks for prediction meshes elsewhere.
-- `--summary <file>` also writes the compact summary kept in `benchmarks/`.
-- `--strict` exits with status 1 unless the settings are official and the submission is valid. Run it before submitting to Kaggle.
-
-What the official submission is, and which rules the scorer enforces: `docs/design.md`, sections 6 and 5.1.
-
-Two self-checks:
-
-```bash
-.venv/Scripts/python.exe -m v2hoi.score --pred data/v2d/track_2/tier_1_multiview_caption
-```
-
-```bash
-.venv/Scripts/python.exe -m v2hoi.score --pred data/v2d/track_2/tier_2_synthetic_noise --pred-mesh-dir data/v2d/track_2/tier_1_multiview_caption/mesh
-```
-
-The first scores the ground truth against itself, so every error should be close to 0. The second scores the organizer's Tier 2 labels, noise sampled from Track 1 error distributions, as a reference. Both are reported as invalid submissions because their meshes are the reference meshes. Metric definitions: `docs/design.md`, section 5.
+The old Track 2 self-check commands and the Tier 2-normalized internal score are retired. `v2hoi.score --strict` is not the Track 1 submission gate: it uses the legacy reference-based workflow and cannot certify the data source or the official format. The organizer evaluates CD-H, CD-O, ACC-H, ACC-O, and PEN; adapt export to the official evaluation script once its format is available. Known rules and remaining assumptions are in [docs/design.md](docs/design.md), sections 5 and 6.
 
 ## Tests
 
+CI runs this explicit list of independent synthetic tests, including the download/bundle tools and fake-stage wiring:
+
 ```bash
-.venv/Scripts/python.exe -m pytest
+python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_geometry.py tests/test_metrics.py tests/test_run.py
 ```
+
+These files create their own synthetic fixtures. `test_run.py` uses generated metadata and never invokes the legacy scorer. Do not run a bare `pytest`: `test_score.py` still contains Tier 2-derived benchmark assertions and can read Track 2 files when present, so CI excludes it. Passing these tests verifies the covered contracts and wiring, not real model quality, complete data provenance, or the official submission format.

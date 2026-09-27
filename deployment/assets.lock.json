@@ -1,0 +1,952 @@
+{
+  "schema_version": 1,
+  "description": "Pinned source and pretrained-model inventory for the MHR CARI4D + SAM2 + SAM3D Objects baseline. No challenge evaluation/ground-truth data.",
+  "upstream_revision": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+  "metadata_verified_at": "2026-09-27",
+  "status": "metadata-audited-model-downloads-incomplete",
+  "assets": [
+    {
+      "id": "video-to-data-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/nvidia-isaac/video_to_data",
+      "revision": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+      "target": "third_party/video_to_data",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/README.md"
+      ]
+    },
+    {
+      "id": "sam3d-objects-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/facebookresearch/sam-3d-objects",
+      "revision": "f91db411c50efee93d8db7aeb323885650f6f722",
+      "target": "third_party/sam-3d-objects",
+      "license": "SAM License",
+      "license_url": "https://github.com/facebookresearch/sam-3d-objects/blob/f91db411c50efee93d8db7aeb323885650f6f722/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d/docker/Dockerfile"
+      ]
+    },
+    {
+      "id": "cari4d-dinov3-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/facebookresearch/dinov3",
+      "revision": "6876159a11b4df116f30f667f8c9888617df0751",
+      "target": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main",
+      "license": "DINOv3 License",
+      "license_url": "https://github.com/facebookresearch/dinov3/blob/6876159a11b4df116f30f667f8c9888617df0751/LICENSE.md",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/lib/download_weights.py"
+      ]
+    },
+    {
+      "id": "cari4d-dinov2-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/facebookresearch/dinov2",
+      "revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+      "target": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov2_main",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/facebookresearch/dinov2/blob/7764ea0f912e53c92e82eb78a2a1631e92725fc8/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/lib/download_weights.py"
+      ]
+    },
+    {
+      "id": "objects-dinov2-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/facebookresearch/dinov2",
+      "revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+      "target": "weights/sam3d/torch_home/hub/facebookresearch_dinov2_main",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/facebookresearch/dinov2/blob/7764ea0f912e53c92e82eb78a2a1631e92725fc8/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/facebookresearch/sam-3d-objects/blob/f91db411c50efee93d8db7aeb323885650f6f722/sam3d_objects/model/backbone/dit/embedder/dino.py"
+      ]
+    },
+    {
+      "id": "sam2-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/facebookresearch/sam2",
+      "revision": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+      "target": "third_party/sam2",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/facebookresearch/sam2/blob/2b90b9f5ceec907a1c18123530e92e794ad901a4/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam2/lib/pyproject.toml"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "notes": [
+        "Project pin for an upstream unpinned dependency; wrapper symbols and SAM2.1 config checked statically, runtime untested.",
+        "Downloading this source does not automatically replace upstream Dockerfile network install commands."
+      ]
+    },
+    {
+      "id": "pytorch3d-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/facebookresearch/pytorch3d",
+      "revision": "33824be3cbc87a7dd1db0f6a9a9de9ac81b2d0ba",
+      "target": "third_party/pytorch3d",
+      "license": "BSD-3-Clause",
+      "license_url": "https://github.com/facebookresearch/pytorch3d/blob/33824be3cbc87a7dd1db0f6a9a9de9ac81b2d0ba/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/docker/Dockerfile"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "notes": [
+        "Resolved upstream v0.7.9 tag. Objects recipe is unpinned; adopting this common version still requires runtime validation.",
+        "Downloading this source does not automatically replace upstream Dockerfile network install commands."
+      ]
+    },
+    {
+      "id": "nvdiffrast-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/NVlabs/nvdiffrast",
+      "revision": "253ac4fcea7de5f396371124af597e6cc957bfae",
+      "target": "third_party/nvdiffrast",
+      "license": "NVIDIA Source Code License (1-Way Commercial)",
+      "license_url": "https://github.com/NVlabs/nvdiffrast/blob/253ac4fcea7de5f396371124af597e6cc957bfae/LICENSE.txt",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/docker/Dockerfile"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "notes": [
+        "Project pin from observed upstream HEAD on 2026-09-27; upstream recipe clone is unpinned, build/runtime untested.",
+        "Downloading this source does not automatically replace upstream Dockerfile network install commands."
+      ]
+    },
+    {
+      "id": "pybind11-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/pybind/pybind11",
+      "revision": "aa304c9c7d725ffb9d10af08a3b34cb372307020",
+      "target": "third_party/pybind11",
+      "license": "BSD-3-Clause",
+      "license_url": "https://github.com/pybind/pybind11/blob/aa304c9c7d725ffb9d10af08a3b34cb372307020/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_foundation_pose/docker/Dockerfile"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "notes": [
+        "Peeled commit of upstream v2.10.0 annotated tag.",
+        "Downloading this source does not automatically replace upstream Dockerfile network install commands."
+      ]
+    },
+    {
+      "id": "objects-moge-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/microsoft/MoGe",
+      "revision": "a8c37341bc0325ca99b9d57981cc3bb2bd3e255b",
+      "target": "third_party/moge-objects",
+      "license": "MIT",
+      "license_url": "https://github.com/microsoft/MoGe/blob/a8c37341bc0325ca99b9d57981cc3bb2bd3e255b/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d/docker/Dockerfile"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "notes": [
+        "Upstream Objects recipe pin; keep separate from CARI4D MoGe source.",
+        "Downloading this source does not automatically replace upstream Dockerfile network install commands."
+      ]
+    },
+    {
+      "id": "cari4d-moge-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/microsoft/MoGe",
+      "revision": "925b8ed835a7a9cdb7578ba15c658a0afc969030",
+      "target": "third_party/moge-cari4d",
+      "license": "MIT",
+      "license_url": "https://github.com/microsoft/MoGe/blob/925b8ed835a7a9cdb7578ba15c658a0afc969030/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/docker/Dockerfile"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "notes": [
+        "Upstream CARI4D recipe pin; keep separate from Objects MoGe source.",
+        "Downloading this source does not automatically replace upstream Dockerfile network install commands."
+      ]
+    },
+    {
+      "id": "utils3d-source",
+      "kind": "git",
+      "group": "sources",
+      "required": true,
+      "url": "https://github.com/EasternJournalist/utils3d",
+      "revision": "3fab839f0be9931dac7c8488eb0e1600c236e183",
+      "target": "third_party/utils3d",
+      "license": "MIT",
+      "license_url": "https://github.com/EasternJournalist/utils3d/blob/3fab839f0be9931dac7c8488eb0e1600c236e183/LICENSE",
+      "expected_bytes": null,
+      "files": [],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/docker/Dockerfile"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "notes": [
+        "Upstream CARI4D recipe pin.",
+        "Downloading this source does not automatically replace upstream Dockerfile network install commands."
+      ]
+    },
+    {
+      "id": "cari4d",
+      "kind": "huggingface",
+      "group": "models",
+      "required": true,
+      "repo_id": "nvidia/cari4d_commercial",
+      "repo_type": "model",
+      "revision": "1f7287ac6fd5f72c30ce2222fb345a3e7d779fc9",
+      "target": "weights/cari4d/cari4d",
+      "storage": "local_dir",
+      "allow_patterns": [
+        "2026-08-25-09-35-57/step200000.pth",
+        "2026-08-25-09-35-57/resolved_config.yaml",
+        "2026-08-25-09-35-57/manifest.json"
+      ],
+      "license": "unverified-model-terms",
+      "license_url": "https://huggingface.co/nvidia/cari4d_commercial/tree/1f7287ac6fd5f72c30ce2222fb345a3e7d779fc9",
+      "gated": "auto",
+      "expected_bytes": 2084494424,
+      "files": [
+        {
+          "path": "2026-08-25-09-35-57/step200000.pth",
+          "size": 2084484133,
+          "sha256": "78ff5cb874dd012a272382e3f2d8bc11226d5b7d0ecc739a60fbb4a97a5a5ba3",
+          "git_blob_sha1": "ed5da62f832326648020dc3b50245e91a91d4db8"
+        },
+        {
+          "path": "2026-08-25-09-35-57/resolved_config.yaml",
+          "size": 9842,
+          "sha256": null,
+          "git_blob_sha1": "2ee2bbb08070089991fca0058349fe9b4556d166"
+        },
+        {
+          "path": "2026-08-25-09-35-57/manifest.json",
+          "size": 449,
+          "sha256": null,
+          "git_blob_sha1": "5696a75cfd3d64a992fa58d67647d0c8227425bb"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "access_status": "gated-access-not-authorized",
+      "access_checked_at": "2026-09-27",
+      "notes": [
+        "Model card metadata has no license value; access approval and repository terms must be reviewed before download/redistribution.",
+        "Only the pinned Aug-25 step-200000 run is selected; the repository also includes an older run."
+      ]
+    },
+    {
+      "id": "sam3d-body",
+      "kind": "huggingface",
+      "group": "models",
+      "required": true,
+      "repo_id": "facebook/sam-3d-body-dinov3",
+      "repo_type": "model",
+      "revision": "11aaa346c7204874a1cbafe3d39a979080b2c55a",
+      "target": "weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3",
+      "storage": "local_dir",
+      "allow_patterns": [
+        "LICENSE",
+        "README.md",
+        "assets/mhr_model.pt",
+        "model.ckpt",
+        "model_config.yaml"
+      ],
+      "license": "SAM License",
+      "license_url": "https://huggingface.co/facebook/sam-3d-body-dinov3/tree/11aaa346c7204874a1cbafe3d39a979080b2c55a",
+      "gated": "manual",
+      "expected_bytes": 2805255047,
+      "files": [
+        {
+          "path": "LICENSE",
+          "size": 8204,
+          "sha256": null,
+          "git_blob_sha1": "e58d758cc3d92e6d1a57b52f7e4d203d02a67e98"
+        },
+        {
+          "path": "README.md",
+          "size": 5761,
+          "sha256": null,
+          "git_blob_sha1": "87854edda30f437223c3103f1c0d33b78815acef"
+        },
+        {
+          "path": "assets/mhr_model.pt",
+          "size": 696110248,
+          "sha256": "352e271a6c42729c68554ceaea0c955e866970160c31e35506d782dc0f7377bc",
+          "git_blob_sha1": "6e67294a1b91c304465a0e3392ea8ab9c4d81af9"
+        },
+        {
+          "path": "model.ckpt",
+          "size": 2109129346,
+          "sha256": "b5a2f9d305dd02626b967aa2e86021fba07065df66ce7a7e00ffb9664f150abf",
+          "git_blob_sha1": "245c34983d39a78fa4c1b42d2f5f60cf918fb102"
+        },
+        {
+          "path": "model_config.yaml",
+          "size": 1488,
+          "sha256": null,
+          "git_blob_sha1": "c43c46e52f41c76094a6fdfe12aee0348213a82b"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "access_status": "gated-access-not-authorized",
+      "access_checked_at": "2026-09-27"
+    },
+    {
+      "id": "sam3d-objects",
+      "kind": "huggingface",
+      "group": "models",
+      "required": true,
+      "repo_id": "facebook/sam-3d-objects",
+      "repo_type": "model",
+      "revision": "2e73555018d2741ccd486e56c24fac41155a1dc6",
+      "target": "weights/sam3d/hf-download",
+      "storage": "local_dir",
+      "allow_patterns": [
+        "LICENSE",
+        "README.md",
+        "checkpoints/pipeline.yaml",
+        "checkpoints/slat_decoder_gs.ckpt",
+        "checkpoints/slat_decoder_gs.yaml",
+        "checkpoints/slat_decoder_gs_4.ckpt",
+        "checkpoints/slat_decoder_gs_4.yaml",
+        "checkpoints/slat_decoder_mesh.ckpt",
+        "checkpoints/slat_decoder_mesh.pt",
+        "checkpoints/slat_decoder_mesh.yaml",
+        "checkpoints/slat_encoder.ckpt",
+        "checkpoints/slat_encoder.yaml",
+        "checkpoints/slat_generator.ckpt",
+        "checkpoints/slat_generator.yaml",
+        "checkpoints/ss_decoder.ckpt",
+        "checkpoints/ss_decoder.yaml",
+        "checkpoints/ss_encoder.ckpt",
+        "checkpoints/ss_encoder.yaml",
+        "checkpoints/ss_generator.ckpt",
+        "checkpoints/ss_generator.yaml"
+      ],
+      "license": "SAM License",
+      "license_url": "https://huggingface.co/facebook/sam-3d-objects/tree/2e73555018d2741ccd486e56c24fac41155a1dc6",
+      "gated": "manual",
+      "expected_bytes": 13105863526,
+      "files": [
+        {
+          "path": "LICENSE",
+          "size": 8204,
+          "sha256": null,
+          "git_blob_sha1": "e58d758cc3d92e6d1a57b52f7e4d203d02a67e98"
+        },
+        {
+          "path": "README.md",
+          "size": 7708,
+          "sha256": null,
+          "git_blob_sha1": "b3278b36146d96331f98cb8b2a1ed30e89f76aab"
+        },
+        {
+          "path": "checkpoints/pipeline.yaml",
+          "size": 3548,
+          "sha256": null,
+          "git_blob_sha1": "0703a2eb4045418f1d6e38053712105d03f90d88"
+        },
+        {
+          "path": "checkpoints/slat_decoder_gs.ckpt",
+          "size": 171476155,
+          "sha256": "f8077c36a06eaf890dd93cda1937411f793dea1eb80b3dd9329f2038ba84a111",
+          "git_blob_sha1": "5a36371eaa8b504f6d3210fdf00ac8e8d72683bc"
+        },
+        {
+          "path": "checkpoints/slat_decoder_gs.yaml",
+          "size": 576,
+          "sha256": null,
+          "git_blob_sha1": "10683b1bd592e1db70eb7070a3365b536ad0ba9e"
+        },
+        {
+          "path": "checkpoints/slat_decoder_gs_4.ckpt",
+          "size": 170269801,
+          "sha256": "731a0eceaa47945b52aa27f650d695b2aea9cc70945751e5609e5cb5b49f0186",
+          "git_blob_sha1": "f59fba1a23cf9a1ad7835b0f622e71fe01e4a2f6"
+        },
+        {
+          "path": "checkpoints/slat_decoder_gs_4.yaml",
+          "size": 575,
+          "sha256": null,
+          "git_blob_sha1": "ef89609e6f0cf5a12398a5d5f000687bf6693916"
+        },
+        {
+          "path": "checkpoints/slat_decoder_mesh.ckpt",
+          "size": 363726862,
+          "sha256": "85907b37b67d8ce5b099a96629bdcfbd873eb407dee6b3aa9a75deb15038db33",
+          "git_blob_sha1": "49b72a3de8080e4980438f492dd941eca96ccf67"
+        },
+        {
+          "path": "checkpoints/slat_decoder_mesh.pt",
+          "size": 363728714,
+          "sha256": "93333fcd57a3e36ded0b3bca6969e05ce2b35142029dadab514f41df46d2f985",
+          "git_blob_sha1": "4767af85b40f027dcd1f6059522f1be1e4cbe3fa"
+        },
+        {
+          "path": "checkpoints/slat_decoder_mesh.yaml",
+          "size": 300,
+          "sha256": null,
+          "git_blob_sha1": "74735a4b9ba1fbd76b8d1a56f27b6ebe63aeafc9"
+        },
+        {
+          "path": "checkpoints/slat_encoder.ckpt",
+          "size": 173263986,
+          "sha256": "6485623145535f42c8afa4cbb68ab9953e54e2f0c1cb1eaf95dcb41051e10181",
+          "git_blob_sha1": "461b1c82487670b9e16080774460f55db27dd592"
+        },
+        {
+          "path": "checkpoints/slat_encoder.yaml",
+          "size": 268,
+          "sha256": null,
+          "git_blob_sha1": "595fe5c60af4398e7b5ebbcec7b954364b51ae56"
+        },
+        {
+          "path": "checkpoints/slat_generator.ckpt",
+          "size": 4906537684,
+          "sha256": "91529bde8e7daa12d09618a66c319e3a5a6398db6b23b958cedcb1c3f28faabb",
+          "git_blob_sha1": "105cb187b9ec704ac254e17a5190c16e2be84317"
+        },
+        {
+          "path": "checkpoints/slat_generator.yaml",
+          "size": 1986,
+          "sha256": null,
+          "git_blob_sha1": "859964b5e87666122a7137f6dc9934444d6182ca"
+        },
+        {
+          "path": "checkpoints/ss_decoder.ckpt",
+          "size": 147609242,
+          "sha256": "6dac1cd7b7fda5a38e0614fadae441f1794f80e39ea2981f1ac8aff0a7e99340",
+          "git_blob_sha1": "e9a1a9fc9e881163b78b4033dc4d7ca3d7b4014d"
+        },
+        {
+          "path": "checkpoints/ss_decoder.yaml",
+          "size": 244,
+          "sha256": null,
+          "git_blob_sha1": "7982f7ff6cdb4bebcad49404ba03476fa69f4c6b"
+        },
+        {
+          "path": "checkpoints/ss_encoder.ckpt",
+          "size": 119085402,
+          "sha256": "dcc47810ac568b11fe6e4821ea1c8d6b960dfbda3e5f68e94c19f44b3bf9e83b",
+          "git_blob_sha1": "67a98d185878ea83fa256401d407d7a4d66dcb42"
+        },
+        {
+          "path": "checkpoints/ss_encoder.yaml",
+          "size": 231,
+          "sha256": null,
+          "git_blob_sha1": "2a882b6ecbc1ba38853303eef3b79f8151303361"
+        },
+        {
+          "path": "checkpoints/ss_generator.ckpt",
+          "size": 6690136964,
+          "sha256": "225f40479e4cff4f39d6fa14c55be3abad1475bf55b61af3bec1e19ed2f6c146",
+          "git_blob_sha1": "22fb7b40c378df44e3736a763c9a764fde8fe1ed"
+        },
+        {
+          "path": "checkpoints/ss_generator.yaml",
+          "size": 5076,
+          "sha256": null,
+          "git_blob_sha1": "35df0ea780c4c6f6eaf490c1a828ad054d4f9f0b"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "access_status": "gated-access-not-authorized",
+      "access_checked_at": "2026-09-27",
+      "notes": [
+        "Keep checkpoints/ under hf-download; no manual rename is required.",
+        "Retain both mesh ckpt/pt and all nonempty decoder checkpoints because gated pipeline.yaml cannot yet be inspected with current credentials.",
+        "Exclude the zero-byte ss_encoder.safetensors placeholder and unrelated documentation media."
+      ]
+    },
+    {
+      "id": "sam2",
+      "kind": "huggingface",
+      "group": "models",
+      "required": true,
+      "repo_id": "facebook/sam2.1-hiera-large",
+      "repo_type": "model",
+      "revision": "665f8e2ad61cf5f53d65644ff27c8ee525124610",
+      "target": "weights/sam2",
+      "storage": "local_dir",
+      "allow_patterns": [
+        "sam2.1_hiera_large.pt",
+        "sam2.1_hiera_l.yaml",
+        "README.md"
+      ],
+      "license": "apache-2.0",
+      "license_url": "https://huggingface.co/facebook/sam2.1-hiera-large/tree/665f8e2ad61cf5f53d65644ff27c8ee525124610",
+      "gated": false,
+      "expected_bytes": 898107388,
+      "files": [
+        {
+          "path": "sam2.1_hiera_large.pt",
+          "size": 898083611,
+          "sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318",
+          "git_blob_sha1": "a4229617ddc0bd034440718c11588c0bbcf85a70"
+        },
+        {
+          "path": "sam2.1_hiera_l.yaml",
+          "size": 3798,
+          "sha256": null,
+          "git_blob_sha1": "33c9097f34ea90beae52776eb88ad8eb1632ab66"
+        },
+        {
+          "path": "README.md",
+          "size": 19979,
+          "sha256": null,
+          "git_blob_sha1": "be863d6696ff1dd6ea8c88ab46ae04e5f7fe68e6"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam2/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27"
+    },
+    {
+      "id": "cari4d-moge2",
+      "kind": "huggingface",
+      "group": "models",
+      "required": true,
+      "repo_id": "Ruicheng/moge-2-vitl-normal",
+      "repo_type": "model",
+      "revision": "b135031bae30b5ac2ae141a0e68717795ce38340",
+      "target": "weights/cari4d/hf_home/hub",
+      "storage": "hf_cache",
+      "allow_patterns": [
+        "model.pt",
+        "README.md"
+      ],
+      "license": "mit",
+      "license_url": "https://huggingface.co/Ruicheng/moge-2-vitl-normal/tree/b135031bae30b5ac2ae141a0e68717795ce38340",
+      "gated": false,
+      "expected_bytes": 1323815928,
+      "files": [
+        {
+          "path": "model.pt",
+          "size": 1323815904,
+          "sha256": "280741fd09bc3f403ccff9967784c2a391b52d2c0742ae3efdb21d9f90cc1a01",
+          "git_blob_sha1": "363e817a0beb0943c82b041d6ee64a5452f4d003"
+        },
+        {
+          "path": "README.md",
+          "size": 24,
+          "sha256": null,
+          "git_blob_sha1": "7be5fc7f47d5db027d120b8024982df93db95b74"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "cache_refs": {
+        "main": "b135031bae30b5ac2ae141a0e68717795ce38340"
+      }
+    },
+    {
+      "id": "objects-moge1",
+      "kind": "huggingface",
+      "group": "models",
+      "required": true,
+      "repo_id": "Ruicheng/moge-vitl",
+      "repo_type": "model",
+      "revision": "ad326bfb61facd6c52b5a825bc1e34d7c97d9672",
+      "target": "weights/sam3d/hf_home/hub",
+      "storage": "hf_cache",
+      "allow_patterns": [
+        "model.pt",
+        "README.md"
+      ],
+      "license": "mit",
+      "license_url": "https://huggingface.co/Ruicheng/moge-vitl/tree/ad326bfb61facd6c52b5a825bc1e34d7c97d9672",
+      "gated": false,
+      "expected_bytes": 1256823466,
+      "files": [
+        {
+          "path": "model.pt",
+          "size": 1256823446,
+          "sha256": "da96b09a0485a3c45a5aa455e67743c8b4efc4dd8437c1f2aa93c2b4303d957f",
+          "git_blob_sha1": "9bad54d4bb5339492d455f65db4d259cebaa4667"
+        },
+        {
+          "path": "README.md",
+          "size": 20,
+          "sha256": null,
+          "git_blob_sha1": "acb132c8f50ba394d4f63c298904c290319877a2"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "cache_refs": {
+        "main": "ad326bfb61facd6c52b5a825bc1e34d7c97d9672"
+      }
+    },
+    {
+      "id": "standalone-body-moge2",
+      "kind": "huggingface",
+      "group": "models",
+      "required": false,
+      "repo_id": "Ruicheng/moge-2-vitb-normal",
+      "repo_type": "model",
+      "revision": "ca5f0e07ff01d3e5a364c1d954ed12ee1814b368",
+      "target": "weights/sam3d_body/moge-2-vitb-normal",
+      "storage": "local_dir",
+      "allow_patterns": [
+        "model.pt",
+        "README.md"
+      ],
+      "license": "mit",
+      "license_url": "https://huggingface.co/Ruicheng/moge-2-vitb-normal/tree/ca5f0e07ff01d3e5a364c1d954ed12ee1814b368",
+      "gated": false,
+      "expected_bytes": 419110246,
+      "files": [
+        {
+          "path": "model.pt",
+          "size": 419110160,
+          "sha256": "16b8110e86d5dc5a849db120ca96ef3a223fd30b0c9146d1d81db504073da5f6",
+          "git_blob_sha1": "87d30ba64eb8f37caf5b3f7557356ca640ca3cf5"
+        },
+        {
+          "path": "README.md",
+          "size": 86,
+          "sha256": null,
+          "git_blob_sha1": "db96e30be36409dedb912a7bb832e0205b72acf9"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "profile": "optional-standalone-body-fov",
+      "notes": [
+        "Used by v2d_sam3d_body standalone default FOV path. Native MHR CARI4D uses the required MoGe2 ViT-L checkpoint instead."
+      ]
+    },
+    {
+      "id": "cari4d-dinov2-vitb14",
+      "kind": "http",
+      "group": "models",
+      "required": true,
+      "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth",
+      "target": "weights/cari4d/sam3d_body/torch_home/hub/checkpoints",
+      "filename": "dinov2_vitb14_pretrain.pth",
+      "revision": null,
+      "integrity": "sha256-locked",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/facebookresearch/dinov2/blob/7764ea0f912e53c92e82eb78a2a1631e92725fc8/LICENSE",
+      "gated": false,
+      "expected_bytes": 346378731,
+      "files": [
+        {
+          "path": "dinov2_vitb14_pretrain.pth",
+          "size": 346378731,
+          "sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27"
+    },
+    {
+      "id": "cari4d-dinov2-vits14",
+      "kind": "http",
+      "group": "models",
+      "required": true,
+      "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth",
+      "target": "weights/cari4d/sam3d_body/torch_home/hub/checkpoints",
+      "filename": "dinov2_vits14_pretrain.pth",
+      "revision": null,
+      "integrity": "sha256-locked",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/facebookresearch/dinov2/blob/7764ea0f912e53c92e82eb78a2a1631e92725fc8/LICENSE",
+      "gated": false,
+      "expected_bytes": 88283115,
+      "files": [
+        {
+          "path": "dinov2_vits14_pretrain.pth",
+          "size": 88283115,
+          "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27"
+    },
+    {
+      "id": "objects-dinov2-vitl14-reg4",
+      "kind": "http",
+      "group": "models",
+      "required": true,
+      "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_reg4_pretrain.pth",
+      "target": "weights/sam3d/torch_home/hub/checkpoints",
+      "filename": "dinov2_vitl14_reg4_pretrain.pth",
+      "revision": null,
+      "integrity": "unpinned-until-download-receipt",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/facebookresearch/dinov2/blob/7764ea0f912e53c92e82eb78a2a1631e92725fc8/LICENSE",
+      "gated": false,
+      "expected_bytes": 1217607321,
+      "files": [
+        {
+          "path": "dinov2_vitl14_reg4_pretrain.pth",
+          "size": 1217607321,
+          "sha256": null
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27"
+    },
+    {
+      "id": "objects-dinov2-vitb14-reg4",
+      "kind": "http",
+      "group": "models",
+      "required": true,
+      "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_reg4_pretrain.pth",
+      "target": "weights/sam3d/torch_home/hub/checkpoints",
+      "filename": "dinov2_vitb14_reg4_pretrain.pth",
+      "revision": null,
+      "integrity": "unpinned-until-download-receipt",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/facebookresearch/dinov2/blob/7764ea0f912e53c92e82eb78a2a1631e92725fc8/LICENSE",
+      "gated": false,
+      "expected_bytes": 346393545,
+      "files": [
+        {
+          "path": "dinov2_vitb14_reg4_pretrain.pth",
+          "size": 346393545,
+          "sha256": null
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27"
+    },
+    {
+      "id": "foundationpose-scorer",
+      "kind": "gdrive_folder",
+      "group": "models",
+      "required": true,
+      "url": "https://drive.google.com/drive/folders/12Te_3TELLes5cim1d7F7EBTwUSe7iRBj",
+      "folder_id": "12Te_3TELLes5cim1d7F7EBTwUSe7iRBj",
+      "target": "weights/cari4d/foundationpose/nvlabs_pytorch/2024-01-11-20-02-45",
+      "revision": null,
+      "integrity": "unpinned-until-download-receipt",
+      "license": "NVIDIA Source Code License; model-specific terms require review",
+      "license_url": "https://github.com/NVlabs/FoundationPose/blob/main/LICENSE",
+      "gated": false,
+      "expected_bytes": null,
+      "files": [
+        {
+          "path": "model_best.pth",
+          "size": null,
+          "sha256": null
+        },
+        {
+          "path": "config.yml",
+          "size": null,
+          "sha256": null
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_foundation_pose/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "download_policy": "blocked_by_organization",
+      "access_status": "enterprise-iOA blocked",
+      "access_note": "Source URL is retained only for provenance. Do not request, follow, retry, proxy or mirror this source in this environment."
+    },
+    {
+      "id": "foundationpose-refiner",
+      "kind": "gdrive_folder",
+      "group": "models",
+      "required": true,
+      "url": "https://drive.google.com/drive/folders/1BEQLZH69UO5EOfah-K9bfI3JyP9Hf7wC",
+      "folder_id": "1BEQLZH69UO5EOfah-K9bfI3JyP9Hf7wC",
+      "target": "weights/cari4d/foundationpose/nvlabs_pytorch/2023-10-28-18-33-37",
+      "revision": null,
+      "integrity": "unpinned-until-download-receipt",
+      "license": "NVIDIA Source Code License; model-specific terms require review",
+      "license_url": "https://github.com/NVlabs/FoundationPose/blob/main/LICENSE",
+      "gated": false,
+      "expected_bytes": null,
+      "files": [
+        {
+          "path": "model_best.pth",
+          "size": null,
+          "sha256": null
+        },
+        {
+          "path": "config.yml",
+          "size": null,
+          "sha256": null
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_foundation_pose/lib/download_weights.py"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "download_policy": "blocked_by_organization",
+      "access_status": "enterprise-iOA blocked",
+      "access_note": "Source URL is retained only for provenance. Do not request, follow, retry, proxy or mirror this source in this environment."
+    },
+    {
+      "id": "soma-export",
+      "kind": "huggingface",
+      "group": "models",
+      "required": false,
+      "profile": "optional-mhr-to-soma-export",
+      "repo_id": "nvidia/soma-x",
+      "repo_type": "model",
+      "revision": "466879a83d57eabf3d875ded2d869f2075f90348",
+      "target": "weights/soma/hf_home/hub",
+      "storage": "hf_cache",
+      "cache_refs": {
+        "main": "466879a83d57eabf3d875ded2d869f2075f90348"
+      },
+      "allow_patterns": [
+        "MHR/SOMA_wrap_lod1.obj",
+        "MHR/base_body_lod1.obj",
+        "MHR/base_body_lod6.obj",
+        "MHR/mhr_model_lod1.pt",
+        "MHR/mhr_model_lod6.pt",
+        "SOMA_neutral.npz",
+        "correctives_model.pt"
+      ],
+      "license": "unverified-model-terms",
+      "license_url": "https://github.com/NVlabs/SOMA-X#license",
+      "gated": false,
+      "expected_bytes": 249518051,
+      "files": [
+        {
+          "path": "MHR/SOMA_wrap_lod1.obj",
+          "size": 1816801,
+          "sha256": null,
+          "git_blob_sha1": "1a6d0ddabfec15b7a525b3e87dc8a21b7d7896d8"
+        },
+        {
+          "path": "MHR/base_body_lod1.obj",
+          "size": 2277452,
+          "sha256": null,
+          "git_blob_sha1": "7c0cc19ef4497f5cdba12c80ac1fd41902dbad04"
+        },
+        {
+          "path": "MHR/base_body_lod6.obj",
+          "size": 39006,
+          "sha256": null,
+          "git_blob_sha1": "5819b395bfa855950f7b58f42d51efe6a4882705"
+        },
+        {
+          "path": "MHR/mhr_model_lod1.pt",
+          "size": 29380612,
+          "sha256": "93f1b6d7fbcfb10ea7b2390ba7d544cede3f30ede413170fec89bb04557caaf0",
+          "git_blob_sha1": "53bf44acf09bb2db4572fb9ed76c19af6d90aa8f"
+        },
+        {
+          "path": "MHR/mhr_model_lod6.pt",
+          "size": 2100100,
+          "sha256": "8072ec25449c95ea18b3f747b944d8d43377d9114bbd72ef34028610cc3d58e1",
+          "git_blob_sha1": "c2e8381309e8a2df350ca13347b9d6203f287b81"
+        },
+        {
+          "path": "SOMA_neutral.npz",
+          "size": 27488638,
+          "sha256": "515f7d5bb74be4e370e9adf5e779760ec3581556374c0b33212a32d13ab3b53f",
+          "git_blob_sha1": "744b1ca696369d01f498040964373550793a58d9"
+        },
+        {
+          "path": "correctives_model.pt",
+          "size": 186415442,
+          "sha256": "067237a235f626eedc217bf25ab71a2000d29e9a4801c9b93bf300917977e12f",
+          "git_blob_sha1": "fe5c07a0773267dd6315ef4ac8f97b9866098300"
+        }
+      ],
+      "evidence": [
+        "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/export_soma.py",
+        "https://github.com/NVlabs/SOMA-X/blob/main/soma/assets.py"
+      ],
+      "metadata_verified_at": "2026-09-27",
+      "notes": [
+        "Optional pretrained rig assets for MHR-to-SOMA export; no challenge episode data.",
+        "Set HF_HOME to weights/soma/hf_home before importing Hugging Face/SOMA, or pass the pinned snapshot path as data_root.",
+        "The lowercase nvidia/soma-x repo_id matches py-soma-x 0.2.1 assets.py cache lookup.",
+        "Use enable_procedural_transforms=False with this snapshot; newer procedural-transform rig files are absent."
+      ]
+    }
+  ],
+  "optional_data": [],
+  "notes": [
+    "Model blobs are downloaded to an external asset root and recorded by receipts; they are not committed to Git.",
+    "Use our fetcher then upstream --skip_weight_download: source ZIPs intentionally have no .git metadata.",
+    "Two DINOv2 register checkpoint URLs and FoundationPose folders have no verified upstream SHA256; download receipts are required before transfer.",
+    "Only Track 1 inputs may be downloaded through the separate project downloader.",
+    "FoundationPose Google Drive sources are blocked by enterprise iOA policy: provenance only; no requests or bypass attempts.",
+    "Gated CARI4D, SAM3D Body and SAM3D Objects HEAD checks returned 403 with the currently available Hugging Face credentials.",
+    "The inventory is source/metadata verified; no GPU inference or full offline-runtime validation has been performed.",
+    "Source archives cover declared GitHub dependencies. GPU wheels, Eigen/system packages, image digests and build validation remain in the separate deployment dependency workflow."
+  ],
+  "known_required_model_bytes": 23473022491,
+  "unknown_size_asset_ids": [
+    "foundationpose-scorer",
+    "foundationpose-refiner"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "objects-dinov2-vitl14-reg4",
+  "status": "complete",
+  "source": {
+    "kind": "http",
+    "revision": null,
+    "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_reg4_pretrain.pth",
+    "license": "Apache-2.0",
+    "gated": false
+  },
+  "target": "weights/sam3d/torch_home/hub/checkpoints",
+  "asset_spec_sha256": "d8db1174c8dbd3ba06e4d24c27353debf7ee21891e080b2f56f80578c25127b4",
+  "files": [
+    {
+      "path": "weights/sam3d/torch_home/hub/checkpoints/dinov2_vitl14_reg4_pretrain.pth",
+      "bytes": 1217607321,
+      "sha256": "36e4deffbaef061a2576705b0c36f93621e2ae20bf6274694821b0b492551b51"
+    }
+  ]
+}

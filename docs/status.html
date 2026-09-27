@@ -157,7 +157,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>整体方案、分工和协作工具都已就绪，四个人可以同时开工。但真正的 AI 模型还没跑起来，主要卡在三件事上：<b>服务器还没到位</b>、<b>模型使用权限还没拿到</b>、<b>一个必需的文件被公司网络安全策略拦截</b>。这三件事如果在 10 月 1 日前解决，就能按计划在 10 月 8 日拿到第一批结果。</p>
+  <p class="lead"><b>一句话：</b>整体方案、分工和协作工具已就绪；<b>12 份源码、7 组公开模型权重和 28 项基础工具依赖已下载并校验</b>，可按打包上传的方式交接。但真正的 AI 模型还没跑起来：<b>服务器配置待确认</b>、<b>3 个关键模型仍缺访问权限</b>、<b>FoundationPose 的两组权重被公司安全策略拦截</b>。目前按计划暂不部署；这些前置条件到位后，再推进两段真实视频的首批结果。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -289,7 +289,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <h3>怎么协作</h3>
     <ul class="rules">
       <li><b>各做各的，定期合并：</b>每人在自己的工作分支上开发，每周二合并一次，产出新的团队基准版本。</li>
-      <li><b>进展写在各自的页面上：</b>任务、进展、结果和参考资料都记在对应的模块页面，方便其他人随时查看。</li>
+      <li><b>任务完成后同步进展：</b>在对应模块页记录结果，并更新本项目进展页的已完成事项、验证结果、阻碍和下一步；准备材料与真实模型跑通分别记录。</li>
       <li><b>改交接内容先打招呼：</b>要改变交给别人的东西（内容或格式），先和接收的人商量好再动手。</li>
       <li><b>只用比赛给的 30 段视频：</b>不使用其他赛道的数据，这是比赛规则的要求。</li>
       <li><b>提交统一由平台负责：</b>每周最多提交 5 次，由平台统一安排，避免浪费次数。</li>
@@ -324,7 +324,9 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <li>搭好了整体框架：把工作拆成四块，四个人可以各做一块、互不等待。</li>
       <li>建好了团队协作页面：每块工作有自己的任务、进展和资料页，已邀请三位同学。</li>
       <li>下载并整理好了比赛的全部 30 段视频，可以直接浏览。</li>
-      <li>准备好了部署到服务器所需的材料清单。</li>
+      <li>下载并校验了 12 份模型相关源码和 7 组公开权重（约 5.48 GB），固定了来源和版本；完整清单仍有 5 组必需权重未取得。</li>
+      <li>准备好了 28 项 Linux / Python 3.10 基础工具依赖（约 119 MB），以及 ZIP 打包和接收端校验工具。无需通过 SSH 交接文件。</li>
+      <li>文件校验与自动化接口测试已通过。它们验证文件和流程接口，真实视频重建、GPU 环境和两条基线仍待验证。</li>
     </ul>
   </section>
 
@@ -332,19 +334,19 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <h2>卡在哪里</h2>
     <div class="issues">
       <div class="issue">
-        <b>服务器还没到位</b>
-        <p style="margin:4px 0 0">AI 模型需要高性能计算服务器才能运行，普通电脑跑不动。目前的候选服务器还连不上，只能打包上传文件；而且它的型号很新，比赛官方提供的软件要额外适配才能用。</p>
-        <div class="need">尽快决定用哪台服务器：继续适配这台，还是另外租一台常用型号先跑起来。</div>
+        <b>服务器配置待确认，暂不部署</b>
+        <p style="margin:4px 0 0">已经收到候选服务器的 GPU 信息，但还要向队友确认完整配置。目前不能通过 SSH 接入，先采用 ZIP 上传与服务器控制台操作的方式；GPU 软件环境要等机器方案确定后再适配。</p>
+        <div class="need">队友补充 CPU、内存、磁盘、操作系统和可用上传方式，再决定运行环境。</div>
       </div>
       <div class="issue">
         <b>AI 模型的使用权限还没拿到</b>
-        <p style="margin:4px 0 0">三个关键模型需要向发布方申请使用权限，目前都还用不了：可能是申请还没批准，也可能是账号权限没设置对。</p>
-        <div class="need">团队成员各自尽快提交申请，并检查账号权限设置。</div>
+        <p style="margin:4px 0 0">Hugging Face 登录已验证有效，但 CARI4D、SAM3D Body、SAM3D Objects 的权重请求仍被拒绝。账号登录成功还不足以取得这些受限文件。</p>
+        <div class="need">确认三个模型的访问申请已获批，并检查下载凭据是否有受限仓库的读取权限。</div>
       </div>
       <div class="issue">
-        <b>一个必需的文件被公司网络安全策略拦截</b>
-        <p style="margin:4px 0 0">有一个模型文件存放在外部网盘上，公司安全策略不允许下载，我们也不会绕过。</p>
-        <div class="need">IT 部门协助，走合规渠道获取这个文件。</div>
+        <b>FoundationPose 两组权重被公司网络安全策略拦截</b>
+        <p style="margin:4px 0 0">这两组必需文件存放在 Google Drive，公司 iOA 策略已阻断访问。准备工具会在联网前拒绝这些来源，当前交接包中没有这两组文件。</p>
+        <div class="need">IT 部门协助，通过批准的渠道取得这两组权重。</div>
       </div>
       <div class="issue mid">
         <b>主办方的评分工具和提交格式还没公布</b>
@@ -375,13 +377,13 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <h2>需要支持的事</h2>
     <ol class="asks">
       <li><b>拍板服务器方案</b>继续适配现有候选服务器，还是另租一台常用型号先跑起来；同时协调远程访问方式。</li>
-      <li><b>IT 部门协助</b>通过合规渠道获取被安全策略拦截的模型文件。</li>
+      <li><b>IT 部门协助</b>通过批准的渠道获取 FoundationPose 的两组权重。</li>
       <li><b>确认团队分工</b>三位同学分别负责哪一块工作（见上方“团队分工”）。</li>
     </ol>
   </section>
 
 
-  <footer>数据截至 2026 年 9 月 27 日。技术细节见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 9 月 27 日；本次更新：公开资源下载、校验与交接准备。记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi/pull/8" target="_blank" rel="noopener">准备记录与 PR #8</a>；技术细节见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

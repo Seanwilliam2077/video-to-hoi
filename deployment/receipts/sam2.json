@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "sam2",
+  "status": "complete",
+  "source": {
+    "kind": "huggingface",
+    "repo_id": "facebook/sam2.1-hiera-large",
+    "revision": "665f8e2ad61cf5f53d65644ff27c8ee525124610",
+    "license": "apache-2.0",
+    "gated": false
+  },
+  "target": "weights/sam2",
+  "asset_spec_sha256": "71b71b6bac9f0df3144417b9e0c6a2d1b7e28f78555c614c6ea350dc4fa9bbd7",
+  "files": [
+    {
+      "path": "weights/sam2/README.md",
+      "bytes": 19979,
+      "sha256": "d6f74ced558e110bf542a915cac9728c6e5a7144b738f10bef5090d1cdb2db5d"
+    },
+    {
+      "path": "weights/sam2/sam2.1_hiera_l.yaml",
+      "bytes": 3798,
+      "sha256": "545e4325aa5c19a1615d43c946b07276ed4c57214eacf1437e38fa3d9374f636"
+    },
+    {
+      "path": "weights/sam2/sam2.1_hiera_large.pt",
+      "bytes": 898083611,
+      "sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318"
+    }
+  ]
+}

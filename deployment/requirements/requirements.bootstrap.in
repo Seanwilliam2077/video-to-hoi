@@ -1,0 +1,6 @@
+# Download/bootstrap tooling for CPython 3.10 on Linux x86_64.
+# The permitted asset fetcher uses huggingface_hub; keep the hub pin aligned
+# with requirements.core.lock. setuptools and wheel cover the build backend.
+huggingface_hub==1.32.0
+setuptools>=68
+wheel

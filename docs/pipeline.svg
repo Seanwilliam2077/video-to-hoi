@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" width="1000" height="780" role="img" aria-label="The video-to-hoi pipeline: a Track 1 video flows through six stages owned by four modules. Inputs produce masks, intrinsics, and depth; the human stage produces MHR and SOMA-X parameters and the depth scale that anchors metric scale for the object module, where mesh generation and tracking feed each other; refine smooths and applies contact to both trajectories; export writes the Tier 1 layout that the scorer turns into the five leaderboard metrics. Development-only inputs from Tier 1 and Tier 2 let each module start on its own.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" width="1000" height="780" role="img" aria-label="Planned video-to-hoi pipeline: Track 1 video and object prompt feed six stages across four modules. The current code runs fake backends and writes an internal export schema. Development uses Track 1-derived artifacts or self-created synthetic tests, never Track 2. Track 1 has no public ground truth, so official ground-truth scoring is unavailable locally.">
   <title>video-to-hoi pipeline: six stages, four modules, five leaderboard metrics</title>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -20,7 +20,7 @@
 
     <!-- header -->
     <text x="40" y="44" font-size="22" font-weight="700">video-to-hoi pipeline</text>
-    <text x="40" y="68" font-size="13" fill="#475569">Six stages in four modules. Each arrow is a file in runs/&lt;run_id&gt;/, specified in docs/contracts.md.</text>
+    <text x="40" y="68" font-size="13" fill="#475569">Six-stage plan; real model backends are not wired in. File contracts are in docs/contracts.md.</text>
 
     <!-- input video -->
     <rect x="220" y="96" width="300" height="52" rx="10" fill="#FFFFFF" stroke="#334155"/>
@@ -52,7 +52,7 @@
     <rect x="254" y="338" width="50" height="20" rx="10" fill="#2563EB"/>
     <text x="279" y="352" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-H</text>
     <text x="60" y="384" font-size="13">SAM 3D Body → MHR</text>
-    <text x="60" y="406" font-size="12" fill="#475569">MHR → SOMA-X for local scoring</text>
+    <text x="60" y="406" font-size="12" fill="#475569">MHR → SOMA-X internal fields</text>
     <text x="60" y="426" font-size="12" fill="#475569">one identity per clip</text>
     <text x="60" y="446" font-size="12" fill="#475569">the first frame matters most</text>
 
@@ -115,16 +115,16 @@
     <rect x="40" y="654" width="260" height="100" rx="12" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
     <text x="60" y="682" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">export</text>
     <text x="280" y="682" font-size="12" font-weight="700" fill="#475569" text-anchor="end">① Platform</text>
-    <text x="60" y="712" font-size="13">Tier 1 layout</text>
-    <text x="60" y="732" font-size="12" fill="#475569">+ MHR for the official format</text>
+    <text x="60" y="712" font-size="13">Internal parquet + MHR</text>
+    <text x="60" y="732" font-size="12" fill="#475569">official exporter not built</text>
 
-    <line x1="300" y1="704" x2="398" y2="704" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <line x1="300" y1="704" x2="398" y2="704" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
     <text x="349" y="696" font-size="12" fill="#475569" text-anchor="middle" font-family="Consolas, Menlo, monospace">export/</text>
 
-    <!-- scorer -->
-    <rect x="400" y="654" width="300" height="100" rx="12" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <!-- scoring requires ground truth, unavailable for Track 1 locally -->
+    <rect x="400" y="654" width="300" height="100" rx="12" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5 4"/>
     <text x="420" y="682" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">score</text>
-    <text x="680" y="682" font-size="12" fill="#475569" text-anchor="end">Kaggle's five metrics, cm</text>
+    <text x="680" y="682" font-size="12" fill="#475569" text-anchor="end">No public Track 1 GT</text>
     <rect x="420" y="696" width="48" height="20" rx="10" fill="#2563EB"/>
     <text x="444" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-H</text>
     <rect x="474" y="696" width="48" height="20" rx="10" fill="#B45309"/>
@@ -136,26 +136,25 @@
     <rect x="648" y="696" width="40" height="20" rx="10" fill="#047857"/>
     <text x="668" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">PEN</text>
     <path d="M420,724 v4 h102 v-4 M536,724 v4 h152 v-4" fill="none" stroke="#94A3B8"/>
-    <text x="471" y="744" font-size="12" fill="#475569" text-anchor="middle">accuracy · 50%</text>
-    <text x="612" y="744" font-size="12" fill="#475569" text-anchor="middle">physical · 50%</text>
+    <text x="471" y="744" font-size="12" fill="#475569" text-anchor="middle">accuracy target</text>
+    <text x="612" y="744" font-size="12" fill="#475569" text-anchor="middle">physical target</text>
 
-    <!-- development-only inputs -->
-    <text x="740" y="352" font-size="11" font-weight="700" fill="#64748B" letter-spacing="0.6">DEVELOPMENT ONLY</text>
-    <text x="740" y="370" font-size="12" fill="#64748B">Tier 1 runs; refused on Track 1</text>
+    <!-- allowed development inputs and the Track 1 scoring limit -->
+    <text x="740" y="352" font-size="11" font-weight="700" fill="#64748B" letter-spacing="0.6">TRACK 1-ONLY WORKFLOW</text>
+    <text x="740" y="370" font-size="12" fill="#64748B">No Track 2 assets or labels</text>
 
     <rect x="740" y="384" width="220" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 4"/>
-    <text x="756" y="406" font-size="13" font-weight="700">Tier 1 reference mesh</text>
-    <text x="756" y="426" font-size="12" fill="#475569" font-family="Consolas, Menlo, monospace">objects=reference</text>
+    <text x="756" y="406" font-size="13" font-weight="700">Track 1-derived evidence</text>
+    <text x="756" y="426" font-size="12" fill="#475569">video crops, masks, depth</text>
     <line x1="740" y1="412" x2="703" y2="412" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
 
     <rect x="740" y="536" width="220" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 4"/>
-    <text x="756" y="558" font-size="13" font-weight="700">Tier 2 noisy trajectories</text>
-    <text x="756" y="578" font-size="12" fill="#475569" font-family="Consolas, Menlo, monospace">human=tier2 motion=tier2</text>
+    <text x="756" y="558" font-size="13" font-weight="700">Own-run baseline</text>
+    <text x="756" y="578" font-size="12" fill="#475569">Track 1 or synthetic tests</text>
     <line x1="740" y1="564" x2="703" y2="564" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
 
     <rect x="740" y="676" width="220" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 4"/>
-    <text x="756" y="698" font-size="13" font-weight="700">Tier 1 ground truth</text>
-    <text x="756" y="718" font-size="12" fill="#475569">scores every development run</text>
-    <line x1="740" y1="704" x2="703" y2="704" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
+    <text x="756" y="698" font-size="13" font-weight="700">No public Track 1 GT</text>
+    <text x="756" y="718" font-size="12" fill="#475569">no official local score</text>
   </g>
 </svg>

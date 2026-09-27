@@ -2,6 +2,8 @@
 
 Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Data (V2D) Challenge.
 
+**Project status (in Chinese), for team meetings: [open the status page](https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1)** · source: [docs/status.html](docs/status.html)
+
 ## Team pages
 
 | Page | What it holds |

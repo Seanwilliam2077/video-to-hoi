@@ -6,7 +6,7 @@ Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Da
 
 Start with [deployment/README.md](deployment/README.md) for the source ZIP, pinned model/source inventory, dependency locks, and download/verification commands. This preparation works without SSH. Git holds code, manifests, and instructions; large pretrained weights and Python wheels are separate transfer artifacts. See [deployment/PREPARATION_STATUS.md](deployment/PREPARATION_STATUS.md) for actual downloaded files and outstanding access requirements. GPU deployment and the two real baselines remain pending.
 
-**Project status (in Chinese), for team meetings: [open the status page](https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1)** · source: [docs/status.html](docs/status.html)
+**Project status (in Chinese), for leadership and product updates: [open the status page](https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1)** · source: [docs/status.html](docs/status.html)
 
 ## Team pages
 

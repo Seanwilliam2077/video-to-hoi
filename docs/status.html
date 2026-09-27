@@ -3,393 +3,411 @@
 <title>video-to-hoi 项目进展</title>
 <style>
 :root {
-  --canvas: #ffffff; --canvas-subtle: #f6f8fa; --canvas-inset: #eff2f5;
-  --border: #d1d9e0; --border-muted: #d8dee4;
-  --fg: #1f2328; --fg-muted: #59636e; --link: #0969da; --neutral: #818b981f;
-  --done: #1a7f37; --done-bg: #dafbe1; --doing: #0969da; --doing-bg: #ddf4ff;
-  --block: #cf222e; --block-bg: #ffebe9; --todo: #59636e; --todo-bg: #eff2f5;
-  --warn: #9a6700; --warn-bg: #fff8c5; --tab: #fd8c73;
-  --m1: #57606a; --m1-bg: #f6f8fa; --m2: #2563eb; --m2-bg: #eff6ff; --m3: #b45309; --m3-bg: #fffbeb; --m4: #047857; --m4-bg: #ecfdf5;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", Helvetica, Arial, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --canvas: #ffffff; --subtle: #f6f8fa; --border: #d8dee4;
+  --fg: #1f2328; --muted: #59636e; --link: #0969da;
+  --done: #1a7f37; --done-bg: #dafbe1;
+  --now: #bf8700; --now-bg: #fff8c5;
+  --stuck: #cf222e; --stuck-bg: #ffebe9;
+  --next: #8c959f; --next-bg: #eff2f5;
+  --font: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --canvas: #0d1117; --canvas-subtle: #151b23; --canvas-inset: #212830;
-    --border: #3d444d; --border-muted: #3d444db3;
-    --fg: #f0f6fc; --fg-muted: #9198a1; --link: #4493f8; --neutral: #656c7633;
-    --done: #3fb950; --done-bg: #2ea04326; --doing: #4493f8; --doing-bg: #388bfd26;
-    --block: #f85149; --block-bg: #f8514926; --todo: #9198a1; --todo-bg: #656c7633;
-    --warn: #d29922; --warn-bg: #bb800926; --tab: #f78166;
-    --m1: #9198a1; --m1-bg: #151b23; --m2: #60a5fa; --m2-bg: #172554; --m3: #f59e0b; --m3-bg: #2b1d08; --m4: #34d399; --m4-bg: #052e22;
+    --canvas: #0d1117; --subtle: #151b23; --border: #3d444d;
+    --fg: #f0f6fc; --muted: #9198a1; --link: #4493f8;
+    --done: #3fb950; --done-bg: #2ea04326; --now: #d29922; --now-bg: #bb800926;
+    --stuck: #f85149; --stuck-bg: #f8514926; --next: #9198a1; --next-bg: #656c7633;
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --canvas: #0d1117; --canvas-subtle: #151b23; --canvas-inset: #212830;
-  --border: #3d444d; --border-muted: #3d444db3;
-  --fg: #f0f6fc; --fg-muted: #9198a1; --link: #4493f8; --neutral: #656c7633;
-  --done: #3fb950; --done-bg: #2ea04326; --doing: #4493f8; --doing-bg: #388bfd26;
-  --block: #f85149; --block-bg: #f8514926; --todo: #9198a1; --todo-bg: #656c7633;
-  --warn: #d29922; --warn-bg: #bb800926; --tab: #f78166;
-  --m1: #9198a1; --m1-bg: #151b23; --m2: #60a5fa; --m2-bg: #172554; --m3: #f59e0b; --m3-bg: #2b1d08; --m4: #34d399; --m4-bg: #052e22;
+  --canvas: #0d1117; --subtle: #151b23; --border: #3d444d;
+  --fg: #f0f6fc; --muted: #9198a1; --link: #4493f8;
+  --done: #3fb950; --done-bg: #2ea04326; --now: #d29922; --now-bg: #bb800926;
+  --stuck: #f85149; --stuck-bg: #f8514926; --next: #9198a1; --next-bg: #656c7633;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; background: var(--canvas); color: var(--fg); font: 15px/1.65 var(--font); }
+body { margin: 0; background: var(--canvas); color: var(--fg); font: 16px/1.75 var(--font); }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
-:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
-code { font-family: var(--mono); font-size: 85%; padding: .15em .4em; border-radius: 6px; background: var(--neutral); overflow-wrap: anywhere; }
-.wrap { max-width: 1100px; margin: 0 auto; padding-inline: 32px; }
-@media (max-width: 768px) { .wrap { padding-inline: 16px; } }
+.wrap { max-width: 960px; margin: 0 auto; padding-inline: 32px; padding-block: 40px 64px; }
+@media (max-width: 640px) { .wrap { padding-inline: 16px; padding-block: 24px 48px; } }
+header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+@media (max-width: 640px) { header { grid-template-columns: minmax(0, 1fr); } }
+.eyebrow { color: var(--muted); font-size: 14px; }
+h1 { font-size: 30px; line-height: 1.3; margin: 4px 0 0; text-wrap: balance; }
+.count { text-align: right; }
+@media (max-width: 640px) { .count { text-align: left; } }
+.count .n { font-size: 44px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.count .l { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.clock { display: flex; gap: 6px; justify-content: flex-end; margin: 8px 0 6px; font-size: 13px; color: var(--muted); }
+@media (max-width: 640px) { .clock { justify-content: flex-start; } }
+.clock span { display: inline-flex; align-items: baseline; gap: 2px; }
+.clock b { display: inline-block; min-width: 2.2ch; padding: 2px 5px; border-radius: 6px; background: var(--subtle); border: 1px solid var(--border); color: var(--fg); font-size: 18px; text-align: center; font-variant-numeric: tabular-nums; }
+section { margin-top: 40px; }
+h2 { font-size: 20px; margin: 0 0 14px; }
+p { margin: 0 0 12px; max-width: 70ch; }
+.muted { color: var(--muted); }
+.lead { font-size: 18px; background: var(--subtle); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-top: 28px; max-width: none; }
 
-header.top { background: var(--canvas-subtle); border-bottom: 1px solid var(--border); padding-block: 20px 0; position: relative; }
-.crumbs { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; color: var(--fg-muted); font-size: 18px; }
-.crumbs strong { color: var(--fg); }
-.pill { border: 1px solid var(--border); border-radius: 2em; padding: 0 8px; font-size: 12px; line-height: 20px; color: var(--fg-muted); }
-nav.tabs { display: flex; gap: 4px; overflow-x: auto; margin-top: 14px; scrollbar-width: none; }
-nav.tabs a { padding: 8px 10px 10px; color: var(--fg); border-bottom: 2px solid transparent; white-space: nowrap; font-size: 14px; }
-nav.tabs a:hover { border-bottom-color: var(--border); text-decoration: none; }
-nav.tabs a.on { border-bottom-color: var(--tab); font-weight: 600; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 760px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.steps li { border-radius: 10px; padding: 12px; border: 1px solid var(--border); }
+.steps .t { font-weight: 700; font-size: 15px; }
+.steps .s { font-size: 13px; font-weight: 600; }
+.steps .d { font-size: 13px; color: var(--muted); }
+.steps .done { background: var(--done-bg); border-color: transparent; }
+.steps .done .s { color: var(--done); }
+.steps .stuck { background: var(--stuck-bg); border-color: var(--stuck); }
+.steps .stuck .s { color: var(--stuck); }
+.steps .next .s { color: var(--next); }
 
-main { padding-block: 28px 56px; }
-section { margin-bottom: 40px; scroll-margin-top: 16px; }
-h1 { font-size: 28px; line-height: 1.25; margin: 0 0 6px; text-wrap: balance; }
-h2 { font-size: 22px; line-height: 1.3; margin: 0 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border-muted); }
-h3 { font-size: 16px; margin: 20px 0 8px; }
-p { margin: 0 0 12px; max-width: 72ch; }
-.muted { color: var(--fg-muted); }
-.small { font-size: 13px; }
+.flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: center; }
+@media (max-width: 640px) { .flow { grid-template-columns: 1fr; } .flow .arrow { transform: rotate(90deg); justify-self: center; } }
+.flow .box { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; background: var(--canvas); min-height: 100%; }
+.flow .box b { display: block; font-size: 16px; }
+.flow .box span { color: var(--muted); font-size: 14px; }
+.flow .arrow { color: var(--muted); font-size: 22px; }
+.scores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+@media (max-width: 640px) { .scores { grid-template-columns: 1fr; } }
+.scores div { border-top: 3px solid var(--fg); padding-top: 8px; font-size: 15px; }
+.scores b { display: block; }
 
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 24px; align-items: start; margin-bottom: 28px; }
-@media (max-width: 860px) { .hero { grid-template-columns: minmax(0, 1fr); } }
-.countdown { border: 1px solid var(--border); border-radius: 8px; padding: 16px; background: var(--canvas-subtle); }
-.countdown .n { font-size: 40px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
-.countdown .l { color: var(--fg-muted); font-size: 13px; }
+.done-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.done-list li { padding-left: 28px; position: relative; }
+.done-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--done); font-weight: 700; }
 
-.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 18px 0 0; }
-.kpi { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; background: var(--canvas); }
-.kpi .k { font-size: 13px; color: var(--fg-muted); }
-.kpi .v { font-size: 16px; font-weight: 600; margin-top: 2px; }
+.issues { display: grid; gap: 12px; }
+.issue { border: 1px solid var(--border); border-left: 4px solid var(--stuck); border-radius: 8px; padding: 14px 16px; }
+.issue.mid { border-left-color: var(--now); }
+.issue b { display: block; font-size: 16px; }
+.issue .need { margin-top: 6px; font-size: 15px; }
+.issue .need::before { content: "需要："; font-weight: 700; }
 
-.st { display: inline-flex; align-items: center; gap: 5px; border-radius: 2em; padding: 0 9px; font-size: 12px; font-weight: 600; line-height: 22px; white-space: nowrap; }
-.st::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-.st.done { color: var(--done); background: var(--done-bg); }
-.st.doing { color: var(--doing); background: var(--doing-bg); }
-.st.block { color: var(--block); background: var(--block-bg); }
-.st.todo { color: var(--todo); background: var(--todo-bg); }
-.st.warn { color: var(--warn); background: var(--warn-bg); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 10px 12px; border-top: 1px solid var(--border); vertical-align: top; }
+thead th { border-top: 0; color: var(--muted); font-weight: 600; font-size: 14px; }
+td.date { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 600; }
+.tag { display: inline-block; border-radius: 2em; padding: 0 10px; font-size: 13px; font-weight: 600; line-height: 24px; white-space: nowrap; }
+.tag.now { color: var(--now); background: var(--now-bg); }
+.tag.stuck { color: var(--stuck); background: var(--stuck-bg); }
+.tag.next { color: var(--next); background: var(--next-bg); }
+.tablewrap { overflow-x: auto; }
 
-.callout { border: 1px solid var(--border); border-left: 4px solid var(--warn); border-radius: 6px; padding: 12px 16px; background: var(--canvas-subtle); margin: 16px 0; }
-.callout.policy { border-left-color: var(--block); }
-.callout b { display: block; margin-bottom: 4px; }
-.callout p:last-child { margin-bottom: 0; }
+.asks { counter-reset: a; list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.asks li { counter-increment: a; position: relative; padding: 14px 16px 14px 56px; border-radius: 10px; background: var(--subtle); border: 1px solid var(--border); }
+.asks li::before { content: counter(a); position: absolute; left: 16px; top: 14px; width: 28px; height: 28px; border-radius: 50%; background: var(--fg); color: var(--canvas); font-weight: 700; display: grid; place-items: center; font-size: 15px; }
+.asks b { display: block; }
 
-.tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
-table { border-collapse: collapse; width: 100%; font-size: 14px; }
-th, td { padding: 9px 12px; text-align: left; vertical-align: top; border-top: 1px solid var(--border-muted); }
-thead th { background: var(--canvas-subtle); border-top: 0; font-weight: 600; white-space: nowrap; }
-td.nowrap { white-space: nowrap; }
-.mod { display: inline-block; font-weight: 700; padding: 0 8px; border-radius: 2em; line-height: 22px; white-space: nowrap; }
-.mod.m1 { color: var(--m1); background: var(--neutral); }
-.mod.m2 { color: var(--m2); background: var(--m2-bg); }
-.mod.m3 { color: var(--m3); background: var(--m3-bg); }
-.mod.m4 { color: var(--m4); background: var(--m4-bg); }
-
-.figure { border: 1px solid var(--border); border-radius: 8px; background: var(--canvas); padding: 12px; overflow-x: auto; }
-.figure svg { display: block; width: 100%; min-width: 640px; height: auto; }
-.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 10px; font-size: 13px; color: var(--fg-muted); align-items: center; }
-.swatch { display: inline-block; width: 22px; border-top: 2px solid currentColor; vertical-align: middle; margin-right: 4px; }
-.swatch.dash { border-top-style: dashed; }
-
-ol.timeline { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border-muted); margin-left: 6px; }
-ol.timeline li { position: relative; padding: 0 0 14px 20px; }
-ol.timeline li::before { content: ""; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--canvas); border: 2px solid var(--done); }
-ol.timeline li.wip::before { border-color: var(--doing); }
-ol.timeline time { font-family: var(--mono); font-size: 13px; color: var(--fg-muted); margin-right: 8px; }
-
-.agenda { counter-reset: q; list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-.agenda li { counter-increment: q; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px 12px 48px; position: relative; }
-.agenda li::before { content: counter(q); position: absolute; left: 14px; top: 12px; width: 24px; height: 24px; border-radius: 50%; background: var(--fg); color: var(--canvas); font-size: 13px; font-weight: 700; display: grid; place-items: center; }
-.agenda b { display: block; }
-.agenda .opts { color: var(--fg-muted); font-size: 14px; }
-
-.links { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px 24px; padding: 0; list-style: none; margin: 0; }
-footer { border-top: 1px solid var(--border-muted); padding-top: 14px; color: var(--fg-muted); font-size: 13px; }
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+:root { --r1: #57606a; --r2: #2563eb; --r3: #b45309; --r4: #047857; --r1-bg: #f6f8fa; --r2-bg: #eff6ff; --r3-bg: #fffbeb; --r4-bg: #ecfdf5; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --r1: #9198a1; --r2: #60a5fa; --r3: #f59e0b; --r4: #34d399; --r1-bg: #151b23; --r2-bg: #172554; --r3-bg: #2b1d08; --r4-bg: #052e22; } }
+:root[data-theme="dark"] { --r1: #9198a1; --r2: #60a5fa; --r3: #f59e0b; --r4: #34d399; --r1-bg: #151b23; --r2-bg: #172554; --r3-bg: #2b1d08; --r4-bg: #052e22; }
+h3 { font-size: 17px; margin: 28px 0 10px; }
+.handoff { border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin: 16px 0 20px; overflow-x: auto; background: var(--canvas); }
+.handoff svg { display: block; width: 100%; min-width: 600px; height: auto; }
+.h-node { stroke-width: 1.5; }
+.h-node.r1 { fill: var(--r1-bg); stroke: var(--r1); }
+.h-node.r2 { fill: var(--r2-bg); stroke: var(--r2); }
+.h-node.r3 { fill: var(--r3-bg); stroke: var(--r3); }
+.h-node.r4 { fill: var(--r4-bg); stroke: var(--r4); }
+.h-title { font: 700 15px var(--font); fill: var(--fg); }
+.h-sub { font: 13px var(--font); fill: var(--muted); }
+.h-line { fill: none; stroke: var(--muted); stroke-width: 1.6; }
+.h-line.strong { stroke: var(--r2); stroke-width: 2; }
+.h-line.dash { stroke-dasharray: 6 4; }
+.h-head { fill: var(--muted); }
+.h-label { font: 12px var(--font); fill: var(--muted); }
+.h-label.strong { fill: var(--r2); font-weight: 700; }
+.roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .roles { grid-template-columns: minmax(0, 1fr); } }
+.role { border: 1px solid var(--border); border-top: 4px solid var(--c); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.role.r1 { --c: var(--r1); } .role.r2 { --c: var(--r2); } .role.r3 { --c: var(--r3); } .role.r4 { --c: var(--r4); }
+.role header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.role header b { font-size: 17px; color: var(--c); }
+.who { font-size: 13px; font-weight: 600; border-radius: 2em; padding: 0 10px; line-height: 24px; background: var(--subtle); border: 1px solid var(--border); white-space: nowrap; }
+.who.pending { color: var(--now); background: var(--now-bg); border-color: transparent; }
+.role .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: 13px; color: var(--muted); }
+.load { white-space: nowrap; }
+.load i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--next-bg); margin-left: 2px; vertical-align: middle; }
+.load i.on { background: var(--c); }
+.role dl { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 6px 10px; margin: 4px 0 0; font-size: 15px; }
+.role dt { color: var(--muted); font-weight: 700; font-size: 14px; }
+.role dd { margin: 0; }
+.role .more { margin-top: auto; font-size: 14px; font-weight: 600; }
+td.who-cell { font-weight: 700; white-space: nowrap; border-left: 4px solid var(--c); }
+td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cell.r3 { --c: var(--r3); } td.who-cell.r4 { --c: var(--r4); }
+.rules { padding-left: 1.2em; margin: 0; display: grid; gap: 6px; }
 </style>
 
-<header class="top">
-  <div class="wrap">
-    <div class="crumbs"><span>video-to-hoi</span><span>/</span><strong>项目进展</strong><span class="pill">NVIDIA V2D 挑战赛 · Track 1</span></div>
-    <nav class="tabs" aria-label="页面目录">
-      <a href="#summary" class="on">概况</a>
-      <a href="#pipeline">管线</a>
-      <a href="#modules">模块分工</a>
-      <a href="#done">已完成</a>
-      <a href="#risks">阻塞与风险</a>
-      <a href="#timeline">时间线</a>
-      <a href="#agenda">会议议题</a>
-      <a href="#links">链接</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-
-<section id="summary">
-  <div class="hero">
+<div class="wrap">
+  <header>
     <div>
-      <h1>项目进展：骨架已通，真实模型尚未接入</h1>
-      <p class="muted">截至 2026-09-27。依据：<code>main</code> 分支（<code>dce95de</code>）和本地工作区里还没提交的改动；后者在文中都标为“未提交”。</p>
-      <p>目标：从一段固定机位的第三人称视频和一句物体描述，恢复人体（含手，MHR 参数）、物体网格、逐帧物体 6D 位姿，统一到米制尺度的同一世界坐标系。官方用多视角重建作参照，按五个指标评分：CD-H、CD-O、ACC-H、ACC-O、PEN。</p>
-      <p><b>一句话现状：</b>六个阶段的管线骨架、文件约定和 CI 都已就绪，但每个阶段目前都是“伪实现”，还没有任何真实重建结果。挡在前面的是算力、模型权重和官方评测脚本三件事。</p>
+      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 9 月 27 日</div>
+      <h1>框架已搭好，AI 模型还没开始运行</h1>
     </div>
-    <aside class="countdown" aria-label="排行榜冻结倒计时">
-      <div class="l">距排行榜冻结还有</div>
-      <div class="n" id="days">38 天</div>
-      <div class="l">2026-11-04（周三）17:00 美东时间<br>每周最多 5 次提交，最后 3 天不限</div>
-    </aside>
-  </div>
+    <div class="count">
+      <div class="l">距比赛截止还有</div>
+      <div class="n" id="cd-days">38 天</div>
+      <div class="clock" id="cd-clock" role="timer" aria-label="距比赛截止的剩余时间">
+        <span><b id="cd-h">--</b>时</span><span><b id="cd-m">--</b>分</span><span><b id="cd-s">--</b>秒</span>
+      </div>
+      <div class="l">截止：北京时间 11 月 5 日 早 6:00<br>（美东时间 11 月 4 日 17:00）</div>
+    </div>
+  </header>
 
-  <div class="kpis">
-    <div class="kpi"><div class="k">管线骨架与文件约定</div><div class="v"><span class="st done">完成</span></div></div>
-    <div class="kpi"><div class="k">真实模型接入</div><div class="v"><span class="st todo">未开始</span></div></div>
-    <div class="kpi"><div class="k">远程 GPU 机器</div><div class="v"><span class="st block">未就绪</span></div></div>
-    <div class="kpi"><div class="k">受限模型权重</div><div class="v"><span class="st block">403 无权限</span></div></div>
-    <div class="kpi"><div class="k">首批真实基线（ep16、ep12）</div><div class="v"><span class="st todo">未运行</span></div></div>
-    <div class="kpi"><div class="k">官方评测脚本</div><div class="v"><span class="st warn">主办方未公布</span></div></div>
-  </div>
+  <p class="lead"><b>一句话：</b>整体方案、分工和协作工具都已就绪，四个人可以同时开工。但真正的 AI 模型还没跑起来，主要卡在三件事上：<b>服务器还没到位</b>、<b>模型使用权限还没拿到</b>、<b>一个必需的文件被公司网络安全策略拦截</b>。这三件事如果在 10 月 1 日前解决，就能按计划在 10 月 8 日拿到第一批结果。</p>
 
-  <div class="callout policy">
-    <b>数据方针：只用 Track 1（2026-09-27 起）</b>
-    <p>Track 2 的所有数据，包括 Tier 1 和 Tier 2，都不能用于重建、开发、调参、验证、评分器自检、基线归一化或提交。Tier 1 开发集、Tier 2 输入流程和以 Tier 2 为基准的内部综合分都已停用。单元测试只用独立生成的合成数据。这项改动写在 README、设计文档和代码里，<b>目前还在本地工作区，未提交</b>。</p>
-  </div>
-  <div class="callout">
-    <b>没有真值怎么验证</b>
-    <p>Track 1 不公开参照重建，本地算不出官方的五个分数。开发阶段靠代理证据：原视频上的重投影、掩码重合度、逐帧覆盖率、轨迹自身的平滑度、接触合理性和可视化检查。官方分数只能来自 Kaggle 提交。这些代理指标的报告工具还没有实现。</p>
-  </div>
-</section>
+  <section>
+    <h2>我们在做什么</h2>
+    <p>让电脑只看一段普通摄像头拍的视频，就还原出人和物体在三维空间里是怎么动的。这类数据可以用来教机器人模仿人的动作。</p>
+    <div class="flow" aria-label="项目示意">
+      <div class="box"><b>输入</b><span>一段固定机位的视频，比如一个人拿起熨斗</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="box"><b>我们的系统</b><span>自动识别人和物体，推算它们的三维形状和位置</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="box"><b>输出</b><span>三维的人、三维的物体，以及每一帧的动作</span></div>
+    </div>
+    <p style="margin-top:16px">比赛共 30 段视频、10 种物体。主办方把我们的结果和他们用多台摄像机得出的“标准答案”比较，从三个方面打分：</p>
+    <div class="scores">
+      <div><b>准不准</b>人和物体的形状、位置是否正确</div>
+      <div><b>顺不顺</b>动作是否平稳、不抖动</div>
+      <div><b>真不真实</b>人和物体接触时有没有互相穿过去</div>
+    </div>
+  </section>
 
-<section id="pipeline">
-  <h2>管线</h2>
-  <p>六个阶段由四个模块负责，阶段之间只通过 <code>runs/&lt;run_id&gt;/</code> 里的文件交接（见 <code>docs/contracts.md</code>）。每个阶段现在都是伪实现：文件格式和数据流是真的，内容是占位的。框里写的是计划接入的模型，红字是当前挡住它的问题。</p>
-  <div class="figure">
-    <svg viewBox="0 0 940 660" role="img" aria-label="管线示意：Track 1 视频进入输入阶段，得到掩码、内参和深度；人体阶段得到 MHR 参数和米制尺度，尺度传给物体模块；物体模块生成网格并逐帧跟踪；修正阶段对人和物体一起做平滑与接触；导出阶段写出内部格式，官方导出器和本地真值评分都还没有。所有阶段目前都是伪实现。" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif">
-      <defs>
-        <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker>
-        <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
-        <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker>
-      </defs>
-      <rect x="0.5" y="0.5" width="939" height="659" rx="10" fill="#ffffff" stroke="#d1d9e0"/>
+  <section id="team">
+    <h2>团队分工</h2>
+    <p>按最终评分的三类指标，把工作拆成四块，一人一块。每块之间约定好“交什么、交给谁”，所以四个人可以同时开工，不用互相等。</p>
 
-      <!-- input -->
-      <rect x="300" y="20" width="340" height="56" rx="8" fill="#ffffff" stroke="#57606a"/>
-      <text x="470" y="44" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2328">Track 1 视频 + 物体描述</text>
-      <text x="470" y="64" text-anchor="middle" font-size="12" fill="#59636e">30 条 · 10 个物体 × 3 · 1536×1152 · 30 fps · 固定机位</text>
-      <line x1="470" y1="76" x2="470" y2="104" stroke="#57606a" stroke-width="1.6" marker-end="url(#a)"/>
+    <div class="handoff" role="img" aria-label="交接关系：平台与数据把视频预处理结果交给人体和物体两块；人体把人体动作和场景尺寸交给物体，并把人体动作交给动作流畅与真实感；物体把物体模型和运动交给动作流畅与真实感；动作流畅与真实感把修正后的结果交回平台与数据，由平台整合并提交。">
+      <svg viewBox="0 0 860 336" aria-hidden="true">
+        <defs><marker id="h-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="h-head"/></marker></defs>
+        <rect class="h-node r1" x="20" y="110" width="170" height="70" rx="12"/>
+        <text class="h-title" x="105" y="140" text-anchor="middle">① 平台与数据</text>
+        <text class="h-sub" x="105" y="162" text-anchor="middle">起点，也是终点</text>
+        <rect class="h-node r2" x="300" y="20" width="200" height="70" rx="12"/>
+        <text class="h-title" x="400" y="50" text-anchor="middle">② 人体动作还原</text>
+        <text class="h-sub" x="400" y="72" text-anchor="middle">人的三维姿态</text>
+        <rect class="h-node r3" x="300" y="200" width="200" height="70" rx="12"/>
+        <text class="h-title" x="400" y="230" text-anchor="middle">③ 物体形状与运动</text>
+        <text class="h-sub" x="400" y="252" text-anchor="middle">物体模型与移动</text>
+        <rect class="h-node r4" x="640" y="110" width="200" height="70" rx="12"/>
+        <text class="h-title" x="740" y="140" text-anchor="middle">④ 动作流畅与真实感</text>
+        <text class="h-sub" x="740" y="162" text-anchor="middle">平稳、不穿模</text>
 
-      <!-- inputs (1) -->
-      <rect x="40" y="106" width="860" height="92" rx="10" fill="#f6f8fa" stroke="#57606a" stroke-width="1.5"/>
-      <text x="60" y="132" font-size="15" font-weight="700" fill="#1f2328" font-family="Consolas, Menlo, monospace">inputs</text>
-      <text x="132" y="132" font-size="13" font-weight="700" fill="#57606a">① 平台与感知</text>
-      <rect x="770" y="118" width="112" height="22" rx="11" fill="#eff2f5"/><text x="826" y="133" text-anchor="middle" font-size="12" font-weight="700" fill="#59636e">现状：伪实现</text>
-      <text x="60" y="160" font-size="13" font-weight="700" fill="#1f2328">掩码</text><text x="60" y="180" font-size="12" fill="#59636e">GroundingDINO → SAM2</text>
-      <text x="300" y="160" font-size="13" font-weight="700" fill="#1f2328">相机内参</text><text x="300" y="180" font-size="12" fill="#59636e">同一台物理相机合并估计</text>
-      <text x="540" y="160" font-size="13" font-weight="700" fill="#1f2328">深度</text><text x="540" y="180" font-size="12" fill="#59636e">MoGe2，尚未米制</text>
-      <text x="880" y="180" text-anchor="end" font-size="12" font-weight="700" fill="#cf222e">阻塞：远程机器未就绪</text>
+        <path class="h-line" d="M190,130 C240,130 250,55 298,55" marker-end="url(#h-arrow)"/>
+        <path class="h-line" d="M190,160 C240,160 250,235 298,235" marker-end="url(#h-arrow)"/>
+        <text class="h-label" x="222" y="92" text-anchor="middle">视频预处理结果</text>
+        <text class="h-label" x="222" y="206" text-anchor="middle">视频预处理结果</text>
 
-      <line x1="190" y1="198" x2="190" y2="238" stroke="#57606a" stroke-width="1.6" marker-end="url(#a)"/>
-      <text x="200" y="224" font-size="12" fill="#59636e">掩码</text>
-      <line x1="660" y1="198" x2="660" y2="238" stroke="#57606a" stroke-width="1.6" marker-end="url(#a)"/>
-      <text x="670" y="224" font-size="12" fill="#59636e">掩码 · 深度 · 内参</text>
+        <path class="h-line strong" d="M400,90 L400,198" marker-end="url(#h-arrow)"/>
+        <text class="h-label strong" x="410" y="140">场景的真实尺寸</text>
+        <text class="h-label" x="410" y="158">（以人的身高为尺子）</text>
 
-      <!-- human (2) -->
-      <rect x="40" y="240" width="330" height="150" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-      <text x="60" y="266" font-size="15" font-weight="700" fill="#1f2328" font-family="Consolas, Menlo, monospace">human</text>
-      <text x="126" y="266" font-size="13" font-weight="700" fill="#1d4ed8">② 人体 · CD-H</text>
-      <rect x="248" y="252" width="104" height="22" rx="11" fill="#dbeafe"/><text x="300" y="267" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">现状：伪实现</text>
-      <text x="60" y="296" font-size="13" fill="#1f2328">SAM 3D Body → MHR（提交格式）</text>
-      <text x="60" y="318" font-size="12" fill="#59636e">每条视频锁定一个人体身份</text>
-      <text x="60" y="338" font-size="12" fill="#59636e">输出 DepthScale：人体定米制尺度</text>
-      <text x="60" y="372" font-size="12" font-weight="700" fill="#cf222e">阻塞：SAM 3D Body 权重 403</text>
+        <path class="h-line" d="M500,55 C570,55 580,125 638,125" marker-end="url(#h-arrow)"/>
+        <path class="h-line" d="M500,235 C570,235 580,165 638,165" marker-end="url(#h-arrow)"/>
+        <text class="h-label" x="578" y="80" text-anchor="middle">人体动作</text>
+        <text class="h-label" x="578" y="222" text-anchor="middle">物体模型与运动</text>
 
-      <!-- scale anchor -->
-      <line x1="370" y1="315" x2="468" y2="315" stroke="#2563eb" stroke-width="2" marker-end="url(#ab)"/>
-      <text x="419" y="306" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">DepthScale</text>
-      <text x="419" y="332" text-anchor="middle" font-size="11" fill="#1d4ed8">米制锚点</text>
+        <path class="h-line dash" d="M740,180 C740,330 105,330 105,182" marker-end="url(#h-arrow)"/>
+        <text class="h-label" x="430" y="326" text-anchor="middle">修正后的结果 → 整合、检查、提交</text>
+      </svg>
+    </div>
 
-      <!-- object (3) -->
-      <rect x="470" y="240" width="430" height="150" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
-      <text x="490" y="266" font-size="13" font-weight="700" fill="#b45309">③ 物体 · CD-O</text>
-      <rect x="778" y="252" width="104" height="22" rx="11" fill="#fef3c7"/><text x="830" y="267" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">现状：伪实现</text>
-      <rect x="486" y="282" width="180" height="76" rx="8" fill="#ffffff" stroke="#d97706"/>
-      <text x="576" y="302" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2328" font-family="Consolas, Menlo, monospace">objects</text>
-      <text x="576" y="322" text-anchor="middle" font-size="12" fill="#1f2328">SAM 3D Objects / Hunyuan3D-2</text>
-      <text x="576" y="342" text-anchor="middle" font-size="12" fill="#59636e">每个物体一个米制网格</text>
-      <rect x="704" y="282" width="180" height="76" rx="8" fill="#ffffff" stroke="#d97706"/>
-      <text x="794" y="302" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2328" font-family="Consolas, Menlo, monospace">motion</text>
-      <text x="794" y="322" text-anchor="middle" font-size="12" fill="#1f2328">FoundationPose 跟踪</text>
-      <text x="794" y="342" text-anchor="middle" font-size="12" fill="#59636e">逐帧位姿 + 置信度</text>
-      <line x1="666" y1="310" x2="702" y2="310" stroke="#b45309" stroke-width="1.6" marker-end="url(#a)"/>
-      <line x1="704" y1="336" x2="668" y2="336" stroke="#b45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#a)"/>
-      <text x="490" y="378" font-size="12" font-weight="700" fill="#cf222e">阻塞：SAM 3D Objects 权重 403；FoundationPose 权重被公司策略拦截</text>
+    <div class="roles">
+      <article class="role r1">
+        <header><b>① 平台与数据</b><span class="who">Sean</span></header>
+        <div class="meta"><span class="tagline">对应评分：全部（负责把关）</span><span class="load" title="前两周最重，之后减轻">工作量 <i class="on"></i><i class="on"></i><i class="on"></i><i></i> 前重后轻</span></div>
+        <dl>
+          <dt>负责</dt><dd>准备服务器和运行环境；从视频里提取基础信息（人和物体在画面中的位置、画面远近）；把四块成果整合起来、检查质量、向主办方提交；维护团队页面和进度。</dd>
+          <dt>交给别人</dt><dd>给人体、物体两块提供视频预处理结果；每周产出一个“团队基准版本”，大家都在它的基础上改进。</dd>
+          <dt>需要别人</dt><dd>其他三块按时交付成果。</dd>
+          <dt>前两周</dt><dd>服务器和模型权限到位；用官方参考方法把前两段视频完整跑通。</dd>
+          <dt>适合</dt><dd>熟悉服务器部署、数据处理和工程整合。</dd>
+        </dl>
+        <a class="more" href="https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg" target="_blank" rel="noopener">技术资料与任务 →</a>
+      </article>
 
-      <line x1="190" y1="390" x2="190" y2="430" stroke="#57606a" stroke-width="1.6" marker-end="url(#a)"/>
-      <text x="200" y="416" font-size="12" fill="#59636e">MHR 人体轨迹</text>
-      <line x1="660" y1="390" x2="660" y2="430" stroke="#57606a" stroke-width="1.6" marker-end="url(#a)"/>
-      <text x="670" y="416" font-size="12" fill="#59636e">网格 · 位姿 · 置信度</text>
+      <article class="role r2">
+        <header><b>② 人体动作还原</b><span class="who pending">待认领</span></header>
+        <div class="meta"><span class="tagline">对应评分：人体的准确度</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i></i><i></i> 中等</span></div>
+        <dl>
+          <dt>负责</dt><dd>从视频里还原人每一帧的三维姿态，包括手；以人的身高为尺子，确定整个场景的真实尺寸。</dd>
+          <dt>交给别人</dt><dd>每一帧的人体动作；场景的真实尺寸（物体那块要用它来确定物体有多大）。</dd>
+          <dt>需要别人</dt><dd>平台提供的视频预处理结果。</dd>
+          <dt>前两周</dt><dd>拿到模型使用权限，在几段视频上跑通；重点检查第一帧，因为官方按第一帧对齐，第一帧错了整段都会偏。</dd>
+          <dt>适合</dt><dd>做过人体姿态估计或人体三维重建。</dd>
+        </dl>
+        <a class="more" href="https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk" target="_blank" rel="noopener">技术资料与任务 →</a>
+      </article>
 
-      <!-- refine (4) -->
-      <rect x="40" y="432" width="860" height="92" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
-      <text x="60" y="458" font-size="15" font-weight="700" fill="#1f2328" font-family="Consolas, Menlo, monospace">refine</text>
-      <text x="126" y="458" font-size="13" font-weight="700" fill="#047857">④ 时序与物理 · ACC-H · ACC-O · PEN</text>
-      <rect x="778" y="444" width="104" height="22" rx="11" fill="#d1fae5"/><text x="830" y="459" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">现状：直通</text>
-      <text x="60" y="488" font-size="13" font-weight="700" fill="#1f2328">平滑</text><text x="60" y="508" font-size="12" fill="#59636e">手指单独处理</text>
-      <text x="250" y="488" font-size="13" font-weight="700" fill="#1f2328">静止段锁定</text><text x="250" y="508" font-size="12" fill="#59636e">拿起前、放下后、坐着时</text>
-      <text x="470" y="488" font-size="13" font-weight="700" fill="#1f2328">遮挡补帧</text><text x="470" y="508" font-size="12" fill="#59636e">低置信帧重新插值</text>
-      <text x="650" y="488" font-size="13" font-weight="700" fill="#1f2328">接触与穿透</text><text x="650" y="508" font-size="12" fill="#cf222e">CARI4D 权重 403</text>
+      <article class="role r3">
+        <header><b>③ 物体形状与运动</b><span class="who pending">待认领</span></header>
+        <div class="meta"><span class="tagline">对应评分：物体的准确度</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i> 最重</span></div>
+        <dl>
+          <dt>负责</dt><dd>给 10 种物体各做一个真实尺寸的三维模型；在每一帧里跟踪物体的位置和朝向，被人挡住时也不能断。</dd>
+          <dt>交给别人</dt><dd>物体的三维模型，以及每一帧的位置和朝向。</dd>
+          <dt>需要别人</dt><dd>平台的视频预处理结果；人体那块给出的场景尺寸。</dd>
+          <dt>前两周</dt><dd>先给前两段视频里的泡沫块和平底锅做出三维模型；和平台一起解决跟踪工具那个被拦截的文件。</dd>
+          <dt>难点</dt><dd>细长反光的呼啦圈、白色无纹理的桌子和推车、用脚推动的物体。</dd>
+          <dt>适合</dt><dd>做过三维重建或物体跟踪。</dd>
+        </dl>
+        <a class="more" href="https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8" target="_blank" rel="noopener">技术资料与任务 →</a>
+      </article>
 
-      <line x1="190" y1="524" x2="190" y2="562" stroke="#57606a" stroke-width="1.6" marker-end="url(#a)"/>
-      <text x="200" y="548" font-size="12" fill="#59636e">修正后的人体 + 物体</text>
+      <article class="role r4">
+        <header><b>④ 动作流畅与真实感</b><span class="who pending">待认领</span></header>
+        <div class="meta"><span class="tagline">对应评分：动作平稳度 + 接触真实感（占总评分一半）</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i></i><i></i> 中等</span></div>
+        <dl>
+          <dt>负责</dt><dd>让人和物体的动作平稳不抖；物体放着不动时保持静止；补全被遮挡的画面；人和物体接触时不互相穿过去。</dd>
+          <dt>交给别人</dt><dd>修正后的人体和物体动作，交给平台整合提交。</dd>
+          <dt>需要别人</dt><dd>人体、物体两块的结果。</dd>
+          <dt>前两周</dt><dd>不用等别人：先用自己构造的模拟数据把方法做出来，等真实结果出来再调整。</dd>
+          <dt>注意</dt><dd>平滑过头会让位置变得不准，需要在“顺”和“准”之间取舍。</dd>
+          <dt>适合</dt><dd>做过优化、物理仿真或时间序列处理。</dd>
+        </dl>
+        <a class="more" href="https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV" target="_blank" rel="noopener">技术资料与任务 →</a>
+      </article>
+    </div>
 
-      <!-- export (1) -->
-      <rect x="40" y="564" width="340" height="80" rx="10" fill="#f6f8fa" stroke="#57606a" stroke-width="1.5"/>
-      <text x="60" y="590" font-size="15" font-weight="700" fill="#1f2328" font-family="Consolas, Menlo, monospace">export</text>
-      <text x="126" y="590" font-size="13" font-weight="700" fill="#57606a">① 平台与感知</text>
-      <text x="60" y="614" font-size="13" fill="#1f2328">内部格式：parquet + MHR + 网格</text>
-      <text x="60" y="632" font-size="12" fill="#59636e">官方导出器未做（等评测脚本）</text>
+    <h3>第一批结果（目标 10 月 8 日）：每块要交什么</h3>
+    <p>第一批只做两段视频（泡沫块、平底锅），先用官方参考方法整体跑一遍，作为大家后续改进的起点。</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>分工</th><th>要交的东西</th></tr></thead>
+        <tbody>
+          <tr><td class="who-cell r1">① 平台与数据</td><td>服务器可用；两段视频的预处理结果；把各块成果串起来跑通，定为第一个团队基准版本</td></tr>
+          <tr><td class="who-cell r2">② 人体动作还原</td><td>检查这两段视频的人体结果，尤其是第一帧；确认场景尺寸是否合理，列出要改进的地方</td></tr>
+          <tr><td class="who-cell r3">③ 物体形状与运动</td><td>泡沫块和平底锅的三维模型（真实尺寸）；检查跟踪是否在遮挡时断掉</td></tr>
+          <tr><td class="who-cell r4">④ 动作流畅与真实感</td><td>用模拟数据做好的初版平滑和接触方法；接到第一批结果上试一遍，看改进多少</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-      <line x1="380" y1="604" x2="498" y2="604" stroke="#8c959f" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ag)"/>
-      <text x="439" y="596" text-anchor="middle" font-size="12" fill="#59636e">待官方格式</text>
-      <rect x="500" y="564" width="400" height="80" rx="10" fill="#f6f8fa" stroke="#8c959f" stroke-width="1.5" stroke-dasharray="5 4"/>
-      <text x="520" y="590" font-size="15" font-weight="700" fill="#1f2328">Kaggle 官方评分</text>
-      <text x="520" y="614" font-size="13" fill="#1f2328">CD-H · CD-O · ACC-H · ACC-O · PEN（cm，越低越好）</text>
-      <text x="520" y="632" font-size="12" fill="#59636e">本地无 Track 1 真值，算不出官方分数</text>
-    </svg>
-  </div>
-  <div class="legend">
-    <span><span class="swatch" style="color:#57606a"></span>文件交接</span>
-    <span><span class="swatch" style="color:#2563eb"></span>米制尺度锚点</span>
-    <span><span class="swatch dash" style="color:#b45309"></span>拟合结果反过来挑网格</span>
-    <span><span class="swatch dash" style="color:#8c959f"></span>尚未打通</span>
-  </div>
-  <h3>三个耦合点决定了模块怎么切</h3>
-  <p>一、人体给深度定米制尺度，深度再给物体网格定尺度，所以人体模块要交出 <code>DepthScale</code>。二、挑网格要看跟踪效果，跟踪又需要网格，所以网格和跟踪归同一个模块。三、接触修正同时改人和物体，所以单独成一个阶段，放在两者之后。</p>
-</section>
+    <h3>怎么协作</h3>
+    <ul class="rules">
+      <li><b>各做各的，定期合并：</b>每人在自己的工作分支上开发，每周二合并一次，产出新的团队基准版本。</li>
+      <li><b>进展写在各自的页面上：</b>任务、进展、结果和参考资料都记在对应的模块页面，方便其他人随时查看。</li>
+      <li><b>改交接内容先打招呼：</b>要改变交给别人的东西（内容或格式），先和接收的人商量好再动手。</li>
+      <li><b>只用比赛给的 30 段视频：</b>不使用其他赛道的数据，这是比赛规则的要求。</li>
+      <li><b>提交统一由平台负责：</b>每周最多提交 5 次，由平台统一安排，避免浪费次数。</li>
+    </ul>
 
-<section id="modules">
-  <h2>模块分工</h2>
-  <div class="tablewrap">
-    <table>
-      <thead><tr><th>模块</th><th>负责人</th><th>阶段</th><th>瞄准的指标</th><th>分支</th><th>现状</th><th>下一步</th></tr></thead>
-      <tbody>
-        <tr><td><span class="mod m1">① 平台与感知</span></td><td class="nowrap">Sean</td><td><code>inputs</code> <code>export</code></td><td>全部（集成把关）</td><td><code>platform</code></td><td><span class="st doing">部署准备中</span></td><td>定下远程机器；打通 ep16、ep12 两个真实基线；Track 1 代理指标报告工具</td></tr>
-        <tr><td><span class="mod m2">② 人体</span></td><td class="nowrap">待定</td><td><code>human</code></td><td>CD-H</td><td><code>human</code></td><td><span class="st todo">伪实现</span></td><td>拿到 SAM 3D Body 权重；在 Track 1 上检查首帧、重投影、身份一致性；交出 DepthScale</td></tr>
-        <tr><td><span class="mod m3">③ 物体</span></td><td class="nowrap">待定</td><td><code>objects</code> <code>motion</code></td><td>CD-O</td><td><code>object</code></td><td><span class="st todo">伪实现</span></td><td>从 Track 1 帧生成 10 个物体的网格并定尺度；解决 FoundationPose 权重来源</td></tr>
-        <tr><td><span class="mod m4">④ 时序与物理</span></td><td class="nowrap">待定</td><td><code>refine</code></td><td>ACC-H · ACC-O · PEN</td><td><code>physics</code></td><td><span class="st todo">直通</span></td><td>先用自己生成的合成轨迹做平滑、静止段、接触方法；等真实上游后在 Track 1 上对比</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="muted small" style="margin-top:10px">三位同学已受邀加入团队页面，具体分到哪个模块还没定。模块③工作量最大（10 个网格、30 条跟踪；难点是呼啦圈、白色家具、用脚推的物体），模块①在基线跑通后可以接手其中的难例。</p>
-</section>
+    <h3>会上要定的分工问题</h3>
+    <ol class="asks">
+      <li><b>谁认领哪一块</b>三位同学结合各自擅长，分别认领 ② 人体、③ 物体、④ 流畅与真实感。</li>
+      <li><b>物体那块怎么减负</b>它的工作量最大。基准跑通后，平台是否接手其中一两个难点物体（比如呼啦圈）？</li>
+      <li><b>各块的第一个交付物和日期</b>对照上面的表，确认每个人 10 月 8 日前交什么。</li>
+      <li><b>每周同步的时间</b>建议每周二合并并开短会，确认时间和形式。</li>
+      <li><b>权限申请分工</b>每人都要申请模型使用权限；确认谁申请哪几个、谁跟进 IT 流程。</li>
+    </ol>
+  </section>
 
-<section id="done">
-  <h2>已完成</h2>
-  <ol class="timeline">
-    <li><time>09-24</time>设计文档与本地评分器初版（PR #1）。</li>
-    <li><time>09-26</time>主办方书面答复：第一帧 Sim(3) 对齐；人体交 MHR；物体 Chamfer 算摆好位姿的网格；加速度只看预测轨迹自身；遮挡帧也要有位姿；不得使用 Track 2 资产。</li>
-    <li><time>09-26</time>仓库全英文（PR #3）；管线骨架：六个阶段、带版本号的文件约定、伪实现、可从任一阶段接着跑的 runner（PR #4）。</li>
-    <li><time>09-26</time>管线图与项目首页（PR #5）；GitHub Actions CI（PR #6，首跑 52 通过、3 跳过）；四个模块分支。</li>
-    <li><time>09-26</time>五个团队页面（主办方资料页 + 四个模块页），已邀请三位同学；Track 1 全部 30 条视频已下载（513 MB），仓库内有预览画廊（PR #7）。</li>
-    <li class="wip"><time>09-27</time><b>未提交：</b>Track 1-only 方针落到代码（runner 只接受 Track 1、禁用 Tier 2 与参考网格实现、下载只取 Track 1）；测试与 CI 改为白名单，本地 66 个全部通过。</li>
-    <li class="wip"><time>09-27</time><b>未提交：</b>部署准备：ZIP 交接包工具、资产获取与校验工具、依赖锁定、模型资产清单（必需模型约 23.5 GB，不含 FoundationPose）、候选主机与验收标准（<code>docs/platform.md</code>）。</li>
-  </ol>
-</section>
+  <section>
+    <h2>进度</h2>
+    <ol class="steps">
+      <li class="done"><div class="t">读懂规则</div><div class="s">已完成</div><div class="d">已向主办方书面确认</div></li>
+      <li class="done"><div class="t">搭建框架</div><div class="s">已完成</div><div class="d">四人可并行开发</div></li>
+      <li class="stuck"><div class="t">接入 AI 模型</div><div class="s">受阻</div><div class="d">等服务器和权限</div></li>
+      <li class="next"><div class="t">第一批结果</div><div class="s">未开始</div><div class="d">目标 10 月 8 日</div></li>
+      <li class="next"><div class="t">全部出结果</div><div class="s">未开始</div><div class="d">目标 10 月 15 日</div></li>
+      <li class="next"><div class="t">优化与提交</div><div class="s">未开始</div><div class="d">截止 11 月 4 日</div></li>
+    </ol>
+  </section>
 
-<section id="risks">
-  <h2>阻塞与风险</h2>
-  <div class="tablewrap">
-    <table>
-      <thead><tr><th>程度</th><th>问题</th><th>现状</th><th>负责</th><th>建议的下一步</th></tr></thead>
-      <tbody>
-        <tr><td><span class="st block">高</span></td><td>远程算力</td><td>没有 SSH，只能用 ZIP 包 + 服务器控制台交接。候选主机是 8 张 RTX PRO 5000 72 GB（Blackwell，计算能力 12.0），而官方 CARI4D 容器是 CUDA 12.4、原生扩展只编译到 9.0，不能直接用。CPU、内存、存储、Docker 支持都没验证。</td><td class="nowrap">①</td><td>会上决定：用这台机器并由专人重建容器，还是另租一张 L40S 48 GB 先跑基线；无论哪种，先单卡跑短片段验证兼容性。</td></tr>
-        <tr><td><span class="st block">高</span></td><td>受限模型权重</td><td>CARI4D、SAM 3D Body、SAM 3D Objects 在 Hugging Face 上探测都返回 403：可能没获批，也可能 token 权限不够。</td><td class="nowrap">全员</td><td>每人用自己的账号申请这三个模型，并检查 token 是否有对应仓库的读权限。</td></tr>
-        <tr><td><span class="st block">高</span></td><td>FoundationPose 权重</td><td>权重在 Google Drive 上，被公司 iOA 安全策略拦截。不能绕过、不能找镜像。</td><td class="nowrap">① ③</td><td>走 IT 合规审批；同时评估跟踪环节的备选方案。</td></tr>
-        <tr><td><span class="st warn">中</span></td><td>官方评测脚本与提交格式</td><td><code>eval_reconstruction.py</code> 未公布，Kaggle 的 Track 1 页面仍打不开（404）。</td><td class="nowrap">①</td><td>先保留内部格式；脚本一公布就写官方导出器，并尽早提交一次确认格式。</td></tr>
-        <tr><td><span class="st warn">中</span></td><td>没有真值的验证</td><td>本地算不出官方分数；代理指标（重投影、覆盖率、平滑、接触）的报告工具还没实现。</td><td class="nowrap">① + 各模块</td><td>每个模块先定下自己要看的代理证据；模块①做统一的报告和前后对比。</td></tr>
-        <tr><td><span class="st warn">中</span></td><td>遗留的 Track 2 内容</td><td>评分器和部分测试仍有 Track 2 路径（已从 CI 白名单排除）；团队页面里还留着 Tier 2 开发命令、Tier 2 起点成绩和 Dev data 标签页。</td><td class="nowrap">①</td><td>隔离或删除遗留代码；按新方针更新五个团队页面。</td></tr>
-        <tr><td><span class="st warn">中</span></td><td>未提交的改动</td><td>Track 1-only 方针和部署准备都还在本地工作区，<code>main</code> 上的 README、设计文档和代码仍是旧说法。</td><td class="nowrap">①</td><td>会后审一遍并提交到 <code>main</code>。</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+  <section>
+    <h2>已经完成的</h2>
+    <ul class="done-list">
+      <li>读懂了比赛规则和评分方式，并就关键问题拿到了主办方的书面答复。</li>
+      <li>搭好了整体框架：把工作拆成四块，四个人可以各做一块、互不等待。</li>
+      <li>建好了团队协作页面：每块工作有自己的任务、进展和资料页，已邀请三位同学。</li>
+      <li>下载并整理好了比赛的全部 30 段视频，可以直接浏览。</li>
+      <li>准备好了部署到服务器所需的材料清单。</li>
+    </ul>
+  </section>
 
-<section id="timeline">
-  <h2>时间线</h2>
-  <div class="tablewrap">
-    <table>
-      <thead><tr><th>周</th><th>截止</th><th>内容</th><th>状态</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td class="nowrap">10-01</td><td>确认格式与指标细节；申请受限权重；准备算力；在独立合成数据上测试文件约定和指标算法</td><td><span class="st doing">进行中</span></td></tr>
-        <tr><td>2</td><td class="nowrap">10-08</td><td>用 Track 1 生成的网格在 ep16、ep12 上跑 CARI4D，保存第一个真实基线和可视化；官方导出格式可用时验证</td><td><span class="st block">受阻</span></td></tr>
-        <tr><td>3</td><td class="nowrap">10-15</td><td>物体层（多候选网格 + 尺度合并）、按相机的内参、世界系；30 条都有输出后提交完整版本</td><td><span class="st todo">未开始</span></td></tr>
-        <tr><td>4–5</td><td class="nowrap">10-29</td><td>静止段、对称物体、遮挡后重新注册、坐和脚推的接触、呼啦圈</td><td><span class="st todo">未开始</span></td></tr>
-        <tr><td>6</td><td class="nowrap">11-04</td><td>用 Track 1 诊断和官方结果调平滑与联合优化；最后 3 天集中提交</td><td><span class="st todo">未开始</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="muted small" style="margin-top:10px">第 2 周的基线依赖远程机器和三个受限权重；这两件事不落地，后面各周都会顺延。</p>
-</section>
+  <section>
+    <h2>卡在哪里</h2>
+    <div class="issues">
+      <div class="issue">
+        <b>服务器还没到位</b>
+        <p style="margin:4px 0 0">AI 模型需要高性能计算服务器才能运行，普通电脑跑不动。目前的候选服务器还连不上，只能打包上传文件；而且它的型号很新，比赛官方提供的软件要额外适配才能用。</p>
+        <div class="need">尽快决定用哪台服务器：继续适配这台，还是另外租一台常用型号先跑起来。</div>
+      </div>
+      <div class="issue">
+        <b>AI 模型的使用权限还没拿到</b>
+        <p style="margin:4px 0 0">三个关键模型需要向发布方申请使用权限，目前都还用不了：可能是申请还没批准，也可能是账号权限没设置对。</p>
+        <div class="need">团队成员各自尽快提交申请，并检查账号权限设置。</div>
+      </div>
+      <div class="issue">
+        <b>一个必需的文件被公司网络安全策略拦截</b>
+        <p style="margin:4px 0 0">有一个模型文件存放在外部网盘上，公司安全策略不允许下载，我们也不会绕过。</p>
+        <div class="need">IT 部门协助，走合规渠道获取这个文件。</div>
+      </div>
+      <div class="issue mid">
+        <b>主办方的评分工具和提交格式还没公布</b>
+        <p style="margin:4px 0 0">在它公布之前，我们本地看不到正式分数，只能先按已知规则准备，公布后立刻对接。</p>
+        <div class="need">不需要额外支持，我们持续关注。</div>
+      </div>
+    </div>
+  </section>
 
-<section id="agenda">
-  <h2>会议议题</h2>
-  <ol class="agenda">
-    <li><b>模块分工</b><span class="opts">三位同学分别负责 ② 人体、③ 物体、④ 时序与物理中的哪一个；各自的 GitHub 用户名（用于仓库权限和 CODEOWNERS）。</span></li>
-    <li><b>算力方案</b><span class="opts">采用 8 × RTX PRO 5000 主机，还是另租 L40S 48 GB 先跑基线？谁负责 Blackwell 兼容性验证和容器重建？</span></li>
-    <li><b>模型权重</b><span class="opts">每人申请 SAM 3D Body、SAM 3D Objects、CARI4D 的访问权限；统一 token 权限设置。</span></li>
-    <li><b>FoundationPose</b><span class="opts">谁发起 IT 合规审批？审批期间跟踪环节用什么备选？</span></li>
-    <li><b>首批真实基线</b><span class="opts">ep16（泡沫块）和 ep12（平底锅），目标 10-08，负责人与所需输入（掩码、从 Track 1 帧生成的网格）。</span></li>
-    <li><b>没有真值怎么验收</b><span class="opts">每个模块用哪些代理证据；模块① 的报告工具什么时候能用；合并前需要附哪些前后对比。</span></li>
-    <li><b>Kaggle</b><span class="opts">建队，五个比赛成员保持一致；第一次提交确认格式的时间点。</span></li>
-    <li><b>收尾事项</b><span class="opts">提交工作区里的方针与部署改动；按 Track 1-only 更新团队页面；清理遗留的 Track 2 代码。</span></li>
-  </ol>
-</section>
+  <section>
+    <h2>时间安排</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>时间</th><th>目标</th><th>状态</th></tr></thead>
+        <tbody>
+          <tr><td class="date">10 月 1 日</td><td>服务器和模型使用权限到位</td><td><span class="tag now">进行中</span></td></tr>
+          <tr><td class="date">10 月 8 日</td><td>拿到第一批结果（2 段视频）</td><td><span class="tag stuck">有风险</span></td></tr>
+          <tr><td class="date">10 月 15 日</td><td>30 段视频全部出结果，第一次正式提交</td><td><span class="tag next">未开始</span></td></tr>
+          <tr><td class="date">10 月 29 日</td><td>攻克难点：细长物体、大件家具、人坐在物体上等情况</td><td><span class="tag next">未开始</span></td></tr>
+          <tr><td class="date">11 月 4 日</td><td>比赛截止前集中优化和提交</td><td><span class="tag next">未开始</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:12px">比赛期间每周最多提交 5 次，最后 3 天不限次数。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。如果服务器和权限在 10 月 1 日前不能到位，后面每一步都会顺延，留给优化的时间会被压缩。</p>
+  </section>
 
-<section id="links">
-  <h2>链接</h2>
-  <ul class="links">
-    <li><a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">GitHub 仓库</a></li>
-    <li><a href="https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b" target="_blank" rel="noopener">Track 1 资料页（规则、视频、主办方问答）</a></li>
-    <li><a href="https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg" target="_blank" rel="noopener">① 平台与感知 模块页</a></li>
-    <li><a href="https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk" target="_blank" rel="noopener">② 人体 模块页</a></li>
-    <li><a href="https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8" target="_blank" rel="noopener">③ 物体 模块页</a></li>
-    <li><a href="https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV" target="_blank" rel="noopener">④ 时序与物理 模块页</a></li>
-    <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/workflow.md" target="_blank" rel="noopener">团队工作流（英文）</a></li>
-    <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/design.md" target="_blank" rel="noopener">设计文档（英文）</a></li>
-    <li><a href="https://nvidia-isaac.github.io/video_to_data/v2d_challenge/" target="_blank" rel="noopener">V2D 挑战赛官方页面</a></li>
-  </ul>
-</section>
+  <section>
+    <h2>需要支持的事</h2>
+    <ol class="asks">
+      <li><b>拍板服务器方案</b>继续适配现有候选服务器，还是另租一台常用型号先跑起来；同时协调远程访问方式。</li>
+      <li><b>IT 部门协助</b>通过合规渠道获取被安全策略拦截的模型文件。</li>
+      <li><b>确认团队分工</b>三位同学分别负责哪一块工作（见上方“团队分工”）。</li>
+    </ol>
+  </section>
 
-<footer>本页源文件在仓库 <code>docs/status.html</code>。更新时间 2026-09-27；会后按决议更新“模块分工”“阻塞与风险”和“时间线”。</footer>
-</main>
+
+  <footer>数据截至 2026 年 9 月 27 日。技术细节见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+</div>
 
 <script>
 (function () {
-  var freeze = Date.parse("2026-11-04T22:00:00Z");
-  var days = Math.ceil((freeze - Date.now()) / 86400000);
-  var el = document.getElementById("days");
-  if (el) el.textContent = days > 0 ? days + " 天" : "已冻结";
-  var links = Array.prototype.slice.call(document.querySelectorAll("nav.tabs a"));
-  var sections = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
-  function mark() {
-    var y = window.scrollY + 80, current = 0;
-    sections.forEach(function (s, i) { if (s && s.offsetTop <= y) current = i; });
-    links.forEach(function (a, i) { a.classList.toggle("on", i === current); });
+  // Deadline: 2026-11-04 17:00 EST = 2026-11-05 06:00 Beijing = 22:00 UTC.
+  var deadline = Date.parse("2026-11-04T22:00:00Z");
+  var days = document.getElementById("cd-days");
+  var clock = document.getElementById("cd-clock");
+  var parts = { h: document.getElementById("cd-h"), m: document.getElementById("cd-m"), s: document.getElementById("cd-s") };
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function tick() {
+    var left = deadline - Date.now();
+    if (left <= 0) {
+      days.textContent = "已截止";
+      clock.hidden = true;
+      return false;
+    }
+    var sec = Math.floor(left / 1000);
+    days.textContent = Math.floor(sec / 86400) + " 天";
+    parts.h.textContent = pad(Math.floor(sec % 86400 / 3600));
+    parts.m.textContent = pad(Math.floor(sec % 3600 / 60));
+    parts.s.textContent = pad(sec % 60);
+    return true;
   }
-  window.addEventListener("scroll", mark, { passive: true });
-  mark();
+  if (tick()) {
+    var timer = setInterval(function () { if (!tick()) clearInterval(timer); }, 1000);
+  }
 })();
 </script>

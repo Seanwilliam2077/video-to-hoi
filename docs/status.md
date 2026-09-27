@@ -20,11 +20,11 @@ The page names no models, tools, platforms, file formats, or technical metrics. 
 |---|---|
 | Model and method names | CARI4D, SAM 3D Body, SAM 3D Objects, SAM2, GroundingDINO, MoGe, FoundationPose, Hunyuan3D, MHR, SOMA-X |
 | Platforms and services | Hugging Face, Google Drive, iOA, GitHub, PR numbers, Kaggle |
-| Infrastructure | GPU model names, CUDA, Docker, container, SSH, ZIP, Linux, Python versions, token, API, HTTP error codes such as 403 |
+| Infrastructure | GPU architectures and technical specs other than memory size, CUDA, Docker, container, SSH, ZIP, Linux, Python versions, token, API, HTTP error codes such as 403 |
 | Code and data terms | 权重 (weights), 源码 (source code), 依赖 (dependencies), 接口 (interfaces), stage names, file names and paths, commands, parquet, mesh |
 | Metrics and dataset terms | CD-H, CD-O, ACC-H, ACC-O, PEN, Chamfer, Sim(3), Track 1 / Track 2, Tier 1 / Tier 2, episode numbers |
 
-Words that are fine: 服务器, 显卡, AI 模型, 模型文件, 使用权限, 三维模型, 打包上传, 自动检查, 比赛给的 30 段视频, 前两段视频（泡沫块、平底锅）.
+Words that are fine: 服务器, 显卡, 显卡内存, AI 模型, 模型文件, 使用权限, 三维模型, 打包上传, 自动检查, 比赛给的 30 段视频, 前两段视频（泡沫块、平底锅）. Servers may be called by the names the team uses for them (L20、A10、RTX PRO 5000 服务器), with the card memory in GB as the only spec; explain what that means in plain words, as the server table on the page does.
 
 Check before you commit. The command must print nothing:
 

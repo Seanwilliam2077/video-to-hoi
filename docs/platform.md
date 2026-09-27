@@ -6,7 +6,8 @@ be transferred as ZIP files and used through the server's available console.
 See [deployment/README.md](../deployment/README.md) for the preparation commands.
 The owner supplied a screenshot of a
 candidate host with eight RTX PRO 5000 72 GB GPUs. Remote access, CPU, host RAM,
-storage, and container support are not yet verified. The two real baselines
+storage, and container support are not yet verified. Two more server types,
+L20 and A10, are also available; see below. The two real baselines
 have not been run. Model inference,
 environment installation, and acceptance tests will run on the remote host,
 not on the project owner's local computer.
@@ -35,6 +36,22 @@ Do not split one video across GPUs until temporal state and scale consistency
 have an explicit implementation. For four concurrent jobs, provision roughly
 32–64 vCPUs, 256 GB host RAM or more, and 2 TB of persistent fast storage as an
 initial engineering estimate; measure actual use before increasing concurrency.
+
+## Other available servers: L20 and A10 (2026-09-27)
+
+The owner reported two more server types besides the RTX PRO 5000 host. Their
+count, CPU, host RAM, storage, OS, driver version, and access method are not
+yet known.
+
+| GPU | Memory | Architecture | Fit for the pinned upstream containers |
+|---|---|---|---|
+| NVIDIA L20 | 48 GB | Ada Lovelace, compute capability 8.9 | 8.9 is in the official recipes' target list (8.0, 8.6, 8.9, 9.0), and 48 GB matches the toolkit's target. The strongest candidate for the first two baselines, pending a driver and container check on the machine itself. |
+| NVIDIA A10 | 24 GB | Ampere, compute capability 8.6 | 8.6 is in the target list, but 24 GB is below the 32 GB that SAM 3D Objects requires, so it cannot run the complete unmodified workflow. Use it for lighter stages such as masks and depth, or for tests. |
+
+Recommendation: run the first two baselines on one L20 GPU. Keep the RTX PRO
+5000 host for parallel runs across episodes once a Blackwell build of the
+container stack is validated. Use A10 for light stages. An in-house L20 makes
+renting the L40S below unnecessary unless the L20 check fails.
 
 ## Alternative initial machine
 
@@ -80,7 +97,8 @@ four simultaneous model jobs require separate memory and scheduling estimates.
 ## Access needed before renting compute
 
 Confirm Hugging Face access to `facebook/sam-3d-body-dinov3`,
-`facebook/sam-3d-objects`, and `nvidia/cari4d_commercial`. The
+`facebook/sam-3d-objects`, and `nvidia/cari4d_commercial`. As of 2026-09-27
+the access requests for these three models are in progress. The
 [official CARI4D instructions](https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/README.md)
 explain the Body approval requirement and the separate Objects checkpoint.
 Use a read token on the remote machine; keep credentials out of the repository,
@@ -160,8 +178,8 @@ The completed required-model count is now 9/12; the remaining three gated
 Hugging Face models have not been reacquired or reprobed. The 43
 downloader/bundle tests passed with synthetic files only. No Drive download
 was executed by Codex, and no model inference or server deployment has been
-performed. The public Claude status page still needs republication from an
-authorized editing session.
+performed. The owner reported on 2026-09-27 that the FoundationPose files
+have been uploaded. The online status page was republished the same day.
 
 ### Published add-on
 

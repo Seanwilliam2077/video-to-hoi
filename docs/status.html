@@ -157,7 +157,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>整体方案、分工和协作工具已就绪；<b>已取得的 AI 模型文件和配套软件已下载并核对无误</b>，新补充的模型文件已上传，同事可直接下载。但 AI 模型还没真正跑起来，主要还在等<b>服务器配置确认</b>和<b>三个关键模型的使用权限</b>。按计划先不上服务器，等条件到位后再做前两段视频的第一批结果。</p>
+  <p class="lead"><b>一句话：</b>整体方案、分工和协作工具已就绪；<b>已取得的 AI 模型文件和配套软件已下载并核对无误</b>，之前被拦截的文件也已上传，同事可直接下载。但 AI 模型还没真正跑起来，还在等两件事：<b>选定服务器</b>（现在有三种可选）和<b>三个关键模型的使用权限</b>（正在申请）。服务器一选定、权限一批下来，就做前两段视频的第一批结果。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -324,9 +324,9 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <li>搭好了整体框架：把工作拆成四块，四个人可以各做一块、互不等待。</li>
       <li>建好了团队协作页面：每块工作有自己的任务、进展和资料页，已邀请三位同学。</li>
       <li>下载并整理好了比赛的全部 30 段视频，可以直接浏览。</li>
-      <li>已取得的 AI 模型文件已下载并核对（约 5.7 GB），记下了来源和版本；还有 3 组关键文件缺使用权限。</li>
+      <li>已取得的 AI 模型文件已下载并核对（约 5.7 GB），记下了来源和版本；还有 3 组关键文件在等使用权限（正在申请）。</li>
       <li>准备好了服务器上要装的基础软件（约 120 MB），以及“打包上传、到达后自动核对”的工具；不需要远程登录服务器也能把文件交过去。</li>
-      <li>项目负责人手动取得了物体跟踪所需的两组文件，我们已逐一核对，并上传了<a href="https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927" target="_blank" rel="noopener">可直接下载的补充包</a>。</li>
+      <li>之前被公司安全策略拦截的两组物体跟踪文件，已由项目负责人下载、逐一核对，并上传成<a href="https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927" target="_blank" rel="noopener">可直接下载的补充包</a>，这个问题已解决。</li>
       <li>自动检查全部通过。不过这只说明文件完整、各环节衔接正确；真正用视频跑出结果、服务器能不能跑起来，还没有验证。</li>
     </ul>
   </section>
@@ -335,14 +335,24 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <h2>卡在哪里</h2>
     <div class="issues">
       <div class="issue">
-        <b>服务器配置还在确认，暂不上服务器</b>
-        <p style="margin:4px 0 0">已经知道候选服务器的显卡情况，其余配置还要找负责的同事确认。目前没法远程登录这台服务器，只能把文件打包上传，再在服务器自带的操作界面里操作；软件环境要等服务器定下来再配。</p>
-        <div class="need">同事补充服务器的其余配置（处理器、内存、硬盘、系统）和上传文件的方式，再决定怎么部署。</div>
+        <b>服务器还没选定：现在有三种可选</b>
+        <p style="margin:4px 0 0">AI 模型要在带大容量显卡的服务器上运行，显卡内存越大，能跑的步骤越完整。除了之前那台候选服务器，现在还有 L20 和 A10 两种服务器可用，各有长短：</p>
+        <div class="tablewrap" style="margin-top:10px">
+          <table>
+            <thead><tr><th>服务器</th><th>显卡内存</th><th>能不能直接用官方软件</th><th>目前情况</th></tr></thead>
+            <tbody>
+              <tr><td><b>L20</b></td><td>48 GB，和官方推荐的一样</td><td>在官方软件支持的范围内，最有希望直接跑起来</td><td>能用几台、怎么登录还要确认</td></tr>
+              <tr><td><b>RTX PRO 5000</b>（8 张卡）</td><td>每张 72 GB，最大</td><td>不能直接用：型号太新，官方软件要重新适配</td><td>没法远程登录，只能打包上传；其余配置待确认</td></tr>
+              <tr><td><b>A10</b></td><td>24 GB，偏小</td><td>软件支持，但内存不够跑完整流程</td><td>可以分担较轻的步骤</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="need">选定服务器。建议先用 L20 跑出第一批结果；需要确认 L20 能用几台、怎么登录和上传文件。</div>
       </div>
-      <div class="issue">
-        <b>AI 模型的使用权限还没拿到</b>
-        <p style="margin:4px 0 0">我们的账号能正常登录模型网站，但下载这三个模型时仍被拒绝：它们要单独申请使用权限，光能登录还不够。</p>
-        <div class="need">确认三个模型的使用申请已经批准，并确认下载用的账号有读取这些模型的权限。</div>
+      <div class="issue mid">
+        <b>三个关键模型的使用权限正在申请</b>
+        <p style="margin:4px 0 0">这三个模型要单独向发布方申请使用权限，光能登录模型网站还不够。申请正在进行，批准之前只能先准备其余部分。</p>
+        <div class="need">跟进审批进度；批准后确认下载用的账号能读取这三个模型。</div>
       </div>
       <div class="issue mid">
         <b>主办方的评分工具和提交格式还没公布</b>
@@ -372,13 +382,13 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <section>
     <h2>需要支持的事</h2>
     <ol class="asks">
-      <li><b>拍板服务器方案</b>继续适配现有候选服务器，还是另租一台常用型号先跑起来；同时协调远程访问方式。</li>
+      <li><b>拍板服务器方案</b>建议先用 L20 服务器跑出第一批结果；RTX PRO 5000 服务器适配好之后，用来同时跑多段视频；A10 服务器分担较轻的步骤。需要确认 L20 能用几台、怎么登录。</li>
       <li><b>确认团队分工</b>三位同学分别负责哪一块工作（见上方“团队分工”）。</li>
     </ol>
   </section>
 
 
-  <footer>数据截至 2026 年 9 月 27 日；本次更新：模型文件补充包已上传，同事可直接下载交接。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 9 月 27 日；本次更新：服务器新增 L20、A10 两个选项；三个关键模型的使用权限正在申请；被拦截的两组文件已下载、核对并上传，同事可直接下载。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

@@ -5,7 +5,7 @@
     objects  3 object                  one metric mesh per object
     motion   3 object                  object pose on every frame
     refine   4 temporal & physics      smoothing, static segments, occlusions, contact
-    export   1 platform & perception   the Tier 1 layout that v2hoi.score reads
+    export   1 platform & perception   the internal parquet + MHR schema
 
 A backend is a class with ``run(run: Run, clips: list[Clip]) -> None`` that
 reads upstream artifacts from ``run`` and saves its own (v2hoi.contracts).
@@ -31,6 +31,8 @@ def backends(stage: str) -> dict[str, type]:
 
 
 def make(stage: str, name: str):
+    if name in {"tier2", "reference"}:
+        raise ContractError(f"{stage}={name} reads Track 2 assets and is disabled")
     available = backends(stage)
     if name not in available:
         raise ValueError(f"stage {stage} has no backend {name!r}; available: {sorted(available)}")
@@ -38,6 +40,5 @@ def make(stage: str, name: str):
 
 
 def dev_only(clips, what: str) -> None:
-    """Backends built from Track 2 data serve Tier 1 development runs only."""
-    if any(c.dataset != "tier1" for c in clips):
-        raise ContractError(f"{what} are Track 2 assets; only Tier 1 development runs may use them")
+    """Legacy Track 2 readers are disabled, including direct class calls."""
+    raise ContractError(f"{what} read Track 2 assets and are disabled")

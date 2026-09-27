@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "purpose": "Source-recipe inventory, not a built-image or GPU wheel lock",
+  "upstream": {
+    "repository": "https://github.com/nvidia-isaac/video_to_data.git",
+    "commit": "33129dd0f2d2dcfd1164d43fd076542660756ed2"
+  },
+  "base_image": {
+    "reference": "pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel",
+    "digest": null,
+    "note": "All four recipes use this mutable tag; resolve its digest for the selected remote platform before building."
+  },
+  "recipes": [
+    {
+      "name": "sam2",
+      "path": "reconstruction/modules/v2d_sam2/docker/Dockerfile",
+      "sha256": "2cfccdc5a59bf91279bd3d31055bcaf8bc086a1ef140d4a81968128188648cd3",
+      "notable_dependencies": ["SAM-2 from an unpinned Git URL in v2d_sam2/lib/pyproject.toml", "decord", "opencv-python"]
+    },
+    {
+      "name": "sam3d",
+      "path": "reconstruction/modules/v2d_sam3d/docker/Dockerfile",
+      "sha256": "667b0b0d54ce54ac337485dba498f418c19d2005595ad06ede8dc809422c4fe6",
+      "notable_dependencies": ["gsplat", "kaolin==0.18.0 from NVIDIA's torch-2.5.1_cu124 index", "pytorch3d from unpinned Git", "sam-3d-objects from unpinned Git", "nvdiffrast from unpinned Git", "cumm-cu124", "spconv-cu124", "flash-attn==2.7.4.post1", "pyrender==0.1.45", "pyglet==2.1.15"],
+      "native_cuda_arch_list": ["8.0", "8.6", "8.9", "9.0"]
+    },
+    {
+      "name": "sam3d_body_mhr",
+      "path": "reconstruction/modules/v2d_sam3d_body/docker/Dockerfile",
+      "sha256": "773b61d6829a27a21e61caa18ba32a54258c9d3a0cc24329ff124f5896d4d0bd",
+      "notable_dependencies": ["pytorch3d Git tag v0.7.9", "py-soma-x==0.2.1", "networkx==3.2.1", "rtree"],
+      "native_cuda_arch_list": ["8.0", "8.6", "8.9", "9.0"]
+    },
+    {
+      "name": "cari4d",
+      "path": "reconstruction/modules/v2d_cari4d/docker/Dockerfile",
+      "sha256": "891bc9587fc76f6d08ba3dfecc4238a66b86db1c9bb2d6d1f7fb8dede1bd905d",
+      "notable_dependencies": ["numpy==1.26.3", "torch==2.5.1", "torchvision==0.20.1", "transformers==5.3.0", "imgaug==0.4.0", "kaolin==0.18.0 from NVIDIA's torch-2.5.1_cu124 index", "pytorch3d Git tag v0.7.9", "nvdiffrast from unpinned Git", "tensorrt-cu12==10.7.0.post1", "APT TensorRT 10.7.0.23-1+cuda12.6", "FoundationPose C++ and CUDA extensions"],
+      "native_cuda_arch_list": ["8.0", "8.6", "8.9", "9.0"]
+    }
+  ],
+  "related_upstream_files": [
+    {
+      "path": "reconstruction/modules/v2d_sam2/lib/pyproject.toml",
+      "sha256": "70a4b5ebc1e79b6dae9b0c5698144c1ab6cc0fe384306ab2cc48877ee24cc129"
+    },
+    {
+      "path": "reconstruction/modules/v2d_cari4d/lib/pyproject.toml",
+      "sha256": "934c7ec359833a19ade0a626168e8989ce921088a903df8fc60a82e2881132e8"
+    },
+    {
+      "path": "reconstruction/modules/v2d_cari4d/lib/pip-constraints.txt",
+      "sha256": "cebf37eaeee8df681d5c476f5800caa90ea093104ae9af24f539029d1d798bab"
+    }
+  ],
+  "git_dependencies": [
+    {
+      "url": "https://github.com/facebookresearch/sam2.git",
+      "used_by": ["sam2"],
+      "recipe_ref": null,
+      "status": "unpinned in upstream package metadata",
+      "observed_local_checkout_commit": "2b90b9f5ceec907a1c18123530e92e794ad901a4"
+    },
+    {
+      "url": "https://github.com/facebookresearch/pytorch3d.git",
+      "used_by": ["sam3d", "sam3d_body_mhr", "cari4d"],
+      "recipe_ref_by_component": {"sam3d": null, "sam3d_body_mhr": "v0.7.9", "cari4d": "v0.7.9"},
+      "status": "sam3d unpinned; v0.7.9 is a lightweight tag rather than a commit in the other recipes",
+      "observed_v0_7_9_commit": "33824be3cbc87a7dd1db0f6a9a9de9ac81b2d0ba"
+    },
+    {
+      "url": "https://github.com/facebookresearch/sam-3d-objects.git",
+      "used_by": ["sam3d"],
+      "recipe_ref": null,
+      "status": "unpinned clone in upstream Dockerfile",
+      "observed_local_checkout_commit": "f91db411c50efee93d8db7aeb323885650f6f722"
+    },
+    {
+      "url": "https://github.com/NVlabs/nvdiffrast.git",
+      "used_by": ["sam3d", "cari4d"],
+      "recipe_ref": null,
+      "status": "unpinned clone in upstream Dockerfiles",
+      "observed_remote_head_commit_2026_09_27": "253ac4fcea7de5f396371124af597e6cc957bfae"
+    },
+    {
+      "url": "https://github.com/pybind/pybind11.git",
+      "used_by": ["cari4d"],
+      "recipe_ref": "v2.10.0",
+      "status": "annotated version tag, not immutable commit",
+      "observed_peeled_tag_commit": "aa304c9c7d725ffb9d10af08a3b34cb372307020"
+    },
+    {
+      "url": "https://github.com/microsoft/MoGe.git",
+      "used_by": ["sam3d", "cari4d"],
+      "recipe_ref_by_component": {"sam3d": "a8c37341bc0325ca99b9d57981cc3bb2bd3e255b", "cari4d": "925b8ed835a7a9cdb7578ba15c658a0afc969030"},
+      "status": "commit-pinned by upstream"
+    },
+    {
+      "url": "https://github.com/EasternJournalist/utils3d.git",
+      "used_by": ["cari4d"],
+      "recipe_ref": "3fab839f0be9931dac7c8488eb0e1600c236e183",
+      "status": "commit-pinned by upstream"
+    }
+  ],
+  "unresolved_for_reproducible_build": ["base image digest", "exact commits for unpinned Git dependencies", "PyPI wheel hashes and versions for unpinned model packages", "APT package repository snapshot", "matching host NVIDIA driver and CUDA extension architecture"]
+}

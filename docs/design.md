@@ -2,11 +2,12 @@
 
 From a static monocular third-person RGB video, recover the human body (with hands), the object mesh, and the object's 6D pose in every frame, at metric scale in one world frame. This document records the architecture, the trade-offs, and the open questions. Every conclusion states its evidence; when the evidence changes, this document changes.
 
-Last updated: 2026-09-26. Section 6 collects the official submission rules, including the organizer's written answers of 2026-09-26; section 5.1 lists the rules the local scorer enforces.
+Last updated: 2026-09-27. Section 6 preserves the organizer's written answers of 2026-09-26. Following those answers and the project owner's direction, all project data use is Track 1 only; section 5 describes validation without public ground truth and identifies legacy code that has not yet adopted this workflow.
 
 ## 1. Constraints
 
 - **Input**: each video is 12–29 s, 1536×1152, 30 fps, and the camera is static within a video. The public set has 30 videos, 3 for each of 10 objects. The only metadata are the object name, a one-line appearance description, the action description, and the physical camera name.
+- **Data policy**: no Track 2 data or derived assets, including Tier 1 and Tier 2, in reconstruction, development, tuning, validation, scorer self-checks, baseline normalization, or submissions. Unit-test fixtures must be generated independently of Track 2.
 - **Submission**: the human (with hands, as an MHR parameter trajectory), one mesh per object (shared by its 3 videos), an object pose on every frame (occluded frames included), metric scale, and one world frame. The official `eval_reconstruction.py` (not yet published) produces the file that goes to Kaggle. See section 6.
 - **Scoring**: against a multi-view (MV) reconstruction. Each of the 5 metrics is a separate Kaggle competition, in cm, lower is better: CD-H and CD-O on the accuracy axis, ACC-H, ACC-O, and PEN on the physical axis. The two axes weigh equally; how the 5 numbers combine into one ranking is not published.
 - **Schedule**: the leaderboard freezes on 2026-11-04 at 17:00 EST. Up to 5 submissions per week, unlimited in the last 3 days.
@@ -14,24 +15,13 @@ Last updated: 2026-09-26. Section 6 collects the official submission rules, incl
 
 ## 2. Three facts that shape the design
 
-### 2.1 A development set with ground truth
+### 2.1 Track 1 has no public reconstruction ground truth
 
-Track 2 Tier 1 (`track_2/tier_1_multiview_caption`) is 30 other sequences from the same FORM-HOI capture studio. Each comes with one exocentric video (also 1536×1152) and:
+The 30 Track 1 videos and their metadata are the project's only challenge data. Reconstruct meshes, human parameters, object trajectories, camera parameters, and scales from those inputs. Do not transfer Track 2 meshes, poses, camera calibration, ground planes, noise distributions, tuned weights, or numerical baselines into this project.
 
-- per-frame SOMA-X human parameters (local rotations of 77 joints, root translation, MHR identity coefficients, scale parameters);
-- `world_T_object` (`[x, y, z, qw, qx, qy, qz]`, OpenCV world frame) and per-frame visibility;
-- metric textured meshes of 29 objects;
-- a ground plane per sequence.
+Development uses Track 1 reconstruction snapshots, input-video reprojection, coverage and continuity checks, and visual inspection. Unit tests use independent synthetic meshes and trajectories with known answers. Synthetic tests validate algorithms and interfaces; model-estimated masks and depth are diagnostics, not substitutes for the hidden reference reconstruction.
 
-There are no camera intrinsics or extrinsics.
-
-Relation to Track 1:
-
-- The same rig of 4 Hawk stereo cameras and the same props (round table, white desk, skinny wood chair, tall bar stool). Tier 1 does not say which camera the exocentric view comes from; the background identifies it.
-- Of the 10 Track 1 objects, `iron`, `big_red_bowl`, and `white_desk` have MV meshes in Tier 1. Tier 1 ep10 and Track 1 ep11 are the same action (tipping the desk over); Tier 1 ep7 and Track 1 ep6 are both the iron, recorded on the same day 4 minutes apart.
-- Tier 2 (`track_2/tier_2_synthetic_noise`) is Tier 1 plus jitter, dropout, and contact errors "sampled from Track 1's error distributions"; the meshes are unchanged.
-
-Use: Tier 1 and Tier 2 only serve as self-checks for the local scorer. The organizer has stated that objects must be reconstructed and parameters estimated only from data provided in Track 1; Track 2 meshes, poses, and camera parameters derived from them may not be used for Track 1. See section 6.
+Track 2 is excluded even from scorer self-checks and parameter selection. The former Tier 1 development set, Tier 2 noisy-input workflow, and Tier 2-normalized internal score are retired. There is no pending exception for Track 2 tuning in the team workflow.
 
 ### 2.2 The video layer already exists: CARI4D
 
@@ -44,7 +34,7 @@ The pipeline in the toolkit's `reconstruction/modules/v2d_cari4d`:
 5. CoCoNet jointly refines the human and the object (trained on 2,126 sequences);
 6. 300 steps of contact-guided optimization, with temporal terms and a human pose prior.
 
-It is the reference method for Track 2 Tier 3. Its inputs are the video, human and object masks (H5), and a **metric** object mesh. Its README states that meshes generated by SAM 3D must be scaled beforehand; CARI4D only re-centers and re-orients them and leaves the scale alone.
+Its inputs are the video, human and object masks (H5), and a **metric** object mesh. Use Track 1 videos, masks estimated from those videos, and meshes reconstructed from them. The method's README states that meshes generated by SAM 3D must be scaled beforehand; CARI4D only re-centers and re-orients them and leaves the scale alone.
 
 ### 2.3 What the official evaluation code reveals about the metrics
 
@@ -60,7 +50,7 @@ runs/<run_id>/inputs/<episode>/    camera intrinsics, masks, depth          1 pl
               objects/<object>/    one metric mesh per object               3 object
               motion/<episode>/    object pose and confidence, every frame  3 object
               refine/<episode>/    smoothed and contact-refined both        4 temporal & physics
-              export/              Tier 1 layout, scored by v2hoi.score     1 platform & perception
+              export/              internal schema plus MHR                 1 platform & perception
 ```
 
 Everything lives in the **camera frame**: the human as MHR and SOMA-X parameters, the object as a mesh plus `T_cam_obj` and a confidence. The camera is static, and the official first-frame Sim(3) absorbs any rigid choice of world, so the camera frame is also the submission's world frame and export copies poses unchanged. A gravity-aligned world is only needed if the official format asks for one.
@@ -77,10 +67,10 @@ The parts CARI4D does not cover:
 | Masks | GroundingDINO detection → SAM2 propagation (as in the toolkit's MV pipeline); the 3 clips of an object share its best-written prompt; re-detect when occlusion breaks the track |
 | Object mesh | Several candidates plus reprojection-based selection, see 3.3 |
 | Scale | The human is the only metric anchor, see 3.2 |
-| Hooks | Filters around FoundationPose: overlap after removing the human, rotation jumps, symmetry locking, tracking backwards. Added only once they help on Tier 1 |
-| Time | Detect static segments and lock the pose there; smoothing strength tuned on Tier 1 scores (starting point: toolkit `run_ekf_smoothing`) |
+| Hooks | Filters around FoundationPose: overlap after removing the human, rotation jumps, symmetry locking, tracking backwards. Evaluate on fixed Track 1 clips and independent synthetic cases |
+| Time | Detect static segments and lock the pose there; choose smoothing using Track 1 motion, reprojection, and continuity diagnostics (starting point: toolkit `run_ekf_smoothing`) |
 | Export | Camera frame → submission format and world frame |
-| Scoring | `v2hoi.score`, see section 5 |
+| Validation | Track 1 diagnostics, independent synthetic tests, and the organizer's official evaluation when available; see section 5 |
 
 ### 3.2 Scale: one anchor only
 
@@ -97,7 +87,7 @@ Approach:
 
 ### 3.3 Object meshes
 
-Take 5–10 candidate frames from the 3 videos and generate a mesh from each with SAM 3D Objects and with Hunyuan3D-2. Place each candidate into the tracking result, score it by multi-frame silhouette IoU and depth residual, and keep the best. On Tier 1, the iron, the bowl, and the desk give a direct measure of the generated meshes' shape error.
+Take 5–10 candidate frames from the object's 3 Track 1 videos and generate a mesh from each with SAM 3D Objects and with Hunyuan3D-2. Place each candidate into the tracking result, compare multi-frame silhouette IoU and depth residual, and keep the best with visual review. These are input-consistency diagnostics; there is no public reference mesh for computing a local official shape or posed-mesh error.
 
 Per-object handling:
 
@@ -107,7 +97,7 @@ Per-object handling:
 
 ### 3.4 Human
 
-One model throughout: SAM 3D Body (MHR) → `v2d_sam3d_body/lib/export_soma.py` → SOMA-X. GVHMR is not used to replace the global trajectory: it would bring in SMPL's root definition and scale, while with a static camera the root trajectory is directly observable from depth. Reconsider only if Tier 1 shows the root trajectory is the bottleneck.
+One model throughout: SAM 3D Body (MHR) → `v2d_sam3d_body/lib/export_soma.py` → SOMA-X for internal diagnostics. MHR remains the submission representation, and refinement must preserve its consistency with SOMA-X. GVHMR is not used to replace the global trajectory: it would bring in SMPL's root definition and scale, while with a static camera the root trajectory is observable from estimated depth. Reconsider only if Track 1 diagnostics show the root trajectory is the bottleneck.
 
 48 of SOMA-X's 77 joints are finger joints (not counting the two wrists). If joint acceleration includes the fingers, SAM 3D Body's finger jitter will be the largest loss, so the hands need their own smoothing.
 
@@ -128,89 +118,48 @@ One model throughout: SAM 3D Body (MHR) → `v2d_sam3d_body/lib/export_soma.py` 
 
 Physical cameras: back 5 episodes, front 9, left 11, right 5. Episodes 12–29 were all recorded on 2026-09-10 and 09-11, so each camera's extrinsics most likely stayed the same.
 
-Starting point: Track 1 ep16 (foam block) and ep12 (pan), alongside Tier 1 ep7 (iron) and ep9 (bowl). Run each Tier 1 episode twice, once with the ground-truth mesh and once with a generated mesh, to split the error into mesh, scale, and tracking.
+Starting point: Track 1 ep16 (foam block) and ep12 (pan), using only meshes and parameters reconstructed from Track 1. Use Track 1 episodes 0, 6, 9, 16, and 24 as `dev-mini` for representative ring, hand-held, furniture, simple-object, and body-contact cases. `dev-full` is all 30 Track 1 episodes. These are inspection sets without public ground truth, not labelled development benchmarks. Hold the other stages fixed to compare changes in mesh, scale, and tracking.
 
-## 5. Local scorer
+## 5. Validation without public ground truth
 
-`python -m v2hoi.score --gt <tier1 root> --pred <prediction root>`
+Track 1 has no public reference reconstruction. The project therefore cannot compute official CD-H, CD-O, or reference-relative PEN locally from the released inputs. The organizer's evaluation produces the official metrics. Prediction-only smoothness and geometry-based contact estimates are useful diagnostics, but they are not a reproduction of the hidden-reference evaluation.
 
-The prediction root has the Tier 1 layout (LeRobot v2.1): `data/chunk-000/episode_XXXXXX.parquet` (Tier 1 columns) plus `mesh/<object>/<object>.glb`. A Tier 2 root can be scored directly as a prediction. The pipeline exports this format too, since it is our best guess at the Track 1 submission format so far.
+The local export is an internal LeRobot-style schema: metadata JSON/JSONL, per-episode parquet, one generated mesh per object, and MHR arrays. Its storage conventions may be retained without importing another dataset's data. MHR is the submission representation; the corresponding SOMA-X representation may support internal inspection and synthetic metric tests. Verify the conversion on independently generated poses and on Track 1 reprojection, not on Track 2 labels.
 
-The human's joints and mesh come from a SOMA-X forward pass (`py-soma-x==0.2.1`, asset revision `466879a8`, matching the toolkit's `setup_soma_assets.py`). The local scorer works this way because the Tier 1 reference is SOMA-X. The official submission asks for an MHR trajectory, not SOMA-X and not per-frame meshes: the pipeline keeps MHR internally and converts it to SOMA-X with the toolkit's `export_soma.py` before local scoring.
+The SOMA model and object transforms use different axis conventions internally. Maintain the documented OpenCV camera frame and the SOMA conversion in contracts.md, and check them with synthetic transforms and Track 1 visual overlays. Historical measurements made on Track 2 are not the project's calibration or validation evidence.
 
-Alignment follows the official rule by default (`--align first`): one Sim(3) fitted on the first frame and applied to the whole clip. The organizer did not say which points the first-frame fit uses; locally we use the first frame's body joints (fingers excluded), which is our assumption. `--align se3 / sim3` fit on body joints over the whole clip and `none` does not align; all three are diagnostics only. A whole-clip fit spreads drift over all frames and looks better; the first-frame fit does not.
-
-| Metric | Definition |
-|---|---|
-| `human.chamfer_mm` | Per-frame symmetric Chamfer between predicted and reference SOMA vertices, averaged over frames |
-| `human.mpjpe_mm` | Joint position error after alignment (diagnostic) |
-| `human.accel_mm_f2` | Official definition: second difference of the predicted joint trajectory alone, mm/frame²; also split into body and fingers |
-| `human.accel_ref_mm_f2` | The same quantity on the reference trajectory, to tell whether smoothing went too far |
-| `human.accel_err_mm_f2` | Diagnostic: difference between the predicted and reference second differences |
-| `object.chamfer_mm` | Symmetric Chamfer of the posed surface samples on frames where both sides are visible (officially also the posed mesh in the world frame) |
-| `object.shape_chamfer_mm` | Residual after a further rigid ICP on top of the pose, so shape only (diagnostic) |
-| `object.coverage` | Share of reference-visible frames where the prediction has a pose. 1 for a valid submission |
-| `object.accel_mm_f2` / `ang_accel_deg_f2` | Official definition: second difference of the predicted trajectory alone, over the whole clip including occluded frames. Translation uses the mesh centroid, so the choice of mesh origin does not matter |
-| `object.accel_ref_mm_f2` / `ang_accel_ref_deg_f2` | The same quantity on the reference trajectory |
-| `object.accel_err_mm_f2` / `ang_accel_err_deg_f2` | Diagnostic: difference between prediction and reference |
-| `contact.penetration_mm` | Per frame, the deepest human vertex inside the object; reported for the prediction, the reference, and their difference. Predicted depths are converted by the alignment scale |
-| `contact.ground_penetration_mm` | Deepest point of the human and of the object below the reference ground plane (diagnostic) |
-
-Alignment and smoothness follow the organizer's answers; Chamfer and penetration are still approximations, with the assumptions listed in 6.3. Once the official script is published, the definitions change to match it and the interface stays the same.
-
-Coordinate conventions (checked on Tier 1): the SOMA human lives in a Y-up world; object poses and ground planes live in the OpenCV world (Y down, Z forward). After multiplying the human by `diag(1, -1, -1)`, the wrist is about 0.15 m from the iron in ep7 and the feet are 2–7 cm above the ground plane; without the flip, both are metres off. The Tier 1 world origin is near one of the cameras (objects at z≈3 m, ground at y≈1.39 m).
-
-### 5.1 Scoring rules
-
-`v2hoi.score` splits a scoring run into three layers, following section 6.
-
-**Leaderboard numbers.** The report's `leaderboard` has 5 keys, one per Kaggle competition, in cm, averaged over episodes. If a metric cannot be computed for an episode, the mean is reported as missing instead of silently skipping that episode:
-
-| Key | Leaderboard column | Local source |
+| Check | Allowed evidence | What it establishes |
 |---|---|---|
-| `cd_h_cm` | CD-H | `human.chamfer_mm` / 10 |
-| `cd_o_cm` | CD-O | `object.chamfer_mm` / 10 |
-| `acc_h_cm` | ACC-H | `human.accel_mm_f2` / 10 |
-| `acc_o_cm` | ACC-O | `object.accel_mm_f2` / 10 |
-| `interpenetration_cm` | PEN | `contact.penetration_err_mm` / 10 (a proxy; the official competition is not live) |
+| Contracts and frame coverage | Track 1 frame indices, timestamps, and exported finite arrays | Every input frame has the expected human and object data; shape and coordinate conventions are consistent |
+| Reprojection | Original Track 1 images, estimated masks/keypoints, and rendered predictions | Image consistency, including first-frame, occlusion, and contact failure cases; estimated masks are not ground truth |
+| Mesh and scale | Meshes reconstructed from Track 1, human-aligned estimated depth, floor/table evidence from the same videos | A shared mesh and scale across an object's clips, with plausible human-object depth relationships |
+| Smoothness | The submitted trajectories' second differences | Jitter and static-segment behavior; low acceleration alone does not establish correct motion |
+| Contact | Track 1 reconstruction, rendered views, and approximate geometry checks | A diagnostic for separation or penetration; open and thin meshes can make signed-distance estimates unreliable |
+| Metric primitives | Independently generated synthetic meshes and trajectories with known transforms | Unit-level numerical behavior without external reference assets or fitted Track 2 noise |
 
-They are the first 5 columns of the table; everything else is a diagnostic.
+Compare each candidate against a fixed Track 1-derived upstream snapshot on the same clips, settings, model versions, and input hashes. Save per-clip observations and visual overlays, including regressions. Automatic collection and comparison of these diagnostics is follow-up implementation work; the current fake pipeline does not provide real reconstruction quality measurements.
 
-**Official settings** (`submission.official_settings`): `--align first`, `--stride 1`, and every reference episode scored. Unmet items are listed in `submission.deviations`, and the numbers are then diagnostics only.
+### 5.1 Legacy runtime paths outside the approved workflow
 
-**Valid submission** (`submission.valid`): whether the prediction itself follows the submission rules. Breaches are listed in `submission.violations`, and scoring still runs:
+Some code still implements the superseded Track 2 development workflow. The initial runtime restrictions below are implemented but await remote runtime verification; full provenance enforcement remains to be built:
 
-- Every object has a pose on every frame. The prediction's `visible` column is not used for scoring; a zero quaternion or NaN counts as a missing frame. Missing frames are skipped in CD-O and ACC-O, so the scores come out optimistic.
-- Object meshes are metric: the longest side of the bounding box is between 2 cm and 3 m.
-- An object mesh is not a byte-for-byte copy of a reference mesh (Track 2 assets are not allowed). Only verbatim copies are caught.
+- The runner defaults to and accepts only dataset `track1`; shared commands should still specify `--dataset track1` explicitly.
+- `v2hoi.download` is now restricted to Track 1 and supports a pinned `--revision`. The README also provides an explicit Track 1 subtree download.
+- `human=tier2`, `motion=tier2`, and `objects=reference` are blocked by the runner's backend factory; their legacy classes also refuse execution.
+- `v2hoi.score` defaults its reference to Track 2 Tier 1, and its internal score uses historical Tier 2 normalization constants. Neither is a project benchmark or merge gate, including for self-checks.
+- The runner rejects `--score` and no longer invokes the reference scorer. A standalone legacy `--strict` success does not certify source data, MHR correctness, or the official submission format.
+- The default exporter named `tier1` is only a legacy serializer label. It reads artifacts from the selected run, not Track 2 files. Export Track 1-derived artifacts and preserve their provenance.
+- The unrestricted test suite includes tests that read real Track 2 files when present and tests of the old internal score. Use the README's self-contained test allowlist until those cases and defaults are updated.
 
-Scoring stops with an error when the prediction lacks a reference episode (unless `--episodes` selects a subset), when the frame count differs from the reference, or when the human parameters contain NaN or inf.
+Follow-up implementation must make Track 1 the safe default, retire prohibited backends and normalization from the active workflow, validate artifact provenance, and provide independent Track 1 diagnostics. These are open tasks, not completed behavior.
 
-The leaderboard numbers are comparable to Kaggle only when both `official_settings` and `valid` hold, and even then only up to the assumptions in 6.3. `--strict` exits with status 1 unless both hold; use it as the gate before submitting to Kaggle. Both self-checks in the README are reported as invalid submissions because their meshes are the reference meshes.
+### 5.2 Baselines and self-checks
 
-### 5.2 Reference: Tier 2 against Tier 1
+Build the first baseline from Track 1 ep16 and ep12; keep `dev-mini` (Track 1 episodes 0, 6, 9, 16, 24) and `dev-full` (all 30 Track 1 episodes) as fixed inspection sets. Store configuration, model and data versions, artifact hashes, resource use, and before/after visualizations. A baseline made with fake backends is suitable only for interface tests.
 
-The organizer's noise "from Track 1's error distributions", all 30 episodes, default first-frame Sim(3) alignment, means:
+Synthetic self-checks should cover identity and known rigid/scale transforms, continuous motion, independently defined occlusions, and closed/open/thin geometry. Geometric error against an identical synthetic reference can be zero; acceleration of a moving trajectory need not be zero because the organizer measures the prediction's own second difference.
 
-| Metric | Tier 2 | Reference (Tier 1 itself) |
-|---|---|---|
-| Human Chamfer | 19.9 mm | — |
-| Human joint acceleration (trajectory alone) | 3.5 mm/frame² | 1.9 mm/frame² |
-| Object Chamfer | 29.5 mm | — |
-| Object acceleration / angular acceleration (trajectory alone) | 1.8 mm/frame² / 1.6 deg/frame² | 0.7 mm/frame² / 0.4 deg/frame² |
-| Penetration difference | 11.7 mm | — |
-| Object below the ground | 26.7 mm | 2.1 mm |
-
-The report is `scores/tier2_vs_tier1_align-first.json` (not committed; reproducible with the README command).
-
-Observations:
-
-- **Under the rules in 5.1, Tier 2 is not a valid submission.** Its meshes are the reference meshes, and ep11's last frame (900) has no object pose. The Tier 1 reference is empty on that frame too; it is the only invisible frame in all 30 episodes.
-- **Tier 2 has no noise on the first frame.** The first-frame Sim(3) is the identity on all 30 episodes (scale 1 ± 3e-7), and noise only accumulates after the first frame, so these numbers are almost the same as without alignment (human / object Chamfer 19.9 / 29.4 mm). Tier 2 cannot measure the cost of a wrong first frame, which is exactly where the official alignment is most sensitive.
-- **The multi-view reference is not perfectly still either.** Its human acceleration is about 1.9 mm/frame² and its object acceleration about 0.7 mm/frame². Smoothing well below these levels most likely erases real motion, and Chamfer pays for it. Tier 2 is roughly 2–4× the reference.
-- **The alignment choice matters a lot.** On ep7, SE(3) alignment on the human cuts human Chamfer from 24.6 to 10.5 mm but raises object Chamfer from 12.8 to 18.5 mm: Tier 2's human noise includes a global offset the object does not share. The official rule is now a first-frame Sim(3); see section 6.
-- **Penetration is the least reliable metric.** None of the Tier 1 meshes is watertight, so the signed distance is approximated by normal voting over nearby surface samples. The round table's (ep14) reference penetration comes out at 143 mm, which is essentially an artifact; the other references are 0–29 mm. To be revisited with the generalized winding number.
-- **The shape score is sensitive to large rotation errors.** With the same mesh, Tier 2 still shows 0–5.5 mm (symmetric objects such as the bowl, the basket, and the round table), because ICP started from a noisy orientation stops in a local minimum. Treat it as a diagnostic only.
+Previous Tier 2-versus-Tier 1 results, copied reference meshes, and Tier 2-normalized scores are withdrawn from the development and decision process. Do not use their values as targets, thresholds, noise models, or tuning evidence. Track 2 is not a fallback when Track 1 has no ground truth.
 
 ## 6. Official submission
 
@@ -223,7 +172,7 @@ Sources: the challenge page (toolkit `docs/v2d_challenge/index.html`, v0.4.0, 20
 | Platform | Kaggle. Track 1 is split into 5 competitions with one score each: `v2d-challenge-track1-cd-h`, `-cd-o`, `-acc-h`, `-acc-o`, `-pen` | aggregation code |
 | Artifact | The file the official `eval_reconstruction.py` produces on the test split | challenge page |
 | Test split | The 30 public Track 1 videos; the ground truth is held out | dataset README, challenge page |
-| Human | MHR parameter trajectory, hands included. The MV reference is itself MHR (toolkit `v2d_sam3d_body`: `global_rot`, `body_pose_params`, `hand_pose_params`, `scale_params`, `shape_params`, plus translation); Track 2's SOMA-X is converted from it | organizer's answers, toolkit |
+| Human | MHR parameter trajectory, hands included (toolkit `v2d_sam3d_body`: `global_rot`, `body_pose_params`, `hand_pose_params`, `scale_params`, `shape_params`, plus translation) | organizer's answers, toolkit |
 | Objects | One metric mesh per object; a 6D pose on every frame, occluded frames included, forming a continuous trajectory | challenge page, organizer's answers |
 | Coordinates | Metric, one world frame. Evaluation fits one Sim(3) on the first frame of the reference trajectory and applies it to the whole clip | challenge page, organizer's answers |
 | Data | Track 1 data only. No Track 2 meshes or poses, and no camera parameters derived from them | organizer's answers |
@@ -245,9 +194,11 @@ The page says "acceleration error compared to MV", while the organizer's answer 
 
 ### 6.3 Not yet published, and our local assumptions
 
+The metric choices below record unverified assumptions in the legacy scorer, for review when implementing the official adapter or independent synthetic tests. They do not authorize running the legacy scorer or accessing Track 2 references. Track 1 development uses the diagnostics in section 5; reference-based CD and PEN cannot be measured locally on Track 1.
+
 | Question | Local choice |
 |---|---|
-| Submission file format: how MHR is stored, which formats for meshes and poses | The Tier 1 layout locally (section 5). Only export changes once the script is out |
+| Submission file format: how MHR is stored, which formats for meshes and poses | Internal metadata/parquet/mesh/MHR schema (section 5); adapt and verify export when the official format is available |
 | Which points the first-frame Sim(3) is fitted on | First-frame body joints, fingers excluded |
 | ACC is labelled cm: cm/frame², or converted to seconds | cm/frame² at 30 fps |
 | Which joints ACC-H uses, and which statistic | Mean per-frame acceleration magnitude over the 77 SOMA-X joints; body and fingers also reported |
@@ -278,14 +229,14 @@ On 2026-09-26 the organizer replied to Zijun. The text follows, then what it mea
 | Occlusion | Every object needs a continuous trajectory, with poses on occluded frames too |
 | Track 2 | No Track 2 meshes or poses, and no camera parameters derived from them. Objects and parameters are estimated from Track 1 data only |
 
-Consequences: the first frame's human and object must be reliable, and the scale must not drift within a sequence. Occlusions are filled by interpolation or continued tracking, never left as missing frames or all-zero poses. Smoothing lowers the acceleration scores but hurts Chamfer, so the two are tuned together. Tier 1 may stay in the local scorer as a self-check but must not enter reconstruction or submissions.
+Consequences: the first frame's human and object must be reliable, and the scale must not drift within a sequence. Occlusions are filled by interpolation or continued tracking, never left as missing frames or all-zero poses. Smoothing lowers acceleration but can erase real motion; review it with Track 1 reprojection and contact evidence. The project excludes Track 2 from development, tuning, validation, scorer self-checks, baselines, and submissions. This also supersedes the earlier assumption that Track 2 could be used for tuning or isolated scorer checks.
 
 ## 7. Timeline
 
 | Week | Due | Work |
 |---|---|---|
-| 1 | 10-01 | Send questions, request the gated weights (`facebook/sam-3d-body-dinov3`, `facebook/sam-3d-objects`, `nvidia/cari4d_commercial`), set up compute; build the scorer and validate it with Tier 2 against Tier 1 |
-| 2 | 10-08 | Run CARI4D as is on ep16, ep12, and Tier 1 ep7, ep9; submit once early to confirm the format |
+| 1 | 10-01 | Confirm remaining format and metric details, request the gated weights (`facebook/sam-3d-body-dinov3`, `facebook/sam-3d-objects`, `nvidia/cari4d_commercial`), set up compute; test contracts and metric primitives on independent synthetic fixtures |
+| 2 | 10-08 | Run CARI4D on Track 1 ep16 and ep12 with Track 1-generated meshes; preserve the first real baseline and visual diagnostics; validate the official export when available |
 | 3 | 10-15 | Object layer (several candidates + scale merging), per-camera intrinsics, world frame; submit a complete version once all 30 episodes have output |
 | 4–5 | 10-29 | Static segments, symmetry, occlusion re-registration, contact for sitting and foot-pushing, hula hoop |
-| 6 | 11-04 | Tune smoothing and joint optimization weights on Tier 1; concentrate submissions in the last 3 days |
+| 6 | 11-04 | Tune smoothing and joint optimization using Track 1 diagnostics and official results; concentrate submissions in the last 3 days |

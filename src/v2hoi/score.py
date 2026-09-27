@@ -37,7 +37,7 @@ import numpy as np
 
 from v2hoi import metrics as M
 from v2hoi.dataset import TIER1_ROOT, Episode, list_episodes, load_episode
-from v2hoi.geometry import Similarity, SurfaceSDF, load_mesh, sample_surface
+from v2hoi.geometry import MESH_EXTENT_M, Similarity, SurfaceSDF, load_mesh, sample_surface
 
 MM = 1000.0
 
@@ -75,10 +75,6 @@ def internal_score(leaderboard: dict) -> float:
     """
     return float(np.mean([np.mean([leaderboard[k] / TIER2_CM[k] for k in keys]) for keys in AXES.values()]))
 
-
-# Largest side of an object mesh's bounding box. Track 1 objects run from a
-# brush to a desk; outside this range the mesh is almost surely in mm or cm.
-MESH_EXTENT_M = (0.02, 3.0)
 
 
 @dataclass

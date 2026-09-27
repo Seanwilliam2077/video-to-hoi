@@ -301,8 +301,7 @@ class ObjectAsset(_Json):
     episodes: list[int] = field(default_factory=list)
 
     def validate(self, mesh_path: Path) -> None:
-        from v2hoi.geometry import load_mesh
-        from v2hoi.score import MESH_EXTENT_M
+        from v2hoi.geometry import MESH_EXTENT_M, load_mesh
 
         if not Path(mesh_path).is_file():
             raise ContractError(f"object {self.name} has no mesh at {mesh_path}")

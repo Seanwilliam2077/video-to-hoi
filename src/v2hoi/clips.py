@@ -1,20 +1,15 @@
-"""The episodes a run works on, read from a dataset root's LeRobot metadata.
-
-Track 1 is the challenge input. Tier 1 is the development set with ground
-truth; it may be used for scoring only, never as input to a submission.
-Both list the object and the frame count; only Track 1 names the physical
-camera.
-"""
+"""Track 1 clips selected from LeRobot metadata, without reference data."""
 from __future__ import annotations
 
 import json
+import math
 from dataclasses import dataclass
 from pathlib import Path
 
-from v2hoi.dataset import TIER1_ROOT, _child_path, read_metadata
+from v2hoi.dataset import _child_path, _object_name, read_metadata
 
 TRACK1_ROOT = Path("data/v2d/track_1")
-DATASETS = {"track1": TRACK1_ROOT, "tier1": TIER1_ROOT}
+DATASETS = {"track1": TRACK1_ROOT}
 
 
 @dataclass(frozen=True)
@@ -38,11 +33,16 @@ def _lengths(root: Path) -> dict[int, int]:
 
 
 def load_clips(dataset: str, episodes: list[int] | None = None, root: Path | None = None) -> list[Clip]:
-    """Clips of ``dataset`` ("track1" or "tier1"), all episodes by default."""
+    """Track 1 clips, all episodes by default."""
     if dataset not in DATASETS:
         raise ValueError(f"unknown dataset {dataset!r}; expected one of {sorted(DATASETS)}")
-    root = Path(root or DATASETS[dataset])
+    root = Path(root or DATASETS[dataset]).resolve()
+    if "track_2" in {part.lower() for part in root.parts}:
+        raise ValueError(f"Track 2 root is prohibited: {root}")
     info = json.loads((root / "meta" / "info.json").read_text(encoding="utf-8"))
+    # Hand-authored synthetic fixtures may omit robot_type; published non-Track 1 roots may not.
+    if info.get("robot_type") not in (None, "video_only_object_tracking"):
+        raise ValueError(f"{root} is not Track 1 metadata (robot_type={info.get('robot_type')!r})")
     meta = read_metadata(root)
     lengths = _lengths(root)
     prompts = {o["name"]: o.get("prompt", "") for o in info.get("objects", [])}
@@ -55,20 +55,26 @@ def load_clips(dataset: str, episodes: list[int] | None = None, root: Path | Non
     clips = []
     for e in episodes:
         row = meta[e]
-        name = row["object"]
+        name = _object_name(row["object"])
         video_key = row.get("video_key", "observation.images.exo_camera")
         height, width = info["features"][video_key]["shape"][:2]
         rel = info["video_path"].format(
             episode_chunk=e // info.get("chunks_size", 1000), video_key=video_key, episode_index=e
         )
+        n_frames = int(row.get("frames") or lengths[e])
+        if e in lengths and row.get("frames") is not None and n_frames != lengths[e]:
+            raise ValueError(f"episode {e}: metadata frames {n_frames} != episodes.jsonl length {lengths[e]}")
+        fps = float(info.get("fps", 30))
+        if n_frames <= 0 or not math.isfinite(fps) or fps <= 0 or min(height, width) <= 0:
+            raise ValueError(f"episode {e}: invalid frame count, fps, or image size")
         clips.append(Clip(
             dataset=dataset,
             episode=e,
             object_name=name,
             prompt=row.get("object_prompt") or prompts.get(name, name),
             camera=row.get("camera"),
-            n_frames=int(row.get("frames") or lengths[e]),
-            fps=float(info.get("fps", 30)),
+            n_frames=n_frames,
+            fps=fps,
             width=int(width),
             height=int(height),
             video=_child_path(root, rel, "video_path"),

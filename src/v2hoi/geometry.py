@@ -8,6 +8,9 @@ import trimesh
 from scipy.spatial import cKDTree
 from scipy.spatial.transform import Rotation
 
+# Broad unit sanity bound for Track 1 object meshes (metres), not a score.
+MESH_EXTENT_M = (0.02, 3.0)
+
 
 def pose7_to_matrix(pose7: np.ndarray) -> np.ndarray:
     """(T, 7) [x, y, z, qw, qx, qy, qz] -> (T, 4, 4). Zero quaternions give NaN."""

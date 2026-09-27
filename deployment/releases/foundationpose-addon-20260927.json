@@ -1,0 +1,29 @@
+{
+  "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927",
+  "tag": "foundationpose-addon-20260927",
+  "draft": false,
+  "source_commit": "5205666406ca65e4f4a3e2933ad2530358c824fd",
+  "assets": [
+    {
+      "id": 592227989,
+      "name": "video-to-hoi-foundationpose-addon-20260927.zip",
+      "size": 239097418,
+      "digest": "sha256:722995a8c32f26eaefb544d0407fffb9b1c6108a76f5ae5cfe68861dc160c52b",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/foundationpose-addon-20260927/video-to-hoi-foundationpose-addon-20260927.zip"
+    },
+    {
+      "id": 592228466,
+      "name": "video-to-hoi-foundationpose-addon-20260927.zip.sha256",
+      "size": 114,
+      "digest": "sha256:033fc894d510b823cd0feee17e563b328f5fac4a0b32d98408fc1a111881a783",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/foundationpose-addon-20260927/video-to-hoi-foundationpose-addon-20260927.zip.sha256"
+    },
+    {
+      "id": 592228480,
+      "name": "video-to-hoi-foundationpose-addon-20260927.zip.json",
+      "size": 415,
+      "digest": "sha256:9a70a808e2ea581409a9230931b86c339b5adeb0b4b7e037c6d4177899c09a55",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/foundationpose-addon-20260927/video-to-hoi-foundationpose-addon-20260927.zip.json"
+    }
+  ]
+}

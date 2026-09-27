@@ -8,6 +8,8 @@ Start with [deployment/README.md](deployment/README.md) for the source ZIP, pinn
 
 **Project status (in Chinese), for leadership and product updates: [open the status page](https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1)** · source: [docs/status.html](docs/status.html) · how to update it: [docs/status.md](docs/status.md)
 
+**Published download:** [FoundationPose add-on (239 MB), SHA-256, and metadata](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927). Extract the existing public-assets handoff first, then overlay this add-on. This release contains the two FoundationPose model folders and code snapshot `5205666`; the base archive and host wheelhouse remain separate handoff files.
+
 ## Team pages
 
 | Page | What it holds |

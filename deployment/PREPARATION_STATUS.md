@@ -32,6 +32,8 @@ The following artifacts are generated under `dist/` on the preparation machine a
 | `video-to-hoi-public-assets-20260927.zip` | Preparation snapshot `6dc5903` plus all 12 source trees, 7 public models, and their portable `.receipts/` | Same filename plus `.sha256` |
 | `linux-cp310-wheelhouse.zip` | 28 locked host/bootstrap wheels and their manifest | `linux-cp310-wheelhouse.sha256` |
 
+The add-on is now published as a [GitHub Release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927) with its SHA-256 and JSON companions. [Download the exact ZIP](https://github.com/Seanwilliam2077/video-to-hoi/releases/download/foundationpose-addon-20260927/video-to-hoi-foundationpose-addon-20260927.zip) (239,097,418 bytes). GitHub reported the same SHA-256 as the local ZIP: `722995a8c32f26eaefb544d0407fffb9b1c6108a76f5ae5cfe68861dc160c52b`. The [release record](releases/foundationpose-addon-20260927.json) stores asset IDs, download URLs, sizes, and server-side digests. The original public-assets ZIP and wheelhouse have not been uploaded by this release; they remain separate transfer files.
+
 The existing public-assets ZIP contains only the original seven model entries. The separate `video-to-hoi-foundationpose-addon-20260927.zip` carries the two newly verified FoundationPose folders, their receipts, and the current code and documentation. Extract the original public-assets ZIP into a fresh directory first, then extract the add-on over it. Preserve the folder structure and verify the completed non-gated scope without network access:
 
 ```bash

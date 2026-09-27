@@ -162,3 +162,7 @@ downloader/bundle tests passed with synthetic files only. No Drive download
 was executed by Codex, and no model inference or server deployment has been
 performed. The public Claude status page still needs republication from an
 authorized editing session.
+
+### Published add-on
+
+The [FoundationPose add-on release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927) provides the 239,097,418-byte ZIP, SHA-256 companion, and metadata. All three uploaded assets matched their local SHA-256 values reported by GitHub. The ZIP keeps its verified code snapshot `5205666`; the [release index](../deployment/releases/foundationpose-addon-20260927.json) records the permanent URLs. Extract the separately supplied public-assets base first, then this add-on. This publication adds a downloadable handoff location, not a deployed environment or real baseline result.

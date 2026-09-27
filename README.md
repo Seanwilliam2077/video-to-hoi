@@ -14,6 +14,8 @@ Start with [deployment/README.md](deployment/README.md) for the source ZIP, pinn
 
 ## First-three-video comparison kit
 
+[Download the prepared kit (69 MB), SHA-256 and metadata](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/first3-benchmark-20260927). It includes the three complete videos and no pretrained weights.
+
 [Benchmark instructions and candidate readiness](benchmarks/first3/README.md) cover Track 1 episodes 0, 1, 2 (2,324 frames), five execution recipes, and internal per-metric ranking with missing/fairness checks. The remote entry point is not yet available: no models were run, no scores or winners are reported, and MHR adapters for the temporal research candidates remain pending.
 
 ## Team pages

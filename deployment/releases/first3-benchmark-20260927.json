@@ -1,0 +1,33 @@
+{
+  "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/first3-benchmark-20260927",
+  "tag": "first3-benchmark-20260927",
+  "source_commit": "d8221213cd321a3d3a721bce3b9a18ba8c129545",
+  "draft": false,
+  "assets": [
+    {
+      "id": 592687683,
+      "name": "video-to-hoi-first3-benchmark-20260927.zip",
+      "size": 68971507,
+      "digest": "sha256:6b2eb93051415fc0a838622bdf5cdba6d8127bd3dc96c78d0f5f4c59c2b4c59b",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/first3-benchmark-20260927/video-to-hoi-first3-benchmark-20260927.zip"
+    },
+    {
+      "id": 592688047,
+      "name": "video-to-hoi-first3-benchmark-20260927.zip.sha256",
+      "size": 110,
+      "digest": "sha256:3687d488c6c48d8aaf183f9f1ec651ee404ff206a74c31b48ae6627dffc18ccd",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/first3-benchmark-20260927/video-to-hoi-first3-benchmark-20260927.zip.sha256"
+    },
+    {
+      "id": 592688066,
+      "name": "video-to-hoi-first3-benchmark-20260927.zip.json",
+      "size": 460,
+      "digest": "sha256:7b07a196a2159c243202e837a2091fbb66ff1ee733cc961ecbdf25eebfd398c2",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/first3-benchmark-20260927/video-to-hoi-first3-benchmark-20260927.zip.json"
+    }
+  ],
+  "model_execution": false,
+  "official_score": null,
+  "real_ranking": false,
+  "public_head_verified": true
+}

@@ -10,7 +10,35 @@ This is a download and handoff task. No model was installed or executed on the w
 
 ## Prepared scope
 
-The inventory contains 12 source entries, 12 required model entries, and 2 optional model entries. Download progress and transfer artifacts are being recorded separately; inventory presence is not proof that the corresponding files exist.
+The inventory contains 12 source entries, 12 required model entries, and 2 optional model entries. The following files were actually downloaded and verified:
+
+| Scope | Complete | Downloaded bytes | Contents |
+| --- | ---: | ---: | --- |
+| Source trees | 12 / 12 | 888,509,283 | Official toolkit, SAM2, SAM3D Objects, both DINO source caches, two MoGe versions, PyTorch3D, nvdiffrast, pybind11, Utils3D |
+| Required model assets | 7 / 12 | 5,477,409,574 | SAM2, MoGe2-L, MoGe1-L, and four DINOv2 checkpoints; includes 80 bytes of pinned HF cache refs |
+| Host/bootstrap wheels | 28 / 28 | 119,263,919 | Linux x86_64 CPython 3.10 packages; excludes PyTorch/CUDA and model-container dependencies |
+
+All 19 completed source/model receipts passed per-file size and SHA-256 checks (7,898 files). The full asset verification intentionally reports five missing required assets: the three gated models and two organization-blocked FoundationPose folders. It does not certify a runnable baseline. Optional assets were not downloaded.
+
+The machine-readable record is [preparation-report.json](preparation-report.json). [receipts/](receipts/) contains the public-model download receipts and wheelhouse hashes. Where upstream did not publish a content checksum, these record the actual downloaded bytes rather than claiming an independent upstream checksum match.
+
+## Transfer files
+
+The following artifacts are generated under `dist/` on the preparation machine and are transferred separately from Git:
+
+| ZIP | Contents | Checksum companion |
+| --- | --- | --- |
+| `video-to-hoi-code-20260927.zip` | Project source, preparation tools, docs, locks, and verification records | Same filename plus `.sha256` |
+| `video-to-hoi-public-assets-20260927.zip` | Project code plus all 12 source trees, 7 public models, and their portable `.receipts/` | Same filename plus `.sha256` |
+| `linux-cp310-wheelhouse.zip` | 28 locked host/bootstrap wheels and their manifest | `linux-cp310-wheelhouse.sha256` |
+
+The public-assets ZIP already includes the project code. Extract it into a fresh directory, preserve its folder structure, then verify the public scope without network access:
+
+```bash
+python tools/fetch_assets.py verify --root . --skip-gated
+```
+
+This command still reports the two missing FoundationPose assets. To check just the complete sources with a successful exit, use `--group sources`. To check one public model, use `--ids sam2` (or another ID from the report). A successful partial check must not be presented as complete baseline readiness.
 
 Git contains the preparation tools, version locks, source locations, and this status report. Large model binaries, downloaded third-party trees, wheel files, and ZIPs live outside Git under `artifacts/` and `dist/`. Do not interpret GitHub's Download ZIP as an archive containing model weights.
 
@@ -18,8 +46,8 @@ The host dependency lock targets Linux x86_64 with CPython 3.10. It is separate 
 
 ## Verification and handoff
 
-- The downloader and ZIP packager have synthetic tests for receipt hashes, incomplete downloads, archive paths, internal link materialization, and blocked providers. They do not execute model code.
-- CI uses an explicit synthetic test allowlist. `test_score.py`, challenge datasets, and legacy Track 2 score assertions are excluded.
+- The downloader and ZIP packager passed 32 synthetic tests for receipt hashes, incomplete downloads, archive paths, internal link materialization, and blocked providers. They do not execute model code.
+- The [initial GitHub CI run](https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/36295376997) passed 74 tests. The follow-up adds three packaging cases; see PR #8 for its current check. CI uses an explicit synthetic allowlist. `test_score.py`, challenge datasets, and legacy Track 2 score assertions are excluded.
 - Download receipts contain immutable source revisions and per-file SHA-256/size. The asset ZIP preserves verified receipts; the receiver can run `python tools/fetch_assets.py verify --root . --group sources` after extraction. A full `--group all` check must remain incomplete until the missing weights are supplied through approved channels.
 - Upstream Git archive links are materialized as ordinary files for ZIP transfer. Pass `--skip_weight_download` to the upstream CARI4D entry after the authorized weight setup; its original downloader expects Git checkout metadata that a source ZIP does not contain.
 - The compact project ZIP excludes the optional Track 1 video gallery and downloaded videos. The full Git repository retains the gallery page. Track 1 inputs must be acquired separately using the restricted dataset downloader.

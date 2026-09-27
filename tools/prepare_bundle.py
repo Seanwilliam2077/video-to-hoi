@@ -74,6 +74,16 @@ robotic_grounding/source/robotic_grounding/robotic_grounding/tasks/v2d_whole_bod
 robotic_grounding/workflow/dev_env.yaml
 video_ingestion_agent/osmo_workflows/dev_env.yaml
 """.splitlines())
+PINNED_PUBLIC_SOURCE_NAMES = {
+    ("video-to-data-source", VIDEO_TO_DATA_REVISION, "https://github.com/nvidia-isaac/video_to_data"):
+        VIDEO_TO_DATA_PUBLIC_NAMES,
+    ("cari4d-dinov3-source", "6876159a11b4df116f30f667f8c9888617df0751", "https://github.com/facebookresearch/dinov3"):
+        {"dinov3/env/__init__.py"},
+    ("pybind11-source", "aa304c9c7d725ffb9d10af08a3b34cb372307020", "https://github.com/pybind/pybind11"):
+        {"tests/env.py"},
+    ("sam2-source", "2b90b9f5ceec907a1c18123530e92e794ad901a4", "https://github.com/facebookresearch/sam2"):
+        {"demo/frontend/src/theme/tokens.stylex.ts", "demo/frontend/src/vite-env.d.ts"},
+}
 
 
 class BundleError(ValueError):
@@ -312,11 +322,8 @@ def _asset_paths(root: Path, asset_root: Path, receipts_dir: Path) -> dict[str, 
             if not (relative == target or relative.startswith(target + "/")):
                 raise BundleError(f"{receipt_path}: file outside approved target: {relative}")
             inside_target = relative[len(target):].lstrip("/")
-            public_upstream_name = (
-                asset_id == "video-to-data-source"
-                and locked.get("url") == "https://github.com/nvidia-isaac/video_to_data"
-                and locked.get("revision") == VIDEO_TO_DATA_REVISION
-                and inside_target in VIDEO_TO_DATA_PUBLIC_NAMES
+            public_upstream_name = inside_target in PINNED_PUBLIC_SOURCE_NAMES.get(
+                (asset_id, locked.get("revision"), locked.get("url")), set()
             )
             if any(
                 part.lower() in {".git", ".venv", *FORBIDDEN_CHALLENGE_PARTS}

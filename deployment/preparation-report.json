@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-27",
+  "scope": "Track 1 preparation only; no deployment or model execution",
+  "complete_required_assets": false,
+  "asset_lock_sha256": "b35bcafdaf30dff9427fa552a45cb0d6be44c26a1b2d36c1766e37de82a90f49",
+  "assets": [
+    {
+      "id": "video-to-data-source",
+      "group": "sources",
+      "required": true,
+      "target": "third_party/video_to_data",
+      "status": "downloaded_and_verified",
+      "files": 4654,
+      "bytes": 486163572,
+      "receipt_sha256": "8a7f888c1ca94f26fd2db4aa198f4e2f7cfe27402b6d11f39805b724da16a693"
+    },
+    {
+      "id": "sam3d-objects-source",
+      "group": "sources",
+      "required": true,
+      "target": "third_party/sam-3d-objects",
+      "status": "downloaded_and_verified",
+      "files": 416,
+      "bytes": 232781043,
+      "receipt_sha256": "255326d93b087dbed7de88ffc4ba64230e11c724f7aeb61689a831421b1cc52c"
+    },
+    {
+      "id": "cari4d-dinov3-source",
+      "group": "sources",
+      "required": true,
+      "target": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main",
+      "status": "downloaded_and_verified",
+      "files": 221,
+      "bytes": 18745171,
+      "receipt_sha256": "013de7c7a58d9fc0af2917465772f36697547df4ce7cc8f76d645146e63a876d"
+    },
+    {
+      "id": "cari4d-dinov2-source",
+      "group": "sources",
+      "required": true,
+      "target": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov2_main",
+      "status": "downloaded_and_verified",
+      "files": 203,
+      "bytes": 3956490,
+      "receipt_sha256": "67e7f9f33816b0f37a1f8f3b0ee26b468bb8f7765e9ef3e889106da6058e309e"
+    },
+    {
+      "id": "objects-dinov2-source",
+      "group": "sources",
+      "required": true,
+      "target": "weights/sam3d/torch_home/hub/facebookresearch_dinov2_main",
+      "status": "downloaded_and_verified",
+      "files": 203,
+      "bytes": 3956490,
+      "receipt_sha256": "cebd66db5e6789c58b339cb0c13aa133db2cba6858c7c6e02318e0e073b4696a"
+    },
+    {
+      "id": "sam2-source",
+      "group": "sources",
+      "required": true,
+      "target": "third_party/sam2",
+      "status": "downloaded_and_verified",
+      "files": 569,
+      "bytes": 64578283,
+      "receipt_sha256": "056a786c315f0b2d411d9c533f1b7fa445852604dc6cf2ee5935c52945db5e81"
+    },
+    {
+      "id": "pytorch3d-source",
+      "group": "sources",
+      "required": true,
+      "target": "third_party/pytorch3d",
+      "status": "downloaded_and_verified",
+      "files": 1065,
+      "bytes": 47985018,
+      "receipt_sha256": "669ed3abf3d689af72f13fc0fa1f02f4711627b3529052614b7a0be5b54b29dc"
+    },
+    {
+      "id": "nvdiffrast-source",
+      "group": "sources",
+      "required": true,
+      "target": "third_party/nvdiffrast",
+      "status": "downloaded_and_verified",
+      "files": 85,
+      "bytes": 11242350,
+      "receipt_sha256": "9f168b511357c06813786cc0aea4fed05e18a012712aad1f235a8eb523fb248f"
+    },
+    {
+      "id": "pybind11-source",
+      "group": "sources",
+      "required": true,
+      "target": "third_party/pybind11",
+      "status": "downloaded_and_verified",
+      "files": 237,
+      "bytes": 2481284,
+      "receipt_sha256": "4a878dcdaf1f260a0ff9194b28e2308f8064e04f79c4eccaa5e29fcf08938e87"
+    },
+    {
+      "id": "objects-moge-source",
+      "group": "sources",
+      "required": true,
+      "target": "third_party/moge-objects",
+      "status": "downloaded_and_verified",
+      "files": 88,
+      "bytes": 4529960,
+      "receipt_sha256": "3a22e8038358db76ebe11ecab1919203d71c995858168b14b11f77f0290ee0f5"
+    },
+    {
+      "id": "cari4d-moge-source",
+      "group": "sources",
+      "required": true,
+      "target": "third_party/moge-cari4d",
+      "status": "downloaded_and_verified",
+      "files": 101,
+      "bytes": 11408192,
+      "receipt_sha256": "8436b4967ae5bda543386d380b19b1334a5856c65d9e33f93c129742411a5b26"
+    },
+    {
+      "id": "utils3d-source",
+      "group": "sources",
+      "required": true,
+      "target": "third_party/utils3d",
+      "status": "downloaded_and_verified",
+      "files": 43,
+      "bytes": 681430,
+      "receipt_sha256": "36908e6fdb3466fda2a1efc7fa39e319e6e4f5d26ed181598de72dba838dc84d"
+    },
+    {
+      "id": "cari4d",
+      "group": "models",
+      "required": true,
+      "target": "weights/cari4d/cari4d",
+      "status": "access_required",
+      "last_probe_http_status": 403
+    },
+    {
+      "id": "sam3d-body",
+      "group": "models",
+      "required": true,
+      "target": "weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3",
+      "status": "access_required",
+      "last_probe_http_status": 403
+    },
+    {
+      "id": "sam3d-objects",
+      "group": "models",
+      "required": true,
+      "target": "weights/sam3d/hf-download",
+      "status": "access_required",
+      "last_probe_http_status": 403
+    },
+    {
+      "id": "sam2",
+      "group": "models",
+      "required": true,
+      "target": "weights/sam2",
+      "status": "downloaded_and_verified",
+      "files": 3,
+      "bytes": 898107388,
+      "receipt_sha256": "bbd6d58206be2d0e56201a75793122b37a27e1d825b4e62e926b2d77a5ac65e4"
+    },
+    {
+      "id": "cari4d-moge2",
+      "group": "models",
+      "required": true,
+      "target": "weights/cari4d/hf_home/hub",
+      "status": "downloaded_and_verified",
+      "files": 3,
+      "bytes": 1323815968,
+      "receipt_sha256": "aec7b8a33de12b4c73260eb26d6571f8a398faf8316253c4d9824f2f1501ce10"
+    },
+    {
+      "id": "objects-moge1",
+      "group": "models",
+      "required": true,
+      "target": "weights/sam3d/hf_home/hub",
+      "status": "downloaded_and_verified",
+      "files": 3,
+      "bytes": 1256823506,
+      "receipt_sha256": "1bf4e39c55d4962c34b61a51218d2f470377b84f991a94481ddc6bc04eff4d54"
+    },
+    {
+      "id": "standalone-body-moge2",
+      "group": "models",
+      "required": false,
+      "target": "weights/sam3d_body/moge-2-vitb-normal",
+      "status": "optional_not_selected"
+    },
+    {
+      "id": "cari4d-dinov2-vitb14",
+      "group": "models",
+      "required": true,
+      "target": "weights/cari4d/sam3d_body/torch_home/hub/checkpoints",
+      "status": "downloaded_and_verified",
+      "files": 1,
+      "bytes": 346378731,
+      "receipt_sha256": "8b2e47031840d2761e35be15bc9fcce391e6548a99ac410d6742fd25126f12fc"
+    },
+    {
+      "id": "cari4d-dinov2-vits14",
+      "group": "models",
+      "required": true,
+      "target": "weights/cari4d/sam3d_body/torch_home/hub/checkpoints",
+      "status": "downloaded_and_verified",
+      "files": 1,
+      "bytes": 88283115,
+      "receipt_sha256": "42530a29e7f207d7966b8ad5b0a2a02f72ba6ea18db23c15779fc48014a51026"
+    },
+    {
+      "id": "objects-dinov2-vitl14-reg4",
+      "group": "models",
+      "required": true,
+      "target": "weights/sam3d/torch_home/hub/checkpoints",
+      "status": "downloaded_and_verified",
+      "files": 1,
+      "bytes": 1217607321,
+      "receipt_sha256": "c908a8f893cb08f229d48d0bdd78bb086098b16acd7ce778cec0f728f3e456f3"
+    },
+    {
+      "id": "objects-dinov2-vitb14-reg4",
+      "group": "models",
+      "required": true,
+      "target": "weights/sam3d/torch_home/hub/checkpoints",
+      "status": "downloaded_and_verified",
+      "files": 1,
+      "bytes": 346393545,
+      "receipt_sha256": "8104af63149fb2a7c2b5df7aa167b475fe10e92b24df06d45e2a907c2ee15eab"
+    },
+    {
+      "id": "foundationpose-scorer",
+      "group": "models",
+      "required": true,
+      "target": "weights/cari4d/foundationpose/nvlabs_pytorch/2024-01-11-20-02-45",
+      "status": "blocked_by_organization"
+    },
+    {
+      "id": "foundationpose-refiner",
+      "group": "models",
+      "required": true,
+      "target": "weights/cari4d/foundationpose/nvlabs_pytorch/2023-10-28-18-33-37",
+      "status": "blocked_by_organization"
+    },
+    {
+      "id": "soma-export",
+      "group": "models",
+      "required": false,
+      "target": "weights/soma/hf_home/hub",
+      "status": "optional_not_selected"
+    }
+  ],
+  "host_wheels": {
+    "count": 28,
+    "bytes": 119263919,
+    "archive": {
+      "bytes": 119277331,
+      "filename": "linux-cp310-wheelhouse.zip",
+      "sha256": "60061646f2a3c3cf7ef7be5eae17809f379155d418a129837405bc283cf2115a"
+    }
+  },
+  "validation": {
+    "local_downloader_and_bundle_tests": 32,
+    "github_initial_ci": {
+      "commit": "a3cc89843b4f7e9dca7da3b1a87782381ea9b806",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/36295376997",
+      "passed": 74
+    },
+    "gpu_inference": false,
+    "server_deployment": false
+  }
+}

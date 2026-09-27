@@ -8,6 +8,8 @@ The upstream baseline is [`nvidia-isaac/video_to_data@33129dd`](https://github.c
 
 Metadata was checked on **2026-09-27**. This is an asset inventory, not a completed model bundle or a successful inference run.
 
+Preparation now includes **all 12 source trees and the 7 public required model entries**, verified through per-file receipts. The three gated models and two blocked FoundationPose folders are still absent. See [PREPARATION_STATUS.md](PREPARATION_STATUS.md) for the downloadable ZIP scope, wheelhouse, and actual verification record.
+
 - Hugging Face metadata confirms the seven core/standalone model revisions. The account login is valid, but the three selected gated weight probes—CARI4D, SAM3D Body and SAM3D Objects—returned **HTTP 403**. This may reflect missing repository approval or insufficient repository scope in a fine-grained token; the probe does not distinguish those causes. Their files have not been downloaded for this bundle.
 - The two FoundationPose Google Drive sources are **blocked by enterprise iOA policy**. Their URLs are retained solely as provenance. The preparation tool must not check, download, retry, proxy or seek a mirror of these sources in this environment. An approved IT process is needed before those assets can be provided.
 - Required model files with known sizes total **23,473,022,491 bytes (23.47 GB / 21.86 GiB)**. This excludes FoundationPose, source archives, Python dependencies, container images, cache duplication and ZIP staging. It is not a complete disk-space estimate.

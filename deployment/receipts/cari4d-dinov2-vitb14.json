@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "cari4d-dinov2-vitb14",
+  "status": "complete",
+  "source": {
+    "kind": "http",
+    "revision": null,
+    "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth",
+    "license": "Apache-2.0",
+    "gated": false
+  },
+  "target": "weights/cari4d/sam3d_body/torch_home/hub/checkpoints",
+  "asset_spec_sha256": "b1d489c10f2f909b674efe9d426d87a9302da7ebe903b0d1de9a444988163a7c",
+  "files": [
+    {
+      "path": "weights/cari4d/sam3d_body/torch_home/hub/checkpoints/dinov2_vitb14_pretrain.pth",
+      "bytes": 346378731,
+      "sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73"
+    }
+  ]
+}

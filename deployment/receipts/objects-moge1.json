@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "objects-moge1",
+  "status": "complete",
+  "source": {
+    "kind": "huggingface",
+    "repo_id": "Ruicheng/moge-vitl",
+    "revision": "ad326bfb61facd6c52b5a825bc1e34d7c97d9672",
+    "license": "mit",
+    "gated": false
+  },
+  "target": "weights/sam3d/hf_home/hub",
+  "asset_spec_sha256": "2030a970753879562cc1a185e8bbcebf9c44e3762159c4eeec9bf1aabfe42cd7",
+  "files": [
+    {
+      "path": "weights/sam3d/hf_home/hub/models--Ruicheng--moge-vitl/refs/main",
+      "bytes": 40,
+      "sha256": "841087a0498da6e595273ffbb51d78ed9e19672c1b1d3a5f69c34577c2bddfbc"
+    },
+    {
+      "path": "weights/sam3d/hf_home/hub/models--Ruicheng--moge-vitl/snapshots/ad326bfb61facd6c52b5a825bc1e34d7c97d9672/model.pt",
+      "bytes": 1256823446,
+      "sha256": "da96b09a0485a3c45a5aa455e67743c8b4efc4dd8437c1f2aa93c2b4303d957f"
+    },
+    {
+      "path": "weights/sam3d/hf_home/hub/models--Ruicheng--moge-vitl/snapshots/ad326bfb61facd6c52b5a825bc1e34d7c97d9672/README.md",
+      "bytes": 20,
+      "sha256": "5c1b3fd193f37b9dcdd947a12e566189f1c9d2664f4e5e95548e6a4b9fc7adab"
+    }
+  ]
+}

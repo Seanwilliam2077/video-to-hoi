@@ -236,6 +236,44 @@ def test_only_pinned_upstream_public_names_bypass_secret_name_filter(tmp_path: P
         build_bundle(root, tmp_path / "unapproved.zip", receipts=asset_root / ".receipts", asset_root=asset_root)
 
 
+@pytest.mark.parametrize("asset_id,target,url,revision,public_name", [
+    ("cari4d-dinov3-source", "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main",
+     "https://github.com/facebookresearch/dinov3", "6876159a11b4df116f30f667f8c9888617df0751",
+     "dinov3/env/__init__.py"),
+    ("pybind11-source", "third_party/pybind11", "https://github.com/pybind/pybind11",
+     "aa304c9c7d725ffb9d10af08a3b34cb372307020", "tests/env.py"),
+    ("sam2-source", "third_party/sam2", "https://github.com/facebookresearch/sam2",
+     "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+     "demo/frontend/src/theme/tokens.stylex.ts"),
+])
+def test_pinned_public_source_files_with_env_or_tokens_names(
+    tmp_path: Path, asset_id: str, target: str, url: str, revision: str, public_name: str,
+):
+    root = tmp_path / "source"
+    root.mkdir()
+    _put(root, "README.md", b"code")
+    asset_root = tmp_path / "assets"
+    content = b"public upstream source"
+    _put(asset_root, f"{target}/{public_name}", content)
+    asset = {"id": asset_id, "kind": "git", "target": target, "url": url,
+             "revision": revision, "files": []}
+    _put(root, "deployment/assets.lock.json", json.dumps({"schema_version": 1, "assets": [asset]}).encode())
+    receipt = {
+        "schema_version": 1, "id": asset_id, "status": "complete",
+        "source": {"kind": "git", "url": url, "revision": revision},
+        "target": target,
+        "files": [{"path": f"{target}/{public_name}", "bytes": len(content),
+                   "sha256": hashlib.sha256(content).hexdigest()}],
+        "asset_spec_sha256": hashlib.sha256(
+            json.dumps(asset, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest(),
+    }
+    _put(asset_root, f".receipts/{asset_id}.json", json.dumps(receipt).encode())
+    output = tmp_path / "public.zip"
+    build_bundle(root, output, receipts=asset_root / ".receipts", asset_root=asset_root)
+    assert f"{target}/{public_name}" in _names(output)
+
+
 def test_organization_blocked_drive_asset_is_rejected(tmp_path: Path):
     root, asset_root, receipts, _ = _receipt_fixture(tmp_path)
     lock_path = root / "deployment" / "assets.lock.json"

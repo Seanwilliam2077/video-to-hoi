@@ -62,6 +62,7 @@ Round sizes and counts, or leave them out, when the exact number means nothing t
 
 Keep these sections in this order:
 
+0. Navigation bar (`<nav class="sitenav">`): the links shared by all team pages, labelled 团队主页 · 项目进展 · 比赛资料 · ① 平台 · ② 人体 · ③ 物体 · ④ 物理, with 项目进展 marked as the current page. Keep it at the very top and keep its links the same as on the other pages (see `AGENTS.md`, Team pages).
 1. Header: a headline sentence, and the **live countdown** to the deadline (2026-11-04 17:00 US Eastern = 2026-11-05 06:00 Beijing). It shows days, hours, minutes, and seconds and updates every second. Do not replace it with a fixed number.
 2. 一句话: one paragraph that says where we are and the main blockers.
 3. 我们在做什么: the task in everyday terms, with the input → system → output sketch and the three scoring questions.

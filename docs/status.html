@@ -61,7 +61,16 @@ p { margin: 0 0 12px; max-width: 70ch; }
 .steps .done .s { color: var(--done); }
 .steps .stuck { background: var(--stuck-bg); border-color: var(--stuck); }
 .steps .stuck .s { color: var(--stuck); }
+.steps .now { background: var(--now-bg); border-color: transparent; }
+.steps .now .s { color: var(--now); }
 .steps .next .s { color: var(--next); }
+
+/* navigation shared by all team pages */
+.sitenav { display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; margin: -16px 0 24px; border-bottom: 1px solid var(--border); font-size: 13px; }
+.sitenav a, .sitenav [aria-current] { flex: none; padding: 6px 10px; line-height: 20px; color: var(--muted); white-space: nowrap; border-bottom: 2px solid transparent; }
+.sitenav a:hover { color: var(--fg); text-decoration: none; }
+.sitenav [aria-current="page"] { color: var(--fg); font-weight: 700; border-bottom-color: var(--fg); }
+.sitenav .sep { flex: none; width: 1px; height: 14px; background: var(--border); margin: 0 6px; }
 
 .flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: center; }
 @media (max-width: 640px) { .flow { grid-template-columns: 1fr; } .flow .arrow { transform: rotate(90deg); justify-self: center; } }
@@ -142,6 +151,17 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
 </style>
 
 <div class="wrap">
+  <nav class="sitenav" aria-label="团队页面">
+    <a href="https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S" target="_blank" rel="noopener">团队主页</a>
+    <span aria-current="page">项目进展</span>
+    <a href="https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b" target="_blank" rel="noopener">比赛资料</a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg" target="_blank" rel="noopener">① 平台</a>
+    <a href="https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk" target="_blank" rel="noopener">② 人体</a>
+    <a href="https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8" target="_blank" rel="noopener">③ 物体</a>
+    <a href="https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV" target="_blank" rel="noopener">④ 物理</a>
+  </nav>
+
   <header>
     <div>
       <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 9 月 27 日</div>
@@ -390,7 +410,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   </section>
 
 
-  <footer>数据截至 2026 年 9 月 27 日；本次更新：再次确认所有测试和方案比较都只使用比赛允许的视频及其重建结果；前三段视频的方案对比测试包已发布；等待服务器入口就绪后运行，目前没有真实得分或排名。此前模型文件交接已完成，三种服务器方案保留。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 9 月 27 日；本次更新：页面顶部新增导航栏，可以直接打开团队主页和各分工页；再次确认所有测试和方案比较都只使用比赛允许的视频及其重建结果；前三段视频的方案对比测试包已发布；等待服务器入口就绪后运行，目前没有真实得分或排名。此前模型文件交接已完成，三种服务器方案保留。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

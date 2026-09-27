@@ -317,6 +317,21 @@
       "all_size_and_sha256_checks_passed": true,
       "network_access": false,
       "model_execution": false
+    },
+    "github_release_ci": {
+      "commit": "65c9025176921188ceb6e804f55a625173682324",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/36298879194",
+      "conclusion": "success"
+    },
+    "model_release_publication": {
+      "tag": "hf-models-20260927",
+      "published": true,
+      "parts": 11,
+      "companion_files": 4,
+      "model_archive_bytes": 17995770414,
+      "all_github_digests_match": true,
+      "unauthenticated_downloads_checked": true,
+      "record": "releases/hf-models-20260927.json"
     }
   },
   "prepared_totals": {

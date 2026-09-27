@@ -1,0 +1,196 @@
+{
+  "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927",
+  "tag": "hf-models-20260927",
+  "draft": false,
+  "source_commit": "65c9025176921188ceb6e804f55a625173682324",
+  "assets": [
+    {
+      "id": 592256169,
+      "name": "cari4d.zip.part001",
+      "size": 1992294400,
+      "digest": "sha256:1e4da6411db68244894caf0de397812add57509141ee060bb51da7b449bd9a75",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/cari4d.zip.part001"
+    },
+    {
+      "id": 592256124,
+      "name": "cari4d.zip.part002",
+      "size": 92291080,
+      "digest": "sha256:85faf4917c3ef443907294cc04d38190828db30845348437c995007e85444e31",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/cari4d.zip.part002"
+    },
+    {
+      "id": 592278165,
+      "name": "model-release-manifest.json",
+      "size": 5153,
+      "digest": "sha256:9d4ea71a9f5cca31c38e3155988d3ace1bb262517247421ca4db7d663014e6f6",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/model-release-manifest.json"
+    },
+    {
+      "id": 592278188,
+      "name": "MODEL_NOTICE.md",
+      "size": 4743,
+      "digest": "sha256:0c781a070fbf9901c78a76e10b79ed2ba25ac04e2f66adf370674238aaef2eb2",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/MODEL_NOTICE.md"
+    },
+    {
+      "id": 592278182,
+      "name": "restore_model_release.py",
+      "size": 14243,
+      "digest": "sha256:b67230a529d681fa1ad02d55769027611e8bccbb8c9fcd3df6ae29f649f65db6",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/restore_model_release.py"
+    },
+    {
+      "id": 592256332,
+      "name": "sam3d-body.zip.part001",
+      "size": 1992294400,
+      "digest": "sha256:bd9c6cd12ae00e1aea006ee9c191015396b669c254a4746628d40c2e77970660",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-body.zip.part001"
+    },
+    {
+      "id": 592259118,
+      "name": "sam3d-body.zip.part002",
+      "size": 812993490,
+      "digest": "sha256:059556ad1f82d7e31fe7be8e9911757ba803f75f6084ed6bbec8156e6ffc5a72",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-body.zip.part002"
+    },
+    {
+      "id": 592264906,
+      "name": "sam3d-objects.zip.part001",
+      "size": 1992294400,
+      "digest": "sha256:96fb97b0c9b04d8b493e58ed85da638ccab97ed98f35a9fbc75cfc8e0a9ba7df",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part001"
+    },
+    {
+      "id": 592264904,
+      "name": "sam3d-objects.zip.part002",
+      "size": 1992294400,
+      "digest": "sha256:b17c33415142ee28bed8121c271202b698eec95a389650d9c9ac060f8b8d439c",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part002"
+    },
+    {
+      "id": 592268224,
+      "name": "sam3d-objects.zip.part003",
+      "size": 1992294400,
+      "digest": "sha256:29fe5dd6b499dac7549f3d056b1659a976e53b8caaa548def3a388a7d2b421d7",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part003"
+    },
+    {
+      "id": 592268449,
+      "name": "sam3d-objects.zip.part004",
+      "size": 1992294400,
+      "digest": "sha256:bf0a3e0c0a61a389ff80da4aa85f0207ef25b351922e6df5fd40f04e11e19bac",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part004"
+    },
+    {
+      "id": 592271542,
+      "name": "sam3d-objects.zip.part005",
+      "size": 1992294400,
+      "digest": "sha256:092915008da76102332df7c20b2a1fdaa5f933d99a9db946f1a5047df151e32b",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part005"
+    },
+    {
+      "id": 592271573,
+      "name": "sam3d-objects.zip.part006",
+      "size": 1992294400,
+      "digest": "sha256:e1cf2b00a8e9d5878fa89f333e48c8c8b16f5e748e4549572829b049121e5f68",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part006"
+    },
+    {
+      "id": 592275125,
+      "name": "sam3d-objects.zip.part007",
+      "size": 1152130644,
+      "digest": "sha256:4e5fb20635e45114b2560c7973d7ef3f3c4277008d06ddbbe3e84af5064f579d",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/sam3d-objects.zip.part007"
+    },
+    {
+      "id": 592278151,
+      "name": "SHA256SUMS",
+      "size": 1003,
+      "digest": "sha256:736708f9f267204e191c43fad0f2ecb18305f6fb5ce23edead7b11c12ab5b754",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/hf-models-20260927/SHA256SUMS"
+    }
+  ],
+  "public_verification": {
+    "checked_at": "2026-09-27",
+    "download_authenticated": false,
+    "metadata_api_authenticated": true,
+    "tag_commit": "65c9025176921188ceb6e804f55a625173682324",
+    "assets": [
+      {
+        "name": "cari4d.zip.part001",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "cari4d.zip.part002",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "sam3d-body.zip.part001",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "sam3d-body.zip.part002",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "sam3d-objects.zip.part001",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "sam3d-objects.zip.part002",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "sam3d-objects.zip.part003",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "sam3d-objects.zip.part004",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "sam3d-objects.zip.part005",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "sam3d-objects.zip.part006",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "sam3d-objects.zip.part007",
+        "method": "public_head_size_and_github_digest",
+        "http_status": 200
+      },
+      {
+        "name": "model-release-manifest.json",
+        "method": "public_get_sha256",
+        "http_status": 200
+      },
+      {
+        "name": "SHA256SUMS",
+        "method": "public_get_sha256",
+        "http_status": 200
+      },
+      {
+        "name": "restore_model_release.py",
+        "method": "public_get_sha256",
+        "http_status": 200
+      },
+      {
+        "name": "MODEL_NOTICE.md",
+        "method": "public_get_sha256",
+        "http_status": 200
+      }
+    ]
+  }
+}

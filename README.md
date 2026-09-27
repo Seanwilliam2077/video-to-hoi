@@ -4,11 +4,13 @@ Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Da
 
 ## Prepare a server handoff
 
-Start with [deployment/README.md](deployment/README.md) for the source ZIP, pinned model/source inventory, dependency locks, and download/verification commands. This preparation works without SSH. Git holds code, manifests, and instructions; large pretrained weights and Python wheels are separate transfer artifacts. See [deployment/PREPARATION_STATUS.md](deployment/PREPARATION_STATUS.md) for actual downloaded files and outstanding access requirements. GPU deployment and the two real baselines remain pending.
+Start with [deployment/README.md](deployment/README.md) for the source ZIP, pinned model/source inventory, dependency locks, and download/verification commands. This preparation works without SSH. Git holds code, manifests, and instructions; large pretrained weights and Python wheels are separate transfer artifacts. All 12 required model entries are downloaded and verified. See [deployment/PREPARATION_STATUS.md](deployment/PREPARATION_STATUS.md) for the handoff scope. Server deployment is deferred at the owner's request; the two real baselines remain pending.
 
 **Project status (in Chinese), for leadership and product updates: [open the status page](https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1)** · source: [docs/status.html](docs/status.html) · how to update it: [docs/status.md](docs/status.md)
 
 **Published download:** [FoundationPose add-on (239 MB), SHA-256, and metadata](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927). Extract the existing public-assets handoff first, then overlay this add-on. This release contains the two FoundationPose model folders and code snapshot `5205666`; the base archive and host wheelhouse remain separate handoff files.
+
+**New model download:** [CARI4D, SAM3D Body, and SAM3D Objects (18 GB / 11 parts)](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927). The release includes a manifest, SHA-256 checks, restore script, and model license notice. Follow [download and restore instructions](deployment/MODEL_RELEASES.md), then extract all three reconstructed ZIPs into the same handoff directory. GitHub's Source code ZIP does not contain model weights.
 
 ## Team pages
 

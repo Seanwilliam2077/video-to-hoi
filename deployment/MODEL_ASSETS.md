@@ -8,7 +8,7 @@ The upstream baseline is [`nvidia-isaac/video_to_data@33129dd`](https://github.c
 
 ## Current readiness
 
-Metadata, access and downloaded files were checked on **2026-09-27**. Required local model preparation is complete; release upload is in progress. Deployment and model execution are deferred at the owner's request.
+Metadata, access and downloaded files were checked on **2026-09-27**. Required local model preparation is complete; the reviewed model release is published and publicly downloadable. Deployment and model execution are deferred at the owner's request.
 
 Preparation now includes **all 12 source trees and all 12 required model entries**, verified through 24 receipts covering 7,930 files. The three newly approved Hugging Face models contribute 28 files and 17,995,612,997 bytes. The existing public-assets ZIP contains the earlier seven models; a separate FoundationPose add-on carries two entries, and the three newly acquired models have a separate reviewed release. See [PREPARATION_STATUS.md](PREPARATION_STATUS.md) for the transfer scope and verification record.
 
@@ -16,7 +16,7 @@ Preparation now includes **all 12 source trees and all 12 required model entries
 - Enterprise iOA blocked **Codex's automated access** to the two FoundationPose Google Drive folders. The user downloaded both folders manually. The four required files have local SHA-256 receipts, and an independent offline check matched those receipts. `fetch_assets.py` still does not contact Drive. The current public-assets ZIP predates these files; the add-on carries the files and their portable receipts.
 - Required model files total **23,731,473,475 bytes (23.73 GB / 22.10 GiB)**, including 258,450,984 bytes of FoundationPose files. Receipts also include 80 bytes of pinned HF cache refs, bringing the verified model scope to **23,731,473,555 bytes**. All required model files are downloaded. This excludes source archives, Python dependencies, container images, cache duplication and ZIP staging; it is not a complete disk-space estimate.
 - The now-readable Objects `pipeline.yaml` and referenced configuration files were inspected without running models: all 12 checkpoint/config paths are covered by the selected files. MoGe1 and DINOv2 register weights are already included; no additional weights were identified. No GPU inference or complete offline runtime check has been performed.
-- Redistribution of the three newly approved models is covered by the separate [review policy](model-redistribution.json), full [license materials](licenses/), and [release procedure](MODEL_RELEASES.md). Their [release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927) is being uploaded; it is not public until the draft is published.
+- Redistribution of the three newly approved models is covered by the separate [review policy](model-redistribution.json), full [license materials](licenses/), and [release procedure](MODEL_RELEASES.md). Their [release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927) is published with 11 checksum-verified parts and four companion files.
 
 ## Required pretrained assets
 
@@ -95,7 +95,7 @@ The following command only prints the declared inventory; it downloads nothing:
 python tools/fetch_assets.py plan --manifest deployment/assets.lock.json
 ```
 
-Asset fetching, access checks and bundle preparation are separate tool commands. All required local model downloads are now verified; publication of the three reviewed model packages is in progress. The existing base/add-on ZIPs do not contain these three models, so use the restore sequence in [MODEL_RELEASES.md](MODEL_RELEASES.md) after publication. Model access pages remain the upstream references: [CARI4D](https://huggingface.co/nvidia/cari4d_commercial), [SAM3D Body](https://huggingface.co/facebook/sam-3d-body-dinov3), [SAM3D Objects](https://huggingface.co/facebook/sam-3d-objects).
+Asset fetching, access checks and bundle preparation are separate tool commands. All required local model downloads are now verified; the three reviewed model packages are published. The existing base/add-on ZIPs do not contain these three models, so use the restore sequence in [MODEL_RELEASES.md](MODEL_RELEASES.md) to retrieve the published packages. Model access pages remain the upstream references: [CARI4D](https://huggingface.co/nvidia/cari4d_commercial), [SAM3D Body](https://huggingface.co/facebook/sam-3d-body-dinov3), [SAM3D Objects](https://huggingface.co/facebook/sam-3d-objects).
 
 The fetcher writes `.receipts/<asset-id>.json` containing hashes of downloaded files. The packager consumes those receipts and rechecks their contents. Hugging Face LFS `sha256` is the content checksum. `git_blob_sha1` identifies a Git blob and must not be treated as a SHA-256 checksum. Files whose source publishes no verified content hash remain without an independent upstream checksum; the FoundationPose receipts record observed local bytes and allow later transfer checks. `--register-only` supports files already placed in the target folders.
 

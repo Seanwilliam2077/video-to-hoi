@@ -29,7 +29,7 @@ what has actually completed; a review entry alone does not mean files are presen
 
 ## Download and restore
 
-The release tag is `hf-models-20260927`. Download its `model-release-manifest.json`,
+The [published release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927) contains 11 model parts and four companion files. Its tag is `hf-models-20260927`. Download its `model-release-manifest.json`,
 `restore_model_release.py`, and `MODEL_NOTICE.md` assets. Read the notice, then run:
 
 ```bash

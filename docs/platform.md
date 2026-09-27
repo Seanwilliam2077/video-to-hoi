@@ -1,6 +1,6 @@
 # Remote platform and baseline deployment
 
-Status: all required model downloads verified; GitHub release upload in progress,
+Status: all required model downloads verified; GitHub model release published and verified,
 2026-09-27. The owner requested acquisition and GitHub handoff only. Deployment
 and model execution remain deferred. The owner
 cannot connect to the server through SSH; code and preparation materials will
@@ -108,7 +108,7 @@ All 12 required model entries are now present locally. Redistribution review
 permits these three model packages under their respective NVIDIA/SAM terms;
 [MODEL_RELEASES.md](../deployment/MODEL_RELEASES.md) records the license copies,
 provenance, and restore procedure. The [model release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927)
-is being uploaded and remains a draft until upload verification finishes.
+is published with 11 model parts and four companion files. GitHub digests and unauthenticated public downloads were verified.
 No remote token setup or deployment is part of this task. Keep credentials
 out of the repository, run manifests, logs, and shared archives.
 
@@ -189,7 +189,7 @@ including 80 bytes of pinned cache refs. This confirms the prepared files,
 not model execution. No Drive download was executed by Codex, and no model
 inference or server deployment has been performed. The FoundationPose
 add-on was published on 2026-09-27; the three additional model packages are
-being uploaded separately. The revised local status page must be republished
+published separately with verified public download links. The revised local status page must be republished
 to its existing online address after the final release update.
 
 ### Published add-on

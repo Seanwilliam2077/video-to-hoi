@@ -72,7 +72,7 @@ The portable code ZIP can be made locally before the remote machine is known:
 python tools/prepare_bundle.py --root . --output dist/video-to-hoi-code.zip
 ```
 
-After unpacking it, `plan` needs only the Python standard library. `check` checks remote availability; `fetch` downloads selected permitted source and model assets and writes per-asset receipts; `verify` checks the downloaded files against those receipts. Fetch only assets authorized in `assets.lock.json`; gated models require their own access approval and credentials supplied outside the ZIP. Google Drive access was blocked by the organization's security controls. The FoundationPose folder weights that depend on it are marked `blocked_by_organization`; do not request those URLs or work around the block. Obtain them only through an IT-approved compliant channel and update the lock and receipts after approval.
+After unpacking it, `plan` needs only the Python standard library. `check` checks remote availability; `fetch` downloads selected permitted source and model assets and writes per-asset receipts; `verify` checks the downloaded files against those receipts. Fetch only assets authorized in `assets.lock.json`; gated models require their own access approval and credentials supplied outside the ZIP. Enterprise iOA blocked Codex's automated access to the two FoundationPose Google Drive folders, so `fetch_assets.py` still leaves those entries untouched. The user confirmed that their own download is allowed. The FoundationPose weights remain pending and are absent from the current ZIP.
 
 ```bash
 python tools/fetch_assets.py plan --group all
@@ -82,6 +82,15 @@ python tools/fetch_assets.py check --ids video-to-data-source sam3d-objects-sour
 python tools/fetch_assets.py fetch --root artifacts --ids video-to-data-source sam3d-objects-source
 python tools/fetch_assets.py verify --root artifacts --ids video-to-data-source sam3d-objects-source
 ```
+
+From the extracted project directory on the user's Windows machine (Python 3.10+), the separate FoundationPose downloader can fetch the two official folders and register their file hashes:
+
+```powershell
+py -m pip install gdown==5.2.0
+py tools/download_foundationpose.py --root "C:/Video TO HOI/artifacts/preparation"
+```
+
+If the user has already placed both folders under the target paths in `assets.lock.json`, run the same script with `--register-only` to validate and register those local files without a Drive request. The script checks both `model_best.pth` and `config.yml`, rejects missing/empty files and HTML error pages, and records local size/SHA-256 in `.receipts/`. Upstream SHA-256 values are unavailable: these receipts check later transfer integrity, not upstream authenticity or model inference. This manual step does not change the current **7 / 12** completed required-model count until its files are obtained and verified.
 
 The default bundle contains source and manifests only. If verified, permitted assets are later included with `--receipts artifacts/.receipts --asset-root artifacts` when creating a new bundle. A skipped gated asset is incomplete and cannot be treated as verified.
 

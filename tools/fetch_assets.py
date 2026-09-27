@@ -2,7 +2,8 @@
 
 Works from a Git clone or an extracted source ZIP. Python 3.10+ is required.
 Hugging Face downloads use the optional bootstrap dependencies. Google Drive
-assets are inventoried only: this workspace's organization blocks that service.
+network access is disabled in this automated tool by the Codex iOA restriction.
+Users can run tools/download_foundationpose.py separately for permitted downloads.
 Credentials are read by the download library from its normal environment/cache;
 they are never stored in receipts or interpolated into shell commands.
 """
@@ -129,7 +130,7 @@ def validate_network_url(url: str) -> None:
     check_url(url)
     host = urllib.parse.urlsplit(url).hostname or ""
     if host in {"drive.google.com", "drive.usercontent.google.com", "docs.google.com"}:
-        raise AssetError("organization policy blocks Google Drive; request an approved delivery method from IT")
+        raise AssetError("organization policy blocks Codex automated Google Drive access; use the user-run download_foundationpose.py")
 
 
 class PolicyRedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -295,7 +296,7 @@ def spec_hash(asset: dict) -> str:
 
 def fetch(asset: dict, root: Path) -> dict:
     if asset.get("download_policy") == "blocked_by_organization" or asset["kind"] == "gdrive_folder":
-        raise AssetError("organization policy blocks this download; obtain IT approval and an approved delivery method")
+        raise AssetError("organization policy blocks this automated download; users may run download_foundationpose.py for manual_user_only assets")
     if receipt_path(root, asset).is_file():
         return verify_receipt(root, asset)
     destination = safe_path(root, asset["target"])
@@ -349,7 +350,7 @@ def fetch(asset: dict, root: Path) -> dict:
 
 def access_check(asset: dict) -> None:
     if asset.get("download_policy") == "blocked_by_organization" or asset["kind"] == "gdrive_folder":
-        raise AssetError("organization policy blocks this source; no network check attempted")
+        raise AssetError("organization policy blocks automated access to this source; no network check attempted")
     if asset["kind"] == "huggingface":
         from huggingface_hub import get_hf_file_metadata, hf_hub_url
         # Check each locked file so a readable README does not hide gated weights.

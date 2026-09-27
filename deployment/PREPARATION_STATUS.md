@@ -5,7 +5,7 @@ This is a download and handoff task. No model was installed or executed on the w
 ## Access
 
 - The Hugging Face login is valid. Exact checkpoint probes for `nvidia/cari4d_commercial`, `facebook/sam-3d-body-dinov3`, and `facebook/sam-3d-objects` returned HTTP 403. Repository approval and the token's gated-repository read scope need checking. Tokens are never part of Git or a transfer ZIP.
-- FoundationPose's two Google Drive folders are blocked by enterprise iOA policy. The tools reject them before any network request. An IT-approved delivery method is required.
+- Enterprise iOA blocked Codex's automated Google Drive access. The user confirmed that they may download FoundationPose's two folders themselves with `tools/download_foundationpose.py`; `fetch_assets.py` still rejects those entries. Neither folder has been downloaded or registered yet.
 - Optional standalone Body MoGe2-B and SOMA-X export assets are not selected for the initial native MHR CARI4D baseline.
 
 ## Prepared scope
@@ -18,7 +18,7 @@ The inventory contains 12 source entries, 12 required model entries, and 2 optio
 | Required model assets | 7 / 12 | 5,477,409,574 | SAM2, MoGe2-L, MoGe1-L, and four DINOv2 checkpoints; includes 80 bytes of pinned HF cache refs |
 | Host/bootstrap wheels | 28 / 28 | 119,263,919 | Linux x86_64 CPython 3.10 packages; excludes PyTorch/CUDA and model-container dependencies |
 
-All 19 completed source/model receipts passed per-file size and SHA-256 checks (7,898 files). The full asset verification intentionally reports five missing required assets: the three gated models and two organization-blocked FoundationPose folders. It does not certify a runnable baseline. Optional assets were not downloaded.
+All 19 completed source/model receipts passed per-file size and SHA-256 checks (7,898 files). The full asset verification intentionally reports five missing required assets: the three gated models and two FoundationPose folders pending the user's manual download. It does not certify a runnable baseline. Optional assets were not downloaded.
 
 The machine-readable record is [preparation-report.json](preparation-report.json). [receipts/](receipts/) contains the public-model download receipts and wheelhouse hashes. Where upstream did not publish a content checksum, these record the actual downloaded bytes rather than claiming an independent upstream checksum match.
 
@@ -38,7 +38,7 @@ Extract the public-assets ZIP into a fresh directory, then extract the latest co
 python tools/fetch_assets.py verify --root . --skip-gated
 ```
 
-This command still reports the two missing FoundationPose assets. To check just the complete sources with a successful exit, use `--group sources`. To check one public model, use `--ids sam2` (or another ID from the report). A successful partial check must not be presented as complete baseline readiness.
+This command still reports the two missing FoundationPose assets. To check just the complete sources with a successful exit, use `--group sources`. To check one public model, use `--ids sam2` (or another ID from the report). A successful partial check must not be presented as complete baseline readiness. The user's manual FoundationPose command and `--register-only` option for files already placed at the expected paths are in [README.md](README.md).
 
 Git contains the preparation tools, version locks, source locations, and this status report. Large model binaries, downloaded third-party trees, wheel files, and ZIPs live outside Git under `artifacts/` and `dist/`. Do not interpret GitHub's Download ZIP as an archive containing model weights.
 
@@ -46,9 +46,9 @@ The host dependency lock targets Linux x86_64 with CPython 3.10. It is separate 
 
 ## Verification and handoff
 
-- The downloader and ZIP packager passed 32 synthetic tests for receipt hashes, incomplete downloads, archive paths, internal link materialization, and blocked providers. They do not execute model code.
-- The [initial GitHub CI run](https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/36295376997) passed 74 tests. The follow-up adds three packaging cases; see PR #8 for its current check. CI uses an explicit synthetic allowlist. `test_score.py`, challenge datasets, and legacy Track 2 score assertions are excluded.
-- Download receipts contain immutable source revisions and per-file SHA-256/size. The asset ZIP preserves verified receipts; the receiver can run `python tools/fetch_assets.py verify --root . --group sources` after extraction. A full `--group all` check must remain incomplete until the missing weights are supplied through approved channels.
+- The downloader and ZIP packager passed 43 synthetic tests for receipt hashes, incomplete downloads, archive paths, internal link materialization, blocked automated providers, and user-manual FoundationPose receipts. They do not execute model code. The full explicit CI allowlist also passed locally: 88 synthetic tests.
+- The [initial GitHub CI run](https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/36295376997) passed 74 tests. Subsequent changes add packaging and manual-download cases; see PR #8 for its current check. CI uses an explicit synthetic allowlist. `test_score.py`, challenge datasets, and legacy Track 2 score assertions are excluded.
+- Download receipts contain immutable source revisions and per-file SHA-256/size. The asset ZIP preserves verified receipts; the receiver can run `python tools/fetch_assets.py verify --root . --group sources` after extraction. A full `--group all` check must remain incomplete until the gated weights and the user's manually downloaded FoundationPose weights are registered.
 - Upstream Git archive links are materialized as ordinary files for ZIP transfer. Pass `--skip_weight_download` to the upstream CARI4D entry after the authorized weight setup; its original downloader expects Git checkout metadata that a source ZIP does not contain.
 - The compact project ZIP excludes the optional Track 1 video gallery and downloaded videos. The full Git repository retains the gallery page. Track 1 inputs must be acquired separately using the restricted dataset downloader.
 

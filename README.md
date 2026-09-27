@@ -107,7 +107,7 @@ The old Track 2 self-check commands and the Tier 2-normalized internal score are
 CI runs this explicit list of independent synthetic tests, including the download/bundle tools and fake-stage wiring:
 
 ```bash
-python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_geometry.py tests/test_metrics.py tests/test_run.py
+python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_download_foundationpose.py tests/test_geometry.py tests/test_metrics.py tests/test_run.py
 ```
 
 These files create their own synthetic fixtures. `test_run.py` uses generated metadata and never invokes the legacy scorer. Do not run a bare `pytest`: `test_score.py` still contains Tier 2-derived benchmark assertions and can read Track 2 files when present, so CI excludes it. Passing these tests verifies the covered contracts and wiring, not real model quality, complete data provenance, or the official submission format.

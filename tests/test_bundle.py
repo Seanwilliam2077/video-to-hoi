@@ -285,6 +285,76 @@ def test_organization_blocked_drive_asset_is_rejected(tmp_path: Path):
         build_bundle(root, tmp_path / "blocked.zip", receipts=receipts, asset_root=asset_root)
 
 
+def _manual_drive_fixture(tmp_path: Path):
+    root = tmp_path / "source"
+    root.mkdir()
+    _put(root, "README.md", b"code")
+    asset_root = tmp_path / "manual-assets"
+    target = "weights/foundationpose/synthetic-folder"
+    contents = {"model_best.pth": b"synthetic model bytes", "config.yml": b"synthetic config\n"}
+    files = []
+    locked_files = []
+    for name, content in contents.items():
+        relative = f"{target}/{name}"
+        _put(asset_root, relative, content)
+        digest = hashlib.sha256(content).hexdigest()
+        files.append({"path": relative, "bytes": len(content), "sha256": digest})
+        locked_files.append({"path": name, "size": len(content), "sha256": digest})
+    asset = {
+        "id": "manual-foundationpose", "kind": "gdrive_folder", "target": target,
+        "url": "https://example.invalid/synthetic-folder",
+        "download_policy": "manual_user_only", "license": "synthetic test license",
+        "gated": False, "files": locked_files,
+    }
+    _put(root, "deployment/assets.lock.json", json.dumps({"schema_version": 1, "assets": [asset]}).encode())
+    receipt = {
+        "schema_version": 1, "id": asset["id"], "status": "complete",
+        "acquisition": "user_manual", "target": target,
+        "source": {"kind": "gdrive_folder", "url": asset["url"], "license": asset["license"]},
+        "asset_spec_sha256": hashlib.sha256(
+            json.dumps(asset, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest(),
+        "files": files,
+        "private_note": "TOKEN=never-include-in-portable-receipt",
+    }
+    receipt_path = _put(asset_root, f".receipts/{asset['id']}.json", json.dumps(receipt).encode())
+    return root, asset_root, receipt_path, asset
+
+
+def test_manual_drive_receipt_is_sanitized_and_rebundles(tmp_path: Path):
+    root, asset_root, receipt_path, asset = _manual_drive_fixture(tmp_path)
+    output = tmp_path / "manual.zip"
+    build_bundle(root, output, receipts=receipt_path.parent, asset_root=asset_root)
+    with zipfile.ZipFile(output) as archive:
+        assert f"{asset['target']}/model_best.pth" in archive.namelist()
+        assert f"{asset['target']}/config.yml" in archive.namelist()
+        portable = json.loads(archive.read(f".receipts/{asset['id']}.json"))
+        assert portable["acquisition"] == "user_manual"
+        assert "private_note" not in portable
+        archive.extractall(tmp_path / "received")
+
+    received = tmp_path / "received"
+    assert verify_receipt(received, asset)["acquisition"] == "user_manual"
+    rebundled = tmp_path / "rebundled.zip"
+    build_bundle(received, rebundled, receipts=received / ".receipts", asset_root=received)
+    with zipfile.ZipFile(rebundled) as archive:
+        assert json.loads(archive.read(f".receipts/{asset['id']}.json"))["acquisition"] == "user_manual"
+        assert f"{asset['target']}/model_best.pth" in archive.namelist()
+
+
+@pytest.mark.parametrize("acquisition", [None, "automated"])
+def test_manual_drive_receipt_requires_user_manual_marker(tmp_path: Path, acquisition: str | None):
+    root, asset_root, receipt_path, _ = _manual_drive_fixture(tmp_path)
+    receipt = json.loads(receipt_path.read_text())
+    if acquisition is None:
+        receipt.pop("acquisition")
+    else:
+        receipt["acquisition"] = acquisition
+    receipt_path.write_text(json.dumps(receipt))
+    with pytest.raises(BundleError, match="manual_user_only policy and user_manual acquisition"):
+        build_bundle(root, tmp_path / "rejected.zip", receipts=receipt_path.parent, asset_root=asset_root)
+
+
 def test_symlink_rejected(tmp_path: Path):
     root = tmp_path / "source"
     root.mkdir()

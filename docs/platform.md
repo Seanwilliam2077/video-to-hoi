@@ -142,3 +142,19 @@ Acceptance for each real baseline:
 Before a host is available, code and deployment preparation can proceed, but
 real reconstruction, remote environment validation, and a shared baseline
 address remain incomplete.
+
+## Manual FoundationPose handoff (2026-09-27)
+
+The owner clarified that iOA blocks Codex's Google Drive access, while their
+own manual downloads are allowed. `tools/download_foundationpose.py` provides
+the user-run scorer/refiner download and offline `--register-only` path. It
+checks both required files and records local byte counts and SHA-256 receipts,
+which the bundle tool can verify and include. The automated fetch/check tool
+still does not contact Drive. See [manual commands](../deployment/README.md)
+and [preparation status](../deployment/PREPARATION_STATUS.md).
+
+The 43 downloader/bundle tests passed with synthetic files only. No Drive
+download was executed by Codex; both FoundationPose entries remain pending,
+and the completed required-model count remains 7/12. No model inference or
+server deployment has been performed. The public Claude status page still
+needs republication from an authorized editing session.

@@ -811,9 +811,9 @@
         "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_foundation_pose/lib/download_weights.py"
       ],
       "metadata_verified_at": "2026-09-27",
-      "download_policy": "blocked_by_organization",
-      "access_status": "enterprise-iOA blocked",
-      "access_note": "Source URL is retained only for provenance. Do not request, follow, retry, proxy or mirror this source in this environment."
+      "download_policy": "manual_user_only",
+      "access_status": "awaiting_user_download",
+      "access_note": "User confirms manual downloads are permitted; iOA blocks Codex Google Drive access. User may run tools/download_foundationpose.py in their own terminal. Automated asset fetch/check never contacts this source."
     },
     {
       "id": "foundationpose-refiner",
@@ -845,9 +845,9 @@
         "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_foundation_pose/lib/download_weights.py"
       ],
       "metadata_verified_at": "2026-09-27",
-      "download_policy": "blocked_by_organization",
-      "access_status": "enterprise-iOA blocked",
-      "access_note": "Source URL is retained only for provenance. Do not request, follow, retry, proxy or mirror this source in this environment."
+      "download_policy": "manual_user_only",
+      "access_status": "awaiting_user_download",
+      "access_note": "User confirms manual downloads are permitted; iOA blocks Codex Google Drive access. User may run tools/download_foundationpose.py in their own terminal. Automated asset fetch/check never contacts this source."
     },
     {
       "id": "soma-export",
@@ -939,7 +939,7 @@
     "Use our fetcher then upstream --skip_weight_download: source ZIPs intentionally have no .git metadata.",
     "Two DINOv2 register checkpoint URLs and FoundationPose folders have no verified upstream SHA256; download receipts are required before transfer.",
     "Only Track 1 inputs may be downloaded through the separate project downloader.",
-    "FoundationPose Google Drive sources are blocked by enterprise iOA policy: provenance only; no requests or bypass attempts.",
+    "FoundationPose Google Drive access is blocked for Codex only. The user may download manually; complete files and SHA256 receipts are still required before transfer.",
     "Gated CARI4D, SAM3D Body and SAM3D Objects HEAD checks returned 403 with the currently available Hugging Face credentials.",
     "The inventory is source/metadata verified; no GPU inference or full offline-runtime validation has been performed.",
     "Source archives cover declared GitHub dependencies. GPU wheels, Eigen/system packages, image digests and build validation remain in the separate deployment dependency workflow."

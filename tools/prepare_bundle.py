@@ -266,8 +266,14 @@ def _asset_paths(root: Path, asset_root: Path, receipts_dir: Path) -> dict[str, 
             raise BundleError(f"{receipt_path}: receipt name or asset ID is invalid")
         seen_assets.add(asset_id)
         locked = approved[asset_id]
-        if locked.get("download_policy") == "blocked_by_organization" or locked.get("kind") == "gdrive_folder":
+        if locked.get("download_policy") == "blocked_by_organization":
             raise BundleError(f"{receipt_path}: organization-blocked source cannot be bundled")
+        manual_drive = locked.get("kind") == "gdrive_folder"
+        if manual_drive and (
+            locked.get("download_policy") != "manual_user_only"
+            or receipt.get("acquisition") != "user_manual"
+        ):
+            raise BundleError(f"{receipt_path}: Google Drive asset requires manual_user_only policy and user_manual acquisition")
         if locked.get("gated"):
             # A handoff ZIP must never transport gated model weights.
             continue
@@ -377,6 +383,8 @@ def _asset_paths(root: Path, asset_root: Path, receipts_dir: Path) -> dict[str, 
             "source": {key: source.get(key) for key in ("kind", "repo_id", "revision", "url", "license") if source.get(key)},
             "target": target, "asset_spec_sha256": spec_hash, "files": portable_files,
         }
+        if manual_drive:
+            portable_receipt["acquisition"] = "user_manual"
         result[f".receipts/{asset_id}.json"] = {
             "data": json.dumps(portable_receipt, indent=2, sort_keys=True).encode("utf-8") + b"\n",
             "kind": "receipt", "asset_id": asset_id,

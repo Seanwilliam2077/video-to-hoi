@@ -3,7 +3,7 @@
   "date": "2026-09-27",
   "scope": "Track 1 preparation only; no deployment or model execution",
   "complete_required_assets": false,
-  "asset_lock_sha256": "b35bcafdaf30dff9427fa552a45cb0d6be44c26a1b2d36c1766e37de82a90f49",
+  "asset_lock_sha256": "69976eeac1fee802ec9dd309509fb9b6d8365129a2b2af7066db567846607719",
   "assets": [
     {
       "id": "video-to-data-source",
@@ -231,14 +231,14 @@
       "group": "models",
       "required": true,
       "target": "weights/cari4d/foundationpose/nvlabs_pytorch/2024-01-11-20-02-45",
-      "status": "blocked_by_organization"
+      "status": "awaiting_user_download"
     },
     {
       "id": "foundationpose-refiner",
       "group": "models",
       "required": true,
       "target": "weights/cari4d/foundationpose/nvlabs_pytorch/2023-10-28-18-33-37",
-      "status": "blocked_by_organization"
+      "status": "awaiting_user_download"
     },
     {
       "id": "soma-export",
@@ -258,13 +258,14 @@
     }
   },
   "validation": {
-    "local_downloader_and_bundle_tests": 32,
+    "local_downloader_and_bundle_tests": 43,
     "github_initial_ci": {
       "commit": "a3cc89843b4f7e9dca7da3b1a87782381ea9b806",
       "url": "https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/36295376997",
       "passed": 74
     },
     "gpu_inference": false,
-    "server_deployment": false
+    "server_deployment": false,
+    "local_synthetic_allowlist_tests": 88
   }
 }

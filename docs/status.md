@@ -44,7 +44,7 @@ Keep the fact and change the wording. These rewrites are already on the page:
 | File checks and interface tests pass; GPU environment and baselines unverified | 自动检查全部通过，但只说明文件完整、各环节衔接正确；真正用视频跑出结果还没验证 |
 | No SSH access; upload a ZIP and use the server console | 没法远程登录这台服务器，只能把文件打包上传，再在服务器自带的操作界面里操作 |
 | Hugging Face login works, but the gated CARI4D and SAM 3D weights return 403 | 账号能正常登录模型网站，但三个模型要单独申请使用权限，光能登录还不够 |
-| FoundationPose weights on Google Drive are blocked by the iOA policy | 物体跟踪要用的两个模型文件存放在外部网盘上，公司安全策略不允许访问，我们也不会绕过 |
+| iOA blocks Codex Google Drive access; the user confirms manual downloads are allowed | 公司只限制自动助手访问，项目负责人可以自行下载；两组必需模型文件仍待取得 |
 | The five leaderboard metrics | 准不准、顺不顺、真不真实 |
 
 Round sizes and counts, or leave them out, when the exact number means nothing to the reader.

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "kind": "moge3_runtime_source_handoff",
+  "publication_status": "prepared_not_published",
+  "moge_repository": "https://github.com/microsoft/MoGe",
+  "moge_revision": "74fbce054ebed49800de42d0ad0e83495065719a",
+  "license_scope": "The three included direct dependencies are MIT under their individual full LICENSE files. This record does not classify MoGe3 weights or other software.",
+  "archive": {
+    "name": "moge3-runtime-sources-20260928.zip",
+    "bytes": 358169,
+    "sha256": "c555eaf2628db98f8854f576b1dc862441a82d9fc5c38e4bea5af4e80b7813cb"
+  },
+  "receipt_inside_archive": "SOURCE_RECEIPTS.json",
+  "guide_inside_archive": "README.md",
+  "packages": [
+    {
+      "id": "utils3d-moge3",
+      "repository_url": "https://github.com/EasternJournalist/utils3d-moge",
+      "revision": "62f09d58509485564e24d5d9f6aac9ee9ebc0c37",
+      "license": "MIT",
+      "installation_path": "sources/utils3d-moge3",
+      "file_count": 50
+    },
+    {
+      "id": "pipeline-moge3",
+      "repository_url": "https://github.com/EasternJournalist/pipeline",
+      "revision": "1c511390d90226c00c101f34b84df26a0f8789b4",
+      "license": "MIT",
+      "installation_path": "sources/pipeline-moge3",
+      "file_count": 7
+    },
+    {
+      "id": "flexgemm-moge3",
+      "repository_url": "https://github.com/JeffreyXiang/FlexGEMM",
+      "revision": "b2fadb29d41846c7981ade6801ffc689fae119cf",
+      "license": "MIT",
+      "installation_path": "sources/flexgemm-moge3",
+      "file_count": 73
+    }
+  ],
+  "status": {
+    "source_bytes_verified_against_git_blob_and_sha256": true,
+    "built": false,
+    "installed": false,
+    "gpu_runtime_verified": false
+  },
+  "pending": [
+    "Linux Python and CUDA dependency closure",
+    "GPU-compatible Torch/Triton and compiler verification",
+    "server-side build/install and functional smoke test"
+  ]
+}

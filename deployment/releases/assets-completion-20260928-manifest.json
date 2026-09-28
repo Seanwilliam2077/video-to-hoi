@@ -178,6 +178,40 @@
           "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/video-to-hoi-runtime-cp311-cu124-20260928.zip.part001"
         }
       ]
+    },
+    {
+      "id": "moge3-runtime-sources",
+      "description": "Pinned source and complete MIT licenses for utils3d-moge, pipeline and FlexGEMM; build metadata included, CUDA build pending",
+      "archive": {
+        "name": "moge3-runtime-sources-20260928.zip",
+        "bytes": 358169,
+        "sha256": "c555eaf2628db98f8854f576b1dc862441a82d9fc5c38e4bea5af4e80b7813cb"
+      },
+      "parts": [
+        {
+          "name": "moge3-runtime-sources-20260928.zip.part001",
+          "bytes": 358169,
+          "sha256": "c555eaf2628db98f8854f576b1dc862441a82d9fc5c38e4bea5af4e80b7813cb",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/moge3-runtime-sources-20260928.zip.part001"
+        }
+      ]
+    },
+    {
+      "id": "runtime-modern-cp312",
+      "description": "106 public distributions across separate SAM3 and MoGe3 CPython 3.12 Torch 2.10/cu128 profiles plus a helper supplement; exact licenses and source companions; no installation or GPU validation",
+      "archive": {
+        "name": "video-to-hoi-runtime-modern-cp312-cu128-20260928-r2.zip",
+        "bytes": 1482748844,
+        "sha256": "a73c8b3a1c4f0c4c68d5133ff605ee338bf05885593dead9921f22a04755138d"
+      },
+      "parts": [
+        {
+          "name": "video-to-hoi-runtime-modern-cp312-cu128-20260928-r2.zip.part001",
+          "bytes": 1482748844,
+          "sha256": "a73c8b3a1c4f0c4c68d5133ff605ee338bf05885593dead9921f22a04755138d",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/video-to-hoi-runtime-modern-cp312-cu128-20260928-r2.zip.part001"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "profile": "helpers",
+  "acquired_at": "2026-09-28",
+  "purpose": "Distribution acquisition and static metadata validation only; not installed, built, imported, deployed or inference-tested. SAM3 and MoGe3 require separate environments.",
+  "target": {
+    "python": "3.10 baseline helper supplement"
+  },
+  "seed_requirements": [
+    "py-cpuinfo",
+    "ultralytics-thop>=2.0.0",
+    "supervision>=0.25.1",
+    "progress==1.6",
+    "munkres",
+    "hydra-zen",
+    "pyqtgraph"
+  ],
+  "counts": {
+    "packages": 10,
+    "bytes": 2687041,
+    "eligible_packages": 10,
+    "eligible_bytes": 2687041
+  },
+  "minimum_glibc_from_wheel_tags": null,
+  "glibc_floor_packages": [],
+  "unversioned_linux_wheel_tags": [],
+  "metadata_conflicts": [],
+  "acquisition_failures": {},
+  "packages": [
+    {
+      "name": "hydra-zen",
+      "version": "0.16.0",
+      "filename": "hydra_zen-0.16.0-py3-none-any.whl",
+      "relative_path": "wheels/hydra_zen-0.16.0-py3-none-any.whl",
+      "bytes": 106312,
+      "sha256": "fdf33060dfc530ef14248b861c5a8ab43ebb54df38fec8fb6d0be15b5af617ea",
+      "url": "https://files.pythonhosted.org/packages/a5/cc/64d0fad725570ed6a02f5c7676cbfe3a268bed2fc3b10a74b59425ce6386/hydra_zen-0.16.0-py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/hydra-zen/0.16.0/json",
+      "distribution_type": "bdist_wheel",
+      "license_metadata": "MIT",
+      "requires_dist": [
+        "hydra-core>=1.2.0",
+        "omegaconf>=2.2.3",
+        "typing-extensions!=4.6.0,>=4.1.0",
+        "pytest>=3.9; extra == \"test\"",
+        "hypothesis>=6.28.0; extra == \"test\"",
+        "pytest-trio>=0.8.0; extra == \"test\"",
+        "pydantic<2.0.0,>=1.10.14; extra == \"pydantic\"",
+        "beartype>=0.8.0; extra == \"beartype\""
+      ],
+      "source_requires_remote_build": false,
+      "license_files": [
+        {
+          "path": "hydra_zen-0.16.0.dist-info/licenses/LICENSE.txt",
+          "bytes": 1094,
+          "sha256": "d12e2ba91af7424e7ff54ee7d8b8f7f6276bebe77cace317272f2c56e9144021"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "munkres",
+      "version": "1.1.4",
+      "filename": "munkres-1.1.4-py2.py3-none-any.whl",
+      "relative_path": "wheels/munkres-1.1.4-py2.py3-none-any.whl",
+      "bytes": 7015,
+      "sha256": "6b01867d4a8480d865aea2326e4b8f7c46431e9e55b4a2e32d989307d7bced2a",
+      "url": "https://files.pythonhosted.org/packages/90/ab/0301c945a704218bc9435f0e3c88884f6b19ef234d8899fb47ce1ccfd0c9/munkres-1.1.4-py2.py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/munkres/1.1.4/json",
+      "distribution_type": "bdist_wheel",
+      "license_metadata": "Apache Software License",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "license_files": [
+        {
+          "path": "munkres-1.1.4.dist-info/LICENSE.md",
+          "bytes": 565,
+          "sha256": "5e146a6732ad1351686c5eca491bf569065462a0cdd44157bb2e65cd4eadb75d"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "progress",
+      "version": "1.6",
+      "filename": "progress-1.6.tar.gz",
+      "relative_path": "sources/progress-1.6.tar.gz",
+      "bytes": 7842,
+      "sha256": "c9c86e98b5c03fa1fe11e3b67c1feda4788b8d0fe7336c2ff7d5644ccfba34cd",
+      "url": "https://files.pythonhosted.org/packages/2a/68/d8412d1e0d70edf9791cbac5426dc859f4649afc22f2abbeb0d947cf70fd/progress-1.6.tar.gz",
+      "metadata_url": "https://pypi.org/pypi/progress/1.6/json",
+      "distribution_type": "sdist",
+      "license_metadata": "ISC",
+      "requires_dist": [],
+      "source_requires_remote_build": true,
+      "license_files": [
+        {
+          "path": "progress-1.6/LICENSE",
+          "bytes": 777,
+          "sha256": "067b26ed5c1553dc023d37d29edb3c5dc7c8f407b0813ae398885fcece4fc50d"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "py-cpuinfo",
+      "version": "9.0.0",
+      "filename": "py_cpuinfo-9.0.0-py3-none-any.whl",
+      "relative_path": "wheels/py_cpuinfo-9.0.0-py3-none-any.whl",
+      "bytes": 22335,
+      "sha256": "859625bc251f64e21f077d099d4162689c762b5d6a4c3c97553d56241c9674d5",
+      "url": "https://files.pythonhosted.org/packages/e0/a9/023730ba63db1e494a271cb018dcd361bd2c917ba7004c3e49d5daf795a2/py_cpuinfo-9.0.0-py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/py-cpuinfo/9.0.0/json",
+      "distribution_type": "bdist_wheel",
+      "license_metadata": "MIT",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "license_files": [
+        {
+          "path": "py_cpuinfo-9.0.0.dist-info/LICENSE",
+          "bytes": 1127,
+          "sha256": "ddbaf76396bf5c7aa45975a21eafe2e22eecb7da5aa0db7cb0e6152faafef34d"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "pyqtgraph",
+      "version": "0.14.0",
+      "filename": "pyqtgraph-0.14.0-py3-none-any.whl",
+      "relative_path": "wheels/pyqtgraph-0.14.0-py3-none-any.whl",
+      "bytes": 1924755,
+      "sha256": "7abb7c3e17362add64f8711b474dffac5e7b0e9245abdf992e9a44119b7aa4f5",
+      "url": "https://files.pythonhosted.org/packages/32/36/4c242f81fdcbfa4fb62a5645f6af79191f4097a0577bd5460c24f19cc4ef/pyqtgraph-0.14.0-py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/pyqtgraph/0.14.0/json",
+      "distribution_type": "bdist_wheel",
+      "license_metadata": "MIT",
+      "requires_dist": [
+        "numpy>=1.25.0",
+        "colorama"
+      ],
+      "source_requires_remote_build": false,
+      "license_files": [
+        {
+          "path": "pyqtgraph-0.14.0.dist-info/licenses/LICENSE.txt",
+          "bytes": 1160,
+          "sha256": "b4ed24d468da61df9028a52abe9283a592e63f315943a1c86cd96a9ea5b62079"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "supervision",
+      "version": "0.30.5",
+      "filename": "supervision-0.30.5-py3-none-any.whl",
+      "relative_path": "wheels/supervision-0.30.5-py3-none-any.whl",
+      "bytes": 391552,
+      "sha256": "94c19fe34bcbe744ddf04546a18b1a420e5c894ecdb63a546a4c50adb4099097",
+      "url": "https://files.pythonhosted.org/packages/f9/3c/10a6338cda195b46b1b51edefc5ba19028586f4523926254714359d57b43/supervision-0.30.5-py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/supervision/0.30.5/json",
+      "distribution_type": "bdist_wheel",
+      "license_metadata": "MIT",
+      "requires_dist": [
+        "av>=14.2",
+        "defusedxml>=0.7.1",
+        "matplotlib>=3.6",
+        "numpy>=1.21.2",
+        "pillow>=9.4",
+        "pydeprecate<0.12,>=0.9",
+        "pyyaml>=5.3",
+        "requests>=2.26",
+        "scipy>=1.10",
+        "tqdm>=4.62.3",
+        "rasterio>=1.3; extra == \"geotiff\"",
+        "pandas>=2; extra == \"metrics\""
+      ],
+      "source_requires_remote_build": false,
+      "license_files": [
+        {
+          "path": "supervision-0.30.5.dist-info/licenses/LICENSE.md",
+          "bytes": 1065,
+          "sha256": "72bb009f9633af978da6c49f3a927a83d04ddf8ed992492f6f2a62122de95227"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "ultralytics-thop",
+      "version": "2.2.1",
+      "filename": "ultralytics_thop-2.2.1-py3-none-any.whl",
+      "relative_path": "wheels/ultralytics_thop-2.2.1-py3-none-any.whl",
+      "bytes": 31996,
+      "sha256": "fcf3a58db5fbbde800079ab09d4915e9cc3f86e0a78b6a4e7b525149b2d18569",
+      "url": "https://files.pythonhosted.org/packages/7d/08/73eb3c48098ddb2c75c5ecad1476e7dc92df49d12527fcc824d07cfebe81/ultralytics_thop-2.2.1-py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/ultralytics-thop/2.2.1/json",
+      "distribution_type": "bdist_wheel",
+      "license_metadata": "AGPL-3.0",
+      "requires_dist": [
+        "numpy",
+        "torch"
+      ],
+      "source_requires_remote_build": false,
+      "license_files": [
+        {
+          "path": "ultralytics_thop-2.2.1.dist-info/licenses/LICENSE",
+          "bytes": 34523,
+          "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "AGPL-3.0: complete official source distribution accompanies the unmodified pure-Python wheel; all seven thop Python files byte-matched. Keep package license and corresponding source together.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+      "relative_path": "wheels/colorama-0.4.6-py2.py3-none-any.whl",
+      "bytes": 25335,
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "distribution_type": "bdist_wheel",
+      "license_metadata": "",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "license_files": [
+        {
+          "path": "colorama-0.4.6.dist-info/licenses/LICENSE.txt",
+          "bytes": 1491,
+          "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "filename": "defusedxml-0.7.1-py2.py3-none-any.whl",
+      "relative_path": "wheels/defusedxml-0.7.1-py2.py3-none-any.whl",
+      "bytes": 25604,
+      "sha256": "a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61",
+      "url": "https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/defusedxml/0.7.1/json",
+      "distribution_type": "bdist_wheel",
+      "license_metadata": "PSFL",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "license_files": [
+        {
+          "path": "defusedxml-0.7.1.dist-info/LICENSE",
+          "bytes": 2409,
+          "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "pydeprecate",
+      "version": "0.11.0",
+      "filename": "pydeprecate-0.11.0-py3-none-any.whl",
+      "relative_path": "wheels/pydeprecate-0.11.0-py3-none-any.whl",
+      "bytes": 144295,
+      "sha256": "cbd4d39d2de22a1b284c586c0daf054eba6ef7b854904d236ade49f885b21738",
+      "url": "https://files.pythonhosted.org/packages/4e/15/e46e7c6a13fd5e0aaaf01638765b9d2b73a00db743919e4ab294a5753d1f/pydeprecate-0.11.0-py3-none-any.whl",
+      "metadata_url": "https://pypi.org/pypi/pydeprecate/0.11.0/json",
+      "distribution_type": "bdist_wheel",
+      "license_metadata": "Apache-2.0",
+      "requires_dist": [
+        "packaging>=20.0; extra == \"audit\"",
+        "tomli>=2.0; python_version < \"3.11\" and extra == \"audit\"",
+        "fire>=0.6.0; extra == \"cli\"",
+        "rich>=13.0.0; extra == \"cli\""
+      ],
+      "source_requires_remote_build": false,
+      "license_files": [
+        {
+          "path": "pydeprecate-0.11.0.dist-info/licenses/LICENSE",
+          "bytes": 11347,
+          "sha256": "570bae217206acfa510d4c686cef2aa995f4ce29ad97c314984f5bf913ebd442"
+        }
+      ],
+      "download_status": "verified",
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices"
+    }
+  ],
+  "supplemental_files": [
+    {
+      "name": "munkres",
+      "relative_path": "license-supplements/Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      "purpose": "Full canonical Apache2 terms accompany the embedded author copyright and license notice."
+    },
+    {
+      "name": "ultralytics-thop",
+      "version": "2.2.1",
+      "relative_path": "source-companions/ultralytics_thop-2.2.1.tar.gz",
+      "sha256": "e689ba63d146aacb372fdde593c303da96030abea0a76198c8ac68a5a376eab8",
+      "bytes": 38877,
+      "url": "https://files.pythonhosted.org/packages/35/d4/6c6f3a4c6ee61682333a89859aca51e8cef942b636f5e6f875e31558f191/ultralytics_thop-2.2.1.tar.gz",
+      "source_companion_for_sha256": "fcf3a58db5fbbde800079ab09d4915e9cc3f86e0a78b6a4e7b525149b2d18569",
+      "wheel_python_files_byte_matched": [
+        "thop/__init__.py",
+        "thop/profile.py",
+        "thop/rnn_hooks.py",
+        "thop/utils.py",
+        "thop/vision/__init__.py",
+        "thop/vision/basic_hooks.py",
+        "thop/vision/calc_func.py"
+      ],
+      "license": "AGPL-3.0",
+      "scope": "Complete official source distribution accompanies unmodified pure-Python wheel; no binary local build."
+    }
+  ],
+  "baseline_dependencies": [
+    {
+      "name": "hydra-core",
+      "version": "1.3.7",
+      "sha256": "83606c4a05c770f1e026e0489875f28989829d151799eabd8cfa8cbe82164515",
+      "relative_path": "wheels/hydra_core-1.3.7-py3-none-any.whl"
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.1",
+      "sha256": "3d701d14e9a8828f1edd28bb70b725908b34277cdd72cf7d6a83f94dadc6b6a0",
+      "relative_path": "wheels/omegaconf-2.3.1-py3-none-any.whl"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "relative_path": "wheels/typing_extensions-4.16.0-py3-none-any.whl"
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.3",
+      "sha256": "bdd2b45bf079d9ad90377048e2747a0c82351989a2165821f0c96831b4a2a54b",
+      "relative_path": "wheels/numpy-1.26.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+      "name": "av",
+      "version": "17.0.0",
+      "sha256": "8706ce9b5d8d087d093b46a9781e7532c4a9e13874bca1da468be78efc56cecc",
+      "relative_path": "wheels/av-17.0.0-cp310-cp310-manylinux_2_28_x86_64.whl"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.10.9",
+      "sha256": "1aa972116abb4c9d201bf245620b433726cb6856f3bef6a78f776a00f5c92d37",
+      "relative_path": "wheels/matplotlib-3.10.9-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+    },
+    {
+      "name": "pillow",
+      "version": "11.3.0",
+      "sha256": "cc3e831b563b3114baac7ec2ee86819eb03caa1a2cef0b481a5675b59c4fe23b",
+      "relative_path": "wheels/pillow-11.3.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "sha256": "9c7708761fccb9397fe64bbc0395abcae8c4bf7b0eac081e12b809bf47700d0b",
+      "relative_path": "wheels/pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "relative_path": "wheels/requests-2.34.2-py3-none-any.whl"
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "sha256": "9e2abc762b0811e09a0d3258abee2d98e0c703eee49464ce0069590846f31d40",
+      "relative_path": "wheels/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+      "relative_path": "wheels/tqdm-4.70.1-py3-none-any.whl"
+    },
+    {
+      "name": "torch",
+      "version": "2.5.1+cu124",
+      "sha256": "9dde30f399ca22137455cca4d47140dfb7f4176e2d16a9729fc044eebfadb13a",
+      "relative_path": "wheels/torch-2.5.1+cu124-cp310-cp310-linux_x86_64.whl"
+    }
+  ],
+  "remaining": "Qt backend/platform libraries are not included. Older GVHMR/HTD/WHAM/SmoothNet/PhysPT runtime environments remain separate, unresolved targets."
+}

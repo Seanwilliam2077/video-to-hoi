@@ -6,11 +6,11 @@ Torch 2.5.1 and CUDA 12.4 acquisitions do **not** cover every expanded candidate
 Each candidate needs a separate, explicitly selected environment and a validated
 adapter. Downloaded distributions are not installed or tested environments.
 
-The acquisition task is adding a separate SAM3 CPython 3.12 / Torch 2.10 / cu128
-profile, a separate MoGe3 profile with NumPy 2, and selected missing YOLOE
-dependencies. Consult the final runtime manifests and publication records for
-what actually completed; this statement does not certify those downloads or
-their dependency closure. The legacy human/physics environments below have not
+Separate SAM3 CPython 3.12 / Torch 2.10 / cu128 and MoGe3 NumPy 2 distributions,
+plus selected missing YOLOE dependencies, have now been acquired. The
+[modern runtime guide](RUNTIME_MODERN.md) and its manifests describe the final
+versions, static metadata checks, public subset and redistribution exclusions.
+This does not establish import, build or inference compatibility. The legacy human/physics environments below have not
 been acquired in full. Their large historical Torch/CUDA stacks will require a
 target choice and either isolated containers or an explicit, tested port.
 
@@ -41,9 +41,11 @@ YOLOE's project metadata additionally requires `py-cpuinfo`,
 initial baseline inventory. Its local MobileCLIP/LVIS/CLIP packages are separate
 editable sources, not ordinary wheels supplied by installing the root project.
 The initial filtered YOLOE archive lacked MobileCLIP's `README.md` and
-`requirements.txt` and LVIS API's `requirements.txt`. The final platform source
-manifest must explicitly include those files before its installation metadata
-is called complete.
+`requirements.txt` and LVIS API's `requirements.txt`. The corrected
+`yoloe-v8l-seg-runtime.zip` includes those files, CLIP's `MANIFEST.in` and the
+generic MobileCLIP-B architecture configuration. See `expanded-platform.json`
+for their fixed source identity. This metadata correction does not establish a
+working CUDA build or video adapter.
 
 Small human/physics dependency gaps include `progress==1.6` for SmoothNet
 (WHAM leaves its version open), `munkres` for WHAM, `hydra-zen` for GVHMR and

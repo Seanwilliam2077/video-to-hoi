@@ -1,0 +1,306 @@
+{
+  "checked_at_utc": "2026-09-28T03:53:51.457328+00:00",
+  "audited_commit": "c50c475d1874dd726e1b19949547c54264f71427",
+  "method": "Authenticated GitHub API metadata sizes/digests compared with tracked release records; no model downloads or inference",
+  "releases": [
+    {
+      "tag": "hf-models-20260927",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927",
+      "draft": false,
+      "asset_count": 15,
+      "total_bytes": 17995795556,
+      "matches_record": true,
+      "mismatches": []
+    },
+    {
+      "tag": "foundationpose-addon-20260927",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927",
+      "draft": false,
+      "asset_count": 3,
+      "total_bytes": 239097947,
+      "matches_record": true,
+      "mismatches": []
+    },
+    {
+      "tag": "first3-benchmark-20260927",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/first3-benchmark-20260927",
+      "draft": false,
+      "asset_count": 3,
+      "total_bytes": 68972077,
+      "matches_record": true,
+      "mismatches": []
+    }
+  ],
+  "local_only_archives": [
+    {
+      "name": "video-to-hoi-public-assets-20260927.zip",
+      "exists": true,
+      "bytes": 5898264359,
+      "on_github_release": false
+    },
+    {
+      "name": "linux-cp310-wheelhouse.zip",
+      "exists": true,
+      "bytes": 119277331,
+      "on_github_release": false
+    }
+  ],
+  "tracked_model_or_package_binaries": [],
+  "schema_version": 1,
+  "scope": "Read-only Track 1 project preparation audit; no model execution, installation or deployment",
+  "complete_github_handoff": false,
+  "complete_runtime": false,
+  "complete_expanded_candidate_assets": false,
+  "local_assets": [
+    {
+      "id": "cari4d-dinov2-source",
+      "group": "sources",
+      "files": 203,
+      "bytes": 3956490,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "cari4d-dinov2-vitb14",
+      "group": "models",
+      "files": 1,
+      "bytes": 346378731,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "cari4d-dinov2-vits14",
+      "group": "models",
+      "files": 1,
+      "bytes": 88283115,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "cari4d-dinov3-source",
+      "group": "sources",
+      "files": 221,
+      "bytes": 18745171,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "cari4d-moge-source",
+      "group": "sources",
+      "files": 101,
+      "bytes": 11408192,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "cari4d-moge2",
+      "group": "models",
+      "files": 3,
+      "bytes": 1323815968,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "cari4d",
+      "group": "models",
+      "files": 3,
+      "bytes": 2084494424,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "foundationpose-refiner",
+      "group": "models",
+      "files": 2,
+      "bytes": 68220817,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "foundationpose-scorer",
+      "group": "models",
+      "files": 2,
+      "bytes": 190230167,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "nvdiffrast-source",
+      "group": "sources",
+      "files": 85,
+      "bytes": 11242350,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "objects-dinov2-source",
+      "group": "sources",
+      "files": 203,
+      "bytes": 3956490,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "objects-dinov2-vitb14-reg4",
+      "group": "models",
+      "files": 1,
+      "bytes": 346393545,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "objects-dinov2-vitl14-reg4",
+      "group": "models",
+      "files": 1,
+      "bytes": 1217607321,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "objects-moge-source",
+      "group": "sources",
+      "files": 88,
+      "bytes": 4529960,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "objects-moge1",
+      "group": "models",
+      "files": 3,
+      "bytes": 1256823506,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "pybind11-source",
+      "group": "sources",
+      "files": 237,
+      "bytes": 2481284,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "pytorch3d-source",
+      "group": "sources",
+      "files": 1065,
+      "bytes": 47985018,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "sam2-source",
+      "group": "sources",
+      "files": 569,
+      "bytes": 64578283,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "sam2",
+      "group": "models",
+      "files": 3,
+      "bytes": 898107388,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "sam3d-body",
+      "group": "models",
+      "files": 5,
+      "bytes": 2805255047,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "sam3d-objects-source",
+      "group": "sources",
+      "files": 416,
+      "bytes": 232781043,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "sam3d-objects",
+      "group": "models",
+      "files": 20,
+      "bytes": 13105863526,
+      "verification": "receipt_size_sha256"
+    },
+    {
+      "id": "utils3d-source",
+      "group": "sources",
+      "files": 43,
+      "bytes": 681430,
+      "verification": "receipt_paths_and_sizes_only"
+    },
+    {
+      "id": "video-to-data-source",
+      "group": "sources",
+      "files": 4654,
+      "bytes": 486163572,
+      "verification": "receipt_paths_and_sizes_only"
+    }
+  ],
+  "model_verification": {
+    "schema_version": 1,
+    "command": "verify",
+    "manifest_sha256": "69976eeac1fee802ec9dd309509fb9b6d8365129a2b2af7066db567846607719",
+    "scope": {
+      "group": "models",
+      "ids": null,
+      "include_optional": false
+    },
+    "complete_selected_scope": true,
+    "incomplete_required": [],
+    "assets": [
+      {
+        "id": "cari4d",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "sam3d-body",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "sam3d-objects",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "sam2",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "cari4d-moge2",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "objects-moge1",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "cari4d-dinov2-vitb14",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "cari4d-dinov2-vits14",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "objects-dinov2-vitl14-reg4",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "objects-dinov2-vitb14-reg4",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "foundationpose-scorer",
+        "required": true,
+        "status": "complete"
+      },
+      {
+        "id": "foundationpose-refiner",
+        "required": true,
+        "status": "complete"
+      }
+    ],
+    "note": "Access checks do not download files or establish runtime compatibility. Partial selections do not establish full baseline readiness."
+  },
+  "wheelhouse_verification": {
+    "wheels": 28,
+    "archive_and_wheel_sha256_match": true,
+    "archive_sha256": "60061646f2a3c3cf7ef7be5eae17809f379155d418a129837405bc283cf2115a",
+    "scope": "Linux x86_64 CPython 3.10 host/bootstrap only; excludes GPU/model runtime"
+  },
+  "source_data_policy": "Only receipt paths and filesystem sizes checked. Bundled upstream demos were not opened; exclude unverified provenance and all Track 2 content from any future handoff or use."
+}

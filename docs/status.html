@@ -164,8 +164,8 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
 
   <header>
     <div>
-      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 9 月 27 日</div>
-      <h1>模型文件已齐，按计划暂不部署</h1>
+      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 9 月 28 日</div>
+      <h1>基础模型已核对，完整交接仍待补齐</h1>
     </div>
     <div class="count">
       <div class="l">距比赛截止还有</div>
@@ -177,7 +177,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>整体方案、分工和协作工具已就绪；<b>三个关键模型的使用权限已获批，全部必需模型文件已下载并核对无误</b>。新增文件已打包上传，同事可以直接下载并自动核对。 另外已准备前三段视频的方案对比测试包，等待服务器入口就绪。按项目负责人的安排，<b>本轮暂不部署服务器，也不运行 AI 模型</b>；前两段视频的真实结果仍待后续开展。</p>
+  <p class="lead"><b>一句话：</b>原定基础方案的模型文件已下载并核对，其中三个关键模型和两组补充文件已上传。<b>约 5.9 GB 基础文件包和约 120 MB 基础软件包仍未上传；新增对比方案的部分模型和服务器运行软件也没备齐。</b>前三段视频的测试包已发布，但还没有真实结果或排名；按计划暂不部署。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -330,7 +330,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <ol class="steps">
       <li class="done"><div class="t">读懂规则</div><div class="s">已完成</div><div class="d">已向主办方书面确认</div></li>
       <li class="done"><div class="t">搭建框架</div><div class="s">已完成</div><div class="d">四人可并行开发</div></li>
-      <li class="now"><div class="t">接入 AI 模型</div><div class="s">材料已齐</div><div class="d">按计划暂不部署</div></li>
+      <li class="now"><div class="t">接入 AI 模型</div><div class="s">交接待补齐</div><div class="d">按计划暂不部署</div></li>
       <li class="next"><div class="t">第一批结果</div><div class="s">未开始</div><div class="d">目标 10 月 8 日</div></li>
       <li class="next"><div class="t">全部出结果</div><div class="s">未开始</div><div class="d">目标 10 月 15 日</div></li>
       <li class="next"><div class="t">优化与提交</div><div class="s">未开始</div><div class="d">截止 11 月 4 日</div></li>
@@ -344,9 +344,9 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <li>搭好了整体框架：把工作拆成四块，四个人可以各做一块、互不等待。</li>
       <li>建好了团队协作页面：每块工作有自己的任务、进展和资料页，已邀请三位同学。</li>
       <li>下载并整理好了比赛的全部 30 段视频，可以直接浏览。</li>
-      <li>全部必需 AI 模型文件已下载并逐一核对（约 24 GB），来源和版本已记录；三个关键模型的使用权限已获批。</li>
+      <li>原定基础方案的 12 组模型文件已下载，本次重新核对通过（约 24 GB）；三个关键模型的使用权限已获批。这个范围不包含后来新增的全部对比方案。</li>
       <li>新增约 18 GB 模型文件已打包上传，附自动核对方法，同事可从<a href="https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927" target="_blank" rel="noopener">新增模型交接包</a>直接下载。</li>
-      <li>准备好了服务器上要装的基础软件（约 120 MB），以及“打包上传、到达后自动核对”的工具；不需要远程登录服务器也能把文件交过去。</li>
+      <li>准备并核对了基础软件包（约 120 MB）和“打包上传、到达后自动核对”的工具；软件包仍在本地，也还没有备齐服务器运行所需的全部软件。</li>
       <li>之前被公司安全策略拦截的两组物体跟踪文件，已由项目负责人下载、逐一核对，并上传成<a href="https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927" target="_blank" rel="noopener">可直接下载的补充包</a>，这个问题已解决。</li>
       <li>前三段视频的<a href="https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/first3-benchmark-20260927" target="_blank" rel="noopener">方案对比测试包已发布</a>：视频完整性已核对，候选方案和比较方法已记录；尚未运行，没有真实得分或排名。</li>
       <li>文件与协作流程的自动检查已通过；这不代表真实视频结果或服务器运行已经验证。</li>
@@ -372,9 +372,14 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <div class="need">后续启动运行前，由项目负责人确认服务器方案。建议优先 L20，并确认能用几台、怎么登录和上传文件；本轮先完成文件交接。</div>
       </div>
       <div class="issue mid">
-        <b>交接包已发布，等待安排接收</b>
-        <p style="margin:4px 0 0">三个关键模型已经获批并完成下载核对，权限问题已解决。新增文件约 18 GB，已发布为可供同事下载和自动核对的交接包。</p>
-        <div class="need">项目负责人安排同事接收文件并核对完整性；本轮不启动服务器运行。</div>
+        <b>部分交接包已发布，基础文件仍待上传</b>
+        <p style="margin:4px 0 0">约 18 GB 新增模型和两组补充文件已经发布；约 5.9 GB 基础文件包与约 120 MB 基础软件包仍只在本地。目前同事只下载已发布的包，还拿不到全部材料。</p>
+        <div class="need">平台负责人核实文件来源、补齐交接包并上传，再安排同事接收和核对。</div>
+      </div>
+      <div class="issue mid">
+        <b>新增对比方案和运行软件尚未备齐</b>
+        <p style="margin:4px 0 0">前三段视频的测试安排已准备好，但部分新方案还缺模型文件；实际运行还需要适配服务器。材料准备完成也不等于已经跑出结果。</p>
+        <div class="need">各模块负责人补齐候选方案；平台负责人在服务器配置明确后准备运行软件，本轮暂不部署。</div>
       </div>
       <div class="issue mid">
         <b>主办方的评分工具和提交格式还没公布</b>
@@ -404,13 +409,13 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <section>
     <h2>需要支持的事</h2>
     <ol class="asks">
-      <li><b>安排文件交接和后续启动时间</b>文件已上传，安排同事接收；本轮暂不部署。后续建议先用 L20 服务器跑出第一批结果；RTX PRO 5000 服务器适配好之后，用来同时跑多段视频；A10 服务器分担较轻的步骤。</li>
+      <li><b>补齐文件交接并确认服务器配置</b>平台负责人补齐尚未上传的基础文件和软件包，各模块补齐新增模型；项目负责人确认接收人和服务器配置。本轮暂不部署，后续再安排真实视频运行。</li>
       <li><b>确认团队分工</b>三位同学分别负责哪一块工作（见上方“团队分工”）。</li>
     </ol>
   </section>
 
 
-  <footer>数据截至 2026 年 9 月 27 日；本次更新：页面顶部新增导航栏，可以直接打开团队主页和各分工页；再次确认所有测试和方案比较都只使用比赛允许的视频及其重建结果；前三段视频的方案对比测试包已发布；等待服务器入口就绪后运行，目前没有真实得分或排名。此前模型文件交接已完成，三种服务器方案保留。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 9 月 28 日；本次更新：重新核对基础模型、基础软件及已发布文件，明确尚未上传的基础文件包、尚缺的新增模型与运行软件；完整交接尚未完成。所有测试和方案比较只用比赛允许的视频及其重建结果；暂不部署，没有真实得分或排名。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

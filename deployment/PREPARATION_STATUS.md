@@ -1,5 +1,11 @@
 # Preparation status — 2026-09-27
 
+**Availability rechecked 2026-09-28:** see the [asset audit](ASSET_AUDIT.md).
+The 12/12 model count below covers the original local baseline selection only.
+Seven public model entries and the host wheelhouse remain unpublished on this
+repository's Releases; expanded comparison assets and the GPU runtime are not
+complete. The original record below is retained as historical preparation evidence.
+
 This is a download and GitHub handoff task. The owner requested that deployment remain deferred. No model was installed or executed on the workstation, and no server deployment or SSH connection was attempted. The two real Track 1 baselines remain pending.
 
 ## Access and redistribution

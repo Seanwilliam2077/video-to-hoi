@@ -2,8 +2,12 @@
 
 Persistent owner constraint, reaffirmed 2026-09-27: Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
-Status: all required model downloads verified; GitHub model release published and verified,
-2026-09-27. The owner requested acquisition and GitHub handoff only. Deployment
+Status rechecked 2026-09-28: the original baseline's 12 required model entries
+pass fresh local integrity checks. Five entries are published in GitHub Releases;
+the seven public model entries and the host wheelhouse remain local. Expanded
+comparison models and GPU/runtime dependencies are incomplete. See the
+[availability audit](../deployment/ASSET_AUDIT.md) for the verified inventory
+and remaining work. The owner requested acquisition and GitHub handoff only. Deployment
 and model execution remain deferred. The owner
 cannot connect to the server through SSH; code and preparation materials will
 be transferred as ZIP files and used through the server's available console.

@@ -461,5 +461,12 @@
     }
   ],
   "materialization_policy": "source-only-v1; nine toolkit modules; non-runtime toolkit modules, all source JSON, unneeded training/evaluation configurations, demo/media/data excluded before reading",
-  "status": "prepared_not_published_or_executed"
+  "status": "published_not_executed",
+  "publication": {
+    "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928",
+    "manifest": "releases/assets-completion-20260928-manifest.json",
+    "verification_record": "releases/assets-completion-20260928-github.json",
+    "status": "public_attachments_verified",
+    "runtime_executed": false
+  }
 }

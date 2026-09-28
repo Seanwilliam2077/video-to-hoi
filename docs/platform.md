@@ -3,26 +3,32 @@
 Persistent owner constraint, reaffirmed 2026-09-27: Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
 Status rechecked 2026-09-28: the original baseline's 12 required model entries
-pass fresh local integrity checks. The new completion handoff has nine archives
-and thirteen parts uploaded to a draft GitHub Release, with matching server-side
-hashes; it is **not public yet**. It includes a filtered baseline source/model
-package, a CPython 3.10 host wheelhouse, and four additional Module 1 model
-packages. The CPython 3.10/3.11 runtime companions are included; separate SAM3 and MoGe3 profiles are still being prepared. Human/physics candidate sources are partially prepared, while
-their manual or restricted model weights remain outstanding. See the
-[completion handoff](../deployment/COMPLETION_HANDOFF.md) for scope and limits;
-the [availability audit](../deployment/ASSET_AUDIT.md) records an earlier
-snapshot. The owner requested acquisition and GitHub handoff only. Deployment
-and model execution remain deferred. The owner
-cannot connect to the server through SSH; code and preparation materials will
-be transferred as ZIP files and used through the server's available console.
-See [deployment/README.md](../deployment/README.md) for the preparation commands.
+pass fresh local integrity checks. The [completion handoff](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928) is
+public: 11 archives in 15 verified parts (16,873,320,178 bytes), plus five
+companion files. All 20 attachment hashes and public download paths passed the
+[publication checks](../deployment/releases/assets-completion-20260928-github.json).
+The handoff adds seven original baseline model entries and twelve filtered source
+entries, the CPython 3.10 host wheelhouse, four Module 1 model packages, and
+separate CPython 3.10/3.11/3.12 runtime acquisition packages. MoGe3 dependency
+sources and partial human/physics candidate sources are included. Manual or
+restricted human/physics weights, SMPL-family permissions, withheld distributions,
+legacy candidate environments, base images, APT packages, native builds and
+adapters remain outstanding. See the [completion handoff](../deployment/COMPLETION_HANDOFF.md)
+for scope and limits; the [availability audit](../deployment/ASSET_AUDIT.md)
+records an earlier snapshot.
+
+The owner requested acquisition and GitHub handoff only. Deployment and model
+execution remain deferred. The owner cannot connect to the server through SSH;
+code and preparation materials will be transferred as ZIP files and used through
+the server's available console. See [deployment/README.md](../deployment/README.md)
+for preparation commands. The two real baselines have not been run; no actual
+candidate quality results or rankings exist. Model inference, environment
+installation, and acceptance tests will run on the remote host, not on the
+project owner's local computer.
 The owner supplied a screenshot of a
 candidate host with eight RTX PRO 5000 72 GB GPUs. Remote access, CPU, host RAM,
 storage, and container support are not yet verified. Two more server types,
-L20 and A10, are also available; see below. The two real baselines
-have not been run. Model inference,
-environment installation, and acceptance tests will run on the remote host,
-not on the project owner's local computer.
+L20 and A10, are also available; see below.
 
 ## Candidate host: 8 × RTX PRO 5000 72 GB
 
@@ -211,7 +217,7 @@ The [FoundationPose add-on release](https://github.com/Seanwilliam2077/video-to-
 
 The owner requested comparisons for modules 1, 2 and 4, then clarified that the remote entry point is not ready and only the test handoff should be prepared. [The kit](../benchmarks/first3/README.md) fixes Track 1 episodes 0, 1 and 2, all hula-hoop clips: 790/668/866 frames at 30 fps, original 1536 x 1152 resolution. Full CPU decoding and SHA-256 verification checked inputs only; no model execution occurred.
 
-Five recipes cover MoGe2, MoGe3, prompted SAM2, standalone SAM3D Body and joint CARI4D. SAM3/YOLOE, GVHMR/WHAM and SmoothNet/HTD-Refine/PhysPT are recorded as research candidates with source pins and explicit weight/adapter blockers. The three temporal methods do not yet have MHR adapters. MoGe3 adds a separately pinned checkpoint not included in the prior baseline model inventory. No server environment is installed or certified by this kit.
+Five recipes cover MoGe2, MoGe3, prompted SAM2, standalone SAM3D Body and joint CARI4D. SAM3 and YOLOE now have pinned checkpoints and filtered source packages in the completion handoff, but still need execution adapters and server validation. GVHMR/WHAM and SmoothNet/HTD-Refine/PhysPT remain research candidates with manual or restricted weight, environment and adapter blockers. The three temporal methods do not yet have MHR adapters. MoGe3 has a separately pinned checkpoint in the completion handoff, outside the prior 12-entry baseline inventory. No server environment is installed or certified by this kit.
 
 The ranking tool groups comparable tasks and metrics, requires the same three complete episodes, and rejects missing or mismatched evidence. Its protocol remains unfrozen until runtime, upstream, and independent observations exist. Acceleration ranking also requires reviewed video fidelity for each episode. No official score, actual measurements or ranking is supplied. Automatic quality extraction from native candidate outputs is still to be implemented; the tool validates submitted metric records and does not prove their truth.
 

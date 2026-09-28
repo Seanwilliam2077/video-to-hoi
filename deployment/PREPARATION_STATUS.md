@@ -1,21 +1,27 @@
 # Preparation status — 2026-09-27
 
-**Current handoff update (2026-09-28):** Nine archives, transported as thirteen
-parts totaling 15,390,213,165 bytes, have been uploaded to the
-`assets-completion-20260928` **draft** Release and their server-side hashes
-match the local records. The draft is not public, so no public download is
-available yet. It adds a source-filtered baseline handoff (seven original public
-model entries plus twelve source entries), the Linux CPython 3.10 host wheelhouse,
-four Module 1 model packages, and partial human/physics source preparation.
-The CPython 3.10/3.11 runtime companions are included. Separate SAM3 and MoGe3 runtime profiles are still being prepared. See
-[COMPLETION_HANDOFF.md](COMPLETION_HANDOFF.md) for the current scope and blockers;
-the dated preparation record below remains historical. No server deployment or
-model execution has occurred.
+**Current handoff update (2026-09-28):** The
+[completion Release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928) is public. It holds eleven archives transported
+as fifteen verified parts totaling 16,873,320,178 bytes, plus five companion
+files (20 attachments). All GitHub-reported hashes and unauthenticated public
+attachment paths passed the [publication checks](releases/assets-completion-20260928-github.json).
+The release adds seven original baseline model entries and twelve filtered source
+entries, the Linux CPython 3.10 host wheelhouse, four Module 1 model packages,
+MoGe3 dependency sources, partial human/physics source packages, and separate
+CPython 3.10/3.11/3.12 runtime acquisition packages. The other five selected
+baseline model entries remain in the older FoundationPose and CARI4D/SAM3D Releases.
+The explicit synthetic CPU suite passed 161 tests, and [GitHub Actions](https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/36391458592)
+passed for publication source commit `e41383c`. These checks establish package
+and tool integrity, not a runnable GPU environment. Manual or restricted
+human/physics weights, SMPL-family access, withheld distributions, older candidate
+environments, base images, APT packages, native builds, adapters and server
+validation remain outstanding. See [COMPLETION_HANDOFF.md](COMPLETION_HANDOFF.md).
+No server deployment or model execution has occurred.
 
 **Availability rechecked 2026-09-28:** see the [asset audit](ASSET_AUDIT.md).
 The 12/12 model count below covers the original local baseline selection only.
 The original record below is retained as historical preparation evidence; its
-release-status statements predate the draft completion handoff.
+release-status statements predate the published completion handoff.
 
 This is a download and GitHub handoff task. The owner requested that deployment remain deferred. No model was installed or executed on the workstation, and no server deployment or SSH connection was attempted. The two real Track 1 baselines remain pending.
 
@@ -56,10 +62,11 @@ Downloads are stored outside normal Git history under `artifacts/` and `dist/`. 
 
 | Handoff | Contents | Publication state |
 | --- | --- | --- |
-| `public-baseline-runtime-20260928.zip` | Seven public baseline model entries, twelve filtered runtime source entries, licenses and portable receipts; supersedes the historical unfiltered `video-to-hoi-public-assets-20260927.zip` | Uploaded and hash-checked in the completion **draft** Release; not public yet |
+| `public-baseline-runtime-20260928.zip` | Seven public baseline model entries, twelve filtered runtime source entries, licenses and portable receipts; supersedes the historical unfiltered `video-to-hoi-public-assets-20260927.zip` | Published in the completion Release; part and archive hashes checked |
 | `video-to-hoi-foundationpose-addon-20260927.zip` | Four FoundationPose files, two receipts, verified code snapshot `5205666`, documentation and verification records | Published with SHA-256/JSON companions |
 | `hf-models-20260927` model release | Three reviewed model archives transported as checksum-verified parts, their receipts, licenses and restore tool | Published: 11 model parts and four companion files; public URLs verified |
-| `linux-cp310-wheelhouse.zip` | 28 locked Linux CPython 3.10 host/bootstrap wheels and their manifest | Uploaded and hash-checked in the completion **draft** Release; not public yet |
+| `linux-cp310-wheelhouse.zip` | 28 locked Linux CPython 3.10 host/bootstrap wheels and their manifest | Published in the completion Release; part and archive hashes checked |
+| `assets-completion-20260928` remaining archives | Four Module 1 candidates, MoGe3 dependency sources, human/physics partial sources and CPython 3.10/3.11/3.12 runtime acquisition | Public with exact manifest and receipts; not a complete GPU environment |
 
 The [FoundationPose add-on](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/foundationpose-addon-20260927) is already published. Its [exact ZIP](https://github.com/Seanwilliam2077/video-to-hoi/releases/download/foundationpose-addon-20260927/video-to-hoi-foundationpose-addon-20260927.zip) is 239,097,418 bytes. GitHub reported the same SHA-256 as the local ZIP: `722995a8c32f26eaefb544d0407fffb9b1c6108a76f5ae5cfe68861dc160c52b`. The [release record](releases/foundationpose-addon-20260927.json) stores asset IDs, URLs, sizes, and server-side digests.
 

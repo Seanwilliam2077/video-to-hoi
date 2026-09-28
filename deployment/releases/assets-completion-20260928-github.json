@@ -1,0 +1,153 @@
+{
+  "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928",
+  "tag": "assets-completion-20260928",
+  "release_id": 397994052,
+  "published_at": "2026-09-28T07:24:24Z",
+  "draft": false,
+  "source_commit": "e41383cc08603eb2287a365e9efa76fbde6e030a",
+  "verification": "Every attachment checked against local size/SHA-256 and GitHub digest; all public binary URLs checked with unauthenticated HEAD; five companion files downloaded without credentials and verified. Model archives were not downloaded again or executed.",
+  "archive_count": 11,
+  "archive_bytes": 16873320178,
+  "assets": [
+    {
+      "id": 594752293,
+      "name": "expanded-human-physics-sources-runtime.zip.part001",
+      "size": 4642004,
+      "digest": "sha256:7cf7d567fd2f3f2e52d9aaa8a7246a64365aeb5e4527692d4bc5db54788f7c37",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/expanded-human-physics-sources-runtime.zip.part001"
+    },
+    {
+      "id": 594792063,
+      "name": "handoff-manifest.json",
+      "size": 10580,
+      "digest": "sha256:0685de5ea44c8c3d4e60ea31f21b599bb31f357ab5233ac18d4118d75473731e",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/handoff-manifest.json"
+    },
+    {
+      "id": 594792106,
+      "name": "HANDOFF.md",
+      "size": 5082,
+      "digest": "sha256:fb79ea02744e27a51d039ee69778fe1b5e60ac45399d95cb3ff52ad59554a103",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/HANDOFF.md"
+    },
+    {
+      "id": 594686276,
+      "name": "linux-cp310-wheelhouse.zip.part001",
+      "size": 119277331,
+      "digest": "sha256:60061646f2a3c3cf7ef7be5eae17809f379155d418a129837405bc283cf2115a",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/linux-cp310-wheelhouse.zip.part001"
+    },
+    {
+      "id": 594707751,
+      "name": "mobileclip-blt-research-only.zip.part001",
+      "size": 599240400,
+      "digest": "sha256:e18c63260ba3b631b7d02d95455cf293cb79fbf6d9fa101c59605374a20eb154",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/mobileclip-blt-research-only.zip.part001"
+    },
+    {
+      "id": 594760980,
+      "name": "moge3-runtime-sources-20260928.zip.part001",
+      "size": 358169,
+      "digest": "sha256:c555eaf2628db98f8854f576b1dc862441a82d9fc5c38e4bea5af4e80b7813cb",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/moge3-runtime-sources-20260928.zip.part001"
+    },
+    {
+      "id": 594704579,
+      "name": "moge3-vitl-sourceonly.zip.part001",
+      "size": 1483310780,
+      "digest": "sha256:7dd58b76a0bd06298d22da99ffa59ecf661a72d9d43679f67e9b2a9928c53201",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/moge3-vitl-sourceonly.zip.part001"
+    },
+    {
+      "id": 594707825,
+      "name": "public-baseline-runtime-20260928.zip.part001",
+      "size": 1992294400,
+      "digest": "sha256:4a1ee4fe017f45e720febcab2527819e43540144f7ea2f9b559ce3075adbdd0a",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/public-baseline-runtime-20260928.zip.part001"
+    },
+    {
+      "id": 594708265,
+      "name": "public-baseline-runtime-20260928.zip.part002",
+      "size": 1992294400,
+      "digest": "sha256:4ae7574c5f9c413fb2deaab73bfb34c34cf42de325825d4c09fb420d7da04e7d",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/public-baseline-runtime-20260928.zip.part002"
+    },
+    {
+      "id": 594709140,
+      "name": "public-baseline-runtime-20260928.zip.part003",
+      "size": 1507366966,
+      "digest": "sha256:697bc548848120934af52c4d60f550cf6eae1cc375bad79f4000d5fe7333ca06",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/public-baseline-runtime-20260928.zip.part003"
+    },
+    {
+      "id": 594792064,
+      "name": "restore_handoff.py",
+      "size": 2775,
+      "digest": "sha256:d5fda345836a6bef344a05349dfeabecae0d2c85b999bec8df5858c668152149",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/restore_handoff.py"
+    },
+    {
+      "id": 594792092,
+      "name": "restore_model_release.py",
+      "size": 14243,
+      "digest": "sha256:b67230a529d681fa1ad02d55769027611e8bccbb8c9fcd3df6ae29f649f65db6",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/restore_model_release.py"
+    },
+    {
+      "id": 594704592,
+      "name": "sam3-video-sourceonly.zip.part001",
+      "size": 1900000000,
+      "digest": "sha256:123620485719e43e5fe90f07d9896671e0ead794279bf1c58b79ea64976b28ba",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/sam3-video-sourceonly.zip.part001"
+    },
+    {
+      "id": 594704582,
+      "name": "sam3-video-sourceonly.zip.part002",
+      "size": 1554404388,
+      "digest": "sha256:324fa026997ddf1978e1ec05eb0508c77bf1aaf25d3eb969eadaab49bf157258",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/sam3-video-sourceonly.zip.part002"
+    },
+    {
+      "id": 594792070,
+      "name": "SHA256SUMS",
+      "size": 1672,
+      "digest": "sha256:8dcd4fb4ac4e9be2ad12173c9036b648b4a20e4561d083e179f2f16c3a3088b5",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/SHA256SUMS"
+    },
+    {
+      "id": 594724278,
+      "name": "video-to-hoi-runtime-cp310-cu124-20260928.zip.part001",
+      "size": 1992294400,
+      "digest": "sha256:bd2724376bb0f730d9c4bec43f3fad1da3d6938e32a4f9701af71282ca33232d",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/video-to-hoi-runtime-cp310-cu124-20260928.zip.part001"
+    },
+    {
+      "id": 594724237,
+      "name": "video-to-hoi-runtime-cp310-cu124-20260928.zip.part002",
+      "size": 380787973,
+      "digest": "sha256:6262dc95f2eef5099adbbee80bfee9916b9a561d8387fbbece90d06203c1ac08",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/video-to-hoi-runtime-cp310-cu124-20260928.zip.part002"
+    },
+    {
+      "id": 594744282,
+      "name": "video-to-hoi-runtime-cp311-cu124-20260928.zip.part001",
+      "size": 1752914287,
+      "digest": "sha256:05d5c3586d02430bed490a896927d9a76c3a5e897f75f0c5874395872241c7ea",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/video-to-hoi-runtime-cp311-cu124-20260928.zip.part001"
+    },
+    {
+      "id": 594785573,
+      "name": "video-to-hoi-runtime-modern-cp312-cu128-20260928-r2.zip.part001",
+      "size": 1482748844,
+      "digest": "sha256:a73c8b3a1c4f0c4c68d5133ff605ee338bf05885593dead9921f22a04755138d",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/video-to-hoi-runtime-modern-cp312-cu128-20260928-r2.zip.part001"
+    },
+    {
+      "id": 594752262,
+      "name": "yoloe-v8l-seg-runtime.zip.part001",
+      "size": 111385836,
+      "digest": "sha256:e8f8e48d7430e998d56d2f57dcd63c51b783d875cfbd0541e96d377d474bbfe7",
+      "browser_download_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/yoloe-v8l-seg-runtime.zip.part001"
+    }
+  ]
+}

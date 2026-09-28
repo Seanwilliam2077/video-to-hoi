@@ -1032,5 +1032,12 @@
     "old_archive_sha256": "999f416ba7d5b27722a4adcdb1859e39020a3e4c71fd0a8c04de667c744d8621",
     "scope": "ViTPose requirements and MANIFEST.in plus vendored pybind11 CMake/build templates; no model or dataset files"
   },
-  "runtime_scope_document": "deployment/EXPANDED_RUNTIME_GAPS.md"
+  "runtime_scope_document": "deployment/EXPANDED_RUNTIME_GAPS.md",
+  "publication": {
+    "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928",
+    "manifest": "releases/assets-completion-20260928-manifest.json",
+    "verification_record": "releases/assets-completion-20260928-github.json",
+    "status": "public_attachments_verified",
+    "runtime_executed": false
+  }
 }

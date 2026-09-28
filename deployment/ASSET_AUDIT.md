@@ -1,14 +1,17 @@
 # Asset availability audit — 2026-09-28
 
-> **Historical snapshot.** This audit was taken before the
-> `assets-completion-20260928` draft handoff. Nine archives (thirteen parts,
-> 15,390,213,165 bytes) have since been uploaded and matched against local
-> hashes, but the Release is **not public**. The draft includes the filtered
-> baseline package, the CPython 3.10 host wheelhouse, four additional Module 1
-> model packages and partial human/physics sources. The baseline runtime companions have been added; expanded candidate runtimes and
-> restricted/manual model weights remain incomplete. See the
-> [current handoff guide](COMPLETION_HANDOFF.md); the observations below remain
-> evidence of their original audit date, not a current publication inventory.
+> **Historical snapshot.** This audit predates the
+> [published completion Release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928). The current Release has eleven
+> archives (fifteen parts, 16,873,320,178 bytes) and five companion files;
+> all 20 attachments passed public size, digest and access checks. It adds the
+> filtered baseline and host packages, four Module 1 models, partial human/physics
+> sources and separate CPython 3.10/3.11/3.12 runtime acquisition packages.
+> The original 12 baseline model entries are now available across three Releases.
+> This does not complete the GPU runtime: manual or restricted model weights,
+> SMPL-family access, withheld distributions, legacy candidate environments,
+> base images, APT packages, native builds, adapters and server validation remain.
+> See the [current handoff guide](COMPLETION_HANDOFF.md). The observations below
+> remain evidence of their original audit date, not a current publication inventory.
 
 **The full dependency/model handoff is not complete.** The original baseline's
 12 required model entries are present locally and pass integrity checks. Only

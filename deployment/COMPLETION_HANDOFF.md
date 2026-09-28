@@ -7,9 +7,14 @@ downloads, and some software/model licenses do not permit a public mirror.
 
 ## Packages
 
-The new handoff uses the `assets-completion-20260928` Release. The checked
-publication record and final manifest are stored under `deployment/releases/`.
-During preparation, treat a missing publication record as incomplete publication.
+The [assets-completion-20260928 Release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928)
+is published: **11 archives / 15 binary parts / 16,873,320,178 bytes** (16.87 GB),
+plus five small companion files, for 20 attachments in total. The
+[final manifest](releases/assets-completion-20260928-manifest.json) records exact
+archive and part hashes; the [publication verification record](releases/assets-completion-20260928-github.json)
+records the public downloads and source commit. Large binaries are Release
+attachments; cloning the repository or downloading its source ZIP does not
+include them.
 
 | Archive group | Contents | Scope |
 | --- | --- | --- |
@@ -126,12 +131,16 @@ original terms; this aggregation does not relicense them. Model records:
 - Every current archive was restored from the exact manifest parts and matched
   to its archive SHA-256 without extracting or loading a model.
 - The explicit synthetic CPU test suite passed **161 tests**. The corrected
-  standalone import path also passed on GitHub Actions at commit `ee7ff4b`.
+  standalone import path and final preparation commit passed on
+  [GitHub Actions at `e41383c`](https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/36391458592).
 - Independently created tiny fixtures checked both runtime assemblers' profile
   separation, repeated use, overlap rejection, corruption handling and missing
   distribution reports. These are file-transfer checks, not runtime tests.
-- Public attachment URLs and final GitHub digests are recorded separately after
-  publication in `releases/assets-completion-20260928-github.json`.
+- All 20 attachments match the expected size and SHA-256 reported by GitHub.
+  The 15 binary URLs responded successfully without credentials, and the five
+  small companion files were downloaded without credentials and hash-verified.
+  The release tag points to source commit `e41383c`. These checks are recorded in
+  `releases/assets-completion-20260928-github.json`.
 
 Only the 30 Track 1 videos and metadata, their reconstructed artifacts and
 independently created synthetic fixtures are allowed. No Track 2 data, derived

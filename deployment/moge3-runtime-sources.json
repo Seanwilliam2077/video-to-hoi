@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "kind": "moge3_runtime_source_handoff",
-  "publication_status": "prepared_not_published",
+  "publication_status": "published_sources_not_built",
   "moge_repository": "https://github.com/microsoft/MoGe",
   "moge_revision": "74fbce054ebed49800de42d0ad0e83495065719a",
   "license_scope": "The three included direct dependencies are MIT under their individual full LICENSE files. This record does not classify MoGe3 weights or other software.",
@@ -48,5 +48,12 @@
     "Linux Python and CUDA dependency closure",
     "GPU-compatible Torch/Triton and compiler verification",
     "server-side build/install and functional smoke test"
-  ]
+  ],
+  "publication": {
+    "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928",
+    "manifest": "releases/assets-completion-20260928-manifest.json",
+    "verification_record": "releases/assets-completion-20260928-github.json",
+    "status": "public_attachments_verified",
+    "runtime_executed": false
+  }
 }

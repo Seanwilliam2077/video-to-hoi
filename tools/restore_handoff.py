@@ -6,13 +6,19 @@ load models, or contact upstream model/data hosts.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 from pathlib import Path
 
-try:
-    from tools import restore_model_release as core
-except ModuleNotFoundError:
-    import restore_model_release as core
+if __package__:
+    from . import restore_model_release as core
+else:
+    # Standalone Release downloads and file-based test imports have no package.
+    spec = importlib.util.spec_from_file_location(
+        "restore_model_release", Path(__file__).with_name("restore_model_release.py")
+    )
+    core = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(core)
 
 
 RELEASES = {

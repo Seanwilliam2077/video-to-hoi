@@ -1,12 +1,18 @@
 """Synthetic transfer fixtures; no challenge, model or upstream example data."""
 import hashlib
+import importlib.util
 import io
 import json
 import zipfile
+from pathlib import Path
 
 import pytest
 
-from tools import restore_handoff as handoff
+SPEC = importlib.util.spec_from_file_location(
+    "restore_handoff", Path(__file__).parents[1] / "tools/restore_handoff.py"
+)
+handoff = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(handoff)
 
 
 PAGE = "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928"

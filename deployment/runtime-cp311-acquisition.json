@@ -1,0 +1,4065 @@
+{
+  "schema_version": 1,
+  "profile": "Linux x86_64 CPython3.11 PyTorch2.5.1 CUDA12.4",
+  "purpose": "Companion wheel acquisition; not installed or runtime-tested. Reuses exact universal/abi3/source files from cp310 inventory.",
+  "base_profile": "runtime-cp310-cu124-20260928",
+  "base_manifest_sha256": "2f014347f498805fde4e5524ecd40f7c6aecdeab391b0667b219281ce2d150ce",
+  "packages": [
+    {
+      "name": "aiohttp",
+      "version": "3.14.3",
+      "filename": "aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 1786220,
+      "sha256": "53e7b4ce82b54a8bcc71b3b67a5cbd177ca1d7f592cbc92cd38b7349f73482db",
+      "url": "https://files.pythonhosted.org/packages/a5/b9/2b8f0c0ce09c87a1daf80fd483431b56b1435d3f62789bc86f572e1245de/aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/aiohttp/3.14.3/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "aiohappyeyeballs>=2.5.0",
+        "aiosignal>=1.4.0",
+        "async-timeout<6.0,>=4.0; python_version < \"3.11\"",
+        "attrs>=17.3.0",
+        "frozenlist>=1.1.1",
+        "multidict<7.0,>=4.5",
+        "propcache>=0.2.0",
+        "typing_extensions>=4.4; python_version < \"3.13\"",
+        "yarl<2.0,>=1.17.0",
+        "aiodns>=3.3.0; (sys_platform != \"android\" and sys_platform != \"ios\") and extra == \"speedups\"",
+        "Brotli>=1.2; (platform_python_implementation == \"CPython\" and sys_platform != \"android\" and sys_platform != \"ios\") and extra == \"speedups\"",
+        "brotlicffi>=1.2; platform_python_implementation != \"CPython\" and extra == \"speedups\"",
+        "backports.zstd; (platform_python_implementation == \"CPython\" and python_version < \"3.14\" and sys_platform != \"android\" and sys_platform != \"ios\") and extra == \"speedups\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "aiohttp-3.14.3.dist-info/licenses/LICENSE.txt",
+          "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+        },
+        {
+          "path": "aiohttp-3.14.3.dist-info/licenses/vendor/llhttp/LICENSE",
+          "sha256": "628168d68bb5a8a17e0bbefb3bd74e326e1edc20583d76f52f457c82c921867d"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "av",
+      "version": "18.0.0",
+      "filename": "av-18.0.0-cp311-abi3-manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/av-18.0.0-cp311-abi3-manylinux_2_28_x86_64.whl",
+      "bytes": 35536910,
+      "sha256": "ae56b40b6f8b067a8ad2dac664fbfbabac7f7a55b9a7bb031eb99289252bc017",
+      "url": "https://files.pythonhosted.org/packages/6d/b9/7708c43fed7ae28b4a1bad060b4221e3334cd827cec24f7165902a6ac1f4/av-18.0.0-cp311-abi3-manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/av/18.0.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": false,
+      "redistribution_note": "Binary contains or may bundle copyleft native components; corresponding-source/redistribution closure is not yet established. Kept locally; official origin recorded.",
+      "publication_status": "withheld",
+      "license_files": [
+        {
+          "path": "av-18.0.0.dist-info/licenses/AUTHORS.py",
+          "sha256": "4ec6e0dca3d0703aebefb386d3eb6ed14a05d96fe8b0aa08b52c2d2951817fec"
+        },
+        {
+          "path": "av-18.0.0.dist-info/licenses/AUTHORS.rst",
+          "sha256": "adb3a9b35a8b74bb597326dec775d74a9f79b4decac54da266a9ddb20b5da142"
+        },
+        {
+          "path": "av-18.0.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "76af0461ffb92e19f1c14449e95557d83a2dfaa1baf202d49e5f1d8746c0da19"
+        }
+      ],
+      "license_content_matches_base_profile": false,
+      "override_reason": "v2d_common[io] explicitly selects av18.0.0 for Python>=3.11."
+    },
+    {
+      "name": "brotli",
+      "version": "1.2.0",
+      "filename": "brotli-1.2.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/brotli-1.2.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 1426014,
+      "sha256": "40d918bce2b427a0c4ba189df7a006ac0c7277c180aee4617d99e9ccaaf59e6a",
+      "url": "https://files.pythonhosted.org/packages/89/5a/7071a621eb2d052d64efd5da2ef55ecdac7c3b0c6e4f9d519e9c66d987ef/brotli-1.2.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/brotli/1.2.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "brotli-1.2.0.dist-info/licenses/LICENSE",
+          "sha256": "3d180008e36922a4e8daec11c34c7af264fed5962d07924aea928c38e8663c94"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.1",
+      "filename": "charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 262325,
+      "sha256": "c7b742bf31c88566b4bb6335a7f393bb322e580b6bb98df7bd0c25e6e3519ce8",
+      "url": "https://files.pythonhosted.org/packages/0d/35/731ac04aa0a097fc1c97f0994c375bdb230c6c96619db794208fe664e9ce/charset_normalizer-3.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/charset-normalizer/3.5.1/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "charset_normalizer-3.5.1.dist-info/licenses/LICENSE",
+          "sha256": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "cholespy",
+      "version": "2.2.0",
+      "filename": "cholespy-2.2.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/cholespy-2.2.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 5626635,
+      "sha256": "5f19dc5fc30b053a4d0749371b161059eacf7a95496eecd33edc494a4d28113c",
+      "url": "https://files.pythonhosted.org/packages/35/b5/df31b615d58b75eb1007cff061a9c48f7a2eb37bdd1fdd15354823fcbafe/cholespy-2.2.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/cholespy/2.2.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "cholespy-2.2.0.dist-info/licenses/LICENSE",
+          "sha256": "2d8ea14651ab9082c3bd6550291ca65574a31f3ae2f72346e66a9acc40dec94b"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "contourpy",
+      "version": "1.3.2",
+      "filename": "contourpy-1.3.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/contourpy-1.3.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 326246,
+      "sha256": "3859783aefa2b8355697f16642695a5b9792e7a46ab86da1118a4a23a51a33d7",
+      "url": "https://files.pythonhosted.org/packages/c2/f3/20c5d1ef4f4748e52d60771b8560cf00b69d5c6368b5c2e9311bcfa2a08b/contourpy-1.3.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/contourpy/1.3.2/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy>=1.23",
+        "furo; extra == \"docs\"",
+        "sphinx>=7.2; extra == \"docs\"",
+        "sphinx-copybutton; extra == \"docs\"",
+        "bokeh; extra == \"bokeh\"",
+        "selenium; extra == \"bokeh\"",
+        "contourpy[bokeh,docs]; extra == \"mypy\"",
+        "bokeh; extra == \"mypy\"",
+        "docutils-stubs; extra == \"mypy\"",
+        "mypy==1.15.0; extra == \"mypy\"",
+        "types-Pillow; extra == \"mypy\"",
+        "contourpy[test-no-images]; extra == \"test\"",
+        "matplotlib; extra == \"test\"",
+        "Pillow; extra == \"test\"",
+        "pytest; extra == \"test-no-images\"",
+        "pytest-cov; extra == \"test-no-images\"",
+        "pytest-rerunfailures; extra == \"test-no-images\"",
+        "pytest-xdist; extra == \"test-no-images\"",
+        "wurlitzer; extra == \"test-no-images\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "contourpy-1.3.2.dist-info/LICENSE",
+          "sha256": "34170979fc64f4f5e6dfa66ef27dec314ffffc5852000c60f4836ec1dfbf156e"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "cumm-cu124",
+      "version": "0.7.11",
+      "filename": "cumm_cu124-0.7.11-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/cumm_cu124-0.7.11-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "bytes": 27563170,
+      "sha256": "cc685eaca23057e43a19ffa6f57c6683d38737b4ec1223368e38044245df1bab",
+      "url": "https://files.pythonhosted.org/packages/bc/3f/979fcdda0f2649154bbdaa65544264e2533242ae19a8f7693bd3f2fc8836/cumm_cu124-0.7.11-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/cumm-cu124/0.7.11/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "pccm>=0.4.15",
+        "pybind11>=2.6.0",
+        "fire",
+        "numpy",
+        "sympy",
+        "contextvars; python_version == \"3.6\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "cumm_cu124-0.7.11.dist-info/LICENSE",
+          "sha256": "7d1e9f3c869959da4a7472ad9ec3662384b3b67b9a97b5713f9b265373f0e6a2"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "cython",
+      "version": "3.3.0",
+      "filename": "cython-3.3.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/cython-3.3.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 3479260,
+      "sha256": "e6035b5231a9316edc19d6415f4296fd1d0370e2a165a714b3edc167b9ca00e1",
+      "url": "https://files.pythonhosted.org/packages/3f/9b/dd726d11b2aff24f0c3fa68ce9e3934097a058aca471a8cc9888aeae5471/cython-3.3.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/cython/3.3.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "The upstream permissive distribution license is supplied as an unchanged supplemental file; original package contents are unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "fast-simplification",
+      "version": "0.2.0",
+      "filename": "fast_simplification-0.2.0-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/fast_simplification-0.2.0-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 295326,
+      "sha256": "8e2382994836bc760f280f61f9c23ec696052fd8feb59a3c539602e05155e287",
+      "url": "https://files.pythonhosted.org/packages/d4/51/2f6afc0d0e06f7d12b3a1f4a0f55a101b13725a491b80ab4cf439fee70b0/fast_simplification-0.2.0-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/fast-simplification/0.2.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy"
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "fast_simplification-0.2.0.dist-info/licenses/LICENSE",
+          "sha256": "8585978ddf4e1ce39a5bfe67f525dc0aa0008c107fe2c6de4d03ab739ecd5a84"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "fonttools",
+      "version": "4.65.0",
+      "filename": "fonttools-4.65.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/fonttools-4.65.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 5457456,
+      "sha256": "a3991732c87b3f054a2a8cf86dd0d602833fa8cb37c911503173771646e1013d",
+      "url": "https://files.pythonhosted.org/packages/a1/e6/e48cf0a272a5d4d17a09d44f92727e67f975ddfa94acc8464763d19a654d/fonttools-4.65.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/fonttools/4.65.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "lxml>=4.0; extra == \"lxml\"",
+        "brotli>=1.0.1; platform_python_implementation == \"CPython\" and extra == \"woff\"",
+        "brotlicffi>=0.8.0; platform_python_implementation != \"CPython\" and extra == \"woff\"",
+        "zopfli>=0.1.4; extra == \"woff\"",
+        "unicodedata2>=17.0.0; python_version <= \"3.14\" and extra == \"unicode\"",
+        "lz4>=1.7.4.2; extra == \"graphite\"",
+        "scipy; platform_python_implementation != \"PyPy\" and extra == \"interpolatable\"",
+        "munkres; platform_python_implementation == \"PyPy\" and extra == \"interpolatable\"",
+        "pycairo; extra == \"interpolatable\"",
+        "matplotlib; extra == \"plot\"",
+        "sympy; extra == \"symfont\"",
+        "xattr; sys_platform == \"darwin\" and extra == \"type1\"",
+        "skia-pathops>=0.5.0; extra == \"pathops\"",
+        "uharfbuzz>=0.45.0; extra == \"repacker\"",
+        "lxml>=4.0; extra == \"all\"",
+        "brotli>=1.0.1; platform_python_implementation == \"CPython\" and extra == \"all\"",
+        "brotlicffi>=0.8.0; platform_python_implementation != \"CPython\" and extra == \"all\"",
+        "zopfli>=0.1.4; extra == \"all\"",
+        "unicodedata2>=17.0.0; python_version <= \"3.14\" and extra == \"all\"",
+        "lz4>=1.7.4.2; extra == \"all\"",
+        "scipy; platform_python_implementation != \"PyPy\" and extra == \"all\"",
+        "munkres; platform_python_implementation == \"PyPy\" and extra == \"all\"",
+        "pycairo; extra == \"all\"",
+        "matplotlib; extra == \"all\"",
+        "sympy; extra == \"all\"",
+        "xattr; sys_platform == \"darwin\" and extra == \"all\"",
+        "skia-pathops>=0.5.0; extra == \"all\"",
+        "uharfbuzz>=0.45.0; extra == \"all\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "fonttools-4.65.0.dist-info/licenses/LICENSE",
+          "sha256": "6787208f83f659ccbc2223b2fde952ffa6f7e8aca62f1a8a2bf5bc51bb1b2383"
+        },
+        {
+          "path": "fonttools-4.65.0.dist-info/licenses/LICENSE.external",
+          "sha256": "94a83aaee0729a0f302d34acc4acecbd9d58366f262429075fe557e4a54b2e69"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "filename": "frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "relative_path": "wheels/frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "bytes": 231067,
+      "sha256": "2552f44204b744fba866e573be4c1f9048d6a324dfe14475103fd51613eb1d1f",
+      "url": "https://files.pythonhosted.org/packages/11/b1/71a477adc7c36e5fb628245dfbdea2166feae310757dea848d02bd0689fd/frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/frozenlist/1.8.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "frozenlist-1.8.0.dist-info/licenses/LICENSE",
+          "sha256": "6fd5243e92dd7f98ec69c7ac377728e74905709ff527a5bf98d6d0263c04f5b6"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "glcontext",
+      "version": "3.0.0",
+      "filename": "glcontext-3.0.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/glcontext-3.0.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 51680,
+      "sha256": "7fa413f4420abff2bbb5aa5770a3e1deffcdc13e0ef2f459b145fa79c36909e7",
+      "url": "https://files.pythonhosted.org/packages/43/fb/646c2773cb097b914afe1f06c95e65deb8a544d770389bf29c76a8f3a8fd/glcontext-3.0.0-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/glcontext/3.0.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "glcontext-3.0.0.dist-info/LICENSE",
+          "sha256": "5343a2b496db3237e032a11fcd5c6d183b4a8f2882fb3d96dab1fc1124f139c1"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "grpcio",
+      "version": "1.84.0",
+      "filename": "grpcio-1.84.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/grpcio-1.84.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 7187959,
+      "sha256": "bd8ea8eb3817b226057cc1c0e7ec4b378dcda52043b972b6ff12b1152178967d",
+      "url": "https://files.pythonhosted.org/packages/e2/b7/14a9413cb7d4b2e782b4f79c81a918610caedf55138ab5916f5fdd4b002f/grpcio-1.84.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/grpcio/1.84.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "typing-extensions~=4.12",
+        "grpcio-tools>=1.84.0; extra == \"protobuf\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "grpcio-1.84.0.dist-info/licenses/LICENSE",
+          "sha256": "58c86a3f2b5cca0ebdf9ed3e7f4e6dc38e3b38796d8c3dc92064c62a4e39d0dd"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "h5py",
+      "version": "3.16.0",
+      "filename": "h5py-3.16.0-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/h5py-3.16.0-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "bytes": 5027150,
+      "sha256": "fb1720028d99040792bb2fb31facb8da44a6f29df7697e0b84f0d79aff2e9bd3",
+      "url": "https://files.pythonhosted.org/packages/52/a0/c1f604538ff6db22a0690be2dc44ab59178e115f63c917794e529356ab23/h5py-3.16.0-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/h5py/3.16.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy>=1.21.2"
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "h5py-3.16.0.dist-info/licenses/LICENSE",
+          "sha256": "e574b296655cfb0ca5180ec6eee3c95d122b0906736d3ca7e3ce19e0f297f0c9"
+        },
+        {
+          "path": "h5py-3.16.0.dist-info/licenses/licenses/hdf5.txt",
+          "sha256": "2b82fef8ed8a020ba656ce2db2505ed858939cb7c3b6f7df084bd83032d77bc7"
+        },
+        {
+          "path": "h5py-3.16.0.dist-info/licenses/licenses/license.txt",
+          "sha256": "facf43e03193cf4cf8d8bcdd67ce04fc61ef6948dd06672a4e5da579e64a3948"
+        },
+        {
+          "path": "h5py-3.16.0.dist-info/licenses/licenses/pytables.txt",
+          "sha256": "9a2d5d6e815638c6a3c1130f66be7ccff09e84c0e821e573f2add69d44622414"
+        },
+        {
+          "path": "h5py-3.16.0.dist-info/licenses/licenses/python.txt",
+          "sha256": "8484e705c99c7f5dbf157723b4e3cd1daff9cfe41c740b572555878f05858984"
+        },
+        {
+          "path": "h5py-3.16.0.dist-info/licenses/licenses/stdint.txt",
+          "sha256": "1d4c0ba65d4daa23ef8d6c0571ebe96b30abaebda29c26d66ce13540d4f12b28"
+        },
+        {
+          "path": "h5py-3.16.0.dist-info/licenses/lzf/LICENSE.txt",
+          "sha256": "a8f8c54abc00d1acd157401557b3ec6f500ac76a5efd17a0eaa644e2d32e6beb"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "kaolin",
+      "version": "0.18.0",
+      "filename": "kaolin-0.18.0-cp311-cp311-linux_x86_64.whl",
+      "relative_path": "wheels/kaolin-0.18.0-cp311-cp311-linux_x86_64.whl",
+      "bytes": 5569737,
+      "sha256": "fd0427a58f13d39d97231c817c46246006977d32b9d0fca331e1ab76d4ad4d1c",
+      "url": "https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-2.5.1_cu124/kaolin-0.18.0-cp311-cp311-linux_x86_64.whl",
+      "metadata_url": "https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-2.5.1_cu124.html",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "ipython; python_version >= \"3.9\"",
+        "ipython<8.13; python_version < \"3.9\"",
+        "ipycanvas",
+        "ipyevents",
+        "jupyter_client<8",
+        "flask",
+        "tornado",
+        "comm>=0.1.3",
+        "usd-core",
+        "numpy",
+        "pybind11",
+        "Pillow>=8.0.0",
+        "tqdm>=4.51.0",
+        "scipy",
+        "pygltflib",
+        "warp-lang"
+      ],
+      "official_index_sha256_verified": false,
+      "license_files": [
+        {
+          "path": "kaolin-0.18.0.dist-info/LICENSE",
+          "sha256": "1f81d44e1506aef37184653d2d31d00ae6e4f453d431de971c2879be960665b8"
+        },
+        {
+          "path": "kaolin-0.18.0.dist-info/LICENSE.NSCL",
+          "sha256": "c4806e61ab622a93e98a3512182fb93e4f1a02a433c6649ff3a5e91e776393a9"
+        }
+      ],
+      "license_content_matches_base_profile": true,
+      "redistribution_verified": true,
+      "redistribution_note": "Apache-2.0 plus NVIDIA Source Code License. Redistribute unchanged with all notices; NSCL-covered portions are for non-commercial research/evaluation only.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "filename": "kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 1438206,
+      "sha256": "95a02752aa032eef4aed01cda6d9b687c669bd0396bf4519eef8bba22a286720",
+      "url": "https://files.pythonhosted.org/packages/89/00/05c2d0369ac322d22d5c05f84b5c4a6856fa6207fbae42869108a28f0383/kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/kiwisolver/1.5.1/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "kiwisolver-1.5.1.dist-info/licenses/LICENSE",
+          "sha256": "529c40e5f67f2f88904657a9f7879ae2f8dc76bc9bfef9cb10d988b48804ed61"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "kornia-rs",
+      "version": "0.2.0",
+      "filename": "kornia_rs-0.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/kornia_rs-0.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 5334523,
+      "sha256": "82833277685b31e9ae1a2e9ecd00a28646463a05c0ea8b72e3ddb329699f8d16",
+      "url": "https://files.pythonhosted.org/packages/1c/23/bd7db62ed2cf35682ad1f0ca0c36d1e2f8a1106f2b0f4a2646888f34c50b/kornia_rs-0.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/kornia-rs/0.2.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "nvidia-cuda-nvrtc-cu12 ; platform_system == 'Linux' and extra == 'cuda'",
+        "pytest ; extra == 'dev'",
+        "pytest-run-parallel ; extra == 'dev'",
+        "numpy ; extra == 'dev'",
+        "torch ; extra == 'dev'"
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "kornia_rs-0.2.0.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.3",
+      "filename": "lxml-6.1.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/lxml-6.1.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 5079033,
+      "sha256": "49fbc2682a9306135b7ec49e93f97f9c26689b9b7f96ed2742d8d6497e994d13",
+      "url": "https://files.pythonhosted.org/packages/71/69/ce2436d854c848c19fc9287143991f3fc76b8b4e9a0dbba8452e51dff264/lxml-6.1.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/lxml/6.1.3/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "cssselect>=0.7; extra == \"cssselect\"",
+        "html5lib; extra == \"html5\"",
+        "BeautifulSoup4; extra == \"htmlsoup\"",
+        "lxml_html_clean; extra == \"html-clean\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+          "sha256": "8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855"
+        },
+        {
+          "path": "lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+          "sha256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.3",
+      "filename": "markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 22940,
+      "sha256": "0bf2a864d67e76e5c9a34dc26ec616a66b9888e25e7b9460e1c76d3293bd9dbf",
+      "url": "https://files.pythonhosted.org/packages/30/ac/0273f6fcb5f42e314c6d8cd99effae6a5354604d461b8d392b5ec9530a54/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/markupsafe/3.0.3/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "markupsafe-3.0.3.dist-info/licenses/LICENSE.txt",
+          "sha256": "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.10.9",
+      "filename": "matplotlib-3.10.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/matplotlib-3.10.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 8777092,
+      "sha256": "8e436d155fa8a3399dc62683f8f5d0e2e50d25d0144a73edd73f82eec8f4abfb",
+      "url": "https://files.pythonhosted.org/packages/79/db/e28c1b83e3680740aa78925f5fb2ae4d16207207419ad75ea9fe604f8676/matplotlib-3.10.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/matplotlib/3.10.9/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "contourpy>=1.0.1",
+        "cycler>=0.10",
+        "fonttools>=4.22.0",
+        "kiwisolver>=1.3.1",
+        "numpy>=1.23",
+        "packaging>=20.0",
+        "pillow>=8",
+        "pyparsing>=3",
+        "python-dateutil>=2.7",
+        "meson-python<0.17.0,>=0.13.1; extra == \"dev\"",
+        "pybind11!=2.13.3,>=2.13.2; extra == \"dev\"",
+        "setuptools_scm<10,>=7; extra == \"dev\"",
+        "setuptools>=64; extra == \"dev\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream redistribution license and bundled third-party notices are retained unmodified inside the original wheel; no package contents modified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "matplotlib/mpl-data/fonts/ttf/LICENSE_DEJAVU",
+          "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e"
+        },
+        {
+          "path": "matplotlib/mpl-data/fonts/ttf/LICENSE_STIX",
+          "sha256": "bab3d31dfef07f483624f2f65f2711e76065b8e7273278b1c071ede1041c9959"
+        },
+        {
+          "path": "matplotlib-3.10.9.dist-info/LICENSE",
+          "sha256": "dbb9ad7495a83b0f2f48c94b06e23020587d82f8d1492dcb717fb1ebc2f86c18"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "moderngl",
+      "version": "5.12.0",
+      "filename": "moderngl-5.12.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/moderngl-5.12.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 293468,
+      "sha256": "7fc0f8788bc84433d2124e9a4893adbe40f93c7d213abb8ad7b909540cb0161f",
+      "url": "https://files.pythonhosted.org/packages/c2/bb/ab371acacd2497bddb5f02b209e3bfae452b2be59d0cf8fa728a3b87de1f/moderngl-5.12.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/moderngl/5.12.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "glcontext>=3.0.0",
+        "glcontext>=3.0.0; extra == \"headless\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "moderngl-5.12.0.dist-info/LICENSE",
+          "sha256": "20d168158102c3ceea1c76bd7c10a921216dd1ca4a68c8f212a2565bdab6e33e"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "multidict",
+      "version": "6.9.1",
+      "filename": "multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 320663,
+      "sha256": "e8f1e362c9352b50ed120f001046fdbb80810c9d56580f4c3fc13bbe30823387",
+      "url": "https://files.pythonhosted.org/packages/27/50/f420de3683f9b047fc5588064d84043ef57a7152ef451b8373dfc7068d22/multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/multidict/6.9.1/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "typing-extensions>=4.1.0; python_version < \"3.11\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "multidict-6.9.1.dist-info/licenses/LICENSE",
+          "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.3",
+      "filename": "numpy-1.26.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/numpy-1.26.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 18251823,
+      "sha256": "f25e2811a9c932e43943a2615e65fc487a0b6b49218899e62e426e7f0a57eeda",
+      "url": "https://files.pythonhosted.org/packages/5a/62/007b63f916aca1d27f5fede933fda3315d931ff9b2c28b9c2cf388cd8edb/numpy-1.26.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/numpy/1.26.3/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream redistribution license and bundled third-party notices are retained unmodified inside the original wheel; no package contents modified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "numpy-1.26.3.dist-info/LICENSE.txt",
+          "sha256": "5f3571927eb559c842ff29aa110a042608b782c322276907ee180135141b9876"
+        },
+        {
+          "path": "numpy/core/include/numpy/random/LICENSE.txt",
+          "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec"
+        },
+        {
+          "path": "numpy/random/LICENSE.md",
+          "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+        },
+        {
+          "path": "numpy/ma/LICENSE",
+          "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "open3d",
+      "version": "0.20.0",
+      "filename": "open3d-0.20.0-cp311-cp311-manylinux_2_35_x86_64.whl",
+      "relative_path": "wheels/open3d-0.20.0-cp311-cp311-manylinux_2_35_x86_64.whl",
+      "bytes": 400803434,
+      "sha256": "18ae25cbc9f8fcabc06bad71e00cca3cd0ff0a762ce0fbec093f2e2a4d05eddf",
+      "url": "https://files.pythonhosted.org/packages/1a/74/5364df64573016c45eb648a432253c2e50fed2c6c64be87dc928a46fc2e0/open3d-0.20.0-cp311-cp311-manylinux_2_35_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/open3d/0.20.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy>=1.18.0",
+        "dash>=2.6.0",
+        "werkzeug>=3.0.0",
+        "flask>=3.0.0",
+        "nbformat>=5.7.0",
+        "configargparse",
+        "pywinpty==2.0.2; sys_platform == \"win32\" and python_version == \"3.6\"",
+        "ipywidgets>=8.0.4",
+        "addict; extra == \"ml\"",
+        "pillow>=9.3.0; extra == \"ml\"",
+        "matplotlib>=3; extra == \"ml\"",
+        "numpy>1.18; extra == \"ml\"",
+        "pandas>=1.0; extra == \"ml\"",
+        "pyyaml>=5.4.1; extra == \"ml\"",
+        "scikit-learn>=0.21; extra == \"ml\"",
+        "tqdm; extra == \"ml\"",
+        "pyquaternion; extra == \"ml\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "open3d-0.20.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "703709988d21b7cefbc25d7dd0cabd82b640e3e6b174bd2ed140833170731190"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "optree",
+      "version": "0.20.0",
+      "filename": "optree-0.20.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/optree-0.20.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 477936,
+      "sha256": "cd49b5a6066ebb027b37afa19f02d77e33067f33b0d5b7602b537e6892789d00",
+      "url": "https://files.pythonhosted.org/packages/03/02/483d389f5d4984b9aab12a6c16c43cc3f27304487f22f7e99aaf1c0deb5d/optree-0.20.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/optree/0.20.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "typing-extensions>=4.10.0",
+        "typing-extensions>=4.12.0; python_version >= \"3.13\"",
+        "typing-extensions>=4.14.0; python_version >= \"3.15\"",
+        "attrs; extra == \"attrs\"",
+        "jax; extra == \"jax\"",
+        "numpy; extra == \"numpy\"",
+        "torch; extra == \"torch\"",
+        "cpplint; extra == \"lint\"",
+        "doc8; extra == \"lint\"",
+        "mypy; extra == \"lint\"",
+        "pre-commit; extra == \"lint\"",
+        "pyenchant; extra == \"lint\"",
+        "pylint[spelling]; extra == \"lint\"",
+        "ruff; extra == \"lint\"",
+        "xdoctest; extra == \"lint\"",
+        "pytest; extra == \"test\"",
+        "pytest-cov; extra == \"test\"",
+        "covdefaults; extra == \"test\"",
+        "rich; extra == \"test\"",
+        "typing-extensions==4.10.0; (python_version < \"3.13\" and platform_system == \"Linux\") and extra == \"test\"",
+        "typing-extensions==4.10.0; (python_version < \"3.13\" and platform_system == \"Darwin\") and extra == \"test\"",
+        "typing-extensions==4.10.0; (python_version < \"3.13\" and platform_system == \"Windows\") and extra == \"test\"",
+        "typing-extensions==4.12.0; (python_version >= \"3.13\" and python_version < \"3.15\" and platform_system == \"Linux\") and extra == \"test\"",
+        "typing-extensions==4.12.0; (python_version >= \"3.13\" and python_version < \"3.15\" and platform_system == \"Darwin\") and extra == \"test\"",
+        "typing-extensions==4.12.0; (python_version >= \"3.13\" and python_version < \"3.15\" and platform_system == \"Windows\") and extra == \"test\"",
+        "typing-extensions==4.14.0; (python_version >= \"3.15\" and platform_system == \"Linux\") and extra == \"test\"",
+        "typing-extensions==4.14.0; (python_version >= \"3.15\" and platform_system == \"Darwin\") and extra == \"test\"",
+        "typing-extensions==4.14.0; (python_version >= \"3.15\" and platform_system == \"Windows\") and extra == \"test\"",
+        "sphinx~=8.0; extra == \"docs\"",
+        "sphinx-autoapi; extra == \"docs\"",
+        "sphinx-autobuild; extra == \"docs\"",
+        "sphinx-autodoc-typehints; extra == \"docs\"",
+        "sphinx-copybutton; extra == \"docs\"",
+        "sphinx-rtd-theme; extra == \"docs\"",
+        "sphinxcontrib-bibtex; extra == \"docs\"",
+        "docutils; extra == \"docs\"",
+        "attrs; extra == \"docs\"",
+        "jax[cpu]; extra == \"docs\"",
+        "numpy; extra == \"docs\"",
+        "torch; extra == \"docs\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "optree-0.20.0.dist-info/licenses/LICENSE",
+          "sha256": "c5788f5b708eedb082744bfb9d31345a029c16e83ea12be485bda54c8fe8a807"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "orjson",
+      "version": "3.12.0",
+      "filename": "orjson-3.12.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/orjson-3.12.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 131285,
+      "sha256": "9caf3d09f47c3c70c4451ada20ef9bc4a4cdffa26f49862cf0a253b329aae2d5",
+      "url": "https://files.pythonhosted.org/packages/5b/e1/15169e9d22b59a406264f99d6db387c0b0b12b6357a8a0169917c2a713eb/orjson-3.12.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/orjson/3.12.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "orjson-3.12.0.dist-info/licenses/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "orjson-3.12.0.dist-info/licenses/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "orjson-3.12.0.dist-info/licenses/LICENSE-MPL-2.0",
+          "sha256": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "pandas",
+      "version": "2.3.3",
+      "filename": "pandas-2.3.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/pandas-2.3.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 12789281,
+      "sha256": "b98560e98cb334799c0b07ca7967ac361a47326e9b4e5a7dfb5ab2b1c9d35a1b",
+      "url": "https://files.pythonhosted.org/packages/bf/c9/63f8d545568d9ab91476b1818b4741f521646cbdd151c6efebf40d6de6f7/pandas-2.3.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/pandas/2.3.3/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy>=1.22.4; python_version < \"3.11\"",
+        "numpy>=1.23.2; python_version == \"3.11\"",
+        "numpy>=1.26.0; python_version >= \"3.12\"",
+        "python-dateutil>=2.8.2",
+        "pytz>=2020.1",
+        "tzdata>=2022.7",
+        "hypothesis>=6.46.1; extra == \"test\"",
+        "pytest>=7.3.2; extra == \"test\"",
+        "pytest-xdist>=2.2.0; extra == \"test\"",
+        "pyarrow>=10.0.1; extra == \"pyarrow\"",
+        "bottleneck>=1.3.6; extra == \"performance\"",
+        "numba>=0.56.4; extra == \"performance\"",
+        "numexpr>=2.8.4; extra == \"performance\"",
+        "scipy>=1.10.0; extra == \"computation\"",
+        "xarray>=2022.12.0; extra == \"computation\"",
+        "fsspec>=2022.11.0; extra == \"fss\"",
+        "s3fs>=2022.11.0; extra == \"aws\"",
+        "gcsfs>=2022.11.0; extra == \"gcp\"",
+        "pandas-gbq>=0.19.0; extra == \"gcp\"",
+        "odfpy>=1.4.1; extra == \"excel\"",
+        "openpyxl>=3.1.0; extra == \"excel\"",
+        "python-calamine>=0.1.7; extra == \"excel\"",
+        "pyxlsb>=1.0.10; extra == \"excel\"",
+        "xlrd>=2.0.1; extra == \"excel\"",
+        "xlsxwriter>=3.0.5; extra == \"excel\"",
+        "pyarrow>=10.0.1; extra == \"parquet\"",
+        "pyarrow>=10.0.1; extra == \"feather\"",
+        "tables>=3.8.0; extra == \"hdf5\"",
+        "pyreadstat>=1.2.0; extra == \"spss\"",
+        "SQLAlchemy>=2.0.0; extra == \"postgresql\"",
+        "psycopg2>=2.9.6; extra == \"postgresql\"",
+        "adbc-driver-postgresql>=0.8.0; extra == \"postgresql\"",
+        "SQLAlchemy>=2.0.0; extra == \"mysql\"",
+        "pymysql>=1.0.2; extra == \"mysql\"",
+        "SQLAlchemy>=2.0.0; extra == \"sql-other\"",
+        "adbc-driver-postgresql>=0.8.0; extra == \"sql-other\"",
+        "adbc-driver-sqlite>=0.8.0; extra == \"sql-other\"",
+        "beautifulsoup4>=4.11.2; extra == \"html\"",
+        "html5lib>=1.1; extra == \"html\"",
+        "lxml>=4.9.2; extra == \"html\"",
+        "lxml>=4.9.2; extra == \"xml\"",
+        "matplotlib>=3.6.3; extra == \"plot\"",
+        "jinja2>=3.1.2; extra == \"output-formatting\"",
+        "tabulate>=0.9.0; extra == \"output-formatting\"",
+        "PyQt5>=5.15.9; extra == \"clipboard\"",
+        "qtpy>=2.3.0; extra == \"clipboard\"",
+        "zstandard>=0.19.0; extra == \"compression\"",
+        "dataframe-api-compat>=0.1.7; extra == \"consortium-standard\"",
+        "adbc-driver-postgresql>=0.8.0; extra == \"all\"",
+        "adbc-driver-sqlite>=0.8.0; extra == \"all\"",
+        "beautifulsoup4>=4.11.2; extra == \"all\"",
+        "bottleneck>=1.3.6; extra == \"all\"",
+        "dataframe-api-compat>=0.1.7; extra == \"all\"",
+        "fastparquet>=2022.12.0; extra == \"all\"",
+        "fsspec>=2022.11.0; extra == \"all\"",
+        "gcsfs>=2022.11.0; extra == \"all\"",
+        "html5lib>=1.1; extra == \"all\"",
+        "hypothesis>=6.46.1; extra == \"all\"",
+        "jinja2>=3.1.2; extra == \"all\"",
+        "lxml>=4.9.2; extra == \"all\"",
+        "matplotlib>=3.6.3; extra == \"all\"",
+        "numba>=0.56.4; extra == \"all\"",
+        "numexpr>=2.8.4; extra == \"all\"",
+        "odfpy>=1.4.1; extra == \"all\"",
+        "openpyxl>=3.1.0; extra == \"all\"",
+        "pandas-gbq>=0.19.0; extra == \"all\"",
+        "psycopg2>=2.9.6; extra == \"all\"",
+        "pyarrow>=10.0.1; extra == \"all\"",
+        "pymysql>=1.0.2; extra == \"all\"",
+        "PyQt5>=5.15.9; extra == \"all\"",
+        "pyreadstat>=1.2.0; extra == \"all\"",
+        "pytest>=7.3.2; extra == \"all\"",
+        "pytest-xdist>=2.2.0; extra == \"all\"",
+        "python-calamine>=0.1.7; extra == \"all\"",
+        "pyxlsb>=1.0.10; extra == \"all\"",
+        "qtpy>=2.3.0; extra == \"all\"",
+        "scipy>=1.10.0; extra == \"all\"",
+        "s3fs>=2022.11.0; extra == \"all\"",
+        "SQLAlchemy>=2.0.0; extra == \"all\"",
+        "tables>=3.8.0; extra == \"all\"",
+        "tabulate>=0.9.0; extra == \"all\"",
+        "xarray>=2022.12.0; extra == \"all\"",
+        "xlrd>=2.0.1; extra == \"all\"",
+        "xlsxwriter>=3.0.5; extra == \"all\"",
+        "zstandard>=0.19.0; extra == \"all\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream redistribution license and bundled third-party notices are retained unmodified inside the original wheel; no package contents modified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "pandas-2.3.3.dist-info/LICENSE",
+          "sha256": "1dea2e80ed1cbd0233f84cee4486b29689f133babaccf4d295e51c43051f3216"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "pillow",
+      "version": "11.3.0",
+      "filename": "pillow-11.3.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/pillow-11.3.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 7641168,
+      "sha256": "91da1d88226663594e3f6b4b8c3c8d85bd504117d043740a8e0ec449087cc494",
+      "url": "https://files.pythonhosted.org/packages/13/92/dcdd147ab02daf405387f0218dcf792dc6dd5b14d2573d40b4caeef01059/pillow-11.3.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/pillow/11.3.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "furo; extra == \"docs\"",
+        "olefile; extra == \"docs\"",
+        "sphinx>=8.2; extra == \"docs\"",
+        "sphinx-autobuild; extra == \"docs\"",
+        "sphinx-copybutton; extra == \"docs\"",
+        "sphinx-inline-tabs; extra == \"docs\"",
+        "sphinxext-opengraph; extra == \"docs\"",
+        "olefile; extra == \"fpx\"",
+        "olefile; extra == \"mic\"",
+        "pyarrow; extra == \"test-arrow\"",
+        "check-manifest; extra == \"tests\"",
+        "coverage>=7.4.2; extra == \"tests\"",
+        "defusedxml; extra == \"tests\"",
+        "markdown2; extra == \"tests\"",
+        "olefile; extra == \"tests\"",
+        "packaging; extra == \"tests\"",
+        "pyroma; extra == \"tests\"",
+        "pytest; extra == \"tests\"",
+        "pytest-cov; extra == \"tests\"",
+        "pytest-timeout; extra == \"tests\"",
+        "pytest-xdist; extra == \"tests\"",
+        "trove-classifiers>=2024.10.12; extra == \"tests\"",
+        "typing-extensions; python_version < \"3.10\" and extra == \"typing\"",
+        "defusedxml; extra == \"xmp\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "pillow-11.3.0.dist-info/licenses/LICENSE",
+          "sha256": "2c40a7d8894126ff7a993a752505b915694aafe7a620889ef368acbf54b87144"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.4",
+      "filename": "propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 235381,
+      "sha256": "6e9368e87a3efc285e559131092c5db643eb8e56de4ee42064d5baec22ef2bb5",
+      "url": "https://files.pythonhosted.org/packages/c7/06/519a5ebb48b6f94beb48396e55c905f12246a25c3a3608a7ec7bceabf50e/propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/propcache/0.5.4/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "propcache-0.5.4.dist-info/licenses/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "propcache-0.5.4.dist-info/licenses/NOTICE",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "pycocotools",
+      "version": "2.0.11",
+      "filename": "pycocotools-2.0.11-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/pycocotools-2.0.11-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 493172,
+      "sha256": "18ba75ff58cedb33a85ce2c18f1452f1fe20c9dd59925eec5300b2bf6205dbe1",
+      "url": "https://files.pythonhosted.org/packages/34/70/7a12752784e57d8034a76c245c618a2f88a9d2463862b990f314aea7e5d6/pycocotools-2.0.11-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/pycocotools/2.0.11/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy",
+        "matplotlib>=2.1.0; extra == \"all\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "The upstream permissive distribution license is supplied as an unchanged supplemental file; original package contents are unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.33.2",
+      "filename": "pydantic_core-2.33.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/pydantic_core-2.33.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 2003200,
+      "sha256": "881b21b5549499972441da4758d662aeea93f1923f953e9cbaff14b8b9565aef",
+      "url": "https://files.pythonhosted.org/packages/47/bc/cd720e078576bdb8255d5032c5d63ee5c0bf4b7173dd955185a1d658c456/pydantic_core-2.33.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/pydantic-core/2.33.2/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "typing-extensions>=4.6.0,!=4.7.0"
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "pydantic_core-2.33.2.dist-info/licenses/LICENSE",
+          "sha256": "2afdd30d54b4d62b6f488a6bcc1546e84ec5061f13f4209c03d012348783795a"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "pymeshfix",
+      "version": "0.18.1",
+      "filename": "pymeshfix-0.18.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/pymeshfix-0.18.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 1356680,
+      "sha256": "134351b50821f0b3c1ed238fc9821b1d290e9eb6856c0d360e3dfda9974eae8d",
+      "url": "https://files.pythonhosted.org/packages/13/ea/453089cbc7fb643eb19a34688f040ba2501ce0e275ad47bff7649844e70b/pymeshfix-0.18.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/pymeshfix/0.18.1/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy",
+        "Sphinx; extra == \"docs\"",
+        "pydata-sphinx-theme; extra == \"docs\"",
+        "pyvista; extra == \"docs\"",
+        "sphinx_gallery; extra == \"docs\"",
+        "sphinx-notfound-page>=0.3.0; extra == \"docs\"",
+        "sphinx-copybutton; extra == \"docs\"",
+        "pyvista; extra == \"extras\"",
+        "pyvista; extra == \"tests\"",
+        "pytest; extra == \"tests\"",
+        "pytest-cov; extra == \"tests\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": false,
+      "redistribution_note": "Binary contains or may bundle copyleft native components; corresponding-source/redistribution closure is not yet established. Kept locally; official origin recorded.",
+      "publication_status": "withheld",
+      "license_files": [
+        {
+          "path": "pymeshfix-0.18.1.dist-info/licenses/LICENSE",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "filename": "pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 806638,
+      "sha256": "b8bb0864c5a28024fac8a632c443c87c5aa6f215c0b126c449ae1a150412f31d",
+      "url": "https://files.pythonhosted.org/packages/71/60/917329f640924b18ff085ab889a11c763e0b573da888e8404ff486657602/pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/pyyaml/6.0.3/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "pyyaml-6.0.3.dist-info/licenses/LICENSE",
+          "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "pyzmq",
+      "version": "27.2.0",
+      "filename": "pyzmq-27.2.0-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/pyzmq-27.2.0-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 888465,
+      "sha256": "39755dc4a923021bd0677990ffdbc21cff0e1ee1cf07fe3817acea153ef4cb67",
+      "url": "https://files.pythonhosted.org/packages/50/b5/13657961a845e29c28a4e7ac4202999ec90b3bba1890a5469ce2ae90359d/pyzmq-27.2.0-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/pyzmq/27.2.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "cffi; implementation_name == \"pypy\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "pyzmq-27.2.0.dist-info/licenses/LICENSE.md",
+          "sha256": "c0cf5f5c03f8d6772f7a271df1cb671054578bd3d79527c72fc1f28f8cc72a7a"
+        },
+        {
+          "path": "pyzmq-27.2.0.dist-info/licenses/licenses/LICENSE.libsodium.txt",
+          "sha256": "508a76d186356c0dd807a670ef510964f8724557024796a2c426c6c0e19ab683"
+        },
+        {
+          "path": "pyzmq-27.2.0.dist-info/licenses/licenses/LICENSE.tornado.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "pyzmq-27.2.0.dist-info/licenses/licenses/LICENSE.zeromq.txt",
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.10",
+      "filename": "regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 802962,
+      "sha256": "0acee94b480dd853e39434aa9a575f95385b1b4b8fa3feae56db363ca5cad782",
+      "url": "https://files.pythonhosted.org/packages/74/dc/2dd4d56932f55ea412c9808f27a8661f93568bfee596ed04bc57a74e591f/regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/regex/2026.9.10/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "regex-2026.9.10.dist-info/licenses/LICENSE.txt",
+          "sha256": "bff55ef4cdcc8c14ce259f8e8ab60e264418440d6335f4dc138273fbd506144d"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "rpds-py",
+      "version": "0.30.0",
+      "filename": "rpds_py-0.30.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/rpds_py-0.30.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 390828,
+      "sha256": "33f559f3104504506a44bb666b93a33f5d33133765b0c216a5bf2f1e1503af89",
+      "url": "https://files.pythonhosted.org/packages/f8/1e/372195d326549bb51f0ba0f2ecb9874579906b97e08880e7a65c3bef1a99/rpds_py-0.30.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/rpds-py/0.30.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "rpds_py-0.30.0.dist-info/licenses/LICENSE",
+          "sha256": "314e4e91be3baa93c0fb4bccc9e4e97cd643eb839b065af921782c2175fe9909"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "scikit-image",
+      "version": "0.25.2",
+      "filename": "scikit_image-0.25.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/scikit_image-0.25.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 14785376,
+      "sha256": "24cc986e1f4187a12aa319f777b36008764e856e5013666a4a83f8df083c2641",
+      "url": "https://files.pythonhosted.org/packages/dd/9b/9fb556463a34d9842491d72a421942c8baff4281025859c84fcdb5e7e602/scikit_image-0.25.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/scikit-image/0.25.2/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy>=1.24",
+        "scipy>=1.11.4",
+        "networkx>=3.0",
+        "pillow>=10.1",
+        "imageio!=2.35.0,>=2.33",
+        "tifffile>=2022.8.12",
+        "packaging>=21",
+        "lazy-loader>=0.4",
+        "meson-python>=0.16; extra == \"build\"",
+        "ninja>=1.11.1.1; extra == \"build\"",
+        "Cython>=3.0.8; extra == \"build\"",
+        "pythran>=0.16; extra == \"build\"",
+        "numpy>=2.0; extra == \"build\"",
+        "spin==0.13; extra == \"build\"",
+        "build>=1.2.1; extra == \"build\"",
+        "pooch>=1.6.0; extra == \"data\"",
+        "pre-commit; extra == \"developer\"",
+        "ipython; extra == \"developer\"",
+        "tomli; python_version < \"3.11\" and extra == \"developer\"",
+        "sphinx>=8.0; extra == \"docs\"",
+        "sphinx-gallery[parallel]>=0.18; extra == \"docs\"",
+        "numpydoc>=1.7; extra == \"docs\"",
+        "sphinx-copybutton; extra == \"docs\"",
+        "matplotlib>=3.7; extra == \"docs\"",
+        "dask[array]>=2023.2.0; extra == \"docs\"",
+        "pandas>=2.0; extra == \"docs\"",
+        "seaborn>=0.11; extra == \"docs\"",
+        "pooch>=1.6; extra == \"docs\"",
+        "tifffile>=2022.8.12; extra == \"docs\"",
+        "myst-parser; extra == \"docs\"",
+        "intersphinx-registry>=0.2411.14; extra == \"docs\"",
+        "ipywidgets; extra == \"docs\"",
+        "ipykernel; extra == \"docs\"",
+        "plotly>=5.20; extra == \"docs\"",
+        "kaleido==0.2.1; extra == \"docs\"",
+        "scikit-learn>=1.2; extra == \"docs\"",
+        "sphinx_design>=0.5; extra == \"docs\"",
+        "pydata-sphinx-theme>=0.16; extra == \"docs\"",
+        "PyWavelets>=1.6; extra == \"docs\"",
+        "pytest-doctestplus; extra == \"docs\"",
+        "SimpleITK; extra == \"optional\"",
+        "astropy>=5.0; extra == \"optional\"",
+        "cloudpickle>=1.1.1; extra == \"optional\"",
+        "dask[array]>=2023.2.0; extra == \"optional\"",
+        "matplotlib>=3.7; extra == \"optional\"",
+        "pooch>=1.6.0; extra == \"optional\"",
+        "pyamg>=5.2; extra == \"optional\"",
+        "PyWavelets>=1.6; extra == \"optional\"",
+        "scikit-learn>=1.2; extra == \"optional\"",
+        "asv; extra == \"test\"",
+        "numpydoc>=1.7; extra == \"test\"",
+        "pooch>=1.6.0; extra == \"test\"",
+        "pytest>=8; extra == \"test\"",
+        "pytest-cov>=2.11.0; extra == \"test\"",
+        "pytest-localserver; extra == \"test\"",
+        "pytest-faulthandler; extra == \"test\"",
+        "pytest-doctestplus; extra == \"test\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "scikit_image-0.25.2.dist-info/LICENSE.txt",
+          "sha256": "611d3207504dcb4a808df209d2e7c9b4f2e89fe690f84735c0d548160966b527"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.7.2",
+      "filename": "scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 9715424,
+      "sha256": "89877e19a80c7b11a2891a27c21c4894fb18e2c2e077815bcade10d34287b20d",
+      "url": "https://files.pythonhosted.org/packages/ef/0e/97dbca66347b8cf0ea8b529e6bb9367e337ba2e8be0ef5c1a545232abfde/scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/scikit-learn/1.7.2/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy>=1.22.0",
+        "scipy>=1.8.0",
+        "joblib>=1.2.0",
+        "threadpoolctl>=3.1.0",
+        "numpy>=1.22.0; extra == \"build\"",
+        "scipy>=1.8.0; extra == \"build\"",
+        "cython>=3.0.10; extra == \"build\"",
+        "meson-python>=0.17.1; extra == \"build\"",
+        "numpy>=1.22.0; extra == \"install\"",
+        "scipy>=1.8.0; extra == \"install\"",
+        "joblib>=1.2.0; extra == \"install\"",
+        "threadpoolctl>=3.1.0; extra == \"install\"",
+        "matplotlib>=3.5.0; extra == \"benchmark\"",
+        "pandas>=1.4.0; extra == \"benchmark\"",
+        "memory_profiler>=0.57.0; extra == \"benchmark\"",
+        "matplotlib>=3.5.0; extra == \"docs\"",
+        "scikit-image>=0.19.0; extra == \"docs\"",
+        "pandas>=1.4.0; extra == \"docs\"",
+        "seaborn>=0.9.0; extra == \"docs\"",
+        "memory_profiler>=0.57.0; extra == \"docs\"",
+        "sphinx>=7.3.7; extra == \"docs\"",
+        "sphinx-copybutton>=0.5.2; extra == \"docs\"",
+        "sphinx-gallery>=0.17.1; extra == \"docs\"",
+        "numpydoc>=1.2.0; extra == \"docs\"",
+        "Pillow>=8.4.0; extra == \"docs\"",
+        "pooch>=1.6.0; extra == \"docs\"",
+        "sphinx-prompt>=1.4.0; extra == \"docs\"",
+        "sphinxext-opengraph>=0.9.1; extra == \"docs\"",
+        "plotly>=5.14.0; extra == \"docs\"",
+        "polars>=0.20.30; extra == \"docs\"",
+        "sphinx-design>=0.5.0; extra == \"docs\"",
+        "sphinx-design>=0.6.0; extra == \"docs\"",
+        "sphinxcontrib-sass>=0.3.4; extra == \"docs\"",
+        "pydata-sphinx-theme>=0.15.3; extra == \"docs\"",
+        "sphinx-remove-toctrees>=1.0.0.post1; extra == \"docs\"",
+        "towncrier>=24.8.0; extra == \"docs\"",
+        "matplotlib>=3.5.0; extra == \"examples\"",
+        "scikit-image>=0.19.0; extra == \"examples\"",
+        "pandas>=1.4.0; extra == \"examples\"",
+        "seaborn>=0.9.0; extra == \"examples\"",
+        "pooch>=1.6.0; extra == \"examples\"",
+        "plotly>=5.14.0; extra == \"examples\"",
+        "matplotlib>=3.5.0; extra == \"tests\"",
+        "scikit-image>=0.19.0; extra == \"tests\"",
+        "pandas>=1.4.0; extra == \"tests\"",
+        "pytest>=7.1.2; extra == \"tests\"",
+        "pytest-cov>=2.9.0; extra == \"tests\"",
+        "ruff>=0.11.7; extra == \"tests\"",
+        "mypy>=1.15; extra == \"tests\"",
+        "pyamg>=4.2.1; extra == \"tests\"",
+        "polars>=0.20.30; extra == \"tests\"",
+        "pyarrow>=12.0.0; extra == \"tests\"",
+        "numpydoc>=1.2.0; extra == \"tests\"",
+        "pooch>=1.6.0; extra == \"tests\"",
+        "conda-lock==3.0.1; extra == \"maintenance\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "sklearn/externals/array_api_compat/LICENSE",
+          "sha256": "4ffd978e3fa18d058d98c66771cfea7ed634aaf7023cf9612b8b55eee9a8f0fe"
+        },
+        {
+          "path": "sklearn/externals/array_api_extra/LICENSE",
+          "sha256": "58494398fe147fdce76a68b2decd4c08ce3a1ea237b6d6785001c15f822c6ed6"
+        },
+        {
+          "path": "sklearn/svm/src/liblinear/COPYRIGHT",
+          "sha256": "36f048db5651dd450f03e513016b77036cc99a44a66b2fdcecf4f6418657e0e1"
+        },
+        {
+          "path": "scikit_learn-1.7.2.dist-info/licenses/COPYING",
+          "sha256": "fde6cdc0a86c65a845af17086f964f7a38d934467b7f36203894af30ecee7640"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "filename": "scipy-1.15.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/scipy-1.15.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 37652622,
+      "sha256": "39cb9c62e471b1bb3750066ecc3a3f3052b37751c7c3dfd0fd7e48900ed52982",
+      "url": "https://files.pythonhosted.org/packages/bd/37/89f19c8c05505d0601ed5650156e50eb881ae3918786c8fd7262b4ee66d3/scipy-1.15.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/scipy/1.15.3/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy<2.5,>=1.23.5",
+        "pytest; extra == \"test\"",
+        "pytest-cov; extra == \"test\"",
+        "pytest-timeout; extra == \"test\"",
+        "pytest-xdist; extra == \"test\"",
+        "asv; extra == \"test\"",
+        "mpmath; extra == \"test\"",
+        "gmpy2; extra == \"test\"",
+        "threadpoolctl; extra == \"test\"",
+        "scikit-umfpack; extra == \"test\"",
+        "pooch; extra == \"test\"",
+        "hypothesis>=6.30; extra == \"test\"",
+        "array-api-strict<2.1.1,>=2.0; extra == \"test\"",
+        "Cython; extra == \"test\"",
+        "meson; extra == \"test\"",
+        "ninja; sys_platform != \"emscripten\" and extra == \"test\"",
+        "sphinx<8.0.0,>=5.0.0; extra == \"doc\"",
+        "intersphinx_registry; extra == \"doc\"",
+        "pydata-sphinx-theme>=0.15.2; extra == \"doc\"",
+        "sphinx-copybutton; extra == \"doc\"",
+        "sphinx-design>=0.4.0; extra == \"doc\"",
+        "matplotlib>=3.5; extra == \"doc\"",
+        "numpydoc; extra == \"doc\"",
+        "jupytext; extra == \"doc\"",
+        "myst-nb; extra == \"doc\"",
+        "pooch; extra == \"doc\"",
+        "jupyterlite-sphinx>=0.19.1; extra == \"doc\"",
+        "jupyterlite-pyodide-kernel; extra == \"doc\"",
+        "mypy==1.10.0; extra == \"dev\"",
+        "typing_extensions; extra == \"dev\"",
+        "types-psutil; extra == \"dev\"",
+        "pycodestyle; extra == \"dev\"",
+        "ruff>=0.0.292; extra == \"dev\"",
+        "cython-lint>=0.12.2; extra == \"dev\"",
+        "rich-click; extra == \"dev\"",
+        "doit>=0.36.0; extra == \"dev\"",
+        "pydevtool; extra == \"dev\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream redistribution license and bundled third-party notices are retained unmodified inside the original wheel; no package contents modified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "scipy-1.15.3.dist-info/LICENSE.txt",
+          "sha256": "828cb9a7369c0a9f633ce7c10023f8d822f0f76b54ce25c723361d45b088879a"
+        },
+        {
+          "path": "scipy/_lib/_uarray/LICENSE",
+          "sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4"
+        },
+        {
+          "path": "scipy/sparse/linalg/_eigen/arpack/COPYING",
+          "sha256": "0926566f9f406178d1214f8cc796e166b1213dd7c05e0c5b461a8b8ac9e50bbe"
+        },
+        {
+          "path": "scipy/fft/_pocketfft/LICENSE.md",
+          "sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789"
+        },
+        {
+          "path": "scipy/spatial/qhull_src/COPYING.txt",
+          "sha256": "34db0c0c4f931861d720555c9cd7a2e228d1290ba29af0f2ee80c41bb2038afb"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "shapely",
+      "version": "2.1.2",
+      "filename": "shapely-2.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/shapely-2.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 3110842,
+      "sha256": "136ab87b17e733e22f0961504d05e77e7be8c9b5a8184f685b4a91a84efe3c26",
+      "url": "https://files.pythonhosted.org/packages/13/02/58b0b8d9c17c93ab6340edd8b7308c0c5a5b81f94ce65705819b7416dba5/shapely-2.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/shapely/2.1.2/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy>=1.21",
+        "pytest; extra == \"test\"",
+        "pytest-cov; extra == \"test\"",
+        "scipy-doctest; extra == \"test\"",
+        "numpydoc==1.1.*; extra == \"docs\"",
+        "matplotlib; extra == \"docs\"",
+        "sphinx; extra == \"docs\"",
+        "sphinx-book-theme; extra == \"docs\"",
+        "sphinx-remove-toctrees; extra == \"docs\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "shapely-2.1.2.dist-info/licenses/LICENSE.txt",
+          "sha256": "4a207eac9bf257ed286e1c6f0fce253d1abfdb134fc61ec855e37f5692a3f754"
+        },
+        {
+          "path": "shapely-2.1.2.dist-info/licenses/LICENSE_GEOS",
+          "sha256": "138b2c2f9450073d7c116abe397ca4382625671c752b7a9a5f320b33fc3f3f2a"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "spconv-cu124",
+      "version": "2.3.8",
+      "filename": "spconv_cu124-2.3.8-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/spconv_cu124-2.3.8-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "bytes": 70001450,
+      "sha256": "ccaf461f563dd46da3c84dcff479fa44430a27cc33a933e2bcc6ffa3924917c6",
+      "url": "https://files.pythonhosted.org/packages/0f/7a/9f49019d7c891011aeaaec924fe7decd6aea10f9c9d4f69641bd27fe892a/spconv_cu124-2.3.8-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/spconv-cu124/2.3.8/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "pccm>=0.4.16",
+        "ccimport>=0.4.4",
+        "pybind11>=2.6.0",
+        "fire",
+        "numpy",
+        "cumm-cu124<0.8.0,>=0.7.11"
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "spconv_cu124-2.3.8.dist-info/LICENSE",
+          "sha256": "3fa306db6d0cee13c1d7e0c687849cab1f40a99f7209d38d6e5f6d6556f416ec"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "tensorrt-cu12-bindings",
+      "version": "10.7.0.post1",
+      "filename": "tensorrt_cu12_bindings-10.7.0.post1-cp311-none-manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/tensorrt_cu12_bindings-10.7.0.post1-cp311-none-manylinux_2_17_x86_64.whl",
+      "bytes": 1191112,
+      "sha256": "f65b813e661172ab5096ac430fe65a110b21698aa38e7cc604951d5c98c5332b",
+      "url": "https://files.pythonhosted.org/packages/78/a1/ada33f90b89a96fa0a4f72b5ce642242de71b2fdefb5c1f61babf97e2335/tensorrt_cu12_bindings-10.7.0.post1-cp311-none-manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/tensorrt-cu12-bindings/10.7.0.post1/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy ; extra == 'numpy'"
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": false,
+      "redistribution_note": "Proprietary NVIDIA runtime/development redistribution scope has not been established for a standalone public wheel mirror; obtain exact pinned file from official origin.",
+      "publication_status": "withheld",
+      "license_files": [
+        {
+          "path": "tensorrt_cu12_bindings-10.7.0.post1.dist-info/LICENSE.txt",
+          "sha256": "64bd290f0251405f783ba1d2e155c500542be69795e51147a1d9f11a57bda8cc"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "torch",
+      "version": "2.5.1+cu124",
+      "filename": "torch-2.5.1+cu124-cp311-cp311-linux_x86_64.whl",
+      "relative_path": "wheels/torch-2.5.1+cu124-cp311-cp311-linux_x86_64.whl",
+      "bytes": 908301937,
+      "sha256": "6b2966ede9affe2fd69e0765691ca723ec870e0c34c7761f4d5b8e318383fdaf",
+      "url": "https://download-r2.pytorch.org/whl/cu124/torch-2.5.1%2Bcu124-cp311-cp311-linux_x86_64.whl",
+      "metadata_url": "https://download.pytorch.org/whl/cu124/torch/",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "filelock",
+        "typing-extensions (>=4.8.0)",
+        "networkx",
+        "jinja2",
+        "fsspec",
+        "nvidia-cuda-nvrtc-cu12 (==12.4.127) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-cuda-runtime-cu12 (==12.4.127) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-cuda-cupti-cu12 (==12.4.127) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-cudnn-cu12 (==9.1.0.70) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-cublas-cu12 (==12.4.5.8) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-cufft-cu12 (==11.2.1.3) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-curand-cu12 (==10.3.5.147) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-cusolver-cu12 (==11.6.1.9) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-cusparse-cu12 (==12.3.1.170) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-nccl-cu12 (==2.21.5) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-nvtx-cu12 (==12.4.127) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "nvidia-nvjitlink-cu12 (==12.4.127) ; platform_system == \"Linux\" and platform_machine == \"x86_64\"",
+        "triton (==3.1.0) ; platform_system == \"Linux\" and platform_machine == \"x86_64\" and python_version < \"3.13\"",
+        "sympy (==1.12.1) ; python_version == \"3.8\"",
+        "setuptools ; python_version >= \"3.12\"",
+        "sympy (==1.13.1) ; python_version >= \"3.9\"",
+        "opt-einsum (>=3.3) ; extra == 'opt-einsum'",
+        "optree (>=0.12.0) ; extra == 'optree'"
+      ],
+      "official_index_sha256_verified": true,
+      "license_files": [
+        {
+          "path": "torch-2.5.1+cu124.dist-info/LICENSE",
+          "sha256": "46ae798ccb0920a6959fcb7b80180d89ca6fb652909235b0f035a52cec228584"
+        },
+        {
+          "path": "torch-2.5.1+cu124.dist-info/NOTICE",
+          "sha256": "c2cc7bf0caec7652c2b460a8a470bea1677f241e4ab8e431df34cf17f5a9fec0"
+        }
+      ],
+      "license_content_matches_base_profile": true,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream redistribution license and bundled third-party notices are retained unmodified inside the original wheel; no package contents modified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.20.1+cu124",
+      "filename": "torchvision-0.20.1+cu124-cp311-cp311-linux_x86_64.whl",
+      "relative_path": "wheels/torchvision-0.20.1+cu124-cp311-cp311-linux_x86_64.whl",
+      "bytes": 7287870,
+      "sha256": "a5f7eb5ef22f34a7d18fcbc27b6c01f7dde5cd530df311cdbdd31169f91cbd98",
+      "url": "https://download-r2.pytorch.org/whl/cu124/torchvision-0.20.1%2Bcu124-cp311-cp311-linux_x86_64.whl",
+      "metadata_url": "https://download.pytorch.org/whl/cu124/torchvision/",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy",
+        "torch (==2.5.1)",
+        "pillow (!=8.3.*,>=5.3.0)",
+        "gdown (>=4.7.3) ; extra == 'gdown'",
+        "scipy ; extra == 'scipy'"
+      ],
+      "official_index_sha256_verified": true,
+      "license_files": [
+        {
+          "path": "torchvision-0.20.1+cu124.dist-info/LICENSE",
+          "sha256": "6502f676851cfe25f8af75531dfb32375b7325b73c37e7b43741fa422893e71d"
+        }
+      ],
+      "license_content_matches_base_profile": true,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream redistribution license and bundled third-party notices are retained unmodified inside the original wheel; no package contents modified.",
+      "publication_status": "eligible-with-original-notices"
+    },
+    {
+      "name": "transformations",
+      "version": "2025.1.1",
+      "filename": "transformations-2025.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/transformations-2025.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 141600,
+      "sha256": "9ce9fa1663d16126cfd746ca79dfc484db531cd68b1ee99dfd5960f65b82331a",
+      "url": "https://files.pythonhosted.org/packages/24/43/c12e5e5f4648257be1a1c2deacefffccff05b0cd334f7108dc60ee34c87b/transformations-2025.1.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/transformations/2025.1.1/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy"
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "transformations-2025.1.1.dist-info/LICENSE",
+          "sha256": "fffb161de67b6763899d1348d1cfe35731eeea7c2604108e56e75de75bf3ac7f"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "triton",
+      "version": "3.1.0",
+      "filename": "triton-3.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/triton-3.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 209506424,
+      "sha256": "0f34f6e7885d1bf0eaaf7ba875a5f0ce6f3c13ba98f9503651c1e6dc6757ed5c",
+      "url": "https://files.pythonhosted.org/packages/86/17/d9a5cf4fcf46291856d1e90762e36cbabd2a56c7265da0d1d9508c8e3943/triton-3.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/triton/3.1.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "filelock",
+        "cmake>=3.20; extra == \"build\"",
+        "lit; extra == \"build\"",
+        "autopep8; extra == \"tests\"",
+        "flake8; extra == \"tests\"",
+        "isort; extra == \"tests\"",
+        "numpy; extra == \"tests\"",
+        "pytest; extra == \"tests\"",
+        "scipy>=1.7.1; extra == \"tests\"",
+        "llnl-hatchet; extra == \"tests\"",
+        "matplotlib; extra == \"tutorials\"",
+        "pandas; extra == \"tutorials\"",
+        "tabulate; extra == \"tutorials\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": false,
+      "redistribution_note": "Actual wheel bundles NVIDIA ptxas, nvdisasm, libdevice10.bc and NVIDIA headers; the top-level MIT grant does not establish standalone SDK redistribution.",
+      "publication_status": "withheld",
+      "license_files": [],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "usd-core",
+      "version": "26.8",
+      "filename": "usd_core-26.8-cp311-none-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/usd_core-26.8-cp311-none-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 29611915,
+      "sha256": "53ebbc130108c7e0e7b4af9a4fe3bdac2ae084a12db13496a50f895db527382e",
+      "url": "https://files.pythonhosted.org/packages/c4/d7/491a3dd0f62424f92f59240c5aa5c64c03588c1b4920b00f5df2ac4f4087/usd_core-26.8-cp311-none-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/usd-core/26.8/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "usd_core-26.8.dist-info/licenses/LICENSE.txt",
+          "sha256": "4d6e8e3a9bd0104e10c48e3bc6af2f0976448a70a377d20cef674740f96f4452"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "vtk",
+      "version": "9.7.0",
+      "filename": "vtk-9.7.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "relative_path": "wheels/vtk-9.7.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 139624932,
+      "sha256": "e64c06b819cb97706ed7be717a9757a97aece3c427c06c9a1d47ad296231ca2b",
+      "url": "https://files.pythonhosted.org/packages/af/b5/d2124ab63019e6db4d397b054a8ec540c37f3436fff50bae5e3bd34ed3ff/vtk-9.7.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/vtk/9.7.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "matplotlib>=2.0.0",
+        "numpy>=1.9; extra == \"numpy\"",
+        "wslink>=1.0.4; extra == \"web\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "vtk-9.7.0.dist-info/licenses/LICENSE",
+          "sha256": "11232448be82e0ea2c2c66219c2e36389f42249894070ee10c549ff182fc08b6"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "websockets",
+      "version": "15.0.1",
+      "filename": "websockets-15.0.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/websockets-15.0.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 182252,
+      "sha256": "8dd8327c795b3e3f219760fa603dcae1dcc148172290a8ab15158cf85a953413",
+      "url": "https://files.pythonhosted.org/packages/93/1f/5d6dbf551766308f6f50f8baf8e9860be6182911e8106da7a7f73785f4c4/websockets-15.0.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/websockets/15.0.1/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "websockets-15.0.1.dist-info/LICENSE",
+          "sha256": "3d6a0c050d8bec52fabad502e45fb25bd02bcadbd70dea34d447b6a0ff4e6da8"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "wrapt",
+      "version": "2.5.0",
+      "filename": "wrapt-2.5.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "relative_path": "wheels/wrapt-2.5.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "bytes": 239849,
+      "sha256": "fd91203e156d610ecb28b9ccd7b764af7a7b38662d7c163090babab0d10def0c",
+      "url": "https://files.pythonhosted.org/packages/6f/19/b0b7e7cf1a5499a25bd5260b38deb3b17aa9ca7b268ef29e546dcb683aa7/wrapt-2.5.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/wrapt/2.5.0/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "pytest; extra == \"dev\"",
+        "setuptools; extra == \"dev\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "wrapt-2.5.0.dist-info/licenses/LICENSE",
+          "sha256": "d4f66854a24dda2f2a5282912aedebe6b18186b86284510a433d78fadcd88e5d"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "xatlas",
+      "version": "0.0.11",
+      "filename": "xatlas-0.0.11-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "relative_path": "wheels/xatlas-0.0.11-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 262197,
+      "sha256": "c044ee009a427898b26c0929646bfb0e0356f6762be40a140f4af41a33026208",
+      "url": "https://files.pythonhosted.org/packages/3d/e2/603763b0c7ca641c50d571d0b8f961c152d9039e0febeb269baa942ddf2d/xatlas-0.0.11-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/xatlas/0.0.11/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "numpy; extra == \"test\"",
+        "pytest; extra == \"test\"",
+        "scipy; extra == \"test\"",
+        "trimesh; extra == \"test\""
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "xatlas-0.0.11.dist-info/licenses/LICENSE",
+          "sha256": "095750fc0f9031d1a517cf734690d50cfd98c08a1d09473be006b86f488a4fc8"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "xxhash",
+      "version": "4.0.1",
+      "filename": "xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 261005,
+      "sha256": "101aa300de6ceef3d9c77569706330d8921fc45dd82bceed2084f1e9f2557a24",
+      "url": "https://files.pythonhosted.org/packages/40/ff/e39e1900179ce7f0f23e7000d9fc672471a8d05b6b2dc657cb496c8975d0/xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/xxhash/4.0.1/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "xxhash-4.0.1.dist-info/licenses/LICENSE",
+          "sha256": "b76e99529f3e47372029e11914a8f4b95d6313463ed5a1a5c9afe96c3e015114"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    },
+    {
+      "name": "yarl",
+      "version": "1.25.1",
+      "filename": "yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "relative_path": "wheels/yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 117728,
+      "sha256": "d5add7b4ca7afeea91d52e4d4e4db3b1fe9885b71f07054560d8c4296b7441a2",
+      "url": "https://files.pythonhosted.org/packages/95/0c/a71501bbc1a674ff72c4d6c2b75f4d9a5af819f5244c3a7558080a8802c5/yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "metadata_url": "https://pypi.org/pypi/yarl/1.25.1/json",
+      "distribution_type": "bdist_wheel",
+      "requires_dist": [
+        "idna>=2.0",
+        "multidict>=4.0",
+        "propcache>=0.2.1"
+      ],
+      "source_requires_remote_build": false,
+      "redistribution_verified": true,
+      "redistribution_note": "Upstream permission/redistribution grant found in embedded license files, all retained unmodified.",
+      "publication_status": "eligible-with-original-notices",
+      "license_files": [
+        {
+          "path": "yarl-1.25.1.dist-info/licenses/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "yarl-1.25.1.dist-info/licenses/NOTICE",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838"
+        }
+      ],
+      "license_content_matches_base_profile": true
+    }
+  ],
+  "reused_packages": [
+    {
+      "name": "absl-py",
+      "version": "2.5.0",
+      "base_relative_path": "wheels/absl_py-2.5.0-py3-none-any.whl",
+      "sha256": "0f17b89f2a4eaaedc4f28c622998aa690564b3012a396a4ffad0821007fe03ba",
+      "bytes": 137410,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "accelerate",
+      "version": "1.15.0",
+      "base_relative_path": "wheels/accelerate-1.15.0-py3-none-any.whl",
+      "sha256": "97eacca0b73e45cb867dbf8c5d5d4dc32219544300e0c8992c7334dc2ef33cec",
+      "bytes": 394295,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "aiofiles",
+      "version": "24.1.0",
+      "base_relative_path": "wheels/aiofiles-24.1.0-py3-none-any.whl",
+      "sha256": "b4ec55f4195e3eb5d7abd1bf7e061763e864dd4954231fb8539a0ef8bb8260e5",
+      "bytes": 15896,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "base_relative_path": "wheels/aiohappyeyeballs-2.7.1-py3-none-any.whl",
+      "sha256": "9243213661e29250eb41368e5daa826fc017156c3b8a11440826b2e3ed376472",
+      "bytes": 15038,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "base_relative_path": "wheels/aiosignal-1.4.0-py3-none-any.whl",
+      "sha256": "053243f8b92b990551949e63930a839ff0cf0b0ebbe0597b0f3fb19e1a0fe82e",
+      "bytes": 7490,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "base_relative_path": "wheels/annotated_doc-0.0.5-py3-none-any.whl",
+      "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101",
+      "bytes": 5302,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "base_relative_path": "wheels/annotated_types-0.8.0-py3-none-any.whl",
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+      "bytes": 13427,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "antlr4-python3-runtime",
+      "version": "4.9.3",
+      "base_relative_path": "sources/antlr4-python3-runtime-4.9.3.tar.gz",
+      "sha256": "f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b",
+      "bytes": 117034,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "base_relative_path": "wheels/anyio-4.15.1-py3-none-any.whl",
+      "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101",
+      "bytes": 132079,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "astor",
+      "version": "0.8.1",
+      "base_relative_path": "wheels/astor-0.8.1-py2.py3-none-any.whl",
+      "sha256": "070a54e890cefb5b3739d19f30f5a5ec840ffc9c50ffa7d23cc9fc1a38ebbfc5",
+      "bytes": 27488,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "asttokens",
+      "version": "3.0.2",
+      "base_relative_path": "wheels/asttokens-3.0.2-py3-none-any.whl",
+      "sha256": "9da13157f5b28becde0bd374fc677dcd3c290614264eff096f167c469cd9f933",
+      "bytes": 28702,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "async-timeout",
+      "version": "5.0.1",
+      "base_relative_path": "wheels/async_timeout-5.0.1-py3-none-any.whl",
+      "sha256": "39e3809566ff85354557ec2398b55e096c8364bacac9405a7a1fa429e77fe76c",
+      "bytes": 6233,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "base_relative_path": "wheels/attrs-26.1.0-py3-none-any.whl",
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "bytes": 67548,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "beautifulsoup4",
+      "version": "4.15.0",
+      "base_relative_path": "wheels/beautifulsoup4-4.15.0-py3-none-any.whl",
+      "sha256": "d6f88de62e1d4e38ecb1077eb9724cd0eff29d2a08ca16a401e9b9e93f117cf9",
+      "bytes": 109924,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "blinker",
+      "version": "1.9.0",
+      "base_relative_path": "wheels/blinker-1.9.0-py3-none-any.whl",
+      "sha256": "ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc",
+      "bytes": 8458,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "braceexpand",
+      "version": "0.1.7",
+      "base_relative_path": "wheels/braceexpand-0.1.7-py2.py3-none-any.whl",
+      "sha256": "91332d53de7828103dcae5773fb43bc34950b0c8160e35e0f44c4427a3b85014",
+      "bytes": 5923,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ccimport",
+      "version": "0.4.4",
+      "base_relative_path": "wheels/ccimport-0.4.4-py3-none-any.whl",
+      "sha256": "7c78f1258d372de787b7ebe351fb56890f2141b8643c3a45b1842b23828d5245",
+      "bytes": 27287,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "base_relative_path": "wheels/certifi-2026.7.22-py3-none-any.whl",
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+      "bytes": 136983,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "base_relative_path": "wheels/click-8.5.0-py3-none-any.whl",
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "bytes": 125251,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "base_relative_path": "wheels/cloudpickle-3.1.2-py3-none-any.whl",
+      "sha256": "9acb47f6afd73f60dc1df93bb801b472f05ff42fa6c84167d25cb206be1fbf4a",
+      "bytes": 22228,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "colorlog",
+      "version": "6.12.0",
+      "base_relative_path": "wheels/colorlog-6.12.0-py3-none-any.whl",
+      "sha256": "30d392604e9110045a2c2aeefc27d7a017abbab63f3a8aee594eac0801df784e",
+      "bytes": 12239,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "comm",
+      "version": "0.2.3",
+      "base_relative_path": "wheels/comm-0.2.3-py3-none-any.whl",
+      "sha256": "c615d91d75f7f04f095b30d1c1711babd43bdc6419c1be9886a85f2f4e489417",
+      "bytes": 7294,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "configargparse",
+      "version": "1.7.7",
+      "base_relative_path": "wheels/configargparse-1.7.7-py3-none-any.whl",
+      "sha256": "61107bb1de0b53c4eb7a475a12de6783b0dc6c51bc9859f5accbe97d66f8a4b7",
+      "bytes": 34277,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "base_relative_path": "wheels/cycler-0.12.1-py3-none-any.whl",
+      "sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30",
+      "bytes": 8321,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "cyclopts",
+      "version": "4.25.3",
+      "base_relative_path": "wheels/cyclopts-4.25.3-py3-none-any.whl",
+      "sha256": "40e76b3153ea90e885abd8d3a4d8184db5a5eec2fde8540025aae8d72fc973fc",
+      "bytes": 242748,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "dash",
+      "version": "4.4.1",
+      "base_relative_path": "wheels/dash-4.4.1-py3-none-any.whl",
+      "sha256": "72120a91b10ee4d73f9446efd5d6a4ec218086feed7b1b479d2259844d1f658f",
+      "bytes": 8945027,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "dataclasses-json",
+      "version": "0.6.7",
+      "base_relative_path": "wheels/dataclasses_json-0.6.7-py3-none-any.whl",
+      "sha256": "0dbf33f26c8d5305befd61b39d2b3414e8a407bedc2834dea9b8d642666fb40a",
+      "bytes": 28686,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "decorator",
+      "version": "5.3.1",
+      "base_relative_path": "wheels/decorator-5.3.1-py3-none-any.whl",
+      "sha256": "f47fe6fdbd2edd623ecfe36875d37aba411624e2670dd395dddae1358689bb3c",
+      "bytes": 10365,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "decord",
+      "version": "0.6.0",
+      "base_relative_path": "wheels/decord-0.6.0-py3-none-manylinux2010_x86_64.whl",
+      "sha256": "51997f20be8958e23b7c4061ba45d0efcd86bffd5fe81c695d0befee0d442976",
+      "bytes": 13602299,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "deprecated",
+      "version": "1.3.1",
+      "base_relative_path": "wheels/deprecated-1.3.1-py2.py3-none-any.whl",
+      "sha256": "597bfef186b6f60181535a29fbe44865ce137a5079f295b479886c82729d5f3f",
+      "bytes": 11298,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "dill",
+      "version": "0.4.1",
+      "base_relative_path": "wheels/dill-0.4.1-py3-none-any.whl",
+      "sha256": "1e1ce33e978ae97fcfcff5638477032b801c46c7c65cf717f95fbc2248f79a9d",
+      "bytes": 120019,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "docstring-parser",
+      "version": "0.18.0",
+      "base_relative_path": "wheels/docstring_parser-0.18.0-py3-none-any.whl",
+      "sha256": "b3fcbed555c47d8479be0796ef7e19c2670d428d72e96da63f3a40122860374b",
+      "bytes": 22484,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "easydict",
+      "version": "1.13",
+      "base_relative_path": "wheels/easydict-1.13-py3-none-any.whl",
+      "sha256": "6b787daf4dcaf6377b4ad9403a5cee5a86adbc0ca9a5bcf5410e9902002aeac2",
+      "bytes": 6804,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "einops",
+      "version": "0.8.2",
+      "base_relative_path": "wheels/einops-0.8.2-py3-none-any.whl",
+      "sha256": "54058201ac7087911181bfec4af6091bb59380360f069276601256a76af08193",
+      "bytes": 65638,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "einops-exts",
+      "version": "0.0.4",
+      "base_relative_path": "wheels/einops_exts-0.0.4-py3-none-any.whl",
+      "sha256": "6d310a4c858e459ebff8288580f90255d354cfa3bde22a53b59baae64b48cb95",
+      "bytes": 3925,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "entrypoints",
+      "version": "0.4",
+      "base_relative_path": "wheels/entrypoints-0.4-py3-none-any.whl",
+      "sha256": "f174b5ff827504fd3cd97cc3f8649f3693f51538c7e4bdf3ef002c8429d42f9f",
+      "bytes": 5294,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "et-xmlfile",
+      "version": "2.0.0",
+      "base_relative_path": "wheels/et_xmlfile-2.0.0-py3-none-any.whl",
+      "sha256": "7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa",
+      "bytes": 18059,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "exceptiongroup",
+      "version": "1.3.1",
+      "base_relative_path": "wheels/exceptiongroup-1.3.1-py3-none-any.whl",
+      "sha256": "a7a39a3bd276781e98394987d3a5701d0c4edffb633bb7a5144577f82c773598",
+      "bytes": 16740,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "executing",
+      "version": "2.2.1",
+      "base_relative_path": "wheels/executing-2.2.1-py2.py3-none-any.whl",
+      "sha256": "760643d3452b4d777d295bb167ccc74c64a81df23fb5e08eff250c425a4b2017",
+      "bytes": 28317,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "fastapi",
+      "version": "0.141.1",
+      "base_relative_path": "wheels/fastapi-0.141.1-py3-none-any.whl",
+      "sha256": "bfb91aa2d334c61cb35ba9a116fc123b3d3df31640b801cf57a7a78ec3f603b3",
+      "bytes": 131954,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "fastjsonschema",
+      "version": "2.22.2",
+      "base_relative_path": "wheels/fastjsonschema-2.22.2-py3-none-any.whl",
+      "sha256": "0fb3915616adac85ccfdd737d26be1089845d2019819505b42d39888458f74d4",
+      "bytes": 27413,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ffmpeg-python",
+      "version": "0.2.0",
+      "base_relative_path": "wheels/ffmpeg_python-0.2.0-py3-none-any.whl",
+      "sha256": "ac441a0404e053f8b6a1113a77c0f452f1cfc62f6344a769475ffdc0f56c23c5",
+      "bytes": 25024,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ffmpy",
+      "version": "1.0.0",
+      "base_relative_path": "wheels/ffmpy-1.0.0-py3-none-any.whl",
+      "sha256": "5640e5f0fd03fb6236d0e119b16ccf6522db1c826fdf35dcb87087b60fd7504f",
+      "bytes": 5614,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "filelock",
+      "version": "4.0.5",
+      "base_relative_path": "wheels/filelock-4.0.5-py3-none-any.whl",
+      "sha256": "be9166068623636cedcad7b2ef735b04e5fb4344d978e09fd6fbd6ede06f14f0",
+      "bytes": 108976,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "fire",
+      "version": "0.7.1",
+      "base_relative_path": "wheels/fire-0.7.1-py3-none-any.whl",
+      "sha256": "e43fd8a5033a9001e7e2973bab96070694b9f12f2e0ecf96d4683971b5ab1882",
+      "bytes": 115945,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "flash-attn",
+      "version": "2.7.4.post1",
+      "base_relative_path": "sources/flash_attn-2.7.4.post1.tar.gz",
+      "sha256": "f03485c9a49a4d68d0733acdcad80ab0e72afa025a777fdc2966ceccf9d51765",
+      "bytes": 5986610,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "flask",
+      "version": "3.1.3",
+      "base_relative_path": "wheels/flask-3.1.3-py3-none-any.whl",
+      "sha256": "f4bcbefc124291925f1a26446da31a5178f9483862233b23c0c96a20701f670c",
+      "bytes": 103424,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "freetype-py",
+      "version": "2.5.1",
+      "base_relative_path": "wheels/freetype_py-2.5.1-py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl",
+      "sha256": "289b443547e03a4f85302e3ac91376838e0d11636050166662a4f75e3087ed0b",
+      "bytes": 1043856,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "base_relative_path": "wheels/fsspec-2026.9.0-py3-none-any.whl",
+      "sha256": "8dd6e646e99ea382bd85f97a45e6b526a442d79423a7dc673f1e2756d05fcb5f",
+      "bytes": 221738,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ftfy",
+      "version": "6.3.1",
+      "base_relative_path": "wheels/ftfy-6.3.1-py3-none-any.whl",
+      "sha256": "7c70eb532015cd2f9adb53f101fb6c7945988d023a085d127d1573dc49dd0083",
+      "bytes": 44821,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "future",
+      "version": "1.0.0",
+      "base_relative_path": "wheels/future-1.0.0-py3-none-any.whl",
+      "sha256": "929292d34f5872e70396626ef385ec22355a1fae8ad29e1a734c3e43f9fbc216",
+      "bytes": 491326,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "fvcore",
+      "version": "0.1.5.post20221221",
+      "base_relative_path": "sources/fvcore-0.1.5.post20221221.tar.gz",
+      "sha256": "f2fb0bb90572ae651c11c78e20493ed19b2240550a7e4bbb2d6de87bdd037860",
+      "bytes": 50217,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "gdown",
+      "version": "6.4.0",
+      "base_relative_path": "wheels/gdown-6.4.0-py3-none-any.whl",
+      "sha256": "a0f6dd1d23119e36d594822421d151c832641b92dd32bb8d30e870d24fe55149",
+      "bytes": 50754,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "googleapis-common-protos",
+      "version": "1.75.4",
+      "base_relative_path": "wheels/googleapis_common_protos-1.75.4-py3-none-any.whl",
+      "sha256": "e8eb9cffa9a9f3423090cc7a086012004196abab388a0561690e81887fd79cc1",
+      "bytes": 307743,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "gradio",
+      "version": "5.49.0",
+      "base_relative_path": "wheels/gradio-5.49.0-py3-none-any.whl",
+      "sha256": "50cba9411c02e89768ad24ee3cd5898783cb60e8abf426bda9e04bef53e0d966",
+      "bytes": 63523635,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "gradio-client",
+      "version": "1.13.3",
+      "base_relative_path": "wheels/gradio_client-1.13.3-py3-none-any.whl",
+      "sha256": "3f63e4d33a2899c1a12b10fe3cf77b82a6919ff1a1fb6391f6aa225811aa390c",
+      "bytes": 325350,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "groovy",
+      "version": "0.1.2",
+      "base_relative_path": "wheels/groovy-0.1.2-py3-none-any.whl",
+      "sha256": "7f7975bab18c729a257a8b1ae9dcd70b7cafb1720481beae47719af57c35fa64",
+      "bytes": 14090,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "gsplat",
+      "version": "1.5.3",
+      "base_relative_path": "wheels/gsplat-1.5.3-py3-none-any.whl",
+      "sha256": "515a3773641f5e7f7717acab6276c0b1d6dbcad087b7968ca653337c3189a982",
+      "bytes": 6519041,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "base_relative_path": "wheels/h11-0.16.0-py3-none-any.whl",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "bytes": 37515,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "hatch-requirements-txt",
+      "version": "0.4.1",
+      "base_relative_path": "wheels/hatch_requirements_txt-0.4.1-py3-none-any.whl",
+      "sha256": "13c6ab7707cbc0aba128b3626dacae4be7065f1dbafc792461c9f547b3c3ffde",
+      "bytes": 7769,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "hatchling",
+      "version": "1.32.4",
+      "base_relative_path": "wheels/hatchling-1.32.4-py3-none-any.whl",
+      "sha256": "08ecf7548fb48205e7f213d70c71e67b8271b7242093dc3f1da578b42c734a2c",
+      "bytes": 78748,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "hdf5plugin",
+      "version": "7.1.0",
+      "base_relative_path": "wheels/hdf5plugin-7.1.0-py3-none-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "9d4cf36434819fae53e4da432f0287ebaeb02386ab97b73d261092efbab12247",
+      "bytes": 46397731,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.6.0",
+      "base_relative_path": "wheels/hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "sha256": "d62671bb130879cef0ee4c9ebe47a14af6c66ec53e6d84dc15936e5ffdfac82f",
+      "bytes": 4464663,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "base_relative_path": "wheels/httpcore-1.0.9-py3-none-any.whl",
+      "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+      "bytes": 78784,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "base_relative_path": "wheels/httpx-0.28.1-py3-none-any.whl",
+      "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+      "bytes": 73517,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "1.33.0",
+      "base_relative_path": "wheels/huggingface_hub-1.33.0-py3-none-any.whl",
+      "sha256": "04e434b06e100eddbce9a6e817d72693a7884b10a79bd67ab48080d5c07eb899",
+      "bytes": 846435,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "hydra-colorlog",
+      "version": "1.2.0",
+      "base_relative_path": "wheels/hydra_colorlog-1.2.0-py3-none-any.whl",
+      "sha256": "33d05fc11ca9bc7a5d69cfb3c8fb395a1bc52fa1dfe7aca6a6f5ffb57f6e7c4b",
+      "bytes": 3638,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "hydra-core",
+      "version": "1.3.7",
+      "base_relative_path": "wheels/hydra_core-1.3.7-py3-none-any.whl",
+      "sha256": "83606c4a05c770f1e026e0489875f28989829d151799eabd8cfa8cbe82164515",
+      "bytes": 168790,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "hydra-submitit-launcher",
+      "version": "1.2.0",
+      "base_relative_path": "wheels/hydra_submitit_launcher-1.2.0-py3-none-any.whl",
+      "sha256": "51ce468fbc91211c3a46677eefde94bbb9f721c9545af0be6dd0a95658515613",
+      "bytes": 5207,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "base_relative_path": "wheels/idna-3.20-py3-none-any.whl",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "bytes": 69583,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "igraph",
+      "version": "1.0.0",
+      "base_relative_path": "wheels/igraph-1.0.0-cp39-abi3-manylinux_2_28_x86_64.whl",
+      "sha256": "2d04c2c76f686fb1f554ee35dfd3085f5e73b7965ba6b4cf06d53e66b1955522",
+      "bytes": 5683134,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "imageio",
+      "version": "2.37.4",
+      "base_relative_path": "wheels/imageio-2.37.4-py3-none-any.whl",
+      "sha256": "1ab2e22c8debf700f24c3ac43e8f95f3b3a8110c83b93411e97b4b0b2cd1c7e6",
+      "bytes": 318000,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "imageio-ffmpeg",
+      "version": "0.6.0",
+      "base_relative_path": "wheels/imageio_ffmpeg-0.6.0-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "c7e46fcec401dd990405049d2e2f475e2b397779df2519b544b8aab515195282",
+      "bytes": 29498237,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "imgaug",
+      "version": "0.4.0",
+      "base_relative_path": "wheels/imgaug-0.4.0-py2.py3-none-any.whl",
+      "sha256": "ce61e65b4eb7405fc62c1b0a79d2fa92fd47f763aaecb65152d29243592111f9",
+      "bytes": 948018,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "importlib-metadata",
+      "version": "9.0.1",
+      "base_relative_path": "wheels/importlib_metadata-9.0.1-py3-none-any.whl",
+      "sha256": "bba5600596a7e21f3eef53281cf28d6a5195634d2f2b78ff9501a3272c6eaab0",
+      "bytes": 27920,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0",
+      "base_relative_path": "wheels/iniconfig-2.3.0-py3-none-any.whl",
+      "sha256": "f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12",
+      "bytes": 7484,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "iopath",
+      "version": "0.1.10",
+      "base_relative_path": "sources/iopath-0.1.10.tar.gz",
+      "sha256": "3311c16a4d9137223e20f141655759933e1eda24f8bff166af834af3c645ef01",
+      "bytes": 42226,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ipycanvas",
+      "version": "0.14.3",
+      "base_relative_path": "wheels/ipycanvas-0.14.3-py2.py3-none-any.whl",
+      "sha256": "8a2f48e1e079355d3e7d5683e5c6e7684a87c15c3750c8d8cd2289c95383ee3e",
+      "bytes": 142962,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ipyevents",
+      "version": "2.0.4",
+      "base_relative_path": "wheels/ipyevents-2.0.4-py3-none-any.whl",
+      "sha256": "e532e05b037f70373850723f483d2830cb8a633e5aa19637ee9e7adaf41421f1",
+      "bytes": 102433,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ipython",
+      "version": "8.39.0",
+      "base_relative_path": "wheels/ipython-8.39.0-py3-none-any.whl",
+      "sha256": "bb3c51c4fa8148ab1dea07a79584d1c854e234ea44aa1283bcb37bc75054651f",
+      "bytes": 831849,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ipywidgets",
+      "version": "8.1.9",
+      "base_relative_path": "wheels/ipywidgets-8.1.9-py3-none-any.whl",
+      "sha256": "f2b8cbcaae10252b809fbe4d7470db75c09b769a32cbf816d20e5ca6d3c5a79d",
+      "bytes": 140101,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0",
+      "base_relative_path": "wheels/itsdangerous-2.2.0-py3-none-any.whl",
+      "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef",
+      "bytes": 16234,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "janus",
+      "version": "2.0.0",
+      "base_relative_path": "wheels/janus-2.0.0-py3-none-any.whl",
+      "sha256": "7e6449d34eab04cd016befbd7d8c0d8acaaaab67cb59e076a69149f9031745f9",
+      "bytes": 12161,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "jaxtyping",
+      "version": "0.3.7",
+      "base_relative_path": "wheels/jaxtyping-0.3.7-py3-none-any.whl",
+      "sha256": "303ab8599edf412eeb40bf06c863e3168fa186cf0e7334703fa741ddd7046e66",
+      "bytes": 56101,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "jedi",
+      "version": "0.20.0",
+      "base_relative_path": "wheels/jedi-0.20.0-py2.py3-none-any.whl",
+      "sha256": "7bdd9c2634f56713299976f4cbd59cb3fa92165cc5e05ea811fb253480728b67",
+      "bytes": 4884812,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "base_relative_path": "wheels/jinja2-3.1.6-py3-none-any.whl",
+      "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+      "bytes": 134899,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "base_relative_path": "wheels/joblib-1.6.0-py3-none-any.whl",
+      "sha256": "3dbbf9f6e4b592a2357b854608e980fe6390d131d7a82f011a377ef2ebef7aba",
+      "bytes": 306115,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "jsonlines",
+      "version": "4.0.0",
+      "base_relative_path": "wheels/jsonlines-4.0.0-py3-none-any.whl",
+      "sha256": "185b334ff2ca5a91362993f42e83588a360cf95ce4b71a73548502bda52a7c55",
+      "bytes": 8701,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "base_relative_path": "wheels/jsonschema-4.26.0-py3-none-any.whl",
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+      "bytes": 90630,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "base_relative_path": "wheels/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "bytes": 18437,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "jupyter-client",
+      "version": "7.4.9",
+      "base_relative_path": "wheels/jupyter_client-7.4.9-py3-none-any.whl",
+      "sha256": "214668aaea208195f4c13d28eb272ba79f945fc0cf3f11c7092c20b2ca1980e7",
+      "bytes": 133492,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "jupyter-core",
+      "version": "5.9.1",
+      "base_relative_path": "wheels/jupyter_core-5.9.1-py3-none-any.whl",
+      "sha256": "ebf87fdc6073d142e114c72c9e29a9d7ca03fad818c5d300ce2adc1fb0743407",
+      "bytes": 29032,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "jupyterlab-widgets",
+      "version": "3.0.17",
+      "base_relative_path": "wheels/jupyterlab_widgets-3.0.17-py3-none-any.whl",
+      "sha256": "40ac1e9955acf116c4d995d9bfa082d86ad9ec6d91c4f134827cf5e0a5eb75e0",
+      "bytes": 217292,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "kornia",
+      "version": "0.8.2",
+      "base_relative_path": "wheels/kornia-0.8.2-py2.py3-none-any.whl",
+      "sha256": "32dfe77c9c74a87a2de49395aa3c2c376a1b63c27611a298b394d02d13905819",
+      "bytes": 1095012,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "lark",
+      "version": "1.3.1",
+      "base_relative_path": "wheels/lark-1.3.1-py3-none-any.whl",
+      "sha256": "c629b661023a014c37da873b4ff58a817398d12635d3bbb2c5a03be7fe5d1e12",
+      "bytes": 113151,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "lazy-loader",
+      "version": "0.6",
+      "base_relative_path": "wheels/lazy_loader-0.6-py3-none-any.whl",
+      "sha256": "77253be3391b06124a0e16105bd663b6c54470af1a9ca8e1cf026f38d58ed056",
+      "bytes": 8791,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "lightning",
+      "version": "2.5.6",
+      "base_relative_path": "wheels/lightning-2.5.6-py3-none-any.whl",
+      "sha256": "25bb2053078c2efc57c082fda89dfbd975dfa76beb08def191947c2b571a8c8a",
+      "bytes": 827915,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "lightning-utilities",
+      "version": "0.15.3",
+      "base_relative_path": "wheels/lightning_utilities-0.15.3-py3-none-any.whl",
+      "sha256": "6c55f1bee70084a1cbeaa41ada96e4b3a0fea5909e844dd335bd80f5a73c5f91",
+      "bytes": 31906,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "loguru",
+      "version": "0.7.3",
+      "base_relative_path": "wheels/loguru-0.7.3-py3-none-any.whl",
+      "sha256": "31a33c10c8e1e10422bfd431aeb5d351c7cf7fa671e3c4df004162264b28220c",
+      "bytes": 61595,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "markdown",
+      "version": "3.10.3",
+      "base_relative_path": "wheels/markdown-3.10.3-py3-none-any.whl",
+      "sha256": "fa6c92a00a4a3c98b22728c64a935ae1928250ae65058a6ded814d2cc29a4cea",
+      "bytes": 110757,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "base_relative_path": "wheels/markdown_it_py-4.2.0-py3-none-any.whl",
+      "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a",
+      "bytes": 91687,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "marshmallow",
+      "version": "3.26.2",
+      "base_relative_path": "wheels/marshmallow-3.26.2-py3-none-any.whl",
+      "sha256": "013fa8a3c4c276c24d26d84ce934dc964e2aa794345a0f8c7e5a7191482c8a73",
+      "bytes": 50964,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "matplotlib-inline",
+      "version": "0.2.2",
+      "base_relative_path": "wheels/matplotlib_inline-0.2.2-py3-none-any.whl",
+      "sha256": "3c821cf1c209f59fb2d2d64abbf5b23b67bcb2210d663f9918dd851c6da1fcf6",
+      "bytes": 9534,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "base_relative_path": "wheels/mdurl-0.1.2-py3-none-any.whl",
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+      "bytes": 9979,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "meshcat",
+      "version": "0.3.2",
+      "base_relative_path": "wheels/meshcat-0.3.2-py3-none-any.whl",
+      "sha256": "cba0465d0e29658c48bb65d27f5c8e04ff0a1ac8ce916d65621146c06258a1c7",
+      "bytes": 2640524,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "base_relative_path": "wheels/mpmath-1.3.0-py3-none-any.whl",
+      "sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c",
+      "bytes": 536198,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "mypy-extensions",
+      "version": "1.1.0",
+      "base_relative_path": "wheels/mypy_extensions-1.1.0-py3-none-any.whl",
+      "sha256": "1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505",
+      "bytes": 4963,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.26.0",
+      "base_relative_path": "wheels/narwhals-2.26.0-py3-none-any.whl",
+      "sha256": "29326d74f107c347fd1009bd58e38d9f7c7c5b51e6de97bc93dbc325d9038b54",
+      "bytes": 474034,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nbformat",
+      "version": "5.11.1",
+      "base_relative_path": "wheels/nbformat-5.11.1-py3-none-any.whl",
+      "sha256": "cc6698fa75f4fab8755ead786317815f13a6fee3b53311c0abb1a8b51d52f7ec",
+      "bytes": 79849,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nest-asyncio",
+      "version": "1.6.0",
+      "base_relative_path": "wheels/nest_asyncio-1.6.0-py3-none-any.whl",
+      "sha256": "87af6efd6b5e897c81050477ef65c62e2b2f35d51703cae01aff2905b1852e1c",
+      "bytes": 5195,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "networkx",
+      "version": "3.2.1",
+      "base_relative_path": "wheels/networkx-3.2.1-py3-none-any.whl",
+      "sha256": "f18c69adc97877c42332c170849c96cefa91881c99a7cb3e95b7c659ebdc1ec2",
+      "bytes": 1647772,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ninja",
+      "version": "1.13.2",
+      "base_relative_path": "wheels/ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "sha256": "65a24341b5ac09fcadcc37082660be40a94174e51a937fabf6e2cae26225fa2c",
+      "bytes": 183365,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-cublas-cu12",
+      "version": "12.4.5.8",
+      "base_relative_path": "wheels/nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "2fc8da60df463fdefa81e323eef2e36489e1c94335b5358bcb38360adf75ac9b",
+      "bytes": 363438805,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-cuda-cupti-cu12",
+      "version": "12.4.127",
+      "base_relative_path": "wheels/nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "9dec60f5ac126f7bb551c055072b69d85392b13311fcc1bcda2202d172df30fb",
+      "bytes": 13813957,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-cuda-nvrtc-cu12",
+      "version": "12.4.127",
+      "base_relative_path": "wheels/nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "a178759ebb095827bd30ef56598ec182b85547f1508941a3d560eb7ea1fbf338",
+      "bytes": 24640306,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-cuda-runtime-cu12",
+      "version": "12.4.127",
+      "base_relative_path": "wheels/nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "64403288fa2136ee8e467cdc9c9427e0434110899d07c779f25b5c068934faa5",
+      "bytes": 883737,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-cudnn-cu12",
+      "version": "9.1.0.70",
+      "base_relative_path": "wheels/nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "165764f44ef8c61fcdfdfdbe769d687e06374059fbb388b6c89ecb0e28793a6f",
+      "bytes": 664752741,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-cufft-cu12",
+      "version": "11.2.1.3",
+      "base_relative_path": "wheels/nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "f083fc24912aa410be21fa16d157fed2055dab1cc4b6934a0e03cba69eb242b9",
+      "bytes": 211459117,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-curand-cu12",
+      "version": "10.3.5.147",
+      "base_relative_path": "wheels/nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "a88f583d4e0bb643c49743469964103aa59f7f708d862c3ddb0fc07f851e3b8b",
+      "bytes": 56305206,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-cusolver-cu12",
+      "version": "11.6.1.9",
+      "base_relative_path": "wheels/nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "19e33fa442bcfd085b3086c4ebf7e8debc07cfe01e11513cc6d332fd918ac260",
+      "bytes": 127936057,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-cusparse-cu12",
+      "version": "12.3.1.170",
+      "base_relative_path": "wheels/nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "ea4f11a2904e2a8dc4b1833cc1b5181cde564edd0d5cd33e3c168eff2d1863f1",
+      "bytes": 207454763,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-nccl-cu12",
+      "version": "2.21.5",
+      "base_relative_path": "wheels/nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "8579076d30a8c24988834445f8d633c697d42397e92ffc3f63fa26766d25e0a0",
+      "bytes": 188654414,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-nvjitlink-cu12",
+      "version": "12.4.127",
+      "base_relative_path": "wheels/nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "06b3b9b25bf3f8af351d664978ca26a16d2c5127dbd53c0497e28d1fb9611d57",
+      "bytes": 21066810,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "nvidia-nvtx-cu12",
+      "version": "12.4.127",
+      "base_relative_path": "wheels/nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl",
+      "sha256": "781e950d9b9f60d8241ccea575b32f5105a5baf4c2351cab5256a24869f12a1a",
+      "bytes": 99144,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.1",
+      "base_relative_path": "wheels/omegaconf-2.3.1-py3-none-any.whl",
+      "sha256": "3d701d14e9a8828f1edd28bb70b725908b34277cdd72cf7d6a83f94dadc6b6a0",
+      "bytes": 79502,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opencv-contrib-python",
+      "version": "4.11.0.86",
+      "base_relative_path": "wheels/opencv_contrib_python-4.11.0.86-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "c47c0ef1098461cdc6fa1cdce4c942b8ec974c87423f4b5951443d26bb9ae407",
+      "bytes": 69098423,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opencv-python",
+      "version": "4.11.0.86",
+      "base_relative_path": "wheels/opencv_python-4.11.0.86-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "6b02611523803495003bd87362db3e1d2a0454a6a63025dc6658a9830570aa0d",
+      "bytes": 62986597,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "openpyxl",
+      "version": "3.1.5",
+      "base_relative_path": "wheels/openpyxl-3.1.5-py2.py3-none-any.whl",
+      "sha256": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2",
+      "bytes": 250910,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.0",
+      "base_relative_path": "wheels/opentelemetry_api-1.45.0-py3-none-any.whl",
+      "sha256": "80e068aba7cd56c8b58512d6a36f8d25cb1dfaa0c0a4cc1c938ccf9f362d9cb3",
+      "bytes": 60020,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opentelemetry-exporter-http-transport",
+      "version": "0.66b0",
+      "base_relative_path": "wheels/opentelemetry_exporter_http_transport-0.66b0-py3-none-any.whl",
+      "sha256": "c82689928a11505a2a0a26a04afe0ce06d270d3db984bc16c1a80ffa902db00e",
+      "bytes": 12156,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-common",
+      "version": "0.66b0",
+      "base_relative_path": "wheels/opentelemetry_exporter_otlp_common-0.66b0-py3-none-any.whl",
+      "sha256": "35d24c867310f4713a9738b0202b6bade77955418fccb9e2f7eea01b76263916",
+      "bytes": 12387,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-common",
+      "version": "1.45.0",
+      "base_relative_path": "wheels/opentelemetry_exporter_otlp_proto_common-1.45.0-py3-none-any.whl",
+      "sha256": "7e1410ae6d3ed301f7a74bec96467d519d3f37e52f9d95b309ae125e5a1af863",
+      "bytes": 15394,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-http",
+      "version": "1.45.0",
+      "base_relative_path": "wheels/opentelemetry_exporter_otlp_proto_http-1.45.0-py3-none-any.whl",
+      "sha256": "74385f99266dafdefff41f3da4b76f6dba79d237a9d4487e6ff1ee653c74a0a3",
+      "bytes": 22260,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opentelemetry-proto",
+      "version": "1.45.0",
+      "base_relative_path": "wheels/opentelemetry_proto-1.45.0-py3-none-any.whl",
+      "sha256": "9731566359d7b8e1ee1e149d8e4ad6865bab965e657ad3387ec2784d16927666",
+      "bytes": 72486,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opentelemetry-sdk",
+      "version": "1.45.0",
+      "base_relative_path": "wheels/opentelemetry_sdk-1.45.0-py3-none-any.whl",
+      "sha256": "5dc634c946546f61b757c5b1781f9fd1a10e96ffaf7357c797e508fe9c57e75e",
+      "bytes": 140132,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "opentelemetry-semantic-conventions",
+      "version": "0.66b0",
+      "base_relative_path": "wheels/opentelemetry_semantic_conventions-0.66b0-py3-none-any.whl",
+      "sha256": "175b19dd98c4473f4f43a2b1df59186fd7b4a48cd3f77cbe03438b6d6fda230a",
+      "bytes": 206277,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "base_relative_path": "wheels/packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "bytes": 129956,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "parso",
+      "version": "0.8.7",
+      "base_relative_path": "wheels/parso-0.8.7-py2.py3-none-any.whl",
+      "sha256": "a8926eb2a1b915486941fdbd31e86a4baf88fe8c210f25f2f35ecec5b574ca1c",
+      "bytes": 107025,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pathspec",
+      "version": "1.1.1",
+      "base_relative_path": "wheels/pathspec-1.1.1-py3-none-any.whl",
+      "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189",
+      "bytes": 57328,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pccm",
+      "version": "0.4.16",
+      "base_relative_path": "wheels/pccm-0.4.16-py3-none-any.whl",
+      "sha256": "97e97c341c50c40965bb8f9a8a1ad201868d64e8baa06f9581bedeb3bc223eec",
+      "bytes": 73731,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pexpect",
+      "version": "4.9.0",
+      "base_relative_path": "wheels/pexpect-4.9.0-py2.py3-none-any.whl",
+      "sha256": "7236d1e080e4936be2dc3e326cec0af72acf9212a7e1d060210e70a47e253523",
+      "bytes": 63772,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.12.1",
+      "base_relative_path": "wheels/platformdirs-4.12.1-py3-none-any.whl",
+      "sha256": "7f251621befae78b2cb74616f9fc99d3fa3db0afba5035987731f8dcd430337d",
+      "bytes": 33011,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "plotly",
+      "version": "7.1.0",
+      "base_relative_path": "wheels/plotly-7.1.0-py3-none-any.whl",
+      "sha256": "dbb7fa18afce40d0a8e80d1bf162eceb3faa0ce5a77fe741ad09a74cf78f53f3",
+      "bytes": 9692368,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "base_relative_path": "wheels/pluggy-1.6.0-py3-none-any.whl",
+      "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746",
+      "bytes": 20538,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pooch",
+      "version": "1.9.0",
+      "base_relative_path": "wheels/pooch-1.9.0-py3-none-any.whl",
+      "sha256": "f265597baa9f760d25ceb29d0beb8186c243d6607b0f60b83ecf14078dbc703b",
+      "bytes": 67175,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "portalocker",
+      "version": "4.4.0",
+      "base_relative_path": "wheels/portalocker-4.4.0-py3-none-any.whl",
+      "sha256": "a8e99ea29bfb61766ee0b4008cbaf0651e8e050f7a2485ebf54316480e99226e",
+      "bytes": 129647,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "prompt-toolkit",
+      "version": "3.0.53",
+      "base_relative_path": "wheels/prompt_toolkit-3.0.53-py3-none-any.whl",
+      "sha256": "01c0891d7f9237d5e339f7d3e42cdae80b7534abb1c7c0e3352efba6231492f2",
+      "bytes": 392288,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "base_relative_path": "wheels/protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl",
+      "sha256": "89f23aa53c24553a2416fd4fd1ec06f74fa42b14b546d8883128813f775bbfd2",
+      "bytes": 343223,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "base_relative_path": "wheels/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "076a2d2f923fd4821644f5ba89f059523da90dc9014e85f8e45a5774ca5bc6f9",
+      "bytes": 155560,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ptyprocess",
+      "version": "0.7.0",
+      "base_relative_path": "wheels/ptyprocess-0.7.0-py2.py3-none-any.whl",
+      "sha256": "4b41f3967fce3af57cc7e94b888626c18bf37a083e3651ca8feeb66d492fef35",
+      "bytes": 13993,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pure-eval",
+      "version": "0.2.4",
+      "base_relative_path": "wheels/pure_eval-0.2.4-py3-none-any.whl",
+      "sha256": "96cae060a313cfaad51bb761278bfb0e62dc0248d9315a81173752dc546cd37a",
+      "bytes": 11893,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "py-soma-x",
+      "version": "0.2.1",
+      "base_relative_path": "wheels/py_soma_x-0.2.1-py3-none-any.whl",
+      "sha256": "922fb1adfa5055f1b69b65b15d8375e8f74a0744b900ba121da5d8ec97068d74",
+      "bytes": 167809,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pybind11",
+      "version": "3.1.0",
+      "base_relative_path": "wheels/pybind11-3.1.0-py3-none-any.whl",
+      "sha256": "b8488090f8acffbcb6b5d6a85571a6827a0a2981ffb75e5a0b27b87c4a6b7dd0",
+      "bytes": 319402,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.11.10",
+      "base_relative_path": "wheels/pydantic-2.11.10-py3-none-any.whl",
+      "sha256": "802a655709d49bd004c31e865ef37da30b540786a46bfce02333e0e24b5fe29a",
+      "bytes": 444823,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pydub",
+      "version": "0.25.1",
+      "base_relative_path": "wheels/pydub-0.25.1-py2.py3-none-any.whl",
+      "sha256": "65617e33033874b59d87db603aa1ed450633288aefead953b30bded59cb599a6",
+      "bytes": 32327,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pyglet",
+      "version": "2.1.15",
+      "base_relative_path": "wheels/pyglet-2.1.15-py3-none-any.whl",
+      "sha256": "8709131baf5e96c496d38197ff9f9207ad06f273c9694570008b145c58bf51ae",
+      "bytes": 1036800,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pygltflib",
+      "version": "1.16.5",
+      "base_relative_path": "wheels/pygltflib-1.16.5-py3-none-any.whl",
+      "sha256": "41d3349c59dcf1586faeaee29c967be07ac2bf7cecdb8ae2b527da1f25afdaac",
+      "bytes": 27557,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "base_relative_path": "wheels/pygments-2.21.0-py3-none-any.whl",
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+      "bytes": 1250147,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pyngrok",
+      "version": "8.1.2",
+      "base_relative_path": "wheels/pyngrok-8.1.2-py3-none-any.whl",
+      "sha256": "849e9f55706288b00eb28f4ae8ea16b05e52c609f80ef4a88ca23b385f2f9178",
+      "bytes": 25935,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pyopengl",
+      "version": "3.1.0",
+      "base_relative_path": "sources/PyOpenGL-3.1.0.tar.gz",
+      "sha256": "9b47c5c3a094fa518ca88aeed35ae75834d53e4285512c61879f67a48c94ddaf",
+      "bytes": 1172688,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "base_relative_path": "wheels/pyparsing-3.3.3-py3-none-any.whl",
+      "sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4",
+      "bytes": 126420,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pypng",
+      "version": "0.20220715.0",
+      "base_relative_path": "wheels/pypng-0.20220715.0-py3-none-any.whl",
+      "sha256": "4a43e969b8f5aaafb2a415536c1a8ec7e341cd6a3f957fd5b5f32a4cfeed902c",
+      "bytes": 58057,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pyrender",
+      "version": "0.1.45",
+      "base_relative_path": "wheels/pyrender-0.1.45-py3-none-any.whl",
+      "sha256": "5cf751d1f21fba4640e830cef3a0b5a95ed0f05677bf92c6b8330056b4023aeb",
+      "bytes": 1214061,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pyrootutils",
+      "version": "1.0.4",
+      "base_relative_path": "wheels/pyrootutils-1.0.4-py3-none-any.whl",
+      "sha256": "8bbf25425278693168ae03b167aa6509422dc21853a6ee01d5d5e40601a89f90",
+      "bytes": 5831,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pysocks",
+      "version": "1.7.1",
+      "base_relative_path": "wheels/PySocks-1.7.1-py3-none-any.whl",
+      "sha256": "2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5",
+      "bytes": 16725,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "base_relative_path": "wheels/pytest-9.1.1-py3-none-any.whl",
+      "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c",
+      "bytes": 386536,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "base_relative_path": "wheels/python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+      "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+      "bytes": 229892,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.3",
+      "base_relative_path": "wheels/python_dotenv-1.2.3-py3-none-any.whl",
+      "sha256": "904552145e8bfed22162c09dab1c2b9b54fefa7b23ba780f4f26ca0316b0f0d9",
+      "bytes": 22780,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.32",
+      "base_relative_path": "wheels/python_multipart-0.0.32-py3-none-any.whl",
+      "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23",
+      "bytes": 30042,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pytorch-lightning",
+      "version": "2.5.6",
+      "base_relative_path": "wheels/pytorch_lightning-2.5.6-py3-none-any.whl",
+      "sha256": "037bad1e2fd94d5eb6c5144f045fd4c1070c3d38fc9c14d9f3774a3a9be54dff",
+      "bytes": 831555,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pytransform3d",
+      "version": "3.16.0",
+      "base_relative_path": "wheels/pytransform3d-3.16.0-py3-none-any.whl",
+      "sha256": "6bde011c27a9d5fcfdb09661260f1f4a9d1a2b36d2ad24caf533f8c7a1f6d328",
+      "bytes": 169531,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pytz",
+      "version": "2026.4",
+      "base_relative_path": "wheels/pytz-2026.4-py2.py3-none-any.whl",
+      "sha256": "9d514388fbc89ca0833203464272ac485b8828568ab73532f5020f17e892a0ff",
+      "bytes": 506747,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pyvista",
+      "version": "0.49.0",
+      "base_relative_path": "wheels/pyvista-0.49.0-py3-none-any.whl",
+      "sha256": "8528b753baf9a32dd7a44f4e88912fe5c8771f7d921c813e1cbac35fc5a37996",
+      "bytes": 2732156,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "pyvista-validation",
+      "version": "0.2.2",
+      "base_relative_path": "wheels/pyvista_validation-0.2.2-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "a45b633b89d843329db1608ba2bbed75d075ab63c5a7427c8dfa9ad9c23eadb4",
+      "bytes": 261436,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "base_relative_path": "wheels/referencing-0.37.0-py3-none-any.whl",
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "bytes": 26766,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "base_relative_path": "wheels/requests-2.34.2-py3-none-any.whl",
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "bytes": 73075,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "retrying",
+      "version": "1.4.2",
+      "base_relative_path": "wheels/retrying-1.4.2-py3-none-any.whl",
+      "sha256": "bbc004aeb542a74f3569aeddf42a2516efefcdaff90df0eb38fbfbf19f179f59",
+      "bytes": 10859,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "base_relative_path": "wheels/rich-15.0.0-py3-none-any.whl",
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb",
+      "bytes": 310654,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "rich-rst",
+      "version": "2.2.0",
+      "base_relative_path": "wheels/rich_rst-2.2.0-py3-none-any.whl",
+      "sha256": "1ea1c43813dc4a8d86475fce27ffb74e0ada3d4656c9f8130ba2a59868055fe9",
+      "bytes": 279274,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "roma",
+      "version": "1.6.1",
+      "base_relative_path": "wheels/roma-1.6.1-py3-none-any.whl",
+      "sha256": "79c3a07ab94c0e784e8de2ecc878645a5cf0aff312f7b1e281ca1be7c5f0b7e8",
+      "bytes": 25484,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "rootutils",
+      "version": "1.0.7",
+      "base_relative_path": "wheels/rootutils-1.0.7-py3-none-any.whl",
+      "sha256": "89f1994e6d0f499db7aca7f90edc146801cb33c8565a15c7cee4a4e4fc8c6eef",
+      "bytes": 6403,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "rtree",
+      "version": "1.4.1",
+      "base_relative_path": "wheels/rtree-1.4.1-py3-none-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "12de4578f1b3381a93a655846900be4e3d5f4cd5e306b8b00aa77c1121dc7e8c",
+      "bytes": 507644,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ruamel-yaml",
+      "version": "0.19.1",
+      "base_relative_path": "wheels/ruamel_yaml-0.19.1-py3-none-any.whl",
+      "sha256": "27592957fedf6e0b62f281e96effd28043345e0e66001f97683aa9a40c667c93",
+      "bytes": 118102,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "ruff",
+      "version": "0.16.9",
+      "base_relative_path": "wheels/ruff-0.16.9-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "a21713e629d3e5bdb2f5c2def1cc7f04f47fa8e1a7eb0571b4a28e1da64bc728",
+      "bytes": 10406494,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "safehttpx",
+      "version": "0.1.7",
+      "base_relative_path": "wheels/safehttpx-0.1.7-py3-none-any.whl",
+      "sha256": "c4f4a162db6993464d7ca3d7cc4af0ffc6515a606dfd220b9f82c6945d869cde",
+      "bytes": 8959,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0",
+      "base_relative_path": "wheels/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "fd6f3f93c9a0a7cc2788ee63fb763353d4bd2e89b0751bc78fcf7dda00bea774",
+      "bytes": 516040,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "scooby",
+      "version": "0.12.0",
+      "base_relative_path": "wheels/scooby-0.12.0-py3-none-any.whl",
+      "sha256": "65dea5b32006ef554aea9e945032c0c448eaacada96078187681e24f0a2fe8fa",
+      "bytes": 21732,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "seaborn",
+      "version": "0.13.2",
+      "base_relative_path": "wheels/seaborn-0.13.2-py3-none-any.whl",
+      "sha256": "636f8336facf092165e27924f223d3c62ca560b1f2bb5dff7ab7fad265361987",
+      "bytes": 294914,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "semantic-version",
+      "version": "2.10.0",
+      "base_relative_path": "wheels/semantic_version-2.10.0-py2.py3-none-any.whl",
+      "sha256": "de78a3b8e0feda74cabc54aab2da702113e33ac9d9eb9d2389bcf1f58b7d9177",
+      "bytes": 15552,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.0.0",
+      "base_relative_path": "wheels/setuptools-84.0.0-py3-none-any.whl",
+      "sha256": "51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670",
+      "bytes": 818216,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "base_relative_path": "wheels/shellingham-1.5.4-py2.py3-none-any.whl",
+      "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686",
+      "bytes": 9755,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "base_relative_path": "wheels/six-1.17.0-py2.py3-none-any.whl",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "bytes": 11050,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "smplx",
+      "version": "0.1.28",
+      "base_relative_path": "wheels/smplx-0.1.28-py3-none-any.whl",
+      "sha256": "e8ff3d278a015c097dc86d44a38475da4ac170042943c84c08eee433629406a7",
+      "bytes": 29903,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "soupsieve",
+      "version": "2.10",
+      "base_relative_path": "wheels/soupsieve-2.10-py3-none-any.whl",
+      "sha256": "8596eb8967d744174820280fa62b4542a2e955bfaccca73ed8a13c6eb8e9b502",
+      "bytes": 38019,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "stack-data",
+      "version": "0.6.3",
+      "base_relative_path": "wheels/stack_data-0.6.3-py3-none-any.whl",
+      "sha256": "d5558e0c25a4cb0853cddad3d77da9891a08cb85dd9f9f91b9f8cd66e511e695",
+      "bytes": 24521,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "starlette",
+      "version": "0.52.1",
+      "base_relative_path": "wheels/starlette-0.52.1-py3-none-any.whl",
+      "sha256": "0029d43eb3d273bc4f83a08720b4912ea4b071087a3b48db01b7c839f7954d74",
+      "bytes": 74272,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "submitit",
+      "version": "1.5.4",
+      "base_relative_path": "wheels/submitit-1.5.4-py3-none-any.whl",
+      "sha256": "c26f3a7c8d4150eaf70b1da71e2023e9e9936c93e8342ed7db910f29158561c5",
+      "bytes": 76043,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "sympy",
+      "version": "1.13.1",
+      "base_relative_path": "wheels/sympy-1.13.1-py3-none-any.whl",
+      "sha256": "db36cdc64bf61b9b24578b6f7bab1ecdd2452cf008f34faa33776680c26d66f8",
+      "bytes": 6189177,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tabulate",
+      "version": "0.10.0",
+      "base_relative_path": "wheels/tabulate-0.10.0-py3-none-any.whl",
+      "sha256": "f0b0622e567335c8fabaaa659f1b33bcb6ddfe2e496071b743aa113f8774f2d3",
+      "bytes": 39814,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tensorboard",
+      "version": "2.21.0",
+      "base_relative_path": "wheels/tensorboard-2.21.0-py3-none-any.whl",
+      "sha256": "7279316dcb6bd5bc391d623dea841531299cde1887310e8133bc34a996d32255",
+      "bytes": 5516204,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tensorboard-data-server",
+      "version": "0.7.2",
+      "base_relative_path": "wheels/tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl",
+      "sha256": "ef687163c24185ae9754ed5650eb5bc4d84ff257aabdc33f0cc6f74d8ba54530",
+      "bytes": 6590363,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tensorboardx",
+      "version": "2.6.5",
+      "base_relative_path": "wheels/tensorboardx-2.6.5-py3-none-any.whl",
+      "sha256": "c10b891d00af306537cb8b58a039b2ba41571f0da06f433a41c4ca8d6abe1373",
+      "bytes": 87510,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tensorrt-cu12",
+      "version": "10.7.0.post1",
+      "base_relative_path": "sources/tensorrt_cu12-10.7.0.post1.tar.gz",
+      "sha256": "de3d0fd014dbe465a5ce672afa38db589b7a2342915e4c6eacdde269145eda39",
+      "bytes": 18363,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "termcolor",
+      "version": "3.3.0",
+      "base_relative_path": "wheels/termcolor-3.3.0-py3-none-any.whl",
+      "sha256": "cf642efadaf0a8ebbbf4bc7a31cec2f9b5f21a9f726f4ccbb08192c9c26f43a5",
+      "bytes": 7734,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "texttable",
+      "version": "1.7.0",
+      "base_relative_path": "wheels/texttable-1.7.0-py2.py3-none-any.whl",
+      "sha256": "72227d592c82b3d7f672731ae73e4d1f88cd8e2ef5b075a7a7f01a23a3743917",
+      "bytes": 10768,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.7.0",
+      "base_relative_path": "wheels/threadpoolctl-3.7.0-py3-none-any.whl",
+      "sha256": "cd8b60b5641b45c67bbf73c64c843235fc2d8a480c87389f52f5dbee893b86be",
+      "bytes": 26362,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tifffile",
+      "version": "2025.5.10",
+      "base_relative_path": "wheels/tifffile-2025.5.10-py3-none-any.whl",
+      "sha256": "e37147123c0542d67bc37ba5cdd67e12ea6fbe6e86c52bee037a9eb6a064e5ad",
+      "bytes": 226533,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "timm",
+      "version": "1.0.30",
+      "base_relative_path": "wheels/timm-1.0.30-py3-none-any.whl",
+      "sha256": "c8e27adf6801a2fdfb570dbbdd171f2f084756eefc673df8cfaab06bd14864f3",
+      "bytes": 2668917,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.22.2",
+      "base_relative_path": "wheels/tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "369cc9fc8cc10cb24143873a0d95438bb8ee257bb80c71989e3ee290e8d72c67",
+      "bytes": 3274982,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tomli",
+      "version": "2.4.1",
+      "base_relative_path": "wheels/tomli-2.4.1-py3-none-any.whl",
+      "sha256": "0d85819802132122da43cb86656f8d1f8c6587d54ae7dcaf30e90533028b49fe",
+      "bytes": 14583,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tomlkit",
+      "version": "0.13.3",
+      "base_relative_path": "wheels/tomlkit-0.13.3-py3-none-any.whl",
+      "sha256": "c89c649d79ee40629a9fda55f8ace8c6a1b42deb912b2a8fd8d942ddadb606b0",
+      "bytes": 38901,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "torchmetrics",
+      "version": "1.9.0",
+      "base_relative_path": "wheels/torchmetrics-1.9.0-py3-none-any.whl",
+      "sha256": "bfdcbff3dd1d96b3374bb2496eb39f23c4b28b8a845b6a18c313688e0d2d9ca1",
+      "bytes": 983384,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tornado",
+      "version": "6.5.10",
+      "base_relative_path": "wheels/tornado-6.5.10-cp39-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "sha256": "bdf942448169e5336451d0494d7e3d81cfa726d5aa312affdc4682dd62a62f6d",
+      "bytes": 467096,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "base_relative_path": "wheels/tqdm-4.70.1-py3-none-any.whl",
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+      "bytes": 80199,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "traitlets",
+      "version": "5.16.1",
+      "base_relative_path": "wheels/traitlets-5.16.1-py3-none-any.whl",
+      "sha256": "f775618166caa0396c8e337099240f2bd3e5e917d203b2e6fbe21a58d3cb1f6b",
+      "bytes": 86211,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "transformers",
+      "version": "5.3.0",
+      "base_relative_path": "wheels/transformers-5.3.0-py3-none-any.whl",
+      "sha256": "50ac8c89c3c7033444fb3f9f53138096b997ebb70d4b5e50a2e810bf12d3d29a",
+      "bytes": 10661827,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "trimesh",
+      "version": "5.1.0",
+      "base_relative_path": "wheels/trimesh-5.1.0-py3-none-any.whl",
+      "sha256": "0fa85d1d131e321b683c00747c20090200b92071298b905ea588f609eb204c89",
+      "bytes": 750004,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "trove-classifiers",
+      "version": "2026.9.21.13",
+      "base_relative_path": "wheels/trove_classifiers-2026.9.21.13-py3-none-any.whl",
+      "sha256": "8b1ff4f9c191b1040b71c37f1e445ab99732911e3cd91de52838453a854d7a17",
+      "bytes": 14232,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "typer",
+      "version": "0.27.2",
+      "base_relative_path": "wheels/typer-0.27.2-py3-none-any.whl",
+      "sha256": "b3a5fc4342d5fc8fda8fc3010b1cf117e9249aab7fae800c2eff62fd3842d97d",
+      "bytes": 123130,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "base_relative_path": "wheels/typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "bytes": 45571,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "typing-inspect",
+      "version": "0.9.0",
+      "base_relative_path": "wheels/typing_inspect-0.9.0-py3-none-any.whl",
+      "sha256": "9ee6fc59062311ef8547596ab6b955e1b8aa46242d854bfc78f4f6b0eff35f9f",
+      "bytes": 8827,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "base_relative_path": "wheels/typing_inspection-0.4.4-py3-none-any.whl",
+      "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+      "bytes": 14750,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.4",
+      "base_relative_path": "wheels/tzdata-2026.4-py2.py3-none-any.whl",
+      "sha256": "c2169a8b0a7a5e9674da5a135ccdfb2b3e671b333ed9fed17b41f73c34476e81",
+      "bytes": 347494,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "u-msgpack-python",
+      "version": "2.8.0",
+      "base_relative_path": "wheels/u_msgpack_python-2.8.0-py2.py3-none-any.whl",
+      "sha256": "1d853d33e78b72c4228a2025b4db28cda81214076e5b0422ed0ae1b1b2bb586a",
+      "bytes": 10590,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "base_relative_path": "wheels/urllib3-2.8.0-py3-none-any.whl",
+      "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "bytes": 135717,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "base_relative_path": "wheels/uvicorn-0.54.0-py3-none-any.whl",
+      "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+      "bytes": 87427,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "videoio",
+      "version": "0.3.0",
+      "base_relative_path": "wheels/videoio-0.3.0-py3-none-any.whl",
+      "sha256": "5ff628fbdddb67931d36ca7557205c632fba09cd96494294e936122b4fd29201",
+      "bytes": 13610,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "wadler-lindig",
+      "version": "0.1.7",
+      "base_relative_path": "wheels/wadler_lindig-0.1.7-py3-none-any.whl",
+      "sha256": "e3ec83835570fd0a9509f969162aeb9c65618f998b1f42918cfc8d45122fe953",
+      "bytes": 20516,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "wandb",
+      "version": "0.30.0",
+      "base_relative_path": "wheels/wandb-0.30.0-py3-none-manylinux_2_28_x86_64.whl",
+      "sha256": "bad9412f137d02303bf178513e0109f4fed37a6c817604085a1a4151047d8790",
+      "bytes": 26105520,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "warp-lang",
+      "version": "1.17.0",
+      "base_relative_path": "wheels/warp_lang-1.17.0-py3-none-manylinux_2_28_x86_64.whl",
+      "sha256": "47cd93636828dd16e55eeb4e77a0e3547b5fb0f383000a3d228629df68f28fd8",
+      "bytes": 164347636,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.9.1",
+      "base_relative_path": "wheels/wcwidth-0.9.1-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "sha256": "747fb724223f417a17541a95a17c1dac3a8ef9a0cf41684950f0eab191a35f65",
+      "bytes": 768443,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "webdataset",
+      "version": "1.0.2",
+      "base_relative_path": "wheels/webdataset-1.0.2-py3-none-any.whl",
+      "sha256": "3dbfced32b25c0d199c6b9787937b6f85742bc3c84f652c846893075c1c082d9",
+      "bytes": 74956,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "werkzeug",
+      "version": "3.1.9",
+      "base_relative_path": "wheels/werkzeug-3.1.9-py3-none-any.whl",
+      "sha256": "6392e50c78460ba618e5b21f08a71f59c99ce99cdc6cf6e3dd7e6ccca8754fab",
+      "bytes": 228700,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "wheel",
+      "version": "0.48.0",
+      "base_relative_path": "wheels/wheel-0.48.0-py3-none-any.whl",
+      "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab",
+      "bytes": 33320,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "widgetsnbextension",
+      "version": "4.0.16",
+      "base_relative_path": "wheels/widgetsnbextension-4.0.16-py3-none-any.whl",
+      "sha256": "a31a8774885b96fe825462f5d6496166f0c7cae111195b6465c801d230eb5a4e",
+      "bytes": 2225148,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "yacs",
+      "version": "0.1.8",
+      "base_relative_path": "wheels/yacs-0.1.8-py3-none-any.whl",
+      "sha256": "99f893e30497a4b66842821bac316386f7bd5c4f47ad35c9073ef089aa33af32",
+      "bytes": 14747,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "zipp",
+      "version": "4.1.0",
+      "base_relative_path": "wheels/zipp-4.1.0-py3-none-any.whl",
+      "sha256": "25ad4e16390cd314347dd8f1de67a2ac538ae658ed4ab9db16029c07c188e97f",
+      "bytes": 10238,
+      "redistribution_verified": true,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    },
+    {
+      "name": "tensorrt-cu12-libs",
+      "version": "10.7.0.post1",
+      "base_relative_path": "wheels/tensorrt_cu12_libs-10.7.0.post1-py2.py3-none-manylinux_2_17_x86_64.whl",
+      "sha256": "ab4b8ef46a113f2e704b4c755c4db89789d70069c806d50683e17811060a09e2",
+      "bytes": 2069981220,
+      "redistribution_verified": false,
+      "source_profile": "published CPython3.10 archive; exact universal/abi3/source file only"
+    }
+  ],
+  "failures": {},
+  "counts": {
+    "new_distributions": 53,
+    "new_bytes": 2000159868,
+    "new_eligible_distributions": 49,
+    "new_eligible_bytes": 1752568742,
+    "reused_distributions": 238,
+    "total_profile_distributions": 291
+  },
+  "current_base_inventory_sha256": "299e1e70d11c5eb2b706425300d290644e4e0161b8e6595f49de95a375322acc",
+  "base_public_archive": {
+    "filename": "video-to-hoi-runtime-cp310-cu124-20260928.zip",
+    "bytes": 2373082373,
+    "sha256": "c5ff53b16a353829f551af78664d917e00689338ff918b1ed973a38e744195fb",
+    "files": 396,
+    "extraction_root": "runtime-cp310-cu124",
+    "inventory_counts": {
+      "packages": 291,
+      "bytes": 6561361995,
+      "acquired_packages": 290,
+      "acquired_bytes": 4491380775,
+      "in_progress_packages": [
+        "tensorrt-cu12-libs"
+      ],
+      "eligible_packages": 268,
+      "eligible_bytes": 2368920377
+    }
+  },
+  "mandatory_metadata_conflicts": []
+}

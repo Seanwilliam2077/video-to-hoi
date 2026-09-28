@@ -53,8 +53,7 @@
       "model_revision": "184008f877d7ad1ad4c2cd2182a9bd1f63d0e5be",
       "status": "runtime_unverified",
       "blockers": [
-        "Remote GPU runtime and pinned MoGe environment are not installed/validated.",
-        "MoGe3 checkpoint is not part of the 12 prepared baseline model assets."
+        "Remote GPU runtime and pinned MoGe environment are not installed/validated."
       ],
       "required_paths": [
         {
@@ -144,22 +143,23 @@
       "module": 1,
       "repository": "https://github.com/facebookresearch/sam3",
       "revision": "2345a4ad109ac29c569da749c91d84f10dc08c40",
-      "status": "adapter_and_checkpoint_pending",
+      "status": "weights_prepared_adapter_pending",
       "blockers": [
-        "SAM3 video checkpoint/approval is distinct from SAM3D Body/Objects approval.",
-        "Needs normalized per-frame mask adapter and equal prompt budget."
-      ]
+        "Needs normalized per-frame mask adapter, target runtime and equal prompt budget."
+      ],
+      "acquisition_record": "deployment/expanded-platform.json"
     },
     {
       "id": "yoloe",
       "module": 1,
       "repository": "https://github.com/THU-MIG/yoloe",
       "revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
-      "status": "adapter_and_checkpoint_pending",
+      "status": "weights_prepared_adapter_pending",
       "blockers": [
-        "Needs pinned YOLOE and text encoder checkpoint receipts.",
-        "Needs human/object mask adapter and consistent text-only prompt evaluation."
-      ]
+        "Needs human/object mask adapter and consistent text-only prompt evaluation.",
+        "The Apple MobileCLIP checkpoint is research-only; prepare any required export on the target server."
+      ],
+      "acquisition_record": "deployment/expanded-platform.json"
     }
   ]
 }

@@ -10,14 +10,21 @@ Track 1 episodes **0, 1, 2**, in numeric order: all are hula-hoop videos from th
 
 | Module / comparison | Candidate | What this package supplies | Still required before measurement |
 | --- | --- | --- | --- |
-| 1, depth | MoGe2 and MoGe3 | Common full-video adapter; pinned repo and checkpoints; separate recipes | GPU environments; MoGe3 weight download; independent depth evidence for accuracy claims |
+| 1, depth | MoGe2 and MoGe3 | Common full-video adapter; pinned source; both checkpoints downloaded and verified | GPU environments; independent depth evidence for accuracy claims |
 | 1, prompted masks | SAM2.1 | Pinned official video wrapper recipe | Identical Track 1 prompts and audited human/object IDs; built image |
-| 1, text masks | SAM3 and YOLOE | Pinned research candidates | Weight access/receipts, output adapters, fixed text prompts and evaluation masks |
+| 1, text masks | SAM3 and YOLOE | Pinned filtered source and verified weights; separate research-only MobileCLIP package | Output adapters, target environments, fixed text prompts and evaluation masks |
 | 2, independent human | SAM3D Body | Pinned official MHR recipe | Track 1 human masks, common intrinsics, built image |
 | 2, joint HOI | CARI4D | Pinned official MHR/HOI recipe | Track 1-derived object mesh and two-class masks; built image |
 | 4, temporal refinement | SmoothNet, HTD-Refine, PhysPT | Pinned research candidates and comparison gates | Real frozen upstream trajectories, weights, MHR adapters, independent motion evidence |
 
 The kit has **five executable recipes**, plus research candidates that deliberately have no execution command until their adapters are implemented. The module 4 adapter work is not complete. SmoothNet is a mature baseline; public availability does not establish current SOTA or performance on this subset. GVHMR and WHAM are additional human research candidates in `human_recipes.json`; their SMPL-family outputs and separately licensed assets need preparation and alignment before MHR comparison.
+
+Acquisition was expanded on 2026-09-28. [Module 1 receipts](../../deployment/expanded-platform.json)
+cover MoGe3, SAM3, YOLOE and MobileCLIP. [Human/physics inventory](../../deployment/expanded-human-physics.json)
+covers eight pinned source versions, but their Drive/Dropbox weights remain manual
+and restricted body assets cannot be publicly redistributed. See the
+[handoff guide](../../deployment/COMPLETION_HANDOFF.md) for package locations and remaining work.
+Downloaded weights and source archives do not establish installed environments or working adapters.
 
 SAM3D Body and CARI4D are separate comparison groups: CARI4D uses extra object evidence and the Body initializer, so this is an ablation or end-to-end comparison, not two independent human models. Hold module 3's Track 1 reconstruction fixed when later comparing module 4. Do not use demonstration meshes from another dataset.
 
@@ -30,7 +37,7 @@ Official sources: [MoGe](https://github.com/microsoft/MoGe), [SAM2 toolkit wrapp
 1. Transfer this package and the existing combined asset handoff. The base public-assets archive, FoundationPose add-on, and three [HF model release](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927) archives remain separate. No weights or environments are duplicated in this test kit.
 2. Use the chosen server's compatible CUDA/PyTorch stack. Keep MoGe and the upstream Docker modules in separate environments. Pin MoGe source to `74fbce054ebed49800de42d0ad0e83495065719a`; pin the toolkit to `33129dd0f2d2dcfd1164d43fd076542660756ed2`. Source ZIPs and mutable container tags do not by themselves prove the running image matches those sources. Record the installed versions and image digests in the run's environment identity.
 3. Copy `benchmarks/first3/runtime.example.json` to `runtime.json`, then replace the paths and fill in `machine_id` / `environment_id`. Use a separate Python path per candidate if needed. On the host, follow the pinned toolkit's `reconstruction/README.md`: install the selected module `docker/` orchestration packages and their declared dependencies, then build their images. This kit does not automatically install them.
-4. MoGe2 uses the previously prepared local checkpoint. MoGe3's additional public checkpoint is pinned in `extra_assets.json`; fetch it on an approved machine and verify its SHA-256 before setting `paths.moge3_checkpoint`. The original 12-model completion claim covers the baseline inventory, not these newly proposed experiments.
+4. MoGe2 uses the previously prepared local checkpoint. MoGe3 is now downloaded and verified; its extra package contains `models/moge3-vitl/model.pt` and source `sources/moge/` at the comparison's required revision. Set `paths.moge3_checkpoint` to that extracted checkpoint. `extra_assets.json` records its identity. The original 12-model completion claim remains scoped to the baseline inventory.
 
 Optional explicit MoGe3 download on an approved machine:
 

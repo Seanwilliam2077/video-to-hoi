@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928",
+  "assets": [
+    {
+      "id": "host-wheelhouse",
+      "description": "28 verified Linux CPython 3.10 host and bootstrap wheels; not a GPU runtime",
+      "archive": {
+        "name": "linux-cp310-wheelhouse.zip",
+        "bytes": 119277331,
+        "sha256": "60061646f2a3c3cf7ef7be5eae17809f379155d418a129837405bc283cf2115a"
+      },
+      "parts": [
+        {
+          "name": "linux-cp310-wheelhouse.zip.part001",
+          "bytes": 119277331,
+          "sha256": "60061646f2a3c3cf7ef7be5eae17809f379155d418a129837405bc283cf2115a",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/linux-cp310-wheelhouse.zip.part001"
+        }
+      ]
+    },
+    {
+      "id": "moge3-vitl",
+      "archive": {
+        "name": "moge3-vitl-sourceonly.zip",
+        "bytes": 1483310780,
+        "sha256": "7dd58b76a0bd06298d22da99ffa59ecf661a72d9d43679f67e9b2a9928c53201"
+      },
+      "parts": [
+        {
+          "name": "moge3-vitl-sourceonly.zip.part001",
+          "bytes": 1483310780,
+          "sha256": "7dd58b76a0bd06298d22da99ffa59ecf661a72d9d43679f67e9b2a9928c53201",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/moge3-vitl-sourceonly.zip.part001"
+        }
+      ],
+      "notice": "MoGe source LICENSE includes MIT and Apache-2.0 terms. MoGe3 Hugging Face model card declares MIT. Retain all notices."
+    },
+    {
+      "id": "sam3-video",
+      "archive": {
+        "name": "sam3-video-sourceonly.zip",
+        "bytes": 3454404388,
+        "sha256": "020b446389c7271d42dd05985a7d895c8ccbd944393873a7c6b56f00ac668cd7"
+      },
+      "parts": [
+        {
+          "name": "sam3-video-sourceonly.zip.part001",
+          "bytes": 1900000000,
+          "sha256": "123620485719e43e5fe90f07d9896671e0ead794279bf1c58b79ea64976b28ba",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/sam3-video-sourceonly.zip.part001"
+        },
+        {
+          "name": "sam3-video-sourceonly.zip.part002",
+          "bytes": 1554404388,
+          "sha256": "324fa026997ddf1978e1ec05eb0508c77bf1aaf25d3eb969eadaab49bf157258",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/sam3-video-sourceonly.zip.part002"
+        }
+      ],
+      "notice": "SAM3 is under the SAM License; redistribution requires carrying the full agreement. The upstream Hugging Face checkpoint is gated and was downloaded only after existing access was confirmed."
+    },
+    {
+      "id": "yoloe-v8l-seg",
+      "archive": {
+        "name": "yoloe-v8l-seg-runtime.zip",
+        "bytes": 111385836,
+        "sha256": "e8f8e48d7430e998d56d2f57dcd63c51b783d875cfbd0541e96d377d474bbfe7"
+      },
+      "parts": [
+        {
+          "name": "yoloe-v8l-seg-runtime.zip.part001",
+          "bytes": 111385836,
+          "sha256": "e8f8e48d7430e998d56d2f57dcd63c51b783d875cfbd0541e96d377d474bbfe7",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/yoloe-v8l-seg-runtime.zip.part001"
+        }
+      ],
+      "notice": "YOLOE code and checkpoint are AGPL-3.0; corresponding filtered source code and third-party license notices are included. The separate Apple MobileCLIP checkpoint is governed by current Apple research-only terms."
+    },
+    {
+      "id": "mobileclip-blt-research-only",
+      "archive": {
+        "name": "mobileclip-blt-research-only.zip",
+        "bytes": 599240400,
+        "sha256": "e18c63260ba3b631b7d02d95455cf293cb79fbf6d9fa101c59605374a20eb154"
+      },
+      "parts": [
+        {
+          "name": "mobileclip-blt-research-only.zip.part001",
+          "bytes": 599240400,
+          "sha256": "e18c63260ba3b631b7d02d95455cf293cb79fbf6d9fa101c59605374a20eb154",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/mobileclip-blt-research-only.zip.part001"
+        }
+      ],
+      "notice": "Research-only, noncommercial use under Apple LICENSE_MODELS. Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement. Include the full agreement on redistribution."
+    },
+    {
+      "id": "public-baseline",
+      "description": "Seven baseline model entries and twelve filtered source entries; no source dataset metadata or demo media",
+      "archive": {
+        "name": "public-baseline-runtime-20260928.zip",
+        "bytes": 5491955766,
+        "sha256": "1437eb51be8b89c0e481d358c1aa5e54a4497ea9c7ccadceccb19fead9ffe888"
+      },
+      "parts": [
+        {
+          "name": "public-baseline-runtime-20260928.zip.part001",
+          "bytes": 1992294400,
+          "sha256": "4a1ee4fe017f45e720febcab2527819e43540144f7ea2f9b559ce3075adbdd0a",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/public-baseline-runtime-20260928.zip.part001"
+        },
+        {
+          "name": "public-baseline-runtime-20260928.zip.part002",
+          "bytes": 1992294400,
+          "sha256": "4ae7574c5f9c413fb2deaab73bfb34c34cf42de325825d4c09fb420d7da04e7d",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/public-baseline-runtime-20260928.zip.part002"
+        },
+        {
+          "name": "public-baseline-runtime-20260928.zip.part003",
+          "bytes": 1507366966,
+          "sha256": "697bc548848120934af52c4d60f550cf6eae1cc375bad79f4000d5fe7333ca06",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/public-baseline-runtime-20260928.zip.part003"
+        }
+      ]
+    },
+    {
+      "id": "human-physics-sources",
+      "description": "Partial human and physics source packages with required build metadata; no model weights",
+      "archive": {
+        "name": "expanded-human-physics-sources-runtime.zip",
+        "bytes": 4642004,
+        "sha256": "7cf7d567fd2f3f2e52d9aaa8a7246a64365aeb5e4527692d4bc5db54788f7c37"
+      },
+      "parts": [
+        {
+          "name": "expanded-human-physics-sources-runtime.zip.part001",
+          "bytes": 4642004,
+          "sha256": "7cf7d567fd2f3f2e52d9aaa8a7246a64365aeb5e4527692d4bc5db54788f7c37",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/expanded-human-physics-sources-runtime.zip.part001"
+        }
+      ]
+    },
+    {
+      "id": "runtime-cp310",
+      "description": "268 public runtime distributions and supplemental build sources for Linux CPython 3.10, Torch 2.5.1/cu124; not an installed or validated environment",
+      "archive": {
+        "name": "video-to-hoi-runtime-cp310-cu124-20260928.zip",
+        "bytes": 2373082373,
+        "sha256": "c5ff53b16a353829f551af78664d917e00689338ff918b1ed973a38e744195fb"
+      },
+      "parts": [
+        {
+          "name": "video-to-hoi-runtime-cp310-cu124-20260928.zip.part001",
+          "bytes": 1992294400,
+          "sha256": "bd2724376bb0f730d9c4bec43f3fad1da3d6938e32a4f9701af71282ca33232d",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/video-to-hoi-runtime-cp310-cu124-20260928.zip.part001"
+        },
+        {
+          "name": "video-to-hoi-runtime-cp310-cu124-20260928.zip.part002",
+          "bytes": 380787973,
+          "sha256": "6262dc95f2eef5099adbbee80bfee9916b9a561d8387fbbece90d06203c1ac08",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/video-to-hoi-runtime-cp310-cu124-20260928.zip.part002"
+        }
+      ]
+    },
+    {
+      "id": "runtime-cp311",
+      "description": "49 additional public CPython 3.11 runtime distributions, exact reuse manifest and checked assembly helper; separate from CPython 3.10 wheels",
+      "archive": {
+        "name": "video-to-hoi-runtime-cp311-cu124-20260928.zip",
+        "bytes": 1752914287,
+        "sha256": "05d5c3586d02430bed490a896927d9a76c3a5e897f75f0c5874395872241c7ea"
+      },
+      "parts": [
+        {
+          "name": "video-to-hoi-runtime-cp311-cu124-20260928.zip.part001",
+          "bytes": 1752914287,
+          "sha256": "05d5c3586d02430bed490a896927d9a76c3a5e897f75f0c5874395872241c7ea",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/assets-completion-20260928/video-to-hoi-runtime-cp311-cu124-20260928.zip.part001"
+        }
+      ]
+    }
+  ]
+}

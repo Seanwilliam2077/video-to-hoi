@@ -1,5 +1,15 @@
 # Asset availability audit — 2026-09-28
 
+> **Historical snapshot.** This audit was taken before the
+> `assets-completion-20260928` draft handoff. Nine archives (thirteen parts,
+> 15,390,213,165 bytes) have since been uploaded and matched against local
+> hashes, but the Release is **not public**. The draft includes the filtered
+> baseline package, the CPython 3.10 host wheelhouse, four additional Module 1
+> model packages and partial human/physics sources. The baseline runtime companions have been added; expanded candidate runtimes and
+> restricted/manual model weights remain incomplete. See the
+> [current handoff guide](COMPLETION_HANDOFF.md); the observations below remain
+> evidence of their original audit date, not a current publication inventory.
+
 **The full dependency/model handoff is not complete.** The original baseline's
 12 required model entries are present locally and pass integrity checks. Only
 five of those entries are published in this repository's GitHub Releases.

@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "scope": "module1-expanded-acquisition",
+  "prepared_date": "2026-09-28",
+  "status": "downloaded_and_packaged_not_published_or_executed",
+  "release_tag_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928",
+  "release_manifest_sha256": null,
+  "policy": "Track1 only; no Track2, bundled demos, or unknown-provenance data included; no local install, inference, or deployment performed.",
+  "assets": [
+    {
+      "id": "moge3-vitl",
+      "module": 1,
+      "role": "video depth candidate",
+      "source_repository": "https://github.com/microsoft/MoGe",
+      "source_revision": "74fbce054ebed49800de42d0ad0e83495065719a",
+      "source_receipt": "receipts/moge-source.json",
+      "checkpoint_origin": "https://huggingface.co/Ruicheng/moge-3-vitl/blob/184008f877d7ad1ad4c2cd2182a9bd1f63d0e5be/model.pt",
+      "checkpoint_revision": "184008f877d7ad1ad4c2cd2182a9bd1f63d0e5be",
+      "checkpoint_path": "models/moge3-vitl/model.pt",
+      "checkpoint_bytes": 1481333394,
+      "checkpoint_sha256": "9b41b7b9f65ad80aab7ad686f5e9cc0d1fd33f1964022618dfbcd52fc1fb7925",
+      "license": "MIT model card; source LICENSE includes MIT and Apache-2.0 notices",
+      "redistribution": "allowed_with_full_notices",
+      "archive": {
+        "name": "moge3-vitl-sourceonly.zip",
+        "bytes": 1483310780,
+        "sha256": "7dd58b76a0bd06298d22da99ffa59ecf661a72d9d43679f67e9b2a9928c53201"
+      },
+      "parts": [
+        {
+          "name": "moge3-vitl-sourceonly.zip.part001",
+          "bytes": 1483310780,
+          "sha256": "7dd58b76a0bd06298d22da99ffa59ecf661a72d9d43679f67e9b2a9928c53201"
+        }
+      ],
+      "source_scope": "pinned runtime source; 16 upstream training/evaluation JSON configs omitted before packaging"
+    },
+    {
+      "id": "sam3-video",
+      "module": 1,
+      "role": "video segmentation candidate",
+      "source_repository": "https://github.com/facebookresearch/sam3",
+      "source_revision": "2345a4ad109ac29c569da749c91d84f10dc08c40",
+      "source_receipt": "receipts/sam3-source.json",
+      "checkpoint_origin": "https://huggingface.co/facebook/sam3/blob/3c879f39826c281e95690f02c7821c4de09afae7/sam3.pt",
+      "checkpoint_revision": "3c879f39826c281e95690f02c7821c4de09afae7",
+      "checkpoint_path": "models/sam3/sam3.pt",
+      "checkpoint_bytes": 3450062241,
+      "checkpoint_sha256": "9999e2341ceef5e136daa386eecb55cb414446a00ac2b55eb2dfd2f7c3cf8c9e",
+      "license": "SAM License",
+      "redistribution": "allowed_with_full_SAM_License",
+      "origin_gated": true,
+      "archive": {
+        "name": "sam3-video-sourceonly.zip",
+        "bytes": 3454404388,
+        "sha256": "020b446389c7271d42dd05985a7d895c8ccbd944393873a7c6b56f00ac668cd7"
+      },
+      "parts": [
+        {
+          "name": "sam3-video-sourceonly.zip.part001",
+          "bytes": 1900000000,
+          "sha256": "123620485719e43e5fe90f07d9896671e0ead794279bf1c58b79ea64976b28ba"
+        },
+        {
+          "name": "sam3-video-sourceonly.zip.part002",
+          "bytes": 1554404388,
+          "sha256": "324fa026997ddf1978e1ec05eb0508c77bf1aaf25d3eb969eadaab49bf157258"
+        }
+      ],
+      "source_scope": "pinned runtime source; 37 upstream training/evaluation YAML configs omitted before packaging; tokenizer vocabulary retained"
+    },
+    {
+      "id": "yoloe-v8l-seg",
+      "module": 1,
+      "role": "text-prompt segmentation candidate",
+      "source_repository": "https://github.com/THU-MIG/yoloe",
+      "source_revision": "40cd606cabdbe2b566d6f14a6b162c89206e9a1b",
+      "source_receipt": "receipts/yoloe-source-public.json",
+      "checkpoint_origin": "https://huggingface.co/jameslahm/yoloe/blob/b584da188a198a2e6aa0e013d3fef6d55b212603/yoloe-v8l-seg.pt",
+      "checkpoint_revision": "b584da188a198a2e6aa0e013d3fef6d55b212603",
+      "checkpoint_path": "models/yoloe-v8l-seg/yoloe-v8l-seg.pt",
+      "checkpoint_bytes": 107405586,
+      "checkpoint_sha256": "14e9c146f7f7efa0bfea8c5f82952c9f95fb1f9c3bf0f18b3727b76624f9d746",
+      "license": "AGPL-3.0 and included third-party notices",
+      "redistribution": "allowed_with_AGPL_source_and_notices",
+      "source_scope": "pinned text-prompt runtime source with MobileCLIP README, requirements and mobileclip_b.json, LVIS requirements and CLIP MANIFEST.in; dataset/training YAML and optional vendored SAM2 visual-prompt source omitted",
+      "archive": {
+        "name": "yoloe-v8l-seg-runtime.zip",
+        "bytes": 111385836,
+        "sha256": "e8f8e48d7430e998d56d2f57dcd63c51b783d875cfbd0541e96d377d474bbfe7"
+      },
+      "parts": [
+        {
+          "name": "yoloe-v8l-seg-runtime.zip.part001",
+          "bytes": 111385836,
+          "sha256": "e8f8e48d7430e998d56d2f57dcd63c51b783d875cfbd0541e96d377d474bbfe7"
+        }
+      ],
+      "runtime_metadata_receipt": "receipts/yoloe-runtime-additions.json"
+    },
+    {
+      "id": "mobileclip-blt-research-only",
+      "module": 1,
+      "role": "YOLOE text encoder dependency",
+      "source_repository": "https://github.com/apple-aiml-research/ml-mobileclip",
+      "source_revision": "48faa0fea4b08d74188b3841771aca6ff2c92852",
+      "checkpoint_origin": "https://docs-assets.developer.apple.com/ml-research/datasets/mobileclip/mobileclip_blt.pt",
+      "checkpoint_path": "models/mobileclip-b-lt/mobileclip_blt.pt",
+      "checkpoint_bytes": 599214572,
+      "checkpoint_sha256": "670844f7a886dd6eff7a9285adfc53f3d3c889c03bfc8354010cb5c6bf27441a",
+      "license": "Apple Machine Learning Research Model License Agreement (LICENSE_MODELS)",
+      "redistribution": "research_only_with_full_agreement_and_exact_attribution",
+      "notice": "Apple Machine Learning Research Model is licensed under the Apple Machine Learning Research Model License Agreement.",
+      "source_scope": "YOLOE source package includes pinned vendored MobileCLIP runtime code; this package contains unmodified Apple checkpoint and current license only",
+      "archive": {
+        "name": "mobileclip-blt-research-only.zip",
+        "bytes": 599240400,
+        "sha256": "e18c63260ba3b631b7d02d95455cf293cb79fbf6d9fa101c59605374a20eb154"
+      },
+      "parts": [
+        {
+          "name": "mobileclip-blt-research-only.zip.part001",
+          "bytes": 599240400,
+          "sha256": "e18c63260ba3b631b7d02d95455cf293cb79fbf6d9fa101c59605374a20eb154"
+        }
+      ]
+    }
+  ],
+  "source_policy": "source-code-only-v2; omitted upstream training/evaluation dataset configs; no Track2 or bundled demo media",
+  "combined_manifest_state": "pending_root_reassembly_after_yoloe_runtime_replacement"
+}

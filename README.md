@@ -23,23 +23,14 @@ Progress in plain Chinese, for leadership and product: **[open the status page](
 
 ## Model weights and data
 
-Large files are not in Git. The Track 1 data comes from Hugging Face; the model weights come from this repository's releases and the pinned upstream sources. Run from a clone:
+Large files are GitHub Release attachments, not ordinary Git blobs or the repository's source ZIP. The current filtered handoff preserves model files and runtime sources while excluding upstream dataset/demo payloads. Use the [handoff guide](deployment/COMPLETION_HANDOFF.md) for download commands, extraction paths, licenses and the verified publication record.
 
 ```bash
 # Track 1 videos and metadata -> data/v2d/track_1/
 python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='nvidia/video_to_data_challenge', repo_type='dataset', local_dir='data/v2d', allow_patterns=['track_1/**'])"
 
-# Source trees and the seven public models -> artifacts/
-python tools/fetch_assets.py fetch --root artifacts --skip-gated
-
-# FoundationPose weights (239 MB): extract the ZIP into artifacts/
-gh release download foundationpose-addon-20260927 -R Seanwilliam2077/video-to-hoi -D downloads
-
-# CARI4D, SAM 3D Body and SAM 3D Objects (18 GB in 11 parts): rebuild three ZIPs, then extract them into artifacts/
-python tools/restore_model_release.py deployment/releases/hf-models-20260927-manifest.json --parts-dir downloads/hf-models --output-dir downloads/archives --download
-
-# Check every model file
-python tools/fetch_assets.py verify --root artifacts
+# After restoring and combining the three baseline releases as described in the guide:
+python tools/fetch_assets.py verify --root combined-assets --group all
 ```
 
-The fetch step leaves FoundationPose and the three gated models incomplete; the two releases supply them. Restoring the three models needs about 54 GB free while parts, ZIPs and extracted files coexist. Read `MODEL_NOTICE.md` in the release before use. Details and licenses: [deployment/MODEL_RELEASES.md](deployment/MODEL_RELEASES.md).
+The completion handoff is currently a **draft** and is not public yet. It adds seven original baseline model entries, host wheels, four Module 1 models and partial human/physics source packages. The older FoundationPose and CARI4D/SAM3D releases supply the other five selected baseline model entries. Human/physics model weights, restricted distributions, native builds and server validation remain outstanding. No new inference results or rankings are available.

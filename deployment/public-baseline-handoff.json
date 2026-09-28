@@ -1,0 +1,465 @@
+{
+  "id": "public-baseline",
+  "archive": {
+    "name": "public-baseline-runtime-20260928.zip",
+    "bytes": 5491955766,
+    "sha256": "1437eb51be8b89c0e481d358c1aa5e54a4497ea9c7ccadceccb19fead9ffe888"
+  },
+  "assets": [
+    {
+      "id": "video-to-data-source",
+      "group": "sources",
+      "files": 354,
+      "bytes": 3094406,
+      "omitted_files": 4300,
+      "source": {
+        "kind": "git",
+        "revision": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+        "url": "https://github.com/nvidia-isaac/video_to_data",
+        "license": "Apache-2.0",
+        "archive_url": "https://codeload.github.com/nvidia-isaac/video_to_data/zip/33129dd0f2d2dcfd1164d43fd076542660756ed2"
+      }
+    },
+    {
+      "id": "sam3d-objects-source",
+      "group": "sources",
+      "files": 118,
+      "bytes": 783898,
+      "omitted_files": 298,
+      "source": {
+        "kind": "git",
+        "revision": "f91db411c50efee93d8db7aeb323885650f6f722",
+        "url": "https://github.com/facebookresearch/sam-3d-objects",
+        "license": "SAM License",
+        "archive_url": "https://codeload.github.com/facebookresearch/sam-3d-objects/zip/f91db411c50efee93d8db7aeb323885650f6f722"
+      }
+    },
+    {
+      "id": "cari4d-dinov3-source",
+      "group": "sources",
+      "files": 190,
+      "bytes": 1099009,
+      "omitted_files": 31,
+      "source": {
+        "kind": "git",
+        "revision": "6876159a11b4df116f30f667f8c9888617df0751",
+        "url": "https://github.com/facebookresearch/dinov3",
+        "license": "DINOv3 License",
+        "archive_url": "https://codeload.github.com/facebookresearch/dinov3/zip/6876159a11b4df116f30f667f8c9888617df0751"
+      }
+    },
+    {
+      "id": "cari4d-dinov2-source",
+      "group": "sources",
+      "files": 174,
+      "bytes": 858809,
+      "omitted_files": 29,
+      "source": {
+        "kind": "git",
+        "revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+        "url": "https://github.com/facebookresearch/dinov2",
+        "license": "Apache-2.0",
+        "archive_url": "https://codeload.github.com/facebookresearch/dinov2/zip/7764ea0f912e53c92e82eb78a2a1631e92725fc8"
+      }
+    },
+    {
+      "id": "objects-dinov2-source",
+      "group": "sources",
+      "files": 174,
+      "bytes": 858809,
+      "omitted_files": 29,
+      "source": {
+        "kind": "git",
+        "revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+        "url": "https://github.com/facebookresearch/dinov2",
+        "license": "Apache-2.0",
+        "archive_url": "https://codeload.github.com/facebookresearch/dinov2/zip/7764ea0f912e53c92e82eb78a2a1631e92725fc8"
+      }
+    },
+    {
+      "id": "sam2-source",
+      "group": "sources",
+      "files": 69,
+      "bytes": 657097,
+      "omitted_files": 500,
+      "source": {
+        "kind": "git",
+        "revision": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+        "url": "https://github.com/facebookresearch/sam2",
+        "license": "Apache-2.0",
+        "archive_url": "https://codeload.github.com/facebookresearch/sam2/zip/2b90b9f5ceec907a1c18123530e92e794ad901a4"
+      }
+    },
+    {
+      "id": "pytorch3d-source",
+      "group": "sources",
+      "files": 366,
+      "bytes": 3125555,
+      "omitted_files": 699,
+      "source": {
+        "kind": "git",
+        "revision": "33824be3cbc87a7dd1db0f6a9a9de9ac81b2d0ba",
+        "url": "https://github.com/facebookresearch/pytorch3d",
+        "license": "BSD-3-Clause",
+        "archive_url": "https://codeload.github.com/facebookresearch/pytorch3d/zip/33824be3cbc87a7dd1db0f6a9a9de9ac81b2d0ba"
+      }
+    },
+    {
+      "id": "nvdiffrast-source",
+      "group": "sources",
+      "files": 44,
+      "bytes": 435797,
+      "omitted_files": 41,
+      "source": {
+        "kind": "git",
+        "revision": "253ac4fcea7de5f396371124af597e6cc957bfae",
+        "url": "https://github.com/NVlabs/nvdiffrast",
+        "license": "NVIDIA Source Code License (1-Way Commercial)",
+        "archive_url": "https://codeload.github.com/NVlabs/nvdiffrast/zip/253ac4fcea7de5f396371124af597e6cc957bfae"
+      }
+    },
+    {
+      "id": "pybind11-source",
+      "group": "sources",
+      "files": 54,
+      "bytes": 810101,
+      "omitted_files": 183,
+      "source": {
+        "kind": "git",
+        "revision": "aa304c9c7d725ffb9d10af08a3b34cb372307020",
+        "url": "https://github.com/pybind/pybind11",
+        "license": "BSD-3-Clause",
+        "archive_url": "https://codeload.github.com/pybind/pybind11/zip/aa304c9c7d725ffb9d10af08a3b34cb372307020"
+      }
+    },
+    {
+      "id": "objects-moge-source",
+      "group": "sources",
+      "files": 62,
+      "bytes": 343067,
+      "omitted_files": 26,
+      "source": {
+        "kind": "git",
+        "revision": "a8c37341bc0325ca99b9d57981cc3bb2bd3e255b",
+        "url": "https://github.com/microsoft/MoGe",
+        "license": "MIT",
+        "archive_url": "https://codeload.github.com/microsoft/MoGe/zip/a8c37341bc0325ca99b9d57981cc3bb2bd3e255b"
+      }
+    },
+    {
+      "id": "cari4d-moge-source",
+      "group": "sources",
+      "files": 64,
+      "bytes": 358044,
+      "omitted_files": 37,
+      "source": {
+        "kind": "git",
+        "revision": "925b8ed835a7a9cdb7578ba15c658a0afc969030",
+        "url": "https://github.com/microsoft/MoGe",
+        "license": "MIT",
+        "archive_url": "https://codeload.github.com/microsoft/MoGe/zip/925b8ed835a7a9cdb7578ba15c658a0afc969030"
+      }
+    },
+    {
+      "id": "utils3d-source",
+      "group": "sources",
+      "files": 40,
+      "bytes": 640778,
+      "omitted_files": 3,
+      "source": {
+        "kind": "git",
+        "revision": "3fab839f0be9931dac7c8488eb0e1600c236e183",
+        "url": "https://github.com/EasternJournalist/utils3d",
+        "license": "MIT",
+        "archive_url": "https://codeload.github.com/EasternJournalist/utils3d/zip/3fab839f0be9931dac7c8488eb0e1600c236e183"
+      }
+    },
+    {
+      "id": "sam2",
+      "group": "models",
+      "files": 3,
+      "bytes": 898107388,
+      "omitted_files": 0,
+      "source": {
+        "kind": "huggingface",
+        "repo_id": "facebook/sam2.1-hiera-large",
+        "revision": "665f8e2ad61cf5f53d65644ff27c8ee525124610",
+        "license": "apache-2.0",
+        "gated": false
+      }
+    },
+    {
+      "id": "cari4d-moge2",
+      "group": "models",
+      "files": 3,
+      "bytes": 1323815968,
+      "omitted_files": 0,
+      "source": {
+        "kind": "huggingface",
+        "repo_id": "Ruicheng/moge-2-vitl-normal",
+        "revision": "b135031bae30b5ac2ae141a0e68717795ce38340",
+        "license": "mit",
+        "gated": false
+      }
+    },
+    {
+      "id": "objects-moge1",
+      "group": "models",
+      "files": 3,
+      "bytes": 1256823506,
+      "omitted_files": 0,
+      "source": {
+        "kind": "huggingface",
+        "repo_id": "Ruicheng/moge-vitl",
+        "revision": "ad326bfb61facd6c52b5a825bc1e34d7c97d9672",
+        "license": "mit",
+        "gated": false
+      }
+    },
+    {
+      "id": "cari4d-dinov2-vitb14",
+      "group": "models",
+      "files": 1,
+      "bytes": 346378731,
+      "omitted_files": 0,
+      "source": {
+        "kind": "http",
+        "revision": null,
+        "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth",
+        "license": "Apache-2.0",
+        "gated": false
+      }
+    },
+    {
+      "id": "cari4d-dinov2-vits14",
+      "group": "models",
+      "files": 1,
+      "bytes": 88283115,
+      "omitted_files": 0,
+      "source": {
+        "kind": "http",
+        "revision": null,
+        "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth",
+        "license": "Apache-2.0",
+        "gated": false
+      }
+    },
+    {
+      "id": "objects-dinov2-vitl14-reg4",
+      "group": "models",
+      "files": 1,
+      "bytes": 1217607321,
+      "omitted_files": 0,
+      "source": {
+        "kind": "http",
+        "revision": null,
+        "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_reg4_pretrain.pth",
+        "license": "Apache-2.0",
+        "gated": false
+      }
+    },
+    {
+      "id": "objects-dinov2-vitb14-reg4",
+      "group": "models",
+      "files": 1,
+      "bytes": 346393545,
+      "omitted_files": 0,
+      "source": {
+        "kind": "http",
+        "revision": null,
+        "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_reg4_pretrain.pth",
+        "license": "Apache-2.0",
+        "gated": false
+      }
+    }
+  ],
+  "licenses": [
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/LICENSE",
+      "sha256": "e87dc2a40b553c5f52acb3909f479afbeac8c35a85328fceaa0cab15ed50b9fc"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/LICENSE",
+      "sha256": "e87dc2a40b553c5f52acb3909f479afbeac8c35a85328fceaa0cab15ed50b9fc"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/modules/v2d_common/LICENSE",
+      "sha256": "211d98cf9501fe8cfc7125554088e558c0a7fcefbe822be7d91ec08aa91580e7"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/modules/v2d_docker/LICENSE",
+      "sha256": "211d98cf9501fe8cfc7125554088e558c0a7fcefbe822be7d91ec08aa91580e7"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/modules/v2d_foundation_pose/lib/FoundationPose/bundlesdf/mycuda/torch_ngp_grid_encoder/LICENSE",
+      "sha256": "2767ebd056b9458a9b1d6952f08cc4008e8565e68a88c02c8b6a994ad435f6a9"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/modules/v2d_foundation_pose/lib/FoundationPose/LICENSE",
+      "sha256": "0de51abc6b73e24724858239efc42cfeada5d9e7c911cf7eff077bd9a23dec62"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/modules/v2d_moge/LICENSE",
+      "sha256": "211d98cf9501fe8cfc7125554088e558c0a7fcefbe822be7d91ec08aa91580e7"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/modules/v2d_mv/LICENSE",
+      "sha256": "211d98cf9501fe8cfc7125554088e558c0a7fcefbe822be7d91ec08aa91580e7"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/modules/v2d_sam2/LICENSE",
+      "sha256": "211d98cf9501fe8cfc7125554088e558c0a7fcefbe822be7d91ec08aa91580e7"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/modules/v2d_sam3d/LICENSE",
+      "sha256": "211d98cf9501fe8cfc7125554088e558c0a7fcefbe822be7d91ec08aa91580e7"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/LICENSE",
+      "sha256": "b3a5a0e2d973ab80e6610ccf1cffc40756050d0ace3cd4fec879b3ec290b2e9b"
+    },
+    {
+      "asset": "video-to-data-source",
+      "path": "third_party/video_to_data/reconstruction/NOTICE",
+      "sha256": "09c0b43dfa5c73091ce4cb5dce28f394e504db39d94cfc41b44aa2fdd6cf0061"
+    },
+    {
+      "asset": "sam3d-objects-source",
+      "path": "third_party/sam-3d-objects/LICENSE",
+      "sha256": "b3a5a0e2d973ab80e6610ccf1cffc40756050d0ace3cd4fec879b3ec290b2e9b"
+    },
+    {
+      "asset": "cari4d-dinov3-source",
+      "path": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main/LICENSE.md",
+      "sha256": "25d122eb8f5b880fd23c736fb6ea8018ee45c12237e00b8a86d14c653904999e"
+    },
+    {
+      "asset": "cari4d-dinov2-source",
+      "path": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov2_main/dinov2/thirdparty/CLIP/LICENSE",
+      "sha256": "893951b3bf94db8df1b13e05da5cdeb499400960e4d44a3962a8b33ed0b4f28e"
+    },
+    {
+      "asset": "cari4d-dinov2-source",
+      "path": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov2_main/LICENSE",
+      "sha256": "600cc67cc4cb2f5ea317dcfc687ad1c74dc4bec8782bbe9db0afd83513b935b7"
+    },
+    {
+      "asset": "cari4d-dinov2-source",
+      "path": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov2_main/LICENSE_CELL_DINO_CODE",
+      "sha256": "fe7b4ce83b8381cc5b216bbb4af73c570688d1b819c73bbaed8ca401f4677cd6"
+    },
+    {
+      "asset": "cari4d-dinov2-source",
+      "path": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov2_main/LICENSE_CELL_DINO_MODELS",
+      "sha256": "d779b47a4ef8bbfc6c90d14768fe6a0a2c1c08bbc3712084496058bfd83cef4f"
+    },
+    {
+      "asset": "cari4d-dinov2-source",
+      "path": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov2_main/LICENSE_XRAY_DINO_MODEL",
+      "sha256": "ce9efad90c86b5697e1783e56e3c936f6bd23c568c1166ecf07805b65d0891ad"
+    },
+    {
+      "asset": "objects-dinov2-source",
+      "path": "weights/sam3d/torch_home/hub/facebookresearch_dinov2_main/dinov2/thirdparty/CLIP/LICENSE",
+      "sha256": "893951b3bf94db8df1b13e05da5cdeb499400960e4d44a3962a8b33ed0b4f28e"
+    },
+    {
+      "asset": "objects-dinov2-source",
+      "path": "weights/sam3d/torch_home/hub/facebookresearch_dinov2_main/LICENSE",
+      "sha256": "600cc67cc4cb2f5ea317dcfc687ad1c74dc4bec8782bbe9db0afd83513b935b7"
+    },
+    {
+      "asset": "objects-dinov2-source",
+      "path": "weights/sam3d/torch_home/hub/facebookresearch_dinov2_main/LICENSE_CELL_DINO_CODE",
+      "sha256": "fe7b4ce83b8381cc5b216bbb4af73c570688d1b819c73bbaed8ca401f4677cd6"
+    },
+    {
+      "asset": "objects-dinov2-source",
+      "path": "weights/sam3d/torch_home/hub/facebookresearch_dinov2_main/LICENSE_CELL_DINO_MODELS",
+      "sha256": "d779b47a4ef8bbfc6c90d14768fe6a0a2c1c08bbc3712084496058bfd83cef4f"
+    },
+    {
+      "asset": "objects-dinov2-source",
+      "path": "weights/sam3d/torch_home/hub/facebookresearch_dinov2_main/LICENSE_XRAY_DINO_MODEL",
+      "sha256": "ce9efad90c86b5697e1783e56e3c936f6bd23c568c1166ecf07805b65d0891ad"
+    },
+    {
+      "asset": "sam2-source",
+      "path": "third_party/sam2/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "asset": "sam2-source",
+      "path": "third_party/sam2/LICENSE_cctorch",
+      "sha256": "687d4f65ffe399358b170e22572564a16689e496f85a79dc5385fccf6bbc9558"
+    },
+    {
+      "asset": "sam2-source",
+      "path": "third_party/sam2/sav_dataset/LICENSE",
+      "sha256": "28b6f4b85d4f6867c99bcba442d3e0bffc4e6f1a6e04e210a4bb9c9a3b56306a"
+    },
+    {
+      "asset": "sam2-source",
+      "path": "third_party/sam2/sav_dataset/LICENSE_DAVIS",
+      "sha256": "a727bc2b6f26a1f1c76d0511502da6ba208212708c04a65230159331906354f1"
+    },
+    {
+      "asset": "sam2-source",
+      "path": "third_party/sam2/sav_dataset/LICENSE_VOS_BENCHMARK",
+      "sha256": "104f011f1cd91268d54a9fab1ff769ef01081410cd622e0f723c03d146d02482"
+    },
+    {
+      "asset": "pytorch3d-source",
+      "path": "third_party/pytorch3d/LICENSE",
+      "sha256": "6da05663049417a91409fa349bfad5778ed56c9ef68226dde28dffd541481579"
+    },
+    {
+      "asset": "pytorch3d-source",
+      "path": "third_party/pytorch3d/LICENSE-3RD-PARTY",
+      "sha256": "900ecf898aa41fd55402544ebaf4c06e94e3c4a0ce4dbf653e19932ef8a06a3c"
+    },
+    {
+      "asset": "nvdiffrast-source",
+      "path": "third_party/nvdiffrast/LICENSE.txt",
+      "sha256": "ce20436c2730611757d3c7ed2b4d9bef8315a8a0af0540ff8baa5dce7a94f5da"
+    },
+    {
+      "asset": "nvdiffrast-source",
+      "path": "third_party/nvdiffrast/samples/data/NOTICE.txt",
+      "sha256": "5b24e04c152f4dc1e8109adfecd87b484de168b70b8800ae90f2488b4f1f8fb1"
+    },
+    {
+      "asset": "pybind11-source",
+      "path": "third_party/pybind11/LICENSE",
+      "sha256": "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb"
+    },
+    {
+      "asset": "objects-moge-source",
+      "path": "third_party/moge-objects/LICENSE",
+      "sha256": "ad7d951c80c5fc2b2bce035f2041bc0a0dbf9028c8ecc4c9a8e1fba8130b6b59"
+    },
+    {
+      "asset": "cari4d-moge-source",
+      "path": "third_party/moge-cari4d/LICENSE",
+      "sha256": "ad7d951c80c5fc2b2bce035f2041bc0a0dbf9028c8ecc4c9a8e1fba8130b6b59"
+    },
+    {
+      "asset": "utils3d-source",
+      "path": "third_party/utils3d/LICENSE",
+      "sha256": "197b6e9eeec3ebf5ff80edc89c0eecc9f33fff0b9074500c042ce67ff6665d3d"
+    }
+  ],
+  "materialization_policy": "source-only-v1; nine toolkit modules; non-runtime toolkit modules, all source JSON, unneeded training/evaluation configurations, demo/media/data excluded before reading",
+  "status": "prepared_not_published_or_executed"
+}

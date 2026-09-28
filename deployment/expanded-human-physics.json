@@ -1,0 +1,1036 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-09-28",
+  "scope": "Expanded human and physics candidates only: GVHMR, WHAM, SmoothNet, HTD-Refine and PhysPT. This is separate from the completed 12-model selected baseline.",
+  "status": "source_only_partial_handoff_models_blocked",
+  "model_files_downloaded": 0,
+  "model_bytes_downloaded": 0,
+  "inference_performed": false,
+  "deployment_performed": false,
+  "packages_installed": false,
+  "track2_or_unverified_dataset_assets_included": false,
+  "source_integrity": "Every selected source file was checked against pinned Git tree blob SHA-1 and then SHA-256. Public receipts enumerate only packaged source files.",
+  "sources": [
+    {
+      "id": "gvhmr",
+      "repository": "https://github.com/zju3dv/GVHMR",
+      "revision": "ee960bb6e2ea2d381aa97f08e9b71ef320b624b1",
+      "license": "Research/education/non-profit license",
+      "license_path": "licenses/gvhmr/LICENSE",
+      "status": "selected_source_files_downloaded_and_verified",
+      "full_checkout": false,
+      "runtime_ready": false,
+      "downloaded_source_file_count": 195,
+      "public_source_file_count": 193,
+      "public_source_bytes": 1191864,
+      "public_redistribution_allowed": true,
+      "public_redistribution_scope": "Packaged, unmodified source files only, under their original terms; no model assets.",
+      "withheld_for_license_review": [
+        {
+          "path": "hmr4d/utils/body_model/utils.py",
+          "source_url": "https://raw.githubusercontent.com/zju3dv/GVHMR/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/hmr4d/utils/body_model/utils.py",
+          "reason": "Explicitly incorporates SMPLify-X code; the linked SMPLify-X license prohibits third-party distribution without written permission."
+        },
+        {
+          "path": "hmr4d/utils/geo/quaternion.py",
+          "source_url": "https://raw.githubusercontent.com/zju3dv/GVHMR/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/hmr4d/utils/geo/quaternion.py",
+          "reason": "Facebook header refers to an upstream root license not identified in this file. Possible QuaterNet origin needs file-level provenance confirmation; excluded pending review."
+        }
+      ],
+      "excluded_non_source_file_count": 21,
+      "unresolved_submodules": [
+        {
+          "path": "third-party/DPVO",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "c0c5a104c9c58663aa9be62c3f125d5b52874f3e"
+        }
+      ]
+    },
+    {
+      "id": "wham",
+      "repository": "https://github.com/yohanshin/WHAM",
+      "revision": "2b54f7797391c94876848b905ed875b154c4a295",
+      "license": "MIT",
+      "license_path": "licenses/wham/LICENSE",
+      "status": "selected_source_files_downloaded_and_verified",
+      "full_checkout": false,
+      "runtime_ready": false,
+      "downloaded_source_file_count": 70,
+      "public_source_file_count": 68,
+      "public_source_bytes": 374533,
+      "public_redistribution_allowed": true,
+      "public_redistribution_scope": "Packaged, unmodified source files only, under their original terms; no model assets.",
+      "withheld_for_license_review": [
+        {
+          "path": "lib/core/trainer.py",
+          "source_url": "https://raw.githubusercontent.com/yohanshin/WHAM/2b54f7797391c94876848b905ed875b154c4a295/lib/core/trainer.py",
+          "reason": "MPG proprietary header requires a valid separate agreement; root MIT is not treated as permission for this file."
+        },
+        {
+          "path": "lib/utils/utils.py",
+          "source_url": "https://raw.githubusercontent.com/yohanshin/WHAM/2b54f7797391c94876848b905ed875b154c4a295/lib/utils/utils.py",
+          "reason": "MPG proprietary header requires a valid separate agreement; root MIT is not treated as permission for this file."
+        }
+      ],
+      "excluded_non_source_file_count": 0,
+      "unresolved_submodules": [
+        {
+          "path": "third-party/DPVO",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "58338357611e7cf3563ed90f82168da7f8741d24"
+        },
+        {
+          "path": "third-party/ViTPose",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "d5216452796c90c6bc29f5c5ec0bdba94366768a"
+        }
+      ]
+    },
+    {
+      "id": "smoothnet",
+      "repository": "https://github.com/cure-lab/SmoothNet",
+      "revision": "c03e93e8a14f55b9aa087dced2751a7a5e2d50b0",
+      "license": "Apache-2.0",
+      "license_path": "licenses/smoothnet/LICENSE",
+      "status": "selected_source_files_downloaded_and_verified",
+      "full_checkout": false,
+      "runtime_ready": false,
+      "downloaded_source_file_count": 38,
+      "public_source_file_count": 38,
+      "public_source_bytes": 255839,
+      "public_redistribution_allowed": true,
+      "public_redistribution_scope": "Packaged, unmodified source files only, under their original terms; no model assets.",
+      "withheld_for_license_review": [],
+      "excluded_non_source_file_count": 0,
+      "unresolved_submodules": []
+    },
+    {
+      "id": "htd-refine",
+      "repository": "https://github.com/ant-research/HTD-Refine",
+      "revision": "2fcd6ddef3c4eb75a636062245f80a0136c09b7e",
+      "license": "AGPL-3.0-only",
+      "license_path": "licenses/htd-refine/LICENSE",
+      "status": "selected_source_files_downloaded_and_verified",
+      "full_checkout": false,
+      "runtime_ready": false,
+      "downloaded_source_file_count": 63,
+      "public_source_file_count": 63,
+      "public_source_bytes": 288388,
+      "public_redistribution_allowed": true,
+      "public_redistribution_scope": "Packaged, unmodified source files only, under their original terms; no model assets.",
+      "withheld_for_license_review": [],
+      "excluded_non_source_file_count": 10,
+      "unresolved_submodules": []
+    },
+    {
+      "id": "physpt",
+      "repository": "https://github.com/zhangy76/PhysPT",
+      "revision": "40d869927e53a3cade8ba657cacdaeb993f085b8",
+      "license": "MIT",
+      "license_path": "licenses/physpt/LICENSE",
+      "status": "selected_source_files_downloaded_and_verified",
+      "full_checkout": false,
+      "runtime_ready": false,
+      "downloaded_source_file_count": 22,
+      "public_source_file_count": 22,
+      "public_source_bytes": 159564,
+      "public_redistribution_allowed": true,
+      "public_redistribution_scope": "Packaged, unmodified source files only, under their original terms; no model assets.",
+      "withheld_for_license_review": [],
+      "excluded_non_source_file_count": 83,
+      "unresolved_submodules": []
+    },
+    {
+      "id": "gvhmr-dpvo",
+      "repository": "https://github.com/princeton-vl/DPVO",
+      "revision": "c0c5a104c9c58663aa9be62c3f125d5b52874f3e",
+      "license": "MIT",
+      "license_path": "licenses/gvhmr-dpvo/LICENSE",
+      "status": "selected_source_files_downloaded_and_verified",
+      "full_checkout": false,
+      "runtime_ready": false,
+      "downloaded_source_file_count": 292,
+      "public_source_file_count": 292,
+      "public_source_bytes": 2990702,
+      "public_redistribution_allowed": true,
+      "public_redistribution_scope": "Packaged, unmodified source files only, under their original terms; no model assets.",
+      "withheld_for_license_review": [],
+      "excluded_non_source_file_count": 53,
+      "unresolved_submodules": [
+        {
+          "path": "DBoW2",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "89f8b270270fa68a399c10cd90427a9f7ec4fa81"
+        },
+        {
+          "path": "Pangolin",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "93712f0666003f392ac8414bc2c0a009081e91c1"
+        }
+      ]
+    },
+    {
+      "id": "wham-dpvo",
+      "repository": "https://github.com/princeton-vl/DPVO",
+      "revision": "58338357611e7cf3563ed90f82168da7f8741d24",
+      "license": "MIT",
+      "license_path": "licenses/wham-dpvo/LICENSE",
+      "status": "selected_source_files_downloaded_and_verified",
+      "full_checkout": false,
+      "runtime_ready": false,
+      "downloaded_source_file_count": 172,
+      "public_source_file_count": 172,
+      "public_source_bytes": 1623975,
+      "public_redistribution_allowed": true,
+      "public_redistribution_scope": "Packaged, unmodified source files only, under their original terms; no model assets.",
+      "withheld_for_license_review": [],
+      "excluded_non_source_file_count": 39,
+      "unresolved_submodules": [
+        {
+          "path": "Pangolin",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "93712f0666003f392ac8414bc2c0a009081e91c1"
+        }
+      ]
+    },
+    {
+      "id": "wham-vitpose",
+      "repository": "https://github.com/ViTAE-Transformer/ViTPose",
+      "revision": "d5216452796c90c6bc29f5c5ec0bdba94366768a",
+      "license": "Apache-2.0",
+      "license_path": "licenses/wham-vitpose/LICENSE",
+      "status": "selected_source_files_downloaded_and_verified",
+      "full_checkout": false,
+      "runtime_ready": false,
+      "downloaded_source_file_count": 1361,
+      "public_source_file_count": 1361,
+      "public_source_bytes": 6082400,
+      "public_redistribution_allowed": true,
+      "public_redistribution_scope": "Packaged, unmodified source files only, under their original terms; no model assets.",
+      "withheld_for_license_review": [],
+      "excluded_non_source_file_count": 163,
+      "unresolved_submodules": []
+    }
+  ],
+  "model_requirements": [
+    {
+      "id": "gvhmr-main",
+      "candidate": "gvhmr",
+      "target_relative_to_candidate_root": "inputs/checkpoints/gvhmr/gvhmr_siga24_release.ckpt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/drive/folders/1eebJ13FUEXrKBawHpJroW0sNSxLjh9xD?usp=drive_link",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/zju3dv/GVHMR/blob/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/docs/INSTALL.md"
+      ],
+      "notes": "Select this exact filename manually; do not bulk-download the folder. DPVO is optional for a static-camera profile."
+    },
+    {
+      "id": "gvhmr-hmr2",
+      "candidate": "gvhmr",
+      "target_relative_to_candidate_root": "inputs/checkpoints/hmr2/epoch=10-step=25000.ckpt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/drive/folders/1eebJ13FUEXrKBawHpJroW0sNSxLjh9xD?usp=drive_link",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/zju3dv/GVHMR/blob/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/docs/INSTALL.md"
+      ],
+      "notes": "Select this exact filename manually; do not bulk-download the folder. DPVO is optional for a static-camera profile."
+    },
+    {
+      "id": "gvhmr-vitpose",
+      "candidate": "gvhmr",
+      "target_relative_to_candidate_root": "inputs/checkpoints/vitpose/vitpose-h-multi-coco.pth",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/drive/folders/1eebJ13FUEXrKBawHpJroW0sNSxLjh9xD?usp=drive_link",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/zju3dv/GVHMR/blob/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/docs/INSTALL.md"
+      ],
+      "notes": "Select this exact filename manually; do not bulk-download the folder. DPVO is optional for a static-camera profile."
+    },
+    {
+      "id": "gvhmr-yolo",
+      "candidate": "gvhmr",
+      "target_relative_to_candidate_root": "inputs/checkpoints/yolo/yolov8x.pt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/drive/folders/1eebJ13FUEXrKBawHpJroW0sNSxLjh9xD?usp=drive_link",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/zju3dv/GVHMR/blob/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/docs/INSTALL.md"
+      ],
+      "notes": "Select this exact filename manually; do not bulk-download the folder. DPVO is optional for a static-camera profile."
+    },
+    {
+      "id": "gvhmr-dpvo",
+      "candidate": "gvhmr",
+      "target_relative_to_candidate_root": "inputs/checkpoints/dpvo/dpvo.pth",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": false,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/drive/folders/1eebJ13FUEXrKBawHpJroW0sNSxLjh9xD?usp=drive_link",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/zju3dv/GVHMR/blob/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/docs/INSTALL.md"
+      ],
+      "notes": "Select this exact filename manually; do not bulk-download the folder. DPVO is optional for a static-camera profile."
+    },
+    {
+      "id": "wham-main-3dpw",
+      "candidate": "wham",
+      "target_relative_to_candidate_root": "checkpoints/wham_vit_w_3dpw.pth.tar",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": false,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/file/d/1i7kt9RlCCCNEW2aYaDWVr-G778JkLNcB/view",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/fetch_demo_data.sh",
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/configs/yamls/demo.yaml"
+      ],
+      "notes": "The two WHAM weights are alternative profiles; demo.yaml defaults to the BEDLAM-pretrained option. DPVO is optional for local/static-camera operation.",
+      "google_drive_file_id": "1i7kt9RlCCCNEW2aYaDWVr-G778JkLNcB"
+    },
+    {
+      "id": "wham-main-bedlam",
+      "candidate": "wham",
+      "target_relative_to_candidate_root": "checkpoints/wham_vit_bedlam_w_3dpw.pth.tar",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/file/d/19qkI-a6xuwob9_RFNSPWf1yWErwVVlks/view",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/fetch_demo_data.sh",
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/configs/yamls/demo.yaml"
+      ],
+      "notes": "The two WHAM weights are alternative profiles; demo.yaml defaults to the BEDLAM-pretrained option. DPVO is optional for local/static-camera operation.",
+      "google_drive_file_id": "19qkI-a6xuwob9_RFNSPWf1yWErwVVlks"
+    },
+    {
+      "id": "wham-hmr2",
+      "candidate": "wham",
+      "target_relative_to_candidate_root": "checkpoints/hmr2a.ckpt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/file/d/1J6l8teyZrL0zFzHhzkC7efRhU0ZJ5G9Y/view",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/fetch_demo_data.sh",
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/configs/yamls/demo.yaml"
+      ],
+      "notes": "The two WHAM weights are alternative profiles; demo.yaml defaults to the BEDLAM-pretrained option. DPVO is optional for local/static-camera operation.",
+      "google_drive_file_id": "1J6l8teyZrL0zFzHhzkC7efRhU0ZJ5G9Y"
+    },
+    {
+      "id": "wham-dpvo",
+      "candidate": "wham",
+      "target_relative_to_candidate_root": "checkpoints/dpvo.pth",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": false,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/file/d/1kXTV4EYb-BI3H7J-bkR3Bc4gT9zfnHGT/view",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/fetch_demo_data.sh",
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/configs/yamls/demo.yaml"
+      ],
+      "notes": "The two WHAM weights are alternative profiles; demo.yaml defaults to the BEDLAM-pretrained option. DPVO is optional for local/static-camera operation.",
+      "google_drive_file_id": "1kXTV4EYb-BI3H7J-bkR3Bc4gT9zfnHGT"
+    },
+    {
+      "id": "wham-yolo",
+      "candidate": "wham",
+      "target_relative_to_candidate_root": "checkpoints/yolov8x.pt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/file/d/1zJ0KP23tXD42D47cw1Gs7zE2BA_V_ERo/view",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/fetch_demo_data.sh",
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/configs/yamls/demo.yaml"
+      ],
+      "notes": "The two WHAM weights are alternative profiles; demo.yaml defaults to the BEDLAM-pretrained option. DPVO is optional for local/static-camera operation.",
+      "google_drive_file_id": "1zJ0KP23tXD42D47cw1Gs7zE2BA_V_ERo"
+    },
+    {
+      "id": "wham-vitpose",
+      "candidate": "wham",
+      "target_relative_to_candidate_root": "checkpoints/vitpose-h-multi-coco.pth",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/file/d/1xyF7F3I7lWtdq82xmEPVQ5zl4HaasBso/view",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/fetch_demo_data.sh",
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/configs/yamls/demo.yaml"
+      ],
+      "notes": "The two WHAM weights are alternative profiles; demo.yaml defaults to the BEDLAM-pretrained option. DPVO is optional for local/static-camera operation.",
+      "google_drive_file_id": "1xyF7F3I7lWtdq82xmEPVQ5zl4HaasBso"
+    },
+    {
+      "id": "smoothnet-aist-vibe",
+      "candidate": "smoothnet",
+      "target_relative_to_candidate_root": "manual-intake/aist-vibe.pth.tar",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": false,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/file/d/101TH_Z8uiXD58d_xkuFTh5bI4NtRm_cK/view",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/cure-lab/SmoothNet/blob/c03e93e8a14f55b9aa087dced2751a7a5e2d50b0/README.md"
+      ],
+      "notes": "Alternative pretrained family. This intake filename is not an upstream runtime path. Verify the original filename, architecture and window size before mapping it to data/checkpoints; README examples conflict on window 8 versus 32. No checkpoint is loaded here.",
+      "google_drive_file_id": "101TH_Z8uiXD58d_xkuFTh5bI4NtRm_cK",
+      "runtime_destination_verified": false
+    },
+    {
+      "id": "smoothnet-h36m-fcn",
+      "candidate": "smoothnet",
+      "target_relative_to_candidate_root": "manual-intake/h36m-fcn.pth.tar",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": false,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/file/d/1ZketGlY4qA3kFp044T1-PaykV2llNUjB/view",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/cure-lab/SmoothNet/blob/c03e93e8a14f55b9aa087dced2751a7a5e2d50b0/README.md"
+      ],
+      "notes": "Alternative pretrained family. This intake filename is not an upstream runtime path. Verify the original filename, architecture and window size before mapping it to data/checkpoints; README examples conflict on window 8 versus 32. No checkpoint is loaded here.",
+      "google_drive_file_id": "1ZketGlY4qA3kFp044T1-PaykV2llNUjB",
+      "runtime_destination_verified": false
+    },
+    {
+      "id": "smoothnet-pw3d-spin",
+      "candidate": "smoothnet",
+      "target_relative_to_candidate_root": "manual-intake/pw3d-spin.pth.tar",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/file/d/106MnTXFLfMlJ2W7Fvw2vAlsUuQFdUe6k/view",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/cure-lab/SmoothNet/blob/c03e93e8a14f55b9aa087dced2751a7a5e2d50b0/README.md"
+      ],
+      "notes": "Alternative pretrained family. This intake filename is not an upstream runtime path. Verify the original filename, architecture and window size before mapping it to data/checkpoints; README examples conflict on window 8 versus 32. No checkpoint is loaded here.",
+      "google_drive_file_id": "106MnTXFLfMlJ2W7Fvw2vAlsUuQFdUe6k",
+      "runtime_destination_verified": false
+    },
+    {
+      "id": "htd-pvanet",
+      "candidate": "htd-refine",
+      "target_relative_to_candidate_root": "inputs/checkpoints/pvanet.pt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/drive/folders/1Rg6ajhTRwebUZ_coSvfTlxUfPMD0CR9c?usp=sharing",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/ant-research/HTD-Refine/blob/2fcd6ddef3c4eb75a636062245f80a0136c09b7e/README.md"
+      ],
+      "notes": "Select only pvanet.pt from the official folder."
+    },
+    {
+      "id": "htd-yolo",
+      "candidate": "htd-refine",
+      "target_relative_to_candidate_root": "inputs/checkpoints/yolo/yolov8x.pt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": false,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://drive.google.com/drive/folders/1Rg6ajhTRwebUZ_coSvfTlxUfPMD0CR9c?usp=sharing",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/ant-research/HTD-Refine/blob/2fcd6ddef3c4eb75a636062245f80a0136c09b7e/README.md"
+      ],
+      "notes": "Upstream HTD lists this filename in its own official model folder. Optional when boxes are supplied by the frozen upstream; Ultralytics terms apply."
+    },
+    {
+      "id": "physpt-physpt",
+      "candidate": "physpt",
+      "target_relative_to_candidate_root": "assets/checkpoint/PhysPT.pt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://www.dropbox.com/scl/fo/x9yor045ztrcv6rav4pz2/AMDO2krghJF_spnxNc5d9nE?rlkey=epj0vkwoafyp48rz7lp5im1o0&dl=0",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/README.md"
+      ],
+      "notes": "Mixed assets folder: select only this model file, never download the complete folder."
+    },
+    {
+      "id": "physpt-globaltrajpredictor",
+      "candidate": "physpt",
+      "target_relative_to_candidate_root": "assets/checkpoint/GlobalTrajPredictor.pt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://www.dropbox.com/scl/fo/x9yor045ztrcv6rav4pz2/AMDO2krghJF_spnxNc5d9nE?rlkey=epj0vkwoafyp48rz7lp5im1o0&dl=0",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/README.md"
+      ],
+      "notes": "Mixed assets folder: select only this model file, never download the complete folder."
+    },
+    {
+      "id": "physpt-yolo",
+      "candidate": "physpt",
+      "target_relative_to_candidate_root": "assets/checkpoint/yolov8x.pt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://www.dropbox.com/scl/fo/x9yor045ztrcv6rav4pz2/AMDO2krghJF_spnxNc5d9nE?rlkey=epj0vkwoafyp48rz7lp5im1o0&dl=0",
+      "source_locator_type": "official_folder_only",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/README.md",
+        "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/video_preprocessing.py"
+      ],
+      "notes": "Required by the upstream video_preprocessing.py detector path. The public source verifies the target filename but the remote folder was not opened, so actual presence in that folder is unverified. Do not substitute an unverified local file.",
+      "remote_presence_verified": false
+    },
+    {
+      "id": "physpt-cliff",
+      "candidate": "physpt",
+      "target_relative_to_candidate_root": "models/cliff_hr48/hr48-PA43.0_MJE69.0_MVE81.2_3dpw.pt",
+      "kind": "generic_pretrained_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://www.dropbox.com/scl/fi/1zyefhokc2seull2un8bt/hr48-PA43.0_MJE69.0_MVE81.2_3dpw.pt?rlkey=0hidvwxdi7g7770it04ncalyh&dl=0",
+      "source_locator_type": "official_single_file",
+      "download_policy": "owner_manual_only_organization_netdisk",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "pending_model_specific_license_review",
+      "reason": "Automatic access to official Drive/Dropbox routes is blocked by organization policy. No alternative mirror was used. Weight-specific license coverage and contents must be checked after owner acquisition; the code license alone is not approval.",
+      "evidence": [
+        "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/README.md"
+      ],
+      "notes": "Required only for PhysPT CLIFF-based initial estimates; bypass requires a separately implemented, validated upstream adapter."
+    },
+    {
+      "id": "gvhmr-body-inputs-checkpoints-body_models-smplx-smplx_neutral-npz",
+      "candidate": "gvhmr",
+      "target_relative_to_candidate_root": "inputs/checkpoints/body_models/smplx/SMPLX_NEUTRAL.npz",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://smpl-x.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/zju3dv/GVHMR/blob/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "gvhmr-body-inputs-checkpoints-body_models-smpl-smpl_neutral-pkl",
+      "candidate": "gvhmr",
+      "target_relative_to_candidate_root": "inputs/checkpoints/body_models/smpl/SMPL_NEUTRAL.pkl",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://smpl.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/zju3dv/GVHMR/blob/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "wham-body-dataset-body_models-smpl-smpl_neutral-pkl",
+      "candidate": "wham",
+      "target_relative_to_candidate_root": "dataset/body_models/smpl/SMPL_NEUTRAL.pkl",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://smplify.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "wham-body-dataset-body_models-smpl-smpl_female-pkl",
+      "candidate": "wham",
+      "target_relative_to_candidate_root": "dataset/body_models/smpl/SMPL_FEMALE.pkl",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://smpl.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "wham-body-dataset-body_models-smpl-smpl_male-pkl",
+      "candidate": "wham",
+      "target_relative_to_candidate_root": "dataset/body_models/smpl/SMPL_MALE.pkl",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://smpl.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "htd-refine-body-inputs-checkpoints-body_models-smpl-smpl_neutral-pkl",
+      "candidate": "htd-refine",
+      "target_relative_to_candidate_root": "inputs/checkpoints/body_models/smpl/SMPL_NEUTRAL.pkl",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://smpl.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/ant-research/HTD-Refine/blob/2fcd6ddef3c4eb75a636062245f80a0136c09b7e/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "htd-refine-body-inputs-checkpoints-body_models-smplx-smplx_neutral-npz",
+      "candidate": "htd-refine",
+      "target_relative_to_candidate_root": "inputs/checkpoints/body_models/smplx/SMPLX_NEUTRAL.npz",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://smpl-x.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/ant-research/HTD-Refine/blob/2fcd6ddef3c4eb75a636062245f80a0136c09b7e/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "physpt-body-assets-data-smpl-neutral-pkl",
+      "candidate": "physpt",
+      "target_relative_to_candidate_root": "assets/data/smpl/neutral.pkl",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://smpl.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "physpt-body-assets-data-smplh-neutral-npz",
+      "candidate": "physpt",
+      "target_relative_to_candidate_root": "assets/data/smplh/neutral.npz",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://mano.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "physpt-body-assets-data-smplh-female-npz",
+      "candidate": "physpt",
+      "target_relative_to_candidate_root": "assets/data/smplh/female.npz",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://mano.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    },
+    {
+      "id": "physpt-body-assets-data-smplh-male-npz",
+      "candidate": "physpt",
+      "target_relative_to_candidate_root": "assets/data/smplh/male.npz",
+      "kind": "personally_licensed_body_model",
+      "required_for_upstream_demo_profile": true,
+      "benchmark_profile_frozen": false,
+      "status": "not_downloaded",
+      "downloaded_bytes": 0,
+      "sha256": null,
+      "source_url": "https://mano.is.tue.mpg.de/",
+      "source_locator_type": "official_registration_portal",
+      "download_policy": "personal_license_owner_only",
+      "public_redistribution_allowed": false,
+      "redistribution_status": "blocked_without_written_licensor_permission",
+      "reason": "Official body-model terms prohibit third-party distribution without written permission; individual access does not grant redistribution.",
+      "evidence": [
+        "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/README.md",
+        "https://smpl.is.tue.mpg.de/modellicense.html",
+        "https://smpl-x.is.tue.mpg.de/modellicense.html",
+        "https://mano.is.tue.mpg.de/license.html"
+      ],
+      "notes": "Acquire privately through the model family official registration portal after accepting its terms. The required genders depend on the final adapter/profile. WHAM neutral originates from the SMPLify portal; never put credentials into shell command lines."
+    }
+  ],
+  "auxiliary_assets_not_acquired": [
+    {
+      "candidate": "gvhmr",
+      "source": "https://github.com/zju3dv/GVHMR/blob/ee960bb6e2ea2d381aa97f08e9b71ef320b624b1/README.md",
+      "files": [
+        "hmr4d/network/hmr2/configs/smpl_mean_params.npz",
+        "hmr4d/utils/body_model/coco_aug_dict.pth",
+        "hmr4d/utils/body_model/seg_part_info.npy",
+        "hmr4d/utils/body_model/smpl_3dpw14_J_regressor_sparse.pt",
+        "hmr4d/utils/body_model/smpl_coco17_J_regressor.pt",
+        "hmr4d/utils/body_model/smpl_neutral_J_regressor.pt",
+        "hmr4d/utils/body_model/smplx2smpl_sparse.pt",
+        "hmr4d/utils/body_model/smplx_verts437.pt"
+      ],
+      "status": "not_downloaded_pending_provenance_and_license_review",
+      "public_redistribution_allowed": false,
+      "reason": "Body-model regressors, mappings, geometry or prior statistics require their own provenance/license evidence. Do not infer redistribution from the repository root code license. Do not fetch mixed model/data archives."
+    },
+    {
+      "candidate": "wham",
+      "source": "https://github.com/yohanshin/WHAM/blob/2b54f7797391c94876848b905ed875b154c4a295/configs/constants.py",
+      "files": [
+        "dataset/body_models/coco_aug_dict.pth",
+        "dataset/body_models/smplx2smpl.pkl",
+        "dataset/body_models/smpl_faces.npy",
+        "dataset/body_models/smpl_mean_params.npz",
+        "dataset/body_models/J_regressor_wham.npy",
+        "dataset/body_models/J_regressor_h36m.npy",
+        "dataset/body_models/J_regressor_extra.npy",
+        "dataset/body_models/J_regressor_feet.npy"
+      ],
+      "status": "not_downloaded_pending_provenance_and_license_review",
+      "public_redistribution_allowed": false,
+      "reason": "Body-model regressors, mappings, geometry or prior statistics require their own provenance/license evidence. Do not infer redistribution from the repository root code license. Do not fetch mixed model/data archives."
+    },
+    {
+      "candidate": "htd-refine",
+      "source": "https://github.com/ant-research/HTD-Refine/blob/2fcd6ddef3c4eb75a636062245f80a0136c09b7e/README.md",
+      "files": [
+        "utils/body_model/smpl_coco17_J_regressor.pt",
+        "utils/body_model/smpl_neutral_J_regressor.pt",
+        "utils/body_model/smplx2smpl_sparse.pt",
+        "utils/body_model/smplx_verts437.pt"
+      ],
+      "status": "not_downloaded_pending_provenance_and_license_review",
+      "public_redistribution_allowed": false,
+      "reason": "Body-model regressors, mappings, geometry or prior statistics require their own provenance/license evidence. Do not infer redistribution from the repository root code license. Do not fetch mixed model/data archives."
+    },
+    {
+      "candidate": "physpt",
+      "source": "https://github.com/zhangy76/PhysPT/blob/40d869927e53a3cade8ba657cacdaeb993f085b8/config.py",
+      "files": [
+        "assets/data/physics.pkl",
+        "assets/data/rottrans.npy",
+        "models/cliff_hr48/smpl_mean_params.npz"
+      ],
+      "status": "not_downloaded_pending_provenance_and_license_review",
+      "public_redistribution_allowed": false,
+      "reason": "Body-model regressors, mappings, geometry or prior statistics require their own provenance/license evidence. Do not infer redistribution from the repository root code license. Do not fetch mixed model/data archives."
+    }
+  ],
+  "readiness": [
+    {
+      "candidate": "gvhmr",
+      "status": "blocked_not_run_ready",
+      "reason": "Core checkpoints absent; required private model/helper assets unresolved; Python/native environment and project MHR adapter not installed or validated."
+    },
+    {
+      "candidate": "wham",
+      "status": "blocked_not_run_ready",
+      "reason": "Core checkpoints absent; required private model/helper assets unresolved; Python/native environment and project MHR adapter not installed or validated."
+    },
+    {
+      "candidate": "smoothnet",
+      "status": "blocked_not_run_ready",
+      "reason": "Core checkpoints absent; required private model/helper assets unresolved; Python/native environment and project MHR adapter not installed or validated."
+    },
+    {
+      "candidate": "htd-refine",
+      "status": "blocked_not_run_ready",
+      "reason": "Core checkpoints absent; required private model/helper assets unresolved; Python/native environment and project MHR adapter not installed or validated."
+    },
+    {
+      "candidate": "physpt",
+      "status": "blocked_not_run_ready",
+      "reason": "Core checkpoints absent; required private model/helper assets unresolved; Python/native environment and project MHR adapter not installed or validated."
+    }
+  ],
+  "software_dependency_status": "Pinned direct DPVO/ViTPose source submodules are included. Optional DPVO Pangolin/DBoW2 submodules remain unresolved. Requirements/configuration files are retained but Python wheels, native builds and transitive dependencies are not claimed resolved by this package.",
+  "network_policy": "No Drive, Dropbox, other netdisk, alternative mirror or proxy requests were made. The listed netdisk URLs are documentary provenance and unexecuted owner-run instructions only; use an organization-approved channel.",
+  "license_policy": "A source repository license does not automatically license external checkpoints or SMPL-family model assets. Public source distribution is conditional on all retained notices and original restrictions. No restricted or license-unresolved model assets are present.",
+  "handoff": {
+    "directory": "C:\\Video TO HOI\\dist\\expanded-human-physics-20260928",
+    "archive": "expanded-human-physics-sources-runtime.zip",
+    "source_receipts": "source-receipts.json",
+    "source_receipts_sha256": "5194c47f65ac5d725c01f4b6b956af5bee445d7cd8bd36408b748957cc564898",
+    "manual_instructions": "MANUAL_MODEL_DOWNLOADS.md",
+    "legal_notice": "NOTICE.md"
+  },
+  "build_metadata_correction": {
+    "additional_files": 41,
+    "bytes": 174577,
+    "receipt": "build-metadata-receipt.json",
+    "receipt_sha256": "f78870589b2f2b56ce65d400d01d397c7d6c40d225754d03b383e57e6ed0228c",
+    "old_archive_preserved": "expanded-human-physics-code-only.zip",
+    "old_archive_sha256": "999f416ba7d5b27722a4adcdb1859e39020a3e4c71fd0a8c04de667c744d8621",
+    "scope": "ViTPose requirements and MANIFEST.in plus vendored pybind11 CMake/build templates; no model or dataset files"
+  },
+  "runtime_scope_document": "deployment/EXPANDED_RUNTIME_GAPS.md"
+}

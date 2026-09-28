@@ -3,11 +3,15 @@
 Persistent owner constraint, reaffirmed 2026-09-27: Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
 Status rechecked 2026-09-28: the original baseline's 12 required model entries
-pass fresh local integrity checks. Five entries are published in GitHub Releases;
-the seven public model entries and the host wheelhouse remain local. Expanded
-comparison models and GPU/runtime dependencies are incomplete. See the
-[availability audit](../deployment/ASSET_AUDIT.md) for the verified inventory
-and remaining work. The owner requested acquisition and GitHub handoff only. Deployment
+pass fresh local integrity checks. The new completion handoff has nine archives
+and thirteen parts uploaded to a draft GitHub Release, with matching server-side
+hashes; it is **not public yet**. It includes a filtered baseline source/model
+package, a CPython 3.10 host wheelhouse, and four additional Module 1 model
+packages. The CPython 3.10/3.11 runtime companions are included; separate SAM3 and MoGe3 profiles are still being prepared. Human/physics candidate sources are partially prepared, while
+their manual or restricted model weights remain outstanding. See the
+[completion handoff](../deployment/COMPLETION_HANDOFF.md) for scope and limits;
+the [availability audit](../deployment/ASSET_AUDIT.md) records an earlier
+snapshot. The owner requested acquisition and GitHub handoff only. Deployment
 and model execution remain deferred. The owner
 cannot connect to the server through SSH; code and preparation materials will
 be transferred as ZIP files and used through the server's available console.

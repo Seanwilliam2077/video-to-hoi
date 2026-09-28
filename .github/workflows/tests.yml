@@ -27,6 +27,7 @@ jobs:
           tests/test_download_foundationpose.py
           tests/test_model_release_prepare.py
           tests/test_model_release_restore.py
+          tests/test_handoff_restore.py
           tests/test_benchmark_first3.py
           tests/test_rank_first3.py
           tests/test_geometry.py

@@ -8,7 +8,7 @@
   "toolkit": "/path/to/combined-assets/third_party/video_to_data",
   "shared": "/path/to/frozen-track1-upstream",
   "paths": {
-    "moge3_checkpoint": "/path/to/moge3/model.pt"
+    "moge3_checkpoint": "/path/to/expanded-platform/models/moge3-vitl/model.pt"
   },
   "machine_id": null,
   "environment_id": null

@@ -177,7 +177,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>已根据主办方最新材料调整方案：先把两段视频完整还原，再根据视频证据修正问题，并检查最终交出去的结果。<b>正式提交工具已经公布，我们还没有完成对接或真实运行。</b>本次完成的是方案、分工和验收安排；暂不部署，没有新增成绩。</p>
+  <p class="lead"><b>一句话：</b>已用最新要求替换旧规则，并更新评分检查程序：动作要符合真实变化，被挡住的物体也不能丢帧。<b>正式提交工具已经公布，我们还没有完成对接或真实运行。</b>当前改进的是规则和检查方法；暂不部署，没有新增比赛成绩。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -329,7 +329,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <section>
     <h2>进度</h2>
     <ol class="steps">
-      <li class="now"><div class="t">读懂规则</div><div class="s">已复核新材料</div><div class="d">少数约定仍待确认</div></li>
+      <li class="done"><div class="t">读懂规则</div><div class="s">已替换旧要求</div><div class="d">评分检查同步更新</div></li>
       <li class="done"><div class="t">搭建框架</div><div class="s">已完成</div><div class="d">四人可并行开发</div></li>
       <li class="now"><div class="t">接入 AI 模型</div><div class="s">主要材料已公开</div><div class="d">还没有运行视频</div></li>
       <li class="next"><div class="t">第一批结果</div><div class="s">未开始</div><div class="d">目标 10 月 8 日</div></li>
@@ -341,7 +341,8 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <section>
     <h2>已经完成的</h2>
     <ul class="done-list">
-      <li>复核了主办方新公布的工具和问答，修正了“只要动作更平稳就更好”的旧理解；现在明确要求动作变化与原视频一致。</li>
+      <li>六项最终要求已经替换旧规则：人体和物体统一定位和尺寸；使用规定的人体表示；物体形状和位置一起检查；动作变化对比标准答案；遮挡时逐帧保留轨迹；所有估计只用本赛道提供的数据。</li>
+      <li>已更新评分检查程序，用自行构造的模拟动作检查错误尺寸、后续漂移、动作过度平滑和漏帧等情况。这是程序检查，不是比赛成绩。</li>
       <li>已将新方案写入项目资料：先跑通真实结果，再根据证据修正问题，并逐项检查、保留可退回的版本。</li>
       <li>已补充四块工作的交付内容和验收要求；方案评审分不作为比赛成绩，也不代表真实运行已经完成。</li>
       <li>搭好了整体框架：把工作拆成四块，四个人可以各做一块、互不等待。</li>
@@ -392,7 +393,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       </div>
       <div class="issue mid">
         <b>新方案还没有真实视频结果支持</b>
-        <p style="margin:4px 0 0">当前完成的是方案与任务更新。下一步先检查泡沫块和平底锅，再覆盖不同难点和全部视频，不凭少量演示宣布整体改进。</p>
+        <p style="margin:4px 0 0">当前完成的是规则替换和评分检查方法更新。下一步先检查泡沫块和平底锅，再覆盖不同难点和全部视频，不凭少量演示宣布整体改进。</p>
         <div class="need">四块负责人按验收安排交付真实结果、前后对比和失败清单；只接受视频证据支持的改动。</div>
       </div>
     </div>
@@ -425,7 +426,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   </section>
 
 
-  <footer>数据截至 2026 年 10 月 3 日；本次更新：依据主办方新材料修订方案、分工和验收安排，正式提交工具已公布但尚未对接。历史模型文件交接记录保留；本轮未运行真实视频、未部署，没有新增得分或排名。只用比赛给的 30 段视频及其重建结果开展实验。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 10 月 3 日；本次更新：六项最终要求替换旧规则，评分检查程序同步更新并接受模拟动作验证。正式提交工具已公布但尚未对接。历史模型文件交接记录保留；本轮未运行真实视频、未部署，没有新增得分或排名。只用比赛给的 30 段视频及其重建结果开展实验。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

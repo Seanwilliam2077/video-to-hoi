@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-03",
+  "timezone": "Asia/Shanghai",
+  "artifact_url": "https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b",
+  "operation": "overwrite_existing_answers",
+  "answers_replaced": 7,
+  "new_questions": 0,
+  "requirements_replaced": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6"
+  ],
+  "also_replaced": "Existing six-requirement summary answer",
+  "verified_after_reload": true,
+  "open_question_count": 10,
+  "answered_question_count": 7,
+  "original_old_acc_answer_present": false,
+  "first_frame_rule_ambiguity_present": false,
+  "live_row_uuids": null,
+  "static_source_republished": false,
+  "evidence_path": "docs/evidence/reference-answers-20261003.txt",
+  "evidence_sha256": "63a6bd88d07474c9e5a253b8f20893e6b2674f3c4517e850706d52480849c56f",
+  "screenshot_external_path": "D:/V2H/review-evidence/reference-acc-replaced-20261003.jpg",
+  "organizer_message_sent": false,
+  "claude_ai_prompt_sent": false,
+  "current_authority": "docs/track1-requirements.md",
+  "remaining": "Static Challenge/Overview text on existing artifacts and hub/status source still require a supported source editor. Direct artifact and Cowork artifact menus expose no source-edit or publish control."
+}

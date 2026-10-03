@@ -1,8 +1,9 @@
 import numpy as np
+import pytest
 import trimesh
 from scipy.spatial.transform import Rotation
 
-from v2hoi.geometry import Similarity, SurfaceSDF, matrix_to_pose7, pose7_to_matrix, umeyama
+from v2hoi.geometry import ExactTriangleSDF, Similarity, SurfaceSDF, matrix_to_pose7, pose7_to_matrix, umeyama
 
 
 def test_pose7_roundtrip_and_invisible():
@@ -39,3 +40,27 @@ def test_surface_sdf_box():
     assert abs(d[1] + 0.05) < 0.02
     assert d[2] < 0
     assert np.isinf(d[3])
+
+
+def test_exact_triangle_sdf_box_winding_padding_and_pose():
+    mesh = trimesh.creation.box(extents=[1.0, 1.0, 1.0])
+    points = np.array([[0, 0, 0], [0, 0, 0.45], [0.5, 0, 0], [1, 0, 0]], dtype=float)
+    expected = [-0.5, -0.05, 0, 0.5]
+    assert np.allclose(ExactTriangleSDF(mesh, 2, 5)(points), expected)
+    mesh.faces = np.concatenate([mesh.faces[:, ::-1], [[0, 0, 0]]])
+    assert np.allclose(ExactTriangleSDF(mesh)(points), expected)
+    rotation = Rotation.from_rotvec([0.4, -0.7, 0.1]).as_matrix()
+    mesh.vertices = 2 * mesh.vertices @ rotation.T + [3, 2, 1]
+    moved = 2 * points @ rotation.T + [3, 2, 1]
+    assert np.allclose(ExactTriangleSDF(mesh)(moved), 2 * np.array(expected), atol=1e-12)
+
+
+def test_exact_triangle_sdf_rejects_empty_or_degenerate_mesh():
+    with pytest.raises(ValueError):
+        ExactTriangleSDF(trimesh.Trimesh())
+    with pytest.raises(ValueError, match="nondegenerate"):
+        ExactTriangleSDF(trimesh.Trimesh(vertices=[[0, 0, 0]], faces=[[0, 0, 0]], process=False))
+
+
+def test_similarity_does_not_truncate_integer_coordinates():
+    assert np.allclose(Similarity(0.5, np.eye(3), np.ones(3) * 0.25).points(np.array([[1, 0, 0]])), [[0.75, 0.25, 0.25]])

@@ -1,6 +1,6 @@
 # Remote platform and baseline deployment
 
-Persistent owner constraint, reaffirmed 2026-09-27: Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
+Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
 ## Planning update (2026-10-03)
 
@@ -8,9 +8,9 @@ The new plan prioritizes a verified native baseline over expanding the model or 
 
 For the first accepted run, preserve the upstream native MHR and object outputs, then verify conversion, frame identity, geometry and a reloaded export before comparing algorithms. Each candidate must have one immutable manifest and coherent human/mesh/motion artifacts. Freeze independent observations and inspect motion events, occlusion recovery and contact separation as well as penetration. `first3` remains a limited hoop integration fixture; grouped `dev-mini` review and all 30 clips are separate gates. Cross-episode evidence pooling is disabled pending organizer clarification, rather than treated as a mandatory shared-mesh rule.
 
-Later runtime work should support only the selected baseline and demonstrated repairs first. Downloaded candidates need not all become installed environments. Record GPU time, peak resources, manual review and repair time per accepted clip so quality gains can be compared with total operating cost. No new download, environment installation, host selection, model execution, deployment or submission was performed by this documentation update.
+Later runtime work should support only the selected baseline and demonstrated repairs first. Downloaded candidates need not all become installed environments. Record GPU time, peak resources, manual review and repair time per accepted clip so quality gains can be compared with total operating cost. The local reference diagnostic and synthetic tests do not establish a model run, deployed environment or submission.
 
-The owner's final clarification in this conversation on 2026-10-03 supplies the six [acceptance targets](workflow.md#final-owner-requirements-2026-10-03), including one first-reference-frame alignment shared by human/object, posed-world object error, reference-relative ACC, complete object/frame coverage and Track 1-only camera/mesh provenance. Baseline subsets are development gates only. The first-reference/first-scored-frame mapping remains an explicit adapter question, not a silently resolved difference.
+Baseline subsets are development gates only. Record the first reference frame's explicit original-video ID and retain its human-derived alignment when evaluating later windows. External-kit row mapping is an implementation task; it does not reopen R1 or authorize a different fit.
 
 ## September acquisition record
 
@@ -235,7 +235,7 @@ The owner requested comparisons for modules 1, 2 and 4, then clarified that the 
 
 Five recipes cover MoGe2, MoGe3, prompted SAM2, standalone SAM3D Body and joint CARI4D. SAM3 and YOLOE now have pinned checkpoints and filtered source packages in the completion handoff, but still need execution adapters and server validation. GVHMR/WHAM and SmoothNet/HTD-Refine/PhysPT remain research candidates with manual or restricted weight, environment and adapter blockers. The three temporal methods do not yet have MHR adapters. MoGe3 has a separately pinned checkpoint in the completion handoff, outside the prior 12-entry baseline inventory. No server environment is installed or certified by this kit.
 
-The ranking tool groups comparable tasks and metrics, requires the same three complete episodes, and rejects missing or mismatched evidence. Its protocol remains unfrozen until runtime, upstream, and independent observations exist. The draft acceleration diagnostic requires reviewed video fidelity and must not be read as current official reference-relative ACC. No official score, actual measurements or ranking is supplied. Automatic quality extraction from native candidate outputs is still to be implemented; the tool validates submitted metric records and does not prove their truth.
+The ranking tool groups comparable tasks and metrics, requires the same three complete episodes, and rejects missing or mismatched evidence. Its protocol remains unfrozen until runtime, upstream, and independent observations exist. The draft `self_acceleration` diagnostic requires reviewed video fidelity and is distinct from reference-relative ACC. Runs must declare Track 1 reconstruction provenance and no fake outputs; declarations do not independently prove origin or quality. Ambiguous acceleration labels, official metric claims and composite totals are rejected. No official score, actual measurements or ranking is supplied. Automatic quality extraction from native candidate outputs is still to be implemented.
 
 The package keeps the original input bytes, recipe/protocol files, an empty result report and per-file checksums. Future execution must run on the selected Linux GPU machine. The previous two-baseline acceptance target remains pending; this additional hula-hoop screening does not replace it.
 

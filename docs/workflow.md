@@ -6,22 +6,15 @@ Planning update, 2026-10-03: [design.md](design.md) defines the bounded refineme
 
 ## Final owner requirements (2026-10-03)
 
-Source: the project owner's final clarification in this conversation on 2026-10-03. These are project acceptance requirements; this provenance is not a public organizer URL or a claim that the current pipeline satisfies them.
+The single active specification is [track1-requirements.md](track1-requirements.md), R1–R6. Older organizer-answer summaries and scorer conventions are historical and superseded wherever they conflict. Requirements are distinct from the implementation status in [track1-compliance.md](track1-compliance.md).
 
-1. Fit one Sim(3) using only human geometry at the first reference frame and apply the same transform to human and object throughout the sequence. No later refitting or separate object alignment is acceptable.
-2. Deliver native MHR with a validated official converter and decoder contract.
-3. Evaluate object Chamfer on the posed object in the common world frame; canonical-shape or independently ICP-aligned comparisons are diagnostics only.
-4. Use reference-relative acceleration error, not prediction-only smoothness, for ACC.
-5. Cover every required object and every source frame, including occluded frames. A passing subset is not a complete submission.
-6. Use Track 1 only, including all camera and geometry inputs. Do not import Track 2 calibration or iron, bowl, table or other meshes, including renamed, rescaled or cached derivatives.
-
-The inspected public kit selects the first **scored** frame for its alignment; the owner's requirement says the first **reference** frame. Preserve both source statements and resolve their index mapping before G0/export acceptance. Do not silently substitute frame zero, choose a convenient visible frame or report this ambiguity as solved. The legacy scorer and fake pipeline are not implementations of these final requirements.
+Record the first reference frame's original-video ID and fit its human-derived Sim(3) once. A later scored subset retains that alignment. Mapping an external kit's first scored array entry is an adapter task; it does not change the required reference frame or permit separate object/whole-clip/per-frame alignment.
 
 ## Track 1-only data rule
 
 All project development, hyperparameter selection, validation, scorer self-checks, benchmark references, and submissions use only the provided Track 1 videos and metadata, plus synthetic fixtures created independently of Track 2. Do not use Track 2 Tier 1 or Tier 2 data or assets, including meshes, human or object trajectories, camera estimates, noise statistics, or benchmarks derived from them. Do not transfer a model choice, scale, threshold, smoothing weight, or other parameter selected using Track 2 into this project.
 
-The runner accepts only `--dataset track1` and rejects `--score`, `human=tier2`, `motion=tier2`, and `objects=reference`. The legacy backend implementations are also disabled at their entry points. The repository still contains a legacy ground-truth scorer and `test_score.py` with Tier 2-derived benchmark values; those are outside this workflow and excluded from CI. Do not use their data paths or benchmark values as acceptance evidence. The default `export=tier1` backend is only an internal serializer and does not read Track 2 data; it can export a Track 1 run. Complete source-provenance checks remain a follow-up implementation task.
+The runner accepts only `--dataset track1` and rejects `--score`, `human=tier2`, `motion=tier2`, and `objects=reference`. Prohibited backend implementations are disabled at their entry points. The replacement reference-based scorer requires explicit native-MHR inputs, a permitted reference and an authorized decoder; historical Track 2 defaults and benchmark normalization are removed and must not be restored. The default `export=tier1` backend is only an internal serializer and does not read Track 2 data. Complete source-provenance verification remains a follow-up implementation task; a declared label alone is not proof.
 
 Track 1 has no public reconstruction ground truth. The official evaluation kit is now available, but this repository has not implemented or validated its submission adapter. CD-H/CD-O and reference-relative ACC require the organizer's reference; the current ACC-H uses 22 body joints, not all finger joints. PEN measures predicted hand penetration into the submitted object and is not a difference from reference penetration, but the final value uses reference-derived alignment scale. An unaligned local penetration diagnostic is therefore not final official PEN. Use Track 1 reprojection, depth consistency, coverage, event timing, predicted contact checks and visual inspection as development evidence. Self-acceleration measures smoothness only; lowering it can make reference-relative ACC worse. Do not combine proxies into a purported official total. Scorer mathematics may be self-tested with independent analytic examples. No aggregate score or acceptance threshold may be normalized to Tier 2.
 
@@ -29,7 +22,7 @@ Track 1 has no public reconstruction ground truth. The official evaluation kit i
 
 The boundaries follow three dependencies:
 
-1. **The scale anchor.** The human supplies the current metric scale prior for depth, which is used by the object module. The human module delivers a `DepthScale`; estimated human scale is not ground truth. Proposed refinement must track its uncertainty and avoid freely changing focal length, human scale and object depth together.
+1. **The scale prior.** In the planned real pipeline, human geometry supplies a `DepthScale` prior for the object module; the current fake value is not an estimate and estimated human scale is not ground truth. Refinement must track its uncertainty and avoid freely changing focal length, human scale and object depth together.
 2. **Mesh and tracking.** Candidate mesh selection needs tracking, and tracking needs a mesh, so one module owns both.
 3. **Contact refinement changes the human and object together.** It is a separate stage after both.
 
@@ -38,14 +31,14 @@ The boundaries follow three dependencies:
 | Module | Owner | Stages | Challenge outcome | Independent starting input | Main risk |
 |---|---|---|---|---|---|
 | 1 Platform & perception | Sean | inputs, export | all, as integration gatekeeper | Track 1 videos and metadata; synthetic contract fixtures | on the critical path for the first two weeks |
-| 2 Human | TBD | human | CD-H, ACC-H; hand geometry for PEN | Track 1 videos, then a fixed Track 1 inputs snapshot | human vertices on the first scored frame determine the alignment |
+| 2 Human | TBD | human | CD-H, ACC-H; hand geometry for PEN | Track 1 videos, then a fixed Track 1 inputs snapshot | human geometry at the first reference frame determines the fixed alignment |
 | 3 Object | TBD | objects, motion | CD-O | Track 1 frames, masks, and scaled depth; a fixed Track 1 upstream run | the largest workload: the hula hoop, white furniture, and foot-pushed objects |
 | 4 Temporal & physics | TBD | refine | ACC-H, ACC-O, PEN, subject to image fidelity | independent synthetic trajectories, then a fixed Track 1 human and motion snapshot | over-smoothing can reduce self-acceleration while worsening reference-relative ACC |
 
 What each module delivers:
 
 - **1 Platform & perception:** Track 1 masks and depth, verified camera hypotheses, a native CARI4D baseline, the official export adapter, evidence reports, CI and run provenance. Camera metadata supplies a grouping hypothesis, not proof of identical intrinsics. Deployment and submissions remain separate execution work; this planning update authorizes neither.
-- **2 Human:** SAM 3D Body → MHR; one identity per clip; MHR → SOMA-X as an internal representation if needed; the `DepthScale` that makes the human the metric anchor. Review the first frame, reprojection, identity consistency, and depth alignment on Track 1. No Track 2 human labels are used.
+- **2 Human:** SAM 3D Body → native MHR; one identity per clip; SOMA-X only as a derived diagnostic representation if needed; an uncertainty-aware `DepthScale` prior. Review the explicit first-reference-frame mapping, reprojection, identity consistency and depth alignment on Track 1. No Track 2 human labels are used.
 - **3 Object:** Track 1-derived meshes, scale hypotheses, structured symmetry and a torus model for the hula hoop; registration and tracking with explicit visibility and ambiguity. Shared geometry across an object's clips is an engineering prior, not a confirmed submission requirement. Keep cross-episode reconstruction disabled pending organizer clarification and record each contributing source. Deliver every frame, distinguishing evidence-backed poses from inferred occlusion filling.
 - **4 Temporal & physics:** bounded repairs of demonstrated failures, with body motion and hand contact evaluated separately. Preserve motion onset, amplitude and event timing; do not optimize self-acceleration toward zero. Use typed contact edges for simultaneous support, grasp and sliding interactions, uncertainty-aware constraints, and symmetry-aware rotations. Native MHR is the planned authority and SOMA is derived. Global root/orientation changes require direct image evidence and a bounded update; adding a learned refiner requires a demonstrated benefit over the fixed baseline.
 
@@ -76,12 +69,12 @@ Reject frozen-motion controls that reduce self-acceleration but fail observed mo
 
 ## Merge review
 
-The Track 1-only quantitative evaluator, automated baseline comparison, and data-provenance gate are **not implemented yet**. The following is the review procedure, not a claim that CI currently enforces it.
+The native-MHR reference diagnostic supports explicit permitted inputs and independent synthetic checks. It does not implement an official evaluator, automated baseline promotion or complete provenance verification. The following is the review procedure, not a claim that CI currently enforces all of it.
 
-1. Run the explicit synthetic test list in `.github/workflows/tests.yml`. Do not run bare `pytest`: the excluded `test_score.py` still contains legacy Tier 2-derived assertions. Fake-stage runs through export test wiring only and never invoke the legacy scorer. CI does not yet establish provenance or validate real model outputs.
-2. Run changed real stages on `dev-mini` with `--dataset track1` and a fixed Track 1 `--upstream runs/baseline-vN`. Rerun dependent stages after any changed input, scale, mesh, or pose. Do not pass `--score`: the existing scorer requires non-Track 1 ground truth.
+1. Run the explicit synthetic test list in `.github/workflows/tests.yml`, including `test_track1_score.py`. Historical scorer tests with prohibited benchmark assumptions have been replaced. Continue to avoid bare `pytest`. Fake-stage runs through export test wiring only; synthetic diagnostic tests do not validate a real MHR model, real reconstruction or source-provenance truth.
+2. Run changed real stages on `dev-mini` with `--dataset track1` and a fixed Track 1 `--upstream runs/baseline-vN`. Rerun dependent stages after any changed input, scale, mesh or pose. Do not pass the runner's disabled `--score` flag. Invoke the standalone reference diagnostic only with its explicit permitted inputs; missing Track 1 ground truth is not permission to use another track.
 3. Attach a before/after table for each episode and links to overlays and native-output evidence. Include run/baseline IDs, code/model/runtime versions, input and output hashes, observation versions, failure intervals and resource use. Explain regressions and uncertainty; do not label proxies as official CD, ACC or PEN. The proposed hash-based dependency graph is not yet implemented, so explicitly audit each dependency before promotion.
-4. Review official-format compatibility, source provenance, complete per-frame outputs, first-scored-frame quality, contact and motion fidelity, and the module's target evidence. Record accept/reject/unresolved and any trade-off; retain a recoverable baseline. A documentation design score is not an empirical quality score. Until the evaluator and gate are implemented, there is no automatic numerical pass threshold.
+4. Review official-format compatibility, source provenance, complete per-frame outputs, first-reference-frame mapping and quality, contact and motion fidelity, and the module's target evidence. Record accept/reject/unresolved and any trade-off; retain a recoverable baseline. A documentation design score is not an empirical quality score. Until the complete promotion gate is implemented, there is no automatic numerical pass threshold.
 
 A stage can be developed against a fixed Track 1 upstream run using `--upstream`. For example, a human backend can run with `--dataset track1 --episodes 0 6 9 16 24 --upstream runs/baseline-vN --stages human refine export --backend human=<name>`. This is a run command, not a score command. Use only Track 1-derived upstream artifacts; a fake upstream verifies plumbing but cannot establish reconstruction quality.
 
@@ -94,7 +87,7 @@ Record the update date, completed deliverables, what was actually verified, outs
 ## Weekly integration
 
 - **Tuesday:** merge reviewed PRs, run `dev-full` on Track 1 with the newest real backends, inspect coverage and visual evidence, and pin the result as the next baseline (`runs/baseline-vN`, never overwritten). Everyone moves their `--upstream` to it.
-- **Kaggle:** only module 1 submits after the now-available official evaluator's adapter and export rehearsal pass, with provenance and continuity reviewed. The legacy `v2hoi.score --strict` is not a Track 1 submission gate. Recheck current competition dates, team and submission rules against the official sources linked in [evaluation.md](evaluation.md) before submission; historical schedules are not execution authorization.
+- **Kaggle:** only module 1 submits after the official-format adapter and export rehearsal pass, with provenance and continuity reviewed. The local reference diagnostic is not a Track 1 submission gate or an official-equivalence claim. Recheck current competition dates, team and submission rules against the official sources linked in [evaluation.md](evaluation.md) before submission; historical schedules are not execution authorization.
 
 ## Runs and storage
 
@@ -104,7 +97,7 @@ Record the update date, completed deliverables, what was actually verified, outs
 
 | Item | Module |
 |---|---|
-| Remove remaining legacy scorer/test code; extend the runner's Track 1 restrictions to end-to-end provenance checks | 1 |
+| Validate the replacement diagnostic with an authorized real native-MHR decoder; extend Track 1 restrictions to end-to-end provenance checks | 1 and 2 |
 | Track 1-only reprojection, coverage, self-smoothness, and visualization reports with baseline comparison | 1, with each module defining its evidence |
 | Automatic Track 1 source-provenance checks for inputs, upstream runs, and submissions | 1 |
 | Real backends for every stage, starting with the CARI4D baseline on Track 1 | everyone; baseline by 1 |

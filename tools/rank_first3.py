@@ -16,13 +16,18 @@ Protocol schema (schema_version=1)::
        "upstream_fingerprint": "frozen-input-snapshot",
        "reference_fingerprint": "frozen-baseline-snapshot",
        "budget": {"max_steps": 300},
-       "metrics": [{"id": "acceleration", "direction": "min",
+       "metrics": [{"id": "self_acceleration", "direction": "min",
+                    "definition": "mean_norm_prediction_second_difference_over_dt_squared",
                     "unit": "m/s^2", "requires_fidelity_gate": true}],
        "candidates": [{"id": "raw"}, {"id": "smoothnet"}]}]}
 
 Results start as {"schema_version": 1, "runs": []}. Each run records group_id,
 candidate_id, status="complete", exact copies of evaluator (including config),
 upstream_fingerprint, reference_fingerprint and budget, and all three episodes.
+Each run also declares provenance={"dataset": "track1", "output_kind":
+"reconstruction", "contains_fake_outputs": false}. Missing declarations,
+fake/synthetic outputs and explicit official-score claims remain unranked.
+These declarations are not proof that an output was produced by a real model.
 Each episode repeats id/frames/video_sha256 and adds metrics={metric_id: number}.
 Duplicate runs are unranked; choose one run before invoking this tool.
 The protocol must declare frozen=true only after its machine budget, upstream,
@@ -34,8 +39,12 @@ to reference_fingerprint, review_status="passed", a named reviewer, and evidence
 for EACH episode: {episode_id, video_sha256, independent_video_evidence: true,
 artifact: "path-or-URL-of-video-evidence"}. Evidence must establish fidelity to
 the original video; a smoother trajectory alone is insufficient. Module 4
-acceleration/ACC/jerk/smoothness metrics always require this gate, even if the
+prediction-only self_acceleration/jerk/smoothness metrics require this gate, even if the
 protocol omits the flag. Other metrics may opt in with requires_fidelity_gate.
+Official metric names (including ACC-H/O, CD-H/O and PEN) are not accepted by
+this no-reference diagnostic ranker. self_acceleration is NOT official ACC:
+it measures prediction curvature, not prediction/reference acceleration error.
+The old ambiguous acceleration key is rejected, never silently converted.
 
 Values are macro-averaged with equal weight for episodes 0, 1 and 2. Exact ties
 receive competition ranks (1, 1, 3). Units and modules are never combined.
@@ -54,6 +63,46 @@ from typing import Any
 
 class ProtocolError(ValueError):
     """The requested comparison is ambiguous or malformed."""
+
+
+SELF_ACCELERATION_DEFINITION = "mean_norm_prediction_second_difference_over_dt_squared"
+
+
+def _official_claim(value: Any) -> bool:
+    """Catch explicit official-score claims, including inside evaluator config."""
+    if isinstance(value, dict):
+        return any((key == "official_score" and item is not False) or _official_claim(item)
+                   for key, item in value.items())
+    return isinstance(value, list) and any(_official_claim(item) for item in value)
+
+
+def _non_reconstruction_claim(value: Any) -> bool:
+    """Reject explicit smoke/fake markers; absent or falsified markers are not detectable."""
+    if isinstance(value, dict):
+        for key, item in value.items():
+            if key in {"fake", "synthetic", "contains_fake_outputs"} and item is not False:
+                return True
+            if key == "output_kind" and item != "reconstruction":
+                return True
+            if key == "backend" and isinstance(item, str) and re.search(r"(^|[._-])(fake|synthetic|smoke)([._-]|$)", item.lower()):
+                return True
+            if _non_reconstruction_claim(item):
+                return True
+    return isinstance(value, list) and any(_non_reconstruction_claim(item) for item in value)
+
+
+def _validate_metric(metric: dict) -> None:
+    name = re.sub(r"[^a-z0-9]+", "_", metric["id"].lower()).strip("_")
+    if re.search(r"^(cd|pen)(_|$)", name) or name.startswith("official_") or name in {
+        "total_score", "overall_score", "combined_score", "composite_score", "final_score"
+    }:
+        raise ProtocolError("official metric names are not supported by this diagnostic ranker")
+    acceleration = re.search(r"(^|_)(acc|acceleration)(_|$)", name)
+    if acceleration and metric["id"] != "self_acceleration":
+        raise ProtocolError("use the explicitly defined self_acceleration diagnostic; official ACC is reference-relative")
+    if metric["id"] == "self_acceleration":
+        if metric.get("definition") != SELF_ACCELERATION_DEFINITION or metric.get("unit") != "m/s^2":
+            raise ProtocolError("self_acceleration requires its prediction-only definition and m/s^2 units")
 
 
 def _text(value: Any) -> bool:
@@ -88,6 +137,8 @@ def _validate_protocol(protocol: Any) -> None:
         raise ProtocolError("protocol.schema_version must be 1")
     if not isinstance(protocol.get("frozen"), bool):
         raise ProtocolError("protocol.frozen must explicitly be true or false")
+    if _official_claim(protocol):
+        raise ProtocolError("this protocol cannot claim official scores")
     episodes = protocol.get("episodes")
     if not isinstance(episodes, list) or len(episodes) != 3:
         raise ProtocolError("protocol requires exactly episodes 0, 1, 2")
@@ -125,6 +176,7 @@ def _validate_protocol(protocol: Any) -> None:
                     raise ProtocolError(f"{collection} ids must be nonempty and unique within a group")
                 ids.add(item["id"])
                 if collection == "metrics":
+                    _validate_metric(item)
                     if item.get("direction") not in ("min", "max") or not _text(item.get("unit")):
                         raise ProtocolError("each metric requires direction=min|max and a unit")
                     if "requires_fidelity_gate" in item and not isinstance(item["requires_fidelity_gate"], bool):
@@ -166,6 +218,19 @@ def _gate_reasons(run: dict, group: dict, episodes: list[dict]) -> list[str]:
 def _evaluate(run: dict, group: dict, metric: dict, expected_episodes: list[dict]) -> dict:
     reasons = []
     values = {}
+    provenance = run.get("provenance")
+    if not isinstance(provenance, dict):
+        reasons.append("provenance_missing")
+    else:
+        if provenance.get("dataset") != "track1":
+            reasons.append("provenance_not_track1")
+        if provenance.get("output_kind") != "reconstruction" or provenance.get("contains_fake_outputs") is not False:
+            reasons.append("real_reconstruction_not_declared")
+    # A copied real-provenance declaration cannot override an explicit fake marker.
+    if _non_reconstruction_claim(run):
+        reasons.append("non_reconstruction_output")
+    if _official_claim(run):
+        reasons.append("official_score_claim_not_supported")
     if run.get("status") != "complete":
         reasons.append("run_not_complete:" + str(run.get("status", "missing")))
     for field in ("evaluator", "upstream_fingerprint", "reference_fingerprint", "budget"):
@@ -217,6 +282,8 @@ def rank_results(protocol: dict, results: dict) -> dict:
     _validate_protocol(protocol)
     if not isinstance(results, dict) or not _same(results.get("schema_version"), 1) or not isinstance(results.get("runs"), list):
         raise ProtocolError("results requires schema_version=1 and a runs list")
+    if "official_score" in results and results["official_score"] is not False:
+        raise ProtocolError("results cannot claim official scores")
     known = {(g["id"], c["id"]) for g in protocol["groups"] for c in g["candidates"]}
     indexed = {key: [] for key in known}
     unrecognized = []
@@ -233,6 +300,8 @@ def rank_results(protocol: dict, results: dict) -> dict:
     report = {"schema_version": 1, "kind": "internal_track1_diagnostic_ranking", "official_score": False,
               "protocol_frozen": protocol["frozen"],
               "aggregation": "equal_weight_episode_macro_mean", "episode_ids": [0, 1, 2],
+              "metric_scope": "prediction_and_video_diagnostics_only",
+              "provenance_declarations_independently_verified": False,
               "measurement_claims_independently_verified": False, "groups": [], "unrecognized_runs": unrecognized}
     for group in protocol["groups"]:
         group_report = {"id": group["id"], "module": group["module"], "evaluator": group["evaluator"],
@@ -268,10 +337,11 @@ def render_markdown(report: dict) -> str:
         return html.escape(str(value)).replace("|", "\\|").replace("\n", " ").replace("\r", " ")
 
     lines = ["# First-three-video diagnostic rankings", "",
-             "Internal Track 1 diagnostics. Official competition scores are unavailable.", "",
+             "Internal Track 1 diagnostics. This tool does not compute official competition scores.", "",
+             "Prediction-only self_acceleration is not official reference-relative ACC. Metrics are never combined into a total.", "",
              f"Protocol frozen: {str(report['protocol_frozen']).lower()}.", "",
              "Each metric uses the equal-weight mean of episodes 0, 1 and 2. Missing or incompatible results remain unranked.",
-             "Measurement and human-review declarations are not independently verified by this metadata tool.", ""]
+             "Provenance, measurement and human-review declarations are not independently verified by this metadata tool.", ""]
     for group in report["groups"]:
         for metric in group["metrics"]:
             lines += [f"## {cell(group['id'])}: {cell(metric['id'])}", "",

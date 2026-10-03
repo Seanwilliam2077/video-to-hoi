@@ -4,7 +4,7 @@
     human    2 human                   MHR and SOMA-X parameters, the metric depth scale
     objects  3 object                  one metric mesh per object
     motion   3 object                  object pose on every frame
-    refine   4 temporal & physics      smoothing, static segments, occlusions, contact
+    refine   4 temporal & physics      preserve real dynamics, occlusions, contact
     export   1 platform & perception   the internal parquet + MHR schema
 
 A backend is a class with ``run(run: Run, clips: list[Clip]) -> None`` that

@@ -1,10 +1,9 @@
 """Inputs (module 1, platform & perception): camera intrinsics, human and object
 masks, and depth for each clip.
 
-Planned real backends: intrinsics from MoGe or GeoCalib, merged over all clips
-of one physical camera with merge_intrinsics; masks from GroundingDINO
-detection and SAM2 propagation, prompted with the clip's object prompt; depth
-from MoGe2.
+The target estimates camera parameters, masks and depth only from Track 1.
+Calibration starts per clip; merging estimates requires evidence of the same
+camera, crop/resize transforms and allowed sharing, not just a camera name.
 """
 from __future__ import annotations
 

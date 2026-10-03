@@ -2,9 +2,9 @@
 
 Updated 2026-10-03. This backlog implements [design.md](design.md). It does not report completed model runs, measured gains, a working native exporter, or an approved submission.
 
-[evaluation.md](evaluation.md) owns official-kit identities, exact metric/format semantics and their unresolved conflicts. [contracts.md](contracts.md) distinguishes implemented v1 artifacts from the proposed next contract. [workflow.md](workflow.md) owns branch/review and reporting procedures. Only Track 1 inputs and independently created synthetic fixtures are permitted; Track 2 and all its derivatives remain excluded from every gate.
+[evaluation.md](evaluation.md) records external-kit identities, metric/format mechanics and diagnostic limitations. [contracts.md](contracts.md) distinguishes implemented v1 artifacts from the proposed next contract. [workflow.md](workflow.md) owns branch/review and reporting procedures. Only Track 1 inputs and independently created synthetic fixtures are permitted; Track 2 and all its derivatives remain excluded from every gate.
 
-The owner's final Track 1 requirements supplied in chat on 2026-10-03, recorded in [design.md](design.md#latest-project-authority-final-requirements-supplied-on-2026-10-03), are the latest project authority. G0-G4 must preserve one human-derived first-frame alignment applied to the complete human/object sequence, native MHR, posed-world object geometry, reference-relative acceleration, all-frame object coverage and Track 1-only estimation. The kit's "first scored frame" wording remains an explicit mapping question when it differs from "first frame"; do not resolve that ambiguity by dropping input frames.
+The single current authority is [track1-requirements.md](track1-requirements.md), R1–R6, effective 2026-10-03. G0-G4 must implement those requirements. The first reference frame has an explicit original-video ID; a later scored subset must retain its human-derived alignment. External-kit row selection is an adapter detail and cannot supersede the required frame or justify dropping input frames.
 
 ## Gate overview and ownership
 
@@ -12,7 +12,7 @@ Gates close on recorded evidence, not on a date, downloaded checkpoint count, or
 
 | Gate | Deliverable | Primary owner | Required reviewers | Current state |
 |---|---|---|---|---|
-| G0 | Evaluation/native-conversion/provenance contract | Module 1 Platform, Sean | Module 2 Human; Module 3 Object; Module 4 Physics for metric tests | Source review documented; executable gates pending |
+| G0 | Evaluation/native-conversion/provenance contract | Module 1 Platform, Sean | Module 2 Human; Module 3 Object; Module 4 Physics for metric tests | Reference diagnostic and source review available; native export, real decoder verification and end-to-end provenance gates pending |
 | G1 | Immutable real baseline on episodes 16 and 12 | Module 1 Platform | Modules 2, 3 and 4 | Pending real inputs, adapters and inference |
 | G2 | Reliable observations, camera/scale/asset lineage | Module 1 Platform + Module 3 Object | Module 2 Human; Module 4 Physics | Planned |
 | G3 | Bounded repairs with evidence and rollback | Module 4 Physics + relevant state owner | Module 1 integration; Modules 2/3 as affected | Planned |
@@ -24,13 +24,13 @@ Module 2, 3 and 4 individual assignees remain TBD. A module is accountable for i
 
 ### Required work
 
-1. Preserve the owner's final 2026-10-03 requirements, reviewed official source identities, and differences from the September email and legacy scorer. Map the kit's selected first frame to the clarification without assuming it always means source frame zero. Do not download an entire upstream data archive to obtain code or run examples with unknown provenance.
+1. Implement the current R1–R6 specification and record reviewed external source identities. Make the reference's first original-video frame ID explicit and verify it independently of scored-row selection. Historical September assumptions are superseded, not alternative configuration choices. Do not download an entire upstream data archive to obtain code or run examples with unknown provenance.
 2. Specify and review a native-MHR migration. The proposed authoritative record is the official converter's native 204 parameters plus shape45 and decoder identity. Current decomposed v1 fields have no automatic mapping. Preserve v1 compatibility explicitly or supply a versioned converter; do not change field meanings in place.
 3. Implement a source-pinned native decoder/export adapter. Record frame IDs, native-unit conversions, image/world conventions and rig assets. Validate the mapping to the official schema through decoded geometry, not array dimensions alone.
 4. Bind object poses to mesh content, canonical origin/axes and exactly-once scale application. Verify the native CARI4D aligned-mesh transform and the exported mesh/pose pair together.
 5. Implement Track 1 provenance checks for original videos, frame-derived observations, mesh candidates, manual corrections, model inputs, upstream runs and exports. Reject unknown sources and fake artifacts from a real/submission run.
 6. Replace metadata-only resume assumptions with content-hash dependencies. A changed mask, camera, mesh, scale, model, converter or parameter invalidates downstream artifacts. Preserve the previous valid run.
-7. Isolate permitted synthetic numerical checks from prohibited legacy scorer paths. Use the explicit test list in `.github/workflows/tests.yml`; never run bare `pytest` in this repository.
+7. Validate the reference-based native-MHR diagnostic with independent synthetic cases and an explicitly injected authorized decoder. Require complete episode/object/frame manifests and explicit permitted reference provenance. Do not restore historical Track 2 defaults, statistics, normalization or alignment modes. Use the explicit test list in `.github/workflows/tests.yml`; never run bare `pytest` in this repository.
 
 ### Acceptance evidence
 
@@ -38,7 +38,7 @@ Module 2, 3 and 4 individual assignees remain TBD. A module is accountable for i
 - Both conversion paths decode corresponding geometry within predeclared numerical tolerances; no direct concatenation of the old 133/108/28 arrays is used.
 - Object tests include baked versus explicit scale, a non-origin-centred mesh, rotation plus translation, and the mesh/pose pair after canonical-frame conversion. Check compile/read-back behavior after official mesh welding, simplification and padding, particularly holes and contact surfaces. Geometry preservation alone does not certify an origin-based trajectory metric.
 - Independently generated trajectories establish the new evaluator implications: unchanged accelerating predictions have zero reference-relative acceleration error; a moving sequence frozen in place need not. The exact official definitions remain in evaluation.md.
-- Initial scored-frame selection and its mapping to the clarified first-frame rule are tested without altering source frame numbering. A synthetic common-transform case applies one human-derived Sim(3) to human and object; a later-drift case must remain erroneous under that fixed alignment rather than being repaired by per-frame or independent object fits.
+- First-reference-frame alignment uses its explicit original-video ID even when the scored subset begins later. A synthetic common-transform case applies one human-derived Sim(3) to human and object; a later-drift case must remain erroneous under that fixed alignment rather than being repaired by whole-clip, per-frame or independent object fits.
 - Stale-input, wrong-rig, wrong-mesh, missing-frame, fake-output and unknown-provenance cases fail clearly.
 - A reviewer can trace every fixture and asset to Track 1 or independent synthetic construction.
 
@@ -55,7 +55,7 @@ Start with Track 1 episode 16 (foam block) and episode 12 (pan). Run the pinned 
 | Owner | Work |
 |---|---|
 | Platform | Verify video decoding/frame map; prepare masks; invoke pinned native pipeline; import its coupled human/object results atomically |
-| Human | Verify decoded MHR, identity stability, root/frame conversion and the initial scored region |
+| Human | Verify decoded MHR, identity stability, root/frame conversion and the required first reference frame |
 | Object | Reconstruct and establish metric mesh scale; inspect topology, canonical frame and pose compatibility |
 | Physics | Inspect motion, contact and failures without modifying the baseline; establish the initial diagnostic report |
 
@@ -68,7 +68,7 @@ Resolve the metric-mesh bootstrap explicitly. Before the full CARI4D call, a pre
 - Immutable baseline ID with video/model/code/config identities, invocation, full logs, stage outputs, frame mapping, resource record and mesh provenance.
 - Native human parameters and object poses covering every decoded source frame, including occlusions, with no fake contribution or silent trimming. Compare decoded video counts and original frame IDs with metadata and output coverage; a finite array of the metadata length alone is insufficient. Review discontinuities at occlusion entry/exit as well as missing values.
 - Baseline export accepted by the G0 converter checks and the permitted official-format validation path.
-- Source-image overlays and a three-stage comparison where available; clear marking of occlusion, low-confidence intervals, first scored region and known failures.
+- Source-image overlays and a three-stage comparison where available; clear marking of occlusion, low-confidence intervals, the explicit initial-frame mapping and known failures.
 - A reproducible command/configuration on an identified execution environment. Bitwise equality across hardware is not required; declared comparison tolerances and provenance are.
 - A review signed by Platform, Human and Object owners; Physics records the failure inventory.
 
@@ -120,7 +120,7 @@ Treat grip, supported sliding, foot push, body support, release and no contact s
 
 ### Repair acceptance
 
-A candidate passes provenance/native-format/coverage checks; improves its declared failure on reserved observations or permitted official results; respects the predeclared degradation limits elsewhere; preserves the initial scored region and window boundaries; and retains a reproducible rollback. Review per-episode and worst-case outcomes. An aggregate loss reduction cannot override a demonstrated geometric failure.
+A candidate passes provenance/native-format/coverage checks; improves its declared failure on reserved observations or permitted official results; respects the predeclared degradation limits elsewhere; preserves first-reference-frame fidelity and window boundaries; and retains a reproducible rollback. Review per-episode and worst-case outcomes. An aggregate loss reduction cannot override a demonstrated geometric failure.
 
 A conditional repair policy must use information available from the input/prediction. Do not cherry-pick variants per episode using hidden test answers or unrecorded manual score-driven decisions. Official results used for selection must be logged as such.
 
@@ -172,7 +172,7 @@ This manifest extension and automatic report extraction are planned work. Existi
 
 | Question | Owner | Effect until resolved |
 |---|---|---|
-| Which official kit version and first-frame selection implement the owner's final 2026-10-03 requirements? | Platform | Follow the final requirements; reproduce pinned implementation behavior, preserve all original frames, and keep first-frame versus first-scored-frame mapping explicit |
+| Which pinned external-kit adapter reproduces R1–R6 and records the first reference frame's original-video ID? | Platform | Requirements remain fixed; validate row/index mapping and compatibility without changing the alignment frame |
 | Exact native mapping from the toolkit output to the official 204/45 record, including units and rig assumptions | Human + Platform | G0/G1 export acceptance remains open |
 | Official object canonical origin and pose-scale conventions | Object + Platform | Freeze origin; no recentering as a tuning variable; consult evaluation.md |
 | Is cross-episode shared geometry, scale, camera or identity estimation allowed? | Platform | Feature disabled; baseline remains episode-local |
@@ -183,4 +183,4 @@ This manifest extension and automatic report extraction are planned work. Existi
 
 ## Execution priority
 
-The critical path is native conversion and evaluator reconciliation -> real complete baseline -> trustworthy observations and asset lineage -> targeted repairs -> full-set freeze. Source/runtime packaging may support that work but is not a substitute for it. Stop adding models when the next unresolved problem is an adapter, a coordinate convention, a bad mask, or a missing acceptance report.
+The critical path is native conversion and verified evaluation adapters -> real complete baseline -> trustworthy observations and asset lineage -> targeted repairs -> full-set freeze. A reference-based diagnostic does not close native export or official-equivalence gaps. Source/runtime packaging may support that work but is not a substitute for it. Stop adding models when the next unresolved problem is an adapter, a coordinate convention, a bad mask, or a missing acceptance report.

@@ -1,18 +1,14 @@
-"""Read LeRobot v2.1 roots in the Track 2 Tier 1 schema.
-
-Ground truth (Tier 1), noisy labels (Tier 2) and this project's predictions
-share one layout, so the scorer reads them all the same way:
+"""Legacy internal LeRobot v2.1 IO for independently generated fixtures.
 
     <root>/meta/info.json
     <root>/meta/episodes_metadata.jsonl      episode -> object, mesh, ground plane
     <root>/data/chunk-000/episode_000007.parquet
     <root>/mesh/<object>/<object>.glb
 
-Human columns are SOMA-X (MHR identity) parameters in the SOMA Y-up world.
-Object poses are world_T_object in the OpenCV world. In the reference,
-invisible frames are zero-filled and flagged by ``observation.object.visible``.
-A prediction must give a pose on every frame; its visibility flag is not
-used for scoring (see ``load_episode(mask_hidden=False)``).
+These SOMA-X columns are NOT native MHR submission data. The Track 1 scorer
+does not use this module. The visibility-mask option is legacy IO behavior,
+never permission to omit predictions on hidden frames. Track 2 data and
+derivatives are prohibited for every purpose; there are no default data roots.
 """
 from __future__ import annotations
 
@@ -24,10 +20,6 @@ import numpy as np
 import pandas as pd
 
 from v2hoi.geometry import pose7_to_matrix
-
-TIER1_ROOT = Path("data/v2d/track_2/tier_1_multiview_caption")
-TIER2_ROOT = Path("data/v2d/track_2/tier_2_synthetic_noise")
-
 
 @dataclass
 class Episode:
@@ -98,8 +90,8 @@ def load_episode(root: Path, index: int, mesh_dir: Path | None = None, mask_hidd
     """Load one episode. ``mesh_dir`` overrides where ``<object>/<object>.glb`` is found.
 
     Zero quaternions always become NaN poses. ``mask_hidden`` also blanks frames
-    flagged invisible; the scorer turns it off for predictions, which must
-    carry a pose through occlusions.
+    flagged invisible. This function only supports the old internal format;
+    it is not a submission validator or scoring input adapter.
     """
     root = Path(root)
     meta = read_metadata(root)[index]

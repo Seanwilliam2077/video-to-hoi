@@ -1,6 +1,6 @@
 # Developer guide
 
-The README covers the project, its pages and the downloads. This guide covers everything a developer needs next: the data policy, the pipeline and modules, setup, running, validation and tests.
+The README covers the project, its pages and the downloads. This guide covers data policy, modules, setup, running, validation and tests. [track1-requirements.md](track1-requirements.md) is the single active specification for the owner's latest six Track 1 requirements.
 
 ## Data policy
 
@@ -12,24 +12,25 @@ Develop against Track 1 videos and artifacts reconstructed from those videos. Us
 
 From one video taken by a single static RGB camera, and a text description of the object, the planned pipeline recovers the person (body and hands, as MHR parameters), the object's mesh, and its pose in every frame, in a common metric frame. The current official evaluator uses reference-dependent CD-H/CD-O and ACC-H/ACC-O; ACC-H covers 22 body joints, and PEN measures predicted hand penetration into the submitted object rather than a reference difference. See [evaluation.md](evaluation.md) for the pinned evidence and remaining limits.
 
-The human supplies the current scale prior that the object module uses (`DepthScale`). Mesh generation and tracking feed each other inside one module. The proposed refine stage makes bounded, evidence-supported human/object repairs; decreasing self-acceleration alone is not an official ACC improvement. Modules develop against immutable Track 1 snapshots, with independent synthetic fixtures for interface tests. Cross-episode geometry sharing is an engineering prior and remains disabled pending organizer clarification of allowable evidence pooling.
+In the planned real pipeline, the human supplies a scale prior for the object module through `DepthScale`; the current fake value is not an estimate. Mesh generation and tracking feed each other inside one module. The proposed refine stage makes bounded, evidence-supported human/object repairs; decreasing self-acceleration alone is not an official ACC improvement. Modules develop against immutable Track 1 snapshots, with independent synthetic fixtures for interface tests. Cross-episode geometry sharing is an engineering prior and remains disabled pending organizer clarification of allowable evidence pooling.
 
 Four people build the pipeline in parallel, one module and one branch each. Every stage has a fake backend, so `main` runs end to end from day one and each module replaces its fakes with real models.
 
 - [workflow.md](workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
 - [contracts.md](contracts.md): the files the stages exchange.
 - [design.md](design.md): the architecture, its evidence, and what is known about the official submission.
-- [evaluation.md](evaluation.md): current official metric semantics, independent diagnostic evidence and promotion criteria.
+- [track1-requirements.md](track1-requirements.md): R1–R6, the current acceptance requirements; conflicting historical rules are superseded.
+- [evaluation.md](evaluation.md): pinned external metric mechanics, native-MHR reference diagnostics, independent evidence and limitations.
 - [track1-compliance.md](track1-compliance.md): the six final requirements versus current implementation, evidence gaps and ordered acceptance work.
 - [implementation-plan.md](implementation-plan.md): G0 official/native contracts, G1 real native baselines, G2 camera/scale evidence, G3 bounded repairs and G4 full-set export rehearsal.
 - [platform.md](platform.md): remote machine sizing, the candidate servers, and baseline acceptance requirements. Remote deployment and the two real baselines are still pending.
 
 ## Current state
 
-- **Planning update (2026-10-03):** the official evaluation kit is available; its repository adapter and official export are still pending. The revised proposal is documentation, not a runtime implementation or measured improvement. A local CPU test environment was prepared; no reconstruction model installation, server deployment, model run or submission was performed for this update.
-- **Final owner clarification (2026-10-03, this conversation):** one common first-reference-frame Sim(3), native MHR, world-posed object Chamfer, reference-relative ACC, all objects/all frames including occlusions, and Track 1-only geometry/cameras are acceptance targets. See [workflow.md](workflow.md#final-owner-requirements-2026-10-03). The public kit's first-scored-frame selection must be reconciled with the owner's first-reference-frame wording; neither current fake outputs nor the legacy scorer establish compliance.
+- **Implementation update (2026-10-03):** the requirements and reference-based native-MHR diagnostic are updated. The official packer adapter, real reconstruction backends and measured reconstruction improvement remain pending. No reconstruction model installation, server deployment, real model run or submission is established by this update.
+- **Requirements:** follow [R1–R6](track1-requirements.md). The first reference frame has an explicit original-video ID. A later scored subset retains that frame's human-derived alignment; external array indexing cannot change this rule.
 - **Validation:** Track 1 has no public reconstruction ground truth for reference-dependent CD/ACC. Local review uses independent image observations, motion/event fidelity, completeness, contact and overlays. Self-smoothness remains a diagnostic only. Official PEN also uses reference-derived alignment scale; an unaligned local penetration calculation is not the final official score. Automated evidence extraction and promotion gates remain to be implemented.
-- **Legacy scorer:** `v2hoi.score` contains metric primitives, but its default reference and internal score depend on Track 2. Its existing command-line workflow is outside the approved project workflow.
+- **Reference diagnostic:** `v2hoi.score` uses explicitly supplied native-MHR predictions, permitted references, canonical object meshes and an authorized decoder. It has no Track 2 reference default or normalization and does not produce an official score or composite ranking. See [evaluation.md](evaluation.md) for its input and equivalence limits.
 - **Pipeline:** `python -m v2hoi.run` runs all six stages with fake backends through export. No reconstruction models are wired in yet.
 - **Server handoff:** [deployment/README.md](../deployment/README.md) covers the source ZIP, the pinned model and source inventory, dependency locks, and verification. It works without SSH. [PREPARATION_STATUS.md](../deployment/PREPARATION_STATUS.md) records what has actually been downloaded and verified.
 - **First-three-video comparison kit:** release `first3-benchmark-20260927` (69 MB, three complete videos, no weights). [benchmarks/first3/README.md](../benchmarks/first3/README.md) covers Track 1 episodes 0, 1, 2, the execution recipes and the ranking checks. No models were run and no scores are reported.
@@ -67,21 +68,21 @@ The runner now defaults to and accepts only `track1`; keep `--dataset track1` ex
 
 The internal export contains `meta/info.json`, `meta/episodes_metadata.jsonl`, `data/chunk-000/episode_XXXXXX.parquet`, `mesh/<object>/<object>.glb`, and the corresponding MHR files. This storage schema does not authorize using another dataset's assets.
 
-Start G1 with immutable native baselines for episodes 16 and 12, then review `dev-mini` (`0 6 9 16 24`) by object and interaction type, and all 30 episodes at G4. Preserve `first3` as a limited hoop integration fixture. Freeze observation/annotation and event-review policies before comparisons; distinguish fitted evidence from independent or held-out observations. Check all-frame coverage, first-scored-frame human geometry, reprojection, scale consistency, occlusion reappearance, contact gaps/penetration, motion amplitude and timing. Report per-episode and worst-case regressions, not only means. Model-estimated depth and masks are not ground truth.
+Start G1 with immutable native baselines for episodes 16 and 12, then review `dev-mini` (`0 6 9 16 24`) by object and interaction type, and all 30 episodes at G4. Preserve `first3` as a limited hoop integration fixture. Freeze observation/annotation and event-review policies before comparisons; distinguish fitted evidence from independent or held-out observations. Check all-frame coverage, first-reference-frame mapping and human geometry, reprojection, scale consistency, occlusion reappearance, contact gaps/penetration, motion amplitude and timing. Report per-episode and worst-case regressions, not only means. Model-estimated depth and masks are not ground truth.
 
 Every claimed improvement must belong to one exact exported candidate reloaded for measurement and rendering. Reject copied-first-frame motion even if its self-acceleration is zero, and reject hand/object separation used merely to reduce penetration. Add models only to address a recorded failure that the stable native baseline cannot resolve. Proposed v2 native MHR, observations, typed symmetry and dependency-hash contracts are documented separately from implemented v1 in [contracts.md](contracts.md).
 
-The old Track 2 self-check commands and Tier 2-normalized score are retired. `v2hoi.score --strict` cannot certify Track 1 provenance, current metric semantics or official format. Implement the now-available official kit's native MHR/object adapter, pin its source/configuration and complete export/reload/render checks before submission. Do not convert proxies into a scalar official-score estimate. [evaluation.md](evaluation.md) is the current evaluation reference; [implementation-plan.md](implementation-plan.md) distinguishes planned gates from existing behavior.
+Historical Track 2 self-check commands, reference defaults and normalized totals are removed and superseded. The replacement diagnostic requires explicit permitted references and reports its limits; it cannot certify provenance truth or official format. Implement the official kit's native MHR/object adapter, pin its source/configuration and complete export/reload/render checks before submission. Do not convert proxies into a scalar official-score estimate. [evaluation.md](evaluation.md) records evaluation mechanics; [implementation-plan.md](implementation-plan.md) distinguishes planned gates from existing behavior.
 
 ## Tests
 
-Use the explicit allowlist in `.github/workflows/tests.yml` as the source of truth. Its independent synthetic tests cover download/bundle tools and fake-stage wiring:
+Use the explicit allowlist in `.github/workflows/tests.yml` as the source of truth. Its independent synthetic tests cover tools, contracts, fake-stage wiring and the replacement reference-based diagnostic:
 
 ```bash
-python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_download_foundationpose.py tests/test_model_release_prepare.py tests/test_model_release_restore.py tests/test_handoff_restore.py tests/test_benchmark_first3.py tests/test_rank_first3.py tests/test_geometry.py tests/test_metrics.py tests/test_run.py
+python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_download_foundationpose.py tests/test_model_release_prepare.py tests/test_model_release_restore.py tests/test_handoff_restore.py tests/test_benchmark_first3.py tests/test_rank_first3.py tests/test_geometry.py tests/test_metrics.py tests/test_run.py tests/test_track1_score.py
 ```
 
-These files create their own synthetic fixtures. `test_run.py` uses generated metadata and never invokes the legacy scorer. Do not run a bare `pytest`: `test_score.py` still contains Tier 2-derived benchmark assertions and can read Track 2 files when present, so CI excludes it. Passing these tests verifies the covered contracts and wiring, not real model quality, complete data provenance, or the official submission format.
+These files create their own independent synthetic fixtures. The former `test_score.py` and its prohibited benchmark assumptions have been replaced by `test_track1_score.py`; do not recover or reuse its historical data or values. Continue to use the explicit CI allowlist rather than bare `pytest`. Passing these tests verifies covered mathematics, contracts and wiring, not real authorized MHR model execution, reconstruction quality, complete data provenance or the official submission format.
 
 ## Team pages
 

@@ -9,7 +9,7 @@
 It reads the refine stage's output. The world frame is the camera frame (see
 v2hoi.contracts), so poses are copied, not transformed. The official kit is
 available, but native MHR conversion and the official packing backend are
-not implemented. The legacy scorer is outside the approved workflow.
+not implemented. The new native-MHR diagnostic scorer rejects this format.
 See docs/evaluation.md and docs/track1-compliance.md.
 """
 from __future__ import annotations
@@ -82,7 +82,7 @@ class Tier1Export:
                 "observation.human.scale_params": _rows(human.scale),
                 "observation.human.bone_length_flexibles": _rows(human.bone_flex),
                 "observation.object.pose": _rows(matrix_to_pose7(motion.T_cam_obj)),
-                # Every frame has a pose; the scorer ignores this flag for predictions.
+                # Legacy IO field only; it cannot waive complete trajectory validation.
                 "observation.object.visible": np.ones(T, dtype=bool),
                 "timestamp": (frames / clip.fps).astype(np.float32),
                 "frame_index": frames,

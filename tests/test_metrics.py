@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 import trimesh
 from scipy.spatial.transform import Rotation
 
@@ -10,6 +11,41 @@ def test_chamfer():
     a = np.zeros((1, 3))
     assert M.chamfer(a, a) == 0.0
     assert np.isclose(M.chamfer(a, np.array([[0.0, 0.0, 1.0]])), 1.0)
+
+
+def test_chamfer_sum_preserves_world_offset_and_both_directions():
+    a = np.array([[0.0, 0.0, 0.0]])
+    b = np.array([[0.0, 0.0, 1.0], [0.0, 0.0, 3.0]])
+    assert M.chamfer_sum(a, b) == 3.0  # 1 + mean(1, 3)
+    with pytest.raises(ValueError):
+        M.chamfer_sum(a, np.empty((0, 3)))
+
+
+def test_accel_error_penalizes_frozen_prediction_and_respects_frame_gaps():
+    reference = np.zeros((5, 3))
+    reference[:, 0] = np.arange(5) ** 2
+    frozen = np.zeros_like(reference)
+    assert M.accel_magnitude(frozen) == 0
+    assert M.accel_error(frozen, reference) == 2
+    pred = np.zeros((5, 3))
+    pred[3:] = 100
+    assert M.accel_error(pred, frozen, frame_indices=np.array([0, 1, 2, 8, 9])) == 0
+    assert np.isnan(M.accel_error(pred, frozen, frame_indices=np.array([0, 2, 4, 6, 8])))
+    with pytest.raises(ValueError, match="strictly increasing"):
+        M.accel_error(pred, frozen, frame_indices=np.array([0, 1, 1, 2, 3]))
+    with pytest.raises(ValueError, match="strictly increasing"):
+        M.accel_error(pred[:3], frozen[:3], frame_indices=np.array([254, 255, 0], dtype=np.uint8))
+    pred[0] = np.nan
+    with pytest.raises(ValueError, match="finite"):
+        M.accel_error(pred, frozen)
+
+
+def test_hand_penetration_mean_counts_outside_points_in_denominator():
+    points = np.zeros((4, 3))
+    sdf = lambda x, workers: np.array([-0.1, -0.3, 0.5, 0.0])
+    assert np.isclose(M.hand_penetration_mean(points, sdf), 0.1)
+    with pytest.raises(ValueError, match="nonempty"):
+        M.hand_penetration_mean(np.empty((0, 3)), sdf)
 
 
 def test_icp_residual_removes_rigid_offset():

@@ -1,20 +1,16 @@
-"""Objects (module 3, object): one metric mesh per object, shared by all of its clips.
+"""Objects: the current fake backend and a disabled legacy backend name.
 
-Planned real backend: candidate meshes from SAM 3D Objects and Hunyuan3D-2 on
-several frames, chosen by how well they fit the tracking (the same module
-owns motion, so the two can iterate together); each clip estimates a scale
-on DepthScale × Depth and the object takes their median (merge_scale,
-design 3.2); symmetry recorded for the tracker.
+The target reconstructs canonical geometry and scale from Track 1 observations,
+jointly checks posed surfaces against video evidence, and fixes the mesh origin.
+Cross-clip sharing requires verified instance identity and permitted evidence;
+the fake backend's name-based grouping is not the real reconstruction design.
 """
 from __future__ import annotations
-
-import shutil
 
 import numpy as np
 
 from v2hoi.clips import Clip, group_by_object
 from v2hoi.contracts import ContractError, ObjectAsset, Run
-from v2hoi.dataset import TIER1_ROOT, _child_path
 from v2hoi.stages import dev_only
 
 
@@ -41,20 +37,10 @@ class FakeObjects:
 
 
 class ReferenceObjects:
-    """Development only: the Tier 1 ground-truth mesh, so tracking and refinement
-    can be worked on before generated meshes exist. Refuses Track 1; the scorer
-    marks runs that use it as invalid submissions."""
-
-    root = TIER1_ROOT
+    """Disabled compatibility name; Track 2 meshes have no permitted use."""
 
     def run(self, run: Run, clips: list[Clip]) -> None:
         dev_only(clips, "reference meshes")
-        for name, group in group_by_object(clips).items():
-            mesh = _child_path(self.root, f"mesh/{name}/{name}.glb", "reference mesh")
-            asset = ObjectAsset(name=name, scale=1.0, source=f"reference: {mesh}",
-                                episodes=[c.episode for c in group])
-            path = run.save(asset, name=name)
-            shutil.copyfile(mesh, path.parent / ObjectAsset.MESH)
 
 
 BACKENDS = {"fake": FakeObjects, "reference": ReferenceObjects}

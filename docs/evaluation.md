@@ -1,23 +1,14 @@
-# Track 1 evaluation and evidence
+# Track 1 evaluation mechanics and evidence
 
-The official submission kit was available on **2026-10-02** and its allowlisted code was reverified on **2026-10-03**. This specification supersedes the repository's 2026-09-26 assumptions that the exporter was unpublished, ACC meant prediction-only smoothness, or the old ground-truth scorer approximated the current evaluation. It documents the public implementation; it does not report a reconstruction result or an official score.
+The single active requirements are [R1–R6](track1-requirements.md), supplied by the owner on **2026-10-03**. This document records external implementation evidence and local diagnostic limits; it cannot override those requirements. The official submission kit was available on **2026-10-02** and its allowlisted code was reverified on **2026-10-03**. No reconstruction result or official score is reported here.
 
-Use only the permitted Track 1 inputs and independently created synthetic fixtures. No Track 2 content, scores, statistics, cached outputs, or derived parameters may be used to implement, tune, validate, or normalize this work. The legacy `v2hoi.score` remains outside the approved workflow.
+Use only permitted Track 1 inputs and independently created synthetic fixtures. No Track 2 content, scores, statistics, cached outputs or derived parameters may be used to implement, tune, validate or normalize this work. The former scorer's defaults and normalization are historical and superseded; they must not be restored in the native-MHR reference diagnostic.
 
 ## Owner-confirmed requirements, October 3
 
-The owner's latest message on **2026-10-03** reaffirmed the following six requirements. The source is that user message, not a public URL; these are requirement targets, not a claim that the current pipeline complies.
+Follow [the current requirements](track1-requirements.md). Earlier notes are superseded wherever they conflict. Requirement authority comes from the owner's latest instruction, not from choosing between historical documents.
 
-| ID | Requirement | Acceptance implication |
-| --- | --- | --- |
-| R1 | Fit one Sim(3) from human geometry at the first reference frame and apply the same transform to human and object throughout the clip | No object-only or per-frame realignment; verify the actual source/reference/scored frame mapping |
-| R2 | Submit native MHR human parameters | SOMA or per-frame human meshes cannot replace the required human parameter payload; derived meshes remain diagnostics |
-| R3 | Evaluate the object as its posed world-space mesh | Validate the mesh, scale, rotation, translation and common world transform together |
-| R4 | ACC is the prediction-versus-reference second-difference discrepancy | Prediction-only acceleration is a separately named diagnostic, not the official objective |
-| R5 | Produce an object pose on every frame, including occlusion | Preserve complete frame coverage and a continuous trajectory; uncertain poses still require an explicit estimate |
-| R6 | Use Track 1 sources for reconstruction assets and estimated parameters, including camera intrinsics; no Track 2 assets or derived parameters | Reject Track 2 provenance even for matching objects such as iron, bowl, table or round table; the broader repository prohibition remains in force |
-
-**Frame wording remains explicit.** R1 uses the first frame of the reference trajectory. The inspected code fits the first frame of the scored arrays, which can differ from raw video frame zero. Preserve both statements and verify the mapping against the governing sample/evaluator before closing G0; do not silently relabel a raw first frame or invent a reference frame. If these requirements and the selected evaluation version cannot be reconciled, record the conflict for clarification instead of choosing an undocumented interpretation.
+**Frame mapping is an implementation responsibility.** R1 fixes alignment to the first reference frame's explicit original-video ID. A selected scoring window may begin later and must retain that alignment. The inspected external code fits the first entry in its scored arrays; an adapter must verify what original reference frame that entry represents and preserve R1. This observation is not a competing rule and does not permit replacing the reference first frame with raw frame zero or a convenient visible frame.
 
 ## Sources and verification boundary
 
@@ -37,11 +28,41 @@ The public `metric_code/README.md:3-6` says the scorers omit host reference valu
 | Pipeline | Fake reconstruction stages and internal export exercise wiring | One real Track 1 baseline, then incremental adapters |
 | Human contract | Parallel SOMA-X and wrapper `mhr_*` arrays; shape/finite checks | Native MHR parameters as the authoritative state; explicit tested conversions |
 | Export | `stages/export.py` writes the internal layout and separate MHR arrays | Adapter to the pinned official packer, with round-trip geometry checks |
-| Metrics | `metrics.py` provides generic primitives with local conventions | Versioned Track 1 diagnostics and synthetic checks of official mathematics |
+| Metrics | Generic primitives plus a native-MHR reference diagnostic with explicitly supplied decoder/reference | Validate real authorized MHR decoding and pinned official sampling/serialization; do not claim official equivalence |
 | Comparison | `rank_first3.py` checks submitted records for three hoop episodes | Independently produced observations, machine-generated measurements, and broader grouped evaluation |
 | Provenance | Run paths and invocation history; partial stale-output detection | Immutable artifacts and hashes covering every dependency |
 
 These are implementation requirements. Publishing this document does not mean those capabilities are complete. Passing the existing synthetic CI allowlist does not certify reconstruction quality or an official submission.
+
+## Local native-MHR reference diagnostic
+
+`v2hoi.score` is a replacement diagnostic interface, not the official evaluator or a submission adapter. Its old reference defaults, alternative alignment modes and normalized total are removed. It requires explicitly supplied permitted prediction/reference manifests, native parameters, canonical meshes, body-role indices and a local authorized decoder. Nothing in the command downloads or supplies a hidden reference or body model.
+
+```bash
+python -m v2hoi.score --pred prediction.json --reference reference.json --decoder your_package.mhr:decode --roles roles.json --out report.json
+```
+
+`your_package.mhr:decode` is a placeholder for a locally implemented, verified decoder. It accepts `v2hoi.score.NativeMHR` and returns `DecodedHuman(vertices, joints)` in metres in one consistent scene frame with corresponding topology. The caller must preserve the rig's native parameter meanings and document its asset/version. An arbitrary synthetic decoder is useful only for independently constructed synthetic tests.
+
+Each manifest has `schema_version: 2`, `provenance: {"kind": "track1" | "independent_synthetic", "evidence": "..."}`, `required_objects`, `expected_frames`, and `episodes`. `expected_frames` maps each episode ID to integer `start` and `count` in **original-video frame coordinates**; `count` must be at least three. `episodes` has exactly those episode IDs. Each entry declares `object_id`, `artifact` (native NPZ path), `mesh` (canonical triangle-mesh path), optional `sample_count` (default 2048) and optional explicit provenance. Paths are resolved relative to their manifest. Prediction and reference must have the same declared timeline and object coverage. The declared timeline must itself be verified against the source video before any complete-coverage claim.
+
+The diagnostic CLI accepts self-contained **GLB, PLY and STL** meshes. It reads mesh bytes in memory with no external resolver and rejects external buffer/texture declarations and sidecar formats. This is deliberately narrower than the official packer's format support listed below. JSON rejects duplicate keys and nonfinite constants; NPZ uses `allow_pickle=False`. Explicit fake/smoke declarations cannot be labelled Track 1, and a report cannot mix Track 1 and independent synthetic provenance. The output path cannot overwrite an input manifest, role file, mesh or native artifact.
+
+| Native diagnostic NPZ field | Required content |
+| --- | --- |
+| `pose`, `scales`, `shape` | `[T,136]`, `[68]`, `[45]`; native values, not decomposed v1 wrapper fields |
+| `frame_indices` | All consecutive original frame IDs declared by the manifest, in order |
+| `object_poses` | `[T,4,4]` finite proper rigid transforms in the common scene frame |
+| `object_scale` | Positive scalar applied exactly once to canonical mesh vertices |
+| `object_visible` | Optional `[T]` boolean metadata; invisibility never removes a frame |
+
+`roles.json` declares `alignment_vertices`, `surface_vertices`, `body_joints22` (exactly 22 explicit joint indices), `hand_vertices`, and a nonempty `source_id`. No host role indices are guessed or supplied by default. The internal `Reconstruction` API can accept explicitly described canonical diagnostic point samples; the CLI requires a mesh and derives its samples internally.
+
+The CLI samples triangle surfaces with a deterministic episode-derived seed, records the mesh hash, seed and count, and constructs object geometry as `s*R*V+t`. It fits one human-only Sim(3) at the first reference ID and applies it to the complete human/object scene. The programmatic `score_episode` API can select later `scored_frame_indices` without changing that initial alignment. The CLI evaluates every declared frame. ACC uses original consecutive triplets, reference-relative body-joint/object-translation second differences and cm/frame² units. Results aggregate by equal episode means, with no composite total.
+
+PEN uses the predicted canonical mesh, triangle distances and absolute winding-number sign, then the object and shared alignment scales; exterior hand points contribute zero to the mean. Zero-area padding faces are excluded. Open or self-intersecting meshes retain winding-number ambiguity, and this CPU calculation is not certified against the host GPU evaluator. The programmatic API reports PEN unavailable when no signed-distance function is supplied; a dataset report does not compute a partial PEN mean when any episode is unavailable.
+
+Provenance declarations and prohibited-path checks run before payload loading and decoder import, but **declarations are not authenticated provenance**. The report explicitly sets `official_equivalence: false`. It does not verify hidden host roles, body assets, official sampling/mesh compilation or an actual authorized MHR model; synthetic tests do not fill those gaps. Public Track 1 reconstruction ground truth remains unavailable, so this interface does not create local official scores. Use independently constructed synthetic references for mathematical tests and independent video evidence for real Track 1 development.
 
 ## Official packer inputs and final payload
 
@@ -72,7 +93,7 @@ Prefer preserving the actual native model parameters from a compatible backend. 
 
 ## Alignment, frames, and reductions
 
-The scorer fits one Sim(3) from corresponding **role-selected human vertices in the first scored frame**, then applies it across the episode. It does not independently align the object, refit each frame, or use the raw video's first frame unconditionally. The actual alignment-role indices belong to the host body asset; the public code alone does not expose their values. See `metric_code/track_1/ACC-H.py:397,503-504,634-655,679-686`.
+**Project behavior follows R1:** fit one Sim(3) from human geometry at the reference's explicit first original frame, then apply it to both human and object for all frames. The inspected external implementation fits corresponding role-selected human vertices at the first scored-array entry (`metric_code/track_1/ACC-H.py:397,503-504,634-655,679-686`). Preserve the original-frame mapping when adapting that code; selecting later diagnostic rows must not refit alignment. Host alignment-role indices belong to its body asset and are not exposed by the public code alone.
 
 `v2dlb/mhr_submission.py:34-37` describes scored frames within the hand-object contact span, separated into contiguous stretches. The official sample determines the actual row set. This audit has not parsed that sample, so exact scored first frames, episode membership, and budgets remain unverified. Preserve complete video trajectories, including occlusion, as the FAQ requires; inspect both whole-video behavior and the eventual sample-defined windows.
 
@@ -110,7 +131,7 @@ ACC-O's use of translation makes the canonical origin material. Replacing vertic
 
 The payload carries a mesh and scale per episode. It does not enforce one shared mesh across an object's clips. A shared-object reconstruction may be an algorithmic choice, but cross-clip fitting permission is not established by that schema. Keep a per-clip mode available until the applicable rule is confirmed.
 
-## Conflicts and limits to retain in reports
+## Superseded history and current limits
 
 | Issue | Interpretation for this project |
 | --- | --- |
@@ -122,14 +143,14 @@ The payload carries a mesh and scale per episode. It does not enforce one shared
 | Code-only scorers are public | Host reference/body assets and role arrays are omitted; exact local official scores remain unavailable |
 | Official packer returns a file | This establishes packaging, not image fidelity, data provenance, valid licenses, or geometric accuracy |
 
-Resolve rule conflicts with a dated organizer clarification and a new evidence revision. Until then retain the uncertainty explicitly. Never use an unavailable reference, guessed role list, or historical Track 2 result to close the gap.
+R1–R6 are settled project requirements. Version external adapters and record technical mismatches without reinstating historical rules as active alternatives. Never use an unavailable reference, guessed host role list or historical Track 2 result to close an implementation gap.
 
 ## Planned validation and candidate decisions
 
-Implement these checks in order; none is claimed to be a completed automated gate here:
+Use these checks in order. Synthetic diagnostic coverage is engineering evidence; full pipeline, native-export and official-equivalence gates remain open:
 
 1. **Contract and serialization:** analytic synthetic camera/mesh/trajectory cases, native-MHR FK conversion checks with authorized model assets, original frame indices, constant identity, proper rotations, finite values, all-frame coverage, and compile/read-back equivalence. Freeze the official sample and packer identity before using them.
-2. **Mathematics:** independent synthetic examples for sum-versus-mean Chamfer, rigid/global scale transformations, second differences with gaps, rotating objects with fixed canonical origins, and penetration inside/outside a known mesh. Test padding and export simplification. Never run the legacy reference-based scorer to validate these checks.
+2. **Mathematics:** independent synthetic examples for sum-versus-mean Chamfer, rigid/global scale transformations, reference-first alignment followed by later scoring windows, second differences with gaps, rotating objects with fixed canonical origins, and penetration inside/outside a known mesh. Test padding and export simplification. Use the replacement diagnostic with explicit permitted references; do not recreate historical Track 2 defaults, statistics or normalization.
 3. **Independent Track 1 evidence:** freeze video hashes, annotation frames, visibility policy, prompts, observed landmarks/masks, evaluators, and review windows before comparison. Model predictions are observations, not labels. An optimizer and its evaluator must not share the same predictions as an unquestioned truth source.
 4. **Controls:** a copied-first-frame trajectory must fail motion fidelity; lagged motion must fail timing; detached hands must fail contact evidence; missing difficult frames must fail coverage. Smoothness or penetration improvements cannot waive these controls.
 5. **Broader review:** keep all three clips of an object in the same development/holdout group. Do not fit shared meshes or camera priors using a held-out group. After all clips have informed choices, call the set a regression set, not unseen validation. Report object-level and event-level results, tails, failures, manual intervention, and runtime. Three hoop clips support only a hoop-subset claim.

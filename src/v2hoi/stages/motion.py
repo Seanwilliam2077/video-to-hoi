@@ -1,9 +1,8 @@
 """Motion (module 3, object): the object's pose on every frame.
 
-Planned real backend: FoundationPose registration and tracking on the object
-mask and DepthScale × Depth, with symmetry from the ObjectAsset. Frames the
-tracker cannot see still get a pose (hold or interpolate) with confidence 0;
-the refine stage decides how to fill them properly.
+The target emits a finite pose for every object on every frame, including
+occlusions and out-of-view spans. Holding a pose is only an initialization;
+evidence from contact, motion and reappearance must constrain the final path.
 """
 from __future__ import annotations
 
@@ -12,7 +11,6 @@ import numpy as np
 from v2hoi.body import SOMA_TO_OPENCV
 from v2hoi.clips import Clip
 from v2hoi.contracts import Human, Motion, Run
-from v2hoi.dataset import TIER2_ROOT, load_episode
 from v2hoi.stages import dev_only
 
 
@@ -43,19 +41,10 @@ class FakeMotion:
 
 
 class Tier2Motion:
-    """Development only: Tier 2 object poses, as realistic input for the refine stage.
-
-    Poses are relative to the reference mesh, so pair it with objects=reference.
-    Frames without a pose hold the previous one with confidence 0.
-    """
-
-    root = TIER2_ROOT
+    """Disabled compatibility name; always refuses before accessing data."""
 
     def run(self, run: Run, clips: list[Clip]) -> None:
         dev_only(clips, "Tier 2 trajectories")
-        for clip in clips:
-            T_cam_obj, confidence = hold_missing(load_episode(self.root, clip.episode, mask_hidden=False).obj_T)
-            run.save(Motion(T_cam_obj=T_cam_obj, confidence=confidence), episode=clip.episode)
 
 
 BACKENDS = {"fake": FakeMotion, "tier2": Tier2Motion}

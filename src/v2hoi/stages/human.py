@@ -12,7 +12,6 @@ import numpy as np
 from v2hoi.body import SOMA_TO_OPENCV
 from v2hoi.clips import Clip
 from v2hoi.contracts import DepthScale, Human, Run
-from v2hoi.dataset import TIER2_ROOT, load_episode
 from v2hoi.stages import dev_only
 
 MHR_SHAPES = {
@@ -50,26 +49,10 @@ class FakeHuman:
 
 
 class Tier2Human:
-    """Development only: the Tier 2 human, i.e. Tier 1 with the organizer's
-    Track 1-like noise, as realistic input for the refine stage.
-
-    SOMA-X only; the MHR fields are zeros. The frame is the Tier 1 world
-    rather than a camera, which the scorer's alignment does not mind.
-    """
-
-    root = TIER2_ROOT
+    """Disabled compatibility name; always refuses before accessing data."""
 
     def run(self, run: Run, clips: list[Clip]) -> None:
         dev_only(clips, "Tier 2 trajectories")
-        for clip in clips:
-            ep = load_episode(self.root, clip.episode, mask_hidden=False)
-            T = len(ep)
-            human = Human(
-                pose=ep.pose, transl=ep.transl, identity=ep.identity, scale=ep.scale, bone_flex=ep.bone_flex,
-                **{name: np.zeros((T, *shape), np.float32) for name, shape in MHR_SHAPES.items()},
-            )
-            run.save(human, episode=clip.episode)
-            run.save(DepthScale(1.0, "tier2: no depth"), episode=clip.episode)
 
 
 BACKENDS = {"fake": FakeHuman, "tier2": Tier2Human}

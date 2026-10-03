@@ -1,6 +1,6 @@
 # Stage contracts
 
-The pipeline's stages exchange data through files in a run directory. This page specifies those files; `src/v2hoi/contracts.py` implements their formats. The current exporter writes an internal artifact, not a verified official submission, and validates only the refined human, motion, and object mesh. How the team splits the stages is in [workflow.md](workflow.md).
+The pipeline's stages exchange data through files in a run directory. This page specifies those files; `src/v2hoi/contracts.py` implements their formats. [track1-requirements.md](track1-requirements.md) is the single active requirement specification. The current exporter writes an internal artifact, not a verified official submission, and validates only the refined human, motion, and object mesh. How the team splits the stages is in [workflow.md](workflow.md).
 
 **Implementation status, 2026-10-03:** the directory layout and artifact tables below describe implemented **contract v1**. The official evaluation kit is now available and exposes incompatibilities with v1; documenting its format does not migrate existing artifacts. The proposed v2 section at the end is a future contract change, not a claim that `CONTRACT_VERSION`, adapters or backends have changed. See [evaluation.md](evaluation.md) and gate G0 in [implementation-plan.md](implementation-plan.md).
 
@@ -30,7 +30,7 @@ Stages run in this order: inputs, human, objects, motion, refine, export.
 
 ## Conventions
 
-- **Frame.** V1 stores the scene in the clip's OpenCV camera frame (x right, y down, z forward), in metres. The owner's final clarification in this conversation (2026-10-03) requires one Sim(3) fit using only human geometry at the first reference frame and the same transform applied to human and object for all frames. The inspected public kit uses the first scored frame; their index mapping is unresolved and must be made explicit before adapter acceptance. Neither per-frame fitting nor separate object alignment meets the owner target. Alignment cannot repair relative scale or coordinate mistakes; verify units, axes and parameter semantics explicitly.
+- **Frame.** V1 stores the scene in the clip's OpenCV camera frame (x right, y down, z forward), in metres. [R1](track1-requirements.md#r1--one-human-derived-alignment-for-the-complete-scene) requires one Sim(3) fit using only human geometry at the first reference frame's explicit original-video ID and the same transform applied to human and object for all frames. Later scored subsets retain that alignment. External row indexing is an adapter concern, not an alternative rule. Whole-clip, per-frame and separate object fitting are not permitted replacements. Alignment cannot repair relative scale or coordinate mistakes; verify units, axes and parameter semantics explicitly.
 - **Human convention.** SOMA-X parameters are stored in the SOMA convention (y up). `body.SomaBody` output multiplied by `diag(1, -1, -1)` is in the camera frame. This conversion is part of the internal schema and does not require Track 2 labels.
 - **Time.** One entry per video frame. Every per-frame array covers every frame of the clip and holds no NaN or inf. Occluded frames are filled, never left out.
 - **Units.** Metres, radians, pixels.
@@ -112,7 +112,7 @@ Same fields as Human and Motion, reserved for the refinement output. The registe
 
 ### Internal export schema: `export/`
 
-The current backend writes a parquet layout that `v2hoi.score` can read, plus `mhr/episode_XXXXXX.npz` with MHR fields. The name `tier1` in the backend is a legacy serialization label, not permission to read Track 2 or a claim that this is the official submission format:
+The current backend writes an internal parquet layout plus `mhr/episode_XXXXXX.npz` with decomposed MHR fields. This is not the native-MHR input schema of the reference-based diagnostic scorer and is not the official submission payload. The name `tier1` in the backend is a legacy serialization label, not permission to read Track 2:
 
 ```
 export/meta/info.json
@@ -122,7 +122,7 @@ export/mesh/<object>/<object>.glb
 export/mhr/episode_XXXXXX.npz
 ```
 
-Poses are copied unchanged in this internal format. The official submission exporter is not implemented, although the official kit is available. Reference-dependent CD/ACC cannot be evaluated locally on public Track 1 ground truth because none is released. Current official PEN is predicted-hand penetration into the submitted object, not a reference difference, but its final value uses the reference-derived alignment scale. Unaligned local penetration is a diagnostic, not final official PEN. Matching the permitted calculation requires a verified adapter and evaluator configuration, not the legacy scorer.
+Poses are copied unchanged in this internal format. The official submission exporter is not implemented, although the official kit is available. Reference-dependent CD/ACC cannot be evaluated locally on public Track 1 ground truth because none is released. Current official PEN is predicted-hand penetration into the submitted object, not a reference difference, but its final value uses the reference-derived alignment scale. Unaligned local penetration is a diagnostic, not final official PEN. The native-MHR reference diagnostic described in [evaluation.md](evaluation.md) requires separately validated inputs, an authorized decoder and a permitted reference; it does not convert this v1 export or establish official equivalence.
 
 ## Upstream runs
 
@@ -172,7 +172,7 @@ Changing a field's meaning or shape bumps `CONTRACT_VERSION`. Do it in a small P
 
 - Resuming by input hash (design section 3) is not implemented yet. For now, rerun the stages you changed.
 - Depth has no real producer yet. The fake one writes a flat wall at stride 8.
-- There is no public Track 1 ground truth for local official scoring. Test metric primitives with independently generated geometry using the test command in the README. The full legacy scorer still uses Tier 2-derived normalization values, so its CLI is outside this workflow even with synthetic reference files.
+- There is no public Track 1 ground truth for local official scoring. Test metric primitives and the native-MHR reference diagnostic with independently generated geometry using the explicit CI allowlist in [development.md](development.md#tests). Do not restore historical Track 2 normalization, reference defaults or scorer modes. A permitted synthetic reference validates mathematics, not challenge quality or official equivalence.
 - Masks are stored whole-clip: about 0.4 MB compressed for an empty 900-frame clip, and about 400 MB in memory once loaded. If real masks turn out too large, they will move to per-frame chunks under a new contract version.
 
 ## Proposed contract v2: not implemented

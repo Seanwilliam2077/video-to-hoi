@@ -2,11 +2,11 @@
 
 Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Data (V2D) Challenge. From one static RGB video and an object description, the planned pipeline recovers the person as MHR parameters, the object's metric mesh, and its 6D pose on every frame. The current submission kit evaluates CD-H/CD-O geometry, ACC-H/ACC-O reference-relative acceleration, and hand–object penetration (PEN). The leaderboard freezes on 2026-11-04 at 17:00 EST.
 
-The revised plan starts with one real CARI4D baseline, then permits bounded corrections supported by independent video evidence. The official submission kit is available; this repository's adapter and real reconstruction backends remain to be implemented. The registered pipeline still runs fake backends for interface checks, with no measured reconstruction results.
+The plan starts with one real CARI4D baseline, then permits bounded corrections supported by independent video evidence. The owner's latest six requirements are the current specification. A native-MHR reference diagnostic checks reconstruction geometry and motion with explicit permitted inputs; it is not an official evaluator and supplies no hidden reference data. The official export adapter and real reconstruction backends remain to be implemented. Registered pipeline backends are still fake, with no measured reconstruction results.
 
 ![The video-to-hoi pipeline: six stages owned by four modules](docs/pipeline.svg)
 
-**Track 1 only.** No Track 2 data (Tier 1 or Tier 2) is used for development, tuning, validation, tests or submissions. Setup, running, validation and tests are in the [developer guide](docs/development.md).
+**Track 1 only.** All reconstructed assets and estimated parameters, including cameras, must come from Track 1. Track 2 data and derivatives are prohibited for development, tuning, validation, tests, scorer checks and submissions. The current requirements, setup, diagnostics and tests are linked from the [developer guide](docs/development.md).
 
 ## Project status
 

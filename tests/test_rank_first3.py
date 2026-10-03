@@ -14,7 +14,7 @@ SPEC.loader.exec_module(ranker)
 
 
 def protocol(module=1, metric="reprojection", direction="min"):
-    return {"schema_version": 1, "frozen": True,
+    p = {"schema_version": 1, "frozen": True,
             "episodes": [{"id": i, "frames": (i + 1) * 10, "video_sha256": str(i) * 64} for i in range(3)],
             "groups": [{"id": "comparison", "module": module,
                         "evaluator": {"id": "synthetic", "version": "v1", "config": {"fixed": True}},
@@ -22,11 +22,17 @@ def protocol(module=1, metric="reprojection", direction="min"):
                         "budget": {"max_steps": 100},
                         "metrics": [{"id": metric, "direction": direction, "unit": "synthetic-unit"}],
                         "candidates": [{"id": "a"}, {"id": "b"}, {"id": "c"}]}]}
+    if metric == "self_acceleration":
+        p["groups"][0]["metrics"][0].update(
+            definition=ranker.SELF_ACCELERATION_DEFINITION, unit="m/s^2")
+    return p
 
 
 def run(p, candidate="a", values=(1, 2, 3)):
     group = p["groups"][0]
     return {"group_id": group["id"], "candidate_id": candidate, "status": "complete",
+            # Synthetic declarations exercise validation; these are not model results.
+            "provenance": {"dataset": "track1", "output_kind": "reconstruction", "contains_fake_outputs": False},
             **{k: copy.deepcopy(group[k]) for k in ("evaluator", "upstream_fingerprint", "reference_fingerprint", "budget")},
             "episodes": [{**copy.deepcopy(e), "metrics": {group["metrics"][0]["id"]: value}}
                          for e, value in zip(p["episodes"], values)]}
@@ -148,7 +154,7 @@ def test_duplicate_episodes_and_runs_are_unranked():
     assert "episode_0:missing_or_duplicate" in a_entry(p, [actual])["reasons"]
 
 
-@pytest.mark.parametrize("metric", ["acceleration", "ACC-H", "ACC_O", "self_acceleration", "jerk", "smoothness"])
+@pytest.mark.parametrize("metric", ["self_acceleration", "jerk", "smoothness"])
 def test_module4_zero_acceleration_needs_fidelity_gate_even_without_flag(metric):
     p = protocol(module=4, metric=metric)
     row = a_entry(p, [run(p, values=(0, 0, 0))])
@@ -156,7 +162,7 @@ def test_module4_zero_acceleration_needs_fidelity_gate_even_without_flag(metric)
 
 
 def test_reviewed_independent_video_evidence_allows_temporal_comparison():
-    p = protocol(module=4, metric="acceleration")
+    p = protocol(module=4, metric="self_acceleration")
     actual = run(p)
     actual["fidelity_gate"] = gate(p)
     assert a_entry(p, [actual])["rank"] == 1
@@ -164,7 +170,7 @@ def test_reviewed_independent_video_evidence_allows_temporal_comparison():
 
 @pytest.mark.parametrize("change", ["baseline", "reviewer", "review_status", "evidence", "independence", "video"])
 def test_inadequate_fidelity_gate_stays_unranked(change):
-    p = protocol(module=4, metric="acceleration")
+    p = protocol(module=4, metric="self_acceleration")
     actual = run(p)
     actual["fidelity_gate"] = gate(p)
     g = actual["fidelity_gate"]
@@ -234,3 +240,96 @@ def test_ambiguous_or_nonstandard_json_is_rejected(tmp_path, raw):
     source.write_text(raw, encoding="utf-8")
     with pytest.raises(ranker.ProtocolError):
         ranker._read_json(source)
+
+
+@pytest.mark.parametrize("metric", ["acceleration", "ACC-H", "ACC_O", "ACC", "CD-H", "CD_O", "PEN",
+                                    "CD_H_mm", "official_acc_h", "total_score", "combined_score"])
+def test_official_and_ambiguous_metric_names_cannot_masquerade_as_diagnostics(metric):
+    p = protocol(module=4, metric=metric)
+    actual = run(p, values=(0, 0, 0))
+    actual["fidelity_gate"] = gate(p)
+    with pytest.raises(ranker.ProtocolError):
+        entries(p, [actual])
+
+
+@pytest.mark.parametrize("field,value", [("definition", "reference_relative_acceleration_error"),
+                                        ("unit", "cm/frame^2"), ("definition", None)])
+def test_self_acceleration_definition_and_units_are_explicit(field, value):
+    p = protocol(module=4, metric="self_acceleration")
+    p["groups"][0]["metrics"][0][field] = value
+    with pytest.raises(ranker.ProtocolError, match="prediction-only"):
+        entries(p, [])
+
+
+@pytest.mark.parametrize("change", ["missing", "track2", "unknown", "fake_kind", "fake_flag", "missing_fake_flag",
+                                    "top_level_fake", "top_level_synthetic", "smoke_kind", "fake_backend", "nested_fake"])
+def test_missing_unknown_or_fake_provenance_cannot_rank_complete_measurements(change):
+    p = protocol()
+    actual = run(p)
+    if change == "missing":
+        del actual["provenance"]
+    elif change in {"track2", "unknown"}:
+        actual["provenance"]["dataset"] = change
+    elif change == "fake_kind":
+        actual["provenance"]["output_kind"] = "synthetic_smoke"
+    elif change == "fake_flag":
+        actual["provenance"]["contains_fake_outputs"] = True
+    elif change == "missing_fake_flag":
+        del actual["provenance"]["contains_fake_outputs"]
+    elif change == "top_level_fake":
+        actual["fake"] = True
+    elif change == "top_level_synthetic":
+        actual["synthetic"] = True
+    elif change == "smoke_kind":
+        actual["output_kind"] = "synthetic_smoke"
+    elif change == "nested_fake":
+        actual["provenance"]["stages"] = [{"backend": "v2hoi.fake"}]
+    else:
+        actual["backend"] = "fake"
+    row = a_entry(p, [actual])
+    assert row["status"] == "unranked" and row["macro_mean"] is None
+
+
+def test_official_claims_in_run_are_unranked_and_protocol_claims_are_rejected():
+    p = protocol()
+    actual = run(p)
+    actual["official_score"] = True
+    assert "official_score_claim_not_supported" in a_entry(p, [actual])["reasons"]
+    p["groups"][0]["evaluator"]["config"]["official_score"] = True
+    with pytest.raises(ranker.ProtocolError, match="cannot claim official"):
+        entries(p, [])
+
+
+def test_top_level_results_cannot_claim_an_official_score():
+    with pytest.raises(ranker.ProtocolError, match="cannot claim official"):
+        ranker.rank_results(protocol(), {"schema_version": 1, "official_score": True, "runs": []})
+
+
+def test_legacy_acceleration_measurements_are_not_silently_renamed():
+    p = protocol(module=4, metric="self_acceleration")
+    actual = run(p)
+    actual["fidelity_gate"] = gate(p)
+    for episode in actual["episodes"]:
+        episode["metrics"]["acceleration"] = episode["metrics"].pop("self_acceleration")
+    assert a_entry(p, [actual])["status"] == "unranked"
+
+
+def test_report_discloses_limits_even_when_declared_comparison_ranks():
+    p = protocol(module=4, metric="self_acceleration")
+    actual = run(p)
+    actual["fidelity_gate"] = gate(p)
+    report = ranker.rank_results(p, {"schema_version": 1, "runs": [actual]})
+    assert report["provenance_declarations_independently_verified"] is False
+    assert report["official_score"] is False
+    assert "not official reference-relative ACC" in ranker.render_markdown(report)
+
+
+def test_repository_protocol_remains_unfrozen_and_uses_explicit_self_diagnostic():
+    path = Path(__file__).parents[1] / "benchmarks/first3/protocol.json"
+    p = json.loads(path.read_text(encoding="utf-8"))
+    report = ranker.rank_results(p, {"schema_version": 1, "runs": []})
+    assert p["frozen"] is False
+    metric = next(g for g in p["groups"] if g["id"] == "temporal_mhr")["metrics"][1]
+    assert metric["id"] == "self_acceleration"
+    assert metric["definition"] == ranker.SELF_ACCELERATION_DEFINITION
+    assert all(e["status"] == "unranked" for g in report["groups"] for m in g["metrics"] for e in m["entries"])

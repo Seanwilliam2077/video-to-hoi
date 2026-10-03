@@ -1,0 +1,64 @@
+2026-10-03: Which final Track 1 requirements supersede the September notes? / 哪些最终要求取代旧说明？ Final requirements / 最终要求
+The six final Track 1 requirements supplied on 2026-10-03 REPLACE all earlier conflicting Track 1 rules.
+1. Fit one human-only Sim(3) from the first REFERENCE trajectory frame; apply it to humans and every object for the entire clip. Relative scale/placement errors and later drift remain.
+2. Submit native MHR human trajectories, not SOMA-X parquet or per-frame human meshes.
+3. Object Chamfer evaluates the POSED mesh in the shared WORLD frame after alignment. Shape and pose both count.
+4. Acceleration error compares predicted and ground-truth SECOND temporal differences; it is not prediction-only smoothness. Over-smoothing can hurt.
+5. Every object has a continuous pose on EVERY original frame, including occlusion and out-of-view.
+6. Reconstruct all objects and estimate all parameters, including cameras, using Track 1 data only. NO Track 2 assets or derivatives, including iron/bowl/table/round-table meshes.
+
+The first reference frame is the fixed rule, not an open choice between reference/scored frames. The native-MHR diagnostic scorer implements these semantics but does not certify official numerical equivalence. Real reconstruction and final official export still require implementation and validation. Static page text is pending republication where the editor is unavailable; use the linked authoritative requirements.
+
+这六条最新要求直接替代全部冲突旧规则：首参考帧人体决定唯一共同对齐；人体提交原生MHR；物体在世界坐标下带位姿评测；加速度对比预测与真值的二阶差分；全部物体逐帧连续输出；所有重建和参数只能来自Track 1，禁止Track 2资产及衍生物。首参考帧规则已经明确，不再列为规则待定问题。诊断评分不等于已复现官方数值；真实重建和正式导出仍需完成。静态正文因缺少编辑入口尚未重新发布，以链接中的唯一规范为准。
+answered
+just now
+· Final Track 1 requirements supplied by project owner, 2026-10-03; https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-requirements.md
+Reopen
+May Track 1 use the Tier 1 meshes and poses published in Track 2? Track 2 assets
+Final Track 1 requirement (2026-10-03): NO Track 2 assets or derivatives may be used. This includes the iron, bowl, table and round-table meshes, even when the object names match Track 1. Reconstruct objects and estimate ALL parameters, including camera parameters, using Track 1 data only. There is no development, scoring, tuning or statistical-prior exception in this project.
+
+最新要求：禁止使用Track 2资产及衍生物，包括熨斗、碗、桌子和圆桌网格；名称相同也不允许。物体重建和全部参数估计（包括相机参数）只能使用Track 1数据。本项目的开发、评分、调参和统计先验也没有例外。
+answered
+1 minute ago
+· Final Track 1 requirements supplied by project owner, 2026-10-03; https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-requirements.md
+Reopen
+Must an object have a pose on frames where it is occluded? Occlusion
+Final Track 1 requirement (2026-10-03): output a continuous trajectory for EVERY object on EVERY original frame, including occluded and out-of-view frames. Missing, NaN or visibility-filtered prediction poses are invalid. Holding/interpolation may initialize a trajectory but does not establish its accuracy.
+
+最新要求：每个物体在原视频每一帧都必须有连续轨迹，遮挡或出画也不例外；不能省略位姿、填NaN或按可见性删除预测。保持上一帧或插值只能作为初始化，并不证明轨迹正确。
+answered
+1 minute ago
+· Final Track 1 requirements supplied by project owner, 2026-10-03; https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-requirements.md
+Reopen
+Is object Chamfer computed on the posed mesh or on its shape alone? Object Chamfer
+Final Track 1 requirement (2026-10-03): object Chamfer is computed on the POSED MESH in the shared WORLD FRAME after the same human-derived alignment. Shape, size, position and orientation errors therefore count. Do not recenter, independently align, or ICP-register each object before computing this metric.
+
+最新要求：物体Chamfer评估共同世界坐标系内、带完整位姿的网格，并应用人体决定的同一次对齐。因此形状、尺寸、位置和朝向错误都会计入；不得独立居中或重新对齐物体来消除误差。
+answered
+1 minute ago
+· Final Track 1 requirements supplied by project owner, 2026-10-03; https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-requirements.md
+Reopen
+In which representation should the human be submitted? Human format
+Final Track 1 requirement (2026-10-03): submit human trajectories in native MHR. SOMA-X parquet and per-frame human meshes are not accepted substitutes. Decoder-produced meshes are diagnostic geometry only; the submitted human state must be MHR.
+
+最新要求：人体轨迹必须采用原生MHR表示；SOMA-X parquet或逐帧人体网格均不能替代。为检查而解码得到的网格不等于人体提交格式。
+answered
+1 minute ago
+· Final Track 1 requirements supplied by project owner, 2026-10-03; https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-requirements.md
+Reopen
+How are submitted results aligned to the multi-view reference? Alignment
+Final Track 1 requirement (2026-10-03): estimate ONE Sim(3), covering rotation, translation and scale, from the HUMAN POSE in the FIRST FRAME OF THE REFERENCE TRAJECTORY. Apply that exact transform to both the human and every object for the entire trajectory. Human and objects must already share a consistent frame and scale. Object placement/scale relative to the human and all drift after the first frame remain errors. A scored-frame subset must not choose a new alignment anchor.
+
+最新要求：仅根据参考轨迹第一帧的人体姿态估计一次旋转、平移与尺度变换，同一个变换用于整段人体和全部物体。人和物必须共享坐标与尺度；相对人体的物体位置、大小错误，以及第一帧后的漂移均不会被自动修正。计分帧筛选不得改变对齐帧。此定义替代旧简略答案。
+answered
+2 minutes ago
+· Final Track 1 requirements supplied by project owner, 2026-10-03; https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-requirements.md
+Reopen
+Is acceleration error measured against the reference, or on the submitted trajectory alone? Acceleration
+Final Track 1 requirement (2026-10-03): acceleration error compares the SECOND-ORDER TEMPORAL DIFFERENCES of prediction with those of the ground truth. It measures agreement with real motion dynamics, not prediction-only smoothness. Over-smoothing can increase the error. The earlier September answer is replaced by this corrected requirement.
+
+最新要求：加速度误差比较预测与真值的二阶时间差分，衡量真实动作变化是否一致；不是单独衡量预测是否平滑。过度平滑可能使成绩更差。此答案直接替代9月的旧定义。
+answered
+2 minutes ago
+· Project owner supplied Final Track 1 submission requirements, 2026-10-03; https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-requirements.md
+Reopen

@@ -139,7 +139,7 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
 <main class="container">
   <section class="intro" aria-label="Project">
     <p>Track 1 of the NVIDIA Video to Data (V2D) Challenge. From one static RGB video and a text description of the object, recover the person as MHR parameters, the object's metric mesh, and its 6D pose on every frame.</p>
-    <p>Plan updated October 3, 2026: establish one real CARI4D baseline, repair only evidence-supported failures, and verify the exact official export. The submission kit is available; adapters and real runs are still pending.</p>
+    <p>Requirements replaced October 3, 2026: one human-derived alignment from the first reference frame, native MHR, posed-world object scoring, reference-relative acceleration, complete object trajectories, and Track 1-only inputs. The diagnostic scorer is updated; real reconstruction and official export remain pending.</p>
     <div class="facts">
       <span class="fact">Leaderboard freeze <b id="freeze-days">38 days</b></span>
       <span class="fact">Nov 4, 2026, 17:00 EST</span>
@@ -198,6 +198,7 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi#model-weights-and-data" target="_blank" rel="noopener">Weights and data</a><span>Download commands for the Track 1 data and every model</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/development.md" target="_blank" rel="noopener">Developer guide</a><span>Setup, running the pipeline, validation and tests</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/design.md" target="_blank" rel="noopener">Design notes</a><span>Architecture and the official submission rules</span></li>
+      <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-requirements.md" target="_blank" rel="noopener">Final Track 1 requirements</a><span>The six current rules replace all conflicting earlier guidance</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md" target="_blank" rel="noopener">Final requirements audit</a><span>Six requirements checked against the current implementation</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md" target="_blank" rel="noopener">Evaluation specification</a><span>Verified kit semantics, sources, and remaining questions</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md" target="_blank" rel="noopener">Implementation gates</a><span>Owners, acceptance evidence, ablations, and rollback</span></li>
@@ -225,7 +226,7 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
     "Leaderboard freeze": "排行榜冻结", "Frozen": "已冻结", "Nov 4, 2026, 17:00 EST": "美东时间 2026 年 11 月 4 日 17:00", "Metrics": "指标", "Data": "数据", "Track 1 only": "只用 Track 1",
     "Project status": "项目进展", "Plain-Chinese progress for leadership and product: what is done, what is blocked, and what support we need.": "给领导和产品看的中文进展：做完了什么、卡在哪里、需要什么支持。", "Open the status page": "打开进展页",
     "Track 1 reference": "Track 1 比赛资料", "Challenge rules and scoring, the 30 Track 1 videos, development without ground truth, and our questions to the organizer.": "比赛规则和评分、30 段 Track 1 视频、没有真值时怎么开发，以及我们问主办方的问题。", "Open the reference": "打开比赛资料",
-    "Plan updated October 3, 2026: establish one real CARI4D baseline, repair only evidence-supported failures, and verify the exact official export. The submission kit is available; adapters and real runs are still pending.": "方案更新于 2026 年 10 月 3 日：先建立真实 CARI4D 基线，只修正视频证据支持的问题，并核验最终正式导出。官方提交工具已公布；适配和真实运行仍待完成。",
+    "Requirements replaced October 3, 2026: one human-derived alignment from the first reference frame, native MHR, posed-world object scoring, reference-relative acceleration, complete object trajectories, and Track 1-only inputs. The diagnostic scorer is updated; real reconstruction and official export remain pending.": "要求已于2026年10月3日替换：首参考帧人体决定一次共同对齐、原生MHR、物体世界坐标带位姿评测、加速度对比真值、物体完整轨迹，以及只用Track 1数据。诊断评分脚本已更新；真实重建和正式导出仍待完成。",
     "Immutable observations, the real CARI4D adapter, official packing and reload checks, provenance, and independent diagnostics.": "固定观测、真实 CARI4D 适配、正式打包和重载检查、来源追踪，以及独立诊断。",
     "Native MHR as the authoritative state, fixed identity and structural scales, verified conversion, and evidence-bounded root and hand correction.": "以原生 MHR 为唯一权威状态，固定身份和结构尺度，验证转换，并依据证据有限修正根部与手部。",
     "Visible-surface mesh selection, a fixed mesh origin and scale, structured symmetry, and continuous poses with explicit occlusion hypotheses.": "按可见表面选择网格，固定原点和尺度，明确对称性，并在连续轨迹中记录遮挡假设。",
@@ -234,6 +235,7 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
     "The video-to-hoi pipeline: six stages owned by four modules, from the Track 1 video to the export.": "video-to-hoi 流水线：从 Track 1 视频到导出，六个阶段分属四个模块。",
     "Six stages owned by four modules. Human geometry supplies a scale prior; bounded refinement preserves video evidence. The diagram is the target design, not an implemented real-model pipeline.": "六个阶段分属四个模块。人体几何提供尺度先验；有限修正应保持视频证据。图中是目标设计，真实模型流水线尚未实现。",
     "Final requirements audit": "最终要求审计", "Six requirements checked against the current implementation": "逐项核对六条要求与当前实现",
+    "Final Track 1 requirements": "最终Track 1要求", "The six current rules replace all conflicting earlier guidance": "六条现行规则替代此前所有冲突说明",
     "Evaluation specification": "评测规范", "Verified kit semantics, sources, and remaining questions": "已核实的工具包定义、来源及待确认问题",
     "Implementation gates": "实施关口", "Owners, acceptance evidence, ablations, and rollback": "负责人、验收证据、消融实验与回退",
     "Weights and data": "权重和数据", "Download commands for the Track 1 data and every model": "Track 1 数据和所有模型的下载命令",

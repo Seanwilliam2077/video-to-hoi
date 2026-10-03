@@ -2,7 +2,10 @@
   "schema_version": 2,
   "date": "2026-10-03",
   "timezone": "Asia/Shanghai",
-  "purpose": "Proposed bilingual content preserved alongside verified database-write receipts; static page source publication is still pending.",
+  "purpose": "Latest requirements govern all active drafts; original publication receipts are historical. Seven existing Reference answers were overwritten in the follow-up receipt; static source publication remains pending.",
+  "current_requirements": "docs/track1-requirements.md",
+  "replacement_receipt": "docs/evidence/page-replacements-20261003.json",
+  "historical_receipt_notice": "actual_publications records the earlier database additions, not current rule authority; its original Reference answer was subsequently replaced.",
   "published": false,
   "publication_status": "pending_static_publication",
   "access_snapshot": {
@@ -16,6 +19,7 @@
     "requires": "A supported source editor/publication capability for remaining static content; no remaining login blocker."
   },
   "source_documents": [
+    "docs/track1-requirements.md",
     "docs/design.md",
     "docs/implementation-plan.md",
     "docs/evaluation.md",
@@ -102,12 +106,12 @@
           },
           "acceptance_checks": [
             {
-              "en": "The evaluation record includes member hashes, definitions, differences and unresolved authority questions; no whole-archive hash or local official score is invented.",
-              "zh": "记录成员哈希、定义、差异和待确认权威版本；不虚构整包哈希或本地官方成绩。"
+              "en": "The evaluation record includes member hashes and definitions; all implementations follow the latest R1-R6 authority. No whole-archive hash or local official score is invented.",
+              "zh": "记录成员哈希和定义；全部实现遵守最新R1-R6要求，不虚构整包哈希或本地官方成绩。"
             },
             {
-              "en": "ACC is reference-relative; PEN averages own-mesh hand depths over all selected hand points; first scored-frame alignment is recorded.",
-              "zh": "确认加速度为相对参考的误差；穿透对全部选定手点求平均；记录首个评分帧对齐。"
+              "en": "ACC is reference-relative; PEN averages own-mesh hand depths over all selected hand points; one human alignment is fixed at the first reference frame and preserved for later scoring windows.",
+              "zh": "加速度比较预测与真值；穿透对全部选定手点求平均；首参考帧人体决定唯一对齐，后续计分窗口不得改变。"
             }
           ],
           "published": false,
@@ -266,8 +270,8 @@
             "zh": "10月3日：完成评测规范文档"
           },
           "body": {
-            "en": "Documented the released Track 1 kit, formal native-MHR payload, current metric definitions and open questions. Thirteen allowlisted code/documentation members were reverified on October 3 with unchanged hashes. This is source review only: no models were run, no official scores were computed, and no submission was made. The owner's six requirements were reaffirmed on October 3; first-reference-frame wording versus scored-frame selection remains an explicit mapping check.",
-            "zh": "已记录Track 1正式工具包、原生MHR提交格式、当前指标定义与待确认问题。10月3日复核了13个允许读取的代码/文档成员，哈希未变。本次仅为来源审阅：未运行模型、未计算官方成绩、未提交比赛。 用户10月3日再次明确六项要求；参考首帧表述与评分帧选择之间仍需显式核对映射。"
+            "en": "Use the latest six requirements as the sole authority. The first reference frame fixes the one human-derived shared alignment even if a scoring window starts later. The native-MHR reference diagnostic replaces the former scorer; its synthetic checks do not establish real reconstruction, official equivalence or a submission. External kit evidence remains source-pinned in evaluation.md.",
+            "zh": "最新六项要求是唯一规范。首参考帧固定唯一人体共同对齐，后续计分窗口不能改变它。原生MHR参考诊断器已替代旧评分器；合成检查不等于真实重建、官方等价或比赛提交。工具包证据在evaluation.md中按版本记录。"
           },
           "published": false,
           "reconciliation_result": {
@@ -1731,8 +1735,8 @@
         "zh": "使用参考轨迹首帧人体估计一个Sim(3)，整段同时应用于人体和物体。"
       },
       "acceptance": {
-        "en": "No object-only or per-frame alignment; reconcile the first-reference-frame wording with the code's first-scored-frame mapping.",
-        "zh": "不单独对齐物体、不逐帧重对齐；明确参考首帧表述与代码首个评分帧之间的映射。"
+        "en": "No object-only, whole-clip or per-frame refit; the first reference frame remains the alignment anchor even when scoring starts later. Record its original frame ID.",
+        "zh": "不单独对齐物体、不整段重拟合、不逐帧重对齐；即使计分从后续帧开始，也固定首参考帧对齐，并记录原视频帧号。"
       }
     },
     {

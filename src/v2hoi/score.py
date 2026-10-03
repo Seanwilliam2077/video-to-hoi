@@ -1,557 +1,461 @@
-"""Score predictions against Track 2 Tier 1 ground truth.
+"""Reference-based Track 1 diagnostics from native MHR and posed object meshes.
 
-    python -m v2hoi.score --pred <root> [--gt <tier1 root>] [--episodes 7 9] [--stride 2] [--strict]
+No reference, decoder, role indices or model assets are supplied implicitly.
+Public Track 1 videos do not include reconstruction ground truth. Supply a
+permitted Track 1 reference or independently constructed synthetic fixtures.
+Provenance declarations are not proof of origin or official equivalence.
 
-Both roots use the Tier 1 layout (see v2hoi.dataset). The report leads with
-the five Track 1 leaderboard numbers in cm (CD-H, CD-O, ACC-H, ACC-O, PEN);
-everything else is a diagnostic. It also says whether the run used the
-official settings and whether the prediction would be a valid submission.
-Rules and metric definitions: docs/design.md, sections 5 and 6. The official
-script is not published, so the metric internals are an approximation.
-
-Sanity checks (both are flagged as invalid submissions, because the
-prediction meshes are the reference meshes):
-
-    # ground truth against itself: every error ~0
-    python -m v2hoi.score --pred data/v2d/track_2/tier_1_multiview_caption
-    # Tier 2 keeps the original meshes, so point it at the Tier 1 mesh folder
-    python -m v2hoi.score --pred data/v2d/track_2/tier_2_synthetic_noise \
-        --pred-mesh-dir data/v2d/track_2/tier_1_multiview_caption/mesh
+python -m v2hoi.score --pred prediction.json --reference reference.json
+    --decoder package.module:function --roles roles.json --out report.json
+The local decoder takes NativeMHR and returns DecodedHuman in metres. This
+module does not download models or reference data. See docs/evaluation.md.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib
+import io
 import json
-import math
-import os
-import subprocess
-import sys
-import time
-from concurrent.futures import ThreadPoolExecutor
-from dataclasses import asdict, dataclass
-from datetime import datetime
+import re
+import struct
+from dataclasses import dataclass
 from pathlib import Path
+from typing import Callable, Mapping, Sequence
 
 import numpy as np
+import trimesh
 
 from v2hoi import metrics as M
-from v2hoi.dataset import TIER1_ROOT, Episode, list_episodes, load_episode
-from v2hoi.geometry import MESH_EXTENT_M, Similarity, SurfaceSDF, load_mesh, sample_surface
+from v2hoi.geometry import Similarity, sample_surface
 
-MM = 1000.0
-
-# Track 1 leaderboard: one Kaggle competition per metric
-# (v2d-challenge-track1-cd-h, -cd-o, -acc-h, -acc-o, -pen), lower is better, cm.
-# key -> (section, local key in mm). PEN has no live competition yet.
-LEADERBOARD = {
-    "cd_h_cm": ("human", "chamfer_mm"),
-    "cd_o_cm": ("object_metrics", "chamfer_mm"),
-    "acc_h_cm": ("human", "accel_mm_f2"),
-    "acc_o_cm": ("object_metrics", "accel_mm_f2"),
-    "interpenetration_cm": ("contact", "penetration_err_mm"),
-}
-
-ALIGNMENTS = ("first", "first-object", "se3", "sim3", "none")
-
-# Bump when a metric's definition changes; scores from different versions are
-# not compared.
-SCORER_VERSION = 1
-
-# Tier 2 against Tier 1 (design 5.2), the organizer's model of Track 1 errors.
-# Dividing by it puts the five metrics on one scale, on which Tier 2 scores 1.
-TIER2_CM = {
-    "cd_h_cm": 1.99, "cd_o_cm": 2.95, "acc_h_cm": 0.35, "acc_o_cm": 0.18, "interpenetration_cm": 1.17,
-}
-AXES = {"accuracy": ("cd_h_cm", "cd_o_cm"), "physical": ("acc_h_cm", "acc_o_cm", "interpenetration_cm")}
+SCORER_VERSION = 2
+CM = 100.0
+METRICS = ("cd_h_cm", "cd_o_cm", "acc_h_cm_frame2", "acc_o_cm_frame2", "pen_cm")
+ALLOWED_PROVENANCE = {"track1", "independent_synthetic"}
 
 
-def internal_score(leaderboard: dict) -> float:
-    """One number for merge and submission decisions; not the official ranking.
+def _finite(value, shape, name: str) -> np.ndarray:
+    array = np.asarray(value, dtype=np.float64)
+    if array.shape != shape or not np.isfinite(array).all():
+        raise ValueError(f"{name} must be finite with shape {shape}, got {array.shape}")
+    return array
 
-    Each metric is divided by its Tier 2 value, each axis takes the mean of its
-    metrics, and the two axes weigh equally, as the challenge page says. Lower
-    is better; Tier 2 scores 1.
+
+def _frame_ids(value, name: str, *, consecutive: bool) -> np.ndarray:
+    ids = np.asarray(value)
+    if ids.ndim != 1 or ids.dtype.kind not in "iu" or not len(ids) or (ids < 0).any():
+        raise ValueError(f"{name} must contain nonnegative integer frame IDs")
+    if (ids > np.iinfo(np.int64).max).any():
+        raise ValueError(f"{name} exceeds the supported integer frame range")
+    differences = np.diff(ids.astype(np.int64))
+    if (differences <= 0).any() or (consecutive and (differences != 1).any()):
+        raise ValueError(f"{name} must be ordered, unique" + (" and consecutive" if consecutive else ""))
+    return ids.astype(np.int64)
+
+
+def _reject_prohibited(value: str) -> None:
+    if re.search(r"track[\s_-]*2|tier[\s_-]*[12]", value, re.IGNORECASE):
+        raise ValueError("prohibited challenge-data provenance or path")
+
+
+@dataclass(frozen=True)
+class Provenance:
+    kind: str
+    evidence: str
+
+    def validate(self) -> None:
+        if self.kind not in ALLOWED_PROVENANCE or not isinstance(self.evidence, str) or not self.evidence.strip():
+            raise ValueError("provenance requires track1 or independent_synthetic and nonempty evidence")
+        _reject_prohibited(self.evidence)
+
+
+@dataclass(frozen=True)
+class NativeMHR:
+    """Native parameters: their units follow the supplied rig, not SI by default."""
+
+    pose: np.ndarray
+    scales: np.ndarray
+    shape: np.ndarray
+
+    def validate(self, frames: int) -> None:
+        _finite(self.pose, (frames, 136), "native pose")
+        _finite(self.scales, (68,), "native static scales")
+        _finite(self.shape, (45,), "native static shape")
+
+
+@dataclass(frozen=True)
+class DecodedHuman:
+    """Corresponding native-rig vertices and joints, in the scene frame in metres."""
+
+    vertices: np.ndarray
+    joints: np.ndarray
+
+    def validate(self, frames: int) -> None:
+        for name in ("vertices", "joints"):
+            array = np.asarray(getattr(self, name))
+            if array.ndim != 3 or array.shape[0] != frames or array.shape[2] != 3 or not array.shape[1]:
+                raise ValueError(f"decoded {name} must have shape [T,N,3]")
+            if not np.isfinite(array).all():
+                raise ValueError(f"decoded {name} contains nonfinite geometry")
+
+
+@dataclass(frozen=True)
+class Roles:
+    alignment_vertices: Sequence[int]
+    surface_vertices: Sequence[int]
+    body_joints22: Sequence[int]
+    hand_vertices: Sequence[int]
+    source_id: str
+
+    def validate(self, human: DecodedHuman) -> None:
+        if not isinstance(self.source_id, str) or not self.source_id.strip():
+            raise ValueError("body roles require a declared rig/role source_id")
+        _reject_prohibited(self.source_id)
+        for name in ("alignment_vertices", "surface_vertices", "body_joints22", "hand_vertices"):
+            indices = np.asarray(getattr(self, name))
+            limit = human.joints.shape[1] if name == "body_joints22" else human.vertices.shape[1]
+            if (indices.ndim != 1 or indices.dtype.kind not in "iu" or not len(indices)
+                    or len(np.unique(indices)) != len(indices) or (indices < 0).any() or (indices >= limit).any()):
+                raise ValueError(f"{name} requires unique in-range integer indices")
+            if name == "body_joints22" and len(indices) != 22:
+                raise ValueError("body_joints22 requires exactly 22 explicit joint indices")
+        if len(self.alignment_vertices) < 3:
+            raise ValueError("alignment requires at least three corresponding vertices")
+
+
+@dataclass(frozen=True)
+class Reconstruction:
+    """Programmatic diagnostics accept caller-sampled canonical object points.
+
+    The CLI requires a mesh and samples its surface internally. Object scale
+    is applied once: scene = scale * R * canonical_point + t. Visibility is
+    metadata only and never excludes a pose or a scored frame.
     """
-    return float(np.mean([np.mean([leaderboard[k] / TIER2_CM[k] for k in keys]) for keys in AXES.values()]))
+
+    frame_indices: np.ndarray
+    human: NativeMHR
+    object_points: np.ndarray
+    object_poses: np.ndarray
+    object_scale: float
+    object_id: str
+    provenance: Provenance
+    object_visible: np.ndarray | None = None
+    point_sampling: str = "caller-supplied diagnostic points; sampling not independently verified"
+
+    def validate(self, expected_frames: np.ndarray) -> None:
+        self.provenance.validate()
+        frames = _frame_ids(self.frame_indices, "reconstruction frame_indices", consecutive=True)
+        if not np.array_equal(frames, expected_frames):
+            raise ValueError("reconstruction must cover every expected source frame, including occlusions")
+        if not isinstance(self.human, NativeMHR):
+            raise ValueError("human input must be NativeMHR, not a legacy body representation")
+        self.human.validate(len(frames))
+        points = np.asarray(self.object_points)
+        if points.ndim != 2 or points.shape[1] != 3 or not len(points) or not np.isfinite(points).all():
+            raise ValueError("object_points must be a nonempty finite [N,3] array")
+        poses = _finite(self.object_poses, (len(frames), 4, 4), "all object poses")
+        rotations = poses[:, :3, :3]
+        if (not np.allclose(rotations @ rotations.transpose(0, 2, 1), np.eye(3), atol=1e-6, rtol=0)
+                or not np.allclose(np.linalg.det(rotations), 1.0, atol=1e-6, rtol=0)
+                or not np.allclose(poses[:, 3], [0, 0, 0, 1], atol=1e-8, rtol=0)):
+            raise ValueError("every object pose must be a proper rigid transform")
+        if np.asarray(self.object_scale).shape != () or not np.isfinite(self.object_scale) or self.object_scale <= 0:
+            raise ValueError("object_scale must be finite and positive")
+        if not isinstance(self.object_id, str) or not self.object_id.strip():
+            raise ValueError("object_id is required")
+        _reject_prohibited(self.object_id)
+        if self.object_visible is not None:
+            visible = np.asarray(self.object_visible)
+            if visible.shape != (len(frames),) or visible.dtype.kind != "b":
+                raise ValueError("object_visible must be one boolean per source frame")
 
 
-
-@dataclass
-class Config:
-    # first: Sim(3) on the first frame's body joints, applied to the whole clip
-    # (the official rule). se3 / sim3: fitted on body joints over all frames.
-    align: str = "first"
-    stride: int = 1  # frame stride for the per-frame mesh metrics
-    object_samples: int = 10_000
-    shape_frames: int = 10
-
-    def deviations(self) -> list[str]:
-        """Settings that make the numbers differ from an official run."""
-        out = []
-        if self.align != "first":
-            out.append(f"align={self.align} (official: first-frame Sim(3))")
-        if self.stride != 1:
-            out.append(f"stride={self.stride} (official: every frame)")
-        return out
+Decoder = Callable[[NativeMHR], DecodedHuman]
 
 
-@dataclass
-class ObjectModel:
-    samples: np.ndarray  # (N, 3) surface samples, canonical frame
-    centroid: np.ndarray  # (3,)
-    sdf: SurfaceSDF
-
-    @property
-    def extent(self) -> float:
-        return float(np.ptp(self.samples, axis=0).max())
+def _posed(reconstruction: Reconstruction, index: int) -> np.ndarray:
+    pose = np.asarray(reconstruction.object_poses[index], dtype=np.float64)
+    return reconstruction.object_scale * (np.asarray(reconstruction.object_points) @ pose[:3, :3].T) + pose[:3, 3]
 
 
-class ObjectModels:
-    """Loads each mesh once and keeps its samples and SDF."""
+def score_episode(prediction: Reconstruction, reference: Reconstruction, decoder: Decoder, roles: Roles, *,
+                  expected_frame_indices: Sequence[int], scored_frame_indices: Sequence[int] | None = None,
+                  signed_distance: Callable | None = None) -> dict:
+    """Align at the first REFERENCE frame, even if the scoring span starts later.
 
-    def __init__(self, count: int):
-        self.count = count
-        self._cache: dict[str, ObjectModel] = {}
-
-    def __call__(self, path: Path) -> ObjectModel:
-        key = str(Path(path).resolve())
-        if key not in self._cache:
-            if not Path(path).is_file():
-                raise FileNotFoundError(f"object mesh not found: {path}")
-            mesh = load_mesh(path)
-            samples, _ = sample_surface(mesh, self.count, seed=0)
-            self._cache[key] = ObjectModel(samples, samples.mean(0), SurfaceSDF(mesh))
-        return self._cache[key]
-
-
-def _posed(model: ObjectModel, T: np.ndarray) -> np.ndarray:
-    return model.samples @ T[:3, :3].T + T[:3, 3]
-
-
-def _mean(values) -> float:
-    values = [v for v in values if np.isfinite(v)]
-    return float(np.mean(values)) if values else float("nan")
-
-
-def _complete_mean(values) -> float:
-    """Do not let a missing episode silently improve a reported mean."""
-    values = list(values)
-    return float(np.mean(values)) if values and all(np.isfinite(v) for v in values) else float("nan")
-
-
-def _norm(x: np.ndarray) -> np.ndarray:
-    return np.linalg.norm(x, axis=-1)
-
-
-def _pmap(fn, frames) -> list:
-    """Map over frames on threads; fn should use single-threaded KD-tree queries."""
-    with ThreadPoolExecutor(os.cpu_count()) as pool:
-        return list(pool.map(fn, frames))
-
-
-def _has_pose(obj_T: np.ndarray) -> np.ndarray:
-    return np.isfinite(obj_T).all(axis=(1, 2))
-
-
-def check_scorable(gt: Episode, pred: Episode) -> None:
-    """Breaks that make an episode impossible to score at all."""
-    if len(pred) != len(gt):
-        raise ValueError(f"episode {gt.index}: prediction has {len(pred)} frames, ground truth has {len(gt)}")
-    human = {
-        "pose": pred.pose, "translation": pred.transl, "identity": pred.identity,
-        "scale": pred.scale, "bone_flex": pred.bone_flex,
-    }
-    bad = [name for name, x in human.items() if not np.isfinite(x).all()]
-    if bad:
-        raise ValueError(f"episode {gt.index}: human parameters not finite: {', '.join(bad)}")
-
-
-def check_prediction(pred: Episode) -> list[str]:
-    """Submission rules that still leave the episode scorable."""
-    problems = []
-    missing = np.flatnonzero(~_has_pose(pred.obj_T))
-    if len(missing):
-        problems.append(
-            f"object pose missing on {len(missing)} of {len(pred)} frames "
-            f"(first: {missing[:5].tolist()}); occluded frames need a pose too"
-        )
-    return problems
-
-
-def _sha256(path: Path) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for block in iter(lambda: f.read(1 << 20), b""):
-            h.update(block)
-    return h.hexdigest()
-
-
-def reference_copy(mesh: Path, reference_root: Path) -> Path | None:
-    """The reference mesh file that ``mesh`` is a byte copy of, if any.
-
-    Track 1 may not use Track 2 assets. This only catches verbatim copies,
-    which is the likely accident (pointing the pipeline at the GT mesh folder).
+    signed_distance evaluates canonical submitted-mesh distances, negative
+    inside, and accepts (points, workers). No approximate default is selected.
     """
-    size = Path(mesh).stat().st_size
-    candidates = [p for p in (Path(reference_root) / "mesh").rglob("*") if p.is_file() and p.stat().st_size == size]
-    if not candidates:
-        return None
-    digest = _sha256(mesh)
-    return next((p for p in candidates if _sha256(p) == digest), None)
+    expected = _frame_ids(expected_frame_indices, "expected_frame_indices", consecutive=True)
+    prediction.validate(expected)
+    reference.validate(expected)
+    if prediction.object_id != reference.object_id:
+        raise ValueError("prediction and reference object IDs differ")
+    if prediction.provenance.kind != reference.provenance.kind:
+        raise ValueError("prediction and reference provenance kinds must agree")
+    scored = expected if scored_frame_indices is None else _frame_ids(scored_frame_indices, "scored_frame_indices", consecutive=False)
+    if not np.isin(scored, expected).all():
+        raise ValueError("scored_frame_indices must map explicitly into the complete reference timeline")
+    if len(scored) < 3 or not ((np.diff(scored)[:-1] == 1) & (np.diff(scored)[1:] == 1)).any():
+        raise ValueError("ACC requires at least one consecutive three-frame scoring interval")
+    selected = np.searchsorted(expected, scored)
 
-
-def check_mesh(name: str, path: Path, model: ObjectModel, reference_root: Path) -> list[str]:
-    problems = []
-    lo, hi = MESH_EXTENT_M
-    if not lo <= model.extent <= hi:
-        problems.append(f"mesh {name} is {model.extent:.3g} across; expected metres ({lo}-{hi})")
-    copy = reference_copy(path, reference_root)
-    if copy is not None:
-        problems.append(f"mesh {name} is a copy of reference asset {copy.name}; Track 2 assets are not allowed")
-    return problems
-
-
-def first_object_alignment(gT: np.ndarray, pT: np.ndarray, both: np.ndarray) -> Similarity:
-    """The rigid transform taking the prediction's object pose onto the reference's,
-    on the first frame where both have one.
-
-    Development only: it assumes the prediction uses the reference mesh (so the
-    canonical frames agree), and it keeps human errors out of the object metrics.
-    """
-    frames = np.flatnonzero(both)
-    if not len(frames):
-        raise ValueError("first-object alignment needs a frame where both sides have an object pose")
-    A = gT[frames[0]] @ np.linalg.inv(pT[frames[0]])
-    return Similarity(1.0, A[:3, :3], A[:3, 3])
-
-
-def score_episode(gt: Episode, pred: Episode, body, objects: ObjectModels, cfg: Config) -> dict:
-    check_scorable(gt, pred)
-    T = len(gt)
-    frames = np.arange(0, T, cfg.stride)
-
-    gj, gv = body(gt)
-    pj, pv = body(pred)
-
-    # The prediction's visibility flag is ignored: a valid submission has a pose
-    # on every frame. Frames without one are skipped here and flagged by
-    # check_prediction.
-    gT, pT = gt.obj_T, pred.obj_T
-    has_pose = _has_pose(pT)
-    both = gt.obj_visible & has_pose
-
-    # Put the prediction into the ground-truth world using body joints only.
-    # The organizer did not say which points the first-frame fit uses; body
-    # joints are our choice. The whole-clip Sim(3) scale is a diagnostic.
-    bj, fj = body.body_ids, body.finger_ids
-    src, dst = pj[:, bj].reshape(-1, 3), gj[:, bj].reshape(-1, 3)
-    sim3 = Similarity.fit(src, dst, with_scale=True)
-    align = {
-        "first": lambda: Similarity.fit(pj[0, bj], gj[0, bj], with_scale=True),
-        "first-object": lambda: first_object_alignment(gT, pT, both),
-        "none": Similarity.identity,
-        "se3": lambda: Similarity.fit(src, dst, with_scale=False),
-        "sim3": lambda: sim3,
-    }[cfg.align]()
-    pj_w, pv_w = align.points(pj), align.points(pv)
-
-    human = {
-        "chamfer_mm": _mean(_pmap(lambda t: M.chamfer(pv_w[t], gv[t], workers=1), frames)) * MM,
-        "mpjpe_mm": float(_norm(pj_w - gj).mean()) * MM,
-        "mpjpe_body_mm": float(_norm(pj_w[:, bj] - gj[:, bj]).mean()) * MM,
-        # Official smoothness: second difference of the prediction alone.
-        # *_ref is the same quantity on the reference, for scale.
-        "accel_mm_f2": M.accel_magnitude(pj_w) * MM,
-        "accel_body_mm_f2": M.accel_magnitude(pj_w[:, bj]) * MM,
-        "accel_fingers_mm_f2": M.accel_magnitude(pj_w[:, fj]) * MM,
-        "accel_ref_mm_f2": M.accel_magnitude(gj) * MM,
-        # Diagnostic: difference from the reference's acceleration.
-        "accel_err_mm_f2": M.accel_error(pj_w, gj) * MM,
-        "accel_err_body_mm_f2": M.accel_error(pj_w[:, bj], gj[:, bj]) * MM,
-        "accel_err_fingers_mm_f2": M.accel_error(pj_w[:, fj], gj[:, fj]) * MM,
+    # All declarations and arrays are checked before a decoder runs.
+    ph, rh = decoder(prediction.human), decoder(reference.human)
+    if not isinstance(ph, DecodedHuman) or not isinstance(rh, DecodedHuman):
+        raise ValueError("decoder must return DecodedHuman from native MHR")
+    ph.validate(len(expected))
+    rh.validate(len(expected))
+    if ph.vertices.shape != rh.vertices.shape or ph.joints.shape != rh.joints.shape:
+        raise ValueError("native decoder must preserve corresponding vertex and joint topology")
+    roles.validate(ph)
+    align_ids = np.asarray(roles.alignment_vertices)
+    first_pred = np.asarray(ph.vertices[0, align_ids], dtype=np.float64)
+    first_ref = np.asarray(rh.vertices[0, align_ids], dtype=np.float64)
+    for points in (first_pred, first_ref):
+        if np.linalg.matrix_rank(points - points.mean(axis=0), tol=1e-10) < 2:
+            raise ValueError("first-reference-frame human alignment is degenerate")
+    align = Similarity.fit(first_pred, first_ref, with_scale=True)
+    if not np.isfinite(align.s) or align.s <= 0 or not np.isfinite(align.R).all() or not np.isfinite(align.t).all():
+        raise ValueError("first-reference-frame alignment is not a finite positive Sim(3)")
+    surface, body22 = np.asarray(roles.surface_vertices), np.asarray(roles.body_joints22)
+    p_vertices = align.points(np.asarray(ph.vertices, dtype=np.float64))
+    p_joints = align.points(np.asarray(ph.joints, dtype=np.float64))
+    p_translation = align.points(np.asarray(prediction.object_poses[:, :3, 3], dtype=np.float64))
+    r_translation = np.asarray(reference.object_poses[:, :3, 3], dtype=np.float64)
+    values = {
+        "cd_h_cm": float(np.mean([M.chamfer_sum(p_vertices[t, surface], rh.vertices[t, surface], workers=1) for t in selected])) * CM,
+        "cd_o_cm": float(np.mean([M.chamfer_sum(align.points(_posed(prediction, t)), _posed(reference, t), workers=1) for t in selected])) * CM,
+        "acc_h_cm_frame2": M.accel_error(p_joints[selected][:, body22], np.asarray(rh.joints)[selected][:, body22], frame_indices=scored) * CM,
+        "acc_o_cm_frame2": M.accel_error(p_translation[selected], r_translation[selected], frame_indices=scored) * CM,
+        "pen_cm": None,
     }
-
-    gm, pm = objects(gt.mesh_path), objects(pred.mesh_path)
-    obj_frames = frames[both[frames]]
-    shape_frames = obj_frames[
-        np.unique(np.linspace(0, len(obj_frames) - 1, min(cfg.shape_frames, len(obj_frames))).astype(int))
-    ] if len(obj_frames) else obj_frames
-    g_cen = gT[:, :3, :3] @ gm.centroid + gT[:, :3, 3]
-    p_cen = align.points(pT[:, :3, :3] @ pm.centroid + pT[:, :3, 3])
-
-    obj = {
-        "chamfer_mm": _mean(_pmap(
-            lambda t: M.chamfer(align.points(_posed(pm, pT[t])), _posed(gm, gT[t]), workers=1), obj_frames
-        )) * MM,
-        "shape_chamfer_mm": float(np.median(_pmap(
-            lambda t: M.icp_residual(align.points(_posed(pm, pT[t])), _posed(gm, gT[t]), workers=1), shape_frames
-        ))) * MM if len(shape_frames) else float("nan"),
-        # Official smoothness of the predicted trajectory alone, over the whole
-        # clip including occluded frames, on the mesh centroid so the choice
-        # of mesh origin does not matter.
-        "accel_mm_f2": M.accel_magnitude(p_cen, has_pose) * MM,
-        "ang_accel_deg_f2": math.degrees(M.angular_accel_magnitude(pT[:, :3, :3], has_pose)),
-        "accel_ref_mm_f2": M.accel_magnitude(g_cen, gt.obj_visible) * MM,
-        "ang_accel_ref_deg_f2": math.degrees(M.angular_accel_magnitude(gT[:, :3, :3], gt.obj_visible)),
-        # Diagnostics: difference from the reference.
-        "accel_err_mm_f2": M.accel_error(p_cen, g_cen, both) * MM,
-        "ang_accel_err_deg_f2": math.degrees(
-            M.angular_accel_error(align.R @ pT[:, :3, :3], gT[:, :3, :3], both)
-        ),
-        # Share of the reference's visible frames where the prediction has a pose.
-        "coverage": int(both.sum()) / max(1, int(gt.obj_visible.sum())),
-    }
-
-    # Each side is measured in its own world, on the same frames. Rotation and
-    # translation do not change depths; the alignment scale does, so apply it.
-    def penetration(verts, obj_T, model) -> np.ndarray:
-        def depth(t):
-            R, tr = obj_T[t, :3, :3], obj_T[t, :3, 3]
-            return M.penetration_depth((verts[t] - tr) @ R, model.sdf, workers=1)
-
-        return np.asarray(_pmap(depth, obj_frames))
-
-    pen_pred, pen_gt = penetration(pv, pT, pm) * align.s, penetration(gv, gT, gm)
-    contact = {
-        "penetration_err_mm": float(np.abs(pen_pred - pen_gt).mean()) * MM if len(pen_gt) else float("nan"),
-        "penetration_pred_mm": float(pen_pred.mean()) * MM if len(pen_pred) else float("nan"),
-        "penetration_gt_mm": float(pen_gt.mean()) * MM if len(pen_gt) else float("nan"),
-    }
-    if gt.ground_plane is not None:
-        plane = M.orient_plane(gt.ground_plane, gj[:, bj])
-        contact.update({
-            "ground_human_pred_mm": _mean(M.plane_penetration(pv_w[t], plane) for t in frames) * MM,
-            "ground_human_gt_mm": _mean(M.plane_penetration(gv[t], plane) for t in frames) * MM,
-            "ground_object_pred_mm": _mean(
-                M.plane_penetration(align.points(_posed(pm, pT[t])), plane) for t in obj_frames
-            ) * MM,
-            "ground_object_gt_mm": _mean(M.plane_penetration(_posed(gm, gT[t]), plane) for t in obj_frames) * MM,
-        })
-
-    res = {
-        "sequence_id": gt.sequence_id,
-        "object": gt.object_name,
-        "frames": T,
-        "evaluated_frames": int(len(frames)),
-        "align": {
-            "mode": cfg.align,
-            "scale": align.s,
-            "rot_deg": align.angle_deg,
-            "trans_m": float(np.linalg.norm(align.t)),
-            "sim3_scale": sim3.s,
-        },
-        "human": human,
-        "object_metrics": obj,
-        "contact": contact,
-        "violations": check_prediction(pred),
-    }
-    res["leaderboard"] = {key: res[s][k] / 10.0 for key, (s, k) in LEADERBOARD.items()}
-    return res
-
-
-SECTIONS = ("leaderboard", "human", "object_metrics", "contact")
-
-
-def aggregate(per_episode: dict[int, dict]) -> dict:
-    out: dict[str, dict] = {}
-    for section in SECTIONS:
-        keys = {k for res in per_episode.values() for k in res[section]}
-        out[section] = {
-            k: _complete_mean(res[section].get(k, float("nan")) for res in per_episode.values())
-            for k in sorted(keys)
-        }
-    out["align"] = {
-        key: _complete_mean(res["align"][key] for res in per_episode.values()) for key in ("scale", "sim3_scale")
-    }
-    return out
-
-
-def score(
-    gt_root: Path,
-    pred_root: Path,
-    episodes: list[int] | None = None,
-    cfg: Config | None = None,
-    pred_mesh_dir: Path | None = None,
-    device: str | None = None,
-    log=print,
-) -> dict:
-    from v2hoi.body import SomaBody
-
-    cfg = cfg or Config()
-    reference = list_episodes(gt_root)
-    available = set(list_episodes(pred_root))
-    subset = episodes is not None
-    episodes = reference if episodes is None else episodes
-    if not episodes:
-        raise ValueError("no ground-truth episodes selected")
-    unknown = [e for e in episodes if e not in reference]
-    if unknown:
-        raise ValueError(f"ground-truth root has no episodes {unknown}")
-    missing = [e for e in episodes if e not in available]
-    if missing:
-        hint = "" if subset else "; pass --episodes to score a subset"
-        raise ValueError(f"prediction root has no episodes {missing}{hint}")
-
-    body = SomaBody(device=device)
-    objects = ObjectModels(cfg.object_samples)
-    per_episode, meshes = {}, {}
-    for e in episodes:
-        start = time.time()
-        pred = load_episode(pred_root, e, pred_mesh_dir, mask_hidden=False)
-        res = score_episode(load_episode(gt_root, e), pred, body, objects, cfg)
-        per_episode[e] = res
-        meshes[pred.object_name] = pred.mesh_path
-        log(f"episode {e:2d} {res['object']:<20} {time.time() - start:5.0f}s")
-
-    violations = [f"episode {e}: {msg}" for e, res in per_episode.items() for msg in res["violations"]]
-    for name, path in meshes.items():
-        violations += check_mesh(name, path, objects(path), gt_root)
-    deviations = cfg.deviations()
-    if set(episodes) != set(reference):
-        deviations.append(f"scored {len(episodes)} of {len(reference)} episodes")
-    mean = aggregate(per_episode)
+    pen_reason = "No submitted-mesh signed-distance function supplied; PEN is unavailable."
+    if signed_distance is not None:
+        hands, depths = np.asarray(roles.hand_vertices), []
+        for t in selected:
+            pose = np.asarray(prediction.object_poses[t])
+            canonical_hands = (np.asarray(ph.vertices[t, hands]) - pose[:3, 3]) @ pose[:3, :3] / prediction.object_scale
+            depths.append(M.hand_penetration_mean(canonical_hands, signed_distance, workers=1))
+        values["pen_cm"] = float(np.mean(depths)) * prediction.object_scale * align.s * CM
+        pen_reason = None
+    if any(value is not None and not np.isfinite(value) for value in values.values()):
+        raise ValueError("metric calculation produced a nonfinite value; no partial score is returned")
     return {
-        "scorer_version": SCORER_VERSION,
-        "gt": str(gt_root),
-        "pred": str(pred_root),
-        "pred_mesh_dir": str(pred_mesh_dir) if pred_mesh_dir else None,
-        "config": asdict(cfg),
-        "git": _git_rev(),
-        "created": datetime.now().isoformat(timespec="seconds"),
-        # official_settings: the run matches the official evaluation settings.
-        # valid: the prediction obeys the submission rules. Only when both hold
-        # are the leaderboard numbers comparable to Kaggle (up to the metric
-        # approximations).
-        "submission": {
-            "official_settings": not deviations,
-            "deviations": deviations,
-            "valid": not violations,
-            "violations": violations,
-        },
-        "mean": mean,
-        "internal_score": internal_score(mean["leaderboard"]),
-        "per_episode": per_episode,
+        "scorer_version": SCORER_VERSION, "kind": "reference_based_track1_diagnostics", "official_equivalence": False,
+        "limitations": ["Decoder, role indices and source provenance are caller-supplied, not independently authenticated.",
+                        "Surface samples and mesh compilation are not certified equivalent to the official evaluator."],
+        "object_id": prediction.object_id, "provenance_kind": prediction.provenance.kind,
+        "provenance_verification": "caller_declared_only", "source_frame_count": len(expected),
+        "scored_frame_indices": scored.tolist(),
+        "alignment": {"reference_frame_id": int(expected[0]), "source": "human_vertices_only", "shared_by_human_and_object": True,
+                      "scale": float(align.s), "rotation": align.R.tolist(), "translation": align.t.tolist()},
+        "roles_source": roles.source_id,
+        "object_sampling": {"prediction": prediction.point_sampling, "reference": reference.point_sampling,
+                            "prediction_count": len(prediction.object_points), "reference_count": len(reference.object_points)},
+        "metrics": values, "pen_unavailable_reason": pen_reason,
     }
 
 
-def summary(report: dict) -> dict:
-    """The part of a report that goes into benchmarks/: small, and diffable across PRs."""
-    return {
-        "scorer_version": report["scorer_version"],
-        "git": report["git"],
-        "created": report["created"],
-        "pred": report["pred"],
-        "config": report["config"],
-        "episodes": list(report["per_episode"]),
-        "submission": report["submission"],
-        "internal_score": report["internal_score"],
-        "leaderboard": report["mean"]["leaderboard"],
-        "per_episode": {e: res["leaderboard"] for e, res in report["per_episode"].items()},
-    }
+def score_dataset(predictions: Mapping[str, Reconstruction], references: Mapping[str, Reconstruction],
+                  decoder: Decoder, roles: Roles, *, expected_frames: Mapping[str, Sequence[int]],
+                  required_objects: Sequence[str], signed_distances: Mapping[str, Callable] | None = None) -> dict:
+    """Equal-episode means over the declared complete episode and object set."""
+    if not expected_frames or set(predictions) != set(expected_frames) or set(references) != set(expected_frames):
+        raise ValueError("prediction and reference must contain every declared episode exactly once")
+    required = set(required_objects)
+    if not required or len(required) != len(required_objects):
+        raise ValueError("required_objects must be a nonempty unique list")
+    if {r.object_id for r in predictions.values()} != required or {r.object_id for r in references.values()} != required:
+        raise ValueError("prediction and reference must cover every required object")
+    if len({r.provenance.kind for r in (*predictions.values(), *references.values())}) != 1:
+        raise ValueError("one dataset report cannot mix Track 1 and independent synthetic provenance")
+    for key in expected_frames:
+        timeline = _frame_ids(expected_frames[key], f"expected_frames[{key}]", consecutive=True)
+        predictions[key].validate(timeline)
+        references[key].validate(timeline)
+    episodes = {key: score_episode(predictions[key], references[key], decoder, roles,
+                expected_frame_indices=expected_frames[key], signed_distance=(signed_distances or {}).get(key))
+                for key in sorted(expected_frames)}
+    mean = {}
+    for metric in METRICS:
+        values = [episode["metrics"][metric] for episode in episodes.values()]
+        mean[metric] = None if any(value is None for value in values) else float(np.mean(values))
+    return {"scorer_version": SCORER_VERSION, "kind": "reference_based_track1_diagnostics", "official_equivalence": False,
+            "aggregation": "equal_episode_mean_no_composite", "required_objects": sorted(required), "episodes": episodes, "mean": mean,
+            "pen_unavailable_reason": "PEN unavailable in at least one episode; no partial mean." if mean["pen_cm"] is None else None}
 
 
-# (section, key, label, factor to the printed unit). The five leaderboard
-# columns come first; the rest are diagnostics, also in cm.
-COLUMNS = [
-    ("leaderboard", "cd_h_cm", "CD-H", 1.0),
-    ("leaderboard", "cd_o_cm", "CD-O", 1.0),
-    ("leaderboard", "acc_h_cm", "ACC-H", 1.0),
-    ("leaderboard", "acc_o_cm", "ACC-O", 1.0),
-    ("leaderboard", "interpenetration_cm", "PEN", 1.0),
-    ("human", "accel_ref_mm_f2", "ACC-H_ref", 0.1),
-    ("object_metrics", "accel_ref_mm_f2", "ACC-O_ref", 0.1),
-    ("object_metrics", "shape_chamfer_mm", "o_shape", 0.1),
-    ("object_metrics", "coverage", "coverage", 1.0),
-]
+def _safe_path(path: Path) -> Path:
+    _reject_prohibited(str(path))
+    resolved = path.resolve()
+    _reject_prohibited(str(resolved))
+    return resolved
 
 
-def format_table(report: dict) -> str:
-    def fmt(v, factor) -> str:
-        return "-" if v is None or not np.isfinite(v) else f"{v * factor:.3f}"
+def _read_json(path: Path) -> dict:
+    def unique_keys(pairs):
+        result = {}
+        for key, item in pairs:
+            if key in result:
+                raise ValueError(f"duplicate JSON key: {key}")
+            result[key] = item
+        return result
 
-    header = ["ep", "object"] + [c[2] for c in COLUMNS]
-    rows = [header]
-    for e, res in report["per_episode"].items():
-        rows.append([str(e), res["object"]] + [fmt(res[s].get(k), f) for s, k, _, f in COLUMNS])
-    mean = report["mean"]
-    rows.append(["mean", ""] + [fmt(mean[s].get(k), f) for s, k, _, f in COLUMNS])
-    widths = [max(len(r[i]) for r in rows) for i in range(len(header))]
-    lines = ["  ".join(c.ljust(w) for c, w in zip(r, widths)) for r in rows]
-    lines.append(
-        "units: cm as on the leaderboard (ACC per frame^2 at 30 fps, prediction alone; "
-        "_ref = same on the reference); PEN is a proxy, no live competition yet; coverage fraction"
-    )
+    def invalid_constant(value):
+        raise ValueError(f"nonfinite JSON constant: {value}")
 
-    lines.append(
-        f"internal score: {report['internal_score']:.3f} (Tier 2 = 1, lower is better; not the official ranking)"
-    )
-
-    sub = report["submission"]
-    lines.append("")
-    lines.append("official settings: " + ("yes" if sub["official_settings"] else "no"))
-    lines += [f"  - {d}" for d in sub["deviations"]]
-    lines.append("valid submission: " + ("yes" if sub["valid"] else "NO"))
-    lines += [f"  - {v}" for v in sub["violations"]]
-    return "\n".join(lines)
+    value = json.loads(_safe_path(path).read_text(encoding="utf-8"), object_pairs_hook=unique_keys,
+                       parse_constant=invalid_constant)
+    if not isinstance(value, dict):
+        raise ValueError(f"{path.name} must contain a JSON object")
+    _reject_prohibited(json.dumps(value))
+    return value
 
 
-def _git_rev() -> str | None:
+def _declares_fake(value) -> bool:
+    if isinstance(value, dict):
+        for key, item in value.items():
+            if key in {"fake", "smoke", "contains_fake_outputs"} and item is True:
+                return True
+            if _declares_fake(item):
+                return True
+    elif isinstance(value, list):
+        return any(_declares_fake(item) for item in value)
+    elif isinstance(value, str):
+        return value.lower() in {"fake", "smoke", "synthetic_smoke", "fake_backend", "interface_fixture"}
+    return False
+
+
+def _manifest(path: Path) -> tuple[dict, dict[str, np.ndarray]]:
+    data = _read_json(path)
+    if data.get("schema_version") != 2:
+        raise ValueError("scoring manifest schema_version must be 2")
+    Provenance(**data["provenance"]).validate()
+    if data["provenance"]["kind"] == "track1" and _declares_fake(data):
+        raise ValueError("Track 1 manifest contradicts its fake/smoke declaration")
+    if not isinstance(data.get("episodes"), dict) or not data["episodes"] or not isinstance(data.get("expected_frames"), dict):
+        raise ValueError("manifest needs episodes and expected_frames objects")
+    if set(data["episodes"]) != set(data["expected_frames"]):
+        raise ValueError("manifest episodes must exactly match expected_frames")
+    required = data.get("required_objects")
+    if not isinstance(required, list) or not required or any(not isinstance(x, str) or not x for x in required) or len(set(required)) != len(required):
+        raise ValueError("manifest requires a nonempty unique required_objects list")
+    expected = {}
+    for key, frames in data["expected_frames"].items():
+        start, count = frames["start"], frames["count"]
+        if (type(start) is not int or type(count) is not int or start < 0 or count < 3
+                or start + count - 1 > np.iinfo(np.int64).max):
+            raise ValueError("expected_frames requires nonnegative integer start and count >= 3")
+        expected[key] = start + np.arange(count, dtype=np.int64)
+        entry = data["episodes"][key]
+        provenance = Provenance(**entry.get("provenance", data["provenance"]))
+        provenance.validate()
+        if provenance.kind != data["provenance"]["kind"]:
+            raise ValueError("episode provenance must match the manifest provenance kind")
+        for field in ("artifact", "mesh"):
+            entry[field] = _safe_path(path.parent / entry[field])
+            if not entry[field].is_file():
+                raise ValueError(f"missing explicit {field} for episode {key}")
+        if entry["mesh"].suffix.lower() not in {".glb", ".ply", ".stl"}:
+            raise ValueError("mesh must be a self-contained GLB, PLY or STL; sidecar formats are not accepted")
+        count = entry.get("sample_count", 2048)
+        if type(count) is not int or count <= 0:
+            raise ValueError("sample_count must be a positive integer")
+    return data, expected
+
+
+def _load_reconstructions(data: dict) -> tuple[dict[str, Reconstruction], dict]:
+    outputs, meshes = {}, {}
+    for key, entry in data["episodes"].items():
+        mesh_bytes = entry["mesh"].read_bytes()
+        mesh_type = entry["mesh"].suffix.lower()[1:]
+        if mesh_type == "glb":
+            if len(mesh_bytes) < 20:
+                raise ValueError("invalid GLB header")
+            magic, version, length = struct.unpack("<4sII", mesh_bytes[:12])
+            chunk_length, chunk_type = struct.unpack("<II", mesh_bytes[12:20])
+            if magic != b"glTF" or version != 2 or length != len(mesh_bytes) or chunk_type != 0x4E4F534A:
+                raise ValueError("invalid self-contained GLB")
+            gltf = json.loads(mesh_bytes[20:20 + chunk_length].decode("utf-8"))
+            for collection in ("buffers", "images"):
+                if any("uri" in item and not item["uri"].startswith("data:") for item in gltf.get(collection, [])):
+                    raise ValueError("external GLB buffers or textures are prohibited")
+        if mesh_type == "ply" and b"TextureFile" in mesh_bytes.split(b"end_header", 1)[0]:
+            raise ValueError("external PLY texture declarations are prohibited")
+        mesh = trimesh.load(io.BytesIO(mesh_bytes), file_type=mesh_type, force="mesh", process=False,
+                            resolver={}, skip_materials=True)
+        vertices, faces = np.asarray(mesh.vertices), np.asarray(mesh.faces)
+        if (vertices.ndim != 2 or vertices.shape[1] != 3 or not len(vertices) or not np.isfinite(vertices).all()
+                or faces.ndim != 2 or faces.shape[1] != 3 or not len(faces) or faces.dtype.kind not in "iu"
+                or (faces < 0).any() or (faces >= len(vertices)).any() or not np.isfinite(mesh.area) or mesh.area <= 0):
+            raise ValueError(f"episode {key} requires a finite nonempty triangle mesh")
+        seed = int.from_bytes(hashlib.sha256(key.encode()).digest()[:4], "little")
+        count = entry.get("sample_count", 2048)
+        points, _ = sample_surface(mesh, count=count, seed=seed)
+        digest = hashlib.sha256(mesh_bytes).hexdigest()
+        with np.load(entry["artifact"], allow_pickle=False) as arrays:
+            scale = arrays["object_scale"]
+            if scale.shape != ():
+                raise ValueError("native artifact object_scale must be scalar")
+            outputs[key] = Reconstruction(arrays["frame_indices"], NativeMHR(arrays["pose"], arrays["scales"], arrays["shape"]),
+                points, arrays["object_poses"], float(scale), entry["object_id"],
+                Provenance(**entry.get("provenance", data["provenance"])),
+                arrays["object_visible"] if "object_visible" in arrays else None,
+                f"uniform triangle surface; count={count}; seed={seed}; mesh_sha256={digest}; no official mesh compilation")
+        meshes[key] = mesh
+    return outputs, meshes
+
+
+def main(argv: Sequence[str] | None = None) -> None:
+    parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
+    parser.add_argument("--pred", type=Path, required=True, help="prediction manifest; no implicit data root")
+    parser.add_argument("--reference", type=Path, required=True, help="explicit permitted reference manifest")
+    parser.add_argument("--decoder", required=True, help="local module:function; NativeMHR -> DecodedHuman")
+    parser.add_argument("--roles", type=Path, required=True, help="native-rig role indices JSON")
+    parser.add_argument("--out", type=Path, required=True)
+    args = parser.parse_args(argv)
     try:
-        rev = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
-        dirty = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True).stdout.strip()
-        return rev + ("-dirty" if dirty else "")
-    except (OSError, subprocess.CalledProcessError):
-        return None
-
-
-def _jsonable(x):
-    if isinstance(x, dict):
-        return {str(k): _jsonable(v) for k, v in x.items()}
-    if isinstance(x, (list, tuple)):
-        return [_jsonable(v) for v in x]
-    if isinstance(x, (float, np.floating)):
-        return None if not np.isfinite(x) else float(x)
-    if isinstance(x, np.integer):
-        return int(x)
-    return x
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--pred", type=Path, required=True, help="prediction root (Tier 1 layout)")
-    parser.add_argument("--gt", type=Path, default=TIER1_ROOT, help="ground-truth root")
-    parser.add_argument("--pred-mesh-dir", type=Path, help="look up prediction meshes here instead of <pred>/mesh")
-    parser.add_argument("--episodes", type=int, nargs="*", help="default: every reference episode, all required")
-    parser.add_argument(
-        "--align", choices=ALIGNMENTS, default="first",
-        help="first: Sim(3) on frame 0 (official rule); first-object: rigid, on the first object pose "
-        "(development, needs the reference mesh); se3/sim3: whole clip; none: as submitted",
-    )
-    parser.add_argument("--stride", type=int, default=1, help="frame stride for per-frame mesh metrics")
-    parser.add_argument("--device", help="torch device for SOMA-X (default: cuda if available)")
-    parser.add_argument("--out", type=Path, help="report JSON (default: scores/<pred>_<time>.json)")
-    parser.add_argument("--summary", type=Path, help="also write the compact summary, e.g. benchmarks/<name>.json")
-    parser.add_argument(
-        "--strict", action="store_true",
-        help="exit 1 unless the settings are official and the prediction is a valid submission",
-    )
-    args = parser.parse_args()
-
-    cfg = Config(align=args.align, stride=args.stride)
-    report = score(args.gt, args.pred, args.episodes, cfg, args.pred_mesh_dir, args.device)
-    out = args.out or Path("scores") / f"{args.pred.name}_{datetime.now():%Y%m%d-%H%M%S}.json"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(_jsonable(report), indent=1, ensure_ascii=False), encoding="utf-8")
-    if args.summary:
-        args.summary.parent.mkdir(parents=True, exist_ok=True)
-        args.summary.write_text(json.dumps(_jsonable(summary(report)), indent=1), encoding="utf-8")
-    print(format_table(report))
-    print(f"\n{out}")
-    sub = report["submission"]
-    if args.strict and not (sub["official_settings"] and sub["valid"]):
-        sys.exit(1)
+        # Preflight both manifests and roles before mesh/NPZ reads or decoder import.
+        pred_data, expected = _manifest(args.pred)
+        ref_data, ref_expected = _manifest(args.reference)
+        if set(expected) != set(ref_expected) or any(not np.array_equal(expected[k], ref_expected[k]) for k in expected):
+            raise ValueError("prediction/reference expected frame mappings differ")
+        if set(pred_data["required_objects"]) != set(ref_data["required_objects"]):
+            raise ValueError("prediction/reference required_objects differ")
+        roles = Roles(**_read_json(args.roles))
+        output_path = _safe_path(args.out)
+        input_paths = [_safe_path(args.pred), _safe_path(args.reference), _safe_path(args.roles)]
+        input_paths += [entry[field] for data in (pred_data, ref_data) for entry in data["episodes"].values()
+                        for field in ("artifact", "mesh")]
+        if any(output_path == source or (output_path.exists() and output_path.samefile(source)) for source in input_paths):
+            raise ValueError("output report must not overwrite a manifest, role file, mesh or native artifact")
+        _reject_prohibited(args.decoder)
+        module_name, separator, function_name = args.decoder.partition(":")
+        if not separator or not module_name or not function_name or not function_name.isidentifier():
+            raise ValueError("decoder must be module:function")
+        predictions, meshes = _load_reconstructions(pred_data)
+        references, _ = _load_reconstructions(ref_data)
+        for key in expected:
+            predictions[key].validate(expected[key])
+            references[key].validate(expected[key])
+        decoder = getattr(importlib.import_module(module_name), function_name)
+        if not callable(decoder):
+            raise ValueError("decoder must be callable")
+        from v2hoi.geometry import ExactTriangleSDF
+        distances = {key: ExactTriangleSDF(mesh) for key, mesh in meshes.items()}
+        report = score_dataset(predictions, references, decoder, roles, expected_frames=expected,
+                               required_objects=pred_data["required_objects"], signed_distances=distances)
+        report["decoder"] = args.decoder
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(json.dumps(report, indent=2, allow_nan=False), encoding="utf-8")
+        print(f"Diagnostic report: {args.out}; official equivalence is not established.")
+    except (ValueError, KeyError, TypeError, OSError, ImportError, AttributeError) as error:
+        parser.error(str(error))
 
 
 if __name__ == "__main__":
-    main()
+    # Decoder plugins import these dataclasses from v2hoi.score, not __main__.
+    from v2hoi.score import main as canonical_main
+    canonical_main()

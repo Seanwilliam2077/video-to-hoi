@@ -52,6 +52,7 @@ Round sizes and counts, or leave them out, when the exact number means nothing t
 ## Facts and honesty
 
 - **Keep preparation and results apart.** Downloading, packaging, and passing automated checks is preparation. Only a real run on the challenge videos is a result. Never present preparation as a result.
+- **Use the current requirements.** [track1-requirements.md](track1-requirements.md) is the sole active technical specification. Explain its consequences in plain Chinese; do not present superseded scoring assumptions as current rules. Updating diagnostic code is engineering progress, not completed reconstruction or an official score.
 - **No invented scores.** The challenge videos have no public answers, so we cannot compute official scores ourselves. Do not show scores or percentages that suggest otherwise.
 - **Every blocker says what it needs.** Each item under "卡在哪里" ends with a "需要：" line naming who has to do what.
 - **Date every update.** Update "数据截至" and the footer's "本次更新" line each time.

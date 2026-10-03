@@ -4,20 +4,11 @@ Updated 2026-10-03. This is the implementation direction following the repositor
 
 Build one reproducible native-MHR CARI4D baseline, preserve it, and add bounded repairs only where independent image evidence supports them. More models, a smaller optimization loss, and a smoother animation are not evidence of better reconstruction.
 
-Read [evaluation.md](evaluation.md) for the source-pinned evaluation and submission contract, [implementation-plan.md](implementation-plan.md) for the G0-G4 delivery gates, and [contracts.md](contracts.md) for the implemented v1 files and proposed future contract. Exact official definitions belong in evaluation.md rather than being duplicated across module pages.
+Follow [track1-requirements.md](track1-requirements.md), the single authoritative statement of the owner's latest six requirements. Read [evaluation.md](evaluation.md) for source-pinned external mechanics and diagnostic limitations, [implementation-plan.md](implementation-plan.md) for the G0-G4 delivery gates, and [contracts.md](contracts.md) for implemented v1 files and proposed future contracts.
 
 ### Latest project authority: final requirements supplied on 2026-10-03
 
-The project owner supplied the following final Track 1 requirements in chat on 2026-10-03. They govern the design and supersede conflicting earlier assumptions; this records the owner's clarification, not a claim that an upstream file changed on that date.
-
-1. Fit one Sim(3) using the first-frame human reconstruction against the reference and apply that same transform to both human and object for the whole sequence. Maintain a common coordinate frame and scale; do not rely on later alignment to correct drift.
-2. Submit human trajectories in native MHR representation.
-3. Evaluate object Chamfer on the posed object mesh in the world frame.
-4. Acceleration error compares the second-order differences of prediction and reference.
-5. Supply object poses on every input frame, including fully occluded frames.
-6. Reconstruct all challenge object assets and estimate all challenge parameters, including camera intrinsics, from Track 1 only. The stricter repository prohibition on Track 2 derivatives remains in force.
-
-The clarification says "first frame"; the inspected kit selects the first scored frame. Preserve the original frame IDs and explicitly reconcile these meanings if the selected interval does not start at source frame zero. Do not silently declare the two equivalent or choose a more convenient alignment frame. The detailed evidence and unresolved implementation questions remain in evaluation.md.
+The requirements are R1–R6 in [the current specification](track1-requirements.md). Older interpretations are superseded. In particular, alignment uses the first reference frame's explicit original-video ID even when a diagnostic scoring subset starts later. External array indexing is an adapter concern; it does not create an alternative alignment rule.
 
 ## 1. Scope, evidence, and current status
 
@@ -34,11 +25,11 @@ The task is to reconstruct human motion with hands, object geometry, and object 
 | Candidate comparison | Prepared recipes and record/ranking validation | Verified extraction of real measurements and comparisons |
 | Runtime assets | Source/model manifests and acquisition records | Successful inference and a reproducible accepted baseline |
 
-These findings were audited at repository commit `6a53e84`. Downloaded weights and passing synthetic tests do not establish reconstruction quality. No numerical quality improvement is asserted by this design.
+The reconstruction findings originated from the audit of `6a53e84` and still describe the fake-stage pipeline. The replacement reference-based diagnostic scorer is a separate implementation from reconstruction/export; its current scope is recorded in evaluation.md. Downloaded weights and passing synthetic tests do not establish reconstruction quality. No numerical quality improvement is asserted by this design.
 
 ### Evaluation consequences
 
-The inspected official submission kit changes several assumptions in the September design. Acceleration is reference-relative, and the human acceleration subset is body-only; indiscriminate smoothing and a finger-acceleration optimization campaign are not justified. Penetration and initial alignment also differ from the old local scorer. Native MHR parameterization must be converted explicitly rather than inferred from matching array sizes. See evaluation.md for exact formulas, units, frame selection, source identities, and unresolved questions.
+The current requirements replace the September design's prediction-only acceleration assumption. The inspected external kit uses body-only human acceleration; indiscriminate smoothing and a finger-acceleration optimization campaign are not justified by that metric. Native MHR parameterization must be converted explicitly rather than inferred from matching array sizes. See evaluation.md for formulas, units, explicit frame mapping, source identities and adapter limits.
 
 Track 1 does not expose the reference needed for local official Chamfer and reference-relative acceleration scores. Prediction-geometry penetration can be diagnosed locally, but official PEN also uses reference-derived alignment scale; an unaligned calculation is not the final official score. Keep official metrics, prediction-geometry calculations, image-consistency diagnostics, and synthetic experiments separately named.
 
@@ -102,7 +93,7 @@ The official object transform, its scale handling, and the unresolved canonical-
 
 Bind every pose artifact to the exact mesh hash and canonical frame. A rigid recanonicalization `v_new = C v_old` requires `T_new = T_old C^-1` to preserve world geometry, but that does not necessarily preserve an origin-based trajectory metric. Freeze the origin across comparisons; do not recenter to improve a score. A scale change requires refitting and invalidating dependent results, not hiding scale in a purported SE(3) rotation.
 
-The clarification's first-frame rule and the kit's first-scored-frame selection must be reconciled as described above. Preserve frame identities and inspect both the source-start and selected-start regions where they differ. Inspect initial alignment sensitivity without choosing frames based on unavailable reference results. Export the common scene coordinates; ground-truth alignment belongs to evaluation, not to an exporter that has no reference. No independent object alignment or later per-frame alignment may conceal reconstruction drift.
+Record the first reference frame's original-video ID explicitly. A later scoring window keeps that fixed human-derived alignment; the first row of a selected array is not an implicit replacement. Inspect initial-frame sensitivity without choosing frames based on unavailable reference results. Export the common scene coordinates; reference alignment belongs to evaluation, not to an exporter that has no reference. No independent object alignment or later per-frame alignment may conceal reconstruction drift.
 
 ## 5. Observation quality and scale
 
@@ -208,4 +199,4 @@ The 2026-09-26 organizer email, preserved in [the earlier design revision](https
 
 The old 77-joint/finger acceleration assumption, body-joint alignment approximation, reference-relative penetration approximation, and claim that the official adapter is simply unpublished are superseded by the current source review. No part of that update relaxes the Track 1-only policy.
 
-Before submission, verify which official kit version implements the final requirements and resolve the first-frame selection mapping, native conversion details, canonical object origin, allowed cross-episode estimation, and operational competition requirements through the process in evaluation.md. The owner's six stated requirements are fixed; these implementation questions do not reopen them. Use G0-G4 gates rather than the expired date-based September schedule.
+Before submission, verify the external kit adapter against the current requirements, including explicit original-frame mapping, native conversion, canonical object origin and operational compatibility. Resolve permitted cross-episode estimation separately. These implementation questions do not reopen R1–R6. Use G0-G4 gates rather than the expired date-based September schedule.

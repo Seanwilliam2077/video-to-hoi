@@ -265,7 +265,8 @@
           "unit": "px"
         },
         {
-          "id": "acceleration",
+          "id": "self_acceleration",
+          "definition": "mean_norm_prediction_second_difference_over_dt_squared",
           "direction": "min",
           "unit": "m/s^2",
           "requires_fidelity_gate": true

@@ -1,8 +1,8 @@
-"""SOMA-X forward pass: Tier 1 human parameters -> joints and vertices in the OpenCV world.
+"""Legacy SOMA-X forward pass to joints and vertices in the OpenCV world.
 
-Pinned to the same package and asset revision as the official toolkit
-(robotic_grounding/scripts/setup_soma_assets.py), with procedural transforms
-off, which matches how the toolkit reads the published Track 2 parquet.
+This is not the native-MHR submission bridge. The pinned model revision
+and procedural-transform setting must be checked against the approved
+converter before reuse; see docs/evaluation.md. Track 2 use is prohibited.
 """
 from __future__ import annotations
 
@@ -14,10 +14,9 @@ from v2hoi.dataset import Episode
 
 SOMA_ASSET_REVISION = "466879a83d57eabf3d875ded2d869f2075f90348"
 
-# SOMA lives in a Y-up world; object poses and ground planes are in the OpenCV
-# (Y-down, Z-forward) world. Checked on Tier 1 episode 7: with this flip the
-# wrists stay ~0.15 m from the iron and the feet sit 2-7 cm above the ground
-# plane; without it both are metres off.
+# Legacy axis convention: SOMA Y-up to OpenCV Y-down, Z-forward.
+# Validate any future native-MHR bridge with approved model assets and
+# independently authored synthetic transforms, never Track 2 observations.
 SOMA_TO_OPENCV = np.array([1.0, -1.0, -1.0], dtype=np.float32)
 
 

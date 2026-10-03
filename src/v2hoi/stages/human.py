@@ -1,10 +1,9 @@
-"""Human (module 2): the person in each clip, as MHR (for submission) and SOMA-X
-(for local scoring), and the depth scale that makes the human the metric anchor.
+"""Human (module 2): current fake v1 state and an estimated depth-scale prior.
 
-Planned real backend: SAM 3D Body → MHR, then the toolkit's export_soma.py →
-SOMA-X; one identity per clip (lock_identity); DepthScale from aligning the
-clip's Depth to the human (CARI4D step 3, design 3.2). The first frame
-matters most, because the official Sim(3) is fitted on it.
+The target is authoritative native MHR with fixed identity and structural
+scales, plus a verified conversion bridge. The mhr_* fields below are old
+decomposed placeholders and are not the final submission representation.
+No real human reconstruction backend is implemented. See docs/design.md.
 """
 from __future__ import annotations
 

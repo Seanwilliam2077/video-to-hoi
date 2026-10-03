@@ -8,6 +8,7 @@ These rules apply to every coding agent working in this repository (Codex, Claud
 - **Track 1 only:** use only the 30 Track 1 challenge videos and their metadata. No Track 2 data or derived assets (Tier 1, Tier 2, meshes, trajectories, labels, or parameters) for development, tuning, validation, tests, or submissions. See the data policy in `docs/development.md` and `docs/workflow.md`.
 - **Persistent data restriction (owner reaffirmed 2026-09-27):** never download, load, or use Track 2 content or its derivatives, including scores, statistics and cached outputs. This also prohibits Track 2 use for debugging, scorer checks, baseline normalization, candidate comparison/ranking, demos and handoff packages; there is no evaluation-only exception. Existing files, legacy scorers, old docs and upstream examples do not override this rule. Exclude unknown-provenance assets until verified. Independent synthetic fixtures must have no Track 2 provenance.
 - **Checks:** run the explicit test list from `.github/workflows/tests.yml`, not a bare `pytest`.
+- **Current acceptance rules:** `docs/evaluation.md` pins the official code evidence; `docs/track1-compliance.md` audits the owner's final 2026-10-03 requirements against the runtime. `docs/implementation-plan.md` is a future delivery plan. Never treat a planned native-MHR exporter, real backend or synthetic test pass as completed submission compliance.
 
 ## Branches and commits
 

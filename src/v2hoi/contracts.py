@@ -12,13 +12,14 @@
       motion/<episode>/motion.npz       Motion          motion    object
       refine/<episode>/human.npz        RefinedHuman    refine    temporal & physics
       refine/<episode>/motion.npz       RefinedMotion   refine    temporal & physics
-      export/                           Tier 1 layout   export    platform & perception
+      export/                           internal v1     export    platform & perception
 
 Frames: everything is in the clip's camera frame (OpenCV: x right, y down,
 z forward, metres). The camera is static, so this is also the submission's
 world frame; the official first-frame Sim(3) makes every rigid choice of
 world equivalent. Human SOMA-X parameters use the SOMA convention (y up),
-which body.SOMA_TO_OPENCV maps onto the camera frame, as in the Tier 1 layout.
+which body.SOMA_TO_OPENCV maps onto the camera frame. These v1 conventions
+are not a verified native-MHR submission bridge; see docs/evaluation.md.
 
 Every file records CONTRACT_VERSION. A change to a field's meaning or shape
 bumps it, in a PR of its own that the consuming stages' owners approve.
@@ -213,8 +214,9 @@ class Depth:
 class DepthScale(_Json):
     """The one factor that makes the clip's Depth agree with the metric human (design 3.2).
 
-    The human is the only metric anchor: object mesh scales and tracking use
-    scale * Depth.depth, so objects end up at the same depth as the hands.
+    Human geometry is an estimated scale prior, not ground truth. Planned
+    object reconstruction uses scale * Depth.depth; common human/object
+    scale and contact consistency still require independent verification.
     """
 
     REL: ClassVar[str] = "human/{episode:06d}/depth_scale.json"
@@ -231,10 +233,10 @@ class DepthScale(_Json):
 class Human(_Arrays):
     """The person in one clip, camera frame.
 
-    SOMA-X parameters (the Tier 1 columns) feed export and local scoring.
-    MHR parameters are what the official submission asks for; their shapes
-    follow SAM 3D Body's output (toolkit v2d_sam3d_body) until the official
-    format is published.
+    SOMA-X parameters feed the internal v1 export. The decomposed mhr_*
+    fields below are legacy placeholders, not the published native MHR
+    136-pose / 68-scale / 45-shape contract. Conversion is still pending;
+    do not concatenate these fields or submit this internal export.
     """
 
     REL: ClassVar[str] = "human/{episode:06d}/human.npz"

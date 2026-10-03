@@ -164,8 +164,8 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
 
   <header>
     <div>
-      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 9 月 28 日</div>
-      <h1>主要材料已公开，实际运行待验证</h1>
+      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 10 月 3 日</div>
+      <h1>新方案已写入，先跑通真实结果</h1>
     </div>
     <div class="count">
       <div class="l">距比赛截止还有</div>
@@ -177,7 +177,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>基础方案和一批新增对比方案的材料已公开，同事可以下载并自动核对。<b>部分后续方案的模型文件、使用权限和完整运行软件仍需补齐；按计划暂不部署。</b>前三段视频的测试包已发布，但还没有真实结果或排名。</p>
+  <p class="lead"><b>一句话：</b>已根据主办方最新材料调整方案：先把两段视频完整还原，再根据视频证据修正问题，并检查最终交出去的结果。<b>正式提交工具已经公布，我们还没有完成对接或真实运行。</b>本次完成的是方案、分工和验收安排；暂不部署，没有新增成绩。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -192,14 +192,14 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <p style="margin-top:16px">比赛共 30 段视频、10 种物体。主办方把我们的结果和他们用多台摄像机得出的“标准答案”比较，从三个方面打分：</p>
     <div class="scores">
       <div><b>准不准</b>人和物体的形状、位置是否正确</div>
-      <div><b>顺不顺</b>动作是否平稳、不抖动</div>
+      <div><b>动作像不像</b>动作的快慢、变化和发生时间是否跟原视频一致</div>
       <div><b>真不真实</b>人和物体接触时有没有互相穿过去</div>
     </div>
   </section>
 
   <section id="team">
     <h2>团队分工</h2>
-    <p>按最终评分的三类指标，把工作拆成四块，一人一块。每块之间约定好“交什么、交给谁”，所以四个人可以同时开工，不用互相等。</p>
+    <p>工作仍分四块，每块明确“交什么、交给谁、怎样检查”。先保留一套完整可用的结果，再逐项验证改进；改动没有证据支持时，退回上一版。</p>
 
     <div class="handoff" role="img" aria-label="交接关系：平台与数据把视频预处理结果交给人体和物体两块；人体把人体动作和场景尺寸交给物体，并把人体动作交给动作流畅与真实感；物体把物体模型和运动交给动作流畅与真实感；动作流畅与真实感把修正后的结果交回平台与数据，由平台整合并提交。">
       <svg viewBox="0 0 860 336" aria-hidden="true">
@@ -215,7 +215,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <text class="h-sub" x="400" y="252" text-anchor="middle">物体模型与移动</text>
         <rect class="h-node r4" x="640" y="110" width="200" height="70" rx="12"/>
         <text class="h-title" x="740" y="140" text-anchor="middle">④ 动作流畅与真实感</text>
-        <text class="h-sub" x="740" y="162" text-anchor="middle">平稳、不穿模</text>
+        <text class="h-sub" x="740" y="162" text-anchor="middle">动作一致、接触合理</text>
 
         <path class="h-line" d="M190,130 C240,130 250,55 298,55" marker-end="url(#h-arrow)"/>
         <path class="h-line" d="M190,160 C240,160 250,235 298,235" marker-end="url(#h-arrow)"/>
@@ -223,8 +223,8 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <text class="h-label" x="222" y="206" text-anchor="middle">视频预处理结果</text>
 
         <path class="h-line strong" d="M400,90 L400,198" marker-end="url(#h-arrow)"/>
-        <text class="h-label strong" x="410" y="140">场景的真实尺寸</text>
-        <text class="h-label" x="410" y="158">（以人的身高为尺子）</text>
+        <text class="h-label strong" x="410" y="140">场景尺寸估计</text>
+        <text class="h-label" x="410" y="158">（以人体为参考，需核对）</text>
 
         <path class="h-line" d="M500,55 C570,55 580,125 638,125" marker-end="url(#h-arrow)"/>
         <path class="h-line" d="M500,235 C570,235 580,165 638,165" marker-end="url(#h-arrow)"/>
@@ -244,7 +244,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
           <dt>负责</dt><dd>准备服务器和运行环境；从视频里提取基础信息（人和物体在画面中的位置、画面远近）；把四块成果整合起来、检查质量、向主办方提交；维护团队页面和进度。</dd>
           <dt>交给别人</dt><dd>给人体、物体两块提供视频预处理结果；每周产出一个“团队基准版本”，大家都在它的基础上改进。</dd>
           <dt>需要别人</dt><dd>其他三块按时交付成果。</dd>
-          <dt>前两周</dt><dd>完成模型文件交接；确认服务器方案后，用官方参考方法把前两段视频完整跑通。</dd>
+          <dt>前两周</dt><dd>先对接主办方新公布的提交工具；后续用官方参考方法把前两段视频完整跑通，并检查交出去的结果是否保持一致。</dd>
           <dt>适合</dt><dd>熟悉服务器部署、数据处理和工程整合。</dd>
         </dl>
         <a class="more" href="https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg" target="_blank" rel="noopener">技术资料与任务 →</a>
@@ -254,10 +254,10 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <header><b>② 人体动作还原</b><span class="who pending">待认领</span></header>
         <div class="meta"><span class="tagline">对应评分：人体的准确度</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i></i><i></i> 中等</span></div>
         <dl>
-          <dt>负责</dt><dd>从视频里还原人每一帧的三维姿态，包括手；以人的身高为尺子，确定整个场景的真实尺寸。</dd>
-          <dt>交给别人</dt><dd>每一帧的人体动作；场景的真实尺寸（物体那块要用它来确定物体有多大）。</dd>
+          <dt>负责</dt><dd>从视频里还原人每一帧的三维姿态，包括手；以人体提供尺寸参考，并用视频检查这个估计是否合理。</dd>
+          <dt>交给别人</dt><dd>唯一一份可追溯的人体动作；场景尺寸估计，以及哪些画面可靠、哪些仍不确定。</dd>
           <dt>需要别人</dt><dd>平台提供的视频预处理结果。</dd>
-          <dt>前两周</dt><dd>接收已准备好的模型文件，后续在几段视频上跑通；重点检查第一帧，因为官方按第一帧对齐，第一帧错了整段都会偏。</dd>
+          <dt>前两周</dt><dd>先检查保存和交接后的人体形状是否一致；后续重点检查主办方最先评分的画面，并利用前后清晰画面帮助纠正。</dd>
           <dt>适合</dt><dd>做过人体姿态估计或人体三维重建。</dd>
         </dl>
         <a class="more" href="https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk" target="_blank" rel="noopener">技术资料与任务 →</a>
@@ -267,9 +267,9 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <header><b>③ 物体形状与运动</b><span class="who pending">待认领</span></header>
         <div class="meta"><span class="tagline">对应评分：物体的准确度</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i> 最重</span></div>
         <dl>
-          <dt>负责</dt><dd>给 10 种物体各做一个真实尺寸的三维模型；在每一帧里跟踪物体的位置和朝向，被人挡住时也不能断。</dd>
+          <dt>负责</dt><dd>为视频中的物体还原形状和尺寸，固定模型的定位方式；在每一帧里跟踪位置和朝向，被人挡住时保留合理解释并继续检查。</dd>
           <dt>交给别人</dt><dd>物体的三维模型，以及每一帧的位置和朝向。</dd>
-          <dt>需要别人</dt><dd>平台的视频预处理结果；人体那块给出的场景尺寸。</dd>
+          <dt>需要别人</dt><dd>平台的视频预处理结果；人体那块给出的尺寸估计和可靠程度。</dd>
           <dt>前两周</dt><dd>先给前两段视频里的泡沫块和平底锅做出三维模型；和平台一起检查跟踪工具能否用在这两段视频上。</dd>
           <dt>难点</dt><dd>细长反光的呼啦圈、白色无纹理的桌子和推车、用脚推动的物体。</dd>
           <dt>适合</dt><dd>做过三维重建或物体跟踪。</dd>
@@ -279,13 +279,13 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
 
       <article class="role r4">
         <header><b>④ 动作流畅与真实感</b><span class="who pending">待认领</span></header>
-        <div class="meta"><span class="tagline">对应评分：动作平稳度 + 接触真实感（占总评分一半）</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i></i><i></i> 中等</span></div>
+        <div class="meta"><span class="tagline">对应评分：动作变化的准确度与接触真实感</span><span class="load">工作量 <i class="on"></i><i class="on"></i><i></i><i></i> 中等</span></div>
         <dl>
-          <dt>负责</dt><dd>让人和物体的动作平稳不抖；物体放着不动时保持静止；补全被遮挡的画面；人和物体接触时不互相穿过去。</dd>
+          <dt>负责</dt><dd>保持动作的快慢和发生时间，修正有证据的不合理抖动；补全被遮挡的画面；同时处理握持、支撑和滑动等接触关系。</dd>
           <dt>交给别人</dt><dd>修正后的人体和物体动作，交给平台整合提交。</dd>
           <dt>需要别人</dt><dd>人体、物体两块的结果。</dd>
           <dt>前两周</dt><dd>不用等别人：先用自己构造的模拟数据把方法做出来，等真实结果出来再调整。</dd>
-          <dt>注意</dt><dd>平滑过头会让位置变得不准，需要在“顺”和“准”之间取舍。</dd>
+          <dt>注意</dt><dd>把动作放慢或让手远离物体，都可能让结果看似更好却不符合原视频。每次改动必须独立检查，不通过就回退。</dd>
           <dt>适合</dt><dd>做过优化、物理仿真或时间序列处理。</dd>
         </dl>
         <a class="more" href="https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV" target="_blank" rel="noopener">技术资料与任务 →</a>
@@ -298,10 +298,10 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <table>
         <thead><tr><th>分工</th><th>要交的东西</th></tr></thead>
         <tbody>
-          <tr><td class="who-cell r1">① 平台与数据</td><td>服务器可用；两段视频的预处理结果；把各块成果串起来跑通，定为第一个团队基准版本</td></tr>
-          <tr><td class="who-cell r2">② 人体动作还原</td><td>检查这两段视频的人体结果，尤其是第一帧；确认场景尺寸是否合理，列出要改进的地方</td></tr>
+          <tr><td class="who-cell r1">① 平台与数据</td><td>对接正式提交工具；两段视频完整跑通；重新打开交出去的结果核对，保留第一个团队基准版本</td></tr>
+          <tr><td class="who-cell r2">② 人体动作还原</td><td>检查人体保存前后是否一致，重点复核最先评分的画面；核对尺寸估计，列出不确定部分</td></tr>
           <tr><td class="who-cell r3">③ 物体形状与运动</td><td>泡沫块和平底锅的三维模型（真实尺寸）；检查跟踪是否在遮挡时断掉</td></tr>
-          <tr><td class="who-cell r4">④ 动作流畅与真实感</td><td>用模拟数据做好的初版平滑和接触方法；接到第一批结果上试一遍，看改进多少</td></tr>
+          <tr><td class="who-cell r4">④ 动作流畅与真实感</td><td>用自行构造的模拟动作验证检查方法；在真实结果上逐项修正，保留动作时序和接触关系，记录失败与回退</td></tr>
         </tbody>
       </table>
     </div>
@@ -311,7 +311,8 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <li><b>各做各的，定期合并：</b>每人在自己的工作分支上开发，每周二合并一次，产出新的团队基准版本。</li>
       <li><b>做完一件事就同步：</b>在自己的模块页记下结果，并更新这个进展页的“已经完成的”“卡在哪里”和下一步；“准备工作做完了”和“真的跑出结果了”分开写，不混在一起。</li>
       <li><b>改交接内容先打招呼：</b>要改变交给别人的东西（内容或格式），先和接收的人商量好再动手。</li>
-      <li><b>只用比赛给的 30 段视频：</b>测试、调参和方案排名也只用这些视频及其重建结果；不得使用其他赛道的数据或衍生成果，这是比赛规则的要求。</li>
+      <li><b>只用比赛给的 30 段视频：</b>测试、调参和方案排名也遵守这个项目范围，不使用其他赛道的数据或衍生成果；基础检查使用独立构造的模拟数据。</li>
+      <li><b>用同一份结果比较：</b>所有检查对应同一版完整结果，不能把不同版本各自最好的数字拼在一起；平均改善也要检查最差片段。</li>
       <li><b>提交统一由平台负责：</b>每周最多提交 5 次，由平台统一安排，避免浪费次数。</li>
     </ul>
 
@@ -328,7 +329,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <section>
     <h2>进度</h2>
     <ol class="steps">
-      <li class="done"><div class="t">读懂规则</div><div class="s">已完成</div><div class="d">已向主办方书面确认</div></li>
+      <li class="now"><div class="t">读懂规则</div><div class="s">已复核新材料</div><div class="d">少数约定仍待确认</div></li>
       <li class="done"><div class="t">搭建框架</div><div class="s">已完成</div><div class="d">四人可并行开发</div></li>
       <li class="now"><div class="t">接入 AI 模型</div><div class="s">主要材料已公开</div><div class="d">还没有运行视频</div></li>
       <li class="next"><div class="t">第一批结果</div><div class="s">未开始</div><div class="d">目标 10 月 8 日</div></li>
@@ -340,7 +341,9 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <section>
     <h2>已经完成的</h2>
     <ul class="done-list">
-      <li>读懂了比赛规则和评分方式，并就关键问题拿到了主办方的书面答复。</li>
+      <li>复核了主办方新公布的工具和问答，修正了“只要动作更平稳就更好”的旧理解；现在明确要求动作变化与原视频一致。</li>
+      <li>已将新方案写入项目资料：先跑通真实结果，再根据证据修正问题，并逐项检查、保留可退回的版本。</li>
+      <li>已补充四块工作的交付内容和验收要求；方案评审分不作为比赛成绩，也不代表真实运行已经完成。</li>
       <li>搭好了整体框架：把工作拆成四块，四个人可以各做一块、互不等待。</li>
       <li>建好了团队协作页面：每块工作有自己的任务、进展和资料页，已邀请三位同学。</li>
       <li>下载并整理好了比赛的全部 30 段视频，可以直接浏览。</li>
@@ -370,7 +373,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
             </tbody>
           </table>
         </div>
-        <div class="need">后续启动运行前，由项目负责人确认服务器方案。建议优先 L20，并确认能用几台、怎么登录和上传文件；本轮先完成文件交接。</div>
+        <div class="need">后续启动运行前，由项目负责人确认服务器方案和操作入口；本轮只更新方案与协作材料，暂不部署。</div>
       </div>
       <div class="issue mid">
         <b>材料已公开，服务器端接收还未验证</b>
@@ -383,9 +386,14 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <div class="need">各模块负责人按缺项清单取得材料和使用权限；平台负责人确认服务器配置后补齐运行软件，本轮暂不部署。</div>
       </div>
       <div class="issue mid">
-        <b>主办方的评分工具和提交格式还没公布</b>
-        <p style="margin:4px 0 0">在它公布之前，我们本地看不到正式分数，只能先按已知规则准备，公布后立刻对接。</p>
-        <div class="need">平台负责人持续关注正式工具公布，无需额外支持。</div>
+        <b>正式提交工具已公布，我们还没有完成对接</b>
+        <p style="margin:4px 0 0">需要确认人体、物体和每一帧的动作在交给主办方后仍保持正确。新工具可帮助核对规则，但我们仍看不到比赛的标准答案。</p>
+        <div class="need">平台与人体负责人先完成转换和交接检查；项目负责人向主办方确认物体定位方式及能否合用同一物体的多段视频。</div>
+      </div>
+      <div class="issue mid">
+        <b>新方案还没有真实视频结果支持</b>
+        <p style="margin:4px 0 0">当前完成的是方案与任务更新。下一步先检查泡沫块和平底锅，再覆盖不同难点和全部视频，不凭少量演示宣布整体改进。</p>
+        <div class="need">四块负责人按验收安排交付真实结果、前后对比和失败清单；只接受视频证据支持的改动。</div>
       </div>
     </div>
   </section>
@@ -396,7 +404,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <table>
         <thead><tr><th>时间</th><th>目标</th><th>状态</th></tr></thead>
         <tbody>
-          <tr><td class="date">10 月 1 日</td><td>服务器和模型使用权限到位</td><td><span class="tag now">待服务器</span></td></tr>
+          <tr><td class="date">10 月 1 日</td><td>服务器和模型使用权限到位</td><td><span class="tag stuck">有风险，待服务器</span></td></tr>
           <tr><td class="date">10 月 8 日</td><td>拿到第一批结果（2 段视频）</td><td><span class="tag stuck">有风险</span></td></tr>
           <tr><td class="date">10 月 15 日</td><td>30 段视频全部出结果，第一次正式提交</td><td><span class="tag next">未开始</span></td></tr>
           <tr><td class="date">10 月 29 日</td><td>攻克难点：细长物体、大件家具、人坐在物体上等情况</td><td><span class="tag next">未开始</span></td></tr>
@@ -404,7 +412,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         </tbody>
       </table>
     </div>
-    <p class="muted" style="margin-top:12px">比赛期间每周最多提交 5 次，最后 3 天不限次数。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。基础方案的关键模型使用权限已获批，后续对比方案仍有材料和权限缺项，本轮按计划暂不部署。如果服务器在 10 月 1 日前仍不能到位，后面每一步都会顺延，留给优化的时间会被压缩。</p>
+    <p class="muted" style="margin-top:12px">比赛期间本赛道每周最多提交 5 次，最后 3 天不限次数。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。以上保留原有目标日期，不代表重新承诺；首批真实结果尚未开始，后续时间有风险。本轮暂不部署，先完成新方案和正式工具的对接安排。</p>
   </section>
 
   <section>
@@ -412,11 +420,12 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <ol class="asks">
       <li><b>确认接收人、服务器配置和缺项安排</b>新材料已经公开；项目负责人确认接收人和服务器配置，各模块补齐手动下载或单独授权的模型文件，平台负责人准备对应的运行软件。本轮暂不部署，后续再安排真实视频运行。</li>
       <li><b>确认团队分工</b>三位同学分别负责哪一块工作（见上方“团队分工”）。</li>
+      <li><b>先验收完整结果，再扩展方案</b>优先完成正式工具对接和两段真实视频，保留失败记录；后续方案只有证明值得投入时才增加。</li>
     </ol>
   </section>
 
 
-  <footer>数据截至 2026 年 9 月 28 日；本次更新：约 17 GB 新材料已公开，下载地址和完整性核对通过；部分后续模型、使用权限和完整运行软件仍需补齐。只用比赛给的 30 段视频及其重建结果开展实验；暂不部署，没有真实得分或排名。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 10 月 3 日；本次更新：依据主办方新材料修订方案、分工和验收安排，正式提交工具已公布但尚未对接。历史模型文件交接记录保留；本轮未运行真实视频、未部署，没有新增得分或排名。只用比赛给的 30 段视频及其重建结果开展实验。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

@@ -1,242 +1,211 @@
-# Track 1 design
+# Track 1 reconstruction design
 
-From a static monocular third-person RGB video, recover the human body (with hands), the object mesh, and the object's 6D pose in every frame, at metric scale in one world frame. This document records the architecture, the trade-offs, and the open questions. Every conclusion states its evidence; when the evidence changes, this document changes.
+Updated 2026-10-03. This is the implementation direction following the repository and official-kit review. It is a plan, not a claim that the real reconstruction pipeline has been implemented or validated.
 
-Last updated: 2026-09-27. Section 6 preserves the organizer's written answers of 2026-09-26. Following those answers and the project owner's direction, all project data use is Track 1 only; section 5 describes validation without public ground truth and identifies legacy code that has not yet adopted this workflow.
+Build one reproducible native-MHR CARI4D baseline, preserve it, and add bounded repairs only where independent image evidence supports them. More models, a smaller optimization loss, and a smoother animation are not evidence of better reconstruction.
 
-## 1. Constraints
+Read [evaluation.md](evaluation.md) for the source-pinned evaluation and submission contract, [implementation-plan.md](implementation-plan.md) for the G0-G4 delivery gates, and [contracts.md](contracts.md) for the implemented v1 files and proposed future contract. Exact official definitions belong in evaluation.md rather than being duplicated across module pages.
 
-- **Input**: each video is 12–29 s, 1536×1152, 30 fps, and the camera is static within a video. The public set has 30 videos, 3 for each of 10 objects. The only metadata are the object name, a one-line appearance description, the action description, and the physical camera name.
-- **Data policy**: no Track 2 data or derived assets, including Tier 1 and Tier 2, in reconstruction, development, tuning, validation, scorer self-checks, baseline normalization, or submissions. Unit-test fixtures must be generated independently of Track 2.
-- **Submission**: the human (with hands, as an MHR parameter trajectory), one mesh per object (shared by its 3 videos), an object pose on every frame (occluded frames included), metric scale, and one world frame. The official `eval_reconstruction.py` (not yet published) produces the file that goes to Kaggle. See section 6.
-- **Scoring**: against a multi-view (MV) reconstruction. Each of the 5 metrics is a separate Kaggle competition, in cm, lower is better: CD-H and CD-O on the accuracy axis, ACC-H, ACC-O, and PEN on the physical axis. The two axes weigh equally; how the 5 numbers combine into one ranking is not published.
-- **Schedule**: the leaderboard freezes on 2026-11-04 at 17:00 EST. Up to 5 submissions per week, unlimited in the last 3 days.
-- **Compute**: the local machine has an RTX 3080 with 10 GB. The official toolkit targets 48 GB (A6000 / L40S); SAM 3D Objects and CARI4D need a rented 48 GB Linux machine. The local machine only runs glue code, scoring, and visualization.
+### Latest project authority: final requirements supplied on 2026-10-03
 
-## 2. Three facts that shape the design
+The project owner supplied the following final Track 1 requirements in chat on 2026-10-03. They govern the design and supersede conflicting earlier assumptions; this records the owner's clarification, not a claim that an upstream file changed on that date.
 
-### 2.1 Track 1 has no public reconstruction ground truth
+1. Fit one Sim(3) using the first-frame human reconstruction against the reference and apply that same transform to both human and object for the whole sequence. Maintain a common coordinate frame and scale; do not rely on later alignment to correct drift.
+2. Submit human trajectories in native MHR representation.
+3. Evaluate object Chamfer on the posed object mesh in the world frame.
+4. Acceleration error compares the second-order differences of prediction and reference.
+5. Supply object poses on every input frame, including fully occluded frames.
+6. Reconstruct all challenge object assets and estimate all challenge parameters, including camera intrinsics, from Track 1 only. The stricter repository prohibition on Track 2 derivatives remains in force.
 
-The 30 Track 1 videos and their metadata are the project's only challenge data. Reconstruct meshes, human parameters, object trajectories, camera parameters, and scales from those inputs. Do not transfer Track 2 meshes, poses, camera calibration, ground planes, noise distributions, tuned weights, or numerical baselines into this project.
+The clarification says "first frame"; the inspected kit selects the first scored frame. Preserve the original frame IDs and explicitly reconcile these meanings if the selected interval does not start at source frame zero. Do not silently declare the two equivalent or choose a more convenient alignment frame. The detailed evidence and unresolved implementation questions remain in evaluation.md.
 
-Development uses Track 1 reconstruction snapshots, input-video reprojection, coverage and continuity checks, and visual inspection. Unit tests use independent synthetic meshes and trajectories with known answers. Synthetic tests validate algorithms and interfaces; model-estimated masks and depth are diagnostics, not substitutes for the hidden reference reconstruction.
+## 1. Scope, evidence, and current status
 
-Track 2 is excluded even from scorer self-checks and parameter selection. The former Tier 1 development set, Tier 2 noisy-input workflow, and Tier 2-normalized internal score are retired. There is no pending exception for Track 2 tuning in the team workflow.
+The task is to reconstruct human motion with hands, object geometry, and object motion from the 30 Track 1 monocular videos and their metadata. The released videos are static-camera sequences, but every adapter must preserve their frame indices, dimensions, image transforms, and timestamps. A camera name is not sufficient evidence of identical intrinsics or extrinsics across videos.
 
-### 2.2 The video layer already exists: CARI4D
+**Track 1 only.** Never download, load, or use Track 2 content or any derivative, including Tier 1/Tier 2 meshes, trajectories, labels, camera parameters, statistics, cached outputs, scores, or tuned parameters. There is no validation, debugging, normalization, or demonstration exception. Independently created synthetic fixtures may test methods and interfaces; they are not submission assets. Exclude assets with unknown provenance. Reading approved evaluation source does not authorize fetching its example data or reference bundles.
 
-The pipeline in the toolkit's `reconstruction/modules/v2d_cari4d`:
+| Area | Evidence in the current repository | Still required |
+|---|---|---|
+| Orchestration | Six stages, upstream runs, v1 files, fake-stage smoke tests | Content-addressed dependencies and real artifact provenance |
+| Perception and reconstruction | Fake inputs/human/object/motion; prohibited legacy backends are blocked | Registered, verified real adapters |
+| Refinement | Pass-through backend | Real, observation-constrained repairs |
+| Export | Internal metadata/parquet/mesh plus decomposed MHR arrays | Native MHR conversion and official export validation |
+| Candidate comparison | Prepared recipes and record/ranking validation | Verified extraction of real measurements and comparisons |
+| Runtime assets | Source/model manifests and acquisition records | Successful inference and a reproducible accepted baseline |
 
-1. MoGe2 batched metric depth;
-2. SAM 3D Body initializes the human (MHR);
-3. the monocular depth scale is aligned to the human;
-4. FoundationPose registers the object on the first frame, then tracks it frame by frame;
-5. CoCoNet jointly refines the human and the object (trained on 2,126 sequences);
-6. 300 steps of contact-guided optimization, with temporal terms and a human pose prior.
+These findings were audited at repository commit `6a53e84`. Downloaded weights and passing synthetic tests do not establish reconstruction quality. No numerical quality improvement is asserted by this design.
 
-Its inputs are the video, human and object masks (H5), and a **metric** object mesh. Use Track 1 videos, masks estimated from those videos, and meshes reconstructed from them. The method's README states that meshes generated by SAM 3D must be scaled beforehand; CARI4D only re-centers and re-orients them and leaves the scale alone.
+### Evaluation consequences
 
-### 2.3 What the official evaluation code reveals about the metrics
+The inspected official submission kit changes several assumptions in the September design. Acceleration is reference-relative, and the human acceleration subset is body-only; indiscriminate smoothing and a finger-acceleration optimization campaign are not justified. Penetration and initial alignment also differ from the old local scorer. Native MHR parameterization must be converted explicitly rather than inferred from matching array sizes. See evaluation.md for exact formulas, units, frame selection, source identities, and unresolved questions.
 
-`v2d_mv_postprocess/lib/mv_eval_chamfer.py`: on each frame, it takes the predicted mesh vertices that are visible in the camera and fall inside the mask, and computes their mean nearest-neighbour distance to the stereo depth point cloud, in the rig's world frame. Track 1's `eval_reconstruction.py` is not published yet; it likely follows the same idea.
+Track 1 does not expose the reference needed for local official Chamfer and reference-relative acceleration scores. Prediction-geometry penetration can be diagnosed locally, but official PEN also uses reference-derived alignment scale; an unaligned calculation is not the final official score. Keep official metrics, prediction-geometry calculations, image-consistency diagnostics, and synthetic experiments separately named.
 
-## 3. Architecture
+## 2. Baseline and upstream boundaries
 
-Six stages exchange files in a run directory, owned by four modules. [contracts.md](contracts.md) specifies the files; [workflow.md](workflow.md) explains the module split and who owns what.
+Use the MHR implementation in NVIDIA's video_to_data toolkit at `33129dd0f2d2dcfd1164d43fd076542660756ed2`. Keep its code, model identities, preprocessing, and outputs intact for the initial baseline. The standalone NVlabs/CARI4D repository and paper are related methods, not interchangeable runtime specifications.
 
+The pinned toolkit accepts RGB, human/object masks, and an already metric object mesh. SAM 3D Objects is external mesh preparation. Its transform/intrinsics sidecars are not automatically consumed; the supplied geometry retains its scale. The native launcher constructs its own MoGe2 depth/intrinsics, human initialization, depth alignment, object tracking, CoCoNet output, and post-optimization. It has no public override for the project's planned shared camera/depth/human artifacts. The internal stages must be adapted explicitly before claiming that those artifacts govern inference.
+
+The default final optimizer is limited: it updates object translation and MHR body rotation controls; object rotation is opt-in. Human root, hand, shape, and scale parameters remain fixed. Its symmetry flag changes temporal treatment; it does not implement a general symmetry group. Its contact eligibility is gated at initialization. Floor/table constraints and independent human image reprojection are additions to develop, not existing baseline capabilities.
+
+Sources: [pinned toolkit README](https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/README.md), [native launcher](https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/lib/run_inference.py), [native optimizer](https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/mhr_opt_refineout.py).
+
+Do not transplant the standalone implementation's SMPL-era parameterization, mesh scaling procedure, optimizer settings, or paper metrics into this baseline. The [standalone custom-video instructions](https://github.com/NVlabs/CARI4D/blob/main/docs/custom_video.md) are useful research context; their limitations motivate tests, not unmeasured claims about the toolkit fork.
+
+## 3. Architecture: observations, baseline, optional repair
+
+The existing six-stage interface remains useful for ownership and storage. Do not force native CARI4D into six supposedly independent estimators: it already couples human and object inference. A baseline adapter should import the coupled outputs atomically and expose stage identities without rerunning hidden estimators.
+
+```text
+Track 1 video + metadata
+  -> observations: masks, image transforms, camera/depth proposals
+  -> object preparation: candidate geometry + explicit metric-scale estimate
+  -> pinned native MHR CARI4D
+  -> immutable baseline: decoded geometry, native parameters, object poses
+  -> diagnostics and flagged intervals
+  -> optional bounded repair, with the baseline retained
+  -> verified native export -> official-kit-compatible artifact
 ```
-runs/<run_id>/inputs/<episode>/    camera intrinsics, masks, depth          1 platform & perception
-              human/<episode>/     MHR and SOMA-X, the metric depth scale   2 human
-              objects/<object>/    one metric mesh per object               3 object
-              motion/<episode>/    object pose and confidence, every frame  3 object
-              refine/<episode>/    smoothed and contact-refined both        4 temporal & physics
-              export/              internal schema plus MHR                 1 platform & perception
-```
 
-Everything lives in the **camera frame**: the human as MHR and SOMA-X parameters, the object as a mesh plus `T_cam_obj` and a confidence. The camera is static, and the official first-frame Sim(3) absorbs any rigid choice of world, so the camera frame is also the submission's world frame and export copies poses unchanged. A gravity-aligned world is only needed if the official format asks for one.
+An observation records what was measured or predicted from an image; an estimate records the scene explanation being optimized. Rendering an estimate back into a pseudo-observation does not create independent evidence. Record common upstream models: human initialization, depth, and contact predictions can have correlated errors.
 
-A run can read the stages it does not run from an upstream run, so each stage is developed against a fixed snapshot of the others. Resuming should be keyed on **input hashes**, not on "skip if the output exists": after a mesh scale or a parameter changes, the latter lets downstream stages silently reuse stale results. CARI4D's `.stages` works this way. This is not implemented yet; for now, rerun the stages you changed.
+The proposed future artifacts include:
 
-### 3.1 What we write ourselves
+- Native MHR trajectory and rig identity; derived human geometry and optional SOMA-X views.
+- Object mesh identity, canonical origin/axes, baked scale and explicit pose-scale convention.
+- Camera and image-transform lineage, including crop/resize/padding and distortion assumptions.
+- Visible masks, invalid/occluded/out-of-frame regions, depth validity and observation provenance.
+- Pose hypotheses, visibility state, diagnostic uncertainty, contact events and repair decisions.
+- Content hashes for every dependency and an immutable run manifest.
 
-The parts CARI4D does not cover:
+These are contract proposals, not additional fields already available in `CONTRACT_VERSION = 1`. Introduce a reviewed migration before a consumer depends on them.
 
-| Module | What it does |
-|---|---|
-| Camera | Merge the intrinsic estimates of all clips from one physical camera and lock them; gravity from GeoCalib (toolkit `v2d_geocalib`); static depth from the temporal median of background pixels, fitted to the floor and table tops |
-| Masks | GroundingDINO detection → SAM2 propagation (as in the toolkit's MV pipeline); the 3 clips of an object share its best-written prompt; re-detect when occlusion breaks the track |
-| Object mesh | Several candidates plus reprojection-based selection, see 3.3 |
-| Scale | The human is the only metric anchor, see 3.2 |
-| Hooks | Filters around FoundationPose: overlap after removing the human, rotation jumps, symmetry locking, tracking backwards. Evaluate on fixed Track 1 clips and independent synthetic cases |
-| Time | Detect static segments and lock the pose there; choose smoothing using Track 1 motion, reprojection, and continuity diagnostics (starting point: toolkit `run_ekf_smoothing`) |
-| Export | Camera frame → submission format and world frame |
-| Validation | Track 1 diagnostics, independent synthetic tests, and the organizer's official evaluation when available; see section 5 |
+## 4. Representation and coordinates
 
-### 3.2 Scale: one anchor only
+### One authoritative human trajectory
 
-The toolkit's `run_estimate_mesh_scale` grid-searches 0.5–2.0× on a single frame, scored by silhouette IoU and depth residual. The scale it finds is only as "metric" as the depth it is given.
+Propose `NativeMHR204` as the authoritative future representation: the official converter's 204 native parameters, comprising a 136-parameter pose trajectory and 68 static scale parameters, plus 45 static shape coefficients and the exact rig/decoder identity. The current v1 decomposed arrays are not this representation. Do not concatenate, pad, truncate, or rename them to manufacture compatibility.
 
-If the mesh scale comes from raw UniDepth / MoGe depth while CARI4D aligns the depth scale to the human, the two anchors disagree: the object lands at a different depth from the hand, and contact, penetration, and Chamfer all break together.
+Native parameter units follow the pinned decoder; they are not uniformly metres or radians. In particular, native translation slots must not be populated directly from metre-valued camera translation without the documented conversion. Validate the mapping by decoding known poses, translations, rotations, scale changes, and a real Track 1 initialization through both paths.
 
-Approach:
+Keep identity and anatomical scale stable within a clip through constrained fitting, not just overwriting each frame with a median while leaving inconsistent translations. Cross-clip identity sharing requires both supporting evidence and permission under the data rules.
 
-1. per video, align the depth scale to the human (CARI4D step 3);
-2. on the aligned depth, estimate the mesh scale from unoccluded object points over several frames;
-3. take the median over the object's 3 videos as its single scale;
-4. check it against "feet on the floor" and "object resting on the table top".
+MHR is the only editable human state. Derive SOMA-X or other diagnostic geometry from that state; do not smooth a second representation independently. Alternative SMPL-family models are candidate proposals only after a documented conversion demonstrates that global motion, scale, and hands survive.
 
-### 3.3 Object meshes
+### Camera world and object asset identity
 
-Take 5–10 candidate frames from the object's 3 Track 1 videos and generate a mesh from each with SAM 3D Objects and with Hunyuan3D-2. Place each candidate into the tracking result, compare multi-frame silhouette IoU and depth residual, and keep the best with visual review. These are input-consistency diagnostics; there is no public reference mesh for computing a local official shape or posed-mesh error.
+Use a fixed OpenCV camera frame per static-camera clip for internal geometry. Human and object outputs must share that frame for the whole sequence. A scene plane can be represented in camera coordinates; gravity reasoning does not require changing the submission world. Do not invent shared world extrinsics across unrelated videos.
 
-Per-object handling:
+The official object transform, its scale handling, and the unresolved canonical-origin question are specified in evaluation.md. Bake a scale into geometry or apply it through the declared pose contract once, never twice. Native CARI4D can recenter/reorient an input mesh: pair its output poses with the corresponding aligned mesh, or perform a verified inverse conversion.
 
-- **Rotational symmetry**: bowl (continuous), pink foam roll (cylinder), paint roller (the roller spins, so the pose follows the handle). FoundationPose needs the symmetry, or the orientation flips around.
-- **Thin ring**: single-image generation is essentially unusable for the hula hoop. Model it as a torus (major radius, tube radius), solved from an ellipse fit plus depth.
-- **Large white untextured objects**: white desk, white laptop cart. Align them with masks and depth.
+Bind every pose artifact to the exact mesh hash and canonical frame. A rigid recanonicalization `v_new = C v_old` requires `T_new = T_old C^-1` to preserve world geometry, but that does not necessarily preserve an origin-based trajectory metric. Freeze the origin across comparisons; do not recenter to improve a score. A scale change requires refitting and invalidating dependent results, not hiding scale in a purported SE(3) rotation.
 
-### 3.4 Human
+The clarification's first-frame rule and the kit's first-scored-frame selection must be reconciled as described above. Preserve frame identities and inspect both the source-start and selected-start regions where they differ. Inspect initial alignment sensitivity without choosing frames based on unavailable reference results. Export the common scene coordinates; ground-truth alignment belongs to evaluation, not to an exporter that has no reference. No independent object alignment or later per-frame alignment may conceal reconstruction drift.
 
-One model throughout: SAM 3D Body (MHR) → `v2d_sam3d_body/lib/export_soma.py` → SOMA-X for internal diagnostics. MHR remains the submission representation, and refinement must preserve its consistency with SOMA-X. GVHMR is not used to replace the global trajectory: it would bring in SMPL's root definition and scale, while with a static camera the root trajectory is observable from estimated depth. Reconsider only if Track 1 diagnostics show the root trajectory is the bottleneck.
+## 5. Observation quality and scale
 
-48 of SOMA-X's 77 joints are finger joints (not counting the two wrists). If joint acceleration includes the fingers, SAM 3D Body's finger jitter will be the largest loss, so the hands need their own smoothing.
+### Camera and depth
 
-### 3.5 Physical terms
+Start with the native baseline camera. Check background consistency, image dimensions, crop transforms, and static-camera assumptions before replacing it. Shared intrinsics are an optional prior after camera identity and image formation are verified; shared extrinsics must not be inferred from recording dates.
 
-- Acceleration looks only at the second difference of the submitted trajectory. It measures smoothness and is not subtracted from the multi-view reference. Smoothing lowers it directly; over-smoothing pulls the object away from its true pose and Chamfer gets worse.
-- Penetration is handled in joint optimization (CARI4D's contact term, a non-penetrable floor, objects resting on table tops), not by pushing things apart afterwards, which would change the object trajectory and hurt object acceleration and Chamfer.
-- Static segments (before a pick-up, after a put-down, while seated on a stool) get a locked pose: jitter drops to zero and Chamfer is steadier, at little cost.
+Metric human and depth networks provide scale priors, not physical measurements. Monocular projection is unchanged under a common spatial scale, so a static camera and learned depth do not make absolute scale uniquely observable. Evaluation alignment can remove some common ambiguity; it cannot repair relative human-object scale errors, shape errors, or temporal drift.
 
-## 4. Episode groups
+Initialize with one human identity/scale estimate and fixed camera, robustly align reliable visible human depth, then estimate object scale from visible object evidence. Inspect stability across well-observed frames and perturbations of the initialization. Do not independently anchor the object to raw depth and the human to a differently scaled depth stream.
 
-| Group | Track 1 episodes | Main difficulty |
+This is an explicit mesh-preparation pass before the full native pipeline: obtain real depth and a real standalone human initialization under a documented camera convention, align them, and scale the candidate mesh. Record these preparation estimates separately from the human/depth estimates that the native pipeline recomputes. If they materially disagree, revisit scale before accepting the run. Do not assume that an unscaled mesh can become metric merely by passing it to CARI4D; the preparation adapter is part of G1 work.
+
+During repair, release one coupled variable block at a time. Do not jointly free focal length, human size, object size, and depth bias without sufficient independent constraints. Per-frame scale freedom is especially dangerous. Report sensitivity and competing solutions; do not label an uncalibrated residual score a probability of correctness.
+
+### Masks, depth boundaries, and independent checks
+
+Use one baseline segmentation path, with reviewed prompts/corrections where permitted. Store both the original prediction and any edits. Distinguish absent object evidence from a reliable empty region. Retain holes and fine contours of rings, handles, and thin furniture.
+
+Compare observed visible regions to jointly rendered visible human/object surfaces, accounting for occlusion and the image boundary. A fully projected object silhouette compared to a partially visible mask can reward an incorrectly shrunken mesh. Predicted depth near thin silhouettes, reflections, occlusion boundaries, or invalid pixels must not be treated as precise geometry.
+
+Keep high-resolution image evidence for thin objects and hands. A stride-only depth schema cannot describe every resizing convention; explicit sample/image transforms are part of the future contract. Use held-out visible frames, independently reviewed image landmarks, and forward/backward discrepancies as cross-checks. Agreement between models with the same upstream estimate is weaker evidence than an independent observation.
+
+## 6. Object geometry and difficult cases
+
+Default to episode-local reconstruction until the organizer confirms whether cross-episode joint estimation is permitted. Reusing or jointly fitting one object's three clips is a disabled-by-default experiment, not an official mesh-sharing requirement. Even if permitted, asynchronous interaction clips are not synchronized multiview observations.
+
+Begin with SAM 3D Objects candidates from a small, recorded set of clear, diverse frames. Add another generator only after a specific geometry failure remains. Rank candidates on visibility-aware held-out image evidence, scale stability, and topology inspection. A realistic texture or low penetration score is not sufficient. Never change mesh sampling, holes, scale, or origin merely to make a metric easier.
+
+| Case | Initial modeling choice | Main failure to test |
 |---|---|---|
-| Hand-held objects | 3–5 bowl, 6–8 iron, 12–14 pan, 15–17 foam block, 18–20 brush, 21–23 foam roller | hand occlusion, symmetry |
-| Large furniture | 9–11 desk, 27–29 cart | untextured, leaves the frame, pushed with a foot |
-| Body contact | 24 and 26 sitting on a stool, 25 carrying a stool | the stool is hidden by the person, large contact area |
-| Thin ring | 0–2 hula hoop | thin, reflective, the body passes through it, fast motion |
+| Hula hoop | Analytic ring candidate alongside generated geometry; fit visible contours and thickness | Lost hole, perspective/normal ambiguity, fast rotation, body passing through |
+| Bowl/cylinder-like geometry | Explicit candidate symmetry after checking geometry and observed appearance | Arbitrary yaw jumps or incorrect hard symmetry |
+| Pan, iron, brush and block | Preserve handles and other orientation cues | Occlusion mistaken for missing geometry; wrong grip-side pose |
+| White desk/cart | Reliable contours, corners and support evidence | Weak texture, foot interaction, off-screen geometry |
+| Stool | Complete geometry consistent with visible intervals | Long body occlusion and unsupported assumptions about seat contact |
 
-Physical cameras: back 5 episodes, front 9, left 11, right 5. Episodes 12–29 were all recorded on 2026-09-10 and 09-11, so each camera's extrinsics most likely stayed the same.
+For bowl cavities, open meshes and thin surfaces, verify the collision representation separately from a convenience convex proxy. Geometry that fills an actual opening can invent penetration. The exact submission mesh remains the authority for official-format calculations.
 
-Starting point: Track 1 ep16 (foam block) and ep12 (pan), using only meshes and parameters reconstructed from Track 1. Use Track 1 episodes 0, 6, 9, 16, and 24 as `dev-mini` for representative ring, hand-held, furniture, simple-object, and body-contact cases. `dev-full` is all 30 Track 1 episodes. These are inspection sets without public ground truth, not labelled development benchmarks. Hold the other stages fixed to compare changes in mesh, scale, and tracking.
+The official packer can weld, simplify and pad a mesh to its budget. Inspect and render the compiled mesh after read-back, including thin structures, holes and contact surfaces. A high-resolution candidate that is correct before packing can still be an invalid geometric choice after packing.
 
-## 5. Validation without public ground truth
+If cross-episode fitting is approved, optimize shared shape/scale with clip-specific motion and camera assumptions. Test leave-one-clip-out asset estimation: fit geometry from two clips, then fit only motion on the third. This tests transfer of image consistency, not hidden 3D accuracy or generalization to unseen objects.
 
-Track 1 has no public reference reconstruction. The project therefore cannot compute official CD-H, CD-O, or reference-relative PEN locally from the released inputs. The organizer's evaluation produces the official metrics. Prediction-only smoothness and geometry-based contact estimates are useful diagnostics, but they are not a reproduction of the hidden-reference evaluation.
+## 7. Bounded, evidence-gated repair
 
-The local export is an internal LeRobot-style schema: metadata JSON/JSONL, per-episode parquet, one generated mesh per object, and MHR arrays. Its storage conventions may be retained without importing another dataset's data. MHR is the submission representation; the corresponding SOMA-X representation may support internal inspection and synthetic metric tests. Verify the conversion on independently generated poses and on Track 1 reprojection, not on Track 2 labels.
+The complete model can be described as a sum of visible-image, visible-depth, temporal-correspondence, contact, collision, motion and prior terms. This is a specification, not a requirement to implement one large unconstrained optimizer.
 
-The SOMA model and object transforms use different axis conventions internally. Maintain the documented OpenCV camera frame and the SOMA conversion in contracts.md, and check them with synthetic transforms and Track 1 visual overlays. Historical measurements made on Track 2 are not the project's calibration or validation evidence.
+Use robust residuals with explicit units and observation reliability. Keep original observations separate from learned priors. Specify the allowed parameter block, interval, displacement bounds, hypothesis budget and rollback rule before each experiment. A lower objective does not justify promotion if independent observations deteriorate.
 
-| Check | Allowed evidence | What it establishes |
-|---|---|---|
-| Contracts and frame coverage | Track 1 frame indices, timestamps, and exported finite arrays | Every input frame has the expected human and object data; shape and coordinate conventions are consistent |
-| Reprojection | Original Track 1 images, estimated masks/keypoints, and rendered predictions | Image consistency, including first-frame, occlusion, and contact failure cases; estimated masks are not ground truth |
-| Mesh and scale | Meshes reconstructed from Track 1, human-aligned estimated depth, floor/table evidence from the same videos | A shared mesh and scale across an object's clips, with plausible human-object depth relationships |
-| Smoothness | The submitted trajectories' second differences | Jitter and static-segment behavior; low acceleration alone does not establish correct motion |
-| Contact | Track 1 reconstruction, rendered views, and approximate geometry checks | A diagnostic for separation or penetration; open and thin meshes can make signed-distance estimates unreliable |
-| Metric primitives | Independently generated synthetic meshes and trajectories with known transforms | Unit-level numerical behavior without external reference assets or fitted Track 2 noise |
+The initial repair order is:
 
-Compare each candidate against a fixed Track 1-derived upstream snapshot on the same clips, settings, model versions, and input hashes. Save per-clip observations and visual overlays, including regressions. Automatic collection and comparison of these diagnostics is follow-up implementation work; the current fake pipeline does not provide real reconstruction quality measurements.
+1. Correct camera/scale or mesh/pose-frame inconsistencies before refining motion.
+2. Repair flagged object pose intervals with fixed geometry and camera, using visible contours/features and clear anchor frames.
+3. Release human root or body controls only with independent image anchors and a bounded change from the baseline.
+4. Release hand parameters only when the visible hand evidence or stable interaction state can constrain them.
+5. Recheck the full sequence, including boundaries of repaired windows, and export from the authoritative native MHR state.
 
-### 5.1 Legacy runtime paths outside the approved workflow
+Use reference-relative acceleration implications from evaluation.md. Prediction self-acceleration is a diagnostic, not the target official error. Do not turn rapid real motion into a smooth, wrong trajectory. A static segment must be established from image/support evidence and contact state, not merely low estimated speed; ambiguous intervals retain a soft prior.
 
-Some code still implements the superseded Track 2 development workflow. The initial runtime restrictions below are implemented but await remote runtime verification; full provenance enforcement remains to be built:
+### Symmetry and occlusion
 
-- The runner defaults to and accepts only dataset `track1`; shared commands should still specify `--dataset track1` explicitly.
-- `v2hoi.download` is now restricted to Track 1 and supports a pinned `--revision`. The README also provides an explicit Track 1 subtree download.
-- `human=tier2`, `motion=tier2`, and `objects=reference` are blocked by the runner's backend factory; their legacy classes also refuse execution.
-- `v2hoi.score` defaults its reference to Track 2 Tier 1, and its internal score uses historical Tier 2 normalization constants. Neither is a project benchmark or merge gate, including for self-checks.
-- The runner rejects `--score` and no longer invokes the reference scorer. A standalone legacy `--strict` success does not certify source data, MHR correctness, or the official submission format.
-- The default exporter named `tier1` is only a legacy serializer label. It reads artifacts from the selected run, not Track 2 files. Export Track 1-derived artifacts and preserve their provenance.
-- The unrestricted test suite includes tests that read real Track 2 files when present and tests of the old internal score. Use the README's self-contained test allowlist until those cases and defaults are updated.
+Use symmetry-aware rotation distances over the verified equivalence group, rather than averaging distinct poses. Geometric symmetry and appearance symmetry can differ. Approximate symmetry is a soft constraint. Selecting a continuous representative does not make an unobserved spin physically observable.
 
-Follow-up implementation must make Track 1 the safe default, retire prohibited backends and normalization from the active workflow, validate artifact provenance, and provide independent Track 1 diagnostics. These are open tasks, not completed behavior.
+Track from clear anchors forward and backward. A small fixed set of competing hypotheses may bridge an occlusion; record their differences and use reappearance evidence to choose. During a reliable grip, object motion relative to the hand is more informative than holding the last camera-space pose. Supported sliding, release and regrasp require different states.
 
-### 5.2 Baselines and self-checks
+Long complete occlusion can remain non-identifiable. Preserve that diagnostic uncertainty even though export requires one continuous trajectory. Filling every frame establishes coverage, not correctness. Do not introduce a learned motion model until these simpler repairs expose a specific remaining failure.
 
-Build the first baseline from Track 1 ep16 and ep12; keep `dev-mini` (Track 1 episodes 0, 6, 9, 16, 24) and `dev-full` (all 30 Track 1 episodes) as fixed inspection sets. Store configuration, model and data versions, artifact hashes, resource use, and before/after visualizations. A baseline made with fake backends is suitable only for interface tests.
+### Contact and collision
 
-Synthetic self-checks should cover identity and known rigid/scale transforms, continuous motion, independently defined occlusions, and closed/open/thin geometry. Geometric error against an identical synthetic reference can be zero; acceleration of a moving trajectory need not be zero because the organizer measures the prediction's own second difference.
+Separate hand grasp, foot push, body support, object support and no-contact states. Minimum hand-surface distance alone does not establish a realistic grasp. Where visible evidence supports it, maintain a contact region in object coordinates, allow explicit release/slip, and check tangential motion as well as penetration.
 
-Previous Tier 2-versus-Tier 1 results, copied reference meshes, and Tier 2-normalized scores are withdrawn from the development and decision process. Do not use their values as targets, thresholds, noise models, or tuning evidence. Track 2 is not a fallback when Track 1 has no ground truth.
+Reducing penetration by moving the hand away can destroy the interaction. Keep the mesh fixed for contact ablations and pair penetration with image fidelity and independently reviewed contact persistence. Uncertain floor/table planes are soft geometric evidence; they are not grounds to invent forces, friction or exact dynamics.
 
-## 6. Official submission
+## 8. Validation and promotion
 
-Sources: the challenge page (toolkit `docs/v2d_challenge/index.html`, v0.4.0, 2026-09-23); the leaderboard aggregation code (`aggregator/tracks.json` and `v2d_aggregate.py` in `github.com/MVerghese/v2d-leaderboard-data`, which feeds the page's leaderboard); the Track 1 dataset README; the organizer's written answers of 2026-09-26 (6.4). As of 2026-09-26, `eval_reconstruction.py` is not published and the Track 1 Kaggle competition pages return 404.
+Begin with episodes 16 (foam block) and 12 (pan). Then use `dev-mini = [0, 6, 9, 16, 24]` for varied failures and `dev-full = all 30` for integration. The first-three-video kit covers only hula hoops and cannot select a universal model or establish whole-project readiness.
 
-### 6.1 What to submit, and where
+Every experiment preserves the baseline and records source/model/config hashes, frame mapping, upstream identities, mesh origin/scale, changed variable blocks, runtime, observations used for fitting, observations reserved for review, and before/after overlays. Metadata-only cache signatures are not content hashes; project dependency checks must verify content explicitly. For broader model-selection claims, keep all clips of an object in the same development or holdout group. Same-object leave-one-clip-out checks remain within-development consistency tests, not unseen-object validation. Once a group has influenced decisions, call it a regression group.
 
-| Item | Confirmed | Source |
-|---|---|---|
-| Platform | Kaggle. Track 1 is split into 5 competitions with one score each: `v2d-challenge-track1-cd-h`, `-cd-o`, `-acc-h`, `-acc-o`, `-pen` | aggregation code |
-| Artifact | The file the official `eval_reconstruction.py` produces on the test split | challenge page |
-| Test split | The 30 public Track 1 videos; the ground truth is held out | dataset README, challenge page |
-| Human | MHR parameter trajectory, hands included (toolkit `v2d_sam3d_body`: `global_rot`, `body_pose_params`, `hand_pose_params`, `scale_params`, `shape_params`, plus translation) | organizer's answers, toolkit |
-| Objects | One metric mesh per object; a 6D pose on every frame, occluded frames included, forming a continuous trajectory | challenge page, organizer's answers |
-| Coordinates | Metric, one world frame. Evaluation fits one Sim(3) on the first frame of the reference trajectory and applies it to the whole clip | challenge page, organizer's answers |
-| Data | Track 1 data only. No Track 2 meshes or poses, and no camera parameters derived from them | organizer's answers |
-| Limits | 5 per week, unlimited in the last 3 days; freeze on 2026-11-04 at 17:00 EST. Scores appear on Kaggle immediately and on the challenge page within 24 hours | challenge page |
+Use independent synthetic sequences for known-answer geometry, native conversion, alignment, occlusion, symmetry, collision topology, and acceleration-error tests. Include genuinely accelerating motion: an unchanged correct prediction should have zero reference-relative acceleration error even when its own acceleration is nonzero. Do not estimate test distributions or tolerances from Track 2.
 
-### 6.2 How it is scored
+Freeze a comparison protocol after baseline observation and before candidate ranking. Publish per-episode outcomes and the worst failures, not only averages. Frame-adjacent samples are correlated; do not present them as independent replication. No universal numerical pass threshold or automatic promotion is implemented today.
 
-| Leaderboard column | Axis | Known definition |
-|---|---|---|
-| CD-H (cm) | accuracy | Chamfer to the MV human mesh |
-| CD-O (cm) | accuracy | Chamfer of the posed object mesh in the world frame to the MV object mesh; pose error counts |
-| ACC-H (cm) | physical | Second difference of the predicted joint trajectory alone; measures smoothness, no reference subtracted |
-| ACC-O (cm) | physical | Second difference of the predicted object trajectory alone |
-| PEN (cm) | physical | Human–object penetration, "compared to MV" according to the page; the competition is not live yet |
+Promote only when:
 
-All are lower-is-better. The two axes weigh equally for the awards, and the track winner is "first on the track leaderboard". Each Kaggle competition keeps a team's best submission. The challenge page joins the 5 competitions into one table by Kaggle usernames, sorted by CD-H by default and re-sortable by any column; teams missing a column are marked incomplete.
+- Provenance, native-format validity, frame coverage and asset identity remain valid.
+- The targeted failure improves on held-out observation evidence or permitted official results.
+- Required image/contact checks do not exceed predeclared degradation limits.
+- Repaired-window boundaries and the initial scored region remain coherent.
+- A reviewer records trade-offs and an immutable rollback baseline.
 
-The page says "acceleration error compared to MV", while the organizer's answer says "from predicted trajectories alone". We follow the later, more specific answer.
+A Pareto comparison across accuracy, motion fidelity and contact is preferable to an invented scalar leaderboard formula. Full official scores require the approved reference/evaluation process. Keep publication, deployment and official submission as separate actions from local validation.
 
-### 6.3 Not yet published, and our local assumptions
+## 9. Research hypotheses, not established contributions
 
-The metric choices below record unverified assumptions in the legacy scorer, for review when implementing the official adapter or independent synthetic tests. They do not authorize running the legacy scorer or accessing Track 2 references. Track 1 development uses the diagnostics in section 5; reference-based CD and PEN cannot be measured locally on Track 1.
+Potential research directions are observability-gated shared-asset optimization, event-conditioned symmetry-aware occlusion recovery, and evidence-constrained hand contact repair. Factor graphs, multiple hypotheses, shared shape, and contact losses are established ideas; using them together is not automatically a new method.
 
-| Question | Local choice |
-|---|---|
-| Submission file format: how MHR is stored, which formats for meshes and poses | Internal metadata/parquet/mesh/MHR schema (section 5); adapt and verify export when the official format is available |
-| Which points the first-frame Sim(3) is fitted on | First-frame body joints, fingers excluded |
-| ACC is labelled cm: cm/frame², or converted to seconds | cm/frame² at 30 fps |
-| Which joints ACC-H uses, and which statistic | Mean per-frame acceleration magnitude over the 77 SOMA-X joints; body and fingers also reported |
-| Which point on the object ACC-O uses, and whether rotation counts | Translation of the mesh centroid; angular acceleration is a diagnostic |
-| Which frames CD uses, vertices or surface samples, visible parts or everything | Human: all vertices on every frame; object: reference-visible frames, 10k surface samples |
-| Definition of PEN | Per frame, the deepest human vertex inside the object; absolute difference between prediction and reference |
-| How the 30 episodes are aggregated: per episode or per frame | Mean over episodes |
-| How the 5 numbers combine into a ranking, and how each axis combines its metrics | Not combined; the 5 numbers are reported |
-| Whether the 5 weekly submissions are shared across the 5 competitions or counted per competition | Planned as shared |
+Each hypothesis requires an incremental ablation, matched input and compute budgets, natural failure cases, independent synthetic known-answer tests, and comparison against the preserved native baseline. Cross-episode experiments additionally require rule confirmation. Detailed experiment and rejection plans are in implementation-plan.md. If evidence demonstrates integration reliability rather than algorithmic novelty, report that result honestly.
 
-### 6.4 Organizer's answers
+## 10. Historical assumptions and open authority questions
 
-On 2026-09-26 the organizer replied to Zijun. The text follows, then what it means for the pipeline.
+The 2026-09-26 organizer email, preserved in [the earlier design revision](https://github.com/Seanwilliam2077/video-to-hoi/blob/6a53e84/docs/design.md#64-organizers-answers), said acceleration measured predicted trajectories alone. This is retained as dated history, not the active implementation specification. The owner's final requirements supplied on 2026-10-03 explicitly require reference-relative second differences, consistent with the inspected kit. That design choice is resolved; evaluation.md retains the source history and the implementation version to reproduce. Do not silently combine the email, the legacy scorer, the paper, and the current kit.
 
-> The eval script does Sim(3) alignment of submitted results with the first frame of the reference trajectory.
-> Please submit human trajectories in MHR representation.
-> Object chamfer distance is computed from the posed mesh in world frame.
-> Acceleration error is computed as the second order difference from predicted trajectories alone. It measures the smoothness of trajectories.
-> Yes, please provide a continuous trajectory for each object, including frames where it may be occluded.
-> Are you referring to Tier 1 assets for Track 2? Please do not use the assets from Track 2. Instead, reconstruct objects and estimate parameters only from data provided by Track 1. We will clarify this for other participants as well.
+The old 77-joint/finger acceleration assumption, body-joint alignment approximation, reference-relative penetration approximation, and claim that the official adapter is simply unpublished are superseded by the current source review. No part of that update relaxes the Track 1-only policy.
 
-| Question | Decision |
-|---|---|
-| Alignment | The eval script fits one Sim(3) on the first frame of the reference trajectory and applies it to the whole clip. No per-frame alignment |
-| Human | Submit MHR parameter trajectories |
-| Object Chamfer | The posed mesh in the world frame; pose error counts toward this score |
-| Acceleration | Second difference of the submitted trajectory only; measures smoothness, and the multi-view reference is not subtracted |
-| Occlusion | Every object needs a continuous trajectory, with poses on occluded frames too |
-| Track 2 | No Track 2 meshes or poses, and no camera parameters derived from them. Objects and parameters are estimated from Track 1 data only |
-
-Consequences: the first frame's human and object must be reliable, and the scale must not drift within a sequence. Occlusions are filled by interpolation or continued tracking, never left as missing frames or all-zero poses. Smoothing lowers acceleration but can erase real motion; review it with Track 1 reprojection and contact evidence. The project excludes Track 2 from development, tuning, validation, scorer self-checks, baselines, and submissions. This also supersedes the earlier assumption that Track 2 could be used for tuning or isolated scorer checks.
-
-## 7. Timeline
-
-| Week | Due | Work |
-|---|---|---|
-| 1 | 10-01 | Confirm remaining format and metric details, request the gated weights (`facebook/sam-3d-body-dinov3`, `facebook/sam-3d-objects`, `nvidia/cari4d_commercial`), set up compute; test contracts and metric primitives on independent synthetic fixtures |
-| 2 | 10-08 | Run CARI4D on Track 1 ep16 and ep12 with Track 1-generated meshes; preserve the first real baseline and visual diagnostics; validate the official export when available |
-| 3 | 10-15 | Object layer (several candidates + scale merging), per-camera intrinsics, world frame; submit a complete version once all 30 episodes have output |
-| 4–5 | 10-29 | Static segments, symmetry, occlusion re-registration, contact for sitting and foot-pushing, hula hoop |
-| 6 | 11-04 | Tune smoothing and joint optimization using Track 1 diagnostics and official results; concentrate submissions in the last 3 days |
+Before submission, verify which official kit version implements the final requirements and resolve the first-frame selection mapping, native conversion details, canonical object origin, allowed cross-episode estimation, and operational competition requirements through the process in evaluation.md. The owner's six stated requirements are fixed; these implementation questions do not reopen them. Use G0-G4 gates rather than the expired date-based September schedule.

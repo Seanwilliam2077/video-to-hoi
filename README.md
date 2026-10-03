@@ -1,6 +1,8 @@
 # video-to-hoi
 
-Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Data (V2D) Challenge. From one static RGB video and a text description of the object, the pipeline recovers the person (body and hands, as MHR parameters), the object's metric mesh, and the object's 6D pose on every frame, in one metric world frame. Kaggle scores five metrics: CD-H and CD-O for accuracy, ACC-H and ACC-O for smoothness, and PEN for human–object penetration. The leaderboard freezes on 2026-11-04 at 17:00 EST.
+Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Data (V2D) Challenge. From one static RGB video and an object description, the planned pipeline recovers the person as MHR parameters, the object's metric mesh, and its 6D pose on every frame. The current submission kit evaluates CD-H/CD-O geometry, ACC-H/ACC-O reference-relative acceleration, and hand–object penetration (PEN). The leaderboard freezes on 2026-11-04 at 17:00 EST.
+
+The revised plan starts with one real CARI4D baseline, then permits bounded corrections supported by independent video evidence. The official submission kit is available; this repository's adapter and real reconstruction backends remain to be implemented. The registered pipeline still runs fake backends for interface checks, with no measured reconstruction results.
 
 ![The video-to-hoi pipeline: six stages owned by four modules](docs/pipeline.svg)
 

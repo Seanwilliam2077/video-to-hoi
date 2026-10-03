@@ -1,3 +1,5 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>video-to-hoi Team Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,6 +138,7 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
 <main class="container">
   <section class="intro" aria-label="Project">
     <p>Track 1 of the NVIDIA Video to Data (V2D) Challenge. From one static RGB video and a text description of the object, recover the person as MHR parameters, the object's metric mesh, and its 6D pose on every frame.</p>
+    <p>Plan updated October 3, 2026: establish one real CARI4D baseline, repair only evidence-supported failures, and verify the exact official export. The submission kit is available; adapters and real runs are still pending.</p>
     <div class="facts">
       <span class="fact">Leaderboard freeze <b id="freeze-days">38 days</b></span>
       <span class="fact">Nov 4, 2026, 17:00 EST</span>
@@ -159,22 +162,22 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
       </a>
       <a class="card" style="--c: var(--m1)" href="https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg" target="_blank" rel="noopener">
         <span class="name"><span class="num">①</span> <span>Platform &amp; perception</span></span>
-        <p class="desc">The machine, masks, intrinsics and depth, the CARI4D baseline, export, CI and Kaggle submissions.</p>
+        <p class="desc">Immutable observations, the real CARI4D adapter, official packing and reload checks, provenance, and independent diagnostics.</p>
         <dl><dt>Stages</dt><dd><code>inputs</code> <code>export</code></dd><dt>Metrics</dt><dd>all five, as gatekeeper</dd><dt>Branch</dt><dd><code>platform</code></dd></dl>
       </a>
       <a class="card" style="--c: var(--m2)" href="https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk" target="_blank" rel="noopener">
         <span class="name"><span class="num">②</span> <span>Human</span></span>
-        <p class="desc">SAM 3D Body to MHR on every frame, one identity per clip, and the DepthScale that sets the metric scale.</p>
+        <p class="desc">Native MHR as the authoritative state, fixed identity and structural scales, verified conversion, and evidence-bounded root and hand correction.</p>
         <dl><dt>Stages</dt><dd><code>human</code></dd><dt>Metrics</dt><dd>CD-H</dd><dt>Branch</dt><dd><code>human</code></dd></dl>
       </a>
       <a class="card" style="--c: var(--m3)" href="https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8" target="_blank" rel="noopener">
         <span class="name"><span class="num">③</span> <span>Object</span></span>
-        <p class="desc">One metric mesh per object and a 6D pose on every frame, occluded frames included.</p>
+        <p class="desc">Visible-surface mesh selection, a fixed mesh origin and scale, structured symmetry, and continuous poses with explicit occlusion hypotheses.</p>
         <dl><dt>Stages</dt><dd><code>objects</code> <code>motion</code></dd><dt>Metrics</dt><dd>CD-O</dd><dt>Branch</dt><dd><code>object</code></dd></dl>
       </a>
       <a class="card" style="--c: var(--m4)" href="https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV" target="_blank" rel="noopener">
         <span class="name"><span class="num">④</span> <span>Temporal &amp; physics</span></span>
-        <p class="desc">Smoothing, static segments, occlusion fill, contact and penetration for the human and the object together.</p>
+        <p class="desc">Motion timing and amplitude, simultaneous contact relations, bounded joint repair, independent acceptance checks, and rollback.</p>
         <dl><dt>Stages</dt><dd><code>refine</code></dd><dt>Metrics</dt><dd>ACC-H, ACC-O, PEN</dd><dt>Branch</dt><dd><code>physics</code></dd></dl>
       </a>
     </div>
@@ -184,7 +187,7 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
     <h2 id="pipe-h">Pipeline</h2>
     <figure>
       <img src="pipeline.svg" alt="The video-to-hoi pipeline: six stages owned by four modules, from the Track 1 video to the export.">
-      <figcaption>Six stages owned by four modules. The human sets the metric scale the object module uses; refine works on the human and the object together.</figcaption>
+      <figcaption>Six stages owned by four modules. Human geometry supplies a scale prior; bounded refinement preserves video evidence. The diagram is the target design, not an implemented real-model pipeline.</figcaption>
     </figure>
   </section>
 
@@ -194,6 +197,9 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi#model-weights-and-data" target="_blank" rel="noopener">Weights and data</a><span>Download commands for the Track 1 data and every model</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/development.md" target="_blank" rel="noopener">Developer guide</a><span>Setup, running the pipeline, validation and tests</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/design.md" target="_blank" rel="noopener">Design notes</a><span>Architecture and the official submission rules</span></li>
+      <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md" target="_blank" rel="noopener">Final requirements audit</a><span>Six requirements checked against the current implementation</span></li>
+      <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md" target="_blank" rel="noopener">Evaluation specification</a><span>Verified kit semantics, sources, and remaining questions</span></li>
+      <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md" target="_blank" rel="noopener">Implementation gates</a><span>Owners, acceptance evidence, ablations, and rollback</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/workflow.md" target="_blank" rel="noopener">Team workflow</a><span>How modules develop in parallel and merge</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/contracts.md" target="_blank" rel="noopener">Stage contracts</a><span>The files the stages exchange</span></li>
       <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/tree/main/docs/track1-videos" target="_blank" rel="noopener">Track 1 video gallery</a><span>Previews of all 30 videos; open it from a clone</span></li>
@@ -218,13 +224,17 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
     "Leaderboard freeze": "排行榜冻结", "Frozen": "已冻结", "Nov 4, 2026, 17:00 EST": "美东时间 2026 年 11 月 4 日 17:00", "Metrics": "指标", "Data": "数据", "Track 1 only": "只用 Track 1",
     "Project status": "项目进展", "Plain-Chinese progress for leadership and product: what is done, what is blocked, and what support we need.": "给领导和产品看的中文进展：做完了什么、卡在哪里、需要什么支持。", "Open the status page": "打开进展页",
     "Track 1 reference": "Track 1 比赛资料", "Challenge rules and scoring, the 30 Track 1 videos, development without ground truth, and our questions to the organizer.": "比赛规则和评分、30 段 Track 1 视频、没有真值时怎么开发，以及我们问主办方的问题。", "Open the reference": "打开比赛资料",
-    "The machine, masks, intrinsics and depth, the CARI4D baseline, export, CI and Kaggle submissions.": "机器、掩码、内参和深度、CARI4D 基线、导出、CI 和 Kaggle 提交。",
-    "SAM 3D Body to MHR on every frame, one identity per clip, and the DepthScale that sets the metric scale.": "每一帧用 SAM 3D Body 得到 MHR，每个片段一个身份，以及决定度量尺度的 DepthScale。",
-    "One metric mesh per object and a 6D pose on every frame, occluded frames included.": "每个物体一个度量网格，以及每一帧（包括被遮挡的帧）的 6D 位姿。",
-    "Smoothing, static segments, occlusion fill, contact and penetration for the human and the object together.": "人体和物体一起的平滑、静止段、遮挡补全、接触和穿透。",
+    "Plan updated October 3, 2026: establish one real CARI4D baseline, repair only evidence-supported failures, and verify the exact official export. The submission kit is available; adapters and real runs are still pending.": "方案更新于 2026 年 10 月 3 日：先建立真实 CARI4D 基线，只修正视频证据支持的问题，并核验最终正式导出。官方提交工具已公布；适配和真实运行仍待完成。",
+    "Immutable observations, the real CARI4D adapter, official packing and reload checks, provenance, and independent diagnostics.": "固定观测、真实 CARI4D 适配、正式打包和重载检查、来源追踪，以及独立诊断。",
+    "Native MHR as the authoritative state, fixed identity and structural scales, verified conversion, and evidence-bounded root and hand correction.": "以原生 MHR 为唯一权威状态，固定身份和结构尺度，验证转换，并依据证据有限修正根部与手部。",
+    "Visible-surface mesh selection, a fixed mesh origin and scale, structured symmetry, and continuous poses with explicit occlusion hypotheses.": "按可见表面选择网格，固定原点和尺度，明确对称性，并在连续轨迹中记录遮挡假设。",
+    "Motion timing and amplitude, simultaneous contact relations, bounded joint repair, independent acceptance checks, and rollback.": "保持动作时序与幅值，表达同时存在的接触关系，有限联合修正，独立验收并支持回退。",
     "Stages": "阶段", "Branch": "分支", "all five, as gatekeeper": "全部五个，负责把关",
     "The video-to-hoi pipeline: six stages owned by four modules, from the Track 1 video to the export.": "video-to-hoi 流水线：从 Track 1 视频到导出，六个阶段分属四个模块。",
-    "Six stages owned by four modules. The human sets the metric scale the object module uses; refine works on the human and the object together.": "六个阶段分属四个模块。人体决定物体模块使用的度量尺度；refine 同时处理人体和物体。",
+    "Six stages owned by four modules. Human geometry supplies a scale prior; bounded refinement preserves video evidence. The diagram is the target design, not an implemented real-model pipeline.": "六个阶段分属四个模块。人体几何提供尺度先验；有限修正应保持视频证据。图中是目标设计，真实模型流水线尚未实现。",
+    "Final requirements audit": "最终要求审计", "Six requirements checked against the current implementation": "逐项核对六条要求与当前实现",
+    "Evaluation specification": "评测规范", "Verified kit semantics, sources, and remaining questions": "已核实的工具包定义、来源及待确认问题",
+    "Implementation gates": "实施关口", "Owners, acceptance evidence, ablations, and rollback": "负责人、验收证据、消融实验与回退",
     "Weights and data": "权重和数据", "Download commands for the Track 1 data and every model": "Track 1 数据和所有模型的下载命令",
     "Developer guide": "开发指南", "Setup, running the pipeline, validation and tests": "环境配置、运行流水线、验证和测试",
     "Design notes": "设计说明", "Architecture and the official submission rules": "架构和官方提交规则",

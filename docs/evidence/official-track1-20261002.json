@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "scope": "Official Track 1 specification audit; no reconstruction measurements",
+  "audit_date": "2026-10-02",
+  "reverified_at_utc": "2026-10-03T06:14:07.0922626Z",
+  "client_timezone": "Asia/Shanghai",
+  "repository_base_commit": "6a53e84",
+  "sources": {
+    "challenge_page": "https://nvidia-isaac.github.io/video_to_data/v2d_challenge/",
+    "faq": "https://nvidia-isaac.github.io/video_to_data/v2d_challenge/assets/v2d_challenge_2026_faqs.pdf",
+    "faq_read_date": "2026-10-02",
+    "faq_reverification_note": "The 2026-10-03 browser fetch failed; no new FAQ version is claimed.",
+    "track1_dataset_readme": "https://huggingface.co/datasets/nvidia/video_to_data_challenge/blob/main/track_1/README.md",
+    "kit": {
+      "url": "https://nvidia-isaac.github.io/video_to_data/v2d_challenge/assets/v2d_submission_kit.zip",
+      "content_length": 695124,
+      "last_modified": "2026-10-02T06:12:40.0000000+00:00",
+      "etag": "\"6abf4b58-a9b54\"",
+      "whole_zip_sha256": null,
+      "whole_zip_sha256_reason": "The whole archive was not downloaded; only central-directory metadata and allowlisted code/documentation members were read."
+    }
+  },
+  "acquisition": {
+    "method": "HTTP HEAD, HTTP 206 for final 22-byte ZIP EOCD and central directory, then exact allowlisted local headers and compressed member ranges; member bytes decompressed and hashed in memory.",
+    "archive_root": "v2d_submission_kit/",
+    "central_directory_offset": 690035,
+    "central_directory_size": 5067,
+    "member_hash_algorithm": "SHA-256 over exact uncompressed bytes",
+    "downloaded_entire_archive": false,
+    "model_inference_run": false,
+    "official_scores_computed": false,
+    "sample_submission_parquet_read": false,
+    "track2_data_or_sample_payload_read": false,
+    "note": "The member list below is the complete content allowlist for the re-verification. Code/documentation only; no dataset, model, hidden reference, or sample payload was extracted. ETag/Last-Modified are server metadata, not cryptographic identity."
+  },
+  "members": [
+    {
+      "bytes": 442,
+      "path": "eval_reconstruction.py",
+      "sha256": "73433f5e8c172979f342f854edfd8a85f61106c7b0862ed006a3f789c35bf951",
+      "lines": 18
+    },
+    {
+      "bytes": 11149,
+      "path": "tools/pack_reconstruction.py",
+      "sha256": "d197a2110c5f52dd08ac65c27aa3d519799a166ab9a4ea06b3f6ceb163f0d6b1",
+      "lines": 229
+    },
+    {
+      "bytes": 4348,
+      "path": "tracks/track_1/README.md",
+      "sha256": "ad8eac8607294920aee5eb9288fc3cb602600c1329d5ddddbf49d95372cd9994",
+      "lines": 77
+    },
+    {
+      "bytes": 684,
+      "path": "metric_code/README.md",
+      "sha256": "5562b1b89a3390d47889c919e25c67ab9b8339c4a67e85b37c4ee6c29e0fab9e",
+      "lines": 14
+    },
+    {
+      "bytes": 49672,
+      "path": "metric_code/track_1/ACC-H.py",
+      "sha256": "6275639576aea6b8fed4ac04ea75d3658abe81d790542d1512055245b6d1f6e8",
+      "lines": 1014
+    },
+    {
+      "bytes": 49672,
+      "path": "metric_code/track_1/ACC-O.py",
+      "sha256": "ce01ca6a9d70cf775a7b149eecf02a3f8cb5b5c653b4430e8569fdce276fcacf",
+      "lines": 1014
+    },
+    {
+      "bytes": 49670,
+      "path": "metric_code/track_1/CD-H.py",
+      "sha256": "2bb6e24941fb7b7c7268ced7d367a0ce955c99f8fccf6c6af74a18d8a13ff319",
+      "lines": 1014
+    },
+    {
+      "bytes": 49670,
+      "path": "metric_code/track_1/CD-O.py",
+      "sha256": "2acda74fe82afd81a9041acf9bd131f20d921fdb2f9e8dc46f6502e2f8c12bd9",
+      "lines": 1014
+    },
+    {
+      "bytes": 50109,
+      "path": "metric_code/track_1/PEN.py",
+      "sha256": "07585d38cc0911f0d9b14c53d482302c7b9cc31365a394127687798136604021",
+      "lines": 1023
+    },
+    {
+      "bytes": 24344,
+      "path": "v2dlb/mhr_submission.py",
+      "sha256": "06fbd58d07bae1c583a92598f879771a4805ccea3e8346605975bcf5007b1fa3",
+      "lines": 483
+    },
+    {
+      "bytes": 25647,
+      "path": "v2dlb/mhr_metrics.py",
+      "sha256": "73077b65b5c3e0204307feef784317aab8c733d7462b6b8e6f4f397f7b91d2e0",
+      "lines": 477
+    },
+    {
+      "bytes": 2031,
+      "path": "v2dlb/mesh_budget.py",
+      "sha256": "42ab8ab35f37b806fb1465eadd96abe43eaac04575da47a4855d08eefe6167b0",
+      "lines": 41
+    },
+    {
+      "bytes": 21553,
+      "path": "tools/track1/mesh_to_mhr_params.py",
+      "sha256": "c799ad612fca19620563fcb93bf61e5a4adad0a04251482358746b5f27f8a52e",
+      "lines": 390
+    }
+  ],
+  "specification_anchors": [
+    {
+      "claim": "Packer episode NPZ fields and mesh paths",
+      "member": "tools/pack_reconstruction.py",
+      "lines": [
+        16,
+        27,
+        125,
+        161
+      ]
+    },
+    {
+      "claim": "Final Parquet columns, complete required rows, finite values and commit URL",
+      "member": "tools/pack_reconstruction.py",
+      "lines": [
+        92,
+        103
+      ]
+    },
+    {
+      "claim": "Native pose parameter conversion and root-translation unit",
+      "member": "tools/track1/mesh_to_mhr_params.py",
+      "lines": [
+        41,
+        41,
+        227,
+        227,
+        294,
+        352
+      ]
+    },
+    {
+      "claim": "First scored-frame alignment; object scale and translation; contiguous acceleration windows",
+      "member": "metric_code/track_1/ACC-H.py",
+      "lines": [
+        634,
+        697
+      ]
+    },
+    {
+      "claim": "Symmetric Chamfer is the sum of directed means",
+      "member": "metric_code/track_1/CD-H.py",
+      "lines": [
+        246,
+        258
+      ]
+    },
+    {
+      "claim": "Reference-relative second differences, without FPS scaling",
+      "member": "metric_code/track_1/ACC-O.py",
+      "lines": [
+        261,
+        280
+      ]
+    },
+    {
+      "claim": "PEN averages nonnegative depths over all supplied hand points, including zero depth",
+      "member": "v2dlb/mhr_metrics.py",
+      "lines": [
+        320,
+        337
+      ]
+    },
+    {
+      "claim": "PEN own-mesh computation and reference alignment scale",
+      "member": "v2dlb/mhr_submission.py",
+      "lines": [
+        450,
+        466
+      ]
+    },
+    {
+      "claim": "Mesh welding, simplification and padding; no origin normalization",
+      "member": "v2dlb/mesh_budget.py",
+      "lines": [
+        15,
+        40
+      ]
+    },
+    {
+      "claim": "Code-only scoring copies omit model and held-out reference assets",
+      "member": "metric_code/README.md",
+      "lines": [
+        3,
+        6
+      ]
+    }
+  ],
+  "unresolved": [
+    "Exact sample row IDs, scored first frames, episode membership and mesh budgets have not been parsed in this audit.",
+    "Host MHR role-index arrays and body asset are omitted from the code-only scorers; complete host parity has not been established.",
+    "No canonical object-origin convention was found in the inspected material; ACC-O acts on object translation.",
+    "The inspected per-episode payload does not enforce a shared mesh across clips; permission for cross-clip fitting needs confirmation.",
+    "No verified mapping exists yet between this repository's old wrapper mhr_* fields and native MHR model_params[204].",
+    "The general identical-reference-is-zero description does not universally hold for the inspected PEN formula.",
+    "No official metric aggregation-to-points formula or local total leaderboard score is asserted."
+  ]
+}

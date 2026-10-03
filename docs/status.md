@@ -45,7 +45,7 @@ Keep the fact and change the wording. These rewrites are already on the page:
 | No SSH access; upload a ZIP and use the server console | 没法远程登录这台服务器，只能把文件打包上传，再在服务器自带的操作界面里操作 |
 | Hugging Face login works, but the gated CARI4D and SAM 3D weights return 403 | 账号能正常登录模型网站，但三个模型要单独申请使用权限，光能登录还不够 |
 | iOA blocks Codex Google Drive access; the user confirms manual downloads are allowed | 公司只限制自动助手访问，项目负责人可以自行下载；两组必需模型文件仍待取得 |
-| The five leaderboard metrics | 准不准、顺不顺、真不真实 |
+| The five leaderboard metrics | 准不准、动作像不像、真不真实 |
 
 Round sizes and counts, or leave them out, when the exact number means nothing to the reader.
 

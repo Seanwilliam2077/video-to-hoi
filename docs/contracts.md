@@ -2,6 +2,8 @@
 
 The pipeline's stages exchange data through files in a run directory. This page specifies those files; `src/v2hoi/contracts.py` implements their formats. The current exporter writes an internal artifact, not a verified official submission, and validates only the refined human, motion, and object mesh. How the team splits the stages is in [workflow.md](workflow.md).
 
+**Implementation status, 2026-10-03:** the directory layout and artifact tables below describe implemented **contract v1**. The official evaluation kit is now available and exposes incompatibilities with v1; documenting its format does not migrate existing artifacts. The proposed v2 section at the end is a future contract change, not a claim that `CONTRACT_VERSION`, adapters or backends have changed. See [evaluation.md](evaluation.md) and gate G0 in [implementation-plan.md](implementation-plan.md).
+
 **Data boundary:** Develop, tune, self-check, and validate with Track 1-derived artifacts or self-created synthetic tests. Submission assets must come from Track 1 inputs and the reconstruction built from them; synthetic fixtures are tests, not submission assets. Do not use Track 2 data, assets, trajectories, reference meshes, or labels for any of these purposes. Track 1 has no public ground truth, so an official ground-truth-based local score is unavailable.
 
 ## Run directory
@@ -28,7 +30,7 @@ Stages run in this order: inputs, human, objects, motion, refine, export.
 
 ## Conventions
 
-- **Frame.** Everything is in the clip's camera frame: OpenCV axes (x right, y down, z forward), metres. The camera is static within a clip, so the camera frame is also the submission's world frame. The official evaluation fits one Sim(3) on the first frame, which makes every rigid choice of world equivalent.
+- **Frame.** V1 stores the scene in the clip's OpenCV camera frame (x right, y down, z forward), in metres. The owner's final clarification in this conversation (2026-10-03) requires one Sim(3) fit using only human geometry at the first reference frame and the same transform applied to human and object for all frames. The inspected public kit uses the first scored frame; their index mapping is unresolved and must be made explicit before adapter acceptance. Neither per-frame fitting nor separate object alignment meets the owner target. Alignment cannot repair relative scale or coordinate mistakes; verify units, axes and parameter semantics explicitly.
 - **Human convention.** SOMA-X parameters are stored in the SOMA convention (y up). `body.SomaBody` output multiplied by `diag(1, -1, -1)` is in the camera frame. This conversion is part of the internal schema and does not require Track 2 labels.
 - **Time.** One entry per video frame. Every per-frame array covers every frame of the clip and holds no NaN or inf. Occluded frames are filled, never left out.
 - **Units.** Metres, radians, pixels.
@@ -44,7 +46,7 @@ Stages run in this order: inputs, human, objects, motion, refine, export.
 | `fx`, `fy`, `cx`, `cy` | pinhole intrinsics in pixels; the principal point lies inside the image |
 | `camera` | physical camera name, when the Track 1 metadata gives it |
 
-A physical camera gets one set of intrinsics, merged over its clips (`stages.inputs.merge_intrinsics`).
+V1 can merge intrinsics over a physical-camera group (`stages.inputs.merge_intrinsics`). A shared camera name alone does not verify unchanged crop, resolution or intrinsics; proposed real backends must test that assumption and retain an independent per-clip fallback.
 
 ### Masks: `inputs/<episode>/masks.npz`
 
@@ -70,7 +72,7 @@ A physical camera gets one set of intrinsics, merged over its clips (`stages.inp
 | `mhr_shape` | 45 | MHR shape parameters |
 | `mhr_transl` | 3 | MHR translation, camera frame |
 
-The SOMA-X fields feed the current internal parquet serializer and can support self-created synthetic checks. The MHR fields are intended for the official submission; their shapes follow SAM 3D Body's output (toolkit `v2d_sam3d_body`) until the official format is published. This schema compatibility does not authorize reading Track 2 data. A clip has one person, so the identity should be one vector repeated over frames (`stages.human.lock_identity`).
+The SOMA-X fields feed the current internal parquet serializer and can support self-created synthetic checks. The MHR fields are historical placeholders, not a verified official representation. In particular, v1's separate pose arrays and `mhr_scale[28]` must not be renamed or padded into the official native `pose[T,136]`, `scales[68]`, `shape[45]` contract. Implement a validated producer/converter before export. A clip has one person, so the v1 identity helper repeats a clip-level vector (`stages.human.lock_identity`); the proposed native contract stores static shape/scales once. None of this authorizes reading Track 2 data.
 
 ### DepthScale: `human/<episode>/depth_scale.json`
 
@@ -79,11 +81,11 @@ The SOMA-X fields feed the current internal parquet serializer and can support s
 | `scale` | metric depth = `scale` × `Depth.depth`; one value per clip, positive |
 | `method` | how it was estimated |
 
-The human is the only metric anchor (design 3.2): object mesh scales and tracking use the scaled depth, so objects land at the same depth as the hands.
+The intended v1 convention uses human-derived scale to align depth before object mesh scaling and tracking. Real producers and consumers of this scale are not implemented; the fake human writes a fixed value. A common scale convention would not guarantee metric accuracy or contact. Proposed refinement treats human scale as an uncertain prior and checks it against independent image and support evidence.
 
 ### ObjectAsset: `objects/<object>/object.json` and `mesh.glb`
 
-One per object, shared by all of its clips. `mesh.glb` is in metres, in the object's canonical frame; the largest side of its bounding box is between 2 cm and 3 m.
+V1 stores one asset per object name, so its serializer shares that file across the object's clips. This is a repository design choice, not a confirmed official requirement or permission to pool evidence across episodes. Keep cross-episode reconstruction disabled pending organizer clarification; the proposed v2 distinguishes asset identity from the episodes allowed to contribute evidence. `mesh.glb` is in metres, in the object's canonical frame; v1 checks that its largest bounding-box side lies between 2 cm and 3 m.
 
 | Field | Meaning |
 |---|---|
@@ -100,11 +102,13 @@ One per object, shared by all of its clips. `mesh.glb` is in metres, in the obje
 | `T_cam_obj` | 4 × 4 | maps mesh coordinates to the camera frame; proper rotation, last row `[0, 0, 0, 1]` |
 | `confidence` | scalar | 0–1, how much the tracker trusts the frame; 0 marks a frame filled without evidence |
 
-Every frame has a pose, occluded ones included. The tracker fills frames it cannot see simply (holding the last pose, `stages.motion.hold_missing`) with confidence 0; the refine stage decides how to fill them properly.
+The contract requires a pose on every frame, occluded ones included. The `stages.motion.hold_missing` helper can hold the preceding pose, or the first available pose for leading gaps, with confidence 0 on filled frames. No registered real tracker currently uses this helper, and real occlusion repair remains to be implemented.
+
+V1 validates finite values and proper transforms but does not enforce the documented confidence interval. The scalar is not a calibrated probability and does not distinguish translation, orientation and visibility uncertainty. The registered refine backend currently passes inputs through unchanged.
 
 ### RefinedHuman and RefinedMotion: `refine/<episode>/human.npz`, `refine/<episode>/motion.npz`
 
-Same fields as Human and Motion, after temporal and contact refinement: smoothing, static segments, low-confidence frames, contact. Export reads these. It detects a raw human or motion artifact from a nearer upstream run than the refined artifact, but it does not yet detect a same-run overwrite or all changed dependencies. Re-run refine whenever its inputs change.
+Same fields as Human and Motion, reserved for the refinement output. The registered backend currently copies its inputs unchanged; temporal, occlusion and contact repairs are planned. Export reads these artifacts. It detects a raw human or motion artifact from a nearer upstream run than the refined artifact, but it does not yet detect a same-run overwrite or all changed dependencies. Re-run refine whenever its inputs change.
 
 ### Internal export schema: `export/`
 
@@ -118,7 +122,7 @@ export/mesh/<object>/<object>.glb
 export/mhr/episode_XXXXXX.npz
 ```
 
-Poses are copied unchanged, since the camera frame is the world frame. The official submission exporter is not implemented. A ground-truth-based score of Track 1 is unavailable locally because Track 1 has no public ground truth.
+Poses are copied unchanged in this internal format. The official submission exporter is not implemented, although the official kit is available. Reference-dependent CD/ACC cannot be evaluated locally on public Track 1 ground truth because none is released. Current official PEN is predicted-hand penetration into the submitted object, not a reference difference, but its final value uses the reference-derived alignment scale. Unaligned local penetration is a diagnostic, not final official PEN. Matching the permitted calculation requires a verified adapter and evaluator configuration, not the legacy scorer.
 
 ## Upstream runs
 
@@ -170,3 +174,24 @@ Changing a field's meaning or shape bumps `CONTRACT_VERSION`. Do it in a small P
 - Depth has no real producer yet. The fake one writes a flat wall at stride 8.
 - There is no public Track 1 ground truth for local official scoring. Test metric primitives with independently generated geometry using the test command in the README. The full legacy scorer still uses Tier 2-derived normalization values, so its CLI is outside this workflow even with synthetic reference files.
 - Masks are stored whole-clip: about 0.4 MB compressed for an empty 900-frame clip, and about 400 MB in memory once loaded. If real masks turn out too large, they will move to per-frame chunks under a new contract version.
+
+## Proposed contract v2: not implemented
+
+The migration is a separate reviewed contract PR under G0. It must retain source v1 files unchanged, declare which fields can be converted, and fail explicitly where a trustworthy native reconstruction cannot be recovered. Array dimensions alone do not establish equivalent MHR semantics.
+
+| Proposed record | Required meaning and validation |
+|---|---|
+| `NativeHuman` / `NativeMHR204` | Proposed authoritative native MHR `pose[T,136]`, static `scales[68]`, static `shape[45]`, original frame IDs/timestamps and exact rig/decoder identity. Native parameter units are not uniformly metres/radians; follow the pinned converter, particularly for root translation. Preserve the upstream native artifact. Derive SOMA diagnostics from this authority and check forward geometry and export/reload consistency; never maintain independently optimized MHR and SOMA truths. |
+| `Observations` | Per-source masks/keypoints/depth/flow as applicable, validity and visibility, frame IDs, producer/model hashes and uncertainty. Record whether evidence is predicted, independently reviewed or held out for evaluation. Estimator confidence, fit residuals and posterior uncertainty are separate fields. Optimizers must not freely lower observation weights to hide errors. |
+| `ObjectGeometry` | Mesh hash, canonical frame, unit/scale convention, topology/collision representation, generating source episodes and their permitted use. The official transform has rotation, translation and a separate scale; record whether scale is baked into vertices or applied explicitly, exactly once. Freeze canonical origin across comparisons and verify the compiled mesh after official welding, simplification and padding. Per-episode references may share geometry only under the approved data-use setting. |
+| `Symmetry` | Typed finite or continuous symmetry group with axis/origin or transforms, source evidence and ambiguity. Pose comparison/refinement must account for equivalent orientations; a continuous representative for export is not an observed orientation. |
+| `MotionState` | Every frame's object transform, timestamps, observed/inferred/invalid evidence status, uncertainty by observable component, candidate/hypothesis identity and accepted lineage. Complete finite arrays alone do not establish reconstruction quality. |
+| `SupportAndContact` | Scene-plane/patch evidence and uncertainty; typed edges between body, object and scene patches, with time intervals and normal/tangential constraints. Simultaneous support, grasp and sliding are permitted; no-contact is a hypothesis. Do not apply no-slip constraints to sliding edges. |
+| `ArtifactManifest` | Immutable input/output hashes, code, configuration, model, runtime and coordinate-adapter identities; source policy and derivation links; status distinguishing interface fixtures, model execution and accepted reconstruction. Unknown provenance or fake artifacts cannot qualify as a real baseline. |
+| `TrialAndExport` | One coherent candidate containing human, geometry, motion and diagnostics, with an explicit expected object/episode manifest and all source-frame IDs, including occlusions. Metrics and overlays must reload this exact export. Record the single shared alignment and its reference-frame index; world-posed object CD and reference-relative ACC must not be replaced by shape-only or self-smoothness diagnostics. Write to a temporary location, validate, then promote atomically while retaining the previous accepted trial. |
+
+The proposed dependency graph includes camera, observations, depth/scale, native human, mesh, support/contact, motion and refinement. Changing any consumed hash invalidates all descendants, including affected clips when sharing is enabled. Upstream hop counts and file existence are insufficient, including for same-run overwrites. Each iteration has a fixed input manifest, bounded variables, a declared acceptance test and a rollback target.
+
+Migration acceptance requires independently generated transform, scale, time-index and representation fixtures; a native real Track 1 clip; source-policy checks; export/reload/render consistency; and validation with the pinned official kit's supported interfaces. No Track 2 data or derived values may be used to pass these checks. Contract validation, successful execution and reconstruction fidelity remain separate gates.
+
+The owner's 2026-10-03 final requirements also make camera provenance explicit: Track 2 camera calibration and iron/bowl/table meshes are prohibited, as are transformed or cached derivatives. V1's dataset label, path checks and free-text asset `source` do not establish this provenance. Production acceptance must verify the derivation chain without opening prohibited assets for comparison. See [workflow.md](workflow.md#final-owner-requirements-2026-10-03) for the dated conversation source and all six requirements.

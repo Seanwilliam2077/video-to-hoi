@@ -2,6 +2,20 @@
 
 Persistent owner constraint, reaffirmed 2026-09-27: Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
+## Planning update (2026-10-03)
+
+The new plan prioritizes a verified native baseline over expanding the model or server inventory. [implementation-plan.md](implementation-plan.md) defines G0 official/native contract validation, G1 real episodes 16/12, G2 camera/scale evidence, G3 bounded repairs and G4 full-set export rehearsal. [evaluation.md](evaluation.md) records the now-available official kit: reference-relative acceleration, 22 body joints for ACC-H, and predicted hand penetration for PEN. Self-smoothness is only a diagnostic. The official adapter, proposed contract v2 and real baselines remain unimplemented or unverified.
+
+For the first accepted run, preserve the upstream native MHR and object outputs, then verify conversion, frame identity, geometry and a reloaded export before comparing algorithms. Each candidate must have one immutable manifest and coherent human/mesh/motion artifacts. Freeze independent observations and inspect motion events, occlusion recovery and contact separation as well as penetration. `first3` remains a limited hoop integration fixture; grouped `dev-mini` review and all 30 clips are separate gates. Cross-episode evidence pooling is disabled pending organizer clarification, rather than treated as a mandatory shared-mesh rule.
+
+Later runtime work should support only the selected baseline and demonstrated repairs first. Downloaded candidates need not all become installed environments. Record GPU time, peak resources, manual review and repair time per accepted clip so quality gains can be compared with total operating cost. No new download, environment installation, host selection, model execution, deployment or submission was performed by this documentation update.
+
+The owner's final clarification in this conversation on 2026-10-03 supplies the six [acceptance targets](workflow.md#final-owner-requirements-2026-10-03), including one first-reference-frame alignment shared by human/object, posed-world object error, reference-relative ACC, complete object/frame coverage and Track 1-only camera/mesh provenance. Baseline subsets are development gates only. The first-reference/first-scored-frame mapping remains an explicit adapter question, not a silently resolved difference.
+
+## September acquisition record
+
+The remaining host, download and publication details preserve the dated 2026-09-27/28 preparation record. They are not fresh compatibility checks or authorization to resume server work; current acceptance priorities are the G0–G4 plan above.
+
 Status rechecked 2026-09-28: the original baseline's 12 required model entries
 pass fresh local integrity checks. The [completion handoff](https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928) is
 public: 11 archives in 15 verified parts (16,873,320,178 bytes), plus five
@@ -170,8 +184,10 @@ Acceptance for each real baseline:
    object-motion backend contributes to the accepted run.
 2. Record source-video hashes, selected frame IDs, generated-mesh provenance,
    model revisions, container identities, commands, and stage input/output hashes.
-3. Export valid MHR and an object pose for every frame, including occlusions;
-   label the current storage format as internal until the official adapter is verified.
+3. Preserve native MHR and object outputs for every frame, including occlusions;
+   verify the now-available official kit's pose/scale/shape and mesh/transform
+   conventions through a tested adapter. Label v1 exports internal until then;
+   render and measure the exact reloaded candidate intended for submission.
 4. Preserve full stage logs, elapsed times, peak resources, masks/depth previews,
    and reconstruction overlays, with failure and low-confidence frames visible.
 5. A coworker can fetch the same code/configuration and inputs, rerun the stages,
@@ -219,7 +235,7 @@ The owner requested comparisons for modules 1, 2 and 4, then clarified that the 
 
 Five recipes cover MoGe2, MoGe3, prompted SAM2, standalone SAM3D Body and joint CARI4D. SAM3 and YOLOE now have pinned checkpoints and filtered source packages in the completion handoff, but still need execution adapters and server validation. GVHMR/WHAM and SmoothNet/HTD-Refine/PhysPT remain research candidates with manual or restricted weight, environment and adapter blockers. The three temporal methods do not yet have MHR adapters. MoGe3 has a separately pinned checkpoint in the completion handoff, outside the prior 12-entry baseline inventory. No server environment is installed or certified by this kit.
 
-The ranking tool groups comparable tasks and metrics, requires the same three complete episodes, and rejects missing or mismatched evidence. Its protocol remains unfrozen until runtime, upstream, and independent observations exist. Acceleration ranking also requires reviewed video fidelity for each episode. No official score, actual measurements or ranking is supplied. Automatic quality extraction from native candidate outputs is still to be implemented; the tool validates submitted metric records and does not prove their truth.
+The ranking tool groups comparable tasks and metrics, requires the same three complete episodes, and rejects missing or mismatched evidence. Its protocol remains unfrozen until runtime, upstream, and independent observations exist. The draft acceleration diagnostic requires reviewed video fidelity and must not be read as current official reference-relative ACC. No official score, actual measurements or ranking is supplied. Automatic quality extraction from native candidate outputs is still to be implemented; the tool validates submitted metric records and does not prove their truth.
 
 The package keeps the original input bytes, recipe/protocol files, an empty result report and per-file checksums. Future execution must run on the selected Linux GPU machine. The previous two-baseline acceptance target remains pending; this additional hula-hoop screening does not replace it.
 

@@ -1,15 +1,16 @@
-"""Export (module 1, platform & perception): a run → the Tier 1 layout that v2hoi.score reads.
+"""Internal v1 export (module 1); NOT the final Track 1 submission format.
 
     export/meta/info.json
     export/meta/episodes_metadata.jsonl
     export/data/chunk-000/episode_XXXXXX.parquet   Tier 1 columns
     export/mesh/<object>/<object>.glb
-    export/mhr/episode_XXXXXX.npz                   MHR parameters, for the official format
+    export/mhr/episode_XXXXXX.npz                   legacy decomposed fields, not native MHR
 
 It reads the refine stage's output. The world frame is the camera frame (see
-v2hoi.contracts), so poses are copied, not transformed. Once
-eval_reconstruction.py is published, a second backend writes the official
-artifact from the same run.
+v2hoi.contracts), so poses are copied, not transformed. The official kit is
+available, but native MHR conversion and the official packing backend are
+not implemented. The legacy scorer is outside the approved workflow.
+See docs/evaluation.md and docs/track1-compliance.md.
 """
 from __future__ import annotations
 

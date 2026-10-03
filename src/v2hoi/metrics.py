@@ -1,4 +1,9 @@
-"""Metric primitives. Inputs in metres and frames; callers convert units."""
+"""Local metric primitives. Inputs in metres and frames; callers convert units.
+
+These conventions are not a complete official Track 1 evaluator. In particular,
+local Chamfer averages its two directions, while the current official metric
+sums them. See docs/evaluation.md for the pinned official definitions.
+"""
 from __future__ import annotations
 
 import numpy as np
@@ -59,7 +64,10 @@ def _angular_accel(R: np.ndarray, valid: np.ndarray) -> np.ndarray:
 
 
 def accel_magnitude(x: np.ndarray, valid: np.ndarray | None = None) -> float:
-    """Mean |a_t| of one trajectory, x: (T, ..., 3). The official smoothness term."""
+    """Mean |a_t| of one trajectory, x: (T, ..., 3), in metres/frame^2.
+
+    This is a prediction-only diagnostic, not official reference-relative ACC.
+    """
     ok = _triplets(valid, len(x))
     if not ok.any():
         return float("nan")
@@ -92,7 +100,11 @@ def angular_accel_error(R_pred: np.ndarray, R_gt: np.ndarray, valid: np.ndarray)
 
 
 def penetration_depth(points_obj: np.ndarray, sdf, workers: int = -1) -> float:
-    """Deepest point inside the object (metres, >= 0). points_obj in the object's frame."""
+    """Deepest point inside the object (metres, >= 0), a local diagnostic.
+
+    points_obj is in the object's frame. Official PEN instead averages depths
+    over its selected hand points, including zero depths outside the mesh.
+    """
     d = sdf(points_obj, workers)
     return float(max(0.0, -d.min())) if len(d) else 0.0
 

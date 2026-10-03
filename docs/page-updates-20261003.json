@@ -1,0 +1,2497 @@
+{
+  "schema_version": 2,
+  "date": "2026-10-03",
+  "timezone": "Asia/Shanghai",
+  "purpose": "Proposed bilingual content preserved alongside verified database-write receipts; static page source publication is still pending.",
+  "published": false,
+  "publication_status": "pending_static_publication",
+  "access_snapshot": {
+    "authenticated_browser_available": true,
+    "live_page_schema_inspected": "Supported controls observed by the coordinator; source schemas and row UUIDs were not exposed.",
+    "existing_database_rows_read": true,
+    "inspection_status": "Four module pages expose Tasks title/label creation, Progress note creation and Resources fields. Old task text could not be edited. Reference instead exposes Challenge, Videos, Development and Q&A.",
+    "source_editor_available": false,
+    "artifact_connector_available": false,
+    "blocker": "Static Overview/Challenge content on the five subpages, and hub/status source updates, remain unpublished because a source-edit/publish capability was not found.",
+    "requires": "A supported source editor/publication capability for remaining static content; no remaining login blocker."
+  },
+  "source_documents": [
+    "docs/design.md",
+    "docs/implementation-plan.md",
+    "docs/evaluation.md",
+    "docs/contracts.md",
+    "docs/workflow.md",
+    "docs/evidence/official-track1-20261002.json"
+  ],
+  "navigation": [
+    {
+      "label": "Team hub",
+      "url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S"
+    },
+    {
+      "label": "Status",
+      "url": "https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1"
+    },
+    {
+      "label": "Reference",
+      "url": "https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b"
+    },
+    {
+      "label": "① Platform",
+      "url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg"
+    },
+    {
+      "label": "② Human",
+      "url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk"
+    },
+    {
+      "label": "③ Object",
+      "url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8"
+    },
+    {
+      "label": "④ Physics",
+      "url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV"
+    }
+  ],
+  "excluded_publication_targets": [
+    {
+      "key": "hub",
+      "url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S",
+      "owner": "root",
+      "source": "docs/hub.html + docs/pipeline.svg"
+    },
+    {
+      "key": "status",
+      "url": "https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1",
+      "owner": "root",
+      "source": "docs/status.html; follow docs/status.md"
+    }
+  ],
+  "reconciliation_policy": {
+    "mode": "read_then_reconcile_existing_database_rows",
+    "proposed_keys_are_live_ids": false,
+    "preserve_existing_history": true,
+    "preserve_navigation_order": true,
+    "preserve_en_zh_switch": true,
+    "publish_to_same_url": true,
+    "create_new_page": false,
+    "external_writes_performed_by_this_handoff": false,
+    "external_writes_performed_by_coordinator": true,
+    "note": "The coordinator performed the verified UI writes. This file preserves proposed drafts and records the actual, narrower UI representations separately."
+  },
+  "pages": [
+    {
+      "key": "reference",
+      "registry_label": "Reference",
+      "url": "https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b",
+      "tasks": [
+        {
+          "proposed_key": "v2h-plan-20261003-reference-kit-authority",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G0",
+          "owner": "Platform",
+          "title": {
+            "en": "Freeze the official evaluation specification",
+            "zh": "冻结官方评测规范"
+          },
+          "body": {
+            "en": "Reconcile the October kit with the dated September guidance. Preserve both source identities and record which implementation is being reproduced.",
+            "zh": "核对10月工具包与9月书面说明，保留两者版本来源，明确当前复现的实现。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "The evaluation record includes member hashes, definitions, differences and unresolved authority questions; no whole-archive hash or local official score is invented.",
+              "zh": "记录成员哈希、定义、差异和待确认权威版本；不虚构整包哈希或本地官方成绩。"
+            },
+            {
+              "en": "ACC is reference-relative; PEN averages own-mesh hand depths over all selected hand points; first scored-frame alignment is recorded.",
+              "zh": "确认加速度为相对参考的误差；穿透对全部选定手点求平均；记录首个评分帧对齐。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "not_applicable_live_schema",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "reference-answered-qa-20261003"
+            ],
+            "coverage": "The actual Reference page has no Tasks/Progress/Resources tables. The answered Q&A covers the latest requirements clarification in part, not these proposed rows."
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-reference-sample-contract",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G0",
+          "owner": "Platform + Human",
+          "title": {
+            "en": "Review the permitted official sample contract",
+            "zh": "核对允许使用的官方样例格式"
+          },
+          "body": {
+            "en": "Inspect only Track 1 sample metadata/row IDs after its source is verified. Record the required episodes, original frame IDs and mesh budgets without treating sample values as reference geometry.",
+            "zh": "来源核实后仅核对Track 1官方样例元数据与行标识，记录所需片段、原视频帧编号和网格预算，不将样例数值当作参考几何。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "The exact sample hash and row coverage are recorded; currently unverified episode membership and first scored frames are not guessed.",
+              "zh": "记录样例哈希和所需行覆盖；不猜测目前尚未核实的片段集合及首个评分帧。"
+            },
+            {
+              "en": "Complete-video trajectory obligations remain separate from the subset of scored rows.",
+              "zh": "完整视频轨迹要求与被评分的行子集分别记录。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2",
+            "R3",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "not_applicable_live_schema",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "reference-answered-qa-20261003"
+            ],
+            "coverage": "The actual Reference page has no Tasks/Progress/Resources tables. The answered Q&A covers the latest requirements clarification in part, not these proposed rows."
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-reference-origin-sharing",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G0/G2",
+          "owner": "Platform + Object",
+          "title": {
+            "en": "Resolve origin and cross-clip permission",
+            "zh": "澄清物体原点和跨片段使用规则"
+          },
+          "body": {
+            "en": "Prepare dated questions about the canonical origin used for object-translation acceleration and whether clips may jointly estimate an asset or camera prior. Record an organizer answer before enabling sharing.",
+            "zh": "整理带日期的问题，澄清物体平移加速度采用的规范原点，以及能否跨片段联合估计物体或相机先验；获得记录在案的答复后再启用共享。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Object origin stays fixed across comparisons; it is not optimized to alter a score.",
+              "zh": "比较期间固定物体原点，不通过优化原点改变分数。"
+            },
+            {
+              "en": "Episode-local mode remains the default while sharing permission is unresolved.",
+              "zh": "跨片段共享规则未明确前，默认各片段独立处理。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R3",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "not_applicable_live_schema",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "reference-answered-qa-20261003"
+            ],
+            "coverage": "The actual Reference page has no Tasks/Progress/Resources tables. The answered Q&A covers the latest requirements clarification in part, not these proposed rows."
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-reference-gate-register",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G0-G4",
+          "owner": "Platform",
+          "title": {
+            "en": "Maintain the evidence and gate register",
+            "zh": "维护证据与阶段验收记录"
+          },
+          "body": {
+            "en": "Track implementation gates, dated source changes and actual receipts separately from design review. Keep the Track 1-only rule visible on every acceptance record.",
+            "zh": "将实现阶段、带日期的来源变化和实际回执与设计评审分开记录，在每次验收记录中明确仅使用Track 1的边界。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "G0-G4 remain open until their documented acceptance evidence exists; documentation work is not reported as completed reconstruction.",
+              "zh": "没有验收证据前，G0-G4保持未完成；文档更新不等于重建完成。"
+            },
+            {
+              "en": "No Track 2 result, derivative or normalization enters the register.",
+              "zh": "记录不使用Track 2结果、派生内容或归一化基准。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "not_applicable_live_schema",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "reference-answered-qa-20261003"
+            ],
+            "coverage": "The actual Reference page has no Tasks/Progress/Resources tables. The answered Q&A covers the latest requirements clarification in part, not these proposed rows."
+          }
+        }
+      ],
+      "updates": [
+        {
+          "proposed_key": "v2h-update-20261003-reference",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "date": "2026-10-03",
+          "category": "documentation_only",
+          "title": {
+            "en": "October 3: evaluation specification documented",
+            "zh": "10月3日：完成评测规范文档"
+          },
+          "body": {
+            "en": "Documented the released Track 1 kit, formal native-MHR payload, current metric definitions and open questions. Thirteen allowlisted code/documentation members were reverified on October 3 with unchanged hashes. This is source review only: no models were run, no official scores were computed, and no submission was made. The owner's six requirements were reaffirmed on October 3; first-reference-frame wording versus scored-frame selection remains an explicit mapping check.",
+            "zh": "已记录Track 1正式工具包、原生MHR提交格式、当前指标定义与待确认问题。10月3日复核了13个允许读取的代码/文档成员，哈希未变。本次仅为来源审阅：未运行模型、未计算官方成绩、未提交比赛。 用户10月3日再次明确六项要求；参考首帧表述与评分帧选择之间仍需显式核对映射。"
+          },
+          "published": false,
+          "reconciliation_result": {
+            "status": "not_applicable_live_schema",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "reference-answered-qa-20261003"
+            ],
+            "coverage": "The actual Reference page has no Tasks/Progress/Resources tables. The answered Q&A covers the latest requirements clarification in part, not these proposed rows."
+          }
+        }
+      ],
+      "resources": [
+        {
+          "proposed_key": "v2h-resource-20261003-reference-evaluation",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Track 1 evaluation specification",
+            "zh": "Track 1评测规范"
+          },
+          "repository_path": "docs/evaluation.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "not_applicable_live_schema",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "reference-answered-qa-20261003"
+            ],
+            "coverage": "The actual Reference page has no Tasks/Progress/Resources tables. The answered Q&A covers the latest requirements clarification in part, not these proposed rows."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-reference-evidence",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Official kit evidence manifest",
+            "zh": "官方工具包证据记录"
+          },
+          "repository_path": "docs/evidence/official-track1-20261002.json",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "not_applicable_live_schema",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "reference-answered-qa-20261003"
+            ],
+            "coverage": "The actual Reference page has no Tasks/Progress/Resources tables. The answered Q&A covers the latest requirements clarification in part, not these proposed rows."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-reference-kit",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Official submission kit",
+            "zh": "官方提交工具包"
+          },
+          "repository_path": null,
+          "url": "https://nvidia-isaac.github.io/video_to_data/v2d_challenge/assets/v2d_submission_kit.zip",
+          "requires_committed_revision": false,
+          "published": false,
+          "reconciliation_result": {
+            "status": "not_applicable_live_schema",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "reference-answered-qa-20261003"
+            ],
+            "coverage": "The actual Reference page has no Tasks/Progress/Resources tables. The answered Q&A covers the latest requirements clarification in part, not these proposed rows."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-reference-faq",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Official FAQ; read October 2",
+            "zh": "官方问答；10月2日读取"
+          },
+          "repository_path": null,
+          "url": "https://nvidia-isaac.github.io/video_to_data/v2d_challenge/assets/v2d_challenge_2026_faqs.pdf",
+          "requires_committed_revision": false,
+          "published": false,
+          "reconciliation_result": {
+            "status": "not_applicable_live_schema",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "reference-answered-qa-20261003"
+            ],
+            "coverage": "The actual Reference page has no Tasks/Progress/Resources tables. The answered Q&A covers the latest requirements clarification in part, not these proposed rows."
+          }
+        }
+      ],
+      "page_schema_inspected": "UI controls inspected; source schema and UUIDs unavailable",
+      "action": "reconcile_with_existing_rows_after_read",
+      "publication_status": "pending_static_publication",
+      "published": false,
+      "publication_result": {
+        "verified_on": "2026-10-03",
+        "timezone": "Asia/Shanghai",
+        "artifact_url": "https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b",
+        "published_revision": null,
+        "database_updates_verified": true,
+        "static_content_published": false,
+        "verification_method": "Coordinator reloaded the same existing artifact after writes and verified persistent counts/content.",
+        "row_uuid_available": false,
+        "existing_rows_preserved": true,
+        "old_tasks_left_open": true,
+        "static_correction_note": "Dated bilingual additions explicitly supersede older Overview/task guidance; static source itself was not republished.",
+        "live_sections": [
+          "Challenge",
+          "Videos",
+          "Development",
+          "Q&A"
+        ],
+        "counts_after_reload": {
+          "qa_open": 10,
+          "qa_answered": 7
+        },
+        "qa_answered_before": 6,
+        "actual_receipt_keys": [
+          "reference-answered-qa-20261003"
+        ]
+      },
+      "owner_requirement_source": "owner_requirement_source",
+      "static_content_published": false
+    },
+    {
+      "key": "platform",
+      "registry_label": "① Platform",
+      "url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "tasks": [
+        {
+          "proposed_key": "v2h-plan-20261003-platform-native-export",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G0",
+          "owner": "Platform + Human",
+          "title": {
+            "en": "Implement native conversion and official packing",
+            "zh": "实现原生转换与正式打包"
+          },
+          "body": {
+            "en": "Add a versioned native-MHR/export adapter to the pinned packer and validate frame, unit and mesh-transform conventions by decoded geometry.",
+            "zh": "为固定版本打包器建立版本化原生MHR与导出适配，通过解码后几何验证帧编号、单位及网格变换。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Known-answer conversion and compile/read-back checks pass without concatenating the old wrapper arrays.",
+              "zh": "通过已知答案转换与打包回读检查，不拼接旧版包装器参数冒充正式格式。"
+            },
+            {
+              "en": "Required rows, constant identity, rotations, finite values and exactly-once object scale are checked.",
+              "zh": "检查必需行、固定身份参数、旋转、有限数值及物体尺度只应用一次。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2",
+            "R3",
+            "R5"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "platform-task-display-11"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 11,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-platform-provenance",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G0",
+          "owner": "Platform",
+          "title": {
+            "en": "Make artifact lineage content-verifiable",
+            "zh": "使产物来源可通过内容核验"
+          },
+          "body": {
+            "en": "Bind every artifact to content hashes for its source video, observations, mesh, rig, code, model and configuration; retain immutable baselines.",
+            "zh": "为每个产物绑定源视频、观测、网格、人体模型、代码、模型权重与配置的内容哈希，并保留不可覆盖的基线。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Changed inputs invalidate downstream artifacts, including same-run replacements.",
+              "zh": "输入变化会使下游产物失效，包括同一运行中的文件替换。"
+            },
+            {
+              "en": "Unknown provenance and fake artifacts are rejected from real acceptance runs.",
+              "zh": "真实验收运行拒绝来源不明或伪造占位产物。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "platform-task-display-12"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 12,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-platform-real-baseline",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G1",
+          "owner": "Platform; all module reviewers",
+          "title": {
+            "en": "Produce the first real baseline on episodes 16 and 12",
+            "zh": "完成片段16和12的首个真实基线"
+          },
+          "body": {
+            "en": "Run the pinned native MHR CARI4D route with Track 1-derived inputs; import coupled human/object outputs atomically and record what the native pipeline actually consumed.",
+            "zh": "使用Track 1派生输入运行固定版本原生MHR CARI4D，整体导入关联的人体和物体结果，并记录原生流程实际使用的输入。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Every source frame has validated outputs, overlays, logs and a reproducible invocation.",
+              "zh": "每个原视频帧都有通过格式检查的输出、叠加图、日志和可复现命令。"
+            },
+            {
+              "en": "Adapter equivalence and known failures are reviewed; file existence alone is insufficient.",
+              "zh": "审阅适配前后的一致性与已知失败，不能只凭文件存在验收。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2",
+            "R3",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "platform-task-display-13"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 13,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-platform-observations-reports",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G2",
+          "owner": "Platform + Human + Object",
+          "title": {
+            "en": "Freeze observations and regenerate diagnostics",
+            "zh": "冻结观测并自动生成诊断"
+          },
+          "body": {
+            "en": "Preserve visibility, image transforms, mask corrections and depth validity; generate per-episode reports from artifacts and fixed independent review observations.",
+            "zh": "保留可见性、图像变换、掩码修订和深度有效性，依据产物与固定独立审阅观测生成逐片段报告。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Reports disclose prediction-versus-label status, missing frames, event windows and failures.",
+              "zh": "报告区分预测与标签，披露缺帧、事件窗口和失败。"
+            },
+            {
+              "en": "The same frozen inputs and evaluator reproduce comparison values without hand-entered scores.",
+              "zh": "相同固定输入与评估器可重新生成比较数值，不依赖人工填写分数。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R4",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "platform-task-display-14"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 14,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-platform-final-candidate",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G4",
+          "owner": "Platform; all module reviewers",
+          "title": {
+            "en": "Rehearse a complete 30-episode candidate",
+            "zh": "演练完整30片段候选交付"
+          },
+          "body": {
+            "en": "Compile accepted outputs for all 30 videos, preserve baseline fallbacks, and rehearse restoration and validation in an identified clean environment.",
+            "zh": "汇总30段视频的已验收输出，保留基线回退，并在已记录的干净环境中演练恢复和验证。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Format, provenance, mesh/pose identity and complete coverage pass for every episode.",
+              "zh": "每个片段通过格式、来源、网格与位姿一致性及完整覆盖检查。"
+            },
+            {
+              "en": "A reviewable local package and actual validation record exist; local export is not labelled a competition submission.",
+              "zh": "形成可审阅本地包及真实验证记录；本地导出不标为已提交比赛。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "platform-task-display-15"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 15,
+            "live_row_uuid": null
+          }
+        }
+      ],
+      "updates": [
+        {
+          "proposed_key": "v2h-update-20261003-platform",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "date": "2026-10-03",
+          "category": "documentation_only",
+          "title": {
+            "en": "October 3: integration plan revised",
+            "zh": "10月3日：修订集成计划"
+          },
+          "body": {
+            "en": "The plan now prioritizes native conversion and provenance (G0), a real two-video baseline (G1), frozen observations (G2), optional bounded repairs (G3), and complete export (G4). The existing runner still exercises fake-stage wiring; these gates are not reported as implemented or passed.",
+            "zh": "计划现优先完成原生转换与来源核验（G0）、两段真实基线（G1）、固定观测（G2）、可选有界修正（G3）和完整导出（G4）。现有运行器仍主要验证占位阶段连接，未将这些阶段报告为已实现或通过。"
+          },
+          "published": false,
+          "reconciliation_result": {
+            "status": "reconciled_as_bilingual_progress_note",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "platform-progress-note-20261003"
+            ],
+            "coverage": "The coordinator published a fuller bilingual note; its exact text is not asserted identical to this draft."
+          }
+        }
+      ],
+      "resources": [
+        {
+          "proposed_key": "v2h-resource-20261003-platform-plan",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Implementation gates and ownership",
+            "zh": "实现阶段与责任分工"
+          },
+          "repository_path": "docs/implementation-plan.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "resource_link_added",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "platform-resource-implementation-plan"
+            ],
+            "coverage": "Actual resource uses the main-branch URL recorded in the receipt; label/body equality with the draft was not asserted."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-platform-evaluation",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Official-format and metric specification",
+            "zh": "正式格式与指标规范"
+          },
+          "repository_path": "docs/evaluation.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "resource_link_added",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "platform-resource-evaluation"
+            ],
+            "coverage": "Actual resource uses the main-branch URL recorded in the receipt; label/body equality with the draft was not asserted."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-platform-contracts",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Current and proposed artifact contracts",
+            "zh": "现有与拟议产物契约"
+          },
+          "repository_path": "docs/contracts.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "existing_sidebar_link_preserved",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [],
+            "coverage": "The coordinator reports the design/contracts link was already present in the static sidebar; no new database resource matching this proposal was added."
+          }
+        }
+      ],
+      "page_schema_inspected": "UI controls inspected; source schema and UUIDs unavailable",
+      "action": "reconcile_with_existing_rows_after_read",
+      "publication_status": "pending_static_publication",
+      "published": false,
+      "publication_result": {
+        "verified_on": "2026-10-03",
+        "timezone": "Asia/Shanghai",
+        "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+        "published_revision": null,
+        "database_updates_verified": true,
+        "static_content_published": false,
+        "verification_method": "Coordinator reloaded the same existing artifact after writes and verified persistent counts/content.",
+        "row_uuid_available": false,
+        "existing_rows_preserved": true,
+        "old_tasks_left_open": true,
+        "static_correction_note": "Dated bilingual additions explicitly supersede older Overview/task guidance; static source itself was not republished.",
+        "live_sections": [
+          "Overview",
+          "Tasks",
+          "Progress",
+          "Resources"
+        ],
+        "counts_after_reload": {
+          "tasks": 15,
+          "progress": 3,
+          "resources": 28
+        },
+        "actual_receipt_keys": [
+          "platform-task-display-11",
+          "platform-task-display-12",
+          "platform-task-display-13",
+          "platform-task-display-14",
+          "platform-task-display-15",
+          "platform-progress-note-20261003",
+          "platform-resource-track1-compliance",
+          "platform-resource-implementation-plan",
+          "platform-resource-evaluation"
+        ]
+      },
+      "owner_requirement_source": "owner_requirement_source",
+      "static_content_published": false
+    },
+    {
+      "key": "human",
+      "registry_label": "② Human",
+      "url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "tasks": [
+        {
+          "proposed_key": "v2h-plan-20261003-human-native-mapping",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G0",
+          "owner": "Human + Platform",
+          "title": {
+            "en": "Verify the native MHR mapping",
+            "zh": "核实原生MHR映射"
+          },
+          "body": {
+            "en": "Preserve compatible native model parameters or implement a tested conversion with the correct rig, native units and geometry conventions.",
+            "zh": "保留兼容的原生模型参数，或使用正确人体模型、原生单位和几何约定建立经过验证的转换。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Neutral and articulated body/hand cases decode consistently through both paths.",
+              "zh": "中性及非中性身体与手部样例在两条路径中解码一致。"
+            },
+            {
+              "en": "Metre translation is not copied directly into native root slots; old 133/108/28 arrays are not concatenated.",
+              "zh": "不把米制平移直接写入原生根节点参数，不拼接旧133/108/28维数组。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "human-task-display-9"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 9,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-human-baseline-review",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G1",
+          "owner": "Human",
+          "title": {
+            "en": "Review baseline human geometry and identity",
+            "zh": "审阅基线人体几何与身份"
+          },
+          "body": {
+            "en": "Inspect episodes 16 and 12 for decoded MHR, stable identity, shared human/object coordinates, complete frames and the first scored region once verified.",
+            "zh": "检查片段16和12的MHR解码、身份稳定、人体物体共同坐标、完整帧输出，以及核实后的首个评分区域。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Before/after import overlays and unit/frame checks isolate adapter errors.",
+              "zh": "通过导入前后叠加图与单位、坐标检查区分适配错误。"
+            },
+            {
+              "en": "Failures and uncertain hands are recorded without claiming hidden 3D accuracy.",
+              "zh": "记录失败和不确定手部情况，不宣称已知隐藏三维精度。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "human-task-display-10"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 10,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-human-scale-anchor",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G2",
+          "owner": "Human + Object + Platform",
+          "title": {
+            "en": "Stabilize the human-depth scale anchor",
+            "zh": "稳定人体与深度的尺度基准"
+          },
+          "body": {
+            "en": "Use fixed-camera, multi-frame visible evidence to estimate a stable identity/scale initialization and relative object depth; retain sensitivity tests.",
+            "zh": "使用固定相机下多帧可见证据估计稳定身份与尺度初始化，以及物体相对深度，并保留敏感性分析。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Human/object depth remains consistent under plausible initialization perturbations.",
+              "zh": "在合理初始化扰动下，人体与物体深度保持一致。"
+            },
+            {
+              "en": "Per-frame scale freedom and unobserved cross-clip identity sharing stay disabled.",
+              "zh": "不启用逐帧自由尺度或缺乏证据的跨片段身份共享。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R3",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "human-task-display-11"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 11,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-human-bounded-repair",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G3",
+          "owner": "Human + Physics",
+          "title": {
+            "en": "Release body and hand controls only with evidence",
+            "zh": "有证据时才释放身体与手部参数"
+          },
+          "body": {
+            "en": "Repair a diagnosed interval with a declared parameter block, fixed identity/camera/asset, displacement bounds and rollback.",
+            "zh": "对已诊断区间指定可修改参数块，固定身份、相机及物体资产，设定位移边界并保留回退。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Reserved image evidence improves without breaking contact, window boundaries or initial scored-frame behavior.",
+              "zh": "保留审阅图像证据改善，同时不破坏接触、窗口边界或首个评分帧表现。"
+            },
+            {
+              "en": "A lower penetration value obtained by detaching hands is rejected.",
+              "zh": "通过让手脱离物体得到更低穿透值的结果必须拒绝。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2",
+            "R4",
+            "R5"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "human-task-display-12"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 12,
+            "live_row_uuid": null
+          }
+        }
+      ],
+      "updates": [
+        {
+          "proposed_key": "v2h-update-20261003-human",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "date": "2026-10-03",
+          "category": "documentation_only",
+          "title": {
+            "en": "October 3: native human representation specified",
+            "zh": "10月3日：明确原生人体表示"
+          },
+          "body": {
+            "en": "The documented target uses native pose136, static scales68 and shape45 with a pinned decoder. Current decomposed v1 arrays are not automatically compatible. Conversion, real baseline validation and bounded hand/body repair remain planned; no model result is claimed.",
+            "zh": "文档中的目标采用原生pose136、固定scales68和shape45，并绑定固定解码器。现有v1分解数组不能自动视为兼容。转换、真实基线验证及有界身体手部修正仍待实现，未声称获得模型结果。"
+          },
+          "published": false,
+          "reconciliation_result": {
+            "status": "reconciled_as_bilingual_progress_note",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "human-progress-note-20261003"
+            ],
+            "coverage": "The coordinator published a fuller bilingual note; its exact text is not asserted identical to this draft."
+          }
+        }
+      ],
+      "resources": [
+        {
+          "proposed_key": "v2h-resource-20261003-human-contracts",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Native representation migration boundary",
+            "zh": "原生表示迁移边界"
+          },
+          "repository_path": "docs/contracts.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "existing_sidebar_link_preserved",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [],
+            "coverage": "The coordinator reports the design/contracts link was already present in the static sidebar; no new database resource matching this proposal was added."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-human-evaluation",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Native units and official evaluation",
+            "zh": "原生单位与正式评测"
+          },
+          "repository_path": "docs/evaluation.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "resource_link_added",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "human-resource-evaluation"
+            ],
+            "coverage": "Actual resource uses the main-branch URL recorded in the receipt; label/body equality with the draft was not asserted."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-human-plan",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Human tasks and acceptance evidence",
+            "zh": "人体模块任务与验收证据"
+          },
+          "repository_path": "docs/implementation-plan.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "resource_link_added",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "human-resource-implementation-plan"
+            ],
+            "coverage": "Actual resource uses the main-branch URL recorded in the receipt; label/body equality with the draft was not asserted."
+          }
+        }
+      ],
+      "page_schema_inspected": "UI controls inspected; source schema and UUIDs unavailable",
+      "action": "reconcile_with_existing_rows_after_read",
+      "publication_status": "pending_static_publication",
+      "published": false,
+      "publication_result": {
+        "verified_on": "2026-10-03",
+        "timezone": "Asia/Shanghai",
+        "artifact_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+        "published_revision": null,
+        "database_updates_verified": true,
+        "static_content_published": false,
+        "verification_method": "Coordinator reloaded the same existing artifact after writes and verified persistent counts/content.",
+        "row_uuid_available": false,
+        "existing_rows_preserved": true,
+        "old_tasks_left_open": true,
+        "static_correction_note": "Dated bilingual additions explicitly supersede older Overview/task guidance; static source itself was not republished.",
+        "live_sections": [
+          "Overview",
+          "Tasks",
+          "Progress",
+          "Resources"
+        ],
+        "counts_after_reload": {
+          "tasks": 12,
+          "progress": 2,
+          "resources": 21
+        },
+        "actual_receipt_keys": [
+          "human-task-display-9",
+          "human-task-display-10",
+          "human-task-display-11",
+          "human-task-display-12",
+          "human-progress-note-20261003",
+          "human-resource-track1-compliance",
+          "human-resource-implementation-plan",
+          "human-resource-evaluation"
+        ]
+      },
+      "owner_requirement_source": "owner_requirement_source",
+      "static_content_published": false
+    },
+    {
+      "key": "object",
+      "registry_label": "③ Object",
+      "url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "tasks": [
+        {
+          "proposed_key": "v2h-plan-20261003-object-canonical-binding",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G0",
+          "owner": "Object + Platform",
+          "title": {
+            "en": "Bind poses to the exact mesh frame",
+            "zh": "将位姿绑定到准确网格坐标系"
+          },
+          "body": {
+            "en": "Record mesh hash, canonical origin/axes, baked scale and native alignment transform; verify the paired mesh and pose through export.",
+            "zh": "记录网格哈希、规范原点与坐标轴、已烘焙尺度及原生对齐变换，验证成对网格和位姿的导出。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Non-centered rotating synthetic meshes preserve world geometry after conversion; scale is applied once.",
+              "zh": "非居中旋转合成网格转换后保留世界几何，尺度只应用一次。"
+            },
+            {
+              "en": "Origin stays frozen because object acceleration acts on translation; no score-driven recentering.",
+              "zh": "物体加速度作用于平移，故固定原点，不为调分重新居中。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R3",
+            "R4"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "object-task-display-9"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 9,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-object-local-baseline-assets",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G1",
+          "owner": "Object",
+          "title": {
+            "en": "Prepare episode-local baseline objects",
+            "zh": "准备片段独立的基线物体"
+          },
+          "body": {
+            "en": "Reconstruct Track 1-derived mesh candidates for foam block episode 16 and pan episode 12, with explicit scale and input evidence.",
+            "zh": "从Track 1生成泡沫块片段16与平底锅片段12的候选网格，明确尺度和输入证据。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Topology, handle/cavity details, visible fit and pose-frame compatibility are reviewed.",
+              "zh": "审阅拓扑、把手或空腔细节、可见拟合和位姿坐标兼容性。"
+            },
+            {
+              "en": "No reference mesh or unverified-provenance demonstration asset is used.",
+              "zh": "不使用参考网格或来源未经核实的演示资产。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R3",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "object-task-display-10"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 10,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-object-observation-selection",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G2",
+          "owner": "Object + Platform + Human",
+          "title": {
+            "en": "Select geometry with visible evidence and scale checks",
+            "zh": "通过可见证据与尺度检查选择几何"
+          },
+          "body": {
+            "en": "Compare a small fixed candidate set using reviewed masks, reliable depth, held-out visible frames and typed symmetry assumptions.",
+            "zh": "使用审阅掩码、可靠深度、保留可见帧与明确对称性假设，比较固定的小规模候选集。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Occlusion-aware contour checks preserve holes and thin structures and expose scale sensitivity.",
+              "zh": "考虑遮挡的轮廓检查保留孔洞和细结构，并披露尺度敏感性。"
+            },
+            {
+              "en": "Cross-episode sharing remains disabled until permission and object identity are documented.",
+              "zh": "获得规则许可并确认物体身份前，不启用跨片段共享。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R3",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "object-task-display-11"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 11,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-object-occlusion-repair",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G3",
+          "owner": "Object + Physics",
+          "title": {
+            "en": "Repair occlusion with bounded pose hypotheses",
+            "zh": "用有界位姿假设修复遮挡"
+          },
+          "body": {
+            "en": "Use clear anchors, forward/backward tracking and a fixed small hypothesis budget while keeping mesh, scale and camera fixed.",
+            "zh": "使用清晰锚点、双向跟踪和固定小规模假设预算，同时固定网格、尺度和相机。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Reappearance, rapid rotation, release and regrasp cases preserve motion and window continuity.",
+              "zh": "重现、快速旋转、释放及再次抓握样例保留真实运动与区间连续性。"
+            },
+            {
+              "en": "Unobservable motion is marked uncertain rather than presented as uniquely recovered.",
+              "zh": "不可观测运动明确标为不确定，不宣称唯一恢复。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R3",
+            "R4",
+            "R5"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "object-task-display-12"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 12,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-object-packed-geometry",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G4",
+          "owner": "Object + Platform",
+          "title": {
+            "en": "Inspect the compiled mesh and pose pair",
+            "zh": "检查打包后的网格与位姿"
+          },
+          "body": {
+            "en": "Read back the official-budget mesh after welding, simplification and padding; verify it with the final pose and scale.",
+            "zh": "回读经焊接、简化和补齐的正式预算网格，结合最终位姿和尺度核验。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Thin contours, holes, collision surfaces and all episode asset identities survive or trigger rejection.",
+              "zh": "细轮廓、孔洞、接触面及各片段资产身份保持正确，否则拒绝。"
+            },
+            {
+              "en": "The final package contains the accepted mesh/pose pair rather than mixed candidate versions.",
+              "zh": "最终包包含已验收的网格与位姿配对，不混用候选版本。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R3",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "object-task-display-13"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 13,
+            "live_row_uuid": null
+          }
+        }
+      ],
+      "updates": [
+        {
+          "proposed_key": "v2h-update-20261003-object",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "date": "2026-10-03",
+          "category": "documentation_only",
+          "title": {
+            "en": "October 3: object-frame and sharing rules clarified",
+            "zh": "10月3日：明确物体坐标与共享边界"
+          },
+          "body": {
+            "en": "The plan now binds every pose to mesh content, origin and scale, defaults to episode-local reconstruction, and checks the geometry after official packing. The canonical-origin evaluation convention and permission for cross-clip fitting remain unresolved. No generated asset or tracking result was validated in this documentation task.",
+            "zh": "计划现将每个位置姿态绑定到网格内容、原点和尺度，默认片段独立重建，并检查正式打包后的几何。规范原点的评测约定及跨片段拟合许可仍待明确。本次文档工作未验证实际生成资产或跟踪结果。"
+          },
+          "published": false,
+          "reconciliation_result": {
+            "status": "reconciled_as_bilingual_progress_note",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "object-progress-note-20261003"
+            ],
+            "coverage": "The coordinator published a fuller bilingual note; its exact text is not asserted identical to this draft."
+          }
+        }
+      ],
+      "resources": [
+        {
+          "proposed_key": "v2h-resource-20261003-object-design",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Geometry, scale and occlusion design",
+            "zh": "几何、尺度与遮挡设计"
+          },
+          "repository_path": "docs/design.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "existing_sidebar_link_preserved",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [],
+            "coverage": "The coordinator reports the design/contracts link was already present in the static sidebar; no new database resource matching this proposal was added."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-object-evaluation",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Object metric and packing conventions",
+            "zh": "物体指标与打包约定"
+          },
+          "repository_path": "docs/evaluation.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "resource_link_added",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "object-resource-evaluation"
+            ],
+            "coverage": "Actual resource uses the main-branch URL recorded in the receipt; label/body equality with the draft was not asserted."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-object-plan",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Object gates and rejection criteria",
+            "zh": "物体模块阶段与拒绝条件"
+          },
+          "repository_path": "docs/implementation-plan.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "resource_link_added",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "object-resource-implementation-plan"
+            ],
+            "coverage": "Actual resource uses the main-branch URL recorded in the receipt; label/body equality with the draft was not asserted."
+          }
+        }
+      ],
+      "page_schema_inspected": "UI controls inspected; source schema and UUIDs unavailable",
+      "action": "reconcile_with_existing_rows_after_read",
+      "publication_status": "pending_static_publication",
+      "published": false,
+      "publication_result": {
+        "verified_on": "2026-10-03",
+        "timezone": "Asia/Shanghai",
+        "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+        "published_revision": null,
+        "database_updates_verified": true,
+        "static_content_published": false,
+        "verification_method": "Coordinator reloaded the same existing artifact after writes and verified persistent counts/content.",
+        "row_uuid_available": false,
+        "existing_rows_preserved": true,
+        "old_tasks_left_open": true,
+        "static_correction_note": "Dated bilingual additions explicitly supersede older Overview/task guidance; static source itself was not republished.",
+        "live_sections": [
+          "Overview",
+          "Tasks",
+          "Progress",
+          "Resources"
+        ],
+        "counts_after_reload": {
+          "tasks": 13,
+          "progress": 2,
+          "resources": 22
+        },
+        "actual_receipt_keys": [
+          "object-task-display-9",
+          "object-task-display-10",
+          "object-task-display-11",
+          "object-task-display-12",
+          "object-task-display-13",
+          "object-progress-note-20261003",
+          "object-resource-track1-compliance",
+          "object-resource-implementation-plan",
+          "object-resource-evaluation"
+        ]
+      },
+      "owner_requirement_source": "owner_requirement_source",
+      "static_content_published": false
+    },
+    {
+      "key": "physics",
+      "registry_label": "④ Physics",
+      "url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "tasks": [
+        {
+          "proposed_key": "v2h-plan-20261003-physics-known-answer-metrics",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G0",
+          "owner": "Physics + Platform",
+          "title": {
+            "en": "Establish independent numerical controls",
+            "zh": "建立独立数值对照"
+          },
+          "body": {
+            "en": "Implement permitted analytic tests for reference-relative acceleration, discontinuous scored windows, hand-depth averaging and collision topology.",
+            "zh": "为相对参考的加速度、不连续评分窗口、手部深度平均和碰撞拓扑建立允许使用的解析测试。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "A correct accelerating prediction has zero acceleration error; freezing it can fail.",
+              "zh": "正确的加速运动预测具有零加速度误差；冻结该运动可导致失败。"
+            },
+            {
+              "en": "Outside hand points contribute zero and remain in the mean denominator; local and official conventions are labelled separately.",
+              "zh": "外部手点深度为零且保留在平均分母中，本地与正式约定分别标明。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R3",
+            "R4"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "physics-task-display-8"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 8,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-physics-baseline-failures",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G1",
+          "owner": "Physics",
+          "title": {
+            "en": "Record baseline failures without altering output",
+            "zh": "不改动输出地记录基线失败"
+          },
+          "body": {
+            "en": "Inspect real episodes 16 and 12 for motion, contact, occlusion and boundary failures while preserving the immutable native baseline.",
+            "zh": "在保留不可覆盖原生基线的前提下，检查真实片段16和12的运动、接触、遮挡与边界失败。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Failure windows and video evidence are recorded with confidence and visibility limitations.",
+              "zh": "记录失败区间、视频证据及置信度和可见性限制。"
+            },
+            {
+              "en": "Self-smoothness or low penetration alone is not treated as a successful interaction.",
+              "zh": "不将自平滑度或低穿透单独视为交互成功。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R3",
+            "R4",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "physics-task-display-9"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 9,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-physics-event-repair",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G3",
+          "owner": "Physics + affected Human/Object owner",
+          "title": {
+            "en": "Test event-conditioned bounded repairs",
+            "zh": "验证按事件区分的有界修正"
+          },
+          "body": {
+            "en": "Separate grasp, support, sliding, foot push, release and no-contact states; release one state block at a time using independent evidence and rollback.",
+            "zh": "区分抓握、支撑、滑动、脚推、释放及无接触状态，依据独立证据逐次释放一个状态块并保留回退。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "Copied-first-frame, detached-hand, wrong-contact and overly static controls fail the fidelity gate.",
+              "zh": "复制首帧、手部脱离、错误接触及过度静止对照必须不能通过保真检查。"
+            },
+            {
+              "en": "The full clip, repair boundaries and initial scored region remain within declared degradation limits.",
+              "zh": "整段视频、修正边界和首个评分区域均符合预先声明的退化边界。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R3",
+            "R4",
+            "R5"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "physics-task-display-10"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 10,
+            "live_row_uuid": null
+          }
+        },
+        {
+          "proposed_key": "v2h-plan-20261003-physics-final-review",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "work_status": "planned",
+          "gate": "G4",
+          "owner": "Physics + all module owners",
+          "title": {
+            "en": "Review all accepted trajectories and fallbacks",
+            "zh": "审阅全部验收轨迹及回退"
+          },
+          "body": {
+            "en": "Report per-episode motion/contact diagnostics, worst failures and repair decisions for all 30 episodes; preserve accepted baseline output wherever repair evidence is insufficient.",
+            "zh": "为30个片段报告逐段运动与接触诊断、最差失败及修正决策；证据不足时保留已验收基线。"
+          },
+          "acceptance_checks": [
+            {
+              "en": "No missing or difficult frame is removed to improve a proxy; observations and failure counts are visible.",
+              "zh": "不为改善代理指标删除缺失或困难帧，公开观测与失败数量。"
+            },
+            {
+              "en": "Official receipts, local proxy values and documentation-only reviews remain separate.",
+              "zh": "官方回执、本地代理指标与仅文档评审分别记录。"
+            }
+          ],
+          "published": false,
+          "requirement_targets": [
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6"
+          ],
+          "reconciliation_result": {
+            "status": "partially_reconciled",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "physics-task-display-11"
+            ],
+            "published_representation": "title_and_label_only",
+            "display_task_number": 11,
+            "live_row_uuid": null
+          }
+        }
+      ],
+      "updates": [
+        {
+          "proposed_key": "v2h-update-20261003-physics",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "date": "2026-10-03",
+          "category": "documentation_only",
+          "title": {
+            "en": "October 3: refinement objective corrected",
+            "zh": "10月3日：修正精修目标"
+          },
+          "body": {
+            "en": "The plan treats self-acceleration as a diagnostic, uses the released reference-relative ACC definition, and distinguishes official hand penetration from broader physical plausibility. Event-conditioned bounded repairs require independent fidelity evidence and rollback. No refinement was executed or measured.",
+            "zh": "计划将自加速度作为诊断，采用已发布的相对参考加速度定义，并区分正式手部穿透指标与更广泛物理合理性。按事件区分的有界修正需要独立保真证据和回退。本次未执行或测量精修。"
+          },
+          "published": false,
+          "reconciliation_result": {
+            "status": "reconciled_as_bilingual_progress_note",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "physics-progress-note-20261003"
+            ],
+            "coverage": "The coordinator published a fuller bilingual note; its exact text is not asserted identical to this draft."
+          }
+        }
+      ],
+      "resources": [
+        {
+          "proposed_key": "v2h-resource-20261003-physics-evaluation",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "ACC and PEN definitions and limits",
+            "zh": "加速度与穿透定义及边界"
+          },
+          "repository_path": "docs/evaluation.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "resource_link_added",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "physics-resource-evaluation"
+            ],
+            "coverage": "Actual resource uses the main-branch URL recorded in the receipt; label/body equality with the draft was not asserted."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-physics-design",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Bounded motion and contact repair",
+            "zh": "有界运动与接触修正"
+          },
+          "repository_path": "docs/design.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "existing_sidebar_link_preserved",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [],
+            "coverage": "The coordinator reports the design/contracts link was already present in the static sidebar; no new database resource matching this proposal was added."
+          }
+        },
+        {
+          "proposed_key": "v2h-resource-20261003-physics-plan",
+          "action": "reconcile_with_existing_rows_after_read",
+          "existing_row_id": null,
+          "title": {
+            "en": "Repair ablations and acceptance",
+            "zh": "修正消融与验收"
+          },
+          "repository_path": "docs/implementation-plan.md",
+          "url": null,
+          "requires_committed_revision": true,
+          "published": false,
+          "reconciliation_result": {
+            "status": "resource_link_added",
+            "full_proposed_payload_published": false,
+            "actual_receipt_keys": [
+              "physics-resource-implementation-plan"
+            ],
+            "coverage": "Actual resource uses the main-branch URL recorded in the receipt; label/body equality with the draft was not asserted."
+          }
+        }
+      ],
+      "page_schema_inspected": "UI controls inspected; source schema and UUIDs unavailable",
+      "action": "reconcile_with_existing_rows_after_read",
+      "publication_status": "pending_static_publication",
+      "published": false,
+      "publication_result": {
+        "verified_on": "2026-10-03",
+        "timezone": "Asia/Shanghai",
+        "artifact_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+        "published_revision": null,
+        "database_updates_verified": true,
+        "static_content_published": false,
+        "verification_method": "Coordinator reloaded the same existing artifact after writes and verified persistent counts/content.",
+        "row_uuid_available": false,
+        "existing_rows_preserved": true,
+        "old_tasks_left_open": true,
+        "static_correction_note": "Dated bilingual additions explicitly supersede older Overview/task guidance; static source itself was not republished.",
+        "live_sections": [
+          "Overview",
+          "Tasks",
+          "Progress",
+          "Resources"
+        ],
+        "counts_after_reload": {
+          "tasks": 11,
+          "progress": 2,
+          "resources": 23
+        },
+        "actual_receipt_keys": [
+          "physics-task-display-8",
+          "physics-task-display-9",
+          "physics-task-display-10",
+          "physics-task-display-11",
+          "physics-progress-note-20261003",
+          "physics-resource-track1-compliance",
+          "physics-resource-implementation-plan",
+          "physics-resource-evaluation"
+        ]
+      },
+      "owner_requirement_source": "owner_requirement_source",
+      "static_content_published": false
+    }
+  ],
+  "owner_requirement_source": {
+    "kind": "user_message",
+    "date": "2026-10-03",
+    "url": null,
+    "quoted_verbatim": false,
+    "description": {
+      "en": "Owner's latest six Track 1 requirements, paraphrased as acceptance targets",
+      "zh": "将用户10月3日最新六项Track 1要求概述为验收目标"
+    }
+  },
+  "owner_requirements": [
+    {
+      "id": "R1",
+      "requirement": {
+        "en": "Use one human-derived Sim(3) from the first reference frame for both human and object across the clip.",
+        "zh": "使用参考轨迹首帧人体估计一个Sim(3)，整段同时应用于人体和物体。"
+      },
+      "acceptance": {
+        "en": "No object-only or per-frame alignment; reconcile the first-reference-frame wording with the code's first-scored-frame mapping.",
+        "zh": "不单独对齐物体、不逐帧重对齐；明确参考首帧表述与代码首个评分帧之间的映射。"
+      }
+    },
+    {
+      "id": "R2",
+      "requirement": {
+        "en": "Submit native MHR parameters for the human; SOMA and per-frame meshes are not substitute payloads.",
+        "zh": "人体提交原生MHR参数；SOMA及逐帧人体网格不能替代要求的提交内容。"
+      },
+      "acceptance": {
+        "en": "Verify native parameter semantics by decoding and compile/read-back checks.",
+        "zh": "通过解码与打包回读验证原生参数语义。"
+      }
+    },
+    {
+      "id": "R3",
+      "requirement": {
+        "en": "Object Chamfer evaluates the posed mesh in the shared world frame.",
+        "zh": "物体Chamfer评估共同世界坐标中的带位姿网格。"
+      },
+      "acceptance": {
+        "en": "Validate mesh, scale, rotation, translation and the shared alignment together.",
+        "zh": "联合验证网格、尺度、旋转、平移及共享对齐。"
+      }
+    },
+    {
+      "id": "R4",
+      "requirement": {
+        "en": "Acceleration error compares predicted and reference second temporal differences.",
+        "zh": "加速度误差比较预测与参考的时间二阶差分。"
+      },
+      "acceptance": {
+        "en": "Self-acceleration remains a separate diagnostic and cannot stand in for official ACC.",
+        "zh": "自加速度单独作为诊断，不能替代官方ACC。"
+      }
+    },
+    {
+      "id": "R5",
+      "requirement": {
+        "en": "Output object poses for every frame, including occluded frames.",
+        "zh": "输出每一帧的物体位姿，包括被遮挡帧。"
+      },
+      "acceptance": {
+        "en": "Check full source-frame coverage and continuity while retaining uncertainty information.",
+        "zh": "检查完整源帧覆盖与连续性，同时保留不确定性信息。"
+      }
+    },
+    {
+      "id": "R6",
+      "requirement": {
+        "en": "Reconstruct assets and estimate parameters, including intrinsics, from permitted Track 1 sources; never use Track 2 assets or derived parameters.",
+        "zh": "使用允许的Track 1来源重建资产和估计包括内参在内的参数；不使用Track 2资产或派生参数。"
+      },
+      "acceptance": {
+        "en": "Provenance rejects Track 2 even for matching iron, bowl, table or round-table assets; no Track 2-derived camera K.",
+        "zh": "即使熨斗、碗、桌子或圆桌等物体名称一致，也拒绝Track 2来源；不得使用Track 2派生相机内参K。"
+      }
+    }
+  ],
+  "database_updates_verified": true,
+  "repository_publication": {
+    "commit": "164407045fddbd6b8730c66411f34ddbf58b8033",
+    "branch": "main",
+    "commit_url": "https://github.com/Seanwilliam2077/video-to-hoi/commit/164407045fddbd6b8730c66411f34ddbf58b8033",
+    "verified_remote_main_by_coordinator": true,
+    "local_head_confirmed": true,
+    "note": "Core plan/compliance/evaluation documents were committed and pushed. This handoff receipt was updated afterwards and is not included in that commit."
+  },
+  "actual_publications": [
+    {
+      "receipt_key": "reference-answered-qa-20261003",
+      "page_key": "reference",
+      "artifact_url": "https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b",
+      "record_type": "answered_qa",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "question": "2026-10-03: Which final Track 1 requirements supersede the September notes? / 哪些最终要求取代旧说明？",
+      "topic": "Final requirements",
+      "answer_capture": "2026-10-03 — Final requirements supplied by the project owner in this conversation; this dated correction supersedes conflicting September notes and the older static overview.\n1. The evaluator fits ONE Sim(3) from HUMAN geometry in the first reference frame and applies it to BOTH human and objects throughout. Common frame/scale is required; later drift is not corrected.\n2. Submit native MHR trajectories, not SOMA-X parameters or per-frame human meshes.\n3. CD-O uses the POSED object mesh in world coordinates: shape, size and pose all matter.\n4. ACC = error between prediction and reference SECOND DIFFERENCES. Prediction-only smoothness is not official ACC; over-smoothing can hurt.\n5. Every object needs a continuous pose trajectory for EVERY frame, including occlusion/out-of-view.\n6. Reconstruct geometry and estimate ALL parameters, including cameras, from Track 1 only. No Track 2 assets or derivatives, including iron/bowl/table/round-table meshes.\nImplementation audit: current runtime is fake stages + pass-through + legacy export, not final-submission compliant. The official kit is available; the native converter/packer is pending. First reference frame vs the kit first scored frame still needs an explicit source-index mapping; do not choose an arbitrary frame.\n\n中文：以上为负责人于2026年10月3日在本次会话提供的最终要求，取代9月冲突说明及旧静态正文。一次人体首参考帧对齐共同作用于人与物；只提交原生MHR；物体按世界坐标下带位姿网格评估；加速度比较预测与真值的二阶差分；遮挡和出画也必须逐帧输出；所有网格、相机及参数只来自Track 1，禁止Track 2及其衍生物。当前代码尚未满足正式提交条件，已写入合规审计和G0–G4计划；首参考帧与工具包首计分帧的索引映射仍须核实。本次没有运行模型、没有计算官方成绩、没有提交比赛。",
+      "answer_summary": {
+        "en": "Bilingual answer records all six owner requirements, the first-reference versus first-scored-frame ambiguity, and the current repository's implementation gaps. This was a local page clarification; no question was sent to the organizer.",
+        "zh": "双语回答记录用户六项要求、参考首帧与首个评分帧的差异，以及当前仓库尚未符合要求的实现缺口。这是页面内部澄清，未向主办方发送问题。"
+      },
+      "source_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "marked_answered": true,
+      "organizer_message_sent": false,
+      "published_title": "2026-10-03: Which final Track 1 requirements supersede the September notes? / 哪些最终要求取代旧说明？",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "exact_text_recorded": true
+    },
+    {
+      "receipt_key": "platform-task-display-11",
+      "page_key": "platform",
+      "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 11,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-platform-native-export",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G0: Native MHR conversion + official pack/reload / 原生 MHR 转换与正式打包重载",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G0: Native MHR conversion + official pack/reload / 原生 MHR 转换与正式打包重载",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "platform-task-display-12",
+      "page_key": "platform",
+      "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 12,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-platform-provenance",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G0: Verify content lineage; exclude unknown-origin cameras/assets / 来源哈希核验",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G0: Verify content lineage; exclude unknown-origin cameras/assets / 来源哈希核验",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "platform-task-display-13",
+      "page_key": "platform",
+      "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 13,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-platform-real-baseline",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G1: Real baseline on ep16 + ep12; fake runs do not qualify / 两段真实基线",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G1: Real baseline on ep16 + ep12; fake runs do not qualify / 两段真实基线",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "platform-task-display-14",
+      "page_key": "platform",
+      "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 14,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-platform-observations-reports",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G2: Freeze independent observations and regenerate diagnostics / 固定独立观测",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G2: Freeze independent observations and regenerate diagnostics / 固定独立观测",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "platform-task-display-15",
+      "page_key": "platform",
+      "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 15,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-platform-final-candidate",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G4: All 30 episodes, all objects/frames, one frozen export / 全量提交演练",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G4: All 30 episodes, all objects/frames, one frozen export / 全量提交演练",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "platform-progress-note-20261003",
+      "page_key": "platform",
+      "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "record_type": "progress_note",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "language": "bilingual_en_zh",
+      "text_capture": "2026-10-03 | Final requirements and G0–G4 / 最终要求与实施关口\nCorrection to old Overview/task #10: the official kit IS available; our native-MHR converter and official packer are missing. Current code is fake stages + pass-through + internal export, not a final compliant submission. G0: native conversion, common frame/scale, provenance and pack/reload. G1: real immutable ep16/ep12 baseline. G2: independent observations. G3: bounded repair. G4: all 30 episodes, every object/frame including occlusion, one frozen candidate. Estimate cameras/geometry from Track 1 only. Evaluate with one HUMAN first-reference-frame Sim(3), not independent object or later-frame alignment; confirm kit source-index mapping. 161 synthetic checks pass; no model run, server deployment or official score.\n中文：官方工具已公布，旧任务#10不再等待发布；本仓库仍缺正式适配。先完成原生格式、共同坐标尺度、来源及重载核验，再做真实基线和全量验收。所有估计只用本赛道数据。基础测试通过不代表正式提交合规或真实成绩；新任务均未完成。",
+      "content_summary": {
+        "en": "Dated correction covers the new requirements, implementation gaps and documentation-only evidence; no model result is claimed. It explicitly supersedes older Overview/task guidance without changing those static texts.",
+        "zh": "带日期的修订说明覆盖新要求、实现缺口及仅文档层面的证据，不声称模型结果；明确取代旧概览与任务中的相关说明，但未修改这些静态文字。"
+      },
+      "published_title": "2026-10-03 | Final requirements and G0–G4 / 最终要求与实施关口",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "exact_text_recorded": true
+    },
+    {
+      "receipt_key": "platform-resource-track1-compliance",
+      "page_key": "platform",
+      "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/track1-compliance.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/track1-compliance.md",
+      "published_title": "2026-10-03 Final Track 1 compliance audit / 六项最终要求审计",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "platform-resource-implementation-plan",
+      "page_key": "platform",
+      "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/implementation-plan.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/implementation-plan.md",
+      "published_title": "2026-10-03 G0–G4 implementation plan / 实施与验收计划",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "platform-resource-evaluation",
+      "page_key": "platform",
+      "artifact_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/evaluation.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/evaluation.md",
+      "published_title": "2026-10-03 Evaluation specification / 官方评测定义",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "human-task-display-9",
+      "page_key": "human",
+      "artifact_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 9,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-human-native-mapping",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G0: Native MHR pose136/scales68/shape45 + FK round-trip / 原生参数与转换验证",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G0: Native MHR pose136/scales68/shape45 + FK round-trip / 原生参数与转换验证",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "human-task-display-10",
+      "page_key": "human",
+      "artifact_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 10,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-human-baseline-review",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G1: Baseline body/hands and fixed identity review / 基线人体与固定身份验收",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G1: Baseline body/hands and fixed identity review / 基线人体与固定身份验收",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "human-task-display-11",
+      "page_key": "human",
+      "artifact_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 11,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-human-scale-anchor",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G2: Human scale prior cross-check; no independent object rescale / 人物尺度一致性",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G2: Human scale prior cross-check; no independent object rescale / 人物尺度一致性",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "human-task-display-12",
+      "page_key": "human",
+      "artifact_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 12,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-human-bounded-repair",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G3: Evidence-bounded body/hand repair with rollback / 有证据的有限修正",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G3: Evidence-bounded body/hand repair with rollback / 有证据的有限修正",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "human-progress-note-20261003",
+      "page_key": "human",
+      "artifact_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "record_type": "progress_note",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "language": "bilingual_en_zh",
+      "text_capture": "2026-10-03 | Native MHR correction / 原生人体格式更正\nThis supersedes old task #5 and conflicting Overview wording. Current decomposed mhr_* fields are NOT native MHR. Target pose136 + fixed structural scales68 + shape45, with pinned decoder, FK/serialization round-trip and stable identity. Do not concatenate legacy fields or submit SOMA-X parameters/per-frame human meshes. Human geometry is a scale PRIOR, not ground truth. Both human/object streams share one frame and scale; the evaluator human-first-reference-frame Sim(3) cannot repair later drift. Verify original/scored frame mapping. Only evidence-supported body/hand corrections may pass; preserve timing and amplitude. No real inference or conversion is claimed.\n中文：旧任务#5分解字段不是正式原生格式，需验证136/68/45参数、固定身份和结构尺度、模型转换及保存重载。人体尺度是待核验的估计，人与物须统一坐标尺度。只用Track 1视频证据修正人体与手部，保留动作时间和幅值；本次仅更新方案，未运行模型。",
+      "content_summary": {
+        "en": "Dated correction covers the new requirements, implementation gaps and documentation-only evidence; no model result is claimed. It explicitly supersedes older Overview/task guidance without changing those static texts.",
+        "zh": "带日期的修订说明覆盖新要求、实现缺口及仅文档层面的证据，不声称模型结果；明确取代旧概览与任务中的相关说明，但未修改这些静态文字。"
+      },
+      "published_title": "2026-10-03 | Native MHR correction / 原生人体格式更正",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "exact_text_recorded": true
+    },
+    {
+      "receipt_key": "human-resource-track1-compliance",
+      "page_key": "human",
+      "artifact_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/track1-compliance.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/track1-compliance.md",
+      "published_title": "2026-10-03 Final Track 1 compliance audit / 六项最终要求审计",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "human-resource-implementation-plan",
+      "page_key": "human",
+      "artifact_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/implementation-plan.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/implementation-plan.md",
+      "published_title": "2026-10-03 G0–G4 implementation plan / 实施与验收计划",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "human-resource-evaluation",
+      "page_key": "human",
+      "artifact_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/evaluation.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/evaluation.md",
+      "published_title": "2026-10-03 Evaluation specification / 官方评测定义",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "object-task-display-9",
+      "page_key": "object",
+      "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 9,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-object-canonical-binding",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G0: Bind each pose to mesh hash, fixed origin and exactly-once scale / 网格坐标绑定",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G0: Bind each pose to mesh hash, fixed origin and exactly-once scale / 网格坐标绑定",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "object-task-display-10",
+      "page_key": "object",
+      "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 10,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-object-local-baseline-assets",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G1: Reconstruct episode-local objects from Track 1 only / 单片段合法重建",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G1: Reconstruct episode-local objects from Track 1 only / 单片段合法重建",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "object-task-display-11",
+      "page_key": "object",
+      "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 11,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-object-observation-selection",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G2: Select shapes using independent visible-surface evidence / 可见表面独立验收",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G2: Select shapes using independent visible-surface evidence / 可见表面独立验收",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "object-task-display-12",
+      "page_key": "object",
+      "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 12,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-object-occlusion-repair",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G3: Continuous all-frame poses with bounded occlusion hypotheses / 全帧遮挡轨迹",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G3: Continuous all-frame poses with bounded occlusion hypotheses / 全帧遮挡轨迹",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "object-task-display-13",
+      "page_key": "object",
+      "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 13,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-object-packed-geometry",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G4: Render the compiled posed mesh; preserve holes/contact surfaces / 正式导出几何检查",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G4: Render the compiled posed mesh; preserve holes/contact surfaces / 正式导出几何检查",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "object-progress-note-20261003",
+      "page_key": "object",
+      "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "record_type": "progress_note",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "language": "bilingual_en_zh",
+      "text_capture": "2026-10-03 | Posed mesh + complete trajectories / 带位姿网格与完整轨迹\nThis supersedes conflicting Overview and old task #4 assumptions: default to episode-local Track 1 reconstruction; cross-clip pooling stays disabled pending permission. Bind poses to the exact mesh hash, fixed origin and exactly-once scale. CD-O uses world-posed geometry after common HUMAN alignment; shape-only fit/independent object alignment cannot replace it. Every object needs every original frame, including occluded/out-of-view frames. Filled arrays or held poses are not quality proof: check timing, discontinuities and reacquisition using bounded forward/backward hypotheses. Inspect the compiled mesh, thin structures, holes and contact surfaces. No Track 2 iron/bowl/table/round-table meshes, derivatives, caches or derived camera/scale parameters. Real reconstruction/tracking validation is pending.\n中文：默认单片段重建，跨片段合用证据待确认。绑定网格、原点、尺度与轨迹；在共同世界坐标下同时验收形状和位姿。遮挡及出画仍逐帧输出，并核验连续性。只用本赛道证据，禁止Track 2及其衍生物；本次没有真实模型结果。",
+      "content_summary": {
+        "en": "Dated correction covers the new requirements, implementation gaps and documentation-only evidence; no model result is claimed. It explicitly supersedes older Overview/task guidance without changing those static texts.",
+        "zh": "带日期的修订说明覆盖新要求、实现缺口及仅文档层面的证据，不声称模型结果；明确取代旧概览与任务中的相关说明，但未修改这些静态文字。"
+      },
+      "published_title": "2026-10-03 | Posed mesh + complete trajectories / 带位姿网格与完整轨迹",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "exact_text_recorded": true
+    },
+    {
+      "receipt_key": "object-resource-track1-compliance",
+      "page_key": "object",
+      "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/track1-compliance.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/track1-compliance.md",
+      "published_title": "2026-10-03 Final Track 1 compliance audit / 六项最终要求审计",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "object-resource-implementation-plan",
+      "page_key": "object",
+      "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/implementation-plan.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/implementation-plan.md",
+      "published_title": "2026-10-03 G0–G4 implementation plan / 实施与验收计划",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "object-resource-evaluation",
+      "page_key": "object",
+      "artifact_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/evaluation.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/evaluation.md",
+      "published_title": "2026-10-03 Evaluation specification / 官方评测定义",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "physics-task-display-8",
+      "page_key": "physics",
+      "artifact_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 8,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-physics-known-answer-metrics",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G0: GT-relative ACC controls; self-smoothness is diagnostic / 相对真值加速度",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G0: GT-relative ACC controls; self-smoothness is diagnostic / 相对真值加速度",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "physics-task-display-9",
+      "page_key": "physics",
+      "artifact_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 9,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-physics-baseline-failures",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G1: Record baseline motion/contact failures without altering outputs / 基线失败记录",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G1: Record baseline motion/contact failures without altering outputs / 基线失败记录",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "physics-task-display-10",
+      "page_key": "physics",
+      "artifact_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 10,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-physics-event-repair",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G3: Preserve timing/amplitude; reject frozen tracks and detached hands / 保真有限修正",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G3: Preserve timing/amplitude; reject frozen tracks and detached hands / 保真有限修正",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "physics-task-display-11",
+      "page_key": "physics",
+      "artifact_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "record_type": "task",
+      "live_row_uuid": null,
+      "display_task_number": 11,
+      "display_number_is_uuid": false,
+      "published": true,
+      "verified_after_reload": true,
+      "proposed_key": "v2h-plan-20261003-physics-final-review",
+      "representation": "Task title and label only; UI did not accept the full proposed body/acceptance schema.",
+      "text_capture": "2026-10-03 G4: Review all events, hidden intervals and rollback choices / 全量事件与遮挡验收",
+      "semantic_mapping": "Coordinator mapped this added task to the proposed task in the same order.",
+      "task_completion_claimed": false,
+      "published_title": "2026-10-03 G4: Review all events, hidden intervals and rollback choices / 全量事件与遮挡验收",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "label_capture": null,
+      "label_capture_note": "UI supported a label, but the saved receipt does not retain its exact value."
+    },
+    {
+      "receipt_key": "physics-progress-note-20261003",
+      "page_key": "physics",
+      "artifact_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "record_type": "progress_note",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "language": "bilingual_en_zh",
+      "text_capture": "2026-10-03 | ACC correction and bounded repair / 加速度定义与有限修正\nThis supersedes the Overview claim that official ACC is prediction-only. ACC compares D2(prediction) against D2(reference); self-acceleration is diagnostic. Over-smoothing, freezing and delayed motion can worsen error. Preserve observed timing/amplitude and simultaneous grasp/support/slide contacts; supply all occluded frames. Reject detached hands or erased motion even when smoothness/penetration improves. Inspected PEN averages predicted-hand depth in our mesh using the human alignment scale; it is not general reference-penetration subtraction. No public Track 1 reference means no local official ACC claim. Use only Track 1 and independent synthetic controls, never Track 2-derived noise. Current refine is pass-through; repairs remain planned and require independent fidelity gates plus rollback.\n中文：正式加速度误差比较预测与真值二阶差分，旧正文“只看自身平滑度”失效。保留动作时序、幅值与接触，补全遮挡；冻结动作、延迟事件或把手移开不能因数字更小而通过。当前精修仍为透传，本次未执行或测得改进。",
+      "content_summary": {
+        "en": "Dated correction covers the new requirements, implementation gaps and documentation-only evidence; no model result is claimed. It explicitly supersedes older Overview/task guidance without changing those static texts.",
+        "zh": "带日期的修订说明覆盖新要求、实现缺口及仅文档层面的证据，不声称模型结果；明确取代旧概览与任务中的相关说明，但未修改这些静态文字。"
+      },
+      "published_title": "2026-10-03 | ACC correction and bounded repair / 加速度定义与有限修正",
+      "evidence_path": "docs/evidence/page-publication-20261003.json",
+      "exact_text_recorded": true
+    },
+    {
+      "receipt_key": "physics-resource-track1-compliance",
+      "page_key": "physics",
+      "artifact_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/track1-compliance.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/track1-compliance.md",
+      "published_title": "2026-10-03 Final Track 1 compliance audit / 六项最终要求审计",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "physics-resource-implementation-plan",
+      "page_key": "physics",
+      "artifact_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/implementation-plan.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/implementation-plan.md",
+      "published_title": "2026-10-03 G0–G4 implementation plan / 实施与验收计划",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    },
+    {
+      "receipt_key": "physics-resource-evaluation",
+      "page_key": "physics",
+      "artifact_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "record_type": "resource",
+      "live_row_uuid": null,
+      "published": true,
+      "verified_after_reload": true,
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md",
+      "url_is_mutable": true,
+      "repository_path": "docs/evaluation.md",
+      "resolved_repository_commit_at_update": "164407045fddbd6b8730c66411f34ddbf58b8033",
+      "pinned_content_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/164407045fddbd6b8730c66411f34ddbf58b8033/docs/evaluation.md",
+      "published_title": "2026-10-03 Evaluation specification / 官方评测定义",
+      "evidence_path": "docs/evidence/page-publication-20261003.json"
+    }
+  ],
+  "actual_publication_summary": {
+    "verified_on": "2026-10-03",
+    "timezone": "Asia/Shanghai",
+    "verification_source": "Coordinator's authenticated browser UI writes and reload verification",
+    "task_additions": 18,
+    "progress_note_additions": 4,
+    "resource_additions": 12,
+    "answered_qa_additions": 1,
+    "total_database_additions": 35,
+    "all_five_existing_urls_reused": true,
+    "existing_rows_preserved": true,
+    "real_model_runs_claimed": false,
+    "official_scores_claimed": false,
+    "competition_submission_claimed": false,
+    "organizer_question_sent": false,
+    "live_row_uuids_known": false,
+    "browser_evidence_path": "docs/evidence/page-publication-20261003.json"
+  },
+  "remaining_publication_work": [
+    {
+      "scope": "five_subpage_static_content",
+      "status": "pending_static_publication",
+      "details": "Static Overview/Challenge content remains old; database notes/Q&A explicitly correct it but do not replace the source."
+    },
+    {
+      "scope": "hub_and_status",
+      "status": "pending_static_publication",
+      "owner": "root",
+      "details": "Local HTML/SVG changes were not republished to the existing artifacts; no source editor or Artifact connector was available."
+    },
+    {
+      "scope": "full_proposed_database_schema",
+      "status": "not_claimed",
+      "details": "Proposed bodies/acceptance fields and Reference task/resource rows were not published in a nonexistent or unsupported live schema. Drafts remain for future reconciliation."
+    }
+  ],
+  "browser_evidence": {
+    "repository_path": "docs/evidence/page-publication-20261003.json",
+    "sha256": "9486e4431cc0273c78657cc65c1fe744665acc2734feab4f59ff395a99774f24",
+    "source_path": "D:/V2H/review-evidence/live-page-receipts.json",
+    "source": "Coordinator's browser receipt capture, including exact task titles, bilingual notes, Reference answer, and module reload count snapshots.",
+    "copied_byte_for_byte": true,
+    "reference_screenshot_external_path": "D:/V2H/review-evidence/reference-final-rules.jpg",
+    "screenshot_committed": false
+  }
+}

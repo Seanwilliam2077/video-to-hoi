@@ -1,0 +1,277 @@
+{
+  "date": "2026-10-03",
+  "core_commit": "164407045fddbd6b8730c66411f34ddbf58b8033",
+  "receipts": [
+    {
+      "page": "platform",
+      "kind": "task",
+      "row": 11,
+      "title": "2026-10-03 G0: Native MHR conversion + official pack/reload / 原生 MHR 转换与正式打包重载"
+    },
+    {
+      "page": "platform",
+      "kind": "task",
+      "row": 12,
+      "title": "2026-10-03 G0: Verify content lineage; exclude unknown-origin cameras/assets / 来源哈希核验"
+    },
+    {
+      "page": "platform",
+      "kind": "task",
+      "row": 13,
+      "title": "2026-10-03 G1: Real baseline on ep16 + ep12; fake runs do not qualify / 两段真实基线"
+    },
+    {
+      "page": "platform",
+      "kind": "task",
+      "row": 14,
+      "title": "2026-10-03 G2: Freeze independent observations and regenerate diagnostics / 固定独立观测"
+    },
+    {
+      "page": "platform",
+      "kind": "task",
+      "row": 15,
+      "title": "2026-10-03 G4: All 30 episodes, all objects/frames, one frozen export / 全量提交演练"
+    },
+    {
+      "page": "human",
+      "kind": "task",
+      "row": 9,
+      "title": "2026-10-03 G0: Native MHR pose136/scales68/shape45 + FK round-trip / 原生参数与转换验证"
+    },
+    {
+      "page": "human",
+      "kind": "task",
+      "row": 10,
+      "title": "2026-10-03 G1: Baseline body/hands and fixed identity review / 基线人体与固定身份验收"
+    },
+    {
+      "page": "human",
+      "kind": "task",
+      "row": 11,
+      "title": "2026-10-03 G2: Human scale prior cross-check; no independent object rescale / 人物尺度一致性"
+    },
+    {
+      "page": "human",
+      "kind": "task",
+      "row": 12,
+      "title": "2026-10-03 G3: Evidence-bounded body/hand repair with rollback / 有证据的有限修正"
+    },
+    {
+      "page": "object",
+      "kind": "task",
+      "row": 9,
+      "title": "2026-10-03 G0: Bind each pose to mesh hash, fixed origin and exactly-once scale / 网格坐标绑定"
+    },
+    {
+      "page": "object",
+      "kind": "task",
+      "row": 10,
+      "title": "2026-10-03 G1: Reconstruct episode-local objects from Track 1 only / 单片段合法重建"
+    },
+    {
+      "page": "object",
+      "kind": "task",
+      "row": 11,
+      "title": "2026-10-03 G2: Select shapes using independent visible-surface evidence / 可见表面独立验收"
+    },
+    {
+      "page": "object",
+      "kind": "task",
+      "row": 12,
+      "title": "2026-10-03 G3: Continuous all-frame poses with bounded occlusion hypotheses / 全帧遮挡轨迹"
+    },
+    {
+      "page": "object",
+      "kind": "task",
+      "row": 13,
+      "title": "2026-10-03 G4: Render the compiled posed mesh; preserve holes/contact surfaces / 正式导出几何检查"
+    },
+    {
+      "page": "physics",
+      "kind": "task",
+      "row": 8,
+      "title": "2026-10-03 G0: GT-relative ACC controls; self-smoothness is diagnostic / 相对真值加速度"
+    },
+    {
+      "page": "physics",
+      "kind": "task",
+      "row": 9,
+      "title": "2026-10-03 G1: Record baseline motion/contact failures without altering outputs / 基线失败记录"
+    },
+    {
+      "page": "physics",
+      "kind": "task",
+      "row": 10,
+      "title": "2026-10-03 G3: Preserve timing/amplitude; reject frozen tracks and detached hands / 保真有限修正"
+    },
+    {
+      "page": "physics",
+      "kind": "task",
+      "row": 11,
+      "title": "2026-10-03 G4: Review all events, hidden intervals and rollback choices / 全量事件与遮挡验收"
+    },
+    {
+      "page": "platform",
+      "kind": "note",
+      "title": "2026-10-03 | Final requirements and G0–G4 / 最终要求与实施关口",
+      "verified": true
+    },
+    {
+      "page": "human",
+      "kind": "note",
+      "title": "2026-10-03 | Native MHR correction / 原生人体格式更正",
+      "verified": true
+    },
+    {
+      "page": "object",
+      "kind": "note",
+      "title": "2026-10-03 | Posed mesh + complete trajectories / 带位姿网格与完整轨迹",
+      "verified": true
+    },
+    {
+      "page": "physics",
+      "kind": "note",
+      "title": "2026-10-03 | ACC correction and bounded repair / 加速度定义与有限修正",
+      "verified": true
+    },
+    {
+      "page": "platform",
+      "kind": "resource",
+      "title": "2026-10-03 Final Track 1 compliance audit / 六项最终要求审计",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md",
+      "verified": true
+    },
+    {
+      "page": "platform",
+      "kind": "resource",
+      "title": "2026-10-03 G0–G4 implementation plan / 实施与验收计划",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md",
+      "verified": true
+    },
+    {
+      "page": "platform",
+      "kind": "resource",
+      "title": "2026-10-03 Evaluation specification / 官方评测定义",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md",
+      "verified": true
+    },
+    {
+      "page": "human",
+      "kind": "resource",
+      "title": "2026-10-03 Final Track 1 compliance audit / 六项最终要求审计",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md",
+      "verified": true
+    },
+    {
+      "page": "human",
+      "kind": "resource",
+      "title": "2026-10-03 G0–G4 implementation plan / 实施与验收计划",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md",
+      "verified": true
+    },
+    {
+      "page": "human",
+      "kind": "resource",
+      "title": "2026-10-03 Evaluation specification / 官方评测定义",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md",
+      "verified": true
+    },
+    {
+      "page": "object",
+      "kind": "resource",
+      "title": "2026-10-03 Final Track 1 compliance audit / 六项最终要求审计",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md",
+      "verified": true
+    },
+    {
+      "page": "object",
+      "kind": "resource",
+      "title": "2026-10-03 G0–G4 implementation plan / 实施与验收计划",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md",
+      "verified": true
+    },
+    {
+      "page": "object",
+      "kind": "resource",
+      "title": "2026-10-03 Evaluation specification / 官方评测定义",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md",
+      "verified": true
+    },
+    {
+      "page": "physics",
+      "kind": "resource",
+      "title": "2026-10-03 Final Track 1 compliance audit / 六项最终要求审计",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/track1-compliance.md",
+      "verified": true
+    },
+    {
+      "page": "physics",
+      "kind": "resource",
+      "title": "2026-10-03 G0–G4 implementation plan / 实施与验收计划",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/implementation-plan.md",
+      "verified": true
+    },
+    {
+      "page": "physics",
+      "kind": "resource",
+      "title": "2026-10-03 Evaluation specification / 官方评测定义",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/evaluation.md",
+      "verified": true
+    },
+    {
+      "page": "reference",
+      "kind": "answered_question",
+      "title": "2026-10-03: Which final Track 1 requirements supersede the September notes? / 哪些最终要求取代旧说明？",
+      "verified": true
+    }
+  ],
+  "verification": [
+    {
+      "page": "platform",
+      "persisted": true,
+      "counts": [
+        "\t\t\t\t\t\t34 tab (selectable, settable, boolean) Tasks 15, Value: 0, ID: tab-tasks",
+        "\t\t\t\t\t\t35 tab (selected, settable, boolean) Progress 3, Value: 1, ID: tab-progress",
+        "\t\t\t\t\t\t36 tab (selectable, settable, boolean) Resources 28, Value: 0, ID: tab-resources",
+        "The focused UI element is 35 tab (selected, settable, boolean) Progress 3, Value: 1, ID: tab-progress"
+      ]
+    },
+    {
+      "page": "human",
+      "persisted": true,
+      "counts": [
+        "\t\t\t\t\t\t34 tab (selectable, settable, boolean) Tasks 12, Value: 0, ID: tab-tasks",
+        "\t\t\t\t\t\t35 tab (selected, settable, boolean) Progress 2, Value: 1, ID: tab-progress",
+        "\t\t\t\t\t\t36 tab (selectable, settable, boolean) Resources 21, Value: 0, ID: tab-resources",
+        "The focused UI element is 35 tab (selected, settable, boolean) Progress 2, Value: 1, ID: tab-progress"
+      ]
+    },
+    {
+      "page": "object",
+      "persisted": true,
+      "counts": [
+        "\t\t\t\t\t\t34 tab (selectable, settable, boolean) Tasks 13, Value: 0, ID: tab-tasks",
+        "\t\t\t\t\t\t35 tab (selected, settable, boolean) Progress 2, Value: 1, ID: tab-progress",
+        "\t\t\t\t\t\t36 tab (selectable, settable, boolean) Resources 22, Value: 0, ID: tab-resources",
+        "The focused UI element is 35 tab (selected, settable, boolean) Progress 2, Value: 1, ID: tab-progress"
+      ]
+    },
+    {
+      "page": "physics",
+      "persisted": true,
+      "counts": [
+        "\t\t\t\t\t\t34 tab (selectable, settable, boolean) Tasks 11, Value: 0, ID: tab-tasks",
+        "\t\t\t\t\t\t35 tab (selected, settable, boolean) Progress 2, Value: 1, ID: tab-progress",
+        "\t\t\t\t\t\t36 tab (selectable, settable, boolean) Resources 23, Value: 0, ID: tab-resources",
+        "The focused UI element is 35 tab (selected, settable, boolean) Progress 2, Value: 1, ID: tab-progress"
+      ]
+    }
+  ],
+  "notes": {
+    "platform": "2026-10-03 | Final requirements and G0–G4 / 最终要求与实施关口\nCorrection to old Overview/task #10: the official kit IS available; our native-MHR converter and official packer are missing. Current code is fake stages + pass-through + internal export, not a final compliant submission. G0: native conversion, common frame/scale, provenance and pack/reload. G1: real immutable ep16/ep12 baseline. G2: independent observations. G3: bounded repair. G4: all 30 episodes, every object/frame including occlusion, one frozen candidate. Estimate cameras/geometry from Track 1 only. Evaluate with one HUMAN first-reference-frame Sim(3), not independent object or later-frame alignment; confirm kit source-index mapping. 161 synthetic checks pass; no model run, server deployment or official score.\n中文：官方工具已公布，旧任务#10不再等待发布；本仓库仍缺正式适配。先完成原生格式、共同坐标尺度、来源及重载核验，再做真实基线和全量验收。所有估计只用本赛道数据。基础测试通过不代表正式提交合规或真实成绩；新任务均未完成。",
+    "human": "2026-10-03 | Native MHR correction / 原生人体格式更正\nThis supersedes old task #5 and conflicting Overview wording. Current decomposed mhr_* fields are NOT native MHR. Target pose136 + fixed structural scales68 + shape45, with pinned decoder, FK/serialization round-trip and stable identity. Do not concatenate legacy fields or submit SOMA-X parameters/per-frame human meshes. Human geometry is a scale PRIOR, not ground truth. Both human/object streams share one frame and scale; the evaluator human-first-reference-frame Sim(3) cannot repair later drift. Verify original/scored frame mapping. Only evidence-supported body/hand corrections may pass; preserve timing and amplitude. No real inference or conversion is claimed.\n中文：旧任务#5分解字段不是正式原生格式，需验证136/68/45参数、固定身份和结构尺度、模型转换及保存重载。人体尺度是待核验的估计，人与物须统一坐标尺度。只用Track 1视频证据修正人体与手部，保留动作时间和幅值；本次仅更新方案，未运行模型。",
+    "object": "2026-10-03 | Posed mesh + complete trajectories / 带位姿网格与完整轨迹\nThis supersedes conflicting Overview and old task #4 assumptions: default to episode-local Track 1 reconstruction; cross-clip pooling stays disabled pending permission. Bind poses to the exact mesh hash, fixed origin and exactly-once scale. CD-O uses world-posed geometry after common HUMAN alignment; shape-only fit/independent object alignment cannot replace it. Every object needs every original frame, including occluded/out-of-view frames. Filled arrays or held poses are not quality proof: check timing, discontinuities and reacquisition using bounded forward/backward hypotheses. Inspect the compiled mesh, thin structures, holes and contact surfaces. No Track 2 iron/bowl/table/round-table meshes, derivatives, caches or derived camera/scale parameters. Real reconstruction/tracking validation is pending.\n中文：默认单片段重建，跨片段合用证据待确认。绑定网格、原点、尺度与轨迹；在共同世界坐标下同时验收形状和位姿。遮挡及出画仍逐帧输出，并核验连续性。只用本赛道证据，禁止Track 2及其衍生物；本次没有真实模型结果。",
+    "physics": "2026-10-03 | ACC correction and bounded repair / 加速度定义与有限修正\nThis supersedes the Overview claim that official ACC is prediction-only. ACC compares D2(prediction) against D2(reference); self-acceleration is diagnostic. Over-smoothing, freezing and delayed motion can worsen error. Preserve observed timing/amplitude and simultaneous grasp/support/slide contacts; supply all occluded frames. Reject detached hands or erased motion even when smoothness/penetration improves. Inspected PEN averages predicted-hand depth in our mesh using the human alignment scale; it is not general reference-penetration subtraction. No public Track 1 reference means no local official ACC claim. Use only Track 1 and independent synthetic controls, never Track 2-derived noise. Current refine is pass-through; repairs remain planned and require independent fidelity gates plus rollback.\n中文：正式加速度误差比较预测与真值二阶差分，旧正文“只看自身平滑度”失效。保留动作时序、幅值与接触，补全遮挡；冻结动作、延迟事件或把手移开不能因数字更小而通过。当前精修仍为透传，本次未执行或测得改进。"
+  },
+  "final_rules_answer": "2026-10-03 — Final requirements supplied by the project owner in this conversation; this dated correction supersedes conflicting September notes and the older static overview.\n1. The evaluator fits ONE Sim(3) from HUMAN geometry in the first reference frame and applies it to BOTH human and objects throughout. Common frame/scale is required; later drift is not corrected.\n2. Submit native MHR trajectories, not SOMA-X parameters or per-frame human meshes.\n3. CD-O uses the POSED object mesh in world coordinates: shape, size and pose all matter.\n4. ACC = error between prediction and reference SECOND DIFFERENCES. Prediction-only smoothness is not official ACC; over-smoothing can hurt.\n5. Every object needs a continuous pose trajectory for EVERY frame, including occlusion/out-of-view.\n6. Reconstruct geometry and estimate ALL parameters, including cameras, from Track 1 only. No Track 2 assets or derivatives, including iron/bowl/table/round-table meshes.\nImplementation audit: current runtime is fake stages + pass-through + legacy export, not final-submission compliant. The official kit is available; the native converter/packer is pending. First reference frame vs the kit first scored frame still needs an explicit source-index mapping; do not choose an arbitrary frame.\n\n中文：以上为负责人于2026年10月3日在本次会话提供的最终要求，取代9月冲突说明及旧静态正文。一次人体首参考帧对齐共同作用于人与物；只提交原生MHR；物体按世界坐标下带位姿网格评估；加速度比较预测与真值的二阶差分；遮挡和出画也必须逐帧输出；所有网格、相机及参数只来自Track 1，禁止Track 2及其衍生物。当前代码尚未满足正式提交条件，已写入合规审计和G0–G4计划；首参考帧与工具包首计分帧的索引映射仍须核实。本次没有运行模型、没有计算官方成绩、没有提交比赛。"
+}

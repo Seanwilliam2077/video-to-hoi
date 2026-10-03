@@ -257,7 +257,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
           <dt>负责</dt><dd>从视频里还原人每一帧的三维姿态，包括手；以人体提供尺寸参考，并用视频检查这个估计是否合理。</dd>
           <dt>交给别人</dt><dd>唯一一份可追溯的人体动作；场景尺寸估计，以及哪些画面可靠、哪些仍不确定。</dd>
           <dt>需要别人</dt><dd>平台提供的视频预处理结果。</dd>
-          <dt>前两周</dt><dd>先检查保存和交接后的人体形状是否一致；后续重点检查主办方最先评分的画面，并利用前后清晰画面帮助纠正。</dd>
+          <dt>前两周</dt><dd>先检查保存和交接后的人体形状是否一致；后续重点核对主办方用于最初对齐的画面，并利用前后清晰画面帮助纠正。</dd>
           <dt>适合</dt><dd>做过人体姿态估计或人体三维重建。</dd>
         </dl>
         <a class="more" href="https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk" target="_blank" rel="noopener">技术资料与任务 →</a>
@@ -299,7 +299,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <thead><tr><th>分工</th><th>要交的东西</th></tr></thead>
         <tbody>
           <tr><td class="who-cell r1">① 平台与数据</td><td>对接正式提交工具；两段视频完整跑通；重新打开交出去的结果核对，保留第一个团队基准版本</td></tr>
-          <tr><td class="who-cell r2">② 人体动作还原</td><td>检查人体保存前后是否一致，重点复核最先评分的画面；核对尺寸估计，列出不确定部分</td></tr>
+          <tr><td class="who-cell r2">② 人体动作还原</td><td>检查人体保存前后是否一致，重点复核最初对齐的画面；核对尺寸估计，列出不确定部分</td></tr>
           <tr><td class="who-cell r3">③ 物体形状与运动</td><td>泡沫块和平底锅的三维模型（真实尺寸）；检查跟踪是否在遮挡时断掉</td></tr>
           <tr><td class="who-cell r4">④ 动作流畅与真实感</td><td>用自行构造的模拟动作验证检查方法；在真实结果上逐项修正，保留动作时序和接触关系，记录失败与回退</td></tr>
         </tbody>
@@ -347,7 +347,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <li>搭好了整体框架：把工作拆成四块，四个人可以各做一块、互不等待。</li>
       <li>建好了团队协作页面：每块工作有自己的任务、进展和资料页，已邀请三位同学。</li>
       <li>下载并整理好了比赛的全部 30 段视频，可以直接浏览。</li>
-      <li>原定基础方案的 12 组模型文件已下载，本次重新核对通过（约 24 GB）；三个关键模型的使用权限已获批。这个范围不包含后来新增的全部对比方案。</li>
+      <li>原定基础方案的 12 组模型文件此前已下载并核对通过（约 24 GB）；三个关键模型的使用权限已获批。这个范围不包含后来新增的全部对比方案。</li>
       <li>新增约 18 GB 模型文件已打包上传，附自动核对方法，同事可从<a href="https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/hf-models-20260927" target="_blank" rel="noopener">新增模型交接包</a>直接下载。</li>
       <li>新一批基础文件、对比方案的模型文件和接收说明已公开（约 17 GB），完整性和下载地址核对通过，同事可从<a href="https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/assets-completion-20260928" target="_blank" rel="noopener">最新交接包</a>下载。原定基础方案的 12 组模型文件现已全部可供交接。</li>
       <li>基础软件包、不同方案各自需要的软件清单，以及“打包上传、到达后自动核对”的工具已准备并核对；这还不是能直接运行的完整服务器环境。</li>

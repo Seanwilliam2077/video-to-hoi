@@ -1,0 +1,35 @@
+{
+  "scope": "Track 1 episode 16 original frames 90-209",
+  "settings": {
+    "near_m": 0.02,
+    "distance_scale_m": 0.025,
+    "stick_speed_m_per_frame": 0.003,
+    "deep_penetration_m": 0.015,
+    "transition_cost": 0.8,
+    "iterations": 300,
+    "graph_weight": 0.5,
+    "stick_weight": 0.05,
+    "contact_weight": 0.2
+  },
+  "conditions": [
+    "static_no_mesh",
+    "static_mesh",
+    "dynamic_no_mesh",
+    "dynamic_mesh"
+  ],
+  "initialization": "Common v3 sliding_without_graph output; extra bounded refinement budget, not a fresh blind test",
+  "state_source": "Frozen geometric pseudo-labels from common warm start; not solver-controlled, not contact GT",
+  "static_schedule": "Temporal mean of dynamic contact/stick weights: same total exposure, no switching",
+  "observations": "Same v3 texture split; previous development validation reused",
+  "selection": "Training objective only, fit reprojection <=1.10*warm-start training error; validation not used for selection",
+  "hypotheses": [
+    "Temporal contact modes reduce false binding during separation/sliding",
+    "3D interaction Laplacian adds benefit beyond contact modes"
+  ],
+  "limitations": [
+    "Estimated object geometry and contact labels",
+    "Short clip may lack true release",
+    "No 3D/contact GT",
+    "Sampled collision, no continuous guarantee"
+  ]
+}

@@ -1,0 +1,13 @@
+assets/
+baseline/
+data/
+downloads/
+env/
+sources/
+logs/
+results/
+*.npz
+*.npy
+*.pt
+*.ckpt
+*.mp4

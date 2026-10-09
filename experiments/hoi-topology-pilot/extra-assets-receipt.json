@@ -1,0 +1,22 @@
+[
+  {
+    "name": "dinov3",
+    "revision": "6876159a11b4df116f30f667f8c9888617df0751",
+    "sha256": "8f3ba3a5e4f017c4ae209cf3052ac3ffae714bc8308d1e541db7c6050294ece2"
+  },
+  {
+    "name": "moge",
+    "revision": "925b8ed835a7a9cdb7578ba15c658a0afc969030",
+    "sha256": "b496132b7e36e95f407df2c6fc3021c84023d2d7d30d8c7c9d0b50f61ad00e1d"
+  },
+  {
+    "name": "utils3d",
+    "revision": "3fab839f0be9931dac7c8488eb0e1600c236e183",
+    "sha256": "ad4dbdf7605c31806194374189051cf4c82a3b6bd186ec2bc9b53c81d301d520"
+  },
+  {
+    "name": "moge2-model",
+    "revision": "b135031bae30b5ac2ae141a0e68717795ce38340",
+    "sha256": "280741fd09bc3f403ccff9967784c2a391b52d2c0742ae3efdb21d9f90cc1a01"
+  }
+]

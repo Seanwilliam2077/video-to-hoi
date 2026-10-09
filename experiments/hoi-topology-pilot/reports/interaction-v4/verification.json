@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "scope": "Native output integrity, frame coverage, proper rotation and video decoding; no 3D accuracy proof",
+  "videos": {
+    "comparison-1x.mp4": {
+      "decoded_frames": 120,
+      "fps": 30.0,
+      "sha256": "3a7d21a9d89d93a582466af7abdc53d17074f85b69bb715f5befea0890df7e6b"
+    },
+    "comparison-half-speed.mp4": {
+      "decoded_frames": 120,
+      "fps": 15.0,
+      "sha256": "7beef9f257662b0cb8baed7351b0218eebf7d7dc709b1a0dbb7ae18503c7863a"
+    }
+  }
+}

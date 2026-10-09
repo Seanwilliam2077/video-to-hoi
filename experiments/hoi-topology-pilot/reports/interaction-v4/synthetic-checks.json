@@ -1,0 +1,6 @@
+{
+  "interior_mode_accuracy": 1.0,
+  "fixed_gate_release_penalty": 66.66666865348816,
+  "dynamic_gate_release_penalty": 0.0,
+  "scope": "Known-truth mode inference and constraint behavior, not a reconstruction accuracy experiment"
+}

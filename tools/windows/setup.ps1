@@ -3,7 +3,11 @@ $ErrorActionPreference = 'Stop'
 $ProjectRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $env:UV_PROJECT_ENVIRONMENT = Join-Path $ProjectRoot '.venv'
 $env:UV_LINK_MODE = 'copy'
-$env:SAM2_BUILD_CUDA = '0'
+# The pinned local SAM2 wheel includes its original CUDA hole-filling extension.
+# Refuse a missing wheel rather than silently installing a degraded mask path.
+if (-not (Test-Path -LiteralPath "$ProjectRoot/wheelhouse/windows/sam_2-1.0-cp312-cp312-win_amd64.whl")) {
+    throw 'The preserved SAM2 Windows CUDA wheel is required.'
+}
 [string[]]$NetworkFlags = @()
 if (-not $Online) { $NetworkFlags = @('--offline') }
 Push-Location $ProjectRoot

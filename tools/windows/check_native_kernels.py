@@ -1,4 +1,4 @@
-"""Independent synthetic gradient checks and real scorer batching equivalence."""
+"""Independent synthetic penetration-gradient and depth-warp batching checks."""
 import json
 import os
 from pathlib import Path
@@ -23,7 +23,6 @@ def main():
     with tempfile.TemporaryDirectory() as directory:
         with MHRDepthH5Writer(Path(directory) / "depth.h5", {"camera": ["000000"]}):
             pass
-    from learning.training.predict_score import ScorePredictor
     from learning.foundationpose_data import FoundationPoseBatchData, FoundationPoseScoreDataProcessor
     synthetic = FoundationPoseBatchData(
         rgbAs=torch.zeros(9, 3, 16, 16, device="cuda"),
@@ -46,27 +45,11 @@ def main():
             os.environ.pop("FOUNDATIONPOSE_DEPTH_BATCH_SIZE", None)
         else:
             os.environ["FOUNDATIONPOSE_DEPTH_BATCH_SIZE"] = original_depth_batch
-    model = ScorePredictor().model.eval()
-    torch.manual_seed(3)
-    a = torch.randn(8, 6, 160, 160, device="cuda")
-    b = torch.randn_like(a)
-    original = os.environ.get("FOUNDATIONPOSE_SCORE_FEATURE_BATCH_SIZE")
-    try:
-        with torch.inference_mode(), torch.autocast("cuda", dtype=torch.float16):
-            os.environ["FOUNDATIONPOSE_SCORE_FEATURE_BATCH_SIZE"] = "8"
-            reference = model(a, b, 8)["score_logit"]
-            os.environ["FOUNDATIONPOSE_SCORE_FEATURE_BATCH_SIZE"] = "3"
-            actual = model(a, b, 8)["score_logit"]
-        assert torch.allclose(reference, actual, atol=.002, rtol=.002)
-    finally:
-        if original is None:
-            os.environ.pop("FOUNDATIONPOSE_SCORE_FEATURE_BATCH_SIZE", None)
-        else:
-            os.environ["FOUNDATIONPOSE_SCORE_FEATURE_BATCH_SIZE"] = original
     report = {"penetration_value_and_gradients": "PASS", "h5_lock": "PASS",
               "depth_warp_chunk_bit_exact": True,
-              "score_chunk_max_difference": float((reference-actual).abs().max()),
-              "scope": "Independent synthetic cube/points and random scorer tensors; no challenge reference data"}
+              "penetration_equivalence_to_kaolin": "Not established; owner-permitted exception",
+              "score_policy": "Unmodified upstream full forward; no scorer feature chunks",
+              "scope": "Independent synthetic cube/points and depth warp; no challenge reference data"}
     path = Path("artifacts/windows-migration/native-kernels.json")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(report, indent=2))

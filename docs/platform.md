@@ -1,18 +1,26 @@
 # Remote platform and baseline deployment
 
-## Native Windows baseline (2026-10-11)
+## Native Windows corrections (2026-10-11)
 
-The local `windows-cari4d` branch now runs real CARI4D MHR through
+The local `windows-cari4d` branch runs real CARI4D MHR through
 `python -m v2hoi.native`, using a project-owned `.venv` and copied sources/assets.
-Episode 16 completed 360/360 original frames, contact optimization, native MHR
+The historical experiment completed 360/360 original frames, contact optimization, native MHR
 export with constant identity, official format readback, and rendering from the
 reloaded export. Whole-device sampled peak after batching changes was 9,495 MiB
 on the 16 GB workstation. The explicit team CI allowlist passes 231 tests.
 
 See the [Windows runtime record](../deployment/windows/README.md) for pinned
-sources, commands, exact checks and limitations. The visible-depth convex object
-is approximate; hand/object alignment, rotation drift and repeated full-run
-sensitivity remain quality issues. This single-video execution does not close
+sources, commands, exact checks and limitations. Its previous official-baseline
+label is retracted: convex object geometry, JPEG mask input, disabled hole
+filling and custom identity fitting were algorithmic deviations. The corrected
+official SAM2 and complete official MHR converter have passed separately.
+SAM 3D Objects generation passed with unchanged sampling/decoding methods and
+strictly loaded models staged between CPU and CUDA, producing a 352,348-face
+mesh in 84.7 seconds with an 8.50 GiB allocated peak. A new coupled full run
+remains pending. Original 512/1024 tracking batches exceeded memory with this
+dense surface; current render/refine batches are 64/128, depth warps 32, and the
+original full scorer is retained. The owner permits the unproven Kaolin penetration fallback
+as an explicit remaining exception. This single-video execution does not close
 G0/G1, validate the other required baseline episode, establish an official score,
 or produce a complete 30-video submission. The existing remote preparation
 history below remains historical evidence. The Claude module/status pages need

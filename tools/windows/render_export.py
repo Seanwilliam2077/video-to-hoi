@@ -19,12 +19,13 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--run", type=Path, required=True)
     p.add_argument("--export", type=Path, required=True)
+    p.add_argument("--mesh", type=Path, help="Use the verified mesh read back from official submission packing")
     p.add_argument("--kit", type=Path, default=Path("third_party/official-track1-kit"))
     a = p.parse_args()
     identity = json.loads((a.run / "native-inputs.json").read_text())
     seq = f"episode_{identity['episode']:06d}"
     params_path = a.export / f"{seq}.npz"
-    mesh = a.export / f"{seq}_object.glb"
+    mesh = a.mesh or a.export / f"{seq}_object.glb"
     with np.load(params_path, allow_pickle=False) as data:
         params = {k: data[k].copy() for k in data.files}
     if params["frame_ids"].tolist() != identity["original_frame_ids"] or float(params["object_scale"]) != 1:
@@ -46,7 +47,7 @@ def main():
         raise ValueError("Unexpected non-camera-space export")
     video = cv2.VideoCapture(str(a.run / "inputs" / f"{seq}.0.color.mp4"))
     fps = video.get(cv2.CAP_PROP_FPS)
-    output = a.export / "export-reloaded.mp4"
+    output = a.export / ("export-reloaded-budgeted.mp4" if a.mesh else "export-reloaded.mp4")
     with imageio.get_writer(str(output), format="FFMPEG", fps=fps, codec="libx264", macro_block_size=None, ffmpeg_params=["-crf", "20"]) as writer:
         for i in range(len(pose)):
             ok, bgr = video.read()

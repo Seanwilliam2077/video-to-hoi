@@ -119,5 +119,13 @@
     "pose_bit_exact": true,
     "max_abs_pose_difference": 0.0,
     "frames": 360
-  }
+  },
+  "official_baseline_fidelity": false,
+  "classification": "Historical Windows experiment; previous baseline label retracted",
+  "known_algorithm_deviations": [
+    "Visible-depth convex object substituted for SAM3D Objects generation",
+    "SAM2 small-hole filling disabled and JPEG quality 95 frame cache used",
+    "Open3D/PyTorch3D penetration fallback not proven Kaolin-equivalent",
+    "Custom shared-identity initialization/keyframes/fitting schedule replaced the full official converter"
+  ]
 }

@@ -18,8 +18,8 @@ tool installations; deleting this project removes its environment, not those too
   These historical assets are archival and are not inputs to the competition
   reconstruction or evaluation pipeline. Only permitted Track 1 inputs may be
   used for challenge reconstruction.
-- `wheelhouse/windows`: seven existing locally built wheels, including the
-  Windows CPython 3.12 PyTorch3D and nvdiffrast binaries.
+- `wheelhouse/windows`: preserved locally built wheels, including the
+  Windows CPython 3.12 PyTorch3D, nvdiffrast and original SAM2 CUDA binaries.
 - `artifacts/windows-migration`: original environment lists, wheel hashes,
   transfer verification, installation logs, and cleanup records.
 
@@ -49,22 +49,34 @@ PyTorch 2.14.1 CUDA 13.0 stack; other combinations need separate builds.
 Use the explicit Windows setup script for this environment. A plain `uv sync`
 at the repository root uses the team's separate lightweight host manifest and
 can remove backend dependencies. This profile includes the editable team package
-and its host dependencies. SAM2's optional CUDA extension is disabled; its mask
-network runs on CUDA normally. The segmentation helper disables optional hole filling.
+and its host dependencies. SAM2 uses its original connected-components CUDA
+extension and default hole filling (area 8). Segmentation reads the original MP4
+with the NVIDIA entry and Decord; inference frames never use a JPEG cache.
 
 ## Real Track 1 entry point
 
-The episode 16 preparation consists of a complete 360-frame SAM2 mask sequence,
-MoGe2 depth/intrinsics, standalone SAM3D MHR initialization, and depth scale
-alignment against that estimated human. The object is a convex reconstruction
-of visible first-frame depth, closed across unseen surfaces. Its backside is
-inferred and remains a quality limitation. This is an image-derived initial
-baseline, not a measured reference mesh or a final mesh reconstruction method.
+Official preparation requires the complete original-frame SAM2 mask sequence,
+MoGe2 depth/intrinsics, official SAM3D Body initialization, human-anchored depth
+scale alignment and the NVIDIA SAM 3D Objects generative entry. The native
+runner rejects the previous convex/JPEG preparation by default. Explicit
+`--allow-experimental-preparation` is available only for historical diagnostics.
+Generation must complete and produce its receipt before a new preparation
+manifest or a faithful full-run result can be reported.
+
+On this 16 GB workstation, generate with `tools/windows/generate_object.py
+--cpu-offload`. This adapter stages strictly loaded, unchanged models between
+CPU and CUDA. It inherits the original sampling/decoding methods, preserving
+float32 parameter storage, original autocast precision, both 25-step samplers,
+guidance settings and all requested output formats. Fully resident loading
+exceeded the 75% budget; staged generation passed in 84.7 seconds with an
+8.50 GiB allocated peak, producing 176,178 vertices and 352,348 faces.
+`tools/windows/assemble_preparation.py` freezes its receipt and segmentation
+checksums. The complete new coupled run remains a separate validation gate.
 
 After preparation, run the coupled native backend:
 
 ```powershell
-python -m v2hoi.native --dataset-root third_party/CARI4D_MHR_Win/data/v2d-challenge/track_1 --episode 16 --preparation runs/windows-episode16/prepared/preparation.json --output runs/my-episode16
+python -m v2hoi.native --dataset-root third_party/CARI4D_MHR_Win/data/v2d-challenge/track_1 --episode 16 --preparation runs/windows-episode16/faithful-preparation/preparation.json --output runs/my-episode16
 python -m v2hoi.native_export --run runs/my-episode16 --assets weights/cari4d/sam3d_body --output runs/my-episode16/export
 python tools/windows/validate_official_export.py --episodes runs/my-episode16/export --episode 16
 ```
@@ -77,10 +89,14 @@ and object states come from the same coupled upstream bundle.
 The default `--cuda-memory-fraction 0.75` limits each stage's PyTorch allocator.
 Desktop/driver memory and non-PyTorch CUDA allocations are outside that limit.
 `gpu-memory.json` records whole-device samples, and `.stages/*.memory.json`
-records exact PyTorch allocation/reservation peaks. The FoundationPose render,
-refiner, independent scorer features and full-resolution depth conversion use
-16-item batches. Cross-candidate attention and all original video frames remain
-intact. Do not run two GPU jobs together on the 16 GB workstation.
+records exact PyTorch allocation/reservation peaks. FoundationPose uses
+render/refiner batches 64/128, the unmodified full scorer forward and a 32-item
+independent depth-warp batch. Original 512/1024 batches passed on the historical
+tiny convex mesh, but exceeded memory with the new 352,348-face generated mesh;
+no surface simplification is used to recover memory. Other pipeline batching
+defaults are 4, with SAM3D refitting at 64; their complete corrected run still
+needs validation. Do not run two GPU jobs
+together on the 16 GB workstation.
 
 For standalone commands, the same budget wrapper is available:
 
@@ -89,16 +105,28 @@ python -m v2hoi.cuda_budget --fraction .75 --report runs/export-memory.json -- -
 python -m v2hoi.cuda_budget --fraction .75 --report runs/render-memory.json -- tools/windows/render_export.py --run runs/my-episode16 --export runs/my-episode16/export
 ```
 
-Export first verifies the exact wrapper-to-native MHR mapping. If identity varies
-over time, the official converter's joint/per-frame LM solvers fit constant shape
-and skeletal scales, warm-started from the actual native parameters. The fit's
-geometric error is reported separately from the exact conversion check.
+Export first verifies the exact wrapper-to-native MHR mapping. It then passes
+the decoded vertices to the full official `mesh_to_mhr_params.convert()` flow,
+including its float64 arithmetic, initialization, keyframe selection, iteration
+counts, cold/backward refits and shared-identity refinement. Only its supported
+model call batch is configured (64). The fit's geometric error is reported
+separately from the exact conversion check; no custom native-parameter warm
+start, median identity or altered fitting policy is used.
 
 The official packer check reads only this episode's rows from the public Track 1
 sample. With no `--commit`, it writes `FORMAT_CHECK_ONLY.parquet` using the
 organizer's explicit placeholder URL. This is a local format check and must not
 be uploaded. A complete submission needs every required episode and an actual
 published commit identifying the generating code. No official score is computed.
+
+The official sample allows 4,096 vertex rows and 4,096 face rows per object.
+The unmodified organizer packer welds, decimates and pads the full-resolution
+input to those limits. This mandatory packaging operation is separate from
+inference geometry: the complete generated surface feeds tracking and contact
+optimization. Validation compares Parquet readback exactly to the official
+budget result and separately reports sampled surface change. Reload rendering
+can use `--mesh <export>/episode_000016_object_budgeted.glb` to display the
+surface actually serialized for the competition, with all original source poses.
 
 ## Model acquisition and minimal runtime
 
@@ -108,13 +136,28 @@ receipts/licenses. MoGe2 and FoundationPose weights are reused from the migrated
 downloads. SAM2 uses the source revision in `sources.json` and the checkpoint
 SHA-256 `2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318`.
 
-Training, TensorRT, Kaolin, SAM 3D Objects and UI packages are not added for this
-baseline. The required penetration objective uses existing Open3D occupancy
+`python tools/windows/acquire_weights.py --asset sam3d-objects --download-workers 4`
+restores the team's SAM 3D Objects archive. Completed parts are hash-verified
+and reused; partial parts resume with checked byte ranges. `--direct-download`
+disables the proxy for that transfer only. Choose by measured connectivity.
+
+Training, TensorRT and unused UI packages are not added for this baseline.
+Only required SAM 3D Objects inference imports are installed. Its legacy MoGe
+and utils3d sources are scoped to the object-generation process; the coupled
+backend retains its own current MoGe2 API in the same project environment.
+The required penetration objective uses existing Open3D occupancy
 and differentiable PyTorch3D triangle distance when Kaolin is unavailable.
+This is an owner-permitted exception whose equivalence to Kaolin has **not**
+been established. SAM 3D Objects' separate tensor validation helper preserves
+the original Kaolin Python function; it does not replace geometry kernels.
 DINOv3 imports only its backbone, and CoCoNet uses its checkpoint's complete
 DINOv2 state without redundant standalone weight downloads. FoundationPose
-renders/refines small batches and chunks only independent scorer features;
-cross-candidate attention still sees every candidate together.
+uses the original complete scorer forward with independent render/refine batches.
+
+Unused simplification and texture-baking imports are lazy. Their dependencies
+are in `object-postprocess`, excluded from default setup; enable this group only
+when requesting those upstream options. Core geometry generation retains all
+vertices and faces and requires neither VTK/PyVista nor Gaussian rasterization.
 
 `python tools/windows/fetch_official_code.py` restores only the pinned official
 code/docs and public Track 1 sample row schema in `official-kit.json`. It reuses
@@ -123,7 +166,8 @@ and reference assets are never downloaded. Updated sources require explicit
 review rather than silently replacing pinned code.
 
 `python tools/windows/check_native_kernels.py` verifies analytic penetration
-values/gradients and chunked-versus-original scoring. Run this separately from
+values/gradients and bit-exact independent depth-warp batching. These checks
+do not prove Kaolin equivalence. Run this separately from
 the explicit CPU test list in `.github/workflows/tests.yml`.
 
 The legacy checkout's old configuration/log files intentionally retain historical
@@ -138,9 +182,12 @@ geometry, official format readback and submission coverage each require their
 own evidence. No synthetic result may be represented as reconstruction. A
 single-video result is not a complete competition submission.
 
-## Verified native baseline (2026-10-11)
+## Historical Windows experiment (2026-10-11)
 
-The [machine-readable record](episode16-result.json) pins the actual evidence.
+The [machine-readable record](episode16-result.json) pins the actual evidence
+and retracts the earlier official-baseline label. This run used a depth convex
+hull, JPEG mask input, disabled SAM2 hole filling and a custom identity fit.
+It demonstrates Windows execution, **not official baseline fidelity**.
 `runs/windows-episode16/full-v5` completed all eight upstream stages for episode
 16: 360 original frames at 30 fps, including 300 steps of contact optimization.
 The 231 explicitly allowed team tests and independent CUDA gradient/batching
@@ -179,6 +226,25 @@ drift still need work. This is a runnable single-video baseline, not a finished
 reconstruction method, a closed multi-video acceptance gate, or an upload-ready
 30-episode submission.
 
+## Corrected components validated separately
+
+The official SAM2 entry completed all 360 frames with CUDA hole filling and
+original-video decoding. Its first-frame masks differ from the historical
+experiment, so historical stages must not be reused under the corrected identity.
+The complete official MHR converter also passed on the historical native output:
+all 360 frames valid, keyframes 0/120/239/359, mean vertex discrepancy 0.443 mm,
+maximum 15.275 mm, about 665 seconds. This establishes converter execution;
+it does not make the historical object reconstruction faithful.
+
+Dense geometry also exceeds memory when the original postopt silhouette render
+materializes all 360 frames at once. Its independent per-frame raster calls now
+use checkpointed batches of 16; the original method body, whole-clip optimization,
+300-step schedule and temporal objective are preserved. The source-resume audit
+verifies the entire original module AST and every other upstream Python file
+before reusing stages 01-06. On independent cubes with occlusion and a partial
+last batch, losses match exactly and the largest gradient difference is
+8.94e-8. This is a bounded synthetic check, not a whole-pipeline equivalence claim.
+
 The online Claude module/status pages have not been updated: this session has
 no Claude Artifact publisher. The technical record is local to this branch.
 
@@ -191,7 +257,9 @@ no Claude Artifact publisher. The technical record is local to this branch.
   was rerun successfully without downloads or package changes.
 - CUDA forward/backward checks passed for PyTorch, PyTorch3D KNN and mesh
   rasterization, and nvdiffrast. Editable source locations are inside this repo.
-- The integrated profile contains 162 packages; `uv pip check` passes. All 231
+- The historical integrated profile contained 162 packages. The corrected
+  minimal profile contains 180; optional texture/simplification packages are
+  excluded. `uv pip check` passes. All 231
   tests in the explicit team CI allowlist pass on Windows.
 - Automatic tool approval rejected both a bounded batch cleanup and a single
   old-junction removal, returning only `blocked by policy`. No external
@@ -208,3 +276,13 @@ junction, and seven identified uv cached tool environments plus their indexes:
 
 It refuses unexpected targets, environments with active Python/uv processes, or
 an incomplete migration. Run it manually only after reviewing its target list.
+
+One later maintenance command omitted `UV_PROJECT_ENVIRONMENT` and began an
+unused environment in `deployment/windows/.venv`. The command was stopped;
+all active work uses the root `.venv`. Automatic approval rejected deletion of
+that newly created directory with only `blocked by policy`, so it remains
+pending manual cleanup. This is the exact in-project target:
+
+```powershell
+Remove-Item -LiteralPath 'D:\Projects\video-to-hoi\deployment\windows\.venv' -Recurse -Force
+```

@@ -12,11 +12,15 @@ dependencies = [
   "v2d-cari4d-lib", "moge", "utils3d", "pytorch-lightning", "yacs", "loguru", "roma",
   "v2d-common[io]", "v2d-mv[math]", "v2d-moge-lib", "v2d-sam3d-body-lib",
   "v2d-foundation-pose-lib", "v2d-mesh-lib",
-  "video-to-hoi", "SAM-2", "braceexpand",
+  "video-to-hoi", "SAM-2", "braceexpand", "decord", "v2d-sam2-lib", "v2d-sam3d-lib",
+  "optree", "astor", "easydict", "plyfile",
+  "lightning", "spconv-cu126==2.3.8",
+  "nvidia-cuda-runtime-cu12==12.6.77", "nvidia-cuda-nvrtc-cu12==12.6.85",
 ]
 
 [dependency-groups]
 test = ["pytest"]
+object-postprocess = ["xatlas", "pyvista", "pymeshfix", "igraph", "gsplat==1.5.3"]
 
 [tool.uv]
 package = false
@@ -30,7 +34,7 @@ explicit = true
 
 [tool.uv.sources]
 video-to-hoi = { path = "../..", editable = true }
-sam-2 = { path = "../../third_party/sam2", editable = true }
+sam-2 = { path = "../../wheelhouse/windows/sam_2-1.0-cp312-cp312-win_amd64.whl" }
 torch = { index = "pytorch-cu130" }
 torchvision = { index = "pytorch-cu130" }
 pytorch3d = { path = "../../wheelhouse/windows/pytorch3d-0.7.9-cp312-cp312-win_amd64.whl" }
@@ -44,3 +48,5 @@ v2d-moge-lib = { path = "../../third_party/CARI4D_MHR_Win/reconstruction/modules
 v2d-mesh-lib = { path = "../../third_party/CARI4D_MHR_Win/reconstruction/modules/v2d_mesh/lib", editable = true }
 v2d-common = { path = "../../third_party/CARI4D_MHR_Win/reconstruction/modules/v2d_common", editable = true }
 v2d-mv = { path = "../../third_party/CARI4D_MHR_Win/reconstruction/modules/v2d_mv", editable = true }
+v2d-sam2-lib = { path = "../../third_party/CARI4D_MHR_Win/reconstruction/modules/v2d_sam2/lib", editable = true }
+v2d-sam3d-lib = { path = "../../third_party/CARI4D_MHR_Win/reconstruction/modules/v2d_sam3d/lib", editable = true }

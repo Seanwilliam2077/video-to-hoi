@@ -20,6 +20,8 @@ def main():
     if not status["complete"] or inputs["provenance"] != "track1" or inputs["preparation"] != prepared:
         raise ValueError("Incomplete run or mismatched Track 1 preparation")
     for name in ("masks", "mesh", "human_bootstrap", "depth_alignment"):
+        if name not in prepared:
+            continue
         if sha256((a.preparation.parent / prepared[name]["path"]).resolve()) != prepared[name]["sha256"]:
             raise ValueError(f"Preparation asset changed: {name}")
     seq = f"episode_{inputs['episode']:06d}"
@@ -34,15 +36,32 @@ def main():
         if isinstance(v, (np.ndarray, torch.Tensor)) and not np.isfinite(np.asarray(v)).all():
             raise ValueError(f"Nonfinite prediction: {k}")
     camera = "front_stereo_camera_left"
-    with h5py.File(a.preparation.parent / prepared["depth_alignment"]["path"]) as bootstrap, h5py.File(native / "depth/moge2/aligned.h5") as actual:
-        left = bootstrap[f"alignment/{camera}/scale"][:]
+    with h5py.File(native / "depth/moge2/aligned.h5") as actual:
         right = actual[f"alignment/{camera}/scale"][:]
+    generated = "mesh_generation" in prepared
+    if generated:
+        receipt = prepared["mesh_generation"]["receipt"]
+        receipt_path = a.preparation.parent / receipt["path"]
+        if sha256(receipt_path) != receipt["sha256"]:
+            raise ValueError("Object generation evidence changed")
+        generation = json.loads(receipt_path.read_text())
+        if generation["mesh_sha256"] != prepared["mesh"]["sha256"]:
+            raise ValueError("Generated surface does not match the native input")
+        bootstrap_scale = generation["input_record"]["scale"]
+        max_difference = float(abs(right[0] - bootstrap_scale))
+        raw_identical = None
+        geometry_limit = "Official generative object; inferred monocular shape and scale"
+    else:
+        with h5py.File(a.preparation.parent / prepared["depth_alignment"]["path"]) as bootstrap:
+            left = bootstrap[f"alignment/{camera}/scale"][:]
         max_difference = float(abs(left-right).max())
         if max_difference > 1e-5 or abs(right[0] - prepared["mesh_method"]["metric_scale_from_human"]) > 1e-5:
             raise ValueError("Native depth scale differs from the object's bootstrap scale")
-    raw = json.loads((native / "depth/moge2/depth_report.json").read_text())["rawDepth"]["sha256"]
-    if raw != sha256(Path(prepared["mesh_method"]["inputs"]["depth"])):
-        raise ValueError("Bootstrap and native passes used different raw depth")
+        raw = json.loads((native / "depth/moge2/depth_report.json").read_text())["rawDepth"]["sha256"]
+        raw_identical = raw == sha256(Path(prepared["mesh_method"]["inputs"]["depth"]))
+        if not raw_identical:
+            raise ValueError("Bootstrap and native passes used different raw depth")
+        geometry_limit = "Historical convex visible-depth object experiment"
     rendered = native / "inference" / f"{seq}_step200000_reconstruction.mp4"
     video = cv2.VideoCapture(str(rendered))
     fps = video.get(cv2.CAP_PROP_FPS)
@@ -58,13 +77,16 @@ def main():
     memory = json.loads((a.run / "gpu-memory.json").read_text())
     report = {"real_native_run": "PASS", "provenance": "track1", "episode": inputs["episode"],
               "original_frames": len(ids), "rendered_frames": count, "fps": fps,
-              "bootstrap_scale_max_difference": max_difference, "raw_depth_identical": True,
+              "bootstrap_scale_max_difference": max_difference, "raw_depth_identical": raw_identical,
+              "bootstrap_scale_comparison": "First-frame estimate versus native pass" if generated else "Full cached bootstrap pass",
+              "official_preparation": inputs.get("official_preparation", False),
               "whole_gpu_peak_sample_mib": memory["peak_observed_mib"],
               "max_torch_peak_allocated_mib": max(x["peak_allocated_bytes"] for x in budget) / 2**20,
               "max_torch_peak_reserved_mib": max(x["peak_reserved_bytes"] for x in budget) / 2**20,
               "refined_bundle_sha256": sha256(native / "inference/refined.pth"),
               "native_video_sha256": sha256(rendered),
-              "limitations": ["Single episode only", "Convex visible-depth object with inferred backside",
+              "limitations": ["Single episode only", geometry_limit,
+                  "Kaolin penetration fallback is permitted but unproven equivalent",
                   "No reference data or official score", "Bootstrap frame zero is not an asserted hidden reference frame"]}
     (a.run / "verification.json").write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))

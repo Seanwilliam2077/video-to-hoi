@@ -13,7 +13,7 @@ from types import SimpleNamespace
 import numpy as np
 import pandas as pd
 import trimesh
-from scipy.spatial import cKDTree
+from v2hoi.native import sha256
 
 
 def main():
@@ -57,21 +57,47 @@ def main():
         raise ValueError("Packed object rotation changed")
     if not np.array_equal(arrays["object_translation"][:,0], source["object_translation"][frames]):
         raise ValueError("Packed object translation changed")
-    mesh = trimesh.load(a.episodes / f"episode_{a.episode:06d}_object.glb", force="mesh", process=False)
+    mesh_path = a.episodes / f"episode_{a.episode:06d}_object.glb"
+    mesh = trimesh.load(mesh_path, force="mesh", process=False)
     packed_vertices = arrays["object_mesh_vertices"]
     packed_faces = arrays["object_mesh_faces"].astype(np.int64)
     triangles = packed_vertices[packed_faces]
     active = np.linalg.norm(np.cross(triangles[:,1]-triangles[:,0], triangles[:,2]-triangles[:,0]), axis=1) > 0
-    surface_vertices = packed_vertices[np.unique(packed_faces[active])]
-    error = max(cKDTree(mesh.vertices).query(surface_vertices)[0].max(), cKDTree(surface_vertices).query(mesh.vertices)[0].max())
-    if error > 1e-6:
-        raise ValueError(f"Official mesh budgeting changed geometry by {error} m")
+    # The organizer explicitly requires full-resolution input and applies its
+    # own decimation budget. Compare readback to that exact official result,
+    # then separately measure its surface change; never reject/undo that policy.
+    expected_vertices, expected_faces = packer.budget_mesh(mesh_path, len(packed_faces), len(packed_vertices))
+    if not np.array_equal(packed_vertices, expected_vertices) or not np.array_equal(packed_faces, expected_faces):
+        raise ValueError("Serialized mesh differs from the official budget result")
+    packed_mesh = trimesh.Trimesh(packed_vertices, packed_faces[active], process=False)
+    packed_mesh.remove_unreferenced_vertices()
+    budget_mesh_path = a.episodes / f"episode_{a.episode:06d}_object_budgeted.glb"
+    packed_mesh.export(budget_mesh_path)
+    budget_readback = trimesh.load(budget_mesh_path, force="mesh", process=False)
+    if not np.array_equal(packed_mesh.faces, budget_readback.faces) or not np.allclose(packed_mesh.vertices, budget_readback.vertices, atol=1e-8, rtol=1e-6):
+        raise ValueError("Budgeted debug GLB changed the submitted surface")
+    import open3d as o3d
+    def surface_distance(source_mesh, target_mesh):
+        points, _ = trimesh.sample.sample_surface(source_mesh, 10000, seed=0)
+        scene = o3d.t.geometry.RaycastingScene()
+        scene.add_triangles(o3d.core.Tensor(target_mesh.vertices.astype(np.float32)),
+                            o3d.core.Tensor(target_mesh.faces.astype(np.uint32)))
+        closest = scene.compute_closest_points(o3d.core.Tensor(points.astype(np.float32)))["points"].numpy()
+        return np.linalg.norm(points - closest, axis=1)
+    distances = np.concatenate([surface_distance(mesh, packed_mesh), surface_distance(packed_mesh, mesh)])
     scale = ms._object_scale(arrays["object_scale"])
     if scale != float(source["object_scale"]):
         raise ValueError("Packed object scale changed")
     report = {"format_roundtrip": "PASS", "episode": a.episode, "rows": len(actual),
         "video_frames_exported": len(source["pose"]), "official_scored_frames": len(frames),
-        "native_parameters_bit_exact": True, "object_mesh_error_m": float(error),
+        "native_parameters_bit_exact": True, "official_budget_mesh_readback_bit_exact": True,
+        "mesh_policy": "Unmodified organizer budget_mesh: weld, decimate to sample limits, zero-area pad",
+        "full_mesh": {"vertices": len(mesh.vertices), "faces": len(mesh.faces)},
+        "submitted_mesh": {"vertices": len(packed_mesh.vertices), "faces": len(packed_mesh.faces),
+            "vertex_rows": len(packed_vertices), "face_rows": len(packed_faces)},
+        "sampled_bidirectional_surface_error_m": {"samples": len(distances),
+            "mean": float(distances.mean()), "p99": float(np.percentile(distances, 99)), "max_sample": float(distances.max())},
+        "budgeted_glb_sha256": sha256(budget_mesh_path),
         "ready_for_submission": False, "placeholder_commit": a.commit is None,
         "scope": "One episode only; all 30 episodes and a published generating commit are required for submission"}
     (a.episodes / "official-format-report.json").write_text(json.dumps(report, indent=2))

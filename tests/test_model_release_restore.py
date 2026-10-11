@@ -7,6 +7,7 @@ import importlib.util
 import io
 import json
 import os
+import sys
 import zipfile
 from pathlib import Path
 
@@ -18,6 +19,37 @@ SPEC = importlib.util.spec_from_file_location(
 )
 restorer = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(restorer)
+
+
+def test_verified_complete_archive_restores_without_network_or_parts(tmp_path, monkeypatch):
+    spec = importlib.util.spec_from_file_location("acquire_weights_fixture", Path(__file__).parents[1] / "tools/windows/acquire_weights.py")
+    acquire = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(acquire)
+    monkeypatch.setattr(acquire, "__file__", str(tmp_path / "tools/windows/acquire_weights.py"))
+    payload = b"independent synthetic payload; no real model or challenge data"
+    asset = {"id": "cari4d", "asset_spec_sha256": "synthetic-spec", "revision": "synthetic-revision",
+             "archive": {"name": "fixture.zip"}, "parts": [{"name": "must-not-download"}]}
+    receipt = {"status": "complete", "asset_spec_sha256": asset["asset_spec_sha256"],
+        "source": {"revision": asset["revision"]}, "files": [{"path": "weights/synthetic.bin",
+            "bytes": len(payload), "sha256": hashlib.sha256(payload).hexdigest()}]}
+    archive_dir = tmp_path / "artifacts/baseline-downloads/archives"
+    archive_dir.mkdir(parents=True)
+    archive_path = archive_dir / "fixture.zip"
+    with zipfile.ZipFile(archive_path, "w") as archive:
+        archive.writestr("weights/synthetic.bin", payload)
+        archive.writestr(".receipts/cari4d.json", json.dumps(receipt))
+    asset["archive"].update(bytes=archive_path.stat().st_size, sha256=hashlib.sha256(archive_path.read_bytes()).hexdigest())
+    manifest_dir = tmp_path / "deployment/releases"
+    manifest_dir.mkdir(parents=True)
+    (manifest_dir / "hf-models-20260927-manifest.json").write_text(json.dumps({"assets": [asset]}))
+    def forbidden(*args, **kwargs):
+        pytest.fail("Verified archive restoration must not download or invoke the part assembler")
+    monkeypatch.setattr(acquire.requests, "Session", forbidden)
+    monkeypatch.setattr(acquire.subprocess, "run", forbidden)
+    monkeypatch.setattr(sys, "argv", ["acquire_weights", "--asset", "cari4d"])
+    acquire.main()
+    assert (tmp_path / "weights/synthetic.bin").read_bytes() == payload
+    assert acquire.installed(tmp_path, asset)
 
 
 def _fixture(tmp_path: Path):

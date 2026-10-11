@@ -10,48 +10,25 @@ from pathlib import Path
 import numpy as np
 
 
-def fit_shared_identity(native, shapes, model_path, converter_path, *, log=print):
-    """Warm-start the official LM solvers from decoded backend parameters.
-
-    This is a measured, lossy fit when the backend changes identity over time;
-    the exact wrapper-to-native conversion and this fit have separate reports.
-    """
+def fit_shared_identity(vertices_m, model_path, converter_path, *, model_batch=64, log=print):
+    """Run the unmodified official converter, including its complete fit policy."""
     import importlib.util
-    import time
-    import torch
     spec = importlib.util.spec_from_file_location("official_mhr_converter", converter_path)
     converter = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(converter)
-    start = time.monotonic()
-    mhr = converter.MHR(str(model_path), "cuda", chunk=16, precision="float32")
-    pose = torch.as_tensor(native[:, :136], device="cuda", dtype=torch.float64)
-    identity = torch.as_tensor(np.concatenate((native[:, 136:], shapes), axis=1), device="cuda", dtype=torch.float64)
-    if not torch.isfinite(pose).all() or not torch.isfinite(identity).all():
+    if not np.isfinite(vertices_m).all():
         raise ValueError("Nonfinite source geometry cannot be exported")
-    target = mhr.verts(pose, identity)
-    shared = identity.median(dim=0, keepdim=True).values
-    before = (mhr.verts(pose, shared) - target).reshape(len(pose), -1, 3).norm(dim=-1)
-    keys = np.unique(np.linspace(0, len(pose) - 1, min(4, len(pose))).round().astype(int)).tolist()
-    log(f"Fitting shared identity on original frames {keys}; initial mean vertex error {before.mean().item():.3f} mm", flush=True)
-    key_pose, shared = converter.lm_joint(mhr, target[keys], pose[keys], shared, iters=15, prior=0)
-    fitted = pose.clone()
-    fitted[keys] = key_pose
-    for begin in range(0, len(pose), 4):
-        end = min(begin + 4, len(pose))
-        fitted[begin:end], _ = converter.lm_pose(mhr, target[begin:end], fitted[begin:end], shared, iters=15)
-        if begin % 24 == 0:
-            log(f"Shared identity pose fit: {end}/{len(pose)}", flush=True)
-    # Verify the actual serialized float32 values using the official forward path.
-    fitted = fitted.float().double()
-    shared = shared.float().double()
-    after = (mhr.verts(fitted, shared) - target).reshape(len(pose), -1, 3).norm(dim=-1).cpu().numpy()
-    report = {"method": "Official LM joint identity + per-frame pose, warm-started from exact native parameters",
-        "keyframes": keys, "frames": len(pose), "before_mean_vertex_error_mm": float(before.mean()),
-        "mean_vertex_error_mm": float(after.mean()), "p95_vertex_error_mm": float(np.quantile(after, .95)),
-        "max_vertex_error_mm": float(after.max()), "worst_frame_mean_mm": float(after.mean(1).max()),
-        "per_frame_mean_mm": after.mean(1).tolist(), "seconds": time.monotonic() - start,
-        "note": "Fit error relative to the backend reconstruction, not a challenge ground-truth score"}
-    return fitted.cpu().numpy().astype(np.float32), shared[0, :68].cpu().numpy().astype(np.float32), shared[0, 68:].cpu().numpy().astype(np.float32), report
+    # No native-pose warm start, custom identity initialization, keyframe override,
+    # solver iteration override, or replacement tracking/refit policy.
+    result = converter.convert(vertices_m, str(model_path), device="cuda",
+        model_batch=model_batch, log=lambda *x, **k: log(*x, **k, flush=True))
+    if not result["valid_input"].all():
+        raise ValueError("Official converter reported invalid input frames")
+    report = result["report"]
+    report.update(method="Unmodified official mesh_to_mhr_params.convert()",
+                  model_batch=model_batch,
+                  note="Fit error relative to backend geometry, not a challenge accuracy score")
+    return result["pose"], result["scales"], result["shape"], report
 
 
 def encode_native(layer, params, batch_size=8):
@@ -88,7 +65,7 @@ def encode_native(layer, params, batch_size=8):
     }
 
 
-def export_run(run: Path, assets: Path, output: Path, kit: Path):
+def export_run(run: Path, assets: Path, output: Path, kit: Path, model_batch=64):
     import torch
     import trimesh
     from lib_mhr import MHRLayer, MHR_PARAM_DIMS
@@ -110,12 +87,16 @@ def export_run(run: Path, assets: Path, output: Path, kit: Path):
     params = {k: np.asarray(bundle["pr"][k], dtype=np.float32) for k in MHR_PARAM_DIMS}
     layer = MHRLayer.from_mhr_assets(mhr_assets_root=assets, device="cuda")
     native, shapes, face, mapping = encode_native(layer, params)
+    with torch.inference_mode():
+        vertices_m = np.concatenate([layer.mhr_forward_vertices(
+            {k: v[i:i+16] for k, v in params.items()}).cpu().numpy()
+            for i in range(0, len(frame_ids), 16)])
     if abs(face).max() > 1e-7:
         raise ValueError("Official format has no expression field; nonzero expressions require a measured fit")
     output.mkdir(parents=True, exist_ok=True)
     converter = kit / "tools/track1/mesh_to_mhr_params.py"
     fit_identity = {"bundle_sha256": sha256(bundle_path), "converter_sha256": sha256(converter),
-        "exporter_sha256": sha256(Path(__file__)),
+        "exporter_sha256": sha256(Path(__file__)), "model_batch": model_batch,
         "model_sha256": sha256(assets / "checkpoints/sam-3d-body-dinov3/assets/mhr_model.pt")}
     fit_path = output / f"{sequence}_human_fit.npz"
     fit_report_path = output / f"{sequence}_human_fit.json"
@@ -129,7 +110,8 @@ def export_run(run: Path, assets: Path, output: Path, kit: Path):
         del layer
         torch.cuda.empty_cache()
         pose, scales, shape, fit_report = fit_shared_identity(
-            native, shapes, assets / "checkpoints/sam-3d-body-dinov3/assets/mhr_model.pt", converter)
+            vertices_m, assets / "checkpoints/sam-3d-body-dinov3/assets/mhr_model.pt", converter,
+            model_batch=model_batch)
         fit_report["inputs"] = fit_identity
         np.savez(fit_path, pose=pose, scales=scales, shape=shape)
         fit_report_path.write_text(json.dumps(fit_report, indent=2))
@@ -168,9 +150,11 @@ def main():
     p.add_argument("--kit", type=Path, default=Path("third_party/official-track1-kit"))
     p.add_argument("--assets", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--model-batch", type=int, default=64,
+                   help="Official converter model-call batch only; its fit policy and float64 precision remain unchanged")
     a = p.parse_args()
     if a.run:
-        export_run(a.run, a.assets, a.output, a.kit)
+        export_run(a.run, a.assets, a.output, a.kit, a.model_batch)
         return
     from lib_mhr import MHRLayer, load_mhr_result, MHR_PARAM_DIMS
     source = load_mhr_result(a.initialization)

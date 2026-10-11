@@ -37,9 +37,8 @@ def native_environment(source: Path, weights: Path) -> dict[str, str]:
         "CARI4D_DINOV2_SOURCE": str(source.parent / "dinov2"),
         "MHR_ASSETS_ROOT": str(weights / "sam3d_body"),
         "FOUNDATIONPOSE_WEIGHTS_DIR": str(weights / "foundationpose/nvlabs_pytorch"),
-        "FOUNDATIONPOSE_RENDER_BATCH_SIZE": "16", "FOUNDATIONPOSE_REFINE_BATCH_SIZE": "16",
-        "FOUNDATIONPOSE_SCORE_FEATURE_BATCH_SIZE": "16",
-        "FOUNDATIONPOSE_DEPTH_BATCH_SIZE": "16",
+        "FOUNDATIONPOSE_RENDER_BATCH_SIZE": "64", "FOUNDATIONPOSE_REFINE_BATCH_SIZE": "128",
+        "FOUNDATIONPOSE_DEPTH_BATCH_SIZE": "32",
         "V2HOI_CUDA_MEMORY_FRACTION": env.get("V2HOI_CUDA_MEMORY_FRACTION", "0.75"),
         "PYTORCH_ALLOC_CONF": env.get("PYTORCH_ALLOC_CONF", "garbage_collection_threshold:0.8"),
         "HDF5_USE_FILE_LOCKING": "FALSE", "PYTHONUNBUFFERED": "1", "OPENCV_IO_ENABLE_OPENEXR": "1",
@@ -58,6 +57,17 @@ def main():
     p.add_argument("--postopt-steps", type=int, default=300)
     p.add_argument("--postopt-batch-size", type=int, default=0)
     p.add_argument("--cuda-memory-fraction", type=float, default=.75)
+    p.add_argument("--allow-experimental-preparation", action="store_true",
+                   help="Diagnostic runs only: explicitly allow prior non-official preparation")
+    p.add_argument("--moge-batch-size", type=int, default=4)
+    p.add_argument("--sam3d-chunk-size", type=int, default=4)
+    p.add_argument("--sam3d-refit-batch-size", type=int, default=64)
+    p.add_argument("--depth-render-batch-size", type=int, default=4)
+    p.add_argument("--coconet-render-batch-size", type=int, default=4)
+    p.add_argument("--render-batch-size", type=int, default=4)
+    p.add_argument("--foundationpose-render-batch-size", type=int, default=64)
+    p.add_argument("--foundationpose-refine-batch-size", type=int, default=128)
+    p.add_argument("--foundationpose-depth-batch-size", type=int, default=32)
     a = p.parse_args()
     if not 0 < a.cuda_memory_fraction <= 1:
         p.error("--cuda-memory-fraction must be between 0 (exclusive) and 1")
@@ -65,6 +75,19 @@ def main():
     prepared = json.loads(a.preparation.read_text())
     if prepared.get("provenance") != "track1" or prepared.get("episode") != a.episode:
         raise ValueError("Preparation must identify this Track 1 episode")
+    faithful_preparation = (
+        prepared.get("mesh_generation", {}).get("entry") == "v2d.sam3d.lib.image_to_mesh.image_to_mesh"
+        and prepared.get("segmentation", {}).get("entry") == "v2d.sam2.lib.video_to_masks.video_to_masks"
+        and prepared.get("segmentation", {}).get("fill_hole_area") == 8
+        and prepared.get("segmentation", {}).get("jpeg_frame_cache") is False)
+    if not faithful_preparation and not a.allow_experimental_preparation:
+        raise ValueError("Official baseline requires generated SAM3D object geometry and official SAM2 preparation; "
+                         "the previous convex/JPEG preparation is an experiment and is rejected by default")
+    batch_names = ("moge_batch_size", "sam3d_chunk_size", "sam3d_refit_batch_size", "depth_render_batch_size",
+                   "coconet_render_batch_size", "render_batch_size", "foundationpose_render_batch_size",
+                   "foundationpose_refine_batch_size", "foundationpose_depth_batch_size")
+    if any(getattr(a, name) < 1 for name in batch_names):
+        p.error("All runtime batch sizes must be positive")
     video_hash = sha256(clip.video)
     if video_hash != prepared["video_sha256"]:
         raise ValueError("Preparation video differs from the Track 1 metadata input")
@@ -74,6 +97,23 @@ def main():
         if sha256(path) != prepared[name]["sha256"]:
             raise ValueError(f"Preparation {name} content changed")
         inputs[name] = path
+    if faithful_preparation:
+        evidence = {}
+        for stage, key in (("segmentation", "report"), ("mesh_generation", "receipt")):
+            artifact = prepared[stage][key]
+            path = (a.preparation.parent / artifact["path"]).resolve()
+            if sha256(path) != artifact["sha256"]:
+                raise ValueError(f"Official preparation evidence changed: {stage}")
+            evidence[stage] = json.loads(path.read_text())
+        segmentation, generation = evidence["segmentation"], evidence["mesh_generation"]
+        if (segmentation["mask_sha256"] != prepared["masks"]["sha256"]
+                or segmentation["frames"] != clip.n_frames
+                or generation["mesh_sha256"] != prepared["mesh"]["sha256"]
+                or generation["input_record"]["video_sha256"] != video_hash
+                or generation["input_record"]["mask_sha256"] != prepared["masks"]["sha256"]
+                or generation["surface_replacement"] is not False
+                or generation["sampler_step_override"] is not False):
+            raise ValueError("Official preparation receipts do not match the actual inputs")
     a.output.mkdir(parents=True, exist_ok=True)
     video = a.output.resolve() / "inputs" / f"episode_{a.episode:06d}.0.color.mp4"
     video.parent.mkdir(exist_ok=True)
@@ -93,21 +133,27 @@ def main():
         "--video_path", str(video), "--mask_h5_path", str(inputs["masks"]),
         "--object_mesh_path", str(inputs["mesh"]), "--weights_path", str(weights),
         "--output_dir", str(a.output.resolve() / "native"), "--skip_weight_download",
-        "--expected_frames", str(clip.n_frames), "--moge_batch_size", "1", "--sam3d_chunk_size", "1",
-        "--sam3d_refit_batch_size", "16", "--depth_alignment_render_batch_size", "1",
+        "--expected_frames", str(clip.n_frames), "--moge_batch_size", str(a.moge_batch_size), "--sam3d_chunk_size", str(a.sam3d_chunk_size),
+        "--sam3d_refit_batch_size", str(a.sam3d_refit_batch_size), "--depth_alignment_render_batch_size", str(a.depth_render_batch_size),
         "--depth_alignment_encoding_workers", "8", "--depth_alignment_write_batch_size", "16",
-        "--coconet_render_batch_size", "1", "--coconet_crop_workers", "1", "--render_batch_size", "1",
+        "--coconet_render_batch_size", str(a.coconet_render_batch_size), "--coconet_crop_workers", "1", "--render_batch_size", str(a.render_batch_size),
         "--postopt_num_steps", str(a.postopt_steps), "--postopt_batch_size", str(a.postopt_batch_size)]
     env = native_environment(source, weights)
     env["V2HOI_CUDA_MEMORY_FRACTION"] = str(a.cuda_memory_fraction)
+    env["FOUNDATIONPOSE_RENDER_BATCH_SIZE"] = str(a.foundationpose_render_batch_size)
+    env["FOUNDATIONPOSE_REFINE_BATCH_SIZE"] = str(a.foundationpose_refine_batch_size)
+    env["FOUNDATIONPOSE_DEPTH_BATCH_SIZE"] = str(a.foundationpose_depth_batch_size)
     identity = {"schema": "v2hoi.native-run.v1", "provenance": "track1", "episode": a.episode,
         "video_sha256": video_hash, "expected_frames": clip.n_frames,
         "original_frame_ids": list(range(clip.n_frames)), "preparation": prepared,
         "source_sha256": source_hash.hexdigest(), "command": command,
+        "official_preparation": faithful_preparation,
+        "algorithm_deviations": ["Kaolin penetration fallback is permitted but unproven equivalent"] +
+            ([] if faithful_preparation else ["Explicitly selected experimental preparation"]),
         "cuda_budget_wrapper_sha256": sha256(Path(__file__).with_name("cuda_budget.py")),
         "entry_sha256": sha256(Path(__file__)),
         "runtime_environment": {k: env[k] for k in ("V2HOI_CUDA_MEMORY_FRACTION", "PYTORCH_ALLOC_CONF",
-            "FOUNDATIONPOSE_RENDER_BATCH_SIZE", "FOUNDATIONPOSE_REFINE_BATCH_SIZE", "FOUNDATIONPOSE_SCORE_FEATURE_BATCH_SIZE",
+            "FOUNDATIONPOSE_RENDER_BATCH_SIZE", "FOUNDATIONPOSE_REFINE_BATCH_SIZE",
             "FOUNDATIONPOSE_DEPTH_BATCH_SIZE")}}
     manifest = a.output / "native-inputs.json"
     if manifest.exists() and json.loads(manifest.read_text()) != identity:

@@ -27,6 +27,15 @@ def main() -> None:
     assert torch.isfinite(x.grad).all() and x.grad.abs().sum() > 0
     checks.append("torch CUDA forward/backward")
 
+    from sam2 import _C
+    from sam2.utils.misc import fill_holes_in_mask_scores
+    masks = torch.ones(1, 1, 32, 32, device=device)
+    masks[:, :, 8, 8] = -1
+    masks[:, :, 16:19, 16:19] = -1
+    filled = fill_holes_in_mask_scores(masks, 8)
+    assert filled[0, 0, 8, 8] > 0 and (filled[0, 0, 16:19, 16:19] < 0).all()
+    checks.append("Original SAM2 CUDA hole filling at default area 8")
+
     p = torch.randn(1, 32, 3, device=device, requires_grad=True)
     q = torch.randn(1, 40, 3, device=device)
     knn_points(p, q, K=3).dists.sum().backward()

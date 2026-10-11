@@ -75,25 +75,31 @@ index 9298ac8..37d99be 100644
          embed_dim = self.encoder_mask.embed_dim
          print(f'using {self.cfg.mask_dino_type} for binary mask encoding, embed dim={embed_dim}!')
          c_out = self.cfg.feat_dim_mask  # 768//4
-diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/score_network.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/score_network.py
-index fbf362e..782a5a1 100644
---- a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/score_network.py
-+++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/score_network.py
-@@ -81,7 +81,13 @@ class ScoreNetMultiPair(nn.Module):
-     """
-     output = {}
-     bs = A.shape[0]//L
--    feats = self.extract_feat(A, B)   #(B*L, C)
-+    chunk = int(os.environ.get("FOUNDATIONPOSE_SCORE_FEATURE_BATCH_SIZE", str(len(A))))
-+    if not self.training and len(A) > chunk:
-+      # Bound independent feature extraction only. All hypotheses still attend
-+      # to each other in att_cross below, preserving the original scorer.
-+      feats = torch.cat([self.extract_feat(A[i:i+chunk], B[i:i+chunk]) for i in range(0, len(A), chunk)], dim=0)
-+    else:
-+      feats = self.extract_feat(A, B)   #(B*L, C)
-     x = feats.reshape(bs,L,-1)
-     x, _ = self.att_cross(x, x, x)
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/mhr_opt_refineout.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/mhr_opt_refineout.py
+index 57f32c8..02f01ec 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/mhr_opt_refineout.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/mhr_opt_refineout.py
+@@ -1161,6 +1161,20 @@ class MHRParityPostOptimizer:
+         return (distances.square() * mask).mean(), distances
  
+     def _silhouette_loss(self, object_vertices_world: Any, indices: Any) -> Any:
++        # Keep every frame and the original objective/optimizer schedule. Only
++        # independent raster calls are checkpointed to limit dense-mesh memory.
++        if len(indices) <= 16 or self.cfg.w_silhouette == 0:
++            return self._silhouette_loss_unchunked(object_vertices_world, indices)
++        from torch.utils.checkpoint import checkpoint
++        losses = []
++        for start in range(0, len(indices), 16):
++            stop = min(start + 16, len(indices))
++            value = checkpoint(self._silhouette_loss_unchunked,
++                object_vertices_world[start:stop], indices[start:stop], use_reentrant=False)
++            losses.append(value * (stop - start))
++        return sum(losses) / len(indices)
++
++    def _silhouette_loss_unchunked(self, object_vertices_world: Any, indices: Any) -> Any:
+         if self.cfg.w_silhouette == 0:
+             return _zero_like_tensor(object_vertices_world)
+         import Utils
 diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_pose_refine.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_pose_refine.py
 index 2cb3d6d..e925c6d 100644
 --- a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_pose_refine.py
@@ -421,6 +427,88 @@ index 4ab4bd6..e5bcb14 100644
      "v2d-common",
  ]
  
+diff --git a/reconstruction/modules/v2d_sam2/lib/pyproject.toml b/reconstruction/modules/v2d_sam2/lib/pyproject.toml
+index cffe739..3e7321f 100644
+--- a/reconstruction/modules/v2d_sam2/lib/pyproject.toml
++++ b/reconstruction/modules/v2d_sam2/lib/pyproject.toml
+@@ -12,11 +12,11 @@ requires-python = ">=3.10"
+ dependencies = [
+     "numpy",
+     "Pillow",
+-    "opencv-python",
++    "opencv-python-headless",
+     "flask",
+     "decord",
+     "huggingface-hub",
+-    "SAM-2 @ git+https://github.com/facebookresearch/sam2.git",
++    "SAM-2",
+     "v2d-common",
+     "v2d-mv",
+ ]
+diff --git a/reconstruction/modules/v2d_sam3d/lib/image_to_mesh.py b/reconstruction/modules/v2d_sam3d/lib/image_to_mesh.py
+index a89792c..4071291 100644
+--- a/reconstruction/modules/v2d_sam3d/lib/image_to_mesh.py
++++ b/reconstruction/modules/v2d_sam3d/lib/image_to_mesh.py
+@@ -75,6 +75,11 @@ def _get_pipeline(weights_dir: str):
+         config.compile_model = False
+         config.workspace_dir = os.path.dirname(config_file)
+         config._target_ = "v2d.sam3d.lib.inference_pipeline_modified.InferencePipelinePointMap"
++        if os.environ.get("V2HOI_SAM3D_CPU_OFFLOAD") == "1":
++            # Storage-only Windows adapter; upstream samplers and decoders remain
++            # inherited unchanged, with strict checkpoint loading and original dtype.
++            config._target_ = "v2hoi.sam3d_offload.InferencePipelinePointMap"
++            config.depth_model.device = "cpu"
+ 
+         hf_home = os.environ.get("HF_HOME", os.path.join(weights_dir, "hf_home"))
+         moge_model_path = None
+diff --git a/reconstruction/modules/v2d_sam3d/lib/pyproject.toml b/reconstruction/modules/v2d_sam3d/lib/pyproject.toml
+index 141afd0..6398537 100644
+--- a/reconstruction/modules/v2d_sam3d/lib/pyproject.toml
++++ b/reconstruction/modules/v2d_sam3d/lib/pyproject.toml
+@@ -12,11 +12,10 @@ requires-python = ">=3.10"
+ dependencies = [
+     "numpy",
+     "Pillow",
+-    "opencv-python",
++    "opencv-python-headless",
+     "trimesh",
+     "omegaconf",
+     "hydra-core",
+-    "seaborn",
+     "loguru",
+     "timm",
+     "huggingface-hub",
+diff --git a/reconstruction/modules/v2d_sam3d_body/lib/estimate_mhr_params.py b/reconstruction/modules/v2d_sam3d_body/lib/estimate_mhr_params.py
+index 05b78a5..57e64d1 100644
+--- a/reconstruction/modules/v2d_sam3d_body/lib/estimate_mhr_params.py
++++ b/reconstruction/modules/v2d_sam3d_body/lib/estimate_mhr_params.py
+@@ -10,8 +10,6 @@ import time
+ import cv2
+ import imageio.v3 as iio
+ import numpy as np
+-import pyglet
+-pyglet.options['headless'] = True
+ import torch
+ from tqdm import tqdm
+ 
+@@ -20,7 +18,6 @@ from v2d.common.video import FrameSource, get_video_writer
+ 
+ from sam_3d_body import load_sam_3d_body, SAM3DBodyEstimator
+ import trimesh
+-from v2d.mv.vis.renderer import Renderer
+ 
+ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+ 
+@@ -328,6 +325,9 @@ def estimate_mhr_params(
+         )
+ 
+     if debug > 0:
++        import pyglet
++        pyglet.options['headless'] = True
++        from v2d.mv.vis.renderer import Renderer
+         renderer = Renderer(image_size=image_size)
+         (output_params_path.parent / "mhr_overlay").mkdir(parents=True, exist_ok=True)
+         if debug > 1:
 diff --git a/reconstruction/modules/v2d_sam3d_body/lib/pyproject.toml b/reconstruction/modules/v2d_sam3d_body/lib/pyproject.toml
 index 36b65df..88a1831 100644
 --- a/reconstruction/modules/v2d_sam3d_body/lib/pyproject.toml

@@ -162,11 +162,18 @@ def rotation_anchor_pairs(rgb,masks,occluders,window=60):
     return np.asarray(rows,dtype=float).reshape(-1,3)
 
 
+def appearance_rotation_observable(asset):
+    """Missing or legacy appearance never establishes a long-range rotation anchor."""
+    value=asset.get('appearance_rotation_observable',False) if asset else False
+    if not isinstance(value,bool):
+        raise ValueError('Appearance rotation observability must be an explicit boolean observation')
+    return value
+
+
 def landmark_observations(asset,frames):
     """Explicit local geometry to original RGB pixel correspondences, never reference poses."""
     result={}
-    if asset and not isinstance(asset.get('appearance_rotation_observable',False),bool):
-        raise ValueError('Appearance rotation observability must be an explicit boolean observation')
+    appearance_rotation_observable(asset)
     source_ids={row['original_frame_id'] for row in asset.get('observations',[])} if asset else set()
     for row in asset.get('landmark_observations',[]) if asset else []:
         frame=row['original_frame_id'];points=np.asarray(row['points_local'],dtype=float)

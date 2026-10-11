@@ -244,13 +244,16 @@ def test_long_range_evidence_does_not_chain_small_changes_into_a_frozen_pose():
 
 
 def test_landmarks_require_original_rgb_observation_receipts():
-    from v2hoi.object_refine import landmark_observations
+    from v2hoi.object_refine import landmark_observations,appearance_rotation_observable
+    assert not appearance_rotation_observable(None)
+    assert not appearance_rotation_observable({})
     row={'original_frame_id':2,'points_local':[[0,0,0],[1,0,0],[0,1,0],[0,0,1]],'pixels':[[1,2],[2,2],[1,3],[2,3]]}
     asset={'observations':[{'original_frame_id':2}],'landmark_observations':[row]}
     assert landmark_observations(asset,4)[2][0].shape==(4,3)
     asset['appearance_rotation_observable']='yes'
     with pytest.raises(ValueError,match='explicit boolean'):landmark_observations(asset,4)
     asset['appearance_rotation_observable']=True
+    assert appearance_rotation_observable(asset)
     asset['observations']=[]
     with pytest.raises(ValueError,match='permitted original RGB'):landmark_observations(asset,4)
 

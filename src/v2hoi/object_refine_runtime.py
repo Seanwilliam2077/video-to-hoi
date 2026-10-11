@@ -15,7 +15,7 @@ import numpy as np
 from v2hoi.native import sha256
 from v2hoi.object_refine import (anchor_indices, camera_centers_to_poses, require_timeline,
     scene_identity, seed_frame_index, observation_centers, observation_bbox,face_observation_targets,
-    select_orientation_path,image_rotation_evidence,rotation_anchor_pairs,landmark_observations)
+    select_orientation_path,image_rotation_evidence,rotation_anchor_pairs,landmark_observations,appearance_rotation_observable)
 from v2hoi.pose_review import orientation_hypotheses, rigid_pose
 
 
@@ -360,7 +360,7 @@ def refine_native_run(run, clip, identity, output, config):
         del estimator
         torch.cuda.empty_cache()
     static_rotation_evidence=image_rotation_evidence(crops,masks,humans)
-    anchor_pairs=rotation_anchor_pairs(crops,masks,humans) if asset.get('appearance_rotation_observable',False) else np.empty((0,3))
+    anchor_pairs=rotation_anchor_pairs(crops,masks,humans) if appearance_rotation_observable(asset) else np.empty((0,3))
     reinitialized=[]
     if asset is not None or config.tracking_backend=="observations":
         # An independently authored geometry has different axes/appearance from
@@ -561,7 +561,7 @@ def refine_native_run(run, clip, identity, output, config):
         "source_human_lineage":"Existing native baseline; its earlier upstream stages included FoundationPose",
         "static_rotation_evidence_pair_ids":np.flatnonzero(static_rotation_evidence>.5).tolist(),
         "long_range_rotation_evidence_pairs":anchor_pairs.tolist(),
-        "appearance_rotation_observable":asset.get('appearance_rotation_observable',False),
+        "appearance_rotation_observable":appearance_rotation_observable(asset),
         "landmark_observation_frame_ids":sorted(landmarks),
         "asset_backend":asset['entry'] if asset else "native_generated_mesh",
         "asset_replacement":asset is not None,

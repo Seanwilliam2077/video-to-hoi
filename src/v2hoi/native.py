@@ -57,6 +57,8 @@ def main():
     p.add_argument("--postopt-steps", type=int, default=300)
     p.add_argument("--postopt-learning-rate", type=float, default=1e-3)
     p.add_argument("--postopt-batch-size", type=int, default=0)
+    p.add_argument("--object-refinement", choices=("none", "observations"), default="none",
+                   help="Run the experimental generic object observation stage after native inference")
     p.add_argument("--cuda-memory-fraction", type=float, default=.75)
     p.add_argument("--allow-experimental-preparation", action="store_true",
                    help="Diagnostic runs only: explicitly allow prior non-official preparation")
@@ -213,6 +215,16 @@ def main():
     (a.output / "native-status.json").write_text(json.dumps({"exit_code": process.returncode, "complete": process.returncode == 0}, indent=2))
     if process.returncode:
         raise SystemExit(f"Native backend failed ({process.returncode}); see {a.output / 'native.log'}")
+    if a.object_refinement == "observations":
+        refinement_command = [sys.executable, "-m", "v2hoi.object_refine", "--runs", str(a.output.resolve()),
+            "--dataset-root", str(a.dataset_root.resolve()), "--output", str(a.output.resolve()/"object-refinement")]
+        with (a.output/"object-refinement.log").open("w", encoding="utf-8") as log:
+            subprocess.run(refinement_command, env=env, stdout=log, stderr=subprocess.STDOUT, check=True)
+        pipeline_receipt={"native_status":"complete","object_refinement":"observations",
+            "object_refinement_manifest":str((a.output/"object-refinement/batch.json").resolve()),
+            "object_refinement_manifest_sha256":sha256(a.output/"object-refinement/batch.json"),
+            "candidate_selected_for_submission":False,"submission_export_requested":False}
+        (a.output/"pipeline-status.json").write_text(json.dumps(pipeline_receipt,indent=2))
 
 
 if __name__ == "__main__":

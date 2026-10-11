@@ -1,5 +1,120 @@
 # Native Windows CARI4D MHR runtime
 
+## Generic observation pipeline and Blender assets (2026-10-11)
+
+Object repair is now an optional pipeline stage, not an episode-specific script.
+`python -m v2hoi.native --object-refinement observations` runs it after the eight
+native stages. Existing verified native runs can enter the same stage in a batch:
+
+```powershell
+. ./tools/windows/activate.ps1
+. ./tools/windows/native-env.ps1
+python -m v2hoi.object_refine --runs NATIVE_RUN_A NATIVE_RUN_B --dataset-root TRACK1_ROOT --output NEW_BATCH --steps 100
+```
+
+Preflight reads Track 1 metadata, verifies source-video hashes and complete
+original timelines, and separates episode/object identities. Objects combined
+within one episode must share bit-identical native human parameters and camera.
+There are no hard-coded episode IDs, frame selections or per-video solver
+settings. Missing data is an error, not a synthetic replacement.
+
+The stage selects a supported observation automatically, searches orientation
+and a coarse provisional scale, refines alternative branches against appearance
+and silhouette, and tracks both directions. It then fits all visible frames with
+one shared object scale and bounded pose corrections. Continuity acts on image
+position, estimated depth and relative-rotation acceleration, while retaining
+the observation losses. Unsupported frames retain explicit native estimates.
+Human parameters, camera, topology and appearance are frozen. Source contact
+statistics are invalidated after object repair; contact must be checked again.
+
+Small disconnected segmentation islands can move a bbox hundreds of pixels even
+when their area is negligible. ROI initialization ignores components smaller
+than max(8 pixels, 1% of the largest component). Substantial disconnected parts,
+such as an occluded handle, remain supported. The fitting masks and full-image
+diagnostic masks retain the original pixels. This repair removed the late grass
+block's alternating placement error; smoothing alone had reduced its image fit.
+
+The generated pan has an unreliable provisional size and weak opening/handle
+geometry. A generic `bpy` backend builds surfaces from external JSON profiles
+and extruded outlines. It supports closed solids and hollow revolved vessels,
+rolled edges, rounded handles and colored detail components. The builder has no
+video IDs or category branches. An agent authors the proportions from verified
+original RGB observations; this authoring step is **not** yet automated for all
+30 objects. Concealed surfaces and provisional dimensions remain hypotheses.
+No asset catalog, reference mesh or additional model training is used.
+
+```powershell
+python tools/windows/prepare_bpy_asset.py --dataset-root TRACK1_ROOT --episode EPISODE --spec OBSERVATION_SPEC --frames FRAME_IDS --blender BLENDER_EXE --output NEW_ASSET
+python -m v2hoi.object_refine --runs NATIVE_RUN --asset-manifests NEW_ASSET/asset.json --dataset-root TRACK1_ROOT --output NEW_BATCH --steps 100
+```
+
+The complete preparation entry accepts the same backend:
+
+```powershell
+python tools/windows/prepare_track1_episode.py --dataset-root TRACK1_ROOT --episode EPISODE --prompts PROMPT_BOXES --mesh-backend bpy --asset-spec OBSERVATION_SPEC --blender BLENDER_EXE --output NEW_PREPARATION
+python -m v2hoi.native --dataset-root TRACK1_ROOT --episode EPISODE --preparation NEW_PREPARATION/preparation.json --allow-experimental-preparation --allow-unvalidated-object-scale --optimize-object-rotation --object-refinement observations --output NEW_NATIVE_RUN
+```
+
+The SAM3D preparation backend remains available. Preparation automatically
+selects a supported original generation frame and pairs its human scale prior,
+depth, segmentation and lossless RGB. This generation/repair frame does not
+change the explicit evaluation alignment frame. Stage receipts prevent reuse
+after inputs or entry scripts change. The earlier frame-zero preparation is
+preserved. The new single-frame normalization also fixes a real 20 GiB allocation
+caused by interpreting V vertices as V human frames.
+
+The observed pan recipe is [observed-pan-bpy-spec.json](observed-pan-bpy-spec.json).
+Its Blender asset has 2,064 triangles, a closed consistently wound surface,
+explicit vertex colors, an open bowl, a red interior mark and pale underside
+bands seen in the permitted observations. Blender glTF materials can hide
+vertex colors from the native reader; the backend therefore verifies an exact
+vertex-color geometry serialization, not a default-gray material conversion.
+The recipe also labels verified observation frames as showing the inside or
+underside. A local semantic normal plus these front/back labels supplies weak
+branch and pose constraints; unknown transitions interpolate through zero.
+These are agent-authored RGB observations, not reference rotations. Replacement
+assets re-estimate orientation throughout the clip rather than trusting the
+tracker's discarded geometry. Exact observed frames and asset hashes are checked.
+Global dynamic programming chooses a continuous orientation branch sequence
+before local fitting, preventing repeated half-turns when the handle is hidden.
+
+[The validation record](object-observation-pipeline-result.json) pins the two
+real cases, the before/after comparison, independent renderer checks and scope.
+All 269 tests in the explicit CI allowlist pass. The native eight-stage pan run
+used its original generated asset; Blender was tested in the object stage with
+the same frozen human, not in a rerun of native coupled contact inference.
+
+| Full-image fitted visible IoU | Native input | Observation candidate |
+|---|---:|---:|
+| Grass block, early / middle / late | 0.875 / 0.800 / 0.633 | 0.929 / 0.949 / 0.931 |
+| Pan, early / middle / late | 0.077 / 0.075 / 0.044 | 0.868 / 0.630 / 0.795 |
+
+The matched grass candidate comparison reduces p95 self angular acceleration
+from 18.02 to 1.28 degrees per frame squared and center acceleration from 367.85
+to 2.46 mm per frame squared. Its early fitted IoU changes from 0.955 to 0.929,
+middle from 0.953 to 0.949, and late from 0.872 to 0.931. Report this tradeoff,
+not an across-the-board image-fit improvement. The pan's independent branch
+selection had p95 angular acceleration of 179.14; continuous selection reduces
+it to 4.09. Its intermediate pitch/placement remains visibly inaccurate, and
+the pan trajectory is **unaccepted**. Both scale estimates remain provisional.
+Self smoothness and fitting observations do not establish official accuracy.
+
+Candidate directories contain a paired mesh and pose bundle, original-frame
+coverage, provenance, fitted image diagnostics and a preview. Use
+`tools/windows/compare_object_candidates.py` for a matched before/after preview
+and self-motion diagnostics. Those derivatives are not reference-relative ACC.
+`v2hoi.native_export --object-candidate CANDIDATE` supports explicit verified
+downstream selection, but no new submission conversion was run here. Iteration
+continues to stop at native inference and previews; official export requires
+the owner's explicit submission request.
+
+Independent box, annulus and handled-vessel CUDA fixtures verify coordinates,
+center/scale gradients and per-branch scale batching. Full-image comparisons
+are fitting diagnostics, not official scores or unseen-video validation.
+Two real clips demonstrate pipeline execution; neither establishes all 30-video
+quality, true physical dimensions, hidden motion or complete HOI compliance.
+Claude module/status publishing is unavailable; online copies remain stale.
+
 ## Fixed-scale orientation experiment (2026-10-11)
 
 The owner confirmed that the latest episode 16 scale looks reasonable while

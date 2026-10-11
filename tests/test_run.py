@@ -283,3 +283,81 @@ def test_download_patterns_are_track1_only():
         selected = patterns(include_videos)
         assert selected and all(path.startswith("track_1/") for path in selected)
         assert ("track_1/videos/**" in selected) is include_videos
+
+
+def test_object_refinement_rejects_prohibited_runs_before_loading_gpu_or_assets(tmp_path):
+    from v2hoi.object_refine import plan_jobs
+    run = tmp_path/"run"
+    run.mkdir()
+    (run/"native-inputs.json").write_text(json.dumps({"provenance":"track2"}))
+    with pytest.raises(ValueError, match="Track 1 runs only"):
+        plan_jobs([run], tmp_path/"never-read")
+
+
+def test_object_refinement_batch_uses_metadata_for_multiple_episodes_and_objects(tmp_path, dataset_root):
+    from v2hoi.object_refine import plan_jobs
+    from v2hoi.native import sha256
+    runs=[]
+    for clip in load_clips("track1", [3,8], root=dataset_root):
+        clip.video.parent.mkdir(parents=True, exist_ok=True)
+        clip.video.write_bytes(b"independent synthetic source bytes")
+        run=tmp_path/f"run-{clip.episode}"
+        run.mkdir()
+        (run/"native-inputs.json").write_text(json.dumps({"provenance":"track1", "episode":clip.episode,
+            "original_frame_ids":list(range(clip.n_frames)), "video_sha256":sha256(clip.video)}))
+        (run/"native-status.json").write_text(json.dumps({"complete":True}))
+        root=run/"native"/f"episode_{clip.episode:06d}"
+        for relative in ("inference/refined.pth", "inference/coconet.pth", "depth/moge2/aligned.h5",
+                         f"export/episode_{clip.episode:06d}/wild_export.json"):
+            path=root/relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b"independent prerequisite existence fixture, never loaded as model data")
+        runs.append(run)
+    jobs=plan_jobs(runs, dataset_root)
+    assert [(c.episode,c.object_name,c.n_frames) for _,c,_ in jobs] == [(3,"iron",12),(8,"bowl",9)]
+    assert [identity["object_instance_id"] for _,_,identity in jobs] == ["iron","bowl"]
+    asset_dir=tmp_path/'asset';asset_dir.mkdir()
+    (asset_dir/'mesh.glb').write_bytes(b'independent synthetic geometry placeholder; never rendered')
+    (asset_dir/'source.png').write_bytes(b'independent original-observation fixture; never decoded')
+    asset={'schema':'v2hoi.observed-asset.v1','provenance':'track1','episode':3,'object_instance_id':'iron',
+        'reference_geometry_used':False,'video_sha256':jobs[0][2]['video_sha256'],
+        'mesh':{'path':'mesh.glb','sha256':sha256(asset_dir/'mesh.glb')},
+        'observations':[{'original_frame_id':4,'path':'source.png','sha256':sha256(asset_dir/'source.png')}]}
+    manifest=asset_dir/'asset.json';manifest.write_text(json.dumps(asset))
+    replacement=plan_jobs(runs,dataset_root,[manifest])
+    assert replacement[0][2]['asset_manifest']==str(manifest.resolve())
+    assert 'asset_manifest' not in replacement[1][2]
+    asset['video_sha256']='different-original-video';manifest.write_text(json.dumps(asset))
+    with pytest.raises(ValueError,match='original video'):plan_jobs(runs,dataset_root,[manifest])
+    asset['provenance']='track2';manifest.write_text(json.dumps(asset))
+    with pytest.raises(ValueError,match='Track 1 observational provenance'):plan_jobs(runs,dataset_root,[manifest])
+    with pytest.raises(ValueError, match="Duplicate episode/object"):
+        plan_jobs([runs[0],runs[0]], dataset_root)
+    altered=json.loads((runs[0]/"native-inputs.json").read_text())
+    altered["object_instance_id"]="../escape"
+    (runs[0]/"native-inputs.json").write_text(json.dumps(altered))
+    with pytest.raises(ValueError, match="safe"):
+        plan_jobs(runs, dataset_root)
+
+
+def test_object_candidate_selection_checks_source_and_serialized_pose_mesh_pair(tmp_path):
+    from v2hoi.object_refine import candidate_paths
+    from v2hoi.native import sha256
+    run=tmp_path/"native"
+    candidate=tmp_path/"candidate"
+    candidate.mkdir(); run.mkdir()
+    source=run/"native/episode_000003/inference/refined.pth"
+    source.parent.mkdir(parents=True)
+    source.write_bytes(b"independent source fixture")
+    (run/"native-inputs.json").write_text(json.dumps({"provenance":"track1","episode":3,
+        "expected_frames":12,"video_sha256":"synthetic-source-video"}))
+    for name in ("refined.pth","object.glb"):
+        (candidate/name).write_bytes(b"independent paired candidate fixture")
+    report={"provenance":"track1","episode":3,"frames":12,"video_sha256":"synthetic-source-video",
+        "human_parameters_changed":False,"inputs":{str(source.resolve()):sha256(source)},
+        "outputs":{name:sha256(candidate/name) for name in ("refined.pth","object.glb")}}
+    (candidate/"result.json").write_text(json.dumps(report))
+    assert candidate_paths(run,candidate)==(candidate/"refined.pth",candidate/"object.glb")
+    (candidate/"object.glb").write_bytes(b"tampered independent mesh fixture")
+    with pytest.raises(ValueError,match="Serialized object candidate"):
+        candidate_paths(run,candidate)

@@ -13,6 +13,7 @@ def main():
     p.add_argument("--dataset-root", type=Path, required=True)
     p.add_argument("--episode", type=int, required=True)
     p.add_argument("--directory", type=Path, required=True)
+    p.add_argument("--mesh-backend",choices=('sam3d','bpy'),default='sam3d')
     a = p.parse_args()
     clip = load_clips("track1", [a.episode], a.dataset_root)[0]
     directory = a.directory.resolve()
@@ -22,7 +23,7 @@ def main():
     masks = directory / "segmentation/masks.h5"
     mask_report_path = directory / "segmentation/mask-report.json"
     mask_report = json.loads(mask_report_path.read_text())
-    generation_path = directory / "object-generation/generation.json"
+    generation_path = directory / "object-generation" / ('generation.json' if a.mesh_backend=='sam3d' else 'asset.json')
     generation = json.loads(generation_path.read_text())
     mesh = directory / "object-generation/object.glb"
     video_hash = sha256(clip.video)
@@ -34,7 +35,13 @@ def main():
     with h5py.File(masks) as f:
         if f.attrs["source_video_sha256"] != video_hash:
             raise ValueError("Masks do not belong to this Track 1 video")
-    if (generation["provenance"] != "track1"
+    if a.mesh_backend=='bpy':
+        if (generation.get('provenance')!='track1' or generation.get('entry')!='blender.bpy.observed-profile'
+                or generation.get('episode')!=a.episode or generation.get('video_sha256')!=video_hash
+                or generation.get('reference_geometry_used') is not False
+                or generation['mesh']['sha256']!=sha256(mesh)):
+            raise ValueError('Replacement asset provenance differs from this permitted source')
+    elif (generation["provenance"] != "track1"
             or generation["entry"] != "v2d.sam3d.lib.image_to_mesh.image_to_mesh"
             or generation["input_record"]["video_sha256"] != video_hash
             or generation["input_record"]["mask_sha256"] != sha256(masks)
@@ -50,8 +57,9 @@ def main():
         "segmentation": {"entry": mask_report["official_entry"], "fill_hole_area": 8,
             "jpeg_frame_cache": False, "report": artifact(mask_report_path)},
         "mesh_generation": {"entry": generation["entry"], "receipt": artifact(generation_path),
-            "surface_replacement": False, "nvidia_entry_defaults": generation["nvidia_entry_defaults"]},
-        "bootstrap_frame_id": generation["input_record"]["bootstrap_frame_id"],
+            "surface_replacement": a.mesh_backend=='bpy', "nvidia_entry_defaults": generation.get("nvidia_entry_defaults")},
+        "bootstrap_frame_id": (generation["input_record"]["bootstrap_frame_id"] if a.mesh_backend=='sam3d'
+            else json.loads((directory/'object-inputs/inputs.json').read_text())['bootstrap_frame_id']),
         "note": "Bootstrap frame is an original video index; it is not an assumed evaluation alignment frame",
         "limitations": ["Monocular inferred shape and scale; no reference geometry or official score",
             "Owner permits the penetration fallback without a Kaolin equivalence claim"]}

@@ -65,7 +65,7 @@ def encode_native(layer, params, batch_size=8):
     }
 
 
-def export_run(run: Path, assets: Path, output: Path, kit: Path, model_batch=64):
+def export_run(run: Path, assets: Path, output: Path, kit: Path, model_batch=64, object_candidate=None):
     import torch
     import trimesh
     from lib_mhr import MHRLayer, MHR_PARAM_DIMS
@@ -78,7 +78,15 @@ def export_run(run: Path, assets: Path, output: Path, kit: Path, model_batch=64)
     sequence = f"episode_{identity['episode']:06d}"
     native_root = run / "native" / sequence
     bundle_path = native_root / "inference/refined.pth"
+    original_bundle_path=bundle_path
+    if object_candidate is not None:
+        from v2hoi.object_refine import candidate_paths
+        bundle_path,_=candidate_paths(run,object_candidate)
     bundle = torch.load(bundle_path, map_location="cpu", weights_only=False)
+    if object_candidate is not None:
+        original=torch.load(original_bundle_path,map_location="cpu",weights_only=False)
+        if any(not np.array_equal(np.asarray(original["pr"][key]),np.asarray(bundle["pr"][key])) for key in MHR_PARAM_DIMS):
+            raise ValueError("Object-only refinement changed native human parameters")
     frame_ids = [int(row["src_frame"]) for row in bundle["frame_meta"]]
     if frame_ids != identity["original_frame_ids"] or len(frame_ids) != identity["expected_frames"]:
         raise ValueError("Native output does not cover every original video frame")
@@ -150,12 +158,16 @@ def main():
     p.add_argument("--kit", type=Path, default=Path("third_party/official-track1-kit"))
     p.add_argument("--assets", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--object-candidate", type=Path,
+                   help="Explicitly select a verified observation-stage candidate for requested export")
     p.add_argument("--model-batch", type=int, default=64,
                    help="Official converter model-call batch only; its fit policy and float64 precision remain unchanged")
     a = p.parse_args()
     if a.run:
-        export_run(a.run, a.assets, a.output, a.kit, a.model_batch)
+        export_run(a.run, a.assets, a.output, a.kit, a.model_batch, object_candidate=a.object_candidate)
         return
+    if a.object_candidate is not None:
+        p.error("--object-candidate requires a complete --run")
     from lib_mhr import MHRLayer, load_mhr_result, MHR_PARAM_DIMS
     source = load_mhr_result(a.initialization)
     layer = MHRLayer.from_mhr_assets(mhr_assets_root=a.assets, device="cuda")

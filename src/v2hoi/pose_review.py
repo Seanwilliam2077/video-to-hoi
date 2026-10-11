@@ -5,6 +5,16 @@ import numpy as np
 from scipy.spatial.transform import Rotation
 
 
+def one_frame_vertices(value):
+    """Normalize a single mesh to [1,V,3], never interpreting vertices as frames."""
+    vertices=np.asarray(value,dtype=np.float32)
+    if vertices.ndim==2:
+        vertices=vertices[None]
+    if vertices.ndim!=3 or vertices.shape[0]!=1 or vertices.shape[2]!=3 or vertices.shape[1]<3 or not np.isfinite(vertices).all():
+        raise ValueError("Expected one finite mesh with shape [V,3] or [1,V,3]")
+    return vertices
+
+
 def rigid_pose(value):
     pose = np.asarray(value, dtype=np.float64)
     if pose.shape != (4, 4) or not np.isfinite(pose).all():

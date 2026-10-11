@@ -4,6 +4,7 @@ import trimesh
 from scipy.spatial.transform import Rotation
 
 from v2hoi.geometry import ExactTriangleSDF, Similarity, SurfaceSDF, matrix_to_pose7, pose7_to_matrix, umeyama
+from v2hoi.pose_review import orientation_hypotheses, rigid_pose, rotate_about_mesh_center
 
 
 def test_pose7_roundtrip_and_invisible():
@@ -64,3 +65,37 @@ def test_exact_triangle_sdf_rejects_empty_or_degenerate_mesh():
 
 def test_similarity_does_not_truncate_integer_coordinates():
     assert np.allclose(Similarity(0.5, np.eye(3), np.ones(3) * 0.25).points(np.array([[1, 0, 0]])), [[0.75, 0.25, 0.25]])
+
+
+def test_orientation_review_preserves_offset_center_and_physical_size():
+    # Independent asymmetric, off-origin fixture: no challenge geometry.
+    mesh = trimesh.creation.box(extents=[0.2, 0.3, 0.5])
+    mesh.apply_translation([0.7, -0.2, 0.4])
+    center = mesh.bounds.mean(axis=0)
+    pose = np.eye(4)
+    pose[:3, :3] = Rotation.from_rotvec([0.3, -0.2, 0.8]).as_matrix()
+    pose[:3, 3] = [1, 2, 3]
+    hypotheses = orientation_hypotheses(pose, center)
+    assert hypotheses.shape == (24, 4, 4)
+    assert np.allclose(hypotheses[0], pose)
+    assert len(np.unique(hypotheses.round(8).reshape(24, -1), axis=0)) == 24
+    target_center = pose[:3, :3] @ center + pose[:3, 3]
+    original_distance = np.linalg.norm(mesh.vertices[0] - mesh.vertices[6])
+    for candidate in hypotheses:
+        rigid_pose(candidate)
+        assert np.allclose(candidate[:3, :3] @ center + candidate[:3, 3], target_center)
+        points = mesh.vertices @ candidate[:3, :3].T + candidate[:3, 3]
+        assert np.isclose(np.linalg.norm(points[0] - points[6]), original_distance)
+    assert not np.allclose(hypotheses[1, :3, 3], pose[:3, 3])
+
+
+@pytest.mark.parametrize("bad", [np.diag([2., 1, 1, 1]), np.diag([-1., 1, 1, 1]),
+                                 np.full((4, 4), np.nan), np.eye(3)])
+def test_orientation_review_rejects_nonrigid_input(bad):
+    with pytest.raises(ValueError):
+        orientation_hypotheses(bad, np.zeros(3))
+
+
+def test_orientation_review_rejects_invalid_local_rotation():
+    with pytest.raises(ValueError):
+        rotate_about_mesh_center(np.eye(4), np.zeros(3), np.diag([2., 1, 1]))

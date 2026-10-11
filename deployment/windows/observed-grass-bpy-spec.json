@@ -1,0 +1,219 @@
+{
+  "scope": "Agent-authored upright block from original episode16 RGB; dimensions use the permitted earlier human-anchored estimate and remain provisional",
+  "appearance_rotation_observable": true,
+  "appearance_rotation_observation_scope": "Asymmetric visible grass/earth face texture supports weak no-rotation evidence; not a reference motion label",
+  "components": [
+    {
+      "kind": "image_box",
+      "extents": [
+        0.208,
+        0.208,
+        0.208
+      ],
+      "grid": 12,
+      "color": [
+        0.5,
+        0.34,
+        0.16
+      ],
+      "faces": {
+        "+Z": {
+          "observation_frame": 0,
+          "quad": [
+            [
+              664,
+              658
+            ],
+            [
+              720,
+              668
+            ],
+            [
+              741,
+              658
+            ],
+            [
+              686,
+              650
+            ]
+          ]
+        },
+        "-Y": {
+          "observation_frame": 0,
+          "quad": [
+            [
+              664,
+              716
+            ],
+            [
+              720,
+              722
+            ],
+            [
+              720,
+              668
+            ],
+            [
+              664,
+              658
+            ]
+          ]
+        },
+        "+X": {
+          "observation_frame": 0,
+          "quad": [
+            [
+              720,
+              722
+            ],
+            [
+              742,
+              710
+            ],
+            [
+              741,
+              658
+            ],
+            [
+              720,
+              668
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "semantic_normal": [
+    0,
+    0,
+    1
+  ],
+  "face_observations": [
+    {
+      "original_frame_id": 0,
+      "visible_side": "front"
+    },
+    {
+      "original_frame_id": 359,
+      "visible_side": "front"
+    }
+  ],
+  "landmark_observations": [
+    {
+      "original_frame_id": 0,
+      "points_local": [
+        [
+          -0.104,
+          -0.104,
+          0.104
+        ],
+        [
+          0.104,
+          -0.104,
+          0.104
+        ],
+        [
+          0.104,
+          0.104,
+          0.104
+        ],
+        [
+          -0.104,
+          0.104,
+          0.104
+        ],
+        [
+          -0.104,
+          -0.104,
+          -0.104
+        ],
+        [
+          0.104,
+          -0.104,
+          -0.104
+        ],
+        [
+          0.104,
+          -0.104,
+          0.104
+        ],
+        [
+          -0.104,
+          -0.104,
+          0.104
+        ],
+        [
+          0.104,
+          -0.104,
+          -0.104
+        ],
+        [
+          0.104,
+          0.104,
+          -0.104
+        ],
+        [
+          0.104,
+          0.104,
+          0.104
+        ],
+        [
+          0.104,
+          -0.104,
+          0.104
+        ]
+      ],
+      "pixels": [
+        [
+          664,
+          658
+        ],
+        [
+          720,
+          668
+        ],
+        [
+          741,
+          658
+        ],
+        [
+          686,
+          650
+        ],
+        [
+          664,
+          716
+        ],
+        [
+          720,
+          722
+        ],
+        [
+          720,
+          668
+        ],
+        [
+          664,
+          658
+        ],
+        [
+          720,
+          722
+        ],
+        [
+          742,
+          710
+        ],
+        [
+          741,
+          658
+        ],
+        [
+          720,
+          668
+        ]
+      ],
+      "scope": "Agent-authored visible box corners from original RGB; approximate, not reference pose"
+    }
+  ]
+}

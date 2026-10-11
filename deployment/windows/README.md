@@ -2,14 +2,26 @@
 
 ## Generic observation pipeline and Blender assets (2026-10-11)
 
-Object repair is now an optional pipeline stage, not an episode-specific script.
-`python -m v2hoi.native --object-refinement observations` runs it after the eight
-native stages. Existing verified native runs can enter the same stage in a batch:
+The latest bpy/complete-HOI iteration is recorded in
+[agent-bpy-hoi-result.json](agent-bpy-hoi-result.json). Both real clips preserve
+all original frames and emit complete decoded human-object videos. The grass
+block uses 1,728 triangles and source face colors; the pan uses 2,064 triangles.
+The object stage makes zero FoundationPose calls. Native human inference is
+retained and contact optimization has not been rerun. The pan's occluded
+underside tilt remains unaccepted, and the other 28 clips have not been validated.
+All 273 tests in the explicit CI allowlist pass; independent CUDA renderer and
+gradient checks pass. These establish covered execution, not official accuracy.
+
+The owner selected agent-authored Blender bpy assets for every new object.
+Preparation defaults to bpy and native inference defaults to observation repair
+after its eight upstream stages. Both entries reject a missing observed asset
+instead of silently generating geometry. Existing verified native baselines can
+enter the same repair stage with an explicit replacement asset for every object:
 
 ```powershell
 . ./tools/windows/activate.ps1
 . ./tools/windows/native-env.ps1
-python -m v2hoi.object_refine --runs NATIVE_RUN_A NATIVE_RUN_B --dataset-root TRACK1_ROOT --output NEW_BATCH --steps 100
+python -m v2hoi.object_refine --runs NATIVE_RUN_A NATIVE_RUN_B --asset-manifests ASSET_A/asset.json ASSET_B/asset.json --dataset-root TRACK1_ROOT --output NEW_BATCH --steps 100
 ```
 
 Preflight reads Track 1 metadata, verifies source-video hashes and complete
@@ -18,12 +30,24 @@ within one episode must share bit-identical native human parameters and camera.
 There are no hard-coded episode IDs, frame selections or per-video solver
 settings. Missing data is an error, not a synthetic replacement.
 
-The stage selects a supported observation automatically, searches orientation
+The observation stage makes no FoundationPose calls. It searches orientation
 and a coarse provisional scale, refines alternative branches against appearance
-and silhouette, and tracks both directions. It then fits all visible frames with
-one shared object scale and bounded pose corrections. Continuity acts on image
-position, estimated depth and relative-rotation acceleration, while retaining
-the observation losses. Unsupported frames retain explicit native estimates.
+and silhouette, selects a continuous branch sequence, and fits all visible
+frames with one shared object scale. Optional agent-authored original-image
+landmarks seed and constrain the corresponding views. Continuity acts on image
+position, estimated depth and relative-rotation acceleration. Stable adjacent
+and distant visible patches provide weak no-rotation evidence; distant patches
+are compared directly rather than chaining adjacent similarities into a hold.
+Long-range rotation anchoring additionally requires the agent's explicit
+`appearance_rotation_observable: true` asset observation; it defaults off for
+featureless or rotationally ambiguous appearance. A texture threshold alone
+failed on the dark pan and that failed candidate remains in the audit.
+Unsupported motion is interpolated from the stage's supported estimates and
+labelled uncertain. The old tracker is retained only with the explicit
+`--tracking-backend foundationpose` comparison option; that option retains
+source estimates for unsupported frames. Earlier native human inference still
+has FoundationPose in its upstream lineage: this is not a claim that all eight
+upstream stages are FoundationPose-free.
 Human parameters, camera, topology and appearance are frozen. Source contact
 statistics are invalidated after object repair; contact must be checked again.
 
@@ -37,7 +61,8 @@ block's alternating placement error; smoothing alone had reduced its image fit.
 The generated pan has an unreliable provisional size and weak opening/handle
 geometry. A generic `bpy` backend builds surfaces from external JSON profiles
 and extruded outlines. It supports closed solids and hollow revolved vessels,
-rolled edges, rounded handles and colored detail components. The builder has no
+rolled edges, rounded handles, colored detail components and subdivided boxes
+colored from verified original-image face quads. The builder has no
 video IDs or category branches. An agent authors the proportions from verified
 original RGB observations; this authoring step is **not** yet automated for all
 30 objects. Concealed surfaces and provisional dimensions remain hypotheses.
@@ -55,7 +80,8 @@ python tools/windows/prepare_track1_episode.py --dataset-root TRACK1_ROOT --epis
 python -m v2hoi.native --dataset-root TRACK1_ROOT --episode EPISODE --preparation NEW_PREPARATION/preparation.json --allow-experimental-preparation --allow-unvalidated-object-scale --optimize-object-rotation --object-refinement observations --output NEW_NATIVE_RUN
 ```
 
-The SAM3D preparation backend remains available. Preparation automatically
+The SAM3D preparation backend remains an explicit historical comparison only
+(`--mesh-backend sam3d`, native `--object-refinement none`). Preparation automatically
 selects a supported original generation frame and pairs its human scale prior,
 depth, segmentation and lossless RGB. This generation/repair frame does not
 change the explicit evaluation alignment frame. Stage receipts prevent reuse
@@ -99,8 +125,15 @@ it to 4.09. Its intermediate pitch/placement remains visibly inaccurate, and
 the pan trajectory is **unaccepted**. Both scale estimates remain provisional.
 Self smoothness and fitting observations do not establish official accuracy.
 
-Candidate directories contain a paired mesh and pose bundle, original-frame
-coverage, provenance, fitted image diagnostics and a preview. Use
+Candidate directories contain a paired mesh and native human pose bundle,
+original-frame coverage, provenance, fitted image diagnostics and a preview.
+Complete HOI videos are now the default: `full-hoi.mp4` shows original RGB,
+the decoded full human/object scene and its overlay; `full-hoi-comparison.mp4`
+compares the previous and updated whole scenes. Rendering decodes native human
+parameters through the MHR layer, shares their camera/coordinates with the
+object, and depth-composites both surfaces. It verifies every original frame and
+preserves human arrays. `--object-only-preview` is an explicit diagnostic ablation.
+This rendering does not invoke official submission conversion. Use
 `tools/windows/compare_object_candidates.py` for a matched before/after preview
 and self-motion diagnostics. Those derivatives are not reference-relative ACC.
 `v2hoi.native_export --object-candidate CANDIDATE` supports explicit verified
@@ -111,6 +144,24 @@ the owner's explicit submission request.
 Independent box, annulus and handled-vessel CUDA fixtures verify coordinates,
 center/scale gradients and per-branch scale batching. Full-image comparisons
 are fitting diagnostics, not official scores or unseen-video validation.
+
+### Research choices for the owner-selected mainline
+
+[AgentSTAR](https://arxiv.org/html/2609.24487v1) is the closest precedent for
+agent-authored bpy geometry alternating with numerical pose fitting and visual
+review. Its reported HOT3D comparison does not prove our full-frame Track1
+performance; its object-reference evaluation gauge is not imported here.
+[WAPR](https://github.com/WangYuLin-SEU/WAPR) is a possible pretrained numerical
+refiner, but still requires RGB-D, intrinsics and a metric mesh. It has not been
+installed or benchmarked on this workstation.
+
+[Real2Sim in HOI / HA-HOI](https://arxiv.org/html/2605.14462v1) suggests retaining
+a human metric anchor, using VLM contact proposals as soft evidence, and jointly
+refining selected joints, hands and object poses. Its tracker still uses
+FoundationPose. Its kinematic reconstruction is described as training-free;
+the final simulation trains a sequence-specific residual controller. We can
+borrow contact reasoning without adding that controller to the training-free
+mainline. The paper's SMPL-X representation is not a verified native-MHR export.
 Two real clips demonstrate pipeline execution; neither establishes all 30-video
 quality, true physical dimensions, hidden motion or complete HOI compliance.
 Claude module/status publishing is unavailable; online copies remain stale.

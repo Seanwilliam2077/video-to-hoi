@@ -32,6 +32,8 @@ class RefineConfig:
     refine_scale: bool = True
     preview_codec: str = "auto"
     temporal_strength: float = 1.
+    tracking_backend: str = 'observations'
+    full_hoi_preview: bool = True
 
     def validate(self):
         if self.steps < 1 or self.batch_size < 1 or self.roi_size < 64:
@@ -44,6 +46,8 @@ class RefineConfig:
         if self.temporal_strength<0: raise ValueError("Temporal strength must be nonnegative")
         if self.preview_codec not in {"auto", "h264_nvenc", "libx264"}:
             raise ValueError("Unsupported preview encoder")
+        if self.tracking_backend not in {'observations','foundationpose'}:
+            raise ValueError('Unsupported motion initializer')
         return self
 
 
@@ -129,19 +133,67 @@ def face_observation_targets(asset,frames):
     return axis/np.linalg.norm(axis),targets
 
 
+def image_rotation_evidence(rgb,masks,occluders):
+    """Weak no-rotation evidence from stable visible image patches, not GT poses."""
+    rgb=np.asarray(rgb,dtype=float);visible=np.asarray(masks,dtype=bool)&~np.asarray(occluders,dtype=bool)
+    values=[]
+    for a,b,va,vb in zip(rgb[:-1],rgb[1:],visible[:-1],visible[1:]):
+        common=va&vb;union=va|vb
+        if common.sum()<128:values.append(0.);continue
+        overlap=common.sum()/max(union.sum(),1)
+        difference=np.abs(a[common]-b[common]).mean()
+        values.append(float(np.clip((overlap-.93)/.06,0,1)*np.clip((.04-difference)/.03,0,1)))
+    return np.asarray(values,dtype=np.float32)
+
+
+def rotation_anchor_pairs(rgb,masks,occluders,window=60):
+    """Compare distant textured patches directly; adjacent similarity cannot prove a hold."""
+    rgb=np.asarray(rgb);masks=np.asarray(masks);occluders=np.asarray(occluders)
+    if window<2:raise ValueError('Rotation evidence window must span multiple frames')
+    rows=[]
+    for b in range(2,len(rgb)):
+        for a in range(max(0,b-window),b-1,10):
+            common=np.asarray(masks[a],bool)&np.asarray(masks[b],bool)&~np.asarray(occluders[a],bool)&~np.asarray(occluders[b],bool)
+            # Featureless surfaces can retain their patch under real rotation.
+            # Do not anchor them from color similarity alone.
+            if common.sum()<128 or min(rgb[a][common].std(axis=0).mean(),rgb[b][common].std(axis=0).mean())<.08:continue
+            weight=float(image_rotation_evidence(rgb[[a,b]],masks[[a,b]],occluders[[a,b]])[0])
+            if weight>.5:rows.append((a,b,weight))
+    return np.asarray(rows,dtype=float).reshape(-1,3)
+
+
+def landmark_observations(asset,frames):
+    """Explicit local geometry to original RGB pixel correspondences, never reference poses."""
+    result={}
+    if asset and not isinstance(asset.get('appearance_rotation_observable',False),bool):
+        raise ValueError('Appearance rotation observability must be an explicit boolean observation')
+    source_ids={row['original_frame_id'] for row in asset.get('observations',[])} if asset else set()
+    for row in asset.get('landmark_observations',[]) if asset else []:
+        frame=row['original_frame_id'];points=np.asarray(row['points_local'],dtype=float)
+        pixels=np.asarray(row['pixels'],dtype=float)
+        if (frame not in source_ids or not 0<=frame<frames or frame in result
+                or points.ndim!=2 or points.shape[1:]!=(3,) or len(points)<4
+                or pixels.shape!=(len(points),2) or not np.isfinite(points).all() or not np.isfinite(pixels).all()):
+            raise ValueError('Landmarks require finite paired geometry and permitted original RGB observations')
+        result[frame]=(points,pixels)
+    return result
+
+
 def select_orientation_path(rotations,costs,frame_ids,angular_step_deg=10.,weight=.02):
     """Global branch selection avoids independent flips of ambiguous silhouettes."""
     rotations=np.asarray(rotations);costs=np.asarray(costs);frame_ids=np.asarray(frame_ids)
     if (rotations.shape!=(*costs.shape,3,3) or costs.ndim!=2 or len(costs)==0
             or frame_ids.shape!=(len(costs),) or (np.diff(frame_ids)<=0).any()
             or not np.isfinite(rotations).all() or not np.isfinite(costs).all()
-            or angular_step_deg<=0 or weight<0):
+            or angular_step_deg<=0 or not np.isfinite(weight).all() or (np.asarray(weight)<0).any()
+            or np.asarray(weight).ndim>1 or (np.asarray(weight).ndim==1 and len(weight)!=len(costs)-1)):
         raise ValueError('Invalid orientation-path candidates')
     accumulated=costs[0].copy();parents=[]
     for i in range(1,len(costs)):
         traces=np.einsum('aij,bij->ab',rotations[i-1],rotations[i])
         angles=np.arccos(np.clip((traces-1)/2,-1,1))
-        transition=weight*(angles/(np.deg2rad(angular_step_deg)*(frame_ids[i]-frame_ids[i-1])))**2
+        strength=weight[i-1] if np.asarray(weight).ndim else weight
+        transition=strength*(angles/(np.deg2rad(angular_step_deg)*(frame_ids[i]-frame_ids[i-1])))**2
         alternatives=accumulated[:,None]+transition
         predecessor=alternatives.argmin(axis=0);parents.append(predecessor)
         accumulated=costs[i]+alternatives[predecessor,np.arange(len(predecessor))]
@@ -212,6 +264,7 @@ def plan_jobs(runs, dataset_root, asset_manifests=()):
     for value in asset_manifests:
         path=Path(value).resolve();asset=json.loads(path.read_text())
         if (asset.get("schema")!="v2hoi.observed-asset.v1" or asset.get("provenance")!="track1"
+                or asset.get('entry')!='blender.bpy.observed-profile'
                 or asset.get("reference_geometry_used") is not False):
             raise ValueError("Replacement assets require verified Track 1 observational provenance")
         key=(asset['episode'],asset['object_instance_id'])
@@ -247,12 +300,27 @@ def plan_jobs(runs, dataset_root, asset_manifests=()):
             if not path.is_file():
                 raise FileNotFoundError(f"Missing observation-stage prerequisite: {path}")
         selected={**identity, "object_instance_id":object_id}
+        if instance not in assets and identity.get('preparation',{}).get('mesh_generation',{}).get('entry')=='blender.bpy.observed-profile':
+            receipt=identity['preparation']['mesh_generation']['receipt']
+            preparation_path=Path(identity['preparation_manifest'])
+            asset_path=(preparation_path.parent/receipt['path']).resolve()
+            if sha256(asset_path)!=receipt['sha256']:raise ValueError('Native bpy preparation receipt changed')
+            asset=json.loads(asset_path.read_text())
+            asset_mesh=asset_path.parent/asset['mesh']['path']
+            if (asset.get('schema')!='v2hoi.observed-asset.v1' or asset.get('entry')!='blender.bpy.observed-profile'
+                    or (asset.get('episode'),asset.get('object_instance_id'))!=instance
+                    or asset.get('provenance')!='track1' or asset.get('reference_geometry_used') is not False
+                    or sha256(asset_mesh)!=asset['mesh']['sha256']):raise ValueError('Native bpy asset provenance changed')
+            for row in asset['observations']:
+                if sha256(asset_path.parent/row['path'])!=row['sha256']:raise ValueError('Native bpy observation changed')
+            assets[instance]=(asset_path,asset)
         if instance in assets:
             path,asset=assets[instance]
             if asset['video_sha256']!=identity['video_sha256'] or any(
                     row['original_frame_id']<0 or row['original_frame_id']>=clip.n_frames for row in asset['observations']):
                 raise ValueError("Replacement asset does not belong to this original video")
             face_observation_targets(asset,clip.n_frames)
+            landmark_observations(asset,clip.n_frames)
             selected['asset_manifest']=str(path)
         jobs.append((run, clip, selected))
         instances.add(instance)
@@ -277,12 +345,18 @@ def main():
     p.add_argument("--fixed-scale", action="store_true", help="Ablation: refine pose with the source mesh scale fixed")
     p.add_argument("--preview-codec", choices=("auto","h264_nvenc","libx264"), default="auto")
     p.add_argument("--temporal-strength",type=float,default=1.,help="Observation-constrained motion continuity; zero for ablation")
+    p.add_argument('--tracking-backend',choices=('observations','foundationpose'),default='observations',
+        help='Observation mainline makes no FoundationPose calls; foundationpose is an explicit comparison')
+    p.add_argument('--object-only-preview',action='store_true',help='Explicit diagnostic ablation; default renders the complete native HOI')
     p.add_argument("--worker", action="store_true")
     a = p.parse_args()
     config = RefineConfig(a.steps, a.batch_size, a.roi_size, a.scale_min, a.scale_max,
                           a.rotation_limit_deg, refine_scale=not a.fixed_scale, preview_codec=a.preview_codec,
-                          temporal_strength=a.temporal_strength).validate()
+                          temporal_strength=a.temporal_strength,tracking_backend=a.tracking_backend,
+                          full_hoi_preview=not a.object_only_preview).validate()
     jobs = plan_jobs(a.runs, a.dataset_root,a.asset_manifests)
+    if config.tracking_backend=='observations' and any('asset_manifest' not in identity for _,_,identity in jobs):
+        raise ValueError('The bpy observation mainline requires an observed asset for every object; no automatic generated-mesh fallback')
     if not a.worker:
         if a.output.exists():
             raise FileExistsError("Preserve existing candidates; choose a new output")

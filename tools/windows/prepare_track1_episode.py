@@ -24,7 +24,8 @@ def main():
     p.add_argument("--prompts",type=Path,required=True)
     p.add_argument("--output",type=Path,required=True)
     p.add_argument("--resume",action="store_true")
-    p.add_argument("--mesh-backend",choices=("sam3d","bpy"),default="sam3d")
+    p.add_argument("--mesh-backend",choices=("sam3d","bpy"),default="bpy",
+        help="Owner-selected bpy mainline; sam3d is retained only for explicit historical comparisons")
     p.add_argument("--asset-spec",type=Path)
     p.add_argument("--blender",type=Path)
     a=p.parse_args()
@@ -106,7 +107,9 @@ def main():
     else:
         generator=Path("tools/windows/prepare_bpy_asset.py")
         asset_spec=json.loads(a.asset_spec.read_text())
-        observation_frames=sorted({frame,*[row['original_frame_id'] for row in asset_spec.get('face_observations',[])]})
+        observation_frames=sorted({frame,*[row['original_frame_id'] for row in asset_spec.get('face_observations',[])],
+            *[row['original_frame_id'] for row in asset_spec.get('landmark_observations',[])],
+            *[face['observation_frame'] for component in asset_spec['components'] for face in component.get('faces',{}).values() if 'observation_frame' in face]})
         stage("object-generation",[str(generator),"--dataset-root",str(a.dataset_root.resolve()),"--episode",str(clip.episode),
             "--spec",str(a.asset_spec.resolve()),"--frames",*[str(i) for i in observation_frames],"--blender",str(a.blender.resolve()),
             "--output",str(output/"object-generation")],[video,masks,a.asset_spec,generator,generator.with_name('build_bpy_asset.py')],

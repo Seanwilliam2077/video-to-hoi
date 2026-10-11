@@ -9,7 +9,7 @@ import numpy as np
 import trimesh
 from v2hoi.clips import load_clips
 from v2hoi.native import sha256
-from v2hoi.object_refine import face_observation_targets
+from v2hoi.object_refine import face_observation_targets,landmark_observations
 
 
 def main():
@@ -29,9 +29,19 @@ def main():
                 observations.append({'original_frame_id':i,'path':path.name,'sha256':sha256(path)})
     script=Path(__file__).with_name('build_bpy_asset.py')
     mesh=a.output/'object.glb'
+    resolved_spec=json.loads(a.spec.read_text())
+    for component in resolved_spec['components']:
+        for face in component.get('faces',{}).values():
+            if 'observation_frame' in face:
+                frame_id=face['observation_frame']
+                if frame_id not in a.frames: raise ValueError('Face color source requires a verified observation frame')
+                face['image']=str((a.output/f'observation-{frame_id:06d}.png').resolve())
+            elif 'image' in face:
+                raise ValueError('Arbitrary texture image provenance is prohibited')
+    resolved_path=a.output/'resolved-spec.json';resolved_path.write_text(json.dumps(resolved_spec,indent=2),encoding='utf-8')
     with (a.output/'blender.log').open('w',encoding='utf-8') as log:
         subprocess.run([str(a.blender),'--background','--factory-startup','--python-exit-code','1','--python',str(script.resolve()),'--',
-            '--spec',str(a.spec.resolve()),'--output',str(mesh.resolve())],stdout=log,stderr=subprocess.STDOUT,check=True)
+            '--spec',str(resolved_path.resolve()),'--output',str(mesh.resolve())],stdout=log,stderr=subprocess.STDOUT,check=True)
     # Blender's glTF can carry both COLOR_0 and materials; the native tracker
     # expects explicit vertex colors. Normalize without changing the surface.
     with np.load(mesh.with_suffix('.npz')) as arrays:
@@ -56,6 +66,12 @@ def main():
         'limitations':['Supported parametric families only; concealed geometry is an explicit shape prior',
             'Image fit does not establish true physical dimensions or reconstruction accuracy']}
     spec=json.loads(a.spec.read_text())
+    observable=spec.get('appearance_rotation_observable',False)
+    if not isinstance(observable,bool):raise ValueError('Appearance rotation observability must be an explicit boolean observation')
+    manifest['appearance_rotation_observable']=observable
+    if spec.get('landmark_observations'):
+        manifest['landmark_observations']=spec['landmark_observations']
+        landmark_observations(manifest,clip.n_frames)
     if spec.get('face_observations'):
         manifest.update(semantic_normal=spec['semantic_normal'],face_observations=spec['face_observations'],
             semantic_observation_scope='Agent-authored visible face labels; not reference pose or motion')

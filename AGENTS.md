@@ -16,6 +16,21 @@ These rules apply to every coding agent working in this repository (Codex, Claud
 - The local checkout can be shared between agents and may be on another agent's branch. Check `git branch --show-current` before committing. Do not switch a checkout that another agent is using; add a separate worktree for `main` instead.
 - Never delete or rewrite a branch that has commits of its own without the owner's approval.
 
+## Owner-selected reconstruction mainline (2026-10-11)
+
+- All new challenge object assets are authored by a vision-language/coding agent
+  through Blender `bpy`, using only permitted Track 1 observations. Do not silently
+  fall back to generative mesh reconstruction. Keep historical baselines intact
+  and require an explicit comparison mode to run their object generation.
+- Improvement iterations must output the complete human-object inference scene
+  and full-timeline HOI video, not only an isolated object crop. Preserve shared
+  scene units, camera identity and the original alignment-frame identity.
+- Smooth self-motion diagnostics do not establish that motion matches the video.
+  Check unsupported rotation and occlusion failures against observed evidence.
+- Complete HOI inference/preview is distinct from official submission conversion.
+  Expensive submission conversion/packing still requires an explicit submission
+  request; never append it to ordinary improvement runs.
+
 ## README
 
 Keep the README to four parts, in this order: the project introduction, the status page, the team pages, then model weights and data. Each part links to one page at most (the team hub stands for all team pages). Everything else for developers goes in `docs/development.md`.

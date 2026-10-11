@@ -57,7 +57,7 @@ def main():
     p.add_argument("--postopt-steps", type=int, default=300)
     p.add_argument("--postopt-learning-rate", type=float, default=1e-3)
     p.add_argument("--postopt-batch-size", type=int, default=0)
-    p.add_argument("--object-refinement", choices=("none", "observations"), default="none",
+    p.add_argument("--object-refinement", choices=("none", "observations"), default="observations",
                    help="Run the experimental generic object observation stage after native inference")
     p.add_argument("--cuda-memory-fraction", type=float, default=.75)
     p.add_argument("--allow-experimental-preparation", action="store_true",
@@ -89,6 +89,8 @@ def main():
     prepared = json.loads(a.preparation.read_text())
     if prepared.get("provenance") != "track1" or prepared.get("episode") != a.episode:
         raise ValueError("Preparation must identify this Track 1 episode")
+    if a.object_refinement=='observations' and prepared.get('mesh_generation',{}).get('entry')!='blender.bpy.observed-profile':
+        raise ValueError('The owner-selected mainline requires a bpy object asset; --object-refinement none is an explicit legacy comparison')
     faithful_preparation = (
         prepared.get("mesh_generation", {}).get("entry") == "v2d.sam3d.lib.image_to_mesh.image_to_mesh"
         and prepared.get("segmentation", {}).get("entry") == "v2d.sam2.lib.video_to_masks.video_to_masks"
@@ -171,6 +173,7 @@ def main():
     env["FOUNDATIONPOSE_REFINE_BATCH_SIZE"] = str(a.foundationpose_refine_batch_size)
     env["FOUNDATIONPOSE_DEPTH_BATCH_SIZE"] = str(a.foundationpose_depth_batch_size)
     identity = {"schema": "v2hoi.native-run.v1", "provenance": "track1", "episode": a.episode,
+        "preparation_manifest":str(a.preparation.resolve()),
         "video_sha256": video_hash, "expected_frames": clip.n_frames,
         "original_frame_ids": list(range(clip.n_frames)), "preparation": prepared,
         "source_sha256": source_hash.hexdigest(), "command": command,

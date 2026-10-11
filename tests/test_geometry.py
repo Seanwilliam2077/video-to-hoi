@@ -201,6 +201,19 @@ def test_orientation_path_prevents_ambiguous_half_turns_and_retains_real_motion(
     assert np.allclose(selected[:-1].transpose(0,2,1)@selected[1:],Rotation.from_rotvec([0,0,np.deg2rad(2)]).as_matrix())
 
 
+def test_image_rotation_evidence_requires_stable_visible_observations():
+    from v2hoi.object_refine import image_rotation_evidence,RefineConfig
+    rng=np.random.default_rng(9)
+    patch=rng.random((32,32,3));images=np.repeat(patch[None],3,axis=0)
+    masks=np.ones((3,32,32),dtype=bool);occluders=np.zeros_like(masks)
+    assert np.allclose(image_rotation_evidence(images,masks,occluders),1.)
+    images[1]=np.rot90(images[1])
+    assert np.allclose(image_rotation_evidence(images,masks,occluders),0.)
+    assert np.allclose(image_rotation_evidence(images,masks,np.ones_like(masks)),0.)
+    assert RefineConfig().tracking_backend=='observations' and RefineConfig().full_hoi_preview
+    with pytest.raises(ValueError,match='motion initializer'):RefineConfig(tracking_backend='unknown').validate()
+
+
 def test_observation_center_accounts_for_projected_off_origin_handle():
     from v2hoi.object_refine import observation_centers
     dish=trimesh.creation.cylinder(radius=.15,height=.02)
@@ -215,3 +228,54 @@ def test_observation_center_accounts_for_projected_off_origin_handle():
     pix=camera@k.T; pix=pix[...,:2]/pix[...,2:]
     assert np.allclose(camera[...,2].min(1),surface)
     assert np.max(np.abs((pix.min(1)+pix.max(1))/2-uv))<.01
+
+
+def test_long_range_evidence_does_not_chain_small_changes_into_a_frozen_pose():
+    from v2hoi.object_refine import rotation_anchor_pairs
+    rng=np.random.default_rng(29);patch=rng.random((16,16,3))*.5
+    frames=np.stack([patch+i*.012 for i in range(8)])
+    masks=np.ones((8,16,16),bool);occluders=np.zeros_like(masks)
+    pairs=rotation_anchor_pairs(frames,masks,occluders)
+    assert len(pairs) and not any(a==0 and b==7 for a,b,_ in pairs)
+    still=rotation_anchor_pairs(np.repeat(patch[None],8,0),masks,occluders)
+    assert any(a==0 and b==7 and w==1 for a,b,w in still)
+    assert not len(rotation_anchor_pairs(frames,masks,np.ones_like(masks)))
+    assert not len(rotation_anchor_pairs(np.full_like(frames,.05),masks,occluders))
+
+
+def test_landmarks_require_original_rgb_observation_receipts():
+    from v2hoi.object_refine import landmark_observations
+    row={'original_frame_id':2,'points_local':[[0,0,0],[1,0,0],[0,1,0],[0,0,1]],'pixels':[[1,2],[2,2],[1,3],[2,3]]}
+    asset={'observations':[{'original_frame_id':2}],'landmark_observations':[row]}
+    assert landmark_observations(asset,4)[2][0].shape==(4,3)
+    asset['appearance_rotation_observable']='yes'
+    with pytest.raises(ValueError,match='explicit boolean'):landmark_observations(asset,4)
+    asset['appearance_rotation_observable']=True
+    asset['observations']=[]
+    with pytest.raises(ValueError,match='permitted original RGB'):landmark_observations(asset,4)
+
+
+def test_native_bpy_receipt_is_discovered_and_rejects_changed_observation(tmp_path,monkeypatch):
+    import json
+    from types import SimpleNamespace
+    from v2hoi import object_refine
+    from v2hoi.native import sha256
+    video=tmp_path/'synthetic.mp4';video.write_bytes(b'independent fixture, not decoded')
+    clip=SimpleNamespace(episode=1,object_name='synthetic_box',n_frames=2,video=video)
+    monkeypatch.setattr(object_refine,'load_clips',lambda *args:[clip])
+    run=tmp_path/'run';run.mkdir();preparation=tmp_path/'preparation';preparation.mkdir()
+    mesh=preparation/'object.glb';mesh.write_bytes(b'independent geometry receipt fixture')
+    observation=preparation/'observation.png';observation.write_bytes(b'independent RGB receipt fixture')
+    asset={'schema':'v2hoi.observed-asset.v1','entry':'blender.bpy.observed-profile','provenance':'track1',
+        'episode':1,'object_instance_id':'synthetic_box','reference_geometry_used':False,'video_sha256':sha256(video),
+        'mesh':{'path':mesh.name,'sha256':sha256(mesh)},'observations':[{'path':observation.name,'sha256':sha256(observation),'original_frame_id':0}]}
+    receipt=preparation/'asset.json';receipt.write_text(json.dumps(asset))
+    identity={'provenance':'track1','episode':1,'original_frame_ids':[0,1],'video_sha256':sha256(video),
+        'preparation_manifest':str(preparation/'preparation.json'),
+        'preparation':{'mesh_generation':{'entry':'blender.bpy.observed-profile','receipt':{'path':'asset.json','sha256':sha256(receipt)}}}}
+    (run/'native-inputs.json').write_text(json.dumps(identity));(run/'native-status.json').write_text('{"complete":true}')
+    for name in ['inference/refined.pth','inference/coconet.pth','depth/moge2/aligned.h5','export/episode_000001/wild_export.json']:
+        path=run/'native/episode_000001'/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(b'prerequisite fixture')
+    assert object_refine.plan_jobs([run],tmp_path)[0][2]['asset_manifest']==str(receipt.resolve())
+    observation.write_bytes(b'changed')
+    with pytest.raises(ValueError,match='observation changed'):object_refine.plan_jobs([run],tmp_path)

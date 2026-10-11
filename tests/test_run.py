@@ -319,7 +319,7 @@ def test_object_refinement_batch_uses_metadata_for_multiple_episodes_and_objects
     asset_dir=tmp_path/'asset';asset_dir.mkdir()
     (asset_dir/'mesh.glb').write_bytes(b'independent synthetic geometry placeholder; never rendered')
     (asset_dir/'source.png').write_bytes(b'independent original-observation fixture; never decoded')
-    asset={'schema':'v2hoi.observed-asset.v1','provenance':'track1','episode':3,'object_instance_id':'iron',
+    asset={'schema':'v2hoi.observed-asset.v1','entry':'blender.bpy.observed-profile','provenance':'track1','episode':3,'object_instance_id':'iron',
         'reference_geometry_used':False,'video_sha256':jobs[0][2]['video_sha256'],
         'mesh':{'path':'mesh.glb','sha256':sha256(asset_dir/'mesh.glb')},
         'observations':[{'original_frame_id':4,'path':'source.png','sha256':sha256(asset_dir/'source.png')}]}

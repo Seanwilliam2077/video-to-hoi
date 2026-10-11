@@ -15,7 +15,7 @@ import numpy as np
 from v2hoi.native import sha256
 from v2hoi.object_refine import (anchor_indices, camera_centers_to_poses, require_timeline,
     scene_identity, seed_frame_index, observation_centers, observation_bbox,face_observation_targets,
-    select_orientation_path)
+    select_orientation_path,image_rotation_evidence,rotation_anchor_pairs,landmark_observations)
 from v2hoi.pose_review import orientation_hypotheses, rigid_pose
 
 
@@ -63,7 +63,6 @@ def refine_native_run(run, clip, identity, output, config):
     from lib_mhr.object_pose_frame import resolve_object_pose_frame
     from prep.mhr_depth_h5 import read_metric_depth
     from prep.mhr_export_utils import camera_calibration, load_edex, read_mask
-    from prep.run_foundationpose_mhr_export import _pose_estimator
 
     logging.getLogger().setLevel(logging.WARNING)
     runtime_hash = sha256(Path(__file__))
@@ -126,6 +125,7 @@ def refine_native_run(run, clip, identity, output, config):
             path=asset_path.parent/row['path'];snapshots[str(path.resolve())]=sha256(path)
             asset_observations[row['original_frame_id']]=np.asarray(Image.open(path).convert('RGB'))
     semantic_axis,face_targets=face_observation_targets(asset,clip.n_frames)
+    landmarks=landmark_observations(asset,clip.n_frames)
     def face_cost(rotations,centers,ids):
         if semantic_axis is None: return torch.zeros(len(rotations),device='cuda')
         normal=rotations @ torch.tensor(semantic_axis,dtype=torch.float32,device='cuda')
@@ -136,6 +136,20 @@ def refine_native_run(run, clip, identity, output, config):
     depth_path = root/"depth/moge2/aligned.h5"
     center_np = mesh.bounds.mean(axis=0)
     canonical_center = torch.tensor(center_np, dtype=torch.float32, device="cuda")
+    def landmark_cost(rotations,centers,scale,ids):
+        values=[]
+        for j,frame_id in enumerate(ids):
+            if int(frame_id) not in landmarks:
+                values.append(rotations[j].sum()*0);continue
+            points,pixels=landmarks[int(frame_id)]
+            local=torch.tensor(points-center_np,dtype=torch.float32,device='cuda')
+            factor=scale[j] if torch.is_tensor(scale) and scale.ndim else scale
+            camera=(local*factor) @ rotations[j].T+centers[j]
+            projected=camera @ torch.tensor(k,dtype=torch.float32,device='cuda').T
+            uv=projected[:,:2]/projected[:,2:].clamp_min(.001)
+            target=torch.tensor(pixels,dtype=torch.float32,device='cuda')
+            values.append(.3*functional.smooth_l1_loss((uv-target)/10.,torch.zeros_like(uv),reduction='mean'))
+        return torch.stack(values)
     renderer = ObservationRenderer(mesh)
     crops, crop_masks, crop_humans, crop_depths, roi_k, visible_counts, boxes = [], [], [], [], [], [], []
     observed_centers, depth_targets = [], []
@@ -186,6 +200,8 @@ def refine_native_run(run, clip, identity, output, config):
     require_timeline(range(len(crops)), clip.n_frames)
     anchors = anchor_indices(visible_counts)
     if not len(anchors):
+        if config.tracking_backend=='observations':
+            raise ValueError('No visible object evidence supports the bpy observation mainline; cannot produce a verified complete HOI candidate')
         report = {"schema":"v2hoi.object-refine.v1", "provenance":"track1", "episode":clip.episode,
             "object_instance_id":identity["object_instance_id"], "frames":clip.n_frames,
             "status":"unsupported; retain complete native estimates", "scale_shared_all_frames":1.,
@@ -199,15 +215,40 @@ def refine_native_run(run, clip, identity, output, config):
     crops, masks, humans, depths = np.asarray(crops)/255., np.asarray(crop_masks), np.asarray(crop_humans), np.asarray(crop_depths)
     roi_k = np.asarray(roi_k)
     active = np.asarray(visible_counts) >= 32
-    first = seed_frame_index(visible_counts)
+    def align_visible_centers(rotations,centers,scale,frame_id):
+        """Match only the projected unoccluded support, not a full-mesh bbox."""
+        centers=np.asarray(centers).copy()
+        xmin,ymin,xmax,ymax=observation_bbox(masks[frame_id]>.5)
+        target_mid=np.array([(xmin+xmax)/2,(ymin+ymax)/2])
+        with torch.inference_mode():
+            for _ in range(2):
+                _,alpha,_=renderer.render(torch.tensor(rotations,dtype=torch.float32,device='cuda'),
+                    torch.tensor(centers,dtype=torch.float32,device='cuda'),scale,canonical_center,
+                    np.repeat(roi_k[frame_id:frame_id+1],len(rotations),axis=0),(config.roi_size,config.roi_size))
+                projected=(alpha[...,0].cpu().numpy()>.5)&~humans[frame_id]
+                for j,mask in enumerate(projected):
+                    if mask.sum()<8:continue
+                    x0,y0,x1,y1=observation_bbox(mask)
+                    shift=np.clip(target_mid-[(x0+x1)/2,(y0+y1)/2],-40,40)
+                    centers[j,:2]+=shift/np.array([roi_k[frame_id,0,0],roi_k[frame_id,1,1]])*centers[j,2]
+        return centers
+    first = min((i for i in landmarks if active[i]),default=seed_frame_index(visible_counts))
     # Joint coarse initialization handles provisional generated scales. Subsequent
     # refinement keeps ONE scale for the complete clip, never a per-frame scale.
-    seeds = orientation_hypotheses(base[first], center_np)
+    seed_reference=base[first] if config.tracking_backend=="foundationpose" else np.eye(4)
+    if config.tracking_backend=='observations' and first in landmarks:
+        points,pixels=landmarks[first]
+        success,rv,tv=cv2.solvePnP(points,pixels,k,None,flags=cv2.SOLVEPNP_SQPNP)
+        if success and tv[2]>0:
+            seed_reference=rigid_pose(np.block([[cv2.Rodrigues(rv)[0],tv],[np.zeros((1,3)),np.ones((1,1))]]))
+    seeds = orientation_hypotheses(seed_reference, center_np)
     seed_rotations = seeds[:,:3,:3]
     coarse_scales = np.geomspace(.25,4.,9) if config.refine_scale else np.array([1.])
     surface_depth = depth_targets[first]
     if not np.isfinite(surface_depth):
-        surface_depth = float((base[first,:3,:3]@center_np+base[first,:3,3])[2])
+        available=depths[first][np.isfinite(depths[first]) & (depths[first]>.001)]
+        if not len(available):raise ValueError('No estimated depth supports the observation initializer')
+        surface_depth=float(np.median(available))
     seed_scores, seed_centers_all = [], []
     with torch.no_grad():
         target = torch.tensor(masks[first], device="cuda")[None, ..., None]
@@ -215,6 +256,7 @@ def refine_native_run(run, clip, identity, output, config):
         for coarse_scale in coarse_scales:
             seed_centers = observation_centers(mesh.vertices, seed_rotations, center_np,
                 coarse_scale, surface_depth, observed_centers[first], k)
+            seed_centers=align_visible_centers(seed_rotations,seed_centers,coarse_scale,first)
             rgb_pred, alpha, _ = renderer.render(torch.tensor(seed_rotations, dtype=torch.float32, device="cuda"),
                 torch.tensor(seed_centers, dtype=torch.float32, device="cuda"), coarse_scale, canonical_center,
                 np.repeat(roi_k[first:first+1], len(seeds), axis=0), (config.roi_size, config.roi_size))
@@ -225,7 +267,8 @@ def refine_native_run(run, clip, identity, output, config):
             color_loss = ((rgb_pred-torch.tensor(crops[first], dtype=torch.float32, device="cuda")).abs()*target).sum((1,2,3))/(target.sum()*3).clamp_min(1)
             seed_scores.append((silhouette+color_loss+face_cost(
                 torch.tensor(seed_rotations,dtype=torch.float32,device='cuda'),
-                torch.tensor(seed_centers,dtype=torch.float32,device='cuda'),np.full(len(seeds),first))).cpu().numpy())
+                torch.tensor(seed_centers,dtype=torch.float32,device='cuda'),np.full(len(seeds),first))+landmark_cost(
+                torch.tensor(seed_rotations,dtype=torch.float32,device='cuda'),torch.tensor(seed_centers,dtype=torch.float32,device='cuda'),coarse_scale,np.full(len(seeds),first))).cpu().numpy())
             seed_centers_all.append(seed_centers)
     scores = np.asarray(seed_scores)
     # Refine all broad branches before selecting one. A quarter-turn grid alone
@@ -263,7 +306,7 @@ def refine_native_run(run, clip, identity, output, config):
         valid=target*(seed_depth>.001).float()*(z.detach()>.001).float()
         depth_residual=functional.smooth_l1_loss(z,seed_depth.expand_as(z),beta=.08,reduction='none')
         depth_cost=(depth_residual*valid).sum((1,2,3))/valid.sum((1,2,3)).clamp_min(1)
-        branch_losses=1-intersection/union+photometric+.6*depth_cost+face_cost(rs,cs,np.full(len(seeds),first))
+        branch_losses=1-intersection/union+photometric+.6*depth_cost+face_cost(rs,cs,np.full(len(seeds),first))+landmark_cost(rs,cs,ss,np.full(len(seeds),first))
         branch_losses.sum().backward();seed_optimizer.step()
     with torch.inference_mode():
         rs,cs,ss=branch_state()
@@ -275,45 +318,51 @@ def refine_native_run(run, clip, identity, output, config):
         valid=target*(seed_depth>.001).float()*(z>.001).float()
         depth_cost=(functional.smooth_l1_loss(z,seed_depth.expand_as(z),beta=.08,reduction='none')*valid).sum((1,2,3))/valid.sum((1,2,3)).clamp_min(1)
         branch_losses=1-intersection/union+((rgb_pred-torch.tensor(crops[first],dtype=torch.float32,device='cuda')).abs()*target).sum((1,2,3))/(target.sum()*3).clamp_min(1)+.6*depth_cost+face_cost(rs,cs,np.full(len(seeds),first))
+        branch_losses+=landmark_cost(rs,cs,ss,np.full(len(seeds),first))
         seed_id=int(branch_losses.argmin());seed_scale=float(ss[seed_id])
         seed=camera_centers_to_poses(rs[seed_id:seed_id+1].cpu().numpy(),
             cs[seed_id:seed_id+1].cpu().numpy(),center_np,seed_scale)[0]
-    tracking_mesh = mesh.copy()
-    tracking_mesh.vertices *= seed_scale
-    Utils.set_seed(0)
-    estimator = _pose_estimator(tracking_mesh, output/"tracking-debug")
-    transform = estimator.get_tf_to_centered_mesh().cpu().numpy()
-    tracked = base.copy()
-    tracked[first] = seed
-    decoded_rgb = []
-    with av.open(str(clip.video)) as container:
-        for i, decoded in enumerate(container.decode(container.streams.video[0])):
-            if i < first:
-                decoded_rgb.append(decoded.to_ndarray(format="rgb24"))
-    for direction, frame_ids in (("forward",range(first+1,clip.n_frames)),("backward",range(first-1,-1,-1))):
-        estimator.pose_last = torch.tensor(seed@np.linalg.inv(transform),dtype=torch.float32,device="cuda")
-        # Re-decode forward frames; only the prefix is held for reverse tracking.
-        forward_container = av.open(str(clip.video)) if direction=="forward" else None
-        forward_frames = iter(forward_container.decode(forward_container.streams.video[0])) if forward_container else None
-        if forward_frames:
-            for _ in range(first+1): next(forward_frames)
-        for i in frame_ids:
-            rgb = next(forward_frames).to_ndarray(format="rgb24") if forward_frames else decoded_rgb[i]
-            depth = read_metric_depth(depth_path, "aligned", "front_stereo_camera_left", f"{i:06d}")
-            if depth.shape != rgb.shape[:2]:
-                depth = cv2.resize(depth, rgb.shape[1::-1], interpolation=cv2.INTER_NEAREST)
-            depth = np.nan_to_num(depth.astype(np.float32))
-            depth[(depth < .001) | (depth > 8.)] = 0
-            with torch.inference_mode():
-                tracked[i] = rigid_pose(estimator.track_one(rgb=rgb, depth=depth, K=k, iteration=5, extra={}))
-            if i % 60 == 0:
-                print(f"OBJECT_REFINE_TRACK episode={clip.episode} direction={direction} frame={i+1}/{clip.n_frames}", flush=True)
-        if forward_container: forward_container.close()
-    del decoded_rgb
-    del estimator
-    torch.cuda.empty_cache()
+    tracked=np.repeat(seed[None],clip.n_frames,axis=0)
+    if config.tracking_backend=="foundationpose":
+        from prep.run_foundationpose_mhr_export import _pose_estimator
+        tracking_mesh = mesh.copy()
+        tracking_mesh.vertices *= seed_scale
+        Utils.set_seed(0)
+        estimator = _pose_estimator(tracking_mesh, output/"tracking-debug")
+        transform = estimator.get_tf_to_centered_mesh().cpu().numpy()
+        tracked = base.copy()
+        tracked[first] = seed
+        decoded_rgb = []
+        with av.open(str(clip.video)) as container:
+            for i, decoded in enumerate(container.decode(container.streams.video[0])):
+                if i < first:
+                    decoded_rgb.append(decoded.to_ndarray(format="rgb24"))
+        for direction, frame_ids in (("forward",range(first+1,clip.n_frames)),("backward",range(first-1,-1,-1))):
+            estimator.pose_last = torch.tensor(seed@np.linalg.inv(transform),dtype=torch.float32,device="cuda")
+            # Re-decode forward frames; only the prefix is held for reverse tracking.
+            forward_container = av.open(str(clip.video)) if direction=="forward" else None
+            forward_frames = iter(forward_container.decode(forward_container.streams.video[0])) if forward_container else None
+            if forward_frames:
+                for _ in range(first+1): next(forward_frames)
+            for i in frame_ids:
+                rgb = next(forward_frames).to_ndarray(format="rgb24") if forward_frames else decoded_rgb[i]
+                depth = read_metric_depth(depth_path, "aligned", "front_stereo_camera_left", f"{i:06d}")
+                if depth.shape != rgb.shape[:2]:
+                    depth = cv2.resize(depth, rgb.shape[1::-1], interpolation=cv2.INTER_NEAREST)
+                depth = np.nan_to_num(depth.astype(np.float32))
+                depth[(depth < .001) | (depth > 8.)] = 0
+                with torch.inference_mode():
+                    tracked[i] = rigid_pose(estimator.track_one(rgb=rgb, depth=depth, K=k, iteration=5, extra={}))
+                if i % 60 == 0:
+                    print(f"OBJECT_REFINE_TRACK episode={clip.episode} direction={direction} frame={i+1}/{clip.n_frames}", flush=True)
+            if forward_container: forward_container.close()
+        del decoded_rgb
+        del estimator
+        torch.cuda.empty_cache()
+    static_rotation_evidence=image_rotation_evidence(crops,masks,humans)
+    anchor_pairs=rotation_anchor_pairs(crops,masks,humans) if asset.get('appearance_rotation_observable',False) else np.empty((0,3))
     reinitialized=[]
-    if asset is not None:
+    if asset is not None or config.tracking_backend=="observations":
         # An independently authored geometry has different axes/appearance from
         # the native asset. Re-estimate every supported view instead of trusting
         # a tracker trained against the discarded shape. Scale stays shared.
@@ -326,6 +375,7 @@ def refine_native_run(run, clip, identity, output, config):
                 if not np.isfinite(surface): continue
                 candidate_centers=observation_centers(mesh.vertices,candidate_rotations,center_np,
                     seed_scale,surface,observed_centers[i],k)
+                candidate_centers=align_visible_centers(candidate_rotations,candidate_centers,seed_scale,i)
                 c,a,z=renderer.render(torch.tensor(candidate_rotations,dtype=torch.float32,device='cuda'),
                     torch.tensor(candidate_centers,dtype=torch.float32,device='cuda'),seed_scale,canonical_center,
                     np.repeat(roi_k[i:i+1],len(alternatives),axis=0),(config.roi_size,config.roi_size))
@@ -338,11 +388,13 @@ def refine_native_run(run, clip, identity, output, config):
                 angles=np.arccos(np.clip((np.trace(candidate_rotations@tracked[i,:3,:3].T,axis1=1,axis2=2)-1)/2,-1,1))
                 costs=1-intersection/union+photo+torch.tensor(angles*.015,device='cuda')+face_cost(
                     torch.tensor(candidate_rotations,dtype=torch.float32,device='cuda'),
-                    torch.tensor(candidate_centers,dtype=torch.float32,device='cuda'),np.full(len(alternatives),i))
+                    torch.tensor(candidate_centers,dtype=torch.float32,device='cuda'),np.full(len(alternatives),i))+landmark_cost(
+                    torch.tensor(candidate_rotations,dtype=torch.float32,device='cuda'),torch.tensor(candidate_centers,dtype=torch.float32,device='cuda'),seed_scale,np.full(len(alternatives),i))
                 candidate_frames.append(int(i));rotation_states.append(candidate_rotations)
                 center_states.append(candidate_centers);cost_states.append(costs.cpu().numpy())
                 if i%60==0: print(f'OBJECT_REFINE_ASSET_REGISTER episode={clip.episode} frame={i+1}/{clip.n_frames}',flush=True)
-        choices=select_orientation_path(rotation_states,cost_states,candidate_frames,angular_step_deg=300./clip.fps)
+        transition_strength=np.array([.02+.2*static_rotation_evidence[b-1] if b==a+1 else .02 for a,b in zip(candidate_frames[:-1],candidate_frames[1:])])
+        choices=select_orientation_path(rotation_states,cost_states,candidate_frames,angular_step_deg=300./clip.fps,weight=transition_strength)
         for i,rs,cs,selected in zip(candidate_frames,rotation_states,center_states,choices):
             tracked[i]=camera_centers_to_poses(rs[selected:selected+1],cs[selected:selected+1],center_np,seed_scale)[0]
             if selected: reinitialized.append(int(i))
@@ -350,13 +402,11 @@ def refine_native_run(run, clip, identity, output, config):
     initial_centers = tracked[:, :3, :3]@(center_np*seed_scale) + tracked[:, :3, 3]
     corrected_centers = initial_centers.copy()
     for i in np.flatnonzero(active):
-        z = initial_centers[i, 2]
         if np.isfinite(depth_targets[i]):
-            front_offset = -float(((mesh.vertices-center_np)*seed_scale@tracked[i, :3, :3].T)[:,2].min())
-            z = depth_targets[i]+front_offset
-        uc, vc = observed_centers[i]
-        corrected_centers[i] = [(uc-k[0,2])/k[0,0]*z, (vc-k[1,2])/k[1,1]*z, z]
-    center_uv = np.stack([np.asarray(observed_centers)[:,0], np.asarray(observed_centers)[:,1]], axis=1)
+            centers=observation_centers(mesh.vertices,tracked[i:i+1,:3,:3],center_np,
+                seed_scale,depth_targets[i],observed_centers[i],k)
+            corrected_centers[i]=align_visible_centers(tracked[i:i+1,:3,:3],centers,seed_scale,i)[0]
+    center_uv=corrected_centers[:,:2]/corrected_centers[:,2,None]*np.array([k[0,0],k[1,1]])+np.array([k[0,2],k[1,2]])
     z0 = torch.tensor(corrected_centers[:,2], dtype=torch.float32, device="cuda")
     uv0 = torch.tensor(center_uv, dtype=torch.float32, device="cuda")
     delta_rotation = torch.nn.Parameter(torch.zeros(clip.n_frames, 3, device="cuda"))
@@ -400,7 +450,7 @@ def refine_native_run(run, clip, identity, output, config):
             residual = functional.smooth_l1_loss(z, data_depth[ids], beta=.08, reduction="none")
             depth_loss = (residual*valid_depth).sum()/valid_depth.sum().clamp_min(1)
             pose_prior = .002*delta_rotation[ids].square().mean()+.001*delta_uv[ids].square().mean()
-            loss = mask_loss+.8*color_loss+.6*depth_loss+pose_prior+face_cost(rotations,centers,ids).mean()
+            loss = mask_loss+.8*color_loss+.6*depth_loss+pose_prior+face_cost(rotations,centers,ids).mean()+landmark_cost(rotations,centers,scale,ids).mean()
             weighted = loss*(len(ids)/len(indices))
             weighted.backward()
             total += float(weighted.detach())
@@ -418,13 +468,23 @@ def refine_native_run(run, clip, identity, output, config):
             relative=all_rotations[:-1].transpose(1,2) @ all_rotations[1:]
             # Constant angular velocity has zero relative-rotation acceleration.
             angular=(relative[1:]-relative[:-1])[triplet]/.1
+            stationary=torch.tensor(static_rotation_evidence,dtype=torch.float32,device='cuda')
+            angular_velocity=(relative-torch.eye(3,device='cuda'))/.04
+            stable_loss=functional.smooth_l1_loss(angular_velocity,torch.zeros_like(angular_velocity),reduction='none').mean((1,2))
             uv=uv0+torch.tanh(delta_uv)*24.
             image_acc=(uv[2:]-2*uv[1:-1]+uv[:-2])[triplet]/2.
             depth_acc=(all_centers[2:,2]-2*all_centers[1:-1,2]+all_centers[:-2,2])[triplet]/.01
             temporal_loss=config.temporal_strength*(
                 .15*functional.smooth_l1_loss(angular,torch.zeros_like(angular),reduction="mean")
                 +.1*functional.smooth_l1_loss(image_acc,torch.zeros_like(image_acc),reduction="mean")
-                +.1*functional.smooth_l1_loss(depth_acc,torch.zeros_like(depth_acc),reduction="mean"))
+                +.1*functional.smooth_l1_loss(depth_acc,torch.zeros_like(depth_acc),reduction="mean")
+                +.2*(stable_loss*stationary).mean())
+            if len(anchor_pairs):
+                pairs=torch.tensor(anchor_pairs[:,:2],dtype=torch.long,device='cuda')
+                weights=torch.tensor(anchor_pairs[:,2],dtype=torch.float32,device='cuda')
+                difference=(all_rotations[pairs[:,0]]-all_rotations[pairs[:,1]])/.04
+                cost=functional.smooth_l1_loss(difference,torch.zeros_like(difference),reduction='none').mean((1,2))
+                temporal_loss+=config.temporal_strength*.3*(cost*weights).mean()
             temporal_value=float(temporal_loss.detach())
             temporal_loss.backward()
         parameters=[delta_rotation,delta_uv,delta_z]+([scale_log] if config.refine_scale else [])
@@ -441,11 +501,20 @@ def refine_native_run(run, clip, identity, output, config):
         rotations, centers, scale = state(np.arange(clip.n_frames))
         scale_value = float(scale)
         poses = camera_centers_to_poses(rotations.cpu().numpy(), centers.cpu().numpy(), center_np, scale_value)
-    # Frames with no observation retain their complete native estimate. The same
-    # shared shape scale is used, retaining their camera-space center.
+    # Unsupported observations remain estimates, never a claim of frozen truth.
+    # Only the explicit legacy comparison retains upstream object states.
     if (~active).any():
-        native_centers = base[~active,:3,:3]@center_np+base[~active,:3,3]
-        poses[~active] = camera_centers_to_poses(base[~active, :3,:3], native_centers, center_np, scale_value)
+        if config.tracking_backend=='foundationpose':
+            native_centers = base[~active,:3,:3]@center_np+base[~active,:3,3]
+            poses[~active] = camera_centers_to_poses(base[~active, :3,:3], native_centers, center_np, scale_value)
+        else:
+            from scipy.spatial.transform import Rotation,Slerp
+            supported=np.flatnonzero(active);missing=np.flatnonzero(~active)
+            rotation_values=rotations.cpu().numpy();center_values=centers.cpu().numpy()
+            if len(supported)>1:
+                rotation_values[missing]=Slerp(supported,Rotation.from_matrix(rotation_values[supported]))(np.clip(missing,supported[0],supported[-1])).as_matrix()
+            for axis in range(3):center_values[missing,axis]=np.interp(missing,supported,center_values[supported,axis])
+            poses=camera_centers_to_poses(rotation_values,center_values,center_np,scale_value)
     new_mesh = mesh.copy()
     new_mesh.vertices *= scale_value
     candidate_mesh = output/"object.glb"
@@ -487,6 +556,13 @@ def refine_native_run(run, clip, identity, output, config):
         "inputs":snapshots, "video_sha256":sha256(clip.video), "runtime_sha256":runtime_hash,
         "human_parameters_changed":False, "training":False, "submission_export":False,
         "source_contact_statistics_invalidated":True,"native_submission_format_verified":False,
+        "tracking_backend":config.tracking_backend,
+        "foundationpose_calls_in_this_stage":0 if config.tracking_backend=='observations' else clip.n_frames-1,
+        "source_human_lineage":"Existing native baseline; its earlier upstream stages included FoundationPose",
+        "static_rotation_evidence_pair_ids":np.flatnonzero(static_rotation_evidence>.5).tolist(),
+        "long_range_rotation_evidence_pairs":anchor_pairs.tolist(),
+        "appearance_rotation_observable":asset.get('appearance_rotation_observable',False),
+        "landmark_observation_frame_ids":sorted(landmarks),
         "asset_backend":asset['entry'] if asset else "native_generated_mesh",
         "asset_replacement":asset is not None,
         "asset_orientation_reinitialized_frames":reinitialized,
@@ -501,6 +577,12 @@ def refine_native_run(run, clip, identity, output, config):
             "Human pose/hand contact and camera are frozen; contact refinement is still pending",
             "Unobserved motion remains an explicit estimate; scale-depth ambiguity remains monocular"]}
     (output/"result.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    if config.full_hoi_preview:
+        from v2hoi.hoi_preview import render_full_hoi
+        full_scene=render_full_hoi(run,clip,output/'refined.pth',output,codec=config.preview_codec)
+        report['full_hoi_preview']=full_scene
+        report['outputs'].update(full_scene['outputs'])
+        (output/'result.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     return {"episode":clip.episode, "object_instance_id":identity["object_instance_id"],
             "result":str((output/"result.json").resolve()), "frames":clip.n_frames,
             "shared_scale":scale_value,"scene_identity":scene_hash,"status":"candidate; pending visual acceptance"}

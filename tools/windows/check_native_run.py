@@ -45,12 +45,15 @@ def main():
         if sha256(receipt_path) != receipt["sha256"]:
             raise ValueError("Object generation evidence changed")
         generation = json.loads(receipt_path.read_text())
-        if generation["mesh_sha256"] != prepared["mesh"]["sha256"]:
-            raise ValueError("Generated surface does not match the native input")
+        from v2hoi.mesh_budget import verify_budgeted_preparation
+        budgeted = verify_budgeted_preparation(prepared, a.preparation.parent,
+            generation["mesh_sha256"], allowed=True)
         bootstrap_scale = generation["input_record"]["scale"]
         max_difference = float(abs(right[0] - bootstrap_scale))
         raw_identical = None
         geometry_limit = "Official generative object; inferred monocular shape and scale"
+        if budgeted:
+            geometry_limit += "; explicit organizer 4096-face decimation before inference"
     else:
         with h5py.File(a.preparation.parent / prepared["depth_alignment"]["path"]) as bootstrap:
             left = bootstrap[f"alignment/{camera}/scale"][:]

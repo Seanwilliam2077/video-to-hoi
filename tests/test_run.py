@@ -17,6 +17,39 @@ EPISODES = {3: ("iron", 12), 4: ("iron", 10), 8: ("bowl", 9)}
 QUIET = {"log": lambda *_: None}
 
 
+def test_pre_inference_mesh_budget_requires_opt_in_and_preserved_evidence(tmp_path):
+    """Independent synthetic bytes; never read challenge assets or real models."""
+    from v2hoi.native import sha256
+    from v2hoi.mesh_budget import POLICY, verify_budgeted_preparation
+    def artifact(name, payload):
+        path = tmp_path / name
+        path.write_bytes(payload)
+        return {"path": name, "sha256": sha256(path)}
+    full = artifact("full.fixture", b"synthetic original surface")
+    reduced = artifact("reduced.fixture", b"synthetic budget surface")
+    code = artifact("source.fixture", b"synthetic source evidence")
+    receipt = {"policy": POLICY, "method": "v2dlb.mesh_budget.budget_mesh",
+        "face_budget": 4096, "vertex_budget": 4096,
+        "full_mesh": full, "output_mesh": reduced, "official_code": code}
+    evidence = artifact("receipt.json", json.dumps(receipt).encode())
+    prepared = {"input_mesh_policy": POLICY, "mesh": reduced, "mesh_budget": {"receipt": evidence}}
+    with pytest.raises(ValueError, match="requires --allow-budgeted-mesh"):
+        verify_budgeted_preparation(prepared, tmp_path, full["sha256"], allowed=False)
+    assert verify_budgeted_preparation(prepared, tmp_path, full["sha256"], allowed=True)
+    with pytest.raises(ValueError, match="does not match"):
+        verify_budgeted_preparation(prepared, tmp_path, "wrong-generation", allowed=True)
+    (tmp_path / full["path"]).write_bytes(b"altered preserved source")
+    with pytest.raises(ValueError, match="changed"):
+        verify_budgeted_preparation(prepared, tmp_path, full["sha256"], allowed=True)
+    (tmp_path / full["path"]).write_bytes(b"synthetic original surface")
+    (tmp_path / reduced["path"]).write_bytes(b"altered inference surface")
+    with pytest.raises(ValueError, match="changed"):
+        verify_budgeted_preparation(prepared, tmp_path, full["sha256"], allowed=True)
+    assert not verify_budgeted_preparation({"mesh": full}, tmp_path, full["sha256"], allowed=False)
+    with pytest.raises(ValueError, match="does not match"):
+        verify_budgeted_preparation({"mesh": reduced}, tmp_path, full["sha256"], allowed=False)
+
+
 @pytest.fixture
 def dataset_root(tmp_path):
     """Hand-authored metadata for tiny Track 1 shaped clips; no video is read."""

@@ -59,6 +59,8 @@ def main():
     p.add_argument("--cuda-memory-fraction", type=float, default=.75)
     p.add_argument("--allow-experimental-preparation", action="store_true",
                    help="Diagnostic runs only: explicitly allow prior non-official preparation")
+    p.add_argument("--allow-budgeted-mesh", action="store_true",
+                   help="Explicitly select organizer 4096-face decimation before inference; changes the surface")
     p.add_argument("--moge-batch-size", type=int, default=4)
     p.add_argument("--sam3d-chunk-size", type=int, default=4)
     p.add_argument("--sam3d-refit-batch-size", type=int, default=64)
@@ -97,6 +99,7 @@ def main():
         if sha256(path) != prepared[name]["sha256"]:
             raise ValueError(f"Preparation {name} content changed")
         inputs[name] = path
+    budgeted_mesh = False
     if faithful_preparation:
         evidence = {}
         for stage, key in (("segmentation", "report"), ("mesh_generation", "receipt")):
@@ -108,12 +111,16 @@ def main():
         segmentation, generation = evidence["segmentation"], evidence["mesh_generation"]
         if (segmentation["mask_sha256"] != prepared["masks"]["sha256"]
                 or segmentation["frames"] != clip.n_frames
-                or generation["mesh_sha256"] != prepared["mesh"]["sha256"]
                 or generation["input_record"]["video_sha256"] != video_hash
                 or generation["input_record"]["mask_sha256"] != prepared["masks"]["sha256"]
                 or generation["surface_replacement"] is not False
                 or generation["sampler_step_override"] is not False):
             raise ValueError("Official preparation receipts do not match the actual inputs")
+        from v2hoi.mesh_budget import verify_budgeted_preparation
+        budgeted_mesh = verify_budgeted_preparation(prepared, a.preparation.parent,
+            generation["mesh_sha256"], allowed=a.allow_budgeted_mesh)
+    elif "input_mesh_policy" in prepared:
+        raise ValueError("Mesh budgeting requires verified official generation and segmentation")
     a.output.mkdir(parents=True, exist_ok=True)
     video = a.output.resolve() / "inputs" / f"episode_{a.episode:06d}.0.color.mp4"
     video.parent.mkdir(exist_ok=True)
@@ -147,9 +154,10 @@ def main():
         "video_sha256": video_hash, "expected_frames": clip.n_frames,
         "original_frame_ids": list(range(clip.n_frames)), "preparation": prepared,
         "source_sha256": source_hash.hexdigest(), "command": command,
-        "official_preparation": faithful_preparation,
+        "official_preparation": faithful_preparation and not budgeted_mesh,
         "algorithm_deviations": ["Kaolin penetration fallback is permitted but unproven equivalent"] +
-            ([] if faithful_preparation else ["Explicitly selected experimental preparation"]),
+            ([] if faithful_preparation else ["Explicitly selected experimental preparation"]) +
+            (["Organizer 4096-face budget applied before inference; changes tracking/contact/penetration surface"] if budgeted_mesh else []),
         "cuda_budget_wrapper_sha256": sha256(Path(__file__).with_name("cuda_budget.py")),
         "entry_sha256": sha256(Path(__file__)),
         "runtime_environment": {k: env[k] for k in ("V2HOI_CUDA_MEMORY_FRACTION", "PYTORCH_ALLOC_CONF",

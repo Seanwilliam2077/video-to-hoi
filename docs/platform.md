@@ -16,8 +16,16 @@ filling and custom identity fitting were algorithmic deviations. The corrected
 official SAM2 and complete official MHR converter have passed separately.
 SAM 3D Objects generation passed with unchanged sampling/decoding methods and
 strictly loaded models staged between CPU and CUDA, producing a 352,348-face
-mesh in 84.7 seconds with an 8.50 GiB allocated peak. A new coupled full run
-remains pending. Original 512/1024 tracking batches exceeded memory with this
+mesh in 84.7 seconds with an 8.50 GiB allocated peak. The corrected coupled run
+now passed all 360 original frames, complete official human conversion, exact
+organizer format readback and a render from the serialized candidate. Its
+sampled whole-device peak was 12,460/16,303 MiB; exact PyTorch allocated peak
+was 8,910 MiB. All 233 allowed CPU tests and independent CUDA checks pass.
+Dense refinement took 3,222 seconds and original preview rendering 1,100 seconds.
+An owner-selected, separately recorded 4096-face pre-inference variant is now
+prepared using unmodified organizer budget code; it preserves full geometry
+as a reference and still needs end-to-end validation. No new dependencies or
+downloads were needed for reduction. Original 512/1024 tracking batches exceeded memory with this
 dense surface; current render/refine batches are 64/128, depth warps 32, and the
 original full scorer is retained. The owner permits the unproven Kaolin penetration fallback
 as an explicit remaining exception. This single-video execution does not close

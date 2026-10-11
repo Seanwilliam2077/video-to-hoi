@@ -4,6 +4,9 @@ This profile runs the pinned official CARI4D MHR sources through the team's
 `python -m v2hoi.native` entry point. The legacy v1 fake-stage interface remains
 available for its existing contract tests; it does not feed this real backend.
 
+The [method fidelity record](algorithm_fidelity.md) distinguishes original
+methods, resource changes, the permitted penetration exception and validation limits.
+
 The only active project environment is the real directory `<repository>/.venv`.
 Do not put a project environment in a user cache or link it outside the project.
 The shared uv package cache and uv-managed base Python interpreters remain shared
@@ -71,7 +74,8 @@ guidance settings and all requested output formats. Fully resident loading
 exceeded the 75% budget; staged generation passed in 84.7 seconds with an
 8.50 GiB allocated peak, producing 176,178 vertices and 352,348 faces.
 `tools/windows/assemble_preparation.py` freezes its receipt and segmentation
-checksums. The complete new coupled run remains a separate validation gate.
+checksums. The corrected complete run and export checks passed on episode 16;
+see [the corrected record](corrected-episode16-result.json).
 
 After preparation, run the coupled native backend:
 
@@ -86,6 +90,45 @@ prepared masks/mesh. It refuses to reuse a run after its inputs or source change
 Full logs and original-frame identities are stored with the run. Native human
 and object states come from the same coupled upstream bundle.
 
+### Explicit 4096-face inference variant
+
+The owner requested pre-inference mesh reduction after the dense reference run.
+Keep the full generated surface and prepare a separate variant:
+
+```powershell
+python tools/windows/budget_preparation.py --preparation runs/windows-episode16/faithful-preparation/preparation.json --output runs/windows-episode16/budget4096-preparation
+python -m v2hoi.native --dataset-root third_party/CARI4D_MHR_Win/data/v2d-challenge/track_1 --episode 16 --preparation runs/windows-episode16/budget4096-preparation/preparation.json --allow-budgeted-mesh --output runs/windows-episode16/budget4096
+```
+
+Run GPU jobs sequentially. This reuses all models, segmentation and the original
+generative result; it downloads nothing. The new run still calculates its own
+tracking and coupled refinement because their object surface has changed.
+The tool uses the reviewed, unmodified organizer `v2dlb.mesh_budget.budget_mesh`,
+welding and decimating to both 4096-face and 4096-vertex budgets. It removes only
+zero-area padding and unreferenced vertices for the inference GLB. Coordinates
+are neither recentered nor rescaled. Preparation and receipts keep hashes and
+relative paths to the preserved full mesh, official code and masks.
+
+Episode 16 reduction took 0.67 seconds: 352,348 faces/176,178 vertices became
+4,096 active faces/2,052 vertices. A face-count ratio does not establish total
+speedup. Pre-inference decimation changes tracking, contact and penetration;
+the manifest records this deviation and does not label it the full-surface
+official reference. The native entry requires `--allow-budgeted-mesh`; the
+default full-mesh behavior remains unchanged. End-to-end variant performance
+and reconstruction quality have not yet been validated.
+
+The [variant evidence](mesh-budget-episode16-result.json) includes a benchmark
+of the unchanged upstream contact-distance/min/square/backward kernel. With
+184,320 seeded synthetic query points shaped as 360 frames of two 256-point
+hands, median time was 0.987 seconds for the dense mesh and 0.0117 seconds for
+the budget mesh: 84.7x faster **for this kernel only**. The synthetic distances
+also changed (0.199 mm mean absolute difference); this is not an equivalence
+test, video quality score or measured total pipeline speedup.
+
+```powershell
+python -m v2hoi.cuda_budget --fraction .75 --report runs/contact-benchmark-memory.json -- tools/windows/benchmark_mesh_contact.py --preparation runs/windows-episode16/budget4096-preparation/preparation.json --output runs/contact-benchmark.json
+```
+
 The default `--cuda-memory-fraction 0.75` limits each stage's PyTorch allocator.
 Desktop/driver memory and non-PyTorch CUDA allocations are outside that limit.
 `gpu-memory.json` records whole-device samples, and `.stages/*.memory.json`
@@ -93,9 +136,9 @@ records exact PyTorch allocation/reservation peaks. FoundationPose uses
 render/refiner batches 64/128, the unmodified full scorer forward and a 32-item
 independent depth-warp batch. Original 512/1024 batches passed on the historical
 tiny convex mesh, but exceeded memory with the new 352,348-face generated mesh;
-no surface simplification is used to recover memory. Other pipeline batching
-defaults are 4, with SAM3D refitting at 64; their complete corrected run still
-needs validation. Do not run two GPU jobs
+no surface simplification is used to recover memory in the full-surface reference.
+Other pipeline batching defaults are 4, with SAM3D refitting at 64; the corrected
+full run passed. Do not run two GPU jobs
 together on the 16 GB workstation.
 
 For standalone commands, the same budget wrapper is available:
@@ -123,7 +166,8 @@ The official sample allows 4,096 vertex rows and 4,096 face rows per object.
 The unmodified organizer packer welds, decimates and pads the full-resolution
 input to those limits. This mandatory packaging operation is separate from
 inference geometry: the complete generated surface feeds tracking and contact
-optimization. Validation compares Parquet readback exactly to the official
+optimization in the full-surface reference. The explicit variant above moves
+decimation before inference and records that deviation. Validation compares Parquet readback exactly to the official
 budget result and separately reports sampled surface change. Reload rendering
 can use `--mesh <export>/episode_000016_object_budgeted.glb` to display the
 surface actually serialized for the competition, with all original source poses.
@@ -226,7 +270,33 @@ drift still need work. This is a runnable single-video baseline, not a finished
 reconstruction method, a closed multi-video acceptance gate, or an upload-ready
 30-episode submission.
 
-## Corrected components validated separately
+## Corrected complete video (2026-10-11)
+
+[The machine-readable result](corrected-episode16-result.json) records successful
+completion of all eight stages for all 360 original frames, complete official
+float64 human conversion, organizer format readback and a 360-frame render of
+the serialized candidate. The dense 352,348-face surface fed tracking and all
+300 requested refinement steps. Refinement took 3,222 seconds, original preview
+rendering 1,100 seconds, and complete export 672 seconds. The permitted Kaolin
+penetration exception remains unproven equivalent. All 233 explicitly allowed
+CPU tests pass; independent CUDA runtime/gradient checks pass.
+
+Whole-device 2-second sampled peak was 12,460 / 16,303 MiB (76.4% including other
+processes); exact PyTorch allocated/reserved stage maxima were 8,910 / 9,760 MiB.
+The 75% setting limits only the PyTorch allocator, not desktop/driver/other
+CUDA libraries. Failed memory attempts remain in the compatibility audit.
+
+Official constant-identity fitting differs from the backend human surface by
+0.468 mm mean and 15.358 mm maximum. Packing reduced the object to 4,096 faces
+and 2,052 active vertices; 20,000 seeded bidirectional surface samples differ
+from the dense inference surface by 0.084 mm mean, 0.594 mm p99 and 1.458 mm
+sample maximum. These are representation changes, not reconstruction accuracy.
+Native parameters and budgeted mesh rows read back exactly. The reloaded
+packed-mesh video is `runs/windows-episode16/faithful-v2/export/export-reloaded-budgeted.mp4`.
+Visual inspection still shows an undersized inferred object and uncertain hand
+alignment. There is no official score or complete 30-video submission.
+
+### Earlier separate component checks
 
 The official SAM2 entry completed all 360 frames with CUDA hole filling and
 original-video decoding. Its first-frame masks differ from the historical
@@ -260,7 +330,8 @@ no Claude Artifact publisher. The technical record is local to this branch.
 - The historical integrated profile contained 162 packages. The corrected
   minimal profile contains 180; optional texture/simplification packages are
   excluded. `uv pip check` passes. All 231
-  tests in the explicit team CI allowlist pass on Windows.
+  tests in the explicit team CI allowlist pass on Windows (233 after the new
+  pre-inference budget integrity test).
 - Automatic tool approval rejected both a bounded batch cleanup and a single
   old-junction removal, returning only `blocked by policy`. No external
   environment was deleted. The old source directories also remain untouched.

@@ -1,0 +1,109 @@
+{
+  "url": "https://nvidia-isaac.github.io/video_to_data/v2d_challenge/assets/v2d_submission_kit.zip",
+  "whole_archive_downloaded": false,
+  "members": [
+    {
+      "path": "eval_reconstruction.py",
+      "sha256": "73433f5e8c172979f342f854edfd8a85f61106c7b0862ed006a3f789c35bf951",
+      "previous_sha256": "73433f5e8c172979f342f854edfd8a85f61106c7b0862ed006a3f789c35bf951",
+      "changed": false
+    },
+    {
+      "path": "tools/pack_reconstruction.py",
+      "sha256": "e0fb5749bc9753e0fd522934bb51c246164c9cdee526584ecb0b1a0b5b1bf585",
+      "previous_sha256": "d197a2110c5f52dd08ac65c27aa3d519799a166ab9a4ea06b3f6ceb163f0d6b1",
+      "changed": true
+    },
+    {
+      "path": "tracks/track_1/README.md",
+      "sha256": "ad8eac8607294920aee5eb9288fc3cb602600c1329d5ddddbf49d95372cd9994",
+      "previous_sha256": "ad8eac8607294920aee5eb9288fc3cb602600c1329d5ddddbf49d95372cd9994",
+      "changed": false
+    },
+    {
+      "path": "metric_code/README.md",
+      "sha256": "5562b1b89a3390d47889c919e25c67ab9b8339c4a67e85b37c4ee6c29e0fab9e",
+      "previous_sha256": "5562b1b89a3390d47889c919e25c67ab9b8339c4a67e85b37c4ee6c29e0fab9e",
+      "changed": false
+    },
+    {
+      "path": "metric_code/track_1/ACC-H.py",
+      "sha256": "6275639576aea6b8fed4ac04ea75d3658abe81d790542d1512055245b6d1f6e8",
+      "previous_sha256": "6275639576aea6b8fed4ac04ea75d3658abe81d790542d1512055245b6d1f6e8",
+      "changed": false
+    },
+    {
+      "path": "metric_code/track_1/ACC-O.py",
+      "sha256": "ce01ca6a9d70cf775a7b149eecf02a3f8cb5b5c653b4430e8569fdce276fcacf",
+      "previous_sha256": "ce01ca6a9d70cf775a7b149eecf02a3f8cb5b5c653b4430e8569fdce276fcacf",
+      "changed": false
+    },
+    {
+      "path": "metric_code/track_1/CD-H.py",
+      "sha256": "2bb6e24941fb7b7c7268ced7d367a0ce955c99f8fccf6c6af74a18d8a13ff319",
+      "previous_sha256": "2bb6e24941fb7b7c7268ced7d367a0ce955c99f8fccf6c6af74a18d8a13ff319",
+      "changed": false
+    },
+    {
+      "path": "metric_code/track_1/CD-O.py",
+      "sha256": "2acda74fe82afd81a9041acf9bd131f20d921fdb2f9e8dc46f6502e2f8c12bd9",
+      "previous_sha256": "2acda74fe82afd81a9041acf9bd131f20d921fdb2f9e8dc46f6502e2f8c12bd9",
+      "changed": false
+    },
+    {
+      "path": "metric_code/track_1/PEN.py",
+      "sha256": "07585d38cc0911f0d9b14c53d482302c7b9cc31365a394127687798136604021",
+      "previous_sha256": "07585d38cc0911f0d9b14c53d482302c7b9cc31365a394127687798136604021",
+      "changed": false
+    },
+    {
+      "path": "v2dlb/mhr_submission.py",
+      "sha256": "06fbd58d07bae1c583a92598f879771a4805ccea3e8346605975bcf5007b1fa3",
+      "previous_sha256": "06fbd58d07bae1c583a92598f879771a4805ccea3e8346605975bcf5007b1fa3",
+      "changed": false
+    },
+    {
+      "path": "v2dlb/mhr_metrics.py",
+      "sha256": "73077b65b5c3e0204307feef784317aab8c733d7462b6b8e6f4f397f7b91d2e0",
+      "previous_sha256": "73077b65b5c3e0204307feef784317aab8c733d7462b6b8e6f4f397f7b91d2e0",
+      "changed": false
+    },
+    {
+      "path": "v2dlb/mesh_budget.py",
+      "sha256": "8f29481d52a82c4656a29d0a1c35bb12123497d9dd5955ac29a81c8dc1168536",
+      "previous_sha256": "42ab8ab35f37b806fb1465eadd96abe43eaac04575da47a4855d08eefe6167b0",
+      "changed": true
+    },
+    {
+      "path": "tools/track1/mesh_to_mhr_params.py",
+      "sha256": "c799ad612fca19620563fcb93bf61e5a4adad0a04251482358746b5f27f8a52e",
+      "previous_sha256": "c799ad612fca19620563fcb93bf61e5a4adad0a04251482358746b5f27f8a52e",
+      "changed": false
+    },
+    {
+      "path": "v2dlb/report_schema.py",
+      "sha256": "2a14b19dcef1004c8bcce73bb69cb60605e2a54c783df8b52575fc861631222a",
+      "previous_sha256": null,
+      "changed": true
+    },
+    {
+      "path": "v2dlb/mesh_quality.py",
+      "sha256": "691878c6ba6ab68d53185cad04e317edc6cc39f428aa11a0a7bccd337c996125",
+      "previous_sha256": null,
+      "changed": true
+    },
+    {
+      "path": "v2dlb/mesh_common.py",
+      "sha256": "aaeac13286c839a7d7e271888613875c934e46de094b2ac928ff2ff01c5a1f06",
+      "previous_sha256": null,
+      "changed": true
+    },
+    {
+      "path": "data/track_1_sample_submission.parquet",
+      "sha256": "1db56c5ec7267cdb7a68d42928f85c092c6b8e9bfbc0dc98a2b020d7a48bc621",
+      "previous_sha256": null,
+      "changed": true
+    }
+  ],
+  "review_scope": "Native converter, Track 1 packer/decoder and mesh helpers reviewed; scores not computed."
+}

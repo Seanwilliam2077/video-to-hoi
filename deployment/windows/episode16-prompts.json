@@ -1,0 +1,8 @@
+{
+  "source": "Manual boxes from permitted Track 1 RGB episode_000016, original frame 0",
+  "expected_frames": 360,
+  "prompts": [
+    {"frame": 0, "id": 1, "box": [456, 425, 610, 898]},
+    {"frame": 0, "id": 2, "box": [657, 647, 751, 729]}
+  ]
+}

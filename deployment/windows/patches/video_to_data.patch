@@ -1,0 +1,510 @@
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/foundationpose_data.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/foundationpose_data.py
+index 774640c..ab83b80 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/foundationpose_data.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/foundationpose_data.py
+@@ -7,6 +7,7 @@
+ # license agreement from NVIDIA CORPORATION is strictly prohibited.
+ 
+ import numpy as np
++import os
+ import kornia
+ import torch
+ 
+@@ -137,10 +138,12 @@ class FoundationPoseScoreDataProcessor:
+       batch.xyz_mapAs[invalid.expand(bs,3,-1,-1)] = 0
+     if batch.xyz_mapBs is None:
+       xyz_mapBs_list = []
+-      for i in range(0, bs, 128):
+-        depthBs_ori = kornia.geometry.transform.warp_perspective(batch.depthBs.expand(bs,-1,-1,-1)[i:i+128], crop_to_oris[i:i+128], dsize=(H_ori, W_ori), mode='nearest', align_corners=False)
+-        xyz_mapBs = depth2xyzmap_batch(depthBs_ori[:,0], batch.Ks[i:i+128], zfar=np.inf).permute(0,3,1,2)
+-        xyz_mapBs_list.append(kornia.geometry.transform.warp_perspective(xyz_mapBs, tf_to_crops[i:i+128], dsize=(H,W), mode='nearest', align_corners=False))
++      depth_batch_size = max(1, int(os.environ.get('FOUNDATIONPOSE_DEPTH_BATCH_SIZE', '16')))
++      for i in range(0, bs, depth_batch_size):
++        stop = i + depth_batch_size
++        depthBs_ori = kornia.geometry.transform.warp_perspective(batch.depthBs.expand(bs,-1,-1,-1)[i:stop], crop_to_oris[i:stop], dsize=(H_ori, W_ori), mode='nearest', align_corners=False)
++        xyz_mapBs = depth2xyzmap_batch(depthBs_ori[:,0], batch.Ks[i:stop], zfar=np.inf).permute(0,3,1,2)
++        xyz_mapBs_list.append(kornia.geometry.transform.warp_perspective(xyz_mapBs, tf_to_crops[i:stop], dsize=(H,W), mode='nearest', align_corners=False))
+       batch.xyz_mapBs = torch.cat(xyz_mapBs_list, 0)
+     batch.xyz_mapBs = batch.xyz_mapBs.cuda()
+     invalid = batch.xyz_mapBs[:,2:3]<0.1
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/refine_tempnet.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/refine_tempnet.py
+index 9298ac8..37d99be 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/refine_tempnet.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/refine_tempnet.py
+@@ -20,6 +20,15 @@ from learning.training.runtime_optimization import bounded_batch_slices
+ from learning.datasets.mhr_input_materialization import normalize_mhr_translation
+ from torchvision.transforms import functional as TVF
+ 
++
++def load_dino(model_name):
++    local = os.environ.get("CARI4D_DINOV2_SOURCE")
++    if local:
++        # The inference checkpoint loader requires every encoder tensor to be
++        # present; do not download redundant standalone backbone weights.
++        return torch.hub.load(local, model_name, source="local", pretrained=False)
++    return torch.hub.load('facebookresearch/dinov2', model_name)
++
+ IMAGENET_DEFAULT_MEAN = (0.485, 0.456, 0.406)
+ IMAGENET_DEFAULT_STD = (0.229, 0.224, 0.225)
+ 
+@@ -81,7 +90,7 @@ class DINOTempRefineNet(nn.Module):
+         # This disables the specific function that triggers the 403 error, avoid frequent rate limit error.
+         torch.hub._validate_not_a_forked_repo = lambda a, b, c: True
+ 
+-        self.encoder_rgb = torch.hub.load('facebookresearch/dinov2', cfg.dino_model)
++        self.encoder_rgb = load_dino(cfg.dino_model)
+         for name, params in self.encoder_rgb.named_parameters():
+             if 'feat_fuser' in name:
+                 params.requires_grad = True
+@@ -207,7 +216,7 @@ class DINOTempRefineNet(nn.Module):
+ 
+     @staticmethod
+     def load_dino_with_more_channels(c_in, model_name='dinov2_vits14'):
+-        model = torch.hub.load('facebookresearch/dinov2', model_name)
++        model = load_dino(model_name)
+         state = model.state_dict()
+ 
+         # now modify the layers
+@@ -366,8 +375,7 @@ class DINOTempHORefineDeltaAndAbs(DINOTempRefineNet):
+             self.init_mhr_prediction_heads(embed_dim)
+             return
+ 
+-        self.encoder_mask = self.encoder_rgb if self.cfg.mask_dino_type == 'dinov2_vitb14' else torch.hub.load(
+-            'facebookresearch/dinov2', self.cfg.mask_dino_type)
++        self.encoder_mask = self.encoder_rgb if self.cfg.mask_dino_type == 'dinov2_vitb14' else load_dino(self.cfg.mask_dino_type)
+         embed_dim = self.encoder_mask.embed_dim
+         print(f'using {self.cfg.mask_dino_type} for binary mask encoding, embed dim={embed_dim}!')
+         c_out = self.cfg.feat_dim_mask  # 768//4
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/score_network.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/score_network.py
+index fbf362e..782a5a1 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/score_network.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/models/score_network.py
+@@ -81,7 +81,13 @@ class ScoreNetMultiPair(nn.Module):
+     """
+     output = {}
+     bs = A.shape[0]//L
+-    feats = self.extract_feat(A, B)   #(B*L, C)
++    chunk = int(os.environ.get("FOUNDATIONPOSE_SCORE_FEATURE_BATCH_SIZE", str(len(A))))
++    if not self.training and len(A) > chunk:
++      # Bound independent feature extraction only. All hypotheses still attend
++      # to each other in att_cross below, preserving the original scorer.
++      feats = torch.cat([self.extract_feat(A[i:i+chunk], B[i:i+chunk]) for i in range(0, len(A), chunk)], dim=0)
++    else:
++      feats = self.extract_feat(A, B)   #(B*L, C)
+     x = feats.reshape(bs,L,-1)
+     x, _ = self.att_cross(x, x, x)
+ 
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_pose_refine.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_pose_refine.py
+index 2cb3d6d..e925c6d 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_pose_refine.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_pose_refine.py
+@@ -29,7 +29,7 @@ def make_crop_data_batch(render_size, ob_in_cams, mesh, rgb, depth, K, crop_rati
+   B = len(ob_in_cams)
+   poseA = torch.as_tensor(ob_in_cams, dtype=torch.float, device='cuda')
+ 
+-  bs = 512
++  bs = int(os.environ.get("FOUNDATIONPOSE_RENDER_BATCH_SIZE", "512"))
+   rgb_rs = []
+   depth_rs = []
+   normal_rs = []
+@@ -151,7 +151,7 @@ class PoseRefinePredictor:
+       normal_map = None
+ 
+     crop_ratio = self.cfg['crop_ratio']
+-    bs = 1024
++    bs = int(os.environ.get("FOUNDATIONPOSE_REFINE_BATCH_SIZE", "1024"))
+ 
+     B_in_cams = torch.as_tensor(ob_centered_in_cams, device='cuda', dtype=torch.float)
+     if mesh_tensors is None:
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_score.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_score.py
+index e89fd5d..0d3aa55 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_score.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/learning/training/predict_score.py
+@@ -60,7 +60,7 @@ def make_crop_data_batch(render_size, ob_in_cams, mesh, rgb, depth, K, crop_rati
+   B = len(ob_in_cams)
+   poseAs = torch.as_tensor(ob_in_cams, dtype=torch.float, device='cuda')
+ 
+-  bs = 512
++  bs = int(os.environ.get("FOUNDATIONPOSE_RENDER_BATCH_SIZE", "512"))
+   rgb_rs = []
+   depth_rs = []
+   xyz_map_rs = []
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/lib_mhr/sdf.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/lib_mhr/sdf.py
+index 1a27b1d..5fa68b3 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/lib_mhr/sdf.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/lib_mhr/sdf.py
+@@ -64,8 +64,11 @@ def object_inside_human_penetration_loss(human_vertices: Any, human_faces: Any,
+             return depth_sum / denominator * float(weight)
+         human_vertices = human_vertices.index_select(0, active_indices)
+         object_points_world = object_points_world.index_select(0, active_indices)
+-    from kaolin.metrics.trianglemesh import point_to_mesh_distance
+-    from kaolin.ops.mesh import check_sign
++    try:
++        from kaolin.metrics.trianglemesh import point_to_mesh_distance
++        from kaolin.ops.mesh import check_sign
++    except ImportError:
++        from .portable_mesh_distance import point_to_mesh_distance, check_sign
+ 
+     for start in range(0, human_vertices.shape[0], int(frame_chunk_size)):
+         stop = min(human_vertices.shape[0], start + int(frame_chunk_size))
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/prep/mhr_depth_h5.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/prep/mhr_depth_h5.py
+index 887df00..bbcb043 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/prep/mhr_depth_h5.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/prep/mhr_depth_h5.py
+@@ -2,7 +2,11 @@ from __future__ import annotations
+ 
+ import errno
+ import io
+-import fcntl
++try:
++    import fcntl
++except ImportError:  # Windows uses an exclusive portable lock for readers too.
++    fcntl = None
++from filelock import FileLock
+ import json
+ import os
+ import threading
+@@ -49,6 +53,8 @@ def _h5py_fork_state() -> dict:
+     native_phil_guard = hasattr(_h5py_objects, "_phil_before_fork") and hasattr(_h5py_objects, "_phil_after_fork")
+     state = {"native_phil_guard": native_phil_guard, "child_resets": {}, "registration_count": 1}
+     setattr(_h5py_objects, _H5PY_FORK_STATE_ATTRIBUTE, state)
++    if not hasattr(os, "register_at_fork"):
++        return state
+     if native_phil_guard:
+         os.register_at_fork(after_in_child=_h5py_fork_child)
+     else:
+@@ -232,6 +238,10 @@ def _open_shared_source_lock(path: str | Path):
+ 
+ @contextmanager
+ def _shared_source_lock(path: str | Path) -> Iterator[None]:
++    if fcntl is None:
++        with FileLock(str(_source_lock_path(path))):
++            yield
++        return
+     with _open_shared_source_lock(path) as lock_handle:
+         fcntl.flock(lock_handle.fileno(), fcntl.LOCK_SH)
+         try:
+@@ -668,8 +678,8 @@ class MHRDepthH5Writer:
+         self._mutation_prepared = False
+         self._validated_shapes: dict[tuple[str, int], tuple[int, int]] = {}
+         lock_path = _source_lock_path(self.path)
+-        self._lock_handle = lock_path.open("a+")
+-        fcntl.flock(self._lock_handle.fileno(), fcntl.LOCK_EX)
++        self._lock_handle = FileLock(str(lock_path))
++        self._lock_handle.acquire()
+         try:
+             clear_depth_h5_cache()
+             if redo and self.path.exists():
+@@ -928,6 +938,5 @@ class MHRDepthH5Writer:
+             self.handle.close()
+             self.handle = None
+         if self._lock_handle is not None:
+-            fcntl.flock(self._lock_handle.fileno(), fcntl.LOCK_UN)
+-            self._lock_handle.close()
++            self._lock_handle.release()
+             self._lock_handle = None
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/prep/mhr_ffv1_sidecar.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/prep/mhr_ffv1_sidecar.py
+index b65028d..0abf17f 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/prep/mhr_ffv1_sidecar.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/prep/mhr_ffv1_sidecar.py
+@@ -1,6 +1,10 @@
+ from __future__ import annotations
+ 
+-import fcntl
++try:
++    import fcntl
++except ImportError:
++    fcntl = None
++from filelock import FileLock
+ import hashlib
+ import os
+ import threading
+@@ -57,6 +61,10 @@ def _source_lock_path(path: str | Path) -> Path:
+ @contextmanager
+ def _shared_source_lock(path: str | Path) -> Iterator[None]:
+     lock_path = _source_lock_path(path)
++    if fcntl is None:
++        with FileLock(str(lock_path)):
++            yield
++        return
+     lock_path.touch(exist_ok=True)
+     with lock_path.open("rb") as handle:
+         fcntl.flock(handle.fileno(), fcntl.LOCK_SH)
+@@ -250,7 +258,8 @@ def _reset_decoder_pid() -> None:
+         clear_ffv1_cache()
+ 
+ 
+-os.register_at_fork(after_in_child=clear_ffv1_cache)
++if hasattr(os, "register_at_fork"):
++    os.register_at_fork(after_in_child=clear_ffv1_cache)
+ 
+ 
+ def _decoder_entry(metadata: dict[str, Any]) -> _DecoderEntry:
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/tools/run_mhr_wild_inference.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/tools/run_mhr_wild_inference.py
+index 960640d..fecd889 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/cari4d/tools/run_mhr_wild_inference.py
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/tools/run_mhr_wild_inference.py
+@@ -2,7 +2,7 @@ from __future__ import annotations
+ 
+ import argparse
+ import copy
+-import fcntl
++from filelock import FileLock
+ import hashlib
+ import json
+ import os
+@@ -457,8 +457,7 @@ class WildInputBuilder:
+         path.parent.mkdir(parents=True, exist_ok=True)
+         lock_path = path.with_name(f".{path.name}.lock")
+         temporary = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+-        with lock_path.open("a+") as lock_handle:
+-            fcntl.flock(lock_handle.fileno(), fcntl.LOCK_EX)
++        with FileLock(str(lock_path)):
+             if path.is_file():
+                 with h5py.File(path, "r") as existing:
+                     identity_json = existing["identity_json"][()] if "identity_json" in existing else ""
+diff --git a/reconstruction/modules/v2d_cari4d/lib/pyproject.toml b/reconstruction/modules/v2d_cari4d/lib/pyproject.toml
+index 899df1a..39a7022 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/pyproject.toml
++++ b/reconstruction/modules/v2d_cari4d/lib/pyproject.toml
+@@ -11,7 +11,6 @@ description = "CARI4D monocular human-object reconstruction inference and traini
+ requires-python = ">=3.10"
+ dependencies = [
+     "huggingface_hub",
+-    "imgaug==0.4.0",
+     "transformers==5.3.0",
+     "v2d-foundation-pose-lib",
+     "v2d-common[io]",
+diff --git a/reconstruction/modules/v2d_cari4d/lib/run_inference.py b/reconstruction/modules/v2d_cari4d/lib/run_inference.py
+index 6df0c50..c2662b1 100644
+--- a/reconstruction/modules/v2d_cari4d/lib/run_inference.py
++++ b/reconstruction/modules/v2d_cari4d/lib/run_inference.py
+@@ -18,7 +18,8 @@ from v2d.cari4d.lib.download_weights import CARI4D_CHECKPOINT_RELATIVE_PATH, CAR
+ 
+ 
+ SOURCE_ROOT = Path(__file__).resolve().parent / "cari4d"
+-SAM3D_SOURCE_ROOT = Path("/workspace/v2d_sam3d_body/lib")
++MODULES_ROOT = Path(__file__).resolve().parents[2]
++SAM3D_SOURCE_ROOT = MODULES_ROOT / "v2d_sam3d_body/lib"
+ PIPELINE_SCHEMA = "v2d.cari4d.wild_inference.v1"
+ 
+ 
+@@ -51,6 +52,9 @@ def _output_identities(outputs: Sequence[Path]) -> list[dict[str, Any]]:
+ 
+ 
+ def _stage_run(name: str, command: list[str], inputs: Sequence[Path], outputs: Sequence[Path], marker_root: Path, env: dict[str, str], overwrite: bool) -> dict[str, Any]:
++    if env.get("V2HOI_CUDA_MEMORY_FRACTION"):
++        command = [command[0], "-m", "v2hoi.cuda_budget", "--fraction", env["V2HOI_CUDA_MEMORY_FRACTION"],
++                   "--report", str(marker_root / f"{name}.memory.json"), "--", *command[1:]]
+     marker = marker_root / f"{name}.json"
+     signature = _signature([value for value in command if value not in ("--overwrite", "--redo", "--redo-sam3d-cache")], inputs)
+     if marker.is_file() and not overwrite:
+@@ -103,7 +107,7 @@ def run_inference(video_path: str, mask_h5_path: str, object_mesh_path: str, wei
+         download_weights(weights_path)
+     weights = _required_weights(weights_path)
+     env = os.environ.copy()
+-    env.update({"PYTHONPATH": os.pathsep.join((str(SOURCE_ROOT), str(SAM3D_SOURCE_ROOT), str(Path("/workspace/v2d_foundation_pose/lib/FoundationPose")), env.get("PYTHONPATH", ""))), "HF_HOME": str(weights_path / "hf_home"), "TORCH_HOME": str(weights_path / "sam3d_body/torch_home"), "SAM3D_BODY_ROOT": str(SAM3D_SOURCE_ROOT), "MHR_ASSETS_ROOT": str(weights_path / "sam3d_body"), "FOUNDATIONPOSE_WEIGHTS_DIR": str(weights_path / "foundationpose/nvlabs_pytorch"), "OPENCV_IO_ENABLE_OPENEXR": "1", "PYOPENGL_PLATFORM": "egl", "HDF5_USE_FILE_LOCKING": "FALSE", "PYTHONUNBUFFERED": "1"})
++    env.update({"PYTHONPATH": os.pathsep.join((str(SOURCE_ROOT), str(SAM3D_SOURCE_ROOT), str(MODULES_ROOT / "v2d_foundation_pose/lib/FoundationPose"), env.get("PYTHONPATH", ""))), "HF_HOME": str(weights_path / "hf_home"), "TORCH_HOME": str(weights_path / "sam3d_body/torch_home"), "SAM3D_BODY_ROOT": str(SAM3D_SOURCE_ROOT), "MHR_ASSETS_ROOT": str(weights_path / "sam3d_body"), "FOUNDATIONPOSE_WEIGHTS_DIR": str(weights_path / "foundationpose/nvlabs_pytorch"), "OPENCV_IO_ENABLE_OPENEXR": "1", "HDF5_USE_FILE_LOCKING": "FALSE", "PYTHONUNBUFFERED": "1"})
+     raw_depth = output_root / "depth/moge2/raw.npy"
+     depth_intrinsics = output_root / "depth/moge2/intrinsics.pkl"
+     depth_report = output_root / "depth/moge2/depth_report.json"
+diff --git a/reconstruction/modules/v2d_common/pyproject.toml b/reconstruction/modules/v2d_common/pyproject.toml
+index bb34280..163a791 100644
+--- a/reconstruction/modules/v2d_common/pyproject.toml
++++ b/reconstruction/modules/v2d_common/pyproject.toml
+@@ -17,7 +17,7 @@ dependencies = [
+ 
+ [project.optional-dependencies]
+ io = [
+-    "opencv-python",
++    "opencv-python-headless",
+     "imageio[pyav]",
+     "av==17.0.0; python_version < '3.11'",
+     "av==18.0.0; python_version >= '3.11'",
+diff --git a/reconstruction/modules/v2d_foundation_pose/lib/backends.py b/reconstruction/modules/v2d_foundation_pose/lib/backends.py
+index c0f0169..454f32b 100644
+--- a/reconstruction/modules/v2d_foundation_pose/lib/backends.py
++++ b/reconstruction/modules/v2d_foundation_pose/lib/backends.py
+@@ -8,9 +8,6 @@ from dataclasses import dataclass
+ from pathlib import Path
+ from typing import Any
+ 
+-from v2d.foundation_pose.lib.trt_engine import ensure_engines, runtime_manifest
+-
+-
+ NVIDIA_TENSORRT = "nvidia_tensorrt"
+ NVLABS_PYTORCH = "nvlabs_pytorch"
+ DEFAULT_BACKEND = NVIDIA_TENSORRT
+@@ -45,6 +42,7 @@ def create_predictor_backend(
+         )
+ 
+     if backend == NVIDIA_TENSORRT:
++        from v2d.foundation_pose.lib.trt_engine import ensure_engines, runtime_manifest
+         engines = ensure_engines(weights_dir)
+         from v2d.foundation_pose.lib.trt_predictors import (
+             TensorRTPoseRefinePredictor,
+diff --git a/reconstruction/modules/v2d_foundation_pose/lib/pyproject.toml b/reconstruction/modules/v2d_foundation_pose/lib/pyproject.toml
+index 33f389a..03c3579 100644
+--- a/reconstruction/modules/v2d_foundation_pose/lib/pyproject.toml
++++ b/reconstruction/modules/v2d_foundation_pose/lib/pyproject.toml
+@@ -12,13 +12,13 @@ requires-python = ">=3.10"
+ dependencies = [
+     "numpy",
+     "Pillow",
+-    "opencv-python",
++    "opencv-python-headless",
+     "trimesh",
+     "scikit-learn",
+     "omegaconf",
+     "v2d-common",
+     "v2d-mesh-lib",
+-    "v2d-mv[io,math]",
++    "v2d-mv[math]",
+ ]
+ 
+ [tool.setuptools]
+diff --git a/reconstruction/modules/v2d_foundation_pose/lib/trt_engine.py b/reconstruction/modules/v2d_foundation_pose/lib/trt_engine.py
+index 8cb082f..06319cf 100644
+--- a/reconstruction/modules/v2d_foundation_pose/lib/trt_engine.py
++++ b/reconstruction/modules/v2d_foundation_pose/lib/trt_engine.py
+@@ -2,7 +2,7 @@
+ 
+ from __future__ import annotations
+ 
+-import fcntl
++from filelock import FileLock
+ import hashlib
+ import json
+ import os
+@@ -163,16 +163,7 @@ def build_engine(model_dir: str | os.PathLike[str], spec: ModelSpec, *,
+     output_path = output_dir / engine_filename(spec)
+     lock_path = output_dir / f".{output_path.name}.lock"
+ 
+-    try:
+-        lock_stream = open(lock_path, "a+")
+-    except OSError as exc:
+-        raise RuntimeError(
+-            f"FoundationPose engine cache is not writable: {output_dir}. "
+-            f"Set {ENGINE_CACHE_ENV} to a writable directory or provision "
+-            "compatible prebuilt engines with the weights."
+-        ) from exc
+-    with lock_stream:
+-        fcntl.flock(lock_stream, fcntl.LOCK_EX)
++    with FileLock(str(lock_path)):
+         if output_path.is_file() and output_path.stat().st_size > 0 and not force:
+             return output_path
+         if not os.path.isfile(trtexec_path):
+diff --git a/reconstruction/modules/v2d_mesh/lib/pyproject.toml b/reconstruction/modules/v2d_mesh/lib/pyproject.toml
+index 17e7293..e116b1c 100644
+--- a/reconstruction/modules/v2d_mesh/lib/pyproject.toml
++++ b/reconstruction/modules/v2d_mesh/lib/pyproject.toml
+@@ -15,7 +15,6 @@ dependencies = [
+     "trimesh",
+     "scipy",
+     "fast-simplification",
+-    "pyrender",
+     "v2d-common",
+ ]
+ 
+diff --git a/reconstruction/modules/v2d_moge/lib/pyproject.toml b/reconstruction/modules/v2d_moge/lib/pyproject.toml
+index 4ab4bd6..e5bcb14 100644
+--- a/reconstruction/modules/v2d_moge/lib/pyproject.toml
++++ b/reconstruction/modules/v2d_moge/lib/pyproject.toml
+@@ -12,8 +12,8 @@ requires-python = ">=3.10"
+ dependencies = [
+     "numpy",
+     "Pillow",
+-    "opencv-python",
+-    "moge @ git+https://github.com/microsoft/MoGe.git@925b8ed835a7a9cdb7578ba15c658a0afc969030",
++    "opencv-python-headless",
++    "moge",
+     "v2d-common",
+ ]
+ 
+diff --git a/reconstruction/modules/v2d_sam3d_body/lib/pyproject.toml b/reconstruction/modules/v2d_sam3d_body/lib/pyproject.toml
+index 36b65df..88a1831 100644
+--- a/reconstruction/modules/v2d_sam3d_body/lib/pyproject.toml
++++ b/reconstruction/modules/v2d_sam3d_body/lib/pyproject.toml
+@@ -13,7 +13,7 @@ dependencies = [
+     "numpy",
+     "omegaconf",
+     "v2d-common",
+-    "v2d-mv[io,math,vis]",
++    "v2d-mv[math]",
+ ]
+ 
+ [tool.setuptools]
+diff --git a/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/backbones/dinov3.py b/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/backbones/dinov3.py
+index bd0103a..e9a5d2d 100644
+--- a/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/backbones/dinov3.py
++++ b/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/backbones/dinov3.py
+@@ -1,6 +1,8 @@
+ # Copyright (c) Meta Platforms, Inc. and affiliates.
+ 
+ import torch
++import os
++import sys
+ from torch import nn
+ 
+ 
+@@ -12,7 +14,16 @@ class Dinov3Backbone(nn.Module):
+         self.name = name
+         self.cfg = cfg
+ 
+-        self.encoder = torch.hub.load(
++        if os.environ.get("DINOV3_SOURCE"):
++            # Import only the backbone: hubconf also imports unused segmentation
++            # and evaluation stacks. The caller pins and verifies this checkout.
++            sys.path.insert(0, os.environ["DINOV3_SOURCE"])
++            from dinov3.hub import backbones
++            self.encoder = getattr(backbones, self.name)(
++                pretrained=False, drop_path=self.cfg.MODEL.BACKBONE.DROP_PATH_RATE,
++            )
++        else:
++            self.encoder = torch.hub.load(
+             "facebookresearch/dinov3",
+             self.name,
+             source="github",
+diff --git a/reconstruction/modules/v2d_cari4d/lib/cari4d/lib_mhr/portable_mesh_distance.py b/reconstruction/modules/v2d_cari4d/lib/cari4d/lib_mhr/portable_mesh_distance.py
+new file mode 100644
+--- /dev/null
++++ b/reconstruction/modules/v2d_cari4d/lib/cari4d/lib_mhr/portable_mesh_distance.py
+@@ -0,0 +1,38 @@
++"""Portable equivalents of the Kaolin operations used for penetration loss.
++
++The occupancy decision is detached, as in the original objective. Triangle
++distance retains gradients to both the human mesh and object samples.
++"""
++import numpy as np
++import torch
++
++
++def check_sign(vertices, faces, points):
++    import open3d as o3d
++    triangles = faces.detach().cpu().numpy().astype(np.uint32)
++    results = []
++    for verts, query in zip(vertices, points):
++        scene = o3d.t.geometry.RaycastingScene(nthreads=1)
++        scene.add_triangles(
++            o3d.core.Tensor(verts.detach().cpu().numpy().astype(np.float32)),
++            o3d.core.Tensor(triangles),
++        )
++        occupancy = scene.compute_occupancy(
++            o3d.core.Tensor(query.detach().cpu().numpy().astype(np.float32)),
++            nthreads=1, nsamples=3,
++        ).numpy()
++        results.append(occupancy > .5)
++    return torch.as_tensor(np.stack(results), device=points.device)
++
++
++def point_to_mesh_distance(points, triangles):
++    from pytorch3d.loss.point_mesh_distance import _PointFaceDistance
++    batch, count, _ = points.shape
++    faces = triangles.shape[1]
++    point_starts = torch.arange(batch, device=points.device, dtype=torch.int64) * count
++    face_starts = torch.arange(batch, device=points.device, dtype=torch.int64) * faces
++    distances = _PointFaceDistance.apply(
++        points.reshape(-1, 3).contiguous(), point_starts,
++        triangles.reshape(-1, 3, 3).contiguous(), face_starts, count, 0.0,
++    )
++    return distances.reshape(batch, count), None, None

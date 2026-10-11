@@ -1,0 +1,24 @@
+{
+  "video_to_data": {
+    "url": "https://github.com/nvidia-isaac/video_to_data.git",
+    "revision": "193382a184308f6800331f3db829f76dc4294cfe",
+    "path": "third_party/CARI4D_MHR_Win",
+    "patch": "patches/video_to_data.patch",
+    "patch_sha256": "f155c1214ada28fbec71723c656b35f86e799ae4c183de17bb866bddd0be585d"
+  },
+  "sam2": {
+    "url": "https://github.com/facebookresearch/sam2.git",
+    "revision": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+    "path": "third_party/sam2"
+  },
+  "dinov2": {
+    "url": "https://github.com/facebookresearch/dinov2.git",
+    "revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "path": "third_party/dinov2"
+  },
+  "dinov3": {
+    "url": "https://github.com/facebookresearch/dinov3.git",
+    "revision": "6876159a11b4df116f30f667f8c9888617df0751",
+    "path": "weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main"
+  }
+}

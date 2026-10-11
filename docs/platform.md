@@ -1,5 +1,23 @@
 # Remote platform and baseline deployment
 
+## Native Windows baseline (2026-10-11)
+
+The local `windows-cari4d` branch now runs real CARI4D MHR through
+`python -m v2hoi.native`, using a project-owned `.venv` and copied sources/assets.
+Episode 16 completed 360/360 original frames, contact optimization, native MHR
+export with constant identity, official format readback, and rendering from the
+reloaded export. Whole-device sampled peak after batching changes was 9,495 MiB
+on the 16 GB workstation. The explicit team CI allowlist passes 231 tests.
+
+See the [Windows runtime record](../deployment/windows/README.md) for pinned
+sources, commands, exact checks and limitations. The visible-depth convex object
+is approximate; hand/object alignment, rotation drift and repeated full-run
+sensitivity remain quality issues. This single-video execution does not close
+G0/G1, validate the other required baseline episode, establish an official score,
+or produce a complete 30-video submission. The existing remote preparation
+history below remains historical evidence. The Claude module/status pages need
+republishing by an agent with the Artifact publisher; they were not changed here.
+
 Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
 ## Planning update (2026-10-03)

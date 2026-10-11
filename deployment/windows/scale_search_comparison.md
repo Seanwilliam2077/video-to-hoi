@@ -95,6 +95,12 @@ cache-only loading; a completed native run does not require the donor environmen
 
 ## Complete clip results
 
+**Owner review correction (2026-10-11):** the latest candidate's visible scale
+is reasonable, but its first-frame orientation is wrong: the grass face should
+be on top, while the reconstruction puts it on a side. Early mask agreement is
+not orientation acceptance. The next experiment freezes this scale and geometry
+and repairs orientation only; see the fixed-scale review in the Windows README.
+
 All eight native stages and their pinned-launcher command audit passed. Both
 variants retain the same official source tree, model options, video and masks.
 They cover 360 frames at 30 fps. No new environment, packages or weights were

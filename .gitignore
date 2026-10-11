@@ -16,6 +16,8 @@ weights/
 vendor/
 runs/
 artifacts/
+.playwright-cli/
+output/playwright/
 .receipts/
 model-release-provenance.json
 dist/

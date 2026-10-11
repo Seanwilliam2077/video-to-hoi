@@ -1,5 +1,81 @@
 # Native Windows CARI4D MHR runtime
 
+## Fixed-scale orientation experiment (2026-10-11)
+
+The owner confirmed that the latest episode 16 scale looks reasonable while
+its first-frame orientation is wrong. Review of the actual meshes and transforms
+locates the grass-on-the-side error in FoundationPose initialization; CoCoNet and
+postopt retain it. Preserve the current generated mesh and scale during repair.
+The source-to-canonical rigid transform is verified against vertices, topology
+and vertex colors; canonical alignment itself does not change physical size.
+
+`tools/windows/review_object_orientation.py` renders the original-video crop,
+four pipeline stages and 24 quarter-turn orientation candidates. These are
+hypotheses, not assumed object symmetries. Each rotates about the mesh center,
+compensating canonical-origin translation without changing scale or the
+camera-space center. Explicitly selected candidates receive bounded rotation
+sweeps with silhouette and appearance observations. No candidate is automatically
+promoted by its numerical score, and the crop IoU is labeled separately from a
+full-image tracking diagnostic.
+
+The visually reviewed upright branch 04 was replayed through all 360 frames
+against a wrong-orientation control. Both replays use the original MP4, the same
+human-anchored depth, intrinsics, vertex-color mesh, five FoundationPose refinement
+iterations and independent tracking state. Only the initial rotation differs;
+the camera-space center is shared. This is a new object-tracking ablation, not a
+comparison that silently substitutes the historical native trajectory as control.
+
+| Full-image visible-mask IoU diagnostic | Wrong seed | Upright seed |
+|---|---:|---:|
+| Frames 0-119 | 0.650 | 0.919 |
+| Frames 120-239 | 0.046 | 0.613 |
+| Frames 240-359 | 0.001 | 0.709 |
+
+These are observation-fit diagnostics, not reference accuracy or competition
+scores. The first-frame fitted observation is included in the first segment;
+later observations were not used to choose or refine the seed. The upright branch
+visually follows the lifted object better, but late hand-held motion and return
+to the table still show placement errors. Sampled-frame review does not certify
+all frames, hidden motion, contact or a complete HOI improvement. Human parameters
+were not changed, and CoCoNet/contact refinement were not rerun.
+
+The corrected full-image run took 105.5 seconds with 463.8 MiB peak PyTorch
+allocation. This timing includes the paired object replay and derived preview;
+it is not end-to-end reconstruction throughput. Both preview and pose arrays
+cover all 360 original IDs. No weights, models, training or submission conversion
+were added. The previous crop-scored replay is preserved as an earlier attempt.
+
+```powershell
+. ./tools/windows/activate.ps1
+. ./tools/windows/native-env.ps1
+python tools/windows/review_object_orientation.py --run runs/windows-episode16/legacy-scale4096-comparison-inference/run --preparation runs/windows-episode16/legacy-scale4096-comparison-inference/preparation/preparation.json --output runs/my-orientation-review --frames 0 --refine-candidates 4 23 9 15
+python tools/windows/replay_orientation_tracking.py --review runs/my-orientation-review/orientation-review.json --candidate 4 --output runs/my-orientation-replay
+```
+
+Use new output directories and run GPU jobs sequentially. Candidate IDs belong
+to their review's canonical mesh and current seed; inspect the generated sheet
+before selecting one. The completed preview is
+`runs/windows-episode16/orientation-replay-fixed-scale-v2/orientation-tracking.mp4`.
+[The recorded result](orientation-repair-episode16-result.json) pins inputs and
+limitations. The original native runs and submission payloads are unchanged.
+
+The next intervention is to feed the reviewed object trajectory into the native
+coupled pipeline and inspect whether its correct orientation survives CoCoNet and
+contact optimization, then address the remaining drift. WAPR offers pretrained
+wide-angle refinement and candidate ranking, but requires reliable metric mesh,
+depth and intrinsics; it has not been installed or tested here. AgentSTAR supplies
+the render-and-compare candidate-review idea, without importing its framework.
+HA-HOI supplies staged contact/health-gated recovery ideas; its PPO simulation
+stage trains a sequence-specific controller and is excluded from this training-free
+experiment. Its SMPL-X contact sets would need a verified MHR mapping.
+
+Primary research sources: [WAPR](https://github.com/WangYuLin-SEU/WAPR),
+[AgentSTAR](https://arxiv.org/html/2609.24487v1),
+[Real2Sim in HOI / HA-HOI](https://arxiv.org/html/2605.14462v1).
+All new tests use independently constructed geometry, without Track 2 inputs.
+The explicit CI allowlist now passes 255 tests. Claude module/status publication
+is unavailable in this session; their online copies remain out of date.
+
 Iteration stops at native inference, preview videos and diagnostics. Run the
 expensive official human conversion and submission packing **only after the owner
 explicitly confirms submission export**; previews do not require it. The helper

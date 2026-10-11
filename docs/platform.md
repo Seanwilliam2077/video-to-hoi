@@ -2,12 +2,36 @@
 
 ## Native Windows corrections (2026-10-11)
 
+The owner requested a [legacy scale-search comparison](../deployment/windows/scale_search_comparison.md)
+on the current colored 4096-face surface, with all MHR settings retained. The
+original 30+11 candidate search selected a maximum dimension near 20.8 cm versus
+the 16.4 cm SRT control. All eight stages and command audits passed on 360 frames.
+Whole-clip FP visible-mask IoU fell from 0.474 to 0.365, with severe middle-clip
+drift. Final maximum adjacent rotation change fell from 52.65 to 22.06 degrees,
+but maximum translation change rose from 2.22 to 3.50 cm. These are prediction
+diagnostics, not official scores; the comparison is not accepted as an overall
+improvement. A decoded NVENC side-by-side preview and nine inspected sample
+frames are recorded in the comparison report. Iteration now
+stops at native videos/diagnostics: expensive submission conversion runs only
+after explicit submission confirmation. No dependencies or weights were added.
+
+**Current audit:** core execution/export success does not establish baseline
+acceptance. The dense generated mesh lacked independent autoscaling and its
+frozen object rotations retained adjacent changes up to 130.5 degrees. The
+[complete flow audit](../deployment/windows/pipeline_audit.md) checks all eight
+stage calls against the original launcher and records separate input repairs.
+The new run uses original SRT scale fitting through an explicitly recorded
+monocular relative-view adapter, an appearance-preserving 4096-face mesh and
+the original optional object rotation optimizer. New input guards prevent
+unvalidated scale or a geometry-only mesh from silently entering RGB inference.
+
 The local `windows-cari4d` branch runs real CARI4D MHR through
 `python -m v2hoi.native`, using a project-owned `.venv` and copied sources/assets.
 The historical experiment completed 360/360 original frames, contact optimization, native MHR
 export with constant identity, official format readback, and rendering from the
 reloaded export. Whole-device sampled peak after batching changes was 9,495 MiB
-on the 16 GB workstation. The explicit team CI allowlist passes 231 tests.
+on the 16 GB workstation. That historical check passed 231 allowed CPU tests;
+the current explicit team CI allowlist passes 249 tests.
 
 See the [Windows runtime record](../deployment/windows/README.md) for pinned
 sources, commands, exact checks and limitations. Its previous official-baseline
@@ -20,11 +44,12 @@ mesh in 84.7 seconds with an 8.50 GiB allocated peak. The corrected coupled run
 now passed all 360 original frames, complete official human conversion, exact
 organizer format readback and a render from the serialized candidate. Its
 sampled whole-device peak was 12,460/16,303 MiB; exact PyTorch allocated peak
-was 8,910 MiB. All 233 allowed CPU tests and independent CUDA checks pass.
+was 8,910 MiB. That dense-run check passed 233 allowed CPU tests and independent CUDA checks.
 Dense refinement took 3,222 seconds and original preview rendering 1,100 seconds.
 An owner-selected, separately recorded 4096-face pre-inference variant is now
 prepared using unmodified organizer budget code; it preserves full geometry
-as a reference and still needs end-to-end validation. No new dependencies or
+as a reference. The colored v4 and legacy-search variants have since completed
+full native inference, but reconstruction quality is not accepted. No new dependencies or
 downloads were needed for reduction. Original 512/1024 tracking batches exceeded memory with this
 dense surface; current render/refine batches are 64/128, depth warps 32, and the
 original full scorer is retained. The owner permits the unproven Kaolin penetration fallback

@@ -13,3 +13,7 @@
   precision and sampling settings. Record its validation and limitations.
 - The owner permits the Kaolin penetration fallback; equivalence is unproven.
   Historical convex/JPEG/custom-fit results are experiments, not official baselines.
+- Owner preference (2026-10-11): iteration and comparisons stop at native
+  inference, preview videos and prediction diagnostics. Run expensive official
+  human conversion/submission export only after explicit submission confirmation.
+  Do not append automatic export or packed-export rendering to a comparison.

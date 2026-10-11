@@ -11,6 +11,23 @@ from v2hoi.native import sha256
 from v2hoi.mesh_budget import POLICY, DEVIATION, verify_budgeted_preparation
 
 
+def transfer_vertex_colors(original, mesh):
+    if original.visual.kind != "vertex":
+        raise ValueError("This SAM3D inference adapter requires original vertex colors; never silently discard a material")
+    import open3d as o3d
+    ray_scene = o3d.t.geometry.RaycastingScene(nthreads=1)
+    ray_scene.add_triangles(o3d.core.Tensor(np.asarray(original.vertices, dtype=np.float32)),
+        o3d.core.Tensor(np.asarray(original.faces, dtype=np.uint32)))
+    nearest = ray_scene.compute_closest_points(o3d.core.Tensor(np.asarray(mesh.vertices, dtype=np.float32)))
+    face_ids = nearest["primitive_ids"].numpy().astype(np.int64)
+    uv = nearest["primitive_uvs"].numpy()
+    barycentric = np.column_stack((1-uv.sum(axis=1), uv))
+    source_colors = np.asarray(original.visual.vertex_colors, dtype=np.float64)[original.faces[face_ids]]
+    colors = np.einsum("vi,vij->vj", barycentric, source_colors).round().clip(0,255).astype(np.uint8)
+    mesh.visual = trimesh.visual.ColorVisuals(mesh=mesh, vertex_colors=colors)
+    return colors
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--preparation", type=Path, required=True)
@@ -31,8 +48,8 @@ def main():
     generation = json.loads((source.parent / prepared["mesh_generation"]["receipt"]["path"]).read_text())
     full_mesh = (source.parent / prepared["mesh"]["path"]).resolve()
     masks = (source.parent / prepared["masks"]["path"]).resolve()
-    if (sha256(full_mesh) != generation["mesh_sha256"]
-            or generation["mesh_sha256"] != prepared["mesh"]["sha256"]
+    verify_budgeted_preparation(prepared, source.parent, generation["mesh_sha256"], allowed=False)
+    if (sha256(full_mesh) != prepared["mesh"]["sha256"]
             or sha256(masks) != prepared["masks"]["sha256"]):
         raise ValueError("Original generated geometry or masks changed")
     kit = a.kit.resolve()
@@ -53,17 +70,22 @@ def main():
     active = np.linalg.norm(np.cross(triangles[:, 1]-triangles[:, 0], triangles[:, 2]-triangles[:, 0]), axis=1) > 0
     mesh = trimesh.Trimesh(vertices, faces[active], process=False)
     mesh.remove_unreferenced_vertices()
+    original = trimesh.load(full_mesh, force="mesh", process=False)
+    colors = transfer_vertex_colors(original, mesh)
     output_mesh = destination / "object-budget4096.glb"
     mesh.export(output_mesh)
     loaded = trimesh.load(output_mesh, force="mesh", process=False)
     if (not np.array_equal(loaded.faces, mesh.faces)
-            or not np.array_equal(loaded.vertices, np.asarray(mesh.vertices, dtype=np.float32))):
+            or not np.array_equal(loaded.vertices, np.asarray(mesh.vertices, dtype=np.float32))
+            or not np.array_equal(loaded.visual.vertex_colors, colors)):
         raise ValueError("Budgeted GLB changed vertices or faces on readback")
-    original = trimesh.load(full_mesh, force="mesh", process=False)
     def artifact(path):
         return {"path": Path(os.path.relpath(path, destination)).as_posix(), "sha256": sha256(path)}
     # Rebase existing artifact paths without copying any masks, models or full mesh.
-    for item in (prepared["masks"], prepared["mesh_generation"]["receipt"], prepared["segmentation"]["report"]):
+    items = [prepared["masks"], prepared["mesh_generation"]["receipt"], prepared["segmentation"]["report"]]
+    if "mesh_calibration" in prepared:
+        items.append(prepared["mesh_calibration"]["receipt"])
+    for item in items:
         item["path"] = artifact((source.parent / item["path"]).resolve())["path"]
     receipt = {"policy": POLICY, "method": "v2dlb.mesh_budget.budget_mesh",
         "face_budget": 4096, "vertex_budget": 4096, "full_mesh": artifact(full_mesh),
@@ -71,6 +93,8 @@ def main():
         "source_preparation": artifact(source), "elapsed_seconds": time.perf_counter()-started,
         "full_faces": len(original.faces), "full_vertices": len(original.vertices),
         "active_faces": len(mesh.faces), "active_vertices": len(mesh.vertices),
+        "appearance_preserved": True,
+        "color_transfer": "Original vertex colors interpolated on nearest full-surface triangles; geometry unchanged",
         "padding_removed": "Only zero-area padding faces and unreferenced vertices",
         "coordinates": "Canonical coordinates preserved; no recentering or rescaling",
         "limitations": [DEVIATION, "No measured end-to-end speedup or accuracy equivalence"]}

@@ -4,7 +4,7 @@
     "revision": "193382a184308f6800331f3db829f76dc4294cfe",
     "path": "third_party/CARI4D_MHR_Win",
     "patch": "patches/video_to_data.patch",
-    "patch_sha256": "21b25c494741c0422d988de121bbacdaf27a7310a73b31f397e691e6f075e430"
+    "patch_sha256": "d9406bf21157343cd1314599b793811f4c7a74be6e3685b48ede8649a3f4109a"
   },
   "sam2": {
     "url": "https://github.com/facebookresearch/sam2.git",
@@ -54,5 +54,30 @@
     "revision": "ad326bfb61facd6c52b5a825bc1e34d7c97d9672",
     "path": "weights/cari4d/hf_home/hub/models--Ruicheng--moge-vitl/snapshots/ad326bfb61facd6c52b5a825bc1e34d7c97d9672/model.pt",
     "sha256": "da96b09a0485a3c45a5aa455e67743c8b4efc4dd8437c1f2aa93c2b4303d957f"
+  },
+  "nvidia_srt": {
+    "repository": "https://github.com/nvidia-isaac/video_to_data",
+    "revision": "193382a184308f6800331f3db829f76dc4294cfe",
+    "upstream_path": "reconstruction/modules/v2d_hoi_object_reconstruction/lib/scale_mesh_srt.py",
+    "path": "third_party/nvidia-srt/scale_mesh_srt.py",
+    "sha256": "0b4d971bdd500662b726512cde4d9d5b1a9a2a00a10e3e2c1bc629aebc187817",
+    "scope": "Original SRT solver; monocular relative-view input adapter is recorded separately"
+  },
+  "cari4d_legacy_scale": {
+    "repository": "https://github.com/NVlabs/CARI4D",
+    "revision": "71fa7cbe46081467edadd11ab534b0c14aa9d913",
+    "scope": "Only two public code files; no legacy data, models or environment",
+    "files": {
+      "estimate_scale.py": {
+        "upstream_path": "tools/estimate_scale.py",
+        "path": "third_party/cari4d-legacy-scale/estimate_scale.py",
+        "sha256": "fbba1f407938ff8fce2f42ac37a6f6bf72e7a66bf5f7ede86a7ef5146d776bb3"
+      },
+      "chamfer_dist_np.py": {
+        "upstream_path": "tools/chamfer_dist_np.py",
+        "path": "third_party/cari4d-legacy-scale/chamfer_dist_np.py",
+        "sha256": "59c7b5968900a6eeeca2c53a2a2bd87974853a605763d0e0127e2ef9da6908c1"
+      }
+    }
   }
 }

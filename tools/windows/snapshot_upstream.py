@@ -65,5 +65,23 @@ if sam3d_dino_cache.is_dir():
 manifest["moge1_checkpoint"] = {"repo_id": "Ruicheng/moge-vitl", "revision": "ad326bfb61facd6c52b5a825bc1e34d7c97d9672",
     "path": "weights/cari4d/hf_home/hub/models--Ruicheng--moge-vitl/snapshots/ad326bfb61facd6c52b5a825bc1e34d7c97d9672/model.pt",
     "sha256": "da96b09a0485a3c45a5aa455e67743c8b4efc4dd8437c1f2aa93c2b4303d957f"}
+srt_code = root / "third_party/nvidia-srt/scale_mesh_srt.py"
+if srt_code.exists():
+    manifest["nvidia_srt"] = {"repository": "https://github.com/nvidia-isaac/video_to_data",
+        "revision": "193382a184308f6800331f3db829f76dc4294cfe",
+        "upstream_path": "reconstruction/modules/v2d_hoi_object_reconstruction/lib/scale_mesh_srt.py",
+        "path": srt_code.relative_to(root).as_posix(), "sha256": hashlib.sha256(srt_code.read_bytes()).hexdigest(),
+        "scope": "Original SRT solver; monocular relative-view input adapter is recorded separately"}
+legacy_files = {name: root / "third_party/cari4d-legacy-scale" / name
+                for name in ("estimate_scale.py", "chamfer_dist_np.py")}
+if all(filename.is_file() for filename in legacy_files.values()):
+    manifest["cari4d_legacy_scale"] = {
+        "repository": "https://github.com/NVlabs/CARI4D",
+        "revision": "71fa7cbe46081467edadd11ab534b0c14aa9d913",
+        "scope": "Only two public code files; no legacy data, models or environment",
+        "files": {name: {"upstream_path": "tools/" + name,
+                         "path": filename.relative_to(root).as_posix(),
+                         "sha256": hashlib.sha256(filename.read_bytes()).hexdigest()}
+                  for name, filename in legacy_files.items()}}
 (root / "deployment/windows/sources.json").write_text(json.dumps(manifest, indent=2))
 print(f"Saved {len(patch)} bytes of compatibility changes")

@@ -83,6 +83,8 @@ def main():
               "bootstrap_scale_max_difference": max_difference, "raw_depth_identical": raw_identical,
               "bootstrap_scale_comparison": "First-frame estimate versus native pass" if generated else "Full cached bootstrap pass",
               "official_preparation": inputs.get("official_preparation", False),
+              "object_scale_calibrated": inputs.get("object_scale_calibrated", False),
+              "object_rotation_optimization": inputs.get("object_rotation_optimization", False),
               "whole_gpu_peak_sample_mib": memory["peak_observed_mib"],
               "max_torch_peak_allocated_mib": max(x["peak_allocated_bytes"] for x in budget) / 2**20,
               "max_torch_peak_reserved_mib": max(x["peak_reserved_bytes"] for x in budget) / 2**20,

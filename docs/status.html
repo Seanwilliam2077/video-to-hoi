@@ -165,7 +165,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <header>
     <div>
   <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 10 月 11 日</div>
-  <h1>本机首段已完成保存与重新打开核对</h1>
+  <h1>本机首段可完整查看，物体尺寸和动作仍待验收</h1>
     </div>
     <div class="count">
       <div class="l">距比赛截止还有</div>
@@ -177,7 +177,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>本机已完成一段比赛视频的人体、物体和动作计算，保存、交付内容检查及重新打开后的整段影像均已核对。<b>之前偏离参考方法的结果已单独标记，主要步骤已重新运行。</b>画面中的物体偏小、手与物体的贴合仍需改进；首批两段和全部 30 段未完成，没有新增比赛成绩。</p>
+  <p class="lead"><b>一句话：</b>本机已有一段比赛视频的完整重建影像，参考方法的主要步骤已恢复，旧实验单独保留。<b>新增物体尺寸搜索对照：开头更贴合，中段跟踪却变差，尚未形成稳定改进。</b>物体动作和手部贴合仍待验收；首批两段和全部 30 段未完成，没有新增比赛成绩。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -332,7 +332,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <li class="done"><div class="t">读懂规则</div><div class="s">已替换旧要求</div><div class="d">评分检查同步更新</div></li>
       <li class="done"><div class="t">搭建框架</div><div class="s">已完成</div><div class="d">四人可并行开发</div></li>
       <li class="done"><div class="t">接入 AI 模型</div><div class="s">本机首段已计算</div><div class="d">服务器运行仍待验证</div></li>
-      <li class="now"><div class="t">第一批结果</div><div class="s">首段已保存并重新核对</div><div class="d">两段目标尚未完成</div></li>
+      <li class="now"><div class="t">第一批结果</div><div class="s">首段影像可查看，质量仍待验收</div><div class="d">两段目标尚未完成</div></li>
       <li class="next"><div class="t">全部出结果</div><div class="s">未开始</div><div class="d">目标 10 月 15 日</div></li>
       <li class="next"><div class="t">优化与提交</div><div class="s">未开始</div><div class="d">截止 11 月 4 日</div></li>
     </ol>
@@ -341,7 +341,8 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <section>
     <h2>已经完成的</h2>
     <ul class="done-list">
-      <li>本机已完成一段比赛视频的人体、物体和动作计算、保存及重新打开核对；已恢复参考方法的主要步骤，保留旧实验作对照。另已准备更精简的物体模型，后续单独比较速度和效果。</li>
+      <li>本机已完成一段比赛视频的人体、物体和动作计算；较早结果已保存并重新打开核对。已恢复参考方法的主要步骤，保留旧实验作对照，用精简物体模型生成保留颜色的完整影像。</li>
+      <li>新增参考方法原有的物体尺寸搜索对照，沿用原有模型文件和其他处理步骤。首段开头更贴合，但中段跟踪变差；后续只在确认提交时制作交付文件，日常先检查影像和动作。</li>
       <li>六项最终要求已经替换旧规则：人体和物体统一定位和尺寸；使用规定的人体表示；物体形状和位置一起检查；动作变化对比标准答案；遮挡时逐帧保留轨迹；所有估计只用本赛道提供的数据。</li>
       <li>已更新评分检查程序，用自行构造的模拟动作检查错误尺寸、后续漂移、动作过度平滑和漏帧等情况。这是程序检查，不是比赛成绩。</li>
       <li>已将新方案写入项目资料：先跑通真实结果，再根据证据修正问题，并逐项检查、保留可退回的版本。</li>
@@ -394,7 +395,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       </div>
       <div class="issue mid">
         <b>首段能计算，还不能说明整体质量达标</b>
-        <p style="margin:4px 0 0">物体尺寸、手与物体的贴合、被挡住时的动作仍要逐项核对。下一步完成两段基准，再覆盖不同难点和全部视频，不凭少量演示宣布整体改进。</p>
+        <p style="margin:4px 0 0">尺寸搜索改善了开头的贴合，却未解决中段漂移。物体尺寸、手部贴合、被挡住时的动作仍要逐项核对；先保留对照证据，再覆盖不同难点和全部视频。</p>
         <div class="need">四块负责人按验收安排交付视频核对、前后对比和失败清单；只接受真实证据支持的改动。</div>
       </div>
     </div>
@@ -427,7 +428,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   </section>
 
 
-  <footer>数据截至 2026 年 10 月 11 日；本次更新：本机首段已完成计算、保存、交付内容检查和重新打开核对，参考方法的主要步骤已恢复，另已准备精简物体模型用于后续对比。物体偏小和手部贴合仍需改进；首批两段和全部视频未完成，没有新增得分或排名。只用比赛给的 30 段视频及其重建结果开展实验。此处为本地更新，线上副本尚待同步。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 10 月 11 日；本次更新：本机首段完整影像可查看，新增物体尺寸搜索对照，开头更贴合但中段跟踪变差，尚未确认整体改善。日常先检查影像和动作，确认提交时再制作交付文件。首批两段和全部视频未完成，没有新增得分或排名。只用比赛给的 30 段视频及其重建结果开展实验。此处为本地更新，线上副本尚待同步。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

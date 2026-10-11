@@ -1,0 +1,86 @@
+{
+  "scope": "Track 1 episode 16 scale and appearance audit; no shape correction applied",
+  "geometry": {
+    "generated_before_scale": {
+      "vertices": 176178,
+      "faces": 352348,
+      "visual_kind": "vertex",
+      "extents_normalized": [
+        0.48064908385276794,
+        0.4733404815196991,
+        0.48074963688850403
+      ],
+      "volume_normalized_cubed": 0.01812449912815547,
+      "units": "SAM3D normalized canonical units before predicted scale is applied; not metres"
+    },
+    "inference_input": {
+      "vertices": 176178,
+      "faces": 352348,
+      "extents_m": [
+        0.09259494998064444,
+        0.09118697961266964,
+        0.09261432108448542
+      ],
+      "volume_m3": 0.00012958166661864164,
+      "visual_kind": "vertex"
+    },
+    "aligned_input": {
+      "vertices": 176178,
+      "faces": 352348,
+      "extents_m": [
+        0.0911834858648345,
+        0.09257839281129181,
+        0.0926232328909122
+      ],
+      "volume_m3": 0.00012958166495500298,
+      "visual_kind": "vertex"
+    },
+    "export_full": {
+      "vertices": 176178,
+      "faces": 352348,
+      "extents_m": [
+        0.09118348360061646,
+        0.09257839620113373,
+        0.09262323379516602
+      ],
+      "volume_m3": 0.00012958166509882416,
+      "visual_kind": "vertex"
+    },
+    "export_budget": {
+      "vertices": 2052,
+      "faces": 4096,
+      "extents_m": [
+        0.09129036590456963,
+        0.09258919209241867,
+        0.09267949685454369
+      ],
+      "volume_m3": 0.0001293260755959471,
+      "visual_kind": null
+    }
+  },
+  "projection": {
+    "predicted_bounds_px": [
+      [
+        683.8722857699488,
+        671.1058535456964
+      ],
+      [
+        722.2408767597814,
+        702.2888545085929
+      ]
+    ],
+    "observed_mask_bounds_px": [
+      [
+        662,
+        650
+      ],
+      [
+        744,
+        722
+      ]
+    ],
+    "scope": "Projection diagnostic against observed mask, not a ground-truth score; no mesh correction applied"
+  },
+  "finding": "Input mesh is already undersized before decimation; independent mesh autoscaling is not completed",
+  "official_document": "https://github.com/nvidia-isaac/video_to_data/blob/193382a184308f6800331f3db829f76dc4294cfe/reconstruction/modules/v2d_cari4d/README.md#object-mesh"
+}

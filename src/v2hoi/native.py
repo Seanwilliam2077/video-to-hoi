@@ -55,12 +55,19 @@ def main():
     p.add_argument("--weights", type=Path, default=Path("weights/cari4d"))
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--postopt-steps", type=int, default=300)
+    p.add_argument("--postopt-learning-rate", type=float, default=1e-3)
     p.add_argument("--postopt-batch-size", type=int, default=0)
     p.add_argument("--cuda-memory-fraction", type=float, default=.75)
     p.add_argument("--allow-experimental-preparation", action="store_true",
                    help="Diagnostic runs only: explicitly allow prior non-official preparation")
     p.add_argument("--allow-budgeted-mesh", action="store_true",
                    help="Explicitly select organizer 4096-face decimation before inference; changes the surface")
+    p.add_argument("--allow-legacy-scale-search", action="store_true",
+                   help="Explicit legacy scale-preprocessing comparison; original MHR stages remain unchanged")
+    p.add_argument("--allow-unvalidated-object-scale", action="store_true",
+                   help="Historical diagnostics only: generated scale has not passed independent calibration")
+    p.add_argument("--optimize-object-rotation", action="store_true",
+                   help="Enable the original NVIDIA rotation optimization option (default is frozen)")
     p.add_argument("--moge-batch-size", type=int, default=4)
     p.add_argument("--sam3d-chunk-size", type=int, default=4)
     p.add_argument("--sam3d-refit-batch-size", type=int, default=64)
@@ -73,6 +80,9 @@ def main():
     a = p.parse_args()
     if not 0 < a.cuda_memory_fraction <= 1:
         p.error("--cuda-memory-fraction must be between 0 (exclusive) and 1")
+    import math
+    if not math.isfinite(a.postopt_learning_rate) or a.postopt_learning_rate <= 0:
+        p.error("--postopt-learning-rate must be finite and positive")
     clip = load_clips("track1", [a.episode], a.dataset_root)[0]
     prepared = json.loads(a.preparation.read_text())
     if prepared.get("provenance") != "track1" or prepared.get("episode") != a.episode:
@@ -117,8 +127,12 @@ def main():
                 or generation["sampler_step_override"] is not False):
             raise ValueError("Official preparation receipts do not match the actual inputs")
         from v2hoi.mesh_budget import verify_budgeted_preparation
+        if "mesh_scale_search" in prepared and not a.allow_legacy_scale_search:
+            raise ValueError("Legacy scale search requires --allow-legacy-scale-search")
         budgeted_mesh = verify_budgeted_preparation(prepared, a.preparation.parent,
             generation["mesh_sha256"], allowed=a.allow_budgeted_mesh)
+        if "mesh_calibration" not in prepared and not a.allow_unvalidated_object_scale:
+            raise ValueError("Generated object requires validated metric mesh calibration before tracking; predicted scale alone is insufficient")
     elif "input_mesh_policy" in prepared:
         raise ValueError("Mesh budgeting requires verified official generation and segmentation")
     a.output.mkdir(parents=True, exist_ok=True)
@@ -145,6 +159,10 @@ def main():
         "--depth_alignment_encoding_workers", "8", "--depth_alignment_write_batch_size", "16",
         "--coconet_render_batch_size", str(a.coconet_render_batch_size), "--coconet_crop_workers", "1", "--render_batch_size", str(a.render_batch_size),
         "--postopt_num_steps", str(a.postopt_steps), "--postopt_batch_size", str(a.postopt_batch_size)]
+    if a.optimize_object_rotation:
+        command.append("--optimize_object_rotation")
+    if a.postopt_learning_rate != 1e-3:
+        command += ["--postopt_lr", str(a.postopt_learning_rate)]
     env = native_environment(source, weights)
     env["V2HOI_CUDA_MEMORY_FRACTION"] = str(a.cuda_memory_fraction)
     env["FOUNDATIONPOSE_RENDER_BATCH_SIZE"] = str(a.foundationpose_render_batch_size)
@@ -154,10 +172,14 @@ def main():
         "video_sha256": video_hash, "expected_frames": clip.n_frames,
         "original_frame_ids": list(range(clip.n_frames)), "preparation": prepared,
         "source_sha256": source_hash.hexdigest(), "command": command,
-        "official_preparation": faithful_preparation and not budgeted_mesh,
+        "official_preparation": faithful_preparation and not budgeted_mesh and "mesh_calibration" in prepared,
         "algorithm_deviations": ["Kaolin penetration fallback is permitted but unproven equivalent"] +
             ([] if faithful_preparation else ["Explicitly selected experimental preparation"]) +
             (["Organizer 4096-face budget applied before inference; changes tracking/contact/penetration surface"] if budgeted_mesh else []),
+        "object_scale_calibrated": "mesh_calibration" in prepared,
+        "legacy_scale_search": "mesh_scale_search" in prepared,
+        "object_rotation_optimization": a.optimize_object_rotation,
+        "postopt_learning_rate": a.postopt_learning_rate,
         "cuda_budget_wrapper_sha256": sha256(Path(__file__).with_name("cuda_budget.py")),
         "entry_sha256": sha256(Path(__file__)),
         "runtime_environment": {k: env[k] for k in ("V2HOI_CUDA_MEMORY_FRACTION", "PYTORCH_ALLOC_CONF",

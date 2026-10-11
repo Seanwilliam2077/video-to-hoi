@@ -282,7 +282,7 @@ index 899df1a..39a7022 100644
      "v2d-foundation-pose-lib",
      "v2d-common[io]",
 diff --git a/reconstruction/modules/v2d_cari4d/lib/run_inference.py b/reconstruction/modules/v2d_cari4d/lib/run_inference.py
-index 6df0c50..c2662b1 100644
+index 6df0c50..f94e2e0 100644
 --- a/reconstruction/modules/v2d_cari4d/lib/run_inference.py
 +++ b/reconstruction/modules/v2d_cari4d/lib/run_inference.py
 @@ -18,7 +18,8 @@ from v2d.cari4d.lib.download_weights import CARI4D_CHECKPOINT_RELATIVE_PATH, CAR
@@ -305,6 +305,15 @@ index 6df0c50..c2662b1 100644
      marker = marker_root / f"{name}.json"
      signature = _signature([value for value in command if value not in ("--overwrite", "--redo", "--redo-sam3d-cache")], inputs)
      if marker.is_file() and not overwrite:
+@@ -87,7 +91,7 @@ def _flag(command: list[str], enabled: bool, value: str) -> None:
+         command.append(value)
+ 
+ 
+-def run_inference(video_path: str, mask_h5_path: str, object_mesh_path: str, weights_path: str, output_dir: str, *, download_models: bool = True, expected_frames: int | None = None, device: str = "cuda", moge_devices: str | None = None, moge_batch_size: int = 8, sam3d_chunk_size: int = 16, sam3d_alignment_workers: int = 1, sam3d_refit_batch_size: int = 512, depth_alignment_render_batch_size: int = 4, depth_alignment_encoding_workers: int = 16, depth_alignment_write_batch_size: int = 64, foundationpose_iteration: int = 5, foundationpose_max_attempts: int = 5, coconet_stride: int = 96, coconet_render_batch_size: int = 32, coconet_crop_workers: int = 8, coconet_crop_buffer_count: int = 2, postopt_num_steps: int = 300, postopt_batch_size: int = 0, postopt_temporal_weight: float = 100.0, postopt_human_pose_prior_weight: float = 200.0, postopt_contact_activation_distance_m: float = 0.05, postopt_report_every: int = 10, postopt_diagnostics_every: int = 500, symmetric_object: bool = False, optimize_object_rotation: bool = False, render_batch_size: int = 4, overwrite: bool = False) -> Path:
++def run_inference(video_path: str, mask_h5_path: str, object_mesh_path: str, weights_path: str, output_dir: str, *, download_models: bool = True, expected_frames: int | None = None, device: str = "cuda", moge_devices: str | None = None, moge_batch_size: int = 8, sam3d_chunk_size: int = 16, sam3d_alignment_workers: int = 1, sam3d_refit_batch_size: int = 512, depth_alignment_render_batch_size: int = 4, depth_alignment_encoding_workers: int = 16, depth_alignment_write_batch_size: int = 64, foundationpose_iteration: int = 5, foundationpose_max_attempts: int = 5, coconet_stride: int = 96, coconet_render_batch_size: int = 32, coconet_crop_workers: int = 8, coconet_crop_buffer_count: int = 2, postopt_num_steps: int = 300, postopt_lr: float = 1e-3, postopt_batch_size: int = 0, postopt_temporal_weight: float = 100.0, postopt_human_pose_prior_weight: float = 200.0, postopt_contact_activation_distance_m: float = 0.05, postopt_report_every: int = 10, postopt_diagnostics_every: int = 500, symmetric_object: bool = False, optimize_object_rotation: bool = False, render_batch_size: int = 4, overwrite: bool = False) -> Path:
+     video_path, mask_h5_path, object_mesh_path, weights_path, output_dir = map(lambda value: Path(value).resolve(), (video_path, mask_h5_path, object_mesh_path, weights_path, output_dir))
+     for path in (video_path, mask_h5_path, object_mesh_path):
+         if not path.is_file():
 @@ -103,7 +107,7 @@ def run_inference(video_path: str, mask_h5_path: str, object_mesh_path: str, wei
          download_weights(weights_path)
      weights = _required_weights(weights_path)
@@ -314,6 +323,24 @@ index 6df0c50..c2662b1 100644
      raw_depth = output_root / "depth/moge2/raw.npy"
      depth_intrinsics = output_root / "depth/moge2/intrinsics.pkl"
      depth_report = output_root / "depth/moge2/depth_report.json"
+@@ -150,6 +154,8 @@ def run_inference(video_path: str, mask_h5_path: str, object_mesh_path: str, wei
+     _flag(coconet_command, overwrite, "--overwrite")
+     stages.append(_stage_run("06_coconet", coconet_command, [export_marker, aligned_depth, mhr_init, foundationpose_init, weights["config"], weights["checkpoint"]], [coconet_bundle, input_cache], marker_root, env, overwrite))
+     postopt_command = [python, "-m", "learning.training.mhr_opt_refineout", "--bundle", str(coconet_bundle), "--object-mesh", str(aligned_object_mesh), "--out", str(refined_bundle), "--mode", "smplh_parity", "--num-steps", str(postopt_num_steps), "--batch-size", str(postopt_batch_size), "--device", device, "--postopt-checkpoint", str(refinement_checkpoint), "--mhr-assets-root", str(weights_path / "sam3d_body"), "--w-temporal", str(postopt_temporal_weight), "--w-human-pose-prior", str(postopt_human_pose_prior_weight), "--contact-activation-distance-m", str(postopt_contact_activation_distance_m), "--report-every", str(postopt_report_every), "--diagnostics-every", str(postopt_diagnostics_every)]
++    if postopt_lr != 1e-3:
++        postopt_command += ["--lr", str(postopt_lr)]
+     _flag(postopt_command, symmetric_object, "--symmetric-object")
+     _flag(postopt_command, optimize_object_rotation, "--optimize-object-rotation")
+     stages.append(_stage_run("07_refinement", postopt_command, [coconet_bundle, aligned_object_mesh, weights["mhr_model"]], [refined_bundle, refinement_checkpoint], marker_root, env, overwrite))
+@@ -187,6 +193,8 @@ def _parser() -> argparse.ArgumentParser:
+     parser.add_argument("--coconet_crop_workers", type=int, default=8)
+     parser.add_argument("--coconet_crop_buffer_count", type=int, default=2)
+     parser.add_argument("--postopt_num_steps", type=int, default=300)
++    parser.add_argument("--postopt_lr", type=float, default=1e-3,
++                        help="Forward the original postoptimizer's supported --lr option; default unchanged")
+     parser.add_argument("--postopt_batch_size", type=int, default=0)
+     parser.add_argument("--postopt_temporal_weight", type=float, default=100.0)
+     parser.add_argument("--postopt_human_pose_prior_weight", type=float, default=200.0)
 diff --git a/reconstruction/modules/v2d_common/pyproject.toml b/reconstruction/modules/v2d_common/pyproject.toml
 index bb34280..163a791 100644
 --- a/reconstruction/modules/v2d_common/pyproject.toml

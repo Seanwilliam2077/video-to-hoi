@@ -1,5 +1,13 @@
 # Native Windows CARI4D MHR runtime
 
+Iteration stops at native inference, preview videos and diagnostics. Run the
+expensive official human conversion and submission packing **only after the owner
+explicitly confirms submission export**; previews do not require it. The helper
+`tools/windows/finish_variant_run.py` requires `--export-submission` for this reason.
+The [completed legacy scale comparison](scale_search_comparison.md) keeps the
+current colored 4096-face mesh and all v4 MHR settings, changes only input scale,
+and does not export a submission. Its mixed results do not replace the control.
+
 This profile runs the pinned official CARI4D MHR sources through the team's
 `python -m v2hoi.native` entry point. The legacy v1 fake-stage interface remains
 available for its existing contract tests; it does not feed this real backend.
@@ -58,6 +66,13 @@ with the NVIDIA entry and Decord; inference frames never use a JPEG cache.
 
 ## Real Track 1 entry point
 
+**Current input audit:** the dense execution reference has undersized geometry
+and rotation jumps; it is not an accepted baseline. See the [complete flow
+audit](pipeline_audit.md). NVIDIA's released core requires a supplied physical-scale
+mesh. Optional single-frame generation does not replace autoscaling. The default
+native entry now rejects unvalidated generated scale; historical diagnostics
+require `--allow-unvalidated-object-scale`. Budgeted inference must retain colors.
+
 Official preparation requires the complete original-frame SAM2 mask sequence,
 MoGe2 depth/intrinsics, official SAM3D Body initialization, human-anchored depth
 scale alignment and the NVIDIA SAM 3D Objects generative entry. The native
@@ -80,7 +95,7 @@ see [the corrected record](corrected-episode16-result.json).
 After preparation, run the coupled native backend:
 
 ```powershell
-python -m v2hoi.native --dataset-root third_party/CARI4D_MHR_Win/data/v2d-challenge/track_1 --episode 16 --preparation runs/windows-episode16/faithful-preparation/preparation.json --output runs/my-episode16
+python -m v2hoi.native --dataset-root third_party/CARI4D_MHR_Win/data/v2d-challenge/track_1 --episode 16 --preparation runs/windows-episode16/calibrated-preparation-v3/preparation.json --output runs/my-episode16
 python -m v2hoi.native_export --run runs/my-episode16 --assets weights/cari4d/sam3d_body --output runs/my-episode16/export
 python tools/windows/validate_official_export.py --episodes runs/my-episode16/export --episode 16
 ```
@@ -96,8 +111,9 @@ The owner requested pre-inference mesh reduction after the dense reference run.
 Keep the full generated surface and prepare a separate variant:
 
 ```powershell
-python tools/windows/budget_preparation.py --preparation runs/windows-episode16/faithful-preparation/preparation.json --output runs/windows-episode16/budget4096-preparation
-python -m v2hoi.native --dataset-root third_party/CARI4D_MHR_Win/data/v2d-challenge/track_1 --episode 16 --preparation runs/windows-episode16/budget4096-preparation/preparation.json --allow-budgeted-mesh --output runs/windows-episode16/budget4096
+python tools/windows/calibrate_preparation.py --preparation runs/windows-episode16/faithful-preparation/preparation.json --pilot-run runs/windows-episode16/faithful-v2 --output runs/my-calibrated-preparation
+python tools/windows/budget_preparation.py --preparation runs/my-calibrated-preparation/preparation.json --output runs/my-budget4096-preparation
+python -m v2hoi.native --dataset-root third_party/CARI4D_MHR_Win/data/v2d-challenge/track_1 --episode 16 --preparation runs/my-budget4096-preparation/preparation.json --allow-budgeted-mesh --optimize-object-rotation --output runs/my-budget4096
 ```
 
 Run GPU jobs sequentially. This reuses all models, segmentation and the original
@@ -107,7 +123,17 @@ The tool uses the reviewed, unmodified organizer `v2dlb.mesh_budget.budget_mesh`
 welding and decimating to both 4096-face and 4096-vertex budgets. It removes only
 zero-area padding and unreferenced vertices for the inference GLB. Coordinates
 are neither recentered nor rescaled. Preparation and receipts keep hashes and
-relative paths to the preserved full mesh, official code and masks.
+relative paths to the preserved full mesh, official code and masks. Original
+vertex colors are interpolated from closest full-surface triangles and checked
+after readback; materials are never silently dropped for RGB inference.
+
+Calibration uses the unmodified pinned NVIDIA SRT optimizer with an explicitly
+recorded monocular relative-view adapter, pilot pose/depth consistency checks,
+separate fit/holdout observations and one constant scale. Rigid nuisance fitting
+does not replace the new run's tracking. This is not the upstream calibrated
+stereo/SfM scan input. The original optional rotation optimizer is enabled for
+the new owner-requested variant; the dense default frozen-rotation reference
+remains archived. Geometry-only submission readback legitimately has no colors.
 
 Episode 16 reduction took 0.67 seconds: 352,348 faces/176,178 vertices became
 4,096 active faces/2,052 vertices. A face-count ratio does not establish total
@@ -271,6 +297,14 @@ reconstruction method, a closed multi-video acceptance gate, or an upload-ready
 30-episode submission.
 
 ## Corrected complete video (2026-10-11)
+
+**Quality audit correction:** this section records successful core execution
+and serialization only. Independent mesh autoscaling was incomplete and the
+default rotation remained frozen, retaining jumps up to 130.5 degrees per frame.
+The input/quality omissions are repaired separately; this historical dense run
+is unaccepted as a complete end-to-end baseline. The first geometry-only budget
+preparation is superseded because it discarded colors and was never used for
+the new complete inference run.
 
 [The machine-readable result](corrected-episode16-result.json) records successful
 completion of all eight stages for all 360 original frames, complete official

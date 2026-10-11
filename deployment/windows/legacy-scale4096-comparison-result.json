@@ -1,0 +1,507 @@
+{
+  "date": "2026-10-11",
+  "episode": 16,
+  "provenance": "track1",
+  "scope": "Same 4096-face surface and MHR settings, replacing input scale search only; prediction diagnostics are not official scores",
+  "control": "runs\\windows-episode16\\calibrated-budget4096-v4",
+  "variant": "runs\\windows-episode16\\legacy-scale4096-comparison-inference\\run",
+  "controlled_comparison": {
+    "same_model_options": true,
+    "same_official_sources": true,
+    "same_video": true,
+    "same_masks": true
+  },
+  "stage_audit": "PASS",
+  "frames": 360,
+  "legacy_scale_search": {
+    "status": "COMPLETED",
+    "provenance": "track1",
+    "method": "NVIDIA legacy estimate_metric_scale candidate search",
+    "revision": "71fa7cbe46081467edadd11ab534b0c14aa9d913",
+    "scope": "Controlled legacy search preprocessing experiment, not an unmodified MHR default",
+    "input_mesh": {
+      "path": "../../calibrated-budget4096-preparation-v4/object-budget4096.glb",
+      "sha256": "8b9b46fd0fad07cfd93caf23d0d2e693429b19cee09894769392185deb4ced31"
+    },
+    "output_mesh": {
+      "path": "object-legacy-scale4096.glb",
+      "sha256": "a4b73846ece74793269bd22d70554e1b555746d58ccaceef6cf3ceefa25ee011"
+    },
+    "source_preparation": {
+      "path": "../../calibrated-budget4096-preparation-v4/preparation.json",
+      "sha256": "511eefe27c6e9ab152e10622982e88718998181ce09f5ef6a6ebb9664b9d0c10"
+    },
+    "official_code": {
+      "path": "../../../../third_party/cari4d-legacy-scale/estimate_scale.py",
+      "sha256": "fbba1f407938ff8fce2f42ac37a6f6bf72e7a66bf5f7ede86a7ef5146d776bb3"
+    },
+    "chamfer_code": {
+      "path": "../../../../third_party/cari4d-legacy-scale/chamfer_dist_np.py",
+      "sha256": "59c7b5968900a6eeeca2c53a2a2bd87974853a605763d0e0127e2ef9da6908c1"
+    },
+    "io_adapter": {
+      "path": "estimate_scale_io_adapter.py",
+      "sha256": "ddfac87457b38863bc0e3d9d907cb2a0b48dbcef8157db1a6ec0efdf61c7188a"
+    },
+    "wrapper": {
+      "path": "../../../../tools/windows/legacy_scale_search.py",
+      "sha256": "1a9cedfff2cd147890a6f3ac1388217faa028fc680329d7a013d7507cc5c92d6"
+    },
+    "normalization_divisor": 0.3402266240698001,
+    "selected_normalized_scale": 0.4329458128078818,
+    "scale_factor": 1.2725218491985497,
+    "coarse_candidates": 30,
+    "fine_candidates": 11,
+    "registration_iterations": 5,
+    "surface_samples": 10000,
+    "selection": "Original bidirectional unsquared Chamfer distance divided by rendered mask IoU",
+    "frame_id": 0,
+    "depth": {
+      "path": "../../calibrated-budget4096-v4/native/episode_000016/depth/moge2/aligned.h5",
+      "sha256": "e7633899120c0ff5961952fcd2caf9c92494a3d679929a4e0ad1f514a8d436c4"
+    },
+    "video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+    "mask_sha256": "85550583e311f3d7623ed77eaa3cd8bfb836824ad426ebb3d6c56373597007bd",
+    "uniform_scale_only": true,
+    "appearance_preserved": true,
+    "faces_preserved": true,
+    "extents_before_m": [
+      0.16354219615459442,
+      0.16137294471263885,
+      0.16360542178153992
+    ],
+    "extents_after_m": [
+      0.20811101787263644,
+      0.20535059801634253,
+      0.20819147386435385
+    ],
+    "fine_search": {
+      "path": "search/legacy_rgba/legacy_fp-res-refine.json",
+      "sha256": "7aed1eca7437c76e1d9eb826993695299495a089c31fe48d843d0c44e2b3b5da"
+    },
+    "elapsed_seconds": 0.3709841000090819,
+    "reused_completed_candidate_search": true,
+    "limitations": [
+      "Estimated human-anchored MoGe2 depth reused; no ground truth or true-size guarantee",
+      "The current MHR FoundationPose implementation and weights are retained",
+      "Single generation-frame search; subsequent whole-video tracking is evaluated separately"
+    ]
+  },
+  "submission_export": "Not requested; only export after explicit submission confirmation",
+  "derived_preview": {
+    "path": "runs\\windows-episode16\\legacy-scale4096-comparison-inference\\review\\v4-vs-legacy-scale.mp4",
+    "sha256": "ef1e3f2a73b34ff738bf159e3944108c1bd0837d050001e6eb72732339355578",
+    "frames": 360,
+    "fps": 30.0,
+    "codec": "h264_nvenc",
+    "scope": "Derived review only; original native rendering/encoding and all inference inputs untouched"
+  },
+  "visual_assessment": {
+    "scope": "Nine sampled final overlay frames inspected; not continuous temporal acceptance",
+    "inspected_frames": [
+      0,
+      60,
+      120,
+      160,
+      180,
+      213,
+      224,
+      282,
+      359
+    ],
+    "full_clip_decoded": true,
+    "quality_accepted": false,
+    "observations": [
+      "Final sampled overlays retain object orientation and placement discrepancies",
+      "Early raw FoundationPose mask fit improves but middle-clip tracking drifts severely",
+      "Smaller final angular increments do not establish more accurate motion",
+      "Keep both runs as independent comparisons; neither is certified against ground truth"
+    ]
+  },
+  "diagnostics": {
+    "control": {
+      "foundationpose_mask_fit": {
+        "scope": "Original FP rendered visible-mask IoU against permitted input masks; not ground-truth accuracy",
+        "all_frames": {
+          "observations": 360,
+          "mean": 0.47366777290072704,
+          "median": 0.4471440017223358,
+          "min": 0.10455058515071869,
+          "p95": 0.6283608943223954
+        },
+        "excluding_search_frame_zero": {
+          "observations": 359,
+          "mean": 0.4737615340018339,
+          "median": 0.44839319586753845,
+          "min": 0.10455058515071869,
+          "p95": 0.6286544740200041
+        },
+        "segments": {
+          "0-119": {
+            "observations": 120,
+            "mean": 0.5348084467152755,
+            "median": 0.5562412142753601,
+            "min": 0.3871923089027405,
+            "p95": 0.620445853471756
+          },
+          "120-239": {
+            "observations": 120,
+            "mean": 0.486731364702185,
+            "median": 0.5102737545967102,
+            "min": 0.10455058515071869,
+            "p95": 0.6514824479818344
+          },
+          "240-359": {
+            "observations": 120,
+            "mean": 0.39946350728472074,
+            "median": 0.4139433950185776,
+            "min": 0.23676681518554688,
+            "p95": 0.43415623605251313
+          }
+        }
+      },
+      "postopt": {
+        "translation_increment_m": {
+          "median": 0.004262154785001315,
+          "p95": 0.011953152008824006,
+          "max": 0.02216007055874191
+        },
+        "rotation_increment_deg": {
+          "median": 3.3296448560572305,
+          "p95": 17.53021233934533,
+          "max": 52.64813528204365
+        },
+        "largest_translation_changes": [
+          {
+            "from_frame": 235,
+            "to_frame": 236,
+            "time_seconds": 7.866666666666666,
+            "value": 0.02216007055874191
+          },
+          {
+            "from_frame": 234,
+            "to_frame": 235,
+            "time_seconds": 7.833333333333333,
+            "value": 0.017022189691957103
+          },
+          {
+            "from_frame": 95,
+            "to_frame": 96,
+            "time_seconds": 3.2,
+            "value": 0.016837310937142462
+          },
+          {
+            "from_frame": 224,
+            "to_frame": 225,
+            "time_seconds": 7.5,
+            "value": 0.01627090057398994
+          },
+          {
+            "from_frame": 94,
+            "to_frame": 95,
+            "time_seconds": 3.1666666666666665,
+            "value": 0.016211253583106
+          },
+          {
+            "from_frame": 223,
+            "to_frame": 224,
+            "time_seconds": 7.466666666666667,
+            "value": 0.01587296409719748
+          },
+          {
+            "from_frame": 236,
+            "to_frame": 237,
+            "time_seconds": 7.9,
+            "value": 0.015129300850256868
+          },
+          {
+            "from_frame": 76,
+            "to_frame": 77,
+            "time_seconds": 2.566666666666667,
+            "value": 0.014754538535556323
+          }
+        ],
+        "largest_rotation_changes": [
+          {
+            "from_frame": 223,
+            "to_frame": 224,
+            "time_seconds": 7.466666666666667,
+            "value": 52.64813528204365
+          },
+          {
+            "from_frame": 221,
+            "to_frame": 222,
+            "time_seconds": 7.4,
+            "value": 41.51745410746948
+          },
+          {
+            "from_frame": 242,
+            "to_frame": 243,
+            "time_seconds": 8.1,
+            "value": 38.38338820119413
+          },
+          {
+            "from_frame": 241,
+            "to_frame": 242,
+            "time_seconds": 8.066666666666666,
+            "value": 34.48918396071955
+          },
+          {
+            "from_frame": 222,
+            "to_frame": 223,
+            "time_seconds": 7.433333333333334,
+            "value": 33.046410206433
+          },
+          {
+            "from_frame": 235,
+            "to_frame": 236,
+            "time_seconds": 7.866666666666666,
+            "value": 32.45271201386361
+          },
+          {
+            "from_frame": 236,
+            "to_frame": 237,
+            "time_seconds": 7.9,
+            "value": 29.99964411641514
+          },
+          {
+            "from_frame": 220,
+            "to_frame": 221,
+            "time_seconds": 7.366666666666666,
+            "value": 29.70880531945722
+          }
+        ]
+      },
+      "tracking": {
+        "registration_call_count": 1,
+        "tracking_call_count": 359,
+        "reliable_frame_count": 360,
+        "object_pose_fallback_count": 0,
+        "first_usable_frame_gt_rotation_oracle": false
+      },
+      "postopt_alias_bit_exact": true
+    },
+    "legacy": {
+      "foundationpose_mask_fit": {
+        "scope": "Original FP rendered visible-mask IoU against permitted input masks; not ground-truth accuracy",
+        "all_frames": {
+          "observations": 360,
+          "mean": 0.3654574817690041,
+          "median": 0.31818273663520813,
+          "min": 0.0,
+          "p95": 0.9528408288955689
+        },
+        "excluding_search_frame_zero": {
+          "observations": 359,
+          "mean": 0.363787188464166,
+          "median": 0.3149714767932892,
+          "min": 0.0,
+          "p95": 0.9527951121330261
+        },
+        "segments": {
+          "0-119": {
+            "observations": 120,
+            "mean": 0.6479528779784839,
+            "median": 0.9386684894561768,
+            "min": 0.08470405638217926,
+            "p95": 0.9614576101303101
+          },
+          "120-239": {
+            "observations": 120,
+            "mean": 0.049038218321705546,
+            "median": 0.004717505071312189,
+            "min": 0.0,
+            "p95": 0.1750283248722553
+          },
+          "240-359": {
+            "observations": 120,
+            "mean": 0.3993813490068229,
+            "median": 0.4116755723953247,
+            "min": 0.004400440026074648,
+            "p95": 0.56357863843441
+          }
+        }
+      },
+      "postopt": {
+        "translation_increment_m": {
+          "median": 0.004395554237487878,
+          "p95": 0.01250341280724588,
+          "max": 0.035041388907150674
+        },
+        "rotation_increment_deg": {
+          "median": 3.120302699633484,
+          "p95": 14.93991466649584,
+          "max": 22.057750198027495
+        },
+        "largest_translation_changes": [
+          {
+            "from_frame": 287,
+            "to_frame": 288,
+            "time_seconds": 9.6,
+            "value": 0.035041388907150674
+          },
+          {
+            "from_frame": 288,
+            "to_frame": 289,
+            "time_seconds": 9.633333333333333,
+            "value": 0.028273978003241426
+          },
+          {
+            "from_frame": 286,
+            "to_frame": 287,
+            "time_seconds": 9.566666666666666,
+            "value": 0.021502058233383615
+          },
+          {
+            "from_frame": 94,
+            "to_frame": 95,
+            "time_seconds": 3.1666666666666665,
+            "value": 0.020474275281321057
+          },
+          {
+            "from_frame": 251,
+            "to_frame": 252,
+            "time_seconds": 8.4,
+            "value": 0.0198022304535133
+          },
+          {
+            "from_frame": 95,
+            "to_frame": 96,
+            "time_seconds": 3.2,
+            "value": 0.018554172939918966
+          },
+          {
+            "from_frame": 266,
+            "to_frame": 267,
+            "time_seconds": 8.9,
+            "value": 0.017636919056247424
+          },
+          {
+            "from_frame": 239,
+            "to_frame": 240,
+            "time_seconds": 8.0,
+            "value": 0.017426182020567338
+          }
+        ],
+        "largest_rotation_changes": [
+          {
+            "from_frame": 281,
+            "to_frame": 282,
+            "time_seconds": 9.4,
+            "value": 22.057750198027495
+          },
+          {
+            "from_frame": 213,
+            "to_frame": 214,
+            "time_seconds": 7.133333333333334,
+            "value": 21.768597535968734
+          },
+          {
+            "from_frame": 284,
+            "to_frame": 285,
+            "time_seconds": 9.5,
+            "value": 21.488336526439124
+          },
+          {
+            "from_frame": 163,
+            "to_frame": 164,
+            "time_seconds": 5.466666666666667,
+            "value": 21.057669214323486
+          },
+          {
+            "from_frame": 212,
+            "to_frame": 213,
+            "time_seconds": 7.1,
+            "value": 20.50429644790055
+          },
+          {
+            "from_frame": 162,
+            "to_frame": 163,
+            "time_seconds": 5.433333333333334,
+            "value": 19.89812057667137
+          },
+          {
+            "from_frame": 217,
+            "to_frame": 218,
+            "time_seconds": 7.266666666666667,
+            "value": 19.461787651652944
+          },
+          {
+            "from_frame": 283,
+            "to_frame": 284,
+            "time_seconds": 9.466666666666667,
+            "value": 19.058819041859838
+          }
+        ]
+      },
+      "tracking": {
+        "registration_call_count": 1,
+        "tracking_call_count": 359,
+        "reliable_frame_count": 360,
+        "object_pose_fallback_count": 0,
+        "first_usable_frame_gt_rotation_oracle": false
+      },
+      "postopt_alias_bit_exact": true
+    }
+  },
+  "resources": {
+    "search_first_process": {
+      "completed": false,
+      "command": [
+        "D:\\Projects\\video-to-hoi\\tools\\windows\\legacy_scale_search.py",
+        "--preparation",
+        "runs\\windows-episode16\\calibrated-budget4096-preparation-v4\\preparation.json",
+        "--control-run",
+        "runs\\windows-episode16\\calibrated-budget4096-v4",
+        "--output",
+        "runs\\windows-episode16\\legacy-scale4096-comparison-inference\\preparation",
+        "--wait-pid",
+        "32788",
+        "--worker"
+      ],
+      "seconds": 104.92199999999139,
+      "torch_allocator_fraction": 0.75,
+      "cuda_available": true,
+      "scope": "Per-stage PyTorch allocator only; driver, desktop and other CUDA libraries are outside this limit",
+      "device_total_bytes": 17094475776,
+      "peak_allocated_bytes": 11730373120,
+      "peak_reserved_bytes": 12329156608
+    },
+    "search_whole_device_sampled_peak_mib": 15519,
+    "whole_device_total_mib": 16303,
+    "scope": "Allocator limit does not cap total GPU usage; first process computed candidates then failed at output I/O",
+    "new_packages": 0,
+    "new_weight_downloads": 0
+  },
+  "control_export": {
+    "process": {
+      "completed": true,
+      "command": [
+        "-m",
+        "v2hoi.native_export",
+        "--run",
+        "runs\\windows-episode16\\calibrated-budget4096-v4",
+        "--assets",
+        "D:\\Projects\\video-to-hoi\\weights\\cari4d\\sam3d_body",
+        "--output",
+        "runs\\windows-episode16\\calibrated-budget4096-v4\\export",
+        "--model-batch",
+        "256"
+      ],
+      "seconds": 769.390000000014,
+      "torch_allocator_fraction": 0.75,
+      "cuda_available": true,
+      "scope": "Per-stage PyTorch allocator only; driver, desktop and other CUDA libraries are outside this limit",
+      "device_total_bytes": 17094475776,
+      "peak_allocated_bytes": 5179890176,
+      "peak_reserved_bytes": 7864320000
+    },
+    "packed_render": "Cancelled per owner instruction; conversion was already mostly complete"
+  },
+  "limits": [
+    "Input-mask and prediction-increment diagnostics are not ground-truth errors or official scores",
+    "SRT receipt describes the control mesh, not independent verification of legacy-selected physical size",
+    "Current legacy wrapper obtains pinned source blobs from the donor Git checkout; cache-only fresh loading remains pending",
+    "Online Claude pages were not republished; only repository sources were updated"
+  ]
+}

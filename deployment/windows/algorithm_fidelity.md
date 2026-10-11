@@ -1,8 +1,23 @@
 # Official-method fidelity and Windows resource changes
 
+The [completed legacy scale-search comparison](scale_search_comparison.md) is an
+explicit preprocessing experiment, not an unmodified MHR release reproduction.
+It uses the same colored 4096-face surface, current FoundationPose weights and
+all v4 MHR settings. All 30+11 original candidates were computed. Whole-video
+tracking is worse in the middle despite smaller final angular jumps, so quality
+is not accepted. No trajectory smoothing, replacement or extra registration was
+introduced. Submission conversion is deferred until explicit owner confirmation.
+
 The original Windows experiment in `episode16-result.json` is retained and its
 official-baseline label is retracted. The corrected run uses Track 1 episode 16
 only. Execution is not a claim of Linux output equivalence or reconstruction accuracy.
+
+**Audit correction:** the dense generated input did not complete independent
+mesh autoscaling and its default frozen rotation retained visible jumps. Core
+execution/packing passes are preserved; baseline quality is unaccepted. The
+[complete flow audit](pipeline_audit.md) records all stages, input repairs and
+the explicit monocular calibration adapter. The new reduced variant preserves
+appearance and enables the original optional rotation optimizer.
 
 | Component | Corrected behavior | Windows change and evidence |
 |---|---|---|

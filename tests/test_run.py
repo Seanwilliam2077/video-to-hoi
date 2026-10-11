@@ -17,6 +17,71 @@ EPISODES = {3: ("iron", 12), 4: ("iron", 10), 8: ("bowl", 9)}
 QUIET = {"log": lambda *_: None}
 
 
+@pytest.mark.parametrize("field,value", [(None,None),("scale_factor",-1),
+    ("mask_sha256","other-video"),("faces_preserved",False),
+    ("fine_candidates",3),("revision","unreviewed")])
+def test_legacy_scale_search_requires_preserved_budget_and_matching_inputs(tmp_path, field, value):
+    from v2hoi.native import sha256
+    from v2hoi.mesh_budget import POLICY, verify_budgeted_preparation
+    from v2hoi.legacy_scale import METHOD, REVISION
+    def artifact(name, payload):
+        path = tmp_path/name
+        path.write_bytes(payload)
+        return {"path":name,"sha256":sha256(path)}
+    original = artifact("original.fixture", b"synthetic dense mesh")
+    budgeted = artifact("budget.fixture", b"synthetic fixed faces")
+    scaled = artifact("scaled.fixture", b"synthetic uniformly scaled faces")
+    code = artifact("source.fixture", b"independent source fixture")
+    budget = {"policy":POLICY,"method":"v2dlb.mesh_budget.budget_mesh",
+              "face_budget":4096,"vertex_budget":4096,"appearance_preserved":True,
+              "full_mesh":original,"output_mesh":budgeted,"official_code":code}
+    budget_receipt = artifact("budget.json", json.dumps(budget).encode())
+    search = {"status":"COMPLETED","provenance":"track1","method":METHOD,"revision":REVISION,
+              "input_mesh":budgeted,"output_mesh":scaled,"scale_factor":1.5,
+              "coarse_candidates":30,"fine_candidates":11,"registration_iterations":5,"surface_samples":10000,
+              "video_sha256":"video-fixture","mask_sha256":"mask-fixture",
+              "uniform_scale_only":True,"appearance_preserved":True,"faces_preserved":True}
+    for key in ("official_code","chamfer_code","io_adapter","fine_search","source_preparation"):
+        search[key] = code
+    if field:
+        search[field] = value
+    prepared = {"input_mesh_policy":POLICY,"mesh":scaled,"mesh_budget":{"receipt":budget_receipt},
+                "mesh_scale_search":{"receipt":artifact("search.json",json.dumps(search).encode())},
+                "video_sha256":"video-fixture","masks":{"sha256":"mask-fixture"}}
+    if field:
+        with pytest.raises(ValueError, match="legacy scale"):
+            verify_budgeted_preparation(prepared,tmp_path,original["sha256"],allowed=True)
+    else:
+        assert verify_budgeted_preparation(prepared,tmp_path,original["sha256"],allowed=True)
+        evidence_directory = tmp_path/"evidence"
+        evidence_directory.mkdir()
+        for key in ("full_mesh","output_mesh","official_code"):
+            budget[key] = {**budget[key],"path":"../"+budget[key]["path"]}
+        prepared["mesh_budget"]["receipt"] = artifact("evidence/budget.json",json.dumps(budget).encode())
+        assert verify_budgeted_preparation(prepared,tmp_path,original["sha256"],allowed=True)
+        (tmp_path/"budget.fixture").write_bytes(b"tampered source geometry")
+        with pytest.raises(ValueError, match="changed"):
+            verify_budgeted_preparation(prepared,tmp_path,original["sha256"],allowed=True)
+
+
+def test_legacy_vertex_color_writer_does_not_require_uv_texture_objects():
+    """Independent I/O regression fixture; no models or challenge assets."""
+    from v2hoi.legacy_scale import adapted_search_source
+    fixture = '''
+def estimate_metric_scale(hy_file, mesh_out, best_scale):
+    debug_dir = "shared-debug"
+    mesh_hy_orig: Meshes = load_objs_as_meshes([hy_file])[0]
+    tex: TexturesUV = mesh_hy_orig.textures
+    save_obj(mesh_out, mesh_hy_orig.verts_packed(), texture_map=tex.maps_padded()[0])
+    return best_scale * 3, debug_dir
+'''
+    saved = []
+    context = {"_save_scaled_mesh":lambda *args:saved.append(args)}
+    exec(adapted_search_source(fixture,"isolated-debug"), context)
+    assert context["estimate_metric_scale"]("source","scaled",2.) == (6.,"isolated-debug")
+    assert saved == [("source","scaled",2.)]
+
+
 def test_pre_inference_mesh_budget_requires_opt_in_and_preserved_evidence(tmp_path):
     """Independent synthetic bytes; never read challenge assets or real models."""
     from v2hoi.native import sha256
@@ -29,7 +94,7 @@ def test_pre_inference_mesh_budget_requires_opt_in_and_preserved_evidence(tmp_pa
     reduced = artifact("reduced.fixture", b"synthetic budget surface")
     code = artifact("source.fixture", b"synthetic source evidence")
     receipt = {"policy": POLICY, "method": "v2dlb.mesh_budget.budget_mesh",
-        "face_budget": 4096, "vertex_budget": 4096,
+        "face_budget": 4096, "vertex_budget": 4096, "appearance_preserved": True,
         "full_mesh": full, "output_mesh": reduced, "official_code": code}
     evidence = artifact("receipt.json", json.dumps(receipt).encode())
     prepared = {"input_mesh_policy": POLICY, "mesh": reduced, "mesh_budget": {"receipt": evidence}}
@@ -48,6 +113,54 @@ def test_pre_inference_mesh_budget_requires_opt_in_and_preserved_evidence(tmp_pa
     assert not verify_budgeted_preparation({"mesh": full}, tmp_path, full["sha256"], allowed=False)
     with pytest.raises(ValueError, match="does not match"):
         verify_budgeted_preparation({"mesh": reduced}, tmp_path, full["sha256"], allowed=False)
+
+
+@pytest.mark.parametrize("bad_field,bad_value", [(None,None), ("status","REJECTED"),
+    ("scale_factor",-1), ("scale_factor",float("nan")), ("appearance_preserved",False),
+    ("training_frame_ids",[1,2,3]), ("holdout_frame_ids",[1]), ("video_sha256","changed-video")])
+def test_calibrated_mesh_requires_independent_valid_evidence(tmp_path, bad_field, bad_value):
+    from v2hoi.native import sha256
+    from v2hoi.mesh_budget import verify_budgeted_preparation
+    def artifact(name, payload):
+        path = tmp_path/name
+        path.write_bytes(payload)
+        return {"path":name,"sha256":sha256(path)}
+    original = artifact("original.fixture", b"independent synthetic original")
+    scaled = artifact("scaled.fixture", b"independent synthetic scaled")
+    code = artifact("code.fixture", b"independent synthetic solver evidence")
+    record = {"status":"PASS","provenance":"track1","method":"NVIDIA scale_mesh_srt.optimize_srt(mode=str)",
+        "input_mesh":original,"output_mesh":scaled,"official_code":code,"scale_factor":2.,
+        "video_sha256":"synthetic-video","mask_sha256":"synthetic-mask",
+        "uniform_scale_only":True,"appearance_preserved":True,"training_frame_ids":[0,2,4],
+        "holdout_frame_ids":[1,3,5],"holdout_projected_vertex_iou":{"mean_after":.8,"minimum_mean":.4}}
+    if bad_field:
+        record[bad_field] = bad_value
+    receipt = artifact("calibration.json", json.dumps(record).encode())
+    prepared = {"mesh":scaled,"mesh_calibration":{"receipt":receipt},
+        "video_sha256":"synthetic-video","masks":{"sha256":"synthetic-mask"}}
+    if bad_field:
+        with pytest.raises(ValueError, match="calibration"):
+            verify_budgeted_preparation(prepared, tmp_path, original["sha256"], allowed=False)
+    else:
+        assert not verify_budgeted_preparation(prepared, tmp_path, original["sha256"], allowed=False)
+
+
+def test_motion_audit_measures_known_rotation_and_translation_without_smoothing():
+    import importlib.util
+    from pathlib import Path
+    spec = importlib.util.spec_from_file_location("motion_audit_fixture", Path(__file__).parents[1]/"tools/windows/audit_object_motion.py")
+    audit = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(audit)
+    poses = np.repeat(np.eye(4)[None],3,axis=0)
+    poses[1,:3,:3] = [[0,-1,0],[1,0,0],[0,0,1]]
+    poses[2,:3,:3] = [[-1,0,0],[0,-1,0],[0,0,1]]
+    poses[1:,0,3] = 1.
+    before = poses.copy()
+    measured = audit.motion_statistics(poses,[0,1,2],30)
+    assert measured["translation_increment_m"] == {"median":.5,"p95":.95,"max":1.}
+    assert measured["rotation_increment_deg"]["max"] == pytest.approx(90.)
+    assert measured["largest_translation_changes"][0]["to_frame"] == 1
+    assert np.array_equal(poses,before)
 
 
 @pytest.fixture

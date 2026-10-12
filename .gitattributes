@@ -3,5 +3,3 @@ deployment/licenses/* -text -whitespace
 deployment/model-redistribution.json text eol=lf
 # Preserve the exact browser text bytes hashed by the replacement receipt.
 docs/evidence/reference-answers-20261003.txt -text
-# Patch context whitespace and byte hashes must survive Windows checkout.
-deployment/windows/patches/*.patch -text -whitespace

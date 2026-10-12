@@ -16,10 +16,6 @@ weights/
 vendor/
 runs/
 artifacts/
-.playwright-cli/
-output/playwright/
-.receipts/
-model-release-provenance.json
 dist/
 wheelhouse/
 # Track 1 video previews for docs/track1-videos/index.html (full videos stay in data/)

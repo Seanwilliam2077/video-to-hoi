@@ -1,7 +1,0 @@
-{
-  "url": "https://raw.githubusercontent.com/NVIDIAGameWorks/kaolin/v0.18.0/kaolin/utils/testing.py",
-  "source_sha256": "7eb4e0700af5c6bdda6c9d7ec44d49442829d4e67d7b238712c1b2040ebed55f",
-  "function": "check_tensor",
-  "function_sha256": "c0ea33cb97523863a8443ba248775fbd59fe9f55103c213d18d73b040371e77c",
-  "scope": "Tensor validation only. No Kaolin geometry/loss kernel is substituted."
-}

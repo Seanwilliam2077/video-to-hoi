@@ -56,13 +56,6 @@ The README's download command writes the Track 1 subtree to `data/v2d/track_1/`.
 
 ## Running the pipeline
 
-For the real coupled CARI4D MHR backend on native Windows, use the
-[project-owned Windows profile](../deployment/windows/README.md). It provides
-`python -m v2hoi.native`, native MHR export, and an official format readback
-check. The Windows entry is separate from the legacy fake-stage runner below.
-Local execution evidence is recorded in the Windows profile; one video does
-not close the multi-video acceptance gates or certify a complete submission.
-
 ```bash
 .venv/Scripts/python.exe -m v2hoi.run --run-id track1-smoke --dataset track1 --episodes 16 12
 ```

@@ -2,6 +2,14 @@
 
 Updated **2026-10-13**, Asia/Shanghai. Static artifact publication remains incomplete. The single active project specification is [track1-requirements.md](track1-requirements.md), R1–R6; older page text and earlier receipts do not override it.
 
+## Local distributed-execution follow-up (2026-10-13; not published)
+
+The owner clarified that teammates use different accessible machines. [platform.md](platform.md) records the
+source-audited stage split, Git/large-file handoff distinction and unimplemented adapter work. The design,
+contracts, workflow, delivery backlog, developer guide and Chinese status source now reflect this decision.
+The v1/v2 runtime code is unchanged; no new model execution, upload or real multi-host validation occurred.
+The live module record and status refresh remain pending under the same publication capability limitation below.
+
 ## Local foundation follow-up (2026-10-13; not published)
 
 The P0 source/exposure audit and partial P1 implementation are now local repository changes: immutable storage, structural records, geometry helpers and independent synthetic tests. [platform.md](platform.md), [v2-foundation.md](v2-foundation.md), the delivery backlog and Chinese status source describe this boundary. The existing v1 runner remains the executable reconstruction path; no model, official submission or live-page mutation was performed. The local CPU test environment is separate from a reconstruction runtime. The same publication capability limitation below still applies.

@@ -21,6 +21,21 @@ The single current authority is [track1-requirements.md](track1-requirements.md)
 
 ## Starting point and delivery boundary
 
+### Independent-machine execution decision (2026-10-13)
+
+Team members have different server access. A shared host is no longer a planning prerequisite: follow
+[distributed-execution.md](distributed-execution.md) and its design-only JSON profile. Preserve one logical
+native run and its scientific configuration while assigning native 01-04, 05 and 06-07 to capable workers.
+M1 owns coordination, full-scene import and export validation; GPU conversion/rendering may execute on M2/M4.
+
+Add three bounded tasks to P1/P2: (1) pack/verify/import with immutable manifests and synthetic failure checks;
+(2) per-stage commands, relative-path materialization and verified predecessor consumption; (3) one full
+episode across at least two real hosts, followed by native-to-exported geometry comparison and the second
+engineering episode. Current local validators and historical Release tools do not implement these tasks.
+Keep preparation and the research prototype running in parallel. If a boundary fails, temporarily co-locate
+adjacent stages on an available worker; do not change the baseline algorithm to make transport easier.
+These adapter tasks do not close G0/G1 by themselves or change the existing milestone dates.
+
 The reviewed `main` at `0e86889` retains fake reconstruction stages, pass-through refinement, and the internal v1 exporter after the Windows development changes were reverted. `origin/windows-cari4d` contains candidate adapters, native conversion/export, runtime patches, previews and repair experiments. Those components and recorded runs are audit inputs, not an accepted current baseline. Historical preparation receipts establish the identity of downloaded files; they do not establish a runnable environment on the selected machine.
 
 Before reusing any branch component, record its exact commit/path, upstream and model dependencies, intended behavior, local modifications, input provenance, coordinate/scale assumptions, frame handling, run evidence, and portability limits. Classify it as reusable after verification, requiring revision, or deferred; give it an owner and a focused acceptance check. Review components individually rather than treating the branch as a single approved implementation. In particular, distinguish a portability patch from a changed inference or optimization method.
@@ -55,7 +70,7 @@ Owners: **M1** Platform (Sean), **M2** Human, **M3** Object, **M4** Temporal/Phy
 | P1.2 | P1.1 | M1; M2/M3/M4 | Immutable scene snapshots, content dependencies, atomic promotion and stale-input checks. A consumer loads one declared scene; it cannot assemble unrelated latest human, mesh and motion files. |
 | P1.3 | P0.1, P1.1 | M2/M3; M1/M4 | Native decoder/converter and mesh/pose-frame specification with independent fixtures and declared numerical tolerances. Known transformations decode as intended; old v1 arrays cannot masquerade as native MHR. |
 | P2.1 | P0.1, P1.1, P1.3 | M1/M2/M3; M4 | Pinned runnable adapter plus metric-mesh preparation on episodes 12 and 16. Bootstrap estimates and the native pipeline's actual consumed/recomputed camera, depth and human state have separate lineage and a reviewed consistency check. |
-| P2.2 | P1.2, P2.1 | M1; M2/M3/M4 | One native invocation per episode, imported as a complete `SceneState` with native parameters, aligned mesh/poses, source frame map, logs and environment. Missing required artifacts prevent promotion; prior valid snapshots remain available. |
+| P2.2 | P1.2, P2.1 | M1; M2/M3/M4 | One logical native run per episode, executed in verified stage blocks across available machines or one host; imported as a complete `SceneState` with native parameters, aligned mesh/poses, source frame map, exact consumed predecessors, logs and per-stage environment. Missing required artifacts prevent promotion; prior valid snapshots remain available. |
 | P2.3 | P2.2, P1.3 | M1/M2/M3; M4 | Native conversion, official-format-compatible packing, reload and geometry comparison for both full clips, plus source overlays and failure inventory. All source frames/objects survive; native-to-imported-to-reloaded comparisons isolate adapter error. |
 | P3.1 | P0.2, P0.3, P1.1 | M1; M2/M3/M4 | `EpisodeEvidence` generation: stable target IDs, visible observations, explicit unavailable states, anchor selection, event candidates and lineage. Thin structures, image transforms and uncertainty survive; a rendered prediction is not marked independent evidence. |
 | P3.2 | P2.3, P3.1 | M1/M4; M2/M3 | Regenerable diagnostic reports over multiple interactions, separating structural failure, image disagreement and ambiguity. Every report identifies fitting versus reserved observations and correlated model dependencies. |

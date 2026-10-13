@@ -2,6 +2,27 @@
 
 Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
+## Independent-machine execution design (2026-10-13)
+
+The owner reports different server access for each teammate. [The distributed execution design](distributed-execution.md)
+and [non-executable profile](distributed-execution.json) remove the shared-host prerequisite. Source review identifies
+eight existing native subprocesses, grouped conservatively into Human's 01-04, Object's 05, and Physics's 06-07.
+Platform owns coherent scene import and export; rendering and the historical MHR conversion path need a compatible
+GPU worker. Normalize native human parameters before scene publication; export then serializes that same scene
+without another independent fit. Native stage 08 previews original bundles, while repaired scenes require an
+explicitly compatible renderer. Standalone scale bootstrap and metric asset preparation remain earlier dependencies.
+
+Git carries code, configuration and small immutable result records; common inputs and new stage outputs travel as
+hashed packages. Each worker has independent local storage and an environment identity. The proposed transfer and
+native adapters must verify dependency closure, relative-path materialization and actual predecessor consumption;
+current v2 validators do not enforce these stage transitions. Original native evidence remains preserved.
+
+This delivery changes documentation only. No deployment, new model run, artifact upload or runtime implementation
+was performed. The next implementation is pack/verify/import, native stage adapters, then one full episode on two
+actual hosts with conversion/export/reload checks. Resource assignments remain pending a per-person capability
+inventory. Source/profile/document and rendered-page checks accompany this design; earlier 379 CPU tests remain
+evidence for the unchanged foundation, not a new multi-host test. Live module/status publication remains pending.
+
 ## P0 audit and P1 foundation delivery (2026-10-13)
 
 [component-audit.md](component-audit.md) records individual branch reuse decisions, exact upstream/patch identities and a provisional Windows reproduction candidate. [exposure-ledger.json](exposure-ledger.json) records all 30 episodes and ten object groups with historical evidence; external/manual use remains unknown. [validation-policy.json](validation-policy.json) defines structural and review rules while leaving empirical quality thresholds unfrozen.

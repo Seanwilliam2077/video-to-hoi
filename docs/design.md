@@ -53,7 +53,9 @@ Use one scene representation and a fixed set of operations across episodes. Inpu
 
 ### Module responsibilities
 
-The six existing stages remain responsibility boundaries. The coordinator executes dependency-defined jobs, including one joint native job; it does not call a separate CARI4D inference for each output directory.
+The six existing stages remain responsibility boundaries. The coordinator executes dependency-defined jobs, including one logical joint native run; it does not call a separate CARI4D inference for each output directory. Atomic scene publication does not require a shared server. The [independent-machine design](distributed-execution.md) partitions the existing subprocess boundaries into native 01-04 (Human), 05 (Object), and 06-07 (Physics or a compatible worker), with Platform coordinating import and export. Each result pins its actual predecessor inputs. Standalone bootstrap and metric asset preparation precede these blocks; renderer/converter jobs may need a GPU worker even when Platform owns them.
+
+This is a proposed execution adapter, not a capability of the current runner. Stage entry points, portable packages, path relocation, per-stage environment validation and complete-run checks remain to implement. The [design-only profile](distributed-execution.json) is not an executable workflow. Module ownership and worker assignment are separate, allowing each teammate to use their own accessible computer or server.
 
 | Existing stage | Responsibility in v2 | Shared result |
 |---|---|---|
@@ -119,6 +121,12 @@ Prepare camera, standalone human and depth priors under one declared convention;
 The native adapter then consumes the prepared RGB, masks and metric mesh once. It imports the camera, depth, human, aligned mesh and object trajectory that actually ran as a coherent snapshot. The preliminary human/depth estimates remain labeled preparation priors. They do not override native estimates unless a reviewed hook proves they were consumed. Material scale disagreement between preparation and native inference invalidates acceptance and opens a diagnosed preparation revision.
 
 Native output supplies the initial scene candidate. Execution validity and quality acceptance are recorded separately. Keep the original native result and all conversion discrepancies; an invalid or rejected baseline is never an automatic export fallback.
+
+Native import includes verified decoding and normalization into the declared MHR representation before
+publishing a `SceneState`; the historical converter can require GPU execution and full-clip identity fitting.
+Record that transformation and its geometry error. Subsequent export serializes the accepted scene parameters;
+it must not fit a different human and claim the same scene identity. Native stage 08 previews its original
+native bundles. Rendering a repaired scene needs an explicitly compatible renderer bound to that candidate.
 
 ### Diagnostics and operation selection
 

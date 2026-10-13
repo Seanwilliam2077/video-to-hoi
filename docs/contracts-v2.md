@@ -148,6 +148,13 @@ Preparation estimates and actual coupled-backend estimates MUST have distinct re
 Import a coupled backend's camera/human/depth/object outputs atomically; do not claim external estimates
 controlled that run without recorded consumption. Material bootstrap/internal scale disagreement is unresolved.
 
+Atomic import concerns one complete logical reconstruction, not one physical machine. The proposed
+[distributed execution profile](distributed-execution.md) links native stage results by exact predecessor
+refs, a logical run ID and per-stage source/model/configuration/environment identities. Validate the complete
+dependency graph before publishing a full scene. Its proposed `StageResult` transport envelope is not an
+implemented v2 record type, and the current foundation does not validate multi-host stage sequencing or
+prove actual input consumption. Importing bytes must not grant report trust or promote scene status.
+
 ### Camera and native human
 
 - Scene geometry uses metres in a named OpenCV camera frame (x right, y down, z forward).

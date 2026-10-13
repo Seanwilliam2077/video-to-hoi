@@ -91,7 +91,11 @@ Record the update date, completed deliverables, what was actually verified, outs
 
 ## Runs and storage
 
-`runs/` is not committed. Code travels through git; artifacts live on the rented GPU machine or another team-controlled store and are referred to by immutable run ID. Name runs `<module>-<topic>-<n>`, for example `human-sam3d-2`; baselines are `baseline-vN`. Store the Track 1 episode list, input provenance, model/weight versions, dependency environment, upstream ID, and review evidence with each run. Do not reuse an output after its input or parameters change.
+`runs/` is not committed. Each member uses their own accessible machine; no common account or shared filesystem is required. Git carries code, configuration, small handoff manifests and reviewed package references. Large permitted outputs travel through Release assets or one agreed team store, with exact hashes and a complete dependency closure. See [distributed-execution.md](distributed-execution.md) for model-stage boundaries and the proposed transport contract; these adapters are not implemented yet.
+
+Module branches remain `platform`, `human`, `object` and `physics`. Pin the input manifest before a job starts; publish a new uniquely identified result instead of editing an earlier one. Keep human-readable run labels such as `human-sam3d-2` as aliases for immutable results, not overwriteable identities. Each machine uses a local ArtifactStore; never synchronize registry locks, local selection pointers or native stage caches through Git. An imported package does not become an accepted scene automatically.
+
+Record Track 1 source episodes, original frames/timestamps, input hashes, code/model/rig/configuration identities, per-stage runtime, exact predecessors, transfer receipts and review evidence. Preserve original metadata and record any path relocation separately. Changing mesh, scale, canonical frame or other scientific input requires new downstream results or explicit revalidation. Human/Object/Physics own semantics; any compatible worker may execute their task. Platform validates and publishes the complete logical scene after all required stages arrive.
 
 ## Open items
 

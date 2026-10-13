@@ -1,0 +1,96 @@
+{
+  "profile_schema": "v2hoi.distributed-design.1",
+  "status": "design_only",
+  "executable": false,
+  "created_at": "2026-10-13",
+  "title": "Independent workers with Git-coordinated immutable handoffs",
+  "requirements": "track1-requirements.md",
+  "source_kind": "track1",
+  "actual_machine_assignments": "pending_capability_inventory",
+  "sources": {
+    "windows_candidate": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+    "reported_executed_upstream": "193382a184308f6800331f3db829f76dc4294cfe",
+    "historical_recipe_upstream": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+    "runtime_selection": "one_coherent_pin_set_required_before_execution",
+    "audit_scope": "read_only_source_and_historical_records"
+  },
+  "nodes": [
+    {"id":"inputs_masks","owner":"M1","worker":"segmentation_gpu","depends_on":[],"outputs":["original_video_identity","decoded_timeline","targets","masks","prompts_and_transforms"]},
+    {"id":"human_depth_bootstrap","owner":"M2","worker":"human_gpu","depends_on":["inputs_masks"],"outputs":["standalone_human_geometry","depth_intrinsics","scale_evidence"]},
+    {"id":"object_candidate","owner":"M3","worker":"object_gpu_or_reviewed_asset_preparation","depends_on":["inputs_masks"],"outputs":["unscaled_mesh","canonical_frame","source_lineage"],"constraint":"Depth-conditioned variants require an explicit additional bootstrap dependency."},
+    {"id":"metric_asset","owner":"M3","reviewer":"M2","worker":"asset_preparation","depends_on":["inputs_masks","human_depth_bootstrap","object_candidate"],"outputs":["metric_mesh","scale_policy","canonical_transform","fit_review_evidence"]},
+    {"id":"native_01_04","owner":"M2","worker":"human_gpu","depends_on":["inputs_masks","metric_asset"],"native_stages":["01_depth","02_export","03_human_initialization","04_depth_alignment"],"outputs":["complete_prepared_export","wild_export_marker","depth_intrinsics","mhr_init","aligned_depth","aligned_mesh","stage_records"]},
+    {"id":"native_05","owner":"M3","worker":"foundationpose_gpu","depends_on":["native_01_04","metric_asset"],"native_stages":["05_object_pose"],"outputs":["foundationpose_trajectory","diagnostics","stage_records"]},
+    {"id":"native_06_07","owner":"M4","worker":"compatible_joint_inference_gpu","depends_on":["native_01_04","native_05","metric_asset"],"native_stages":["06_coconet","07_refinement"],"outputs":["coupled_native_bundles","native_checkpoints","diagnostics","stage_records"]},
+    {"id":"native_preview","owner":"M1","worker":"M2_or_M4_gpu_as_needed","depends_on":["inputs_masks","native_01_04","native_06_07"],"native_stages":["08_render"],"outputs":["raw_native_preview","native_stage_records"],"constraint":"Consumes original prepared export, source video, aligned mesh and CoCoNet/refined native bundles; never an arbitrary SceneState."},
+    {"id":"scene_import","owner":"M1","worker":"M2_or_M4_gpu_as_needed","depends_on":["native_01_04","native_05","native_06_07"],"outputs":["normalized_pose_T_136_shape_45_scales_68","immutable_complete_baseline_scene","conversion_error_evidence","execution_validation_evidence"],"constraint":"Pinned decoder/converter normalization before atomic scene publication; preserve raw artifacts. Native08 is a side job, not an import dependency. No automatic quality acceptance or selected-scene promotion."},
+    {"id":"baseline_export","owner":"M1","worker":"M2_or_M4_gpu_as_needed","depends_on":["scene_import"],"outputs":["scene_bound_preview","official_serialization","packed_export","reload_decode_geometry_checks"],"constraint":"Serialize the exact normalized scene; no new fitting and no native 08 call."},
+    {"id":"bounded_research","owner":"M4","worker":"optimization_worker","depends_on":["scene_import","inputs_masks"],"outputs":["bounded_solve_plan","separate_candidate_scene","review_evidence"],"constraint":"Requires execution-valid baseline and frozen observations; preserves baseline."},
+    {"id":"candidate_export","owner":"M1","worker":"M2_or_M4_gpu_as_needed","depends_on":["bounded_research"],"outputs":["scene_bound_candidate_preview","official_serialization","packed_export","reload_decode_geometry_checks"],"constraint":"Serialize the exact validated candidate parameters; no new fitting and no native 08 call."}
+  ],
+  "coordination": {
+    "git": ["source","configuration","small_immutable_manifests","hashes","reviews","package_references"],
+    "binary_transport_default": "project_release_assets_subject_to_access_and_sharing_review",
+    "binary_transport_alternative": "one_agreed_team_object_store",
+    "new_external_publication_performed": false,
+    "local_only": ["credentials","model_access_tokens","local_caches","registry_locks","selection_pointers"],
+    "common_packages": "Frozen inputs downloaded once; each delta names exact required package hashes.",
+    "dependency_completeness": "Declared JSON refs and actual native adapter file-read dependencies, including binary metadata paths, must resolve and verify across all packages; unknown dependencies are rejected.",
+    "git_byte_policy": "Canonical manifests need fixed byte/newline treatment.",
+    "temporal_partitioning": false,
+    "episode_parallelism": "Only after complete-episode multi-host acceptance."
+  },
+  "stage_result_proposal": {
+    "existing_v2_record_type": false,
+    "required_identity": ["schema","result_id","logical_run_id","stage_id","episode_id","source_kind","video_sha256","timeline_sha256","target_ids"],
+    "required_lineage": ["predecessor_result_refs","input_refs","output_refs","adapter_observed_file_read_inventory","source_policy_review"],
+    "required_producer": ["code_revision","model_hashes","rig_hash","configuration_hash","environment","effective_command","seed","numerical_deviations"],
+    "producer_record_lifecycle": "Immutable after producer publication; contains no archive self-hash or future receiver receipt.",
+    "transport_manifest": ["stage_result_ref","common_package_refs","closure_file_inventory","archive_part_hashes_computed_after_pack"],
+    "transport_manifest_location": "Outside the archive whose bytes it hashes.",
+    "receiver_receipt": ["stage_result_ref","transport_manifest_ref","verification_outcome","local_materialization_map","relocation_evidence"],
+    "receiver_lifecycle": "Publish separately after verification; never mutate producer or transport records.",
+    "file_inventory_fields": ["relative_path","bytes","sha256","media_type"]
+  },
+  "proposed_operations": {
+    "runnable_cli_available": false,
+    "pack": "Reconcile JSON refs and adapter-enumerated actual native file reads; verify closure and then publish external TransportManifest.",
+    "verify": "Reject unsafe paths, missing, stale or unknown dependencies, mismatched hashes and disallowed provenance.",
+    "import": "Quarantine, verify and apply semantic checks before immutable registration; publish separate ReceiverReceipt and never promote."
+  },
+  "invariants": [
+    "One logical native run identity links all native stage results.",
+    "Publish one complete coherent scene atomically after native dependency validation.",
+    "Normalize raw native MHR to authoritative pose136/shape45/scales68 before scene publication; preserve raw artifacts and conversion error.",
+    "Native 08 renders raw native bundles only; baseline/candidate renderers decode the exact authoritative SceneState.",
+    "Official serialization never independently refits or changes an already normalized scene.",
+    "Stage adapters enumerate actual binary metadata and file-read dependencies beyond JSON refs; reject unknown dependencies.",
+    "Producer StageResult, external post-pack TransportManifest and receiver verification/relocation receipt remain separate immutable records.",
+    "Keep standalone bootstrap distinct from native recomputation.",
+    "Native 01-04 require real metric asset and complete prepared export.",
+    "Do not create fake meshes or forged wild_export markers to break the bootstrap cycle.",
+    "Human-only native export is a future adapter, not a capability assumed by this profile.",
+    "Preserve original path-bearing files; rewritten local views receive new hashes and relocation records.",
+    "Do not treat copied stage/cache markers as cross-machine execution evidence.",
+    "No synchronized locks, selections, mutable latest inputs or shared network ArtifactStore.",
+    "Import never grants trust to producer reports or changes acceptance flags.",
+    "Scientific pins are shared; reviewed stage runtime environments may differ.",
+    "Each required object retains every original source frame, including occlusion."
+  ],
+  "current_gaps": [
+    "Main runtime remains v1 fake stages.",
+    "Native adapters and source/model/runtime restoration are not accepted.",
+    "Current v2 validators do not enforce a multi-host native stage sequence.",
+    "Artifact transport closure, streaming IO, relocation and coordinator checks are unimplemented.",
+    "Existing release restore wrapper accepts only named historical releases.",
+    "Real decoder/conversion, quality and export acceptance remain open."
+  ],
+  "rollout_goals_after_resource_confirmation": [
+    {"day":1,"goal":"Freeze interfaces and pins; build local pack/verify/import with synthetic two-root failure tests."},
+    {"day":2,"goal":"Transfer native 01-04 to a second host, execute native 05, test relocation and transfer onward to 06-07."},
+    {"day":3,"goal":"Complete one full episode on two hosts, preserve native08 preview, normalize with conversion evidence, atomically publish, serialize/reload/decode/render the exact scene; repeat on second episode."}
+  ],
+  "fallback": "Co-locate adjacent native stages on a capable worker while preserving package interfaces and independent module work.",
+  "acceptance_evidence": ["two_actual_hosts","full_episode_frame_coverage","exact_consumed_inputs","complete_dependency_closure","native_to_reloaded_geometry","source_overlays","transfer_costs","recorded_environment_differences"],
+  "not_claimed": ["runnable_distributed_backend","certified_machine_requirements","completed_native_baseline","reconstruction_quality","official_submission_compliance"]
+}

@@ -19,6 +19,8 @@ Four people build the pipeline in parallel, one module and one branch each. Ever
 - [workflow.md](workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
 - [contracts.md](contracts.md): the files the stages exchange.
 - [contracts-v2.md](contracts-v2.md): proposed evidence, immutable scene and bounded solve-plan contracts; v1 remains implemented.
+- [v2-foundation.md](v2-foundation.md): opt-in executable structural profile, immutable store, typed records, report trust and CPU fixtures.
+- [component-audit.md](component-audit.md): source-pinned component decisions, exposure ledger, initial review policy and runtime restoration gaps.
 - [design.md](design.md): the architecture, its evidence, and what is known about the official submission.
 - [video-coverage.md](video-coverage.md) and [JSON inventory](video-coverage.json): all 30 metadata records, candidate diagnostics, explicit unknowns and exposure-aware validation roles.
 - [track1-requirements.md](track1-requirements.md): R1–R6, the current acceptance requirements; conflicting historical rules are superseded.
@@ -29,6 +31,7 @@ Four people build the pipeline in parallel, one module and one branch each. Ever
 
 ## Current state
 
+- **Foundation implementation (2026-10-13):** the P0 source/exposure audit and initial structural/review policy are recorded. `v2hoi.v2` implements strict artifact IO, immutable record publication, atomic scene selection, evidence/scene/plan structural checks and synthetic native-array/rigid-geometry checks. This is partial P1 infrastructure; `v2hoi.run`, v1 artifacts and fake reconstruction backends remain unchanged. A separate local CPU test environment was prepared; no model environment was restored or executed.
 - **Design update (2026-10-13):** video evidence and metric-mesh preparation feed one atomic native CARI4D task. Its coupled outputs become an immutable `SceneState`; diagnostic `SolvePlan` repairs produce new candidates, independently reviewed before promotion and export/read-back. The v2 specification, 30-video metadata coverage and implementation backlog are documented; no runtime contract version, model execution or acceptance gate changed in this update.
 - **Branch evidence:** `main` at `0e86889696edc4d81a3c287cb93d76baece4a1d5` retains fake reconstruction stages. `origin/windows-cari4d` at `fb0bac9` preserves native experiments and repair/export work. Their provisional scale, orientation and contact findings require component review and complete acceptance; neither a blanket branch restore nor an accepted real baseline is established.
 - **Implementation update (2026-10-03):** the requirements and reference-based native-MHR diagnostic are updated. The official packer adapter, real reconstruction backends and measured reconstruction improvement remain pending. No reconstruction model installation, server deployment, real model run or submission is established by this update.
@@ -83,7 +86,7 @@ Historical Track 2 self-check commands, reference defaults and normalized totals
 Use the explicit allowlist in `.github/workflows/tests.yml` as the source of truth. Its independent synthetic tests cover tools, contracts, fake-stage wiring and the replacement reference-based diagnostic:
 
 ```bash
-python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_download_foundationpose.py tests/test_model_release_prepare.py tests/test_model_release_restore.py tests/test_handoff_restore.py tests/test_benchmark_first3.py tests/test_rank_first3.py tests/test_geometry.py tests/test_metrics.py tests/test_run.py tests/test_track1_score.py
+python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_download_foundationpose.py tests/test_model_release_prepare.py tests/test_model_release_restore.py tests/test_handoff_restore.py tests/test_benchmark_first3.py tests/test_rank_first3.py tests/test_geometry.py tests/test_metrics.py tests/test_run.py tests/test_track1_score.py tests/test_v2_artifacts.py tests/test_v2_geometry.py tests/test_v2_contracts.py
 ```
 
 These files create their own independent synthetic fixtures. The former `test_score.py` and its prohibited benchmark assumptions have been replaced by `test_track1_score.py`; do not recover or reuse its historical data or values. Continue to use the explicit CI allowlist rather than bare `pytest`. Passing these tests verifies covered mathematics, contracts and wiring, not real authorized MHR model execution, reconstruction quality, complete data provenance or the official submission format.

@@ -1,0 +1,514 @@
+{
+  "schema_version": "validation_policy.v1",
+  "policy_id": "track1-initial-review-20261013",
+  "updated": "2026-10-13",
+  "authority": "docs/track1-requirements.md R1-R6",
+  "status": {
+    "structural_and_review_protocol": "initial_version_frozen_for_contract_development",
+    "numeric_quality_thresholds": "unfrozen_pending_real_baseline_characterization",
+    "runtime_conversion_tolerances": "unfrozen_pending_decoder_and_packer_selection",
+    "repair_execution_enabled": false,
+    "baseline_accepted": false,
+    "generalization_holdout_established": false
+  },
+  "binding": {
+    "contract_spec": "docs/contracts-v2.md",
+    "exposure_ledger": "docs/exposure-ledger.json",
+    "content_hash": "Consumers hash canonical JSON of this policy, excluding no fields, and store that hash in plans/reports. This file has no self-hash.",
+    "changes": "Any revision creates a new pinned policy identity; invalidate consuming plans/reports. No solver may change the policy."
+  },
+  "scope": {
+    "allowed_sources": [
+      "track1",
+      "independent_synthetic"
+    ],
+    "prohibited": [
+      "track2_content",
+      "track2_derivatives",
+      "unknown_provenance",
+      "fake_artifacts_in_real_scene"
+    ],
+    "reference_data_available": false,
+    "official_score_claims_from_local_proxies": false,
+    "synthetic_fixture_semantics": "Independently authored fixtures test interfaces and mathematics only. They cannot set real-scene execution_valid, quality_accepted or export_valid and cannot certify a real native decoder."
+  },
+  "grouping": {
+    "unit": "complete_object_group",
+    "expected_groups": [
+      {
+        "object_group": "hula_hoop",
+        "episode_ids": [
+          "episode_000000",
+          "episode_000001",
+          "episode_000002"
+        ],
+        "evaluation_role": "development_regression",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      },
+      {
+        "object_group": "big_red_bowl",
+        "episode_ids": [
+          "episode_000003",
+          "episode_000004",
+          "episode_000005"
+        ],
+        "evaluation_role": "unassigned_history_incomplete",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      },
+      {
+        "object_group": "iron",
+        "episode_ids": [
+          "episode_000006",
+          "episode_000007",
+          "episode_000008"
+        ],
+        "evaluation_role": "development_regression",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      },
+      {
+        "object_group": "white_desk",
+        "episode_ids": [
+          "episode_000009",
+          "episode_000010",
+          "episode_000011"
+        ],
+        "evaluation_role": "development_regression",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      },
+      {
+        "object_group": "black_pan",
+        "episode_ids": [
+          "episode_000012",
+          "episode_000013",
+          "episode_000014"
+        ],
+        "evaluation_role": "development_regression",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      },
+      {
+        "object_group": "foam_grass_block",
+        "episode_ids": [
+          "episode_000015",
+          "episode_000016",
+          "episode_000017"
+        ],
+        "evaluation_role": "development_regression",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      },
+      {
+        "object_group": "paint_roller",
+        "episode_ids": [
+          "episode_000018",
+          "episode_000019",
+          "episode_000020"
+        ],
+        "evaluation_role": "unassigned_history_incomplete",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      },
+      {
+        "object_group": "pink_foam_roll",
+        "episode_ids": [
+          "episode_000021",
+          "episode_000022",
+          "episode_000023"
+        ],
+        "evaluation_role": "unassigned_history_incomplete",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      },
+      {
+        "object_group": "short_wood_stool",
+        "episode_ids": [
+          "episode_000024",
+          "episode_000025",
+          "episode_000026"
+        ],
+        "evaluation_role": "development_regression",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      },
+      {
+        "object_group": "white_laptop_cart",
+        "episode_ids": [
+          "episode_000027",
+          "episode_000028",
+          "episode_000029"
+        ],
+        "evaluation_role": "unassigned_history_incomplete",
+        "clean_holdout_status": "not_established",
+        "cross_episode_reconstruction_pooling": "disabled",
+        "external_history_confirmed": false
+      }
+    ],
+    "initial_reporting_mode": "retrospective_grouped_development_and_coverage",
+    "prospective_mode": "Freeze policy before additional outcomes; state prior metadata/exposure and unknown history. Do not call this an untouched holdout.",
+    "same_object_split": "Within-development stress test only; all three clips remain together for object-generalization claims.",
+    "selection_rule": "Every outcome used to choose models, thresholds, observations, prompts or candidates becomes development evidence.",
+    "pooling": "Episode-local reconstruction; group assignment grants no cross-episode asset/camera/human sharing.",
+    "reporting": [
+      "per_episode",
+      "per_object_group",
+      "per_interaction_when_observed",
+      "worst_case",
+      "failed_and_unresolved_cases",
+      "intervention_and_compute_counts"
+    ]
+  },
+  "observation_protocol": {
+    "source": "Hash original encoded Track 1 bytes, decoder identity, full display-order original frame IDs and rational PTS.",
+    "observations": "Pin entity, frame IDs, raw/model/human origin, producer, validity, image transforms, visibility and derivation lineage. Task text only proposes events.",
+    "partitions": "Explicit observation/frame lists and selection method/config/time before fitting; fit/review lineage disjoint, temporal buffer declared per case.",
+    "review_independence": "Declare the exclusion boundary. Whole-video estimator consumption means review pixels are not held out from that estimator; they may be reserved only from a later local repair.",
+    "correlation": "Record shared video, producer/model and temporal dependencies; masks/depth/model agreement is not independent ground truth.",
+    "anchors": "Select with predeclared visibility/information criteria using fit evidence only. R1 first reference ID remains unchanged.",
+    "corrections": "Append new human observations with previous IDs, evidence and rationale; corrections inherit duplicate lineage and do not restore independence.",
+    "unknowns": "Keep unobserved visibility/geometry/contact/rotation components unknown, with explicit estimates on all required output frames.",
+    "weights": "Freeze residual normalization, units and confidence-weight rules; optimizer may not reduce confidence to hide errors."
+  },
+  "structural_checks": [
+    {
+      "id": "S01",
+      "rule": "Versioned envelope, safe relative refs, exact content hashes and complete allowed provenance; reject v1/fake as a real v2 scene."
+    },
+    {
+      "id": "S02",
+      "rule": "Source decode has exact expected episode/object membership, 0..T-1 IDs, valid rational PTS; state covers every frame including occlusion."
+    },
+    {
+      "id": "S03",
+      "rule": "Observation transforms, source dimensions, validity/visibility semantics and partition lineage are explicit and internally consistent."
+    },
+    {
+      "id": "S04",
+      "rule": "Native pose[T,136], static scales[68], static shape[45], finite values and exact rig/decoder/conversion identities; array dimensions alone do not establish native correctness."
+    },
+    {
+      "id": "S05",
+      "rule": "Named metric scene frame, proper SO(3), constant positive object scale, mesh hash/canonical transform/origin binding, exactly-once scale."
+    },
+    {
+      "id": "S06",
+      "rule": "One atomic native scene; bootstrap and consumed native estimates have separate roles; no independent latest-file mixing."
+    },
+    {
+      "id": "S07",
+      "rule": "Changes invalidate recorded descendants; all required reports match current scene hash and validator/config hashes."
+    },
+    {
+      "id": "S08",
+      "rule": "Repair is an allowed bounded operation on an execution-valid parent with exact fixed/mutable blocks, rollback and predeclared budgets."
+    },
+    {
+      "id": "S09",
+      "rule": "Export exact selected scene, original frame/object manifest and generating code identity; reload/decode/compiled-geometry checks before export validity."
+    }
+  ],
+  "repair_registry": {
+    "allowed_operations": [
+      "orientation_branch",
+      "contact_transition",
+      "occlusion_recovery"
+    ],
+    "unsupported_operations": "Reject any operation outside this list; listed operations are not evidence that a solver is implemented.",
+    "preconditions": [
+      "execution_valid_parent",
+      "pinned_evidence_and_fit_review_partitions",
+      "exact_rollback_ref",
+      "frozen_case_acceptance_config",
+      "declared_fixed_and_mutable_variables"
+    ],
+    "budget_fields": [
+      "max_candidates",
+      "max_iterations",
+      "max_wall_seconds",
+      "max_gpu_memory_bytes"
+    ],
+    "budget_values": "Positive finite case-specific values frozen before fitting; no global numeric defaults accepted by implication.",
+    "global_revisions": "Camera, mesh/origin/scale, representation and human identity changes are preparation revisions with descendant invalidation, outside this repair registry.",
+    "failure": "Stop on timeout, budget violation or failed checks; retain candidate/logs and an execution-valid parent. Invalid initial outputs never become a fallback.",
+    "final_fallback": "A retained execution-only parent is not automatically an accepted reconstruction/export; independently require quality and export gates."
+  },
+  "quality_protocol": {
+    "enable_after": "Real P2 baseline characterization and frozen case acceptance config before candidate fitting/ranking.",
+    "require": [
+      "declared_failure_improves_on_reserved_evidence",
+      "fixed_variable_identity_or_declared_tolerance",
+      "full_clip_regression_review",
+      "first_reference_frame_identity_preserved",
+      "interval_boundary_and_reappearance_checks",
+      "contact_recheck_after_pose_or_geometry_changes",
+      "all_attempts_and_manual_interventions_recorded"
+    ],
+    "metrics": [
+      {
+        "id": "visible_mask_iou",
+        "unit": "fraction",
+        "role": "video_fit_diagnostic",
+        "threshold": null,
+        "limits": "State full image versus crop and fit/review partition; segmentation is estimated."
+      },
+      {
+        "id": "landmark_reprojection_error",
+        "unit": "source_pixels",
+        "role": "video_fit_diagnostic",
+        "threshold": null,
+        "limits": "Use explicit validity and original-image transforms; review landmarks may be human annotations."
+      },
+      {
+        "id": "contact_consistency_review",
+        "unit": "review_decision",
+        "role": "evidence_supported_contact_review",
+        "threshold": null,
+        "limits": "Evaluate simultaneous grasp/sliding/support/foot relations; low penetration alone does not prove contact."
+      },
+      {
+        "id": "self_translation_second_difference",
+        "unit": "metres_per_frame_squared",
+        "role": "prediction_smoothness_diagnostic",
+        "threshold": null,
+        "limits": "Consecutive original IDs only; never reference-relative ACC or independent accuracy."
+      },
+      {
+        "id": "self_rotation_change",
+        "unit": "radians_per_frame",
+        "role": "prediction_motion_diagnostic",
+        "threshold": null,
+        "limits": "Report observable/symmetric ambiguity and image evidence; smooth wrong rotations can fail."
+      },
+      {
+        "id": "native_mapping_geometry_error",
+        "unit": "metres",
+        "role": "conversion_diagnostic",
+        "threshold": null,
+        "limits": "Separate decoder mapping, shared-identity fitting and packer/mesh-budget changes; tolerance frozen for selected decoder."
+      },
+      {
+        "id": "export_reload_geometry_error",
+        "unit": "metres",
+        "role": "serialization_diagnostic",
+        "threshold": null,
+        "limits": "Exact accepted scene and compiled mesh/pose; not reconstruction accuracy."
+      },
+      {
+        "id": "wall_seconds",
+        "unit": "seconds",
+        "role": "resource_diagnostic",
+        "threshold": null,
+        "limits": "Record hardware and measured scope; kernel timing is not end-to-end throughput."
+      }
+    ],
+    "aggregation": "Report failures and per-episode/worst-case outcomes with separate metrics. No invented official composite or hidden-reference score.",
+    "threshold_freeze_record": [
+      "baseline_scene_refs",
+      "metric_definitions_and_units",
+      "sampling_and_partitions",
+      "numeric_tolerances_or_review_criteria",
+      "allowed_regressions",
+      "reviewers",
+      "timestamp",
+      "config_hash"
+    ],
+    "threshold_freeze_complete": false
+  },
+  "decision_protocol": {
+    "outcomes": [
+      "accepted",
+      "rejected",
+      "unresolved"
+    ],
+    "flags": [
+      "execution_valid",
+      "quality_accepted",
+      "export_valid"
+    ],
+    "real_execution": "Passing structural metadata checks alone does not authorize execution_valid; require permitted real inputs, complete actual invocation outputs and verified native conversion.",
+    "quality": "execution_valid plus independent-within-declared-scope review and frozen full-clip acceptance report required.",
+    "export": "execution_valid plus exact-scene pack/reload/decode/geometry and expected-manifest report required.",
+    "promotion": "Accepted scene requires execution_valid and quality_accepted; final submission candidate also requires export_valid. Atomic promotion must match parent and all input hashes.",
+    "decision_record_required": [
+      "decision_id",
+      "timestamp",
+      "reviewers",
+      "input_scene_ref",
+      "candidate_scene_ref",
+      "scene_hash",
+      "evidence_ref",
+      "plan_ref_or_initial_invocation_ref",
+      "policy_hash",
+      "report_refs",
+      "failure_categories",
+      "outcome",
+      "status_flags",
+      "reason",
+      "limitations",
+      "rollback_ref_if_parent_exists",
+      "exposure_ledger_update",
+      "intervention_refs"
+    ],
+    "conflict_or_missing_evidence": "Unresolved; no automatic acceptance or silent exclusion of failed clips."
+  },
+  "human_intervention_log": {
+    "required_for": [
+      "prompt_box_or_mask_edit",
+      "landmark_or_visible_face_annotation",
+      "asset_authoring",
+      "anchor_selection_override",
+      "candidate_selection",
+      "parameter_or_budget_override",
+      "quality_review"
+    ],
+    "required_fields": [
+      "intervention_id",
+      "actor",
+      "timestamp",
+      "episode_ids",
+      "original_frame_ids_or_intervals",
+      "input_artifact_refs",
+      "action",
+      "rationale",
+      "output_artifact_refs",
+      "policy_hash",
+      "fit_or_review_role",
+      "exposure_effect"
+    ],
+    "rules": [
+      "Append-only; retain rejected and superseded interventions.",
+      "No per-episode hidden solver patch or unrecorded manual selection.",
+      "Data corrections create a new evidence version and invalidate consumers.",
+      "Record time/candidate/annotation effort separately from model compute."
+    ]
+  },
+  "failure_taxonomy": [
+    {
+      "id": "PROVENANCE_UNRESOLVED",
+      "layer": "structural",
+      "meaning": "Unknown/forbidden source or unverified lineage",
+      "action": "block_import_or_promotion"
+    },
+    {
+      "id": "ARTIFACT_IDENTITY",
+      "layer": "structural",
+      "meaning": "Hash/path/version mismatch, unsafe path or in-place mutation",
+      "action": "block_import_or_promotion"
+    },
+    {
+      "id": "TIMELINE_COVERAGE",
+      "layer": "structural",
+      "meaning": "Missing/duplicate/reordered source IDs, missing occluded frames or bad timestamps",
+      "action": "block_import_or_promotion"
+    },
+    {
+      "id": "TARGET_ASSOCIATION",
+      "layer": "structural_or_quality",
+      "meaning": "Wrong actor/object or unresolved identity swap",
+      "action": "block_promotion"
+    },
+    {
+      "id": "OBSERVATION_MAPPING",
+      "layer": "structural",
+      "meaning": "Crop/intrinsic mapping mismatch, invalid unknown-pixel encoding or broken lineage",
+      "action": "block_plan_and_promotion"
+    },
+    {
+      "id": "REVIEW_LEAKAGE",
+      "layer": "protocol",
+      "meaning": "Reserved observations used to fit, tune or select, including corrected duplicates",
+      "action": "invalidate_independence_and_record_development_use"
+    },
+    {
+      "id": "NATIVE_MAPPING",
+      "layer": "structural",
+      "meaning": "Wrong native rig/units/parameter mapping or decoder mismatch",
+      "action": "block_execution_validity"
+    },
+    {
+      "id": "SCENE_BINDING",
+      "layer": "structural",
+      "meaning": "Mixed scene versions, wrong mesh/canonical origin/scale/pose pairing",
+      "action": "block_import_or_promotion"
+    },
+    {
+      "id": "DEPENDENCY_STALE",
+      "layer": "structural",
+      "meaning": "Consumed dependency changed; descendants/reports no longer match",
+      "action": "invalidate_affected_descendants"
+    },
+    {
+      "id": "SCALE_CAMERA_CONFLICT",
+      "layer": "quality_or_structural",
+      "meaning": "Bootstrap/native inconsistency or unexplained monocular scale solution",
+      "action": "return_to_preparation"
+    },
+    {
+      "id": "GEOMETRY_MISMATCH",
+      "layer": "quality",
+      "meaning": "Unsupported topology, concealed shape hypothesis, holes/contact surfaces wrong",
+      "action": "revise_preparation_without_pose_repair_bypass"
+    },
+    {
+      "id": "ORIENTATION_AMBIGUITY",
+      "layer": "quality",
+      "meaning": "Unobserved/symmetric orientation or wrong visible face",
+      "action": "reject_or_record_unresolved"
+    },
+    {
+      "id": "IMAGE_DISAGREEMENT",
+      "layer": "quality",
+      "meaning": "Visible reprojection/silhouette/appearance disagreement",
+      "action": "review_reserved_evidence"
+    },
+    {
+      "id": "CONTACT_INCONSISTENCY",
+      "layer": "quality",
+      "meaning": "Lost grasp/support, incorrect sticking/sliding or stale contact after repair",
+      "action": "recheck_contact_and_reject_or_record_unresolved"
+    },
+    {
+      "id": "OCCLUSION_UNRESOLVED",
+      "layer": "quality",
+      "meaning": "Ambiguous hidden motion or failed reappearance/boundary fit",
+      "action": "retain_estimates_with_uncertainty_without_quality_claim"
+    },
+    {
+      "id": "BOUNDARY_REGRESSION",
+      "layer": "quality",
+      "meaning": "Repair breaks neighboring windows, anchors or full-clip checks",
+      "action": "reject_candidate"
+    },
+    {
+      "id": "PLAN_SCOPE_BUDGET",
+      "layer": "protocol",
+      "meaning": "Unapproved variable change, unsupported operation or exceeded resource/candidate budget",
+      "action": "stop_and_retain_valid_parent"
+    },
+    {
+      "id": "EXPORT_ROUNDTRIP",
+      "layer": "structural",
+      "meaning": "Wrong payload frame/object membership or changed decoded geometry",
+      "action": "block_export_validity"
+    },
+    {
+      "id": "EXECUTION_FAILURE",
+      "layer": "execution",
+      "meaning": "Exception, missing native output, unsupported hardware or nonfinite state",
+      "action": "record_failed_attempt_without_valid_baseline"
+    }
+  ],
+  "verification_boundary": "This JSON is a pinned protocol record, not a claim that every listed check is implemented or passed. Current executable validators must report their implemented scope and leave unsupported checks not_run."
+}

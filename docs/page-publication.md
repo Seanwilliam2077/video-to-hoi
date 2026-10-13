@@ -2,7 +2,11 @@
 
 Updated **2026-10-13**, Asia/Shanghai. Static artifact publication remains incomplete. The single active project specification is [track1-requirements.md](track1-requirements.md), R1–R6; older page text and earlier receipts do not override it.
 
-## Local design update (2026-10-13; not published)
+## Local foundation follow-up (2026-10-13; not published)
+
+The P0 source/exposure audit and partial P1 implementation are now local repository changes: immutable storage, structural records, geometry helpers and independent synthetic tests. [platform.md](platform.md), [v2-foundation.md](v2-foundation.md), the delivery backlog and Chinese status source describe this boundary. The existing v1 runner remains the executable reconstruction path; no model, official submission or live-page mutation was performed. The local CPU test environment is separate from a reconstruction runtime. The same publication capability limitation below still applies.
+
+## Earlier local design update (2026-10-13; not published)
 
 The video-conditioned design, proposed v2 contracts, 30-video coverage inventory and P0–P5 delivery backlog are saved locally. The technical module record is in [platform.md](platform.md); [hub.html](hub.html), [pipeline.svg](pipeline.svg) and the Chinese [status.html](status.html) reflect the design scope and the unaccepted experimental baseline evidence. Runtime v1 is unchanged and no model or official submission was run.
 

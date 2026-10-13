@@ -1,6 +1,19 @@
 # Implementation plan: Track 1 baseline and bounded repair
 
-Updated 2026-10-13. This delivery backlog implements the video-driven architecture in [design.md](design.md), the proposed [v2 contracts](contracts-v2.md), and the [video coverage and validation protocol](video-coverage.md). These documents specify future work. This design update closes no implementation, reconstruction-quality, or submission gate.
+Updated 2026-10-13. This delivery backlog implements the video-driven architecture in [design.md](design.md), the proposed [v2 contracts](contracts-v2.md), and the [video coverage and validation protocol](video-coverage.md). Initial P0 audit and partial P1 infrastructure are implemented below; real reconstruction-quality and submission gates remain open.
+
+## Foundation delivery status
+
+| Work package | Recorded progress | Remaining acceptance work |
+|---|---|---|
+| P0.1 | [Component audit](component-audit.md): exact branch/upstream/patch identities and individual reuse decisions; provisional reproduction stack nominated | Restore and verify an actual runtime on the selected host |
+| P0.2 | [Exposure ledger](exposure-ledger.json): all 30 episodes, 10 groups, 13 source-pinned historical records; no clean holdout assigned | External/manual history and actual video observation audit |
+| P0.3 | [Initial validation policy](validation-policy.json): structural/review protocol, grouping, intervention log and failure taxonomy | Empirical quality thresholds and native conversion tolerances after baseline characterization |
+| P1.1 | [Executable foundation](v2-foundation.md): source-domain separation, three record validators, structural/frame/asset/report bindings | Actual provenance verification, native decoder, complete target schema and reviewed real evidence |
+| P1.2 | Content hashes, immutable UUID records, verified transitive declared dependencies and atomic compare-and-swap scene selection | Runtime producer integration, dependency scheduling/recomputation and crash recovery orchestration |
+| P1.3 | Independent synthetic native-shape, frame, SO(3), scale, canonical-frame and pixel-transform checks | Real rig/decoder semantics and native-to-imported-to-exported geometry equivalence |
+
+This is foundation delivery, not a completed P1 migration. The next integration work starts from the audited invocation/import components and requires a pinned restored runtime plus authoritative native artifacts; it must not promote synthetic fixtures or set validity flags without separately trusted reports. All G0-G4 gates below remain open.
 
 [evaluation.md](evaluation.md) records external-kit identities, metric/format mechanics and diagnostic limitations. [contracts.md](contracts.md) describes implemented v1 artifacts; the v2 proposal does not change their meanings or register a working backend. [workflow.md](workflow.md) owns branch/review and reporting procedures. Only Track 1 inputs and independently created synthetic fixtures are permitted; Track 2 and all its derivatives remain excluded from every gate.
 

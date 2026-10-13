@@ -1,7 +1,8 @@
 # Proposed v2 contracts: evidence, scene state and bounded repair
 
 **Status: PROPOSED, 2026-10-13. Specification revision `2.0-draft.1`.**
-This document specifies a future migration; it adds no runtime schema, backend, validator or CLI.
+This document specifies the full target migration. An opt-in, partial executable profile is now documented in
+[v2-foundation.md](v2-foundation.md); it implements structural checks and immutable storage, not the native pipeline.
 Implemented `CONTRACT_VERSION` and every [v1 contract](contracts.md) remain unchanged.
 MUST, MUST NOT and SHOULD describe requirements for that future implementation.
 [Track 1 requirements R1–R6](track1-requirements.md) remain authoritative.
@@ -304,4 +305,6 @@ Each report records validator revision, input hashes, checks, measured values, t
 Contract fixtures, real execution, independent quality review and export correctness are separate evidence types.
 Migration acceptance requires negative cases for stale same-run files, wrong meshes/rigs, double scale,
 cropped frame IDs, leaked review lineage, missing occluded frames and unknown provenance, plus real native
-Track 1 round-trip evidence. None of these validators or migration checks is implemented by this document.
+Track 1 round-trip evidence. The [foundation profile](v2-foundation.md) implements a subset with independent
+synthetic tests; native decoding, operational source provenance, quality, official export and real migration
+acceptance remain open. Its structural pass must not be reported as completion of this target specification.

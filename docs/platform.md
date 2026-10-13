@@ -2,7 +2,17 @@
 
 Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
-## Pipeline design record (2026-10-13)
+## P0 audit and P1 foundation delivery (2026-10-13)
+
+[component-audit.md](component-audit.md) records individual branch reuse decisions, exact upstream/patch identities and a provisional Windows reproduction candidate. [exposure-ledger.json](exposure-ledger.json) records all 30 episodes and ten object groups with historical evidence; external/manual use remains unknown. [validation-policy.json](validation-policy.json) defines structural and review rules while leaving empirical quality thresholds unfrozen.
+
+The opt-in [v2 foundation](v2-foundation.md) now implements immutable content-addressed storage, UUID publication, atomic selection, typed evidence/scene/plan structural validation and numerical native-array/object-frame helpers. Validators check actual dependency bytes, exact video/mesh/origin/scale invocation bindings, fit/review lineage and trusted status-report identities. They cannot authenticate source-policy declarations, run a native decoder or certify reconstruction quality. The v1 runner and fake stages are unchanged.
+
+A separate local CPU test environment was created for the explicit CI allowlist, including the three new independent synthetic suites. No model environment, GPU dependency, weights or challenge inputs were installed or loaded for this delivery. Final test counts and interpreter/package versions are recorded in [the foundation verification receipt](evidence/v2-foundation-validation-20261013.json). Tests establish covered storage/schema/math behavior, not completed native integration or a G0-G4 acceptance gate.
+
+Next: restore the nominated runtime under a complete environment/source/model manifest; implement authoritative native import and conversion against the v2 profile; then obtain complete episodes 12/16 and early export/read-back evidence. Human review history, authentic decoder semantics, dependency scheduling and meaningful quality/export validators remain open. Live module/status publication remains pending; the current capability exposes no Claude Artifact publisher.
+
+## Earlier pipeline design record (2026-10-13)
 
 The repository design now separates module ownership from runtime jobs. Platform owns a dependency coordinator that pins the source timeline, preparation estimates, metric object asset and one native CARI4D invocation per episode. Human and Object own conversion and geometry validation of that same invocation; stage directories are views of its output, not permission to rerun independent human/camera estimates. Physics owns bounded diagnostic plans and repairs; Platform promotes only coherent, validated snapshots.
 

@@ -35,3 +35,6 @@ jobs:
           tests/test_metrics.py
           tests/test_track1_score.py
           tests/test_run.py
+          tests/test_v2_artifacts.py
+          tests/test_v2_geometry.py
+          tests/test_v2_contracts.py

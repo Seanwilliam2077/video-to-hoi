@@ -1,0 +1,67 @@
+{
+  "scope": "P0 source audit and opt-in P1 structural foundation; no real reconstruction acceptance",
+  "verified_at": "2026-10-13T08:15:10.521856+00:00",
+  "base_commit": "062df9d47b6393dce71dd326cdf0f19edc056302",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "pyarrow": "26.0.0",
+    "trimesh": "5.1.1",
+    "huggingface_hub": "2.2.0",
+    "rfc8785": "0.1.4",
+    "pytest": "9.1.1"
+  },
+  "test_selection": "Exact explicit allowlist from .github/workflows/tests.yml",
+  "test_files": [
+    "tests/test_bundle.py",
+    "tests/test_contracts.py",
+    "tests/test_dataset.py",
+    "tests/test_fetch_assets.py",
+    "tests/test_download_foundationpose.py",
+    "tests/test_model_release_prepare.py",
+    "tests/test_model_release_restore.py",
+    "tests/test_handoff_restore.py",
+    "tests/test_benchmark_first3.py",
+    "tests/test_rank_first3.py",
+    "tests/test_geometry.py",
+    "tests/test_metrics.py",
+    "tests/test_track1_score.py",
+    "tests/test_run.py",
+    "tests/test_v2_artifacts.py",
+    "tests/test_v2_geometry.py",
+    "tests/test_v2_contracts.py"
+  ],
+  "tests": {
+    "tests": 379,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "test_seconds": 118.152,
+  "source_sha256": {
+    "src/v2hoi/v2/__init__.py": "c19ad2eeb2f4a43a95edf2862826412b4593cac04c2db3938abc59044c085383",
+    "src/v2hoi/v2/artifacts.py": "4bc2a5cd9b21a8c18862c491cad448dc2068feff2c6d6b7a3cc36df8ad6c30a5",
+    "src/v2hoi/v2/contracts.py": "8e069107668e1e952915bfbab708b4783022b1462306e9a42f6c6c35c5f70c6a",
+    "src/v2hoi/v2/geometry.py": "666cfa50088467ae4f450a3eb982157fe756cff09d3568f1250cf7e48b465962",
+    "tests/test_v2_artifacts.py": "511bdb687bfba6a478602769a5b8d52ac51152878004b541b8982447bfc5e1ae",
+    "tests/test_v2_contracts.py": "cec1ed488880681a4366382381da49ab184ea688ba8eef213d3566c50fed46eb",
+    "tests/test_v2_geometry.py": "6be48d038334ddb729cc4c7c43dc9b66c93dc668f9b282e0c8a21788a04b5016"
+  },
+  "historical_evidence_hashes_verified": 13,
+  "dependency_consistency": "pip check passed",
+  "v1_runner_changed": false,
+  "model_runs": 0,
+  "real_source_videos_decoded": 0,
+  "native_decoder_executed": false,
+  "official_export_executed": false,
+  "online_pages_published": false,
+  "limitations": [
+    "Source policy/report declarations require external authenticity review.",
+    "Native shape and synthetic geometry checks are not real decoder/conversion evidence.",
+    "Runtime restoration, dependency scheduling and real quality/export validation remain open.",
+    "Test environment is local Windows CPU; hosted Linux CI was not executed in this session."
+  ]
+}

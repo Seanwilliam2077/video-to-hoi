@@ -8,6 +8,8 @@ The pipeline's stages exchange data through files in a run directory. This page 
 
 ## Run directory
 
+An opt-in [v2 foundation](v2-foundation.md) now provides separate structural validators and immutable storage. It does not change these v1 files, register real backends, or migrate existing runs.
+
 ```
 runs/<run_id>/
   run.json                          dataset, upstream run, history of invocations

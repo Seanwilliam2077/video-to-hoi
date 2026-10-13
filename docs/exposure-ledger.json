@@ -1,0 +1,1115 @@
+{
+  "schema_version": "exposure_ledger.v1",
+  "updated": "2026-10-13",
+  "status": "initial_repository_evidence_audit_external_history_incomplete",
+  "authority": "docs/track1-requirements.md R1-R6",
+  "audit_scope": {
+    "starting_main_revision": "062df9d47b6393dce71dd326cdf0f19edc056302",
+    "windows_candidate_revision": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+    "physics_pilot_revision": "f74e86e1f6a9bb080d4205ae2905580f66631f59",
+    "method": "Read-only Git source/document/record inspection; metadata copied from pinned inventory.",
+    "source_video_or_preview_payloads_loaded": false,
+    "model_outputs_loaded": false,
+    "track2_content_or_derivatives_used": false,
+    "external_downloads": false,
+    "all_git_history_exhaustively_reviewed": false,
+    "limitations": [
+      "External/manual history is unknown.",
+      "Recorded run artifacts were not reloaded or independently verified.",
+      "Legacy or unknown-provenance data remains excluded; no old scorer datasets or metrics loaded."
+    ]
+  },
+  "evidence": [
+    {
+      "evidence_id": "all30-planning",
+      "revision": "062df9d47b6393dce71dd326cdf0f19edc056302",
+      "path": "docs/video-coverage.json",
+      "git_blob": "27323581e110e1516a396a4b28d26087ab313d0f",
+      "sha256": "8950c128b369900a59e16995705c31c5d594e8f10171e21b71336b3b7e61d5cf",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Metadata and design hypotheses for all 30 episodes informed architecture; no video payload reviewed by that inventory."
+    },
+    {
+      "evidence_id": "established-dev-mini",
+      "revision": "062df9d47b6393dce71dd326cdf0f19edc056302",
+      "path": "docs/development.md",
+      "git_blob": "f3f4e3e61ffd98a3e0e74d8f65515ae99610b14d",
+      "sha256": "ec846d5c4fa0af54345b0df84e1fe94c46a770902b9d33ba734014c84017f6db",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Dev-mini role for 0, 6, 9, 16, 24; role alone does not establish an executed experiment."
+    },
+    {
+      "evidence_id": "first3-inputs",
+      "revision": "062df9d47b6393dce71dd326cdf0f19edc056302",
+      "path": "benchmarks/first3/episodes.json",
+      "git_blob": "5187c3c46a2efdd102f43997eb4020e821db8955",
+      "sha256": "214e848bcafd1019dd380b79e15bf36db28c0e0385d42eb147bcc42a5c5386c8",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Recorded full CPU decoding and hashes of episodes 0, 1, 2; no model execution in this record."
+    },
+    {
+      "evidence_id": "first3-protocol",
+      "revision": "062df9d47b6393dce71dd326cdf0f19edc056302",
+      "path": "benchmarks/first3/protocol.json",
+      "git_blob": "566c3dbe6e15ad4ef5328f10e9da9b4184224e6d",
+      "sha256": "3271b6990cab9d40d0c0ad0dadc1735e42c4a3efd6fb8f74f235d8f79207868e",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Draft comparison recipes and episode selection; protocol is not frozen."
+    },
+    {
+      "evidence_id": "native-input-repair16",
+      "revision": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+      "path": "deployment/windows/pipeline_audit.md",
+      "git_blob": "bb6e27d71eccee499d3a1005ea0ecb75deb0fd56",
+      "sha256": "635342773f3cc9d7361448e439b05c44c6e2469f762116bac312befb79cf871c",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Episode 16 native runs, scale changes, rotation settings and quality retraction."
+    },
+    {
+      "evidence_id": "orientation16",
+      "revision": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+      "path": "deployment/windows/orientation-repair-episode16-result.json",
+      "git_blob": "8276bc981e4b2b1e695de7a4f19fecf60329be14",
+      "sha256": "bc3da3a5e0ef79058a410b7f8fa1d51932007142da95fdfe506e1e85408073ec",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Orientation candidate selection and matched tracking replays on episode 16."
+    },
+    {
+      "evidence_id": "object-repair12-16",
+      "revision": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+      "path": "deployment/windows/object-observation-pipeline-result.json",
+      "git_blob": "d4602d193e1e0c80774885275663a532cff53dfe",
+      "sha256": "66b67e6c461a33570a296e7e8eb43c47e42eec9288a03334522e731aaebfacd2",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Repeated observation fitting on episodes 12/16 with frozen human/camera and unresolved quality."
+    },
+    {
+      "evidence_id": "bpy-hoi12-16",
+      "revision": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+      "path": "deployment/windows/agent-bpy-hoi-result.json",
+      "git_blob": "8fb772dd9965685dc8c651652f1d12d57848bf28",
+      "sha256": "b666dd170d6402c1839918c7f3b3568c0d5a8af2928c1db01da4f789aecd9e12",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Two complete real object-stage/HOI-preview cases plus rejected pan candidates; no submission conversion."
+    },
+    {
+      "evidence_id": "manual-prompts16",
+      "revision": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+      "path": "deployment/windows/episode16-prompts.json",
+      "git_blob": "bbaa1b0475147b3571b7f91f8f9bd4e816b979a4",
+      "sha256": "9ea3f45d864c138f3e648b6ae65a99e889441276c544735a25d49b573666a61c",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Manually authored actor/object boxes from original frame 0."
+    },
+    {
+      "evidence_id": "manual-asset16",
+      "revision": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+      "path": "deployment/windows/observed-grass-bpy-spec.json",
+      "git_blob": "149a98eb2892bf428f826d67ec1f3e599bf7412b",
+      "sha256": "04f41e74d2850547ad8ae481c64b9a088f0e27199d9c001eb08b36ae03a80f7d",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Agent-authored RGB proportions and face appearance; physical scale remains provisional."
+    },
+    {
+      "evidence_id": "manual-asset12",
+      "revision": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+      "path": "deployment/windows/observed-pan-bpy-spec.json",
+      "git_blob": "6a1e020e36532257f2e8e041a6a8c579ff823ea7",
+      "sha256": "d26e9681f911783f9401b6e6d5bb31b7a9e30b1be6c77d1084bf7e560babcf86",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Agent-authored shape, front/back observations and source landmarks; not reference pose."
+    },
+    {
+      "evidence_id": "physics-pilot16",
+      "revision": "f74e86e1f6a9bb080d4205ae2905580f66631f59",
+      "path": "experiments/hoi-topology-pilot/README.md",
+      "git_blob": "6df6dd84f07b39e68aef010816887fa7c4d213ca",
+      "sha256": "b7d264c2b5f7e6f5c7a1dfed3ebcfd2872a8638bb09804c4b7fca9f1a348ebb0",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Track 1 episode 16 original frames 90-209, manually inspected actor/corners, inferred geometry/contact and repeated comparisons."
+    },
+    {
+      "evidence_id": "physics-pilot16-v4",
+      "revision": "f74e86e1f6a9bb080d4205ae2905580f66631f59",
+      "path": "experiments/hoi-topology-pilot/REPRODUCE.md",
+      "git_blob": "308de83ffb7891e9f17c8d7c2c6cdf1506014cc7",
+      "sha256": "780dc987342305d84d237494bd803d075d05bd681c26ca43fc882a5dafffc7e5",
+      "evidence_type": "repository_document_or_record_not_reexecuted",
+      "claim": "Dynamic-contact v4 on same 120-frame subset; mixed diagnostics, no production/export acceptance."
+    }
+  ],
+  "groups": [
+    {
+      "object_group": "hula_hoop",
+      "episode_ids": [
+        "episode_000000",
+        "episode_000001",
+        "episode_000002"
+      ],
+      "evaluation_role": "development_regression",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    },
+    {
+      "object_group": "big_red_bowl",
+      "episode_ids": [
+        "episode_000003",
+        "episode_000004",
+        "episode_000005"
+      ],
+      "evaluation_role": "unassigned_history_incomplete",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    },
+    {
+      "object_group": "iron",
+      "episode_ids": [
+        "episode_000006",
+        "episode_000007",
+        "episode_000008"
+      ],
+      "evaluation_role": "development_regression",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    },
+    {
+      "object_group": "white_desk",
+      "episode_ids": [
+        "episode_000009",
+        "episode_000010",
+        "episode_000011"
+      ],
+      "evaluation_role": "development_regression",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    },
+    {
+      "object_group": "black_pan",
+      "episode_ids": [
+        "episode_000012",
+        "episode_000013",
+        "episode_000014"
+      ],
+      "evaluation_role": "development_regression",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    },
+    {
+      "object_group": "foam_grass_block",
+      "episode_ids": [
+        "episode_000015",
+        "episode_000016",
+        "episode_000017"
+      ],
+      "evaluation_role": "development_regression",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    },
+    {
+      "object_group": "paint_roller",
+      "episode_ids": [
+        "episode_000018",
+        "episode_000019",
+        "episode_000020"
+      ],
+      "evaluation_role": "unassigned_history_incomplete",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    },
+    {
+      "object_group": "pink_foam_roll",
+      "episode_ids": [
+        "episode_000021",
+        "episode_000022",
+        "episode_000023"
+      ],
+      "evaluation_role": "unassigned_history_incomplete",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    },
+    {
+      "object_group": "short_wood_stool",
+      "episode_ids": [
+        "episode_000024",
+        "episode_000025",
+        "episode_000026"
+      ],
+      "evaluation_role": "development_regression",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    },
+    {
+      "object_group": "white_laptop_cart",
+      "episode_ids": [
+        "episode_000027",
+        "episode_000028",
+        "episode_000029"
+      ],
+      "evaluation_role": "unassigned_history_incomplete",
+      "clean_holdout_status": "not_established",
+      "cross_episode_reconstruction_pooling": "disabled",
+      "external_history_confirmed": false
+    }
+  ],
+  "episodes": [
+    {
+      "episode_id": "episode_000000",
+      "episode_index": 0,
+      "object_group": "hula_hoop",
+      "metadata_frame_count": 790,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "declared_development_role",
+          "evidence_ids": [
+            "established-dev-mini"
+          ],
+          "scope": "Planned regression set; inference execution unknown unless separately recorded."
+        },
+        {
+          "kind": "input_preparation_and_decode_record",
+          "evidence_ids": [
+            "first3-inputs",
+            "first3-protocol"
+          ],
+          "scope": "All source frames recorded decoded/hashed; no model execution in this record."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "established_dev_mini_regression",
+        "existing_first3_integration_fixture"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000001",
+      "episode_index": 1,
+      "object_group": "hula_hoop",
+      "metadata_frame_count": 668,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "input_preparation_and_decode_record",
+          "evidence_ids": [
+            "first3-inputs",
+            "first3-protocol"
+          ],
+          "scope": "All source frames recorded decoded/hashed; no model execution in this record."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "existing_first3_integration_fixture"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000002",
+      "episode_index": 2,
+      "object_group": "hula_hoop",
+      "metadata_frame_count": 866,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "input_preparation_and_decode_record",
+          "evidence_ids": [
+            "first3-inputs",
+            "first3-protocol"
+          ],
+          "scope": "All source frames recorded decoded/hashed; no model execution in this record."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "expanded_coverage_candidate",
+        "existing_first3_integration_fixture"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000003",
+      "episode_index": 3,
+      "object_group": "big_red_bowl",
+      "metadata_frame_count": 592,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000004",
+      "episode_index": 4,
+      "object_group": "big_red_bowl",
+      "metadata_frame_count": 747,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000005",
+      "episode_index": 5,
+      "object_group": "big_red_bowl",
+      "metadata_frame_count": 668,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000006",
+      "episode_index": 6,
+      "object_group": "iron",
+      "metadata_frame_count": 816,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "declared_development_role",
+          "evidence_ids": [
+            "established-dev-mini"
+          ],
+          "scope": "Planned regression set; inference execution unknown unless separately recorded."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "established_dev_mini_regression"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000007",
+      "episode_index": 7,
+      "object_group": "iron",
+      "metadata_frame_count": 777,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000008",
+      "episode_index": 8,
+      "object_group": "iron",
+      "metadata_frame_count": 634,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000009",
+      "episode_index": 9,
+      "object_group": "white_desk",
+      "metadata_frame_count": 415,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "declared_development_role",
+          "evidence_ids": [
+            "established-dev-mini"
+          ],
+          "scope": "Planned regression set; inference execution unknown unless separately recorded."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "established_dev_mini_regression"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000010",
+      "episode_index": 10,
+      "object_group": "white_desk",
+      "metadata_frame_count": 577,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "expanded_coverage_candidate"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000011",
+      "episode_index": 11,
+      "object_group": "white_desk",
+      "metadata_frame_count": 877,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000012",
+      "episode_index": 12,
+      "object_group": "black_pan",
+      "metadata_frame_count": 405,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_fitting_visual_review_and_selection",
+          "evidence_ids": [
+            "object-repair12-16",
+            "bpy-hoi12-16"
+          ],
+          "scope": "Full original timeline; multiple attempts, hand-authored assets and rejected candidates. Fitting metrics consumed for development."
+        },
+        {
+          "kind": "agent_authored_observations_and_geometry",
+          "evidence_ids": [
+            "manual-asset12"
+          ],
+          "scope": "Manually interpreted source RGB and shape/appearance priors; exact observation frames retained in source records."
+        }
+      ],
+      "model_execution_status": "historical_execution_documented_not_reverified",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "engineering_baseline_candidate"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000013",
+      "episode_index": 13,
+      "object_group": "black_pan",
+      "metadata_frame_count": 425,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000014",
+      "episode_index": 14,
+      "object_group": "black_pan",
+      "metadata_frame_count": 442,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000015",
+      "episode_index": 15,
+      "object_group": "foam_grass_block",
+      "metadata_frame_count": 501,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000016",
+      "episode_index": 16,
+      "object_group": "foam_grass_block",
+      "metadata_frame_count": 360,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "declared_development_role",
+          "evidence_ids": [
+            "established-dev-mini"
+          ],
+          "scope": "Planned regression set; inference execution unknown unless separately recorded."
+        },
+        {
+          "kind": "model_fitting_visual_review_and_selection",
+          "evidence_ids": [
+            "object-repair12-16",
+            "bpy-hoi12-16"
+          ],
+          "scope": "Full original timeline; multiple attempts, hand-authored assets and rejected candidates. Fitting metrics consumed for development."
+        },
+        {
+          "kind": "agent_authored_observations_and_geometry",
+          "evidence_ids": [
+            "manual-asset16"
+          ],
+          "scope": "Manually interpreted source RGB and shape/appearance priors; exact observation frames retained in source records."
+        },
+        {
+          "kind": "native_scale_orientation_iteration",
+          "evidence_ids": [
+            "native-input-repair16",
+            "orientation16",
+            "manual-prompts16"
+          ],
+          "scope": "Complete 360-frame runs and manually seeded hypotheses; numerical/model options and scale selected through inspection."
+        },
+        {
+          "kind": "separate_contact_pilot",
+          "evidence_ids": [
+            "physics-pilot16",
+            "physics-pilot16-v4"
+          ],
+          "original_frame_interval_inclusive": [
+            90,
+            209
+          ],
+          "scope": "Manual corner/contact hypotheses and repeated native-human/object optimization on a subset."
+        }
+      ],
+      "model_execution_status": "historical_execution_documented_not_reverified",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "established_dev_mini_regression",
+        "engineering_baseline_candidate"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000017",
+      "episode_index": 17,
+      "object_group": "foam_grass_block",
+      "metadata_frame_count": 419,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000018",
+      "episode_index": 18,
+      "object_group": "paint_roller",
+      "metadata_frame_count": 535,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000019",
+      "episode_index": 19,
+      "object_group": "paint_roller",
+      "metadata_frame_count": 443,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000020",
+      "episode_index": 20,
+      "object_group": "paint_roller",
+      "metadata_frame_count": 549,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000021",
+      "episode_index": 21,
+      "object_group": "pink_foam_roll",
+      "metadata_frame_count": 563,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000022",
+      "episode_index": 22,
+      "object_group": "pink_foam_roll",
+      "metadata_frame_count": 533,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [
+        "expanded_coverage_candidate"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000023",
+      "episode_index": 23,
+      "object_group": "pink_foam_roll",
+      "metadata_frame_count": 552,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000024",
+      "episode_index": 24,
+      "object_group": "short_wood_stool",
+      "metadata_frame_count": 420,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "declared_development_role",
+          "evidence_ids": [
+            "established-dev-mini"
+          ],
+          "scope": "Planned regression set; inference execution unknown unless separately recorded."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "established_dev_mini_regression",
+        "expanded_coverage_candidate"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000025",
+      "episode_index": 25,
+      "object_group": "short_wood_stool",
+      "metadata_frame_count": 365,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [
+        "expanded_coverage_candidate"
+      ],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000026",
+      "episode_index": 26,
+      "object_group": "short_wood_stool",
+      "metadata_frame_count": 399,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "development_regression",
+      "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000027",
+      "episode_index": 27,
+      "object_group": "white_laptop_cart",
+      "metadata_frame_count": 440,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000028",
+      "episode_index": 28,
+      "object_group": "white_laptop_cart",
+      "metadata_frame_count": 366,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    },
+    {
+      "episode_id": "episode_000029",
+      "episode_index": 29,
+      "object_group": "white_laptop_cart",
+      "metadata_frame_count": 419,
+      "recorded_exposures": [
+        {
+          "kind": "metadata_architecture_exposure",
+          "evidence_ids": [
+            "all30-planning"
+          ],
+          "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        }
+      ],
+      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "external_or_unrecorded_manual_history": "unknown",
+      "complete_exposure_history_verified": false,
+      "clean_holdout_status": "not_established",
+      "evaluation_role": "unassigned_history_incomplete",
+      "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
+      "planning_roles": [],
+      "new_video_review_in_this_audit": false
+    }
+  ],
+  "summary": {
+    "episodes": 30,
+    "groups": 10,
+    "metadata_planning_exposed": 30,
+    "documented_preparation_episodes": [
+      0,
+      1,
+      2
+    ],
+    "documented_native_or_repair_execution_episodes": [
+      12,
+      16
+    ],
+    "documented_separate_contact_pilot_episodes": [
+      16
+    ],
+    "clean_holdouts_established": 0,
+    "unknown_external_histories": 30
+  },
+  "next_actions": [
+    "Append any external/manual viewing, tuning, prompting or selection evidence without erasing prior rows.",
+    "Review complete object-group histories before assigning prospective evaluation roles.",
+    "Keep reviewed evaluation outcomes as development exposure once they change models, policies or thresholds."
+  ]
+}

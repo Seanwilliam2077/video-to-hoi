@@ -18,15 +18,19 @@ Four people build the pipeline in parallel, one module and one branch each. Ever
 
 - [workflow.md](workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
 - [contracts.md](contracts.md): the files the stages exchange.
+- [contracts-v2.md](contracts-v2.md): proposed evidence, immutable scene and bounded solve-plan contracts; v1 remains implemented.
 - [design.md](design.md): the architecture, its evidence, and what is known about the official submission.
+- [video-coverage.md](video-coverage.md) and [JSON inventory](video-coverage.json): all 30 metadata records, candidate diagnostics, explicit unknowns and exposure-aware validation roles.
 - [track1-requirements.md](track1-requirements.md): R1–R6, the current acceptance requirements; conflicting historical rules are superseded.
 - [evaluation.md](evaluation.md): pinned external metric mechanics, native-MHR reference diagnostics, independent evidence and limitations.
 - [track1-compliance.md](track1-compliance.md): the six final requirements versus current implementation, evidence gaps and ordered acceptance work.
-- [implementation-plan.md](implementation-plan.md): G0 official/native contracts, G1 real native baselines, G2 camera/scale evidence, G3 bounded repairs and G4 full-set export rehearsal.
+- [implementation-plan.md](implementation-plan.md): P0–P5 work packages and dependencies mapped to the G0–G4 evidence gates.
 - [platform.md](platform.md): remote machine sizing, the candidate servers, and baseline acceptance requirements. Remote deployment and the two real baselines are still pending.
 
 ## Current state
 
+- **Design update (2026-10-13):** video evidence and metric-mesh preparation feed one atomic native CARI4D task. Its coupled outputs become an immutable `SceneState`; diagnostic `SolvePlan` repairs produce new candidates, independently reviewed before promotion and export/read-back. The v2 specification, 30-video metadata coverage and implementation backlog are documented; no runtime contract version, model execution or acceptance gate changed in this update.
+- **Branch evidence:** `main` at `0e86889696edc4d81a3c287cb93d76baece4a1d5` retains fake reconstruction stages. `origin/windows-cari4d` at `fb0bac9` preserves native experiments and repair/export work. Their provisional scale, orientation and contact findings require component review and complete acceptance; neither a blanket branch restore nor an accepted real baseline is established.
 - **Implementation update (2026-10-03):** the requirements and reference-based native-MHR diagnostic are updated. The official packer adapter, real reconstruction backends and measured reconstruction improvement remain pending. No reconstruction model installation, server deployment, real model run or submission is established by this update.
 - **Requirements:** follow [R1–R6](track1-requirements.md). The first reference frame has an explicit original-video ID. A later scored subset retains that frame's human-derived alignment; external array indexing cannot change this rule.
 - **Validation:** Track 1 has no public reconstruction ground truth for reference-dependent CD/ACC. Local review uses independent image observations, motion/event fidelity, completeness, contact and overlays. Self-smoothness remains a diagnostic only. Official PEN also uses reference-derived alignment scale; an unaligned local penetration calculation is not the final official score. Automated evidence extraction and promotion gates remain to be implemented.

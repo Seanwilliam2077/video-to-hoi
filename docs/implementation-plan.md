@@ -1,10 +1,75 @@
 # Implementation plan: Track 1 baseline and bounded repair
 
-Updated 2026-10-03. This backlog implements [design.md](design.md). It does not report completed model runs, measured gains, a working native exporter, or an approved submission.
+Updated 2026-10-13. This delivery backlog implements the video-driven architecture in [design.md](design.md), the proposed [v2 contracts](contracts-v2.md), and the [video coverage and validation protocol](video-coverage.md). These documents specify future work. This design update closes no implementation, reconstruction-quality, or submission gate.
 
-[evaluation.md](evaluation.md) records external-kit identities, metric/format mechanics and diagnostic limitations. [contracts.md](contracts.md) distinguishes implemented v1 artifacts from the proposed next contract. [workflow.md](workflow.md) owns branch/review and reporting procedures. Only Track 1 inputs and independently created synthetic fixtures are permitted; Track 2 and all its derivatives remain excluded from every gate.
+[evaluation.md](evaluation.md) records external-kit identities, metric/format mechanics and diagnostic limitations. [contracts.md](contracts.md) describes implemented v1 artifacts; the v2 proposal does not change their meanings or register a working backend. [workflow.md](workflow.md) owns branch/review and reporting procedures. Only Track 1 inputs and independently created synthetic fixtures are permitted; Track 2 and all its derivatives remain excluded from every gate.
 
 The single current authority is [track1-requirements.md](track1-requirements.md), R1–R6, effective 2026-10-03. G0-G4 must implement those requirements. The first reference frame has an explicit original-video ID; a later scored subset must retain its human-derived alignment. External-kit row selection is an adapter detail and cannot supersede the required frame or justify dropping input frames.
+
+## Starting point and delivery boundary
+
+The reviewed `main` at `0e86889` retains fake reconstruction stages, pass-through refinement, and the internal v1 exporter after the Windows development changes were reverted. `origin/windows-cari4d` contains candidate adapters, native conversion/export, runtime patches, previews and repair experiments. Those components and recorded runs are audit inputs, not an accepted current baseline. Historical preparation receipts establish the identity of downloaded files; they do not establish a runnable environment on the selected machine.
+
+Before reusing any branch component, record its exact commit/path, upstream and model dependencies, intended behavior, local modifications, input provenance, coordinate/scale assumptions, frame handling, run evidence, and portability limits. Classify it as reusable after verification, requiring revision, or deferred; give it an owner and a focused acceptance check. Review components individually rather than treating the branch as a single approved implementation. In particular, distinguish a portability patch from a changed inference or optimization method.
+
+Runtime version selection remains open. The historical external-code pin in `evaluation.md`, deployment manifests, and the branch's actually executed revisions must be reconciled before P2. Record the selected source commits and patches, model/rig identities, OS, Python, CUDA/PyTorch and native dependencies, plus the effective runtime configuration. A documentation source pin or a mutable container tag alone cannot close that task. Any different runtime needs a compatibility decision against R1–R6 and explicit conversion checks.
+
+The first engineering delivery ends at P2: episodes 12 and 16 pass native conversion, full-frame structural checks, atomic scene import, and export/reload comparisons. P3–P4 establish whether evidence-driven decisions improve reconstruction. P5 establishes completeness and reproducibility of the submission candidate. A successful export or a visually plausible preview does not establish 3D accuracy.
+
+## Milestones and gate mapping
+
+P0–P5 specify execution order and work packages. G0–G4 below remain the authoritative evidence gates; milestone labels neither replace nor automatically close them. Gate review records must link the exact artifacts and unresolved findings. No gate is marked passed by this plan.
+
+| Milestone | Scope | Gate evidence produced | Completion boundary |
+|---|---|---|---|
+| P0 | Inventory, Track 1 coverage, prior exposure history, validation protocol | G0 scope/provenance decisions; future G2/G4 review protocol | Audited implementation inventory and documented development/validation roles |
+| P1 | Reviewed v2 contracts, compatibility, dependency invalidation, native mapping | G0 representation and structural checks | Executable contracts and independent fixtures; real conversion remains pending P2 |
+| P2 | One atomic native baseline on episodes 12 and 16; early native export/reload | Remaining G0 real-conversion evidence and G1 | Complete, reproducible real baseline with known weaknesses recorded |
+| P3 | Video evidence, diagnostics, multi-interaction `SolvePlan` dry runs | G2 | Reviewed diagnostic decisions under a frozen observation protocol |
+| P4 | Bounded orientation, contact-switch and occlusion repairs | G3 | Each enabled repair has acceptance evidence and rollback; rejected repairs remain disabled |
+| P5 | Frozen grouped validation, all 30 episodes, export/restoration rehearsal | G4 | One coherent full-set submission candidate and reproducibility record |
+
+### Ordered backlog
+
+Owners: **M1** Platform (Sean), **M2** Human, **M3** Object, **M4** Temporal/Physics. Individual M2–M4 assignees remain TBD. `A → B` means B cannot be accepted before A's recorded result; independent preparation may proceed earlier. The four modules retain ownership while a single native task produces coupled human/object state.
+
+| ID | Depends on | Owner; reviewers | Concrete artifact and acceptance |
+|---|---|---|---|
+| P0.1 | None | M1; M2/M3/M4 | Main/branch component inventory and runtime decision register. Every reuse candidate has a source identity, provenance assessment, unresolved dependencies and verification task; experiments are not labelled accepted baselines. |
+| P0.2 | None | M1; M3/M4 | All-30 coverage matrix plus exposure ledger: geometry, view, interaction, occlusion, reviewed frames and prior tuning/selection history. Unreviewed video properties and unknown history remain explicit. |
+| P0.3 | P0.1, P0.2 | M1/M4; M2/M3 | Frozen initial fitting/review policy, grouping, intervention policy, per-episode failure taxonomy, metric names and decision record template. Same-object clips are grouped; unseen status is not inferred from lack of current logs. |
+| P1.1 | P0.1, P0.3 | M1; M2/M3/M4 | Versioned `EpisodeEvidence`, `SceneState`, `SolvePlan` and artifact-manifest contracts from `contracts-v2.md`, with an explicit v1 compatibility boundary. Wrong frame/camera/mesh bindings, fake artifacts and unknown provenance fail clearly. |
+| P1.2 | P1.1 | M1; M2/M3/M4 | Immutable scene snapshots, content dependencies, atomic promotion and stale-input checks. A consumer loads one declared scene; it cannot assemble unrelated latest human, mesh and motion files. |
+| P1.3 | P0.1, P1.1 | M2/M3; M1/M4 | Native decoder/converter and mesh/pose-frame specification with independent fixtures and declared numerical tolerances. Known transformations decode as intended; old v1 arrays cannot masquerade as native MHR. |
+| P2.1 | P0.1, P1.1, P1.3 | M1/M2/M3; M4 | Pinned runnable adapter plus metric-mesh preparation on episodes 12 and 16. Bootstrap estimates and the native pipeline's actual consumed/recomputed camera, depth and human state have separate lineage and a reviewed consistency check. |
+| P2.2 | P1.2, P2.1 | M1; M2/M3/M4 | One native invocation per episode, imported as a complete `SceneState` with native parameters, aligned mesh/poses, source frame map, logs and environment. Missing required artifacts prevent promotion; prior valid snapshots remain available. |
+| P2.3 | P2.2, P1.3 | M1/M2/M3; M4 | Native conversion, official-format-compatible packing, reload and geometry comparison for both full clips, plus source overlays and failure inventory. All source frames/objects survive; native-to-imported-to-reloaded comparisons isolate adapter error. |
+| P3.1 | P0.2, P0.3, P1.1 | M1; M2/M3/M4 | `EpisodeEvidence` generation: stable target IDs, visible observations, explicit unavailable states, anchor selection, event candidates and lineage. Thin structures, image transforms and uncertainty survive; a rendered prediction is not marked independent evidence. |
+| P3.2 | P2.3, P3.1 | M1/M4; M2/M3 | Regenerable diagnostic reports over multiple interactions, separating structural failure, image disagreement and ambiguity. Every report identifies fitting versus reserved observations and correlated model dependencies. |
+| P3.3 | P3.2 | M4; M1/M2/M3 | Reviewed `SolvePlan` dry runs for orientation, contact-switch and occlusion cases. Each names its evidence, fixed/free variables, hypotheses, budget, full-clip checks and rollback. No repair executes merely because a plan was generated. |
+| P4.1 | P3.3 | M3/M4; M1/M2 | Orientation candidate selection using fixed camera, mesh and scale. Known symmetry, appearance cues, visible anchors and interval boundaries are checked; a smooth wrong orientation is rejected. |
+| P4.2 | P3.3 | M4/M2/M3; M1 | Contact-state transitions for grasp/release, slide/push and support, with bounded state-owner-approved changes. Contact is rechecked after geometry/motion changes; low penetration alone cannot promote a candidate. |
+| P4.3 | P3.3 | M4/M3; M1/M2 | Bidirectional occlusion recovery with a fixed hypothesis budget. Reappearance and window boundaries constrain candidates; complete coverage preserves explicit uncertainty and does not assert unique hidden motion. |
+| P4.4 | Applicable P4.1–P4.3 | M1/M4; affected M2/M3 owners | Independent accept/reject report and atomic promotion/rollback per trial. Declared failure improves on reserved evidence, other checks respect predeclared limits, and full-clip structure remains valid. If none pass, retain the valid baseline. |
+| P5.1 | P3.3; P4.4 for any enabled repair | M1; M2/M3/M4 | Freeze all effective rules, models, budgets, observation corrections and acceptance criteria. Execute grouped validation only after exposure-history review; record results used for selection as development evidence thereafter. |
+| P5.2 | P5.1 | M1; M2/M3/M4 | Full 30-episode run, accepted scene IDs, per-object/interaction and worst-case reports, failures, interventions and compute use. Required frames/objects are complete; no unrecorded episode-specific policy choice. |
+| P5.3 | P5.2, P2.3 | M1; M2/M3/M4 | One full-set export manifest, exact scene-bound packing/reload/render checks and clean restoration rehearsal. Unresolved submission-validity issues block G4; local export remains distinct from external submission. |
+
+P1 contract work and P3 evidence-producer prototypes may overlap, but P3 diagnostic acceptance depends on a real P2 baseline. P1.3 native mapping and P1.2 scheduling can proceed in parallel after the shared contract is reviewed. M2/M3 prepare scale/native geometry while M1 resolves runtime/import and M4 defines event review and negative controls. P4.1–P4.3 can run independently against the same immutable baseline; composing their changes requires a fresh P4.4 full-clip review. Do not allow concurrent repairs to overwrite a shared scene.
+
+### Acceptance layers and stop rules
+
+| Layer | Required evidence | What it does not certify |
+|---|---|---|
+| Engineering MVP, P2 / G0–G1 | Permitted inputs, native semantics, coherent coordinates/scale, all-frame state, exact asset binding, reproducible invocation, export/reload equivalence | Correct unknown 3D geometry or generalization |
+| Reconstruction quality, P3–P4 / G2–G3 | Independent/reserved image evidence, event and contact review, perturbation/negative controls, no unacceptable full-clip regressions | Hidden Track 1 official scores or unbiased generalization after repeated tuning |
+| Submission candidate, P5 / G4 | Full expected set, frozen rules and artifacts, operational format requirements, restoration and read-back evidence | Submission receipt, leaderboard success or broader unseen-data performance |
+
+Structural failures stop promotion immediately: missing source frames, incompatible canonical frames, unknown provenance, stale descendants, fake contributions, invalid native conversion, or mixed scene versions. Scale/bootstrap disagreement returns to preparation; it must not be hidden by an all-variable optimizer. Geometric failures reopen the relevant state owner rather than being silently repaired in the exporter.
+
+Quality thresholds are chosen and documented after baseline characterization and before candidate ranking. Use reviewed qualitative decisions where evidence cannot justify a numerical threshold. Exhausted budget, ambiguous observations or no reserved-evidence improvement stop that repair and retain the prior accepted snapshot. A complete valid baseline remains an admissible fallback when all optional repairs fail; an invalid baseline never becomes a fallback by renaming its status. Record failed attempts as well as selected candidates.
+
+The entire 30-video collection has already informed architecture discussion, and branch experiments may have additional exposure. Audit that history before assigning holdout roles. If no untouched object group remains, report grouped retrospective or prospective frozen-policy validation with its limits; do not call it an unbiased holdout. A validation group becomes regression/development data once it influences a policy change. Full-set coverage and input perturbations are useful stress tests, but cannot independently prove unseen-object generalization.
 
 ## Gate overview and ownership
 
@@ -12,11 +77,11 @@ Gates close on recorded evidence, not on a date, downloaded checkpoint count, or
 
 | Gate | Deliverable | Primary owner | Required reviewers | Current state |
 |---|---|---|---|---|
-| G0 | Evaluation/native-conversion/provenance contract | Module 1 Platform, Sean | Module 2 Human; Module 3 Object; Module 4 Physics for metric tests | Reference diagnostic and source review available; native export, real decoder verification and end-to-end provenance gates pending |
-| G1 | Immutable real baseline on episodes 16 and 12 | Module 1 Platform | Modules 2, 3 and 4 | Pending real inputs, adapters and inference |
-| G2 | Reliable observations, camera/scale/asset lineage | Module 1 Platform + Module 3 Object | Module 2 Human; Module 4 Physics | Planned |
-| G3 | Bounded repairs with evidence and rollback | Module 4 Physics + relevant state owner | Module 1 integration; Modules 2/3 as affected | Planned |
-| G4 | Complete 30-episode, reproducible submission candidate | Module 1 Platform | All module owners | Pending G0-G3 evidence; G3 may remain disabled |
+| G0 | Evaluation/native-conversion/provenance contract | Module 1 Platform, Sean | Module 2 Human; Module 3 Object; Module 4 Physics for metric tests | Open: diagnostic/source review exists; runtime, real decoder/export and end-to-end provenance acceptance remain unresolved |
+| G1 | Immutable real baseline on episodes 16 and 12 | Module 1 Platform | Modules 2, 3 and 4 | Open: branch run records require audit and reproduction through the accepted contracts |
+| G2 | Reliable observations, camera/scale/asset lineage | Module 1 Platform + Module 3 Object | Module 2 Human; Module 4 Physics | Open: proposed design; diagnostic decisions require multi-interaction review |
+| G3 | Bounded repairs with evidence and rollback | Module 4 Physics + relevant state owner | Module 1 integration; Modules 2/3 as affected | Open: branch experiments are candidates for audit, not accepted policies |
+| G4 | Complete 30-episode, reproducible submission candidate | Module 1 Platform | All module owners | Open: G0-G2 and any enabled G3 policy need evidence; G3 may remain disabled |
 
 Module 2, 3 and 4 individual assignees remain TBD. A module is accountable for its artifacts even when another module runs a coupled upstream method. G4 may ship the accepted G1/G2 baseline if no G3 repair survives review; research novelty is not a completeness requirement.
 
@@ -24,7 +89,7 @@ Module 2, 3 and 4 individual assignees remain TBD. A module is accountable for i
 
 ### Required work
 
-1. Implement the current R1–R6 specification and record reviewed external source identities. Make the reference's first original-video frame ID explicit and verify it independently of scored-row selection. Historical September assumptions are superseded, not alternative configuration choices. Do not download an entire upstream data archive to obtain code or run examples with unknown provenance.
+1. Implement the current R1–R6 specification and record reviewed external source identities. Resolve the runtime pin and branch-component audit in P0.1 separately from the historical evaluation-code pin; document any compatibility patches and changes to numerical behavior. Make the reference's first original-video frame ID explicit and verify it independently of scored-row selection. Historical September assumptions are superseded, not alternative configuration choices. Do not download an entire upstream data archive to obtain code or run examples with unknown provenance.
 2. Specify and review a native-MHR migration. The proposed authoritative record is the official converter's native 204 parameters plus shape45 and decoder identity. Current decomposed v1 fields have no automatic mapping. Preserve v1 compatibility explicitly or supply a versioned converter; do not change field meanings in place.
 3. Implement a source-pinned native decoder/export adapter. Record frame IDs, native-unit conversions, image/world conventions and rig assets. Validate the mapping to the official schema through decoded geometry, not array dimensions alone.
 4. Bind object poses to mesh content, canonical origin/axes and exactly-once scale application. Verify the native CARI4D aligned-mesh transform and the exported mesh/pose pair together.
@@ -48,7 +113,7 @@ Reject G0 closure if conversion is justified only by shape checks, old normaliza
 
 ### Fixed scope
 
-Start with Track 1 episode 16 (foam block) and episode 12 (pan). Run the pinned toolkit MHR CARI4D without changing its learned components or optimization behavior. Use episode-local meshes until cross-episode estimation is explicitly permitted. Keep a single baseline segmentation route and a small recorded mesh-candidate set.
+Start with Track 1 episode 16 (foam block) and episode 12 (pan), both explicitly treated as development cases. Run the toolkit MHR CARI4D runtime selected in P0.1/P2.1, without unrecorded changes to its learned components or optimization behavior. Reusing an earlier branch result requires the same provenance, conversion, full-coverage and reproducibility checks as a new result. Use episode-local meshes until cross-episode estimation is explicitly permitted. Keep a single baseline segmentation route and a small recorded mesh-candidate set.
 
 ### Required work and owners
 
@@ -67,7 +132,7 @@ Resolve the metric-mesh bootstrap explicitly. Before the full CARI4D call, a pre
 
 - Immutable baseline ID with video/model/code/config identities, invocation, full logs, stage outputs, frame mapping, resource record and mesh provenance.
 - Native human parameters and object poses covering every decoded source frame, including occlusions, with no fake contribution or silent trimming. Compare decoded video counts and original frame IDs with metadata and output coverage; a finite array of the metadata length alone is insufficient. Review discontinuities at occlusion entry/exit as well as missing values.
-- Baseline export accepted by the G0 converter checks and the permitted official-format validation path.
+- Baseline export accepted by the G0 converter checks and the permitted official-format validation path. Do this at P2, before repair implementation: reload and compare human geometry, posed object geometry, canonical frame, scale application and original source-frame identities for the exact exported scene. Format acceptance and 3D-quality judgments remain separate.
 - Source-image overlays and a three-stage comparison where available; clear marking of occlusion, low-confidence intervals, the explicit initial-frame mapping and known failures.
 - A reproducible command/configuration on an identified execution environment. Bitwise equality across hardware is not required; declared comparison tolerances and provenance are.
 - A review signed by Platform, Human and Object owners; Physics records the failure inventory.
@@ -92,9 +157,11 @@ Preserve the native baseline. Add explicit camera/depth/initialization hooks rat
 
 ### Review protocol
 
-Expand to `dev-mini = [0, 6, 9, 16, 24]`. Freeze fitting frames, diagnostic frames, synthetic cases, candidate budget, display conventions and review criteria before comparing candidates. A review must include all episodes in its declared set, including unsuccessful ones. Group all clips of an object together for broader development/holdout comparisons; same-object leave-one-clip-out checks are within-development stress tests. A group that has influenced model selection is subsequently a regression group.
+The historical `dev-mini = [0, 6, 9, 16, 24]` is a development/regression set, not an untouched holdout. Use the reviewed coverage matrix and exposure ledger in [video-coverage.md](video-coverage.md) to select additional clips covering sitting/carrying, foot push, contact switching and occlusion; do not infer verified frame-level events solely from metadata labels. P3 acceptance must span multiple interaction types rather than only episodes 12 and 16. Freeze fitting frames, diagnostic frames, synthetic cases, candidate budget, display conventions and review criteria before comparing candidates. A review must include all episodes in its declared set, including unsuccessful ones. Group all clips of an object together for broader development/validation comparisons; same-object leave-one-clip-out checks are within-development stress tests. A group that has influenced model or policy selection is subsequently a regression group. Record architecture-level exposure and uncertain history rather than presenting the all-30 set as an unbiased holdout.
 
 Required evidence includes visible-contour agreement, independent image landmarks or reviewed keyframes, reliable-depth residuals, forward/backward discrepancies, asset scale/origin checks, contact plausibility and motion continuity. Record which observations are predictions and which were manually checked. Neither constitutes hidden reference geometry.
+
+A reserved observation is excluded from the candidate-fitting and selection steps named in the experiment protocol; it does not imply that its source image was unseen by a full-video baseline or pretrained model. Record that distinction and shared upstream dependencies. Reusing review outcomes to choose a new repair transfers those outcomes into development evidence; it does not create repeated independent confirmation.
 
 Choose degradation limits and numerical tolerances after baseline characterization and before ranking. No universal automatic quality threshold is currently implemented. If evidence does not support a numerical threshold, use an explicit reviewed decision rather than inventing one.
 
@@ -102,17 +169,18 @@ Cross-episode camera or asset sharing remains disabled. Enabling it requires doc
 
 ## G3: repair a diagnosed failure with bounded freedom
 
-A repair proposal states the failed interval, independent supporting observations, permitted parameter block, fixed variables, trust-region/displacement limits, hypothesis budget, fitting/review split and rollback artifact. Check the full clip after repairing a window.
+A repair proposal is a versioned `SolvePlan`: it states the failed interval, independent supporting observations, permitted parameter block, fixed variables, trust-region/displacement limits, hypothesis budget, fitting/review split, expected checks and rollback artifact. In P3 it is reviewed without executing a mutation; in P4 a registered repair operator may execute it against a specified immutable `SceneState`. Check the full clip after repairing a window. The validator decides promotion under the frozen rules; the repair operator's own fitting loss is insufficient.
 
 ### Order and admissible changes
 
-| Order | Owner | Allowed first experiment | Keep fixed initially | Essential rejection case |
+| Order | Owner | Initial operation | Keep fixed initially | Essential rejection case |
 |---|---|---|---|---|
-| 1 | Object + Platform | Mesh/pose-frame, scale or camera consistency correction | All unrelated representations | Improved appearance obtained by inconsistent units, mesh origin or hidden camera changes |
-| 2 | Object + Physics | Object translation/rotation repair from clear anchors and visible features | Mesh, scale, camera, human | Wrong orientation becomes smooth; silhouette improves by moving behind the person |
-| 3 | Human + Physics | Human root/body repair using independent image anchors | Shape, anatomical scale, camera, object asset | Pose prior or contact alone pulls the person away from image evidence |
-| 4 | Human + Physics | Selectively release native hand controls | Mesh and unrelated body blocks | PEN falls because the hand stops touching the object |
-| 5 | Physics + Object | Event states, bidirectional hypotheses and symmetry-aware selection | Candidate budget and representation contracts | Long occlusion is presented as uniquely observed; boundary jumps or lost real acceleration |
+| Precondition | Object + Platform | Route mesh/pose-frame, scale or camera inconsistency back to G0–G2 preparation; invalidate descendants | All unrelated representations | Improved appearance obtained by inconsistent units, mesh origin or hidden camera changes |
+| P4.1 | Object + Physics | Orientation branches and associated bounded object pose fitting from clear anchors | Mesh, scale, camera, human | Wrong orientation becomes smooth; silhouette improves by moving behind the person |
+| P4.2 | Physics + Human + Object | Contact-state switching and bounded local human/object changes supported by independent image anchors | Shape, anatomical scale, camera, object asset and unrelated pose blocks | Contact prior pulls a visible body part away from image evidence; PEN falls because the hand stops touching |
+| P4.3 | Physics + Object | Bidirectional occlusion hypotheses and symmetry-aware selection | Mesh, scale, camera, identity and declared candidate budget | Long occlusion is presented as uniquely observed; boundary jumps or lost real acceleration |
+
+Within contact-switch repair, release native human root/body or hand blocks only after a fixed-human candidate exposes the corresponding failure and independent observations can constrain the release. Record this as a separate intervention and ablation. Broad human refinement, camera refitting or new geometry generation are not additional automatic first-release repair operators.
 
 Do not optimize every camera, scale, shape and pose parameter together. The native postopt's fixed parameters and hand-contact gate are baseline behavior; changing them is a separate intervention requiring its own ablation.
 
@@ -140,10 +208,10 @@ Factor graphs, contact losses, shared shape and multiple hypotheses are establis
 
 ### Required work
 
-1. Produce complete outputs for all 30 Track 1 episodes. Accepted baseline output is the fallback wherever a repair is disabled or rejected.
+1. Freeze the policy and validation grouping in P5.1 before inspecting new validation results, using the exposure audit from P0.2. Produce complete outputs for all 30 Track 1 episodes. Accepted baseline output is the fallback wherever a repair is disabled or rejected. A failed or structurally invalid baseline is a blocking issue, not an acceptable fallback.
 2. Freeze the final mesh, its origin/scale, rig, converter, evaluator source identity, models and configuration. Recompute all changed descendants from content-verified inputs.
 3. Validate native MHR/mesh/pose/frame contracts and provenance for every episode. Reproduce permitted prediction-geometry calculations through the pinned path and declare any assumed alignment. Official PEN also needs reference-derived alignment scale; do not label an unaligned local calculation a final official result.
-4. Produce a per-episode report, source overlays, known-failure inventory, baseline/candidate decision record and the final export manifest.
+4. Produce a per-episode report, source overlays, known-failure inventory, baseline/candidate decision record and the final export manifest. Include per-object/per-interaction and visible/occluded outcomes, worst cases, failure rates, manual interventions and resource use. State which conclusions are retrospective and which use a frozen policy; all-30 completion does not create unseen-data evidence.
 5. Rehearse restoration and the permitted validation/export commands from the frozen package in a clean, identified environment. Exercise incomplete-file and stale-input failures.
 6. Verify the current official operational requirements separately: kit authority/version, canonical-origin convention, permitted cross-episode use, competition format and submission limits. Do not infer them from an old planning calendar.
 7. Prepare a concrete reviewable submission candidate. The designated submission owner handles any external upload under the team's authorization procedure; a local export is not a submission.
@@ -173,6 +241,9 @@ This manifest extension and automatic report extraction are planned work. Existi
 | Question | Owner | Effect until resolved |
 |---|---|---|
 | Which pinned external-kit adapter reproduces R1–R6 and records the first reference frame's original-video ID? | Platform | Requirements remain fixed; validate row/index mapping and compatibility without changing the alignment frame |
+| Which runtime commit, patches, model/rig identities and native environment are selected after comparing historical manifests with branch execution records? | Platform with Human/Object | P2 runtime acceptance remains open; historical source receipts and review pins are not enough |
+| Which branch components meet provenance, coordinate/frame semantics, full-coverage and portability checks? | Relevant module owner; Platform integration | Reuse only audited components; branch-wide availability does not establish acceptance |
+| Which object groups have already influenced architecture, tuning or candidate selection? | Platform + Physics, all owners contribute history | Treat unknown exposure explicitly; do not claim an untouched holdout without evidence |
 | Exact native mapping from the toolkit output to the official 204/45 record, including units and rig assumptions | Human + Platform | G0/G1 export acceptance remains open |
 | Official object canonical origin and pose-scale conventions | Object + Platform | Freeze origin; no recentering as a tuning variable; consult evaluation.md |
 | Is cross-episode shared geometry, scale, camera or identity estimation allowed? | Platform | Feature disabled; baseline remains episode-local |

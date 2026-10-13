@@ -177,6 +177,8 @@ Changing a field's meaning or shape bumps `CONTRACT_VERSION`. Do it in a small P
 
 ## Proposed contract v2: not implemented
 
+**Design update, 2026-10-13:** [contracts-v2.md](contracts-v2.md) specifies the proposed `EpisodeEvidence`, `SceneState` and `SolvePlan` records, immutable content references, bounded repairs, validation states and dependency invalidation. It is a documentation-only draft; no runtime contract version, v1 field meaning, backend or validator changes with this proposal.
+
 The migration is a separate reviewed contract PR under G0. It must retain source v1 files unchanged, declare which fields can be converted, and fail explicitly where a trustworthy native reconstruction cannot be recovered. Array dimensions alone do not establish equivalent MHR semantics.
 
 | Proposed record | Required meaning and validation |

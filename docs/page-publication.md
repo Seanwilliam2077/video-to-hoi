@@ -1,8 +1,14 @@
 # Team-page publication record and remaining work
 
-Updated **2026-10-03**, Asia/Shanghai. The current Reference follow-up replaced existing answers in place. Static artifact publication remains incomplete. The single active project specification is [track1-requirements.md](track1-requirements.md), R1–R6; older page text and earlier receipts do not override it.
+Updated **2026-10-13**, Asia/Shanghai. Static artifact publication remains incomplete. The single active project specification is [track1-requirements.md](track1-requirements.md), R1–R6; older page text and earlier receipts do not override it.
 
-## Current verified follow-up
+## Local design update (2026-10-13; not published)
+
+The video-conditioned design, proposed v2 contracts, 30-video coverage inventory and P0–P5 delivery backlog are saved locally. The technical module record is in [platform.md](platform.md); [hub.html](hub.html), [pipeline.svg](pipeline.svg) and the Chinese [status.html](status.html) reflect the design scope and the unaccepted experimental baseline evidence. Runtime v1 is unchanged and no model or official submission was run.
+
+No usable Claude Artifact source-editing or publication tool is exposed in this session. No live page, database row or external publication was changed. The module-page record and existing hub/status artifact refresh therefore remain pending; their online copies do not yet reflect this update. Actual publication revision and receipt remain unavailable. This is a capability limitation, not a new permission requirement.
+
+## Earlier verified follow-up (2026-10-03)
 
 On the existing [Reference page](https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b), the coordinator overwrote the **six original Track 1 Q&A answers and the seventh summary answer** at their existing rows with the latest requirements. This was a replacement, not another appended correction or a duplicate question.
 

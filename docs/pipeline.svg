@@ -1,160 +1,92 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" width="1000" height="780" role="img" aria-label="Revised target design, October 3, 2026: immutable Track 1 observations feed a real baseline, native MHR and fixed-frame object assets, bounded repair, independent acceptance, and official packing with reload checks. Real backends and the official adapter are not yet implemented. No Track 2 assets are permitted; full official scores require the held-out reference.">
-  <title>video-to-hoi pipeline: six stages, four modules, five leaderboard metrics</title>
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
-    </marker>
-    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#2563EB"/>
-    </marker>
-    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#B45309"/>
-    </marker>
-    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#94A3B8"/>
-    </marker>
-  </defs>
-
-  <g font-family="'Segoe UI', -apple-system, Helvetica, Arial, sans-serif" fill="#0F172A">
-    <rect x="0.5" y="0.5" width="999" height="779" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
-
-    <!-- header -->
-    <text x="40" y="44" font-size="22" font-weight="700">video-to-hoi pipeline</text>
-    <text x="40" y="68" font-size="13" fill="#475569">Target plan: real baseline → bounded repair → verified export. Real backends and the official adapter are pending.</text>
-
-    <!-- input video -->
-    <rect x="220" y="96" width="300" height="52" rx="10" fill="#FFFFFF" stroke="#334155"/>
-    <text x="370" y="118" font-size="14" font-weight="700" text-anchor="middle">Track 1 video + object prompt</text>
-    <text x="370" y="137" font-size="12" fill="#475569" text-anchor="middle">one static RGB camera · 30 fps</text>
-    <line x1="370" y1="148" x2="370" y2="182" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
-    <text x="380" y="170" font-size="12" fill="#475569">frames</text>
-
-    <!-- 1 inputs -->
-    <rect x="40" y="184" width="660" height="100" rx="12" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
-    <text x="60" y="212" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">inputs</text>
-    <text x="680" y="212" font-size="12" font-weight="700" fill="#475569" text-anchor="end">① Platform &amp; perception</text>
-    <text x="60" y="244" font-size="13" font-weight="700">masks</text>
-    <text x="60" y="264" font-size="12" fill="#475569">GroundingDINO → SAM2</text>
-    <text x="280" y="244" font-size="13" font-weight="700">intrinsics</text>
-    <text x="280" y="264" font-size="12" fill="#475569">verified calibration + transforms</text>
-    <text x="500" y="244" font-size="13" font-weight="700">depth</text>
-    <text x="500" y="264" font-size="12" fill="#475569">learned prior + validity</text>
-
-    <line x1="180" y1="284" x2="180" y2="321" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
-    <text x="190" y="308" font-size="12" fill="#475569">masks</text>
-    <line x1="550" y1="284" x2="550" y2="321" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
-    <text x="560" y="308" font-size="12" fill="#475569">masks · depth · intrinsics</text>
-
-    <!-- 2 human -->
-    <rect x="40" y="324" width="280" height="150" rx="12" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
-    <text x="60" y="352" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">human</text>
-    <text x="246" y="352" font-size="12" font-weight="700" fill="#1D4ED8" text-anchor="end">② Human</text>
-    <rect x="254" y="338" width="50" height="20" rx="10" fill="#2563EB"/>
-    <text x="279" y="352" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-H</text>
-    <text x="60" y="384" font-size="13">SAM 3D Body → MHR</text>
-    <text x="60" y="406" font-size="12" fill="#475569">native state + conversion checks</text>
-    <text x="60" y="426" font-size="12" fill="#475569">fixed identity / structural scales</text>
-    <text x="60" y="446" font-size="12" fill="#475569">audit the initial alignment frame</text>
-
-    <!-- the scale anchor -->
-    <line x1="320" y1="412" x2="398" y2="412" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow-blue)"/>
-    <text x="359" y="403" font-size="12" font-weight="700" fill="#1D4ED8" text-anchor="middle">scale prior</text>
-    <text x="359" y="429" font-size="11" fill="#1D4ED8" text-anchor="middle">cross-check</text>
-
-    <!-- 3 object: objects and motion -->
-    <rect x="400" y="324" width="300" height="150" rx="12" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
-    <text x="420" y="352" font-size="12" font-weight="700" fill="#B45309">③ Object</text>
-    <rect x="636" y="338" width="50" height="20" rx="10" fill="#B45309"/>
-    <text x="661" y="352" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-O</text>
-
-    <rect x="414" y="366" width="118" height="94" rx="8" fill="#FFFFFF" stroke="#D97706"/>
-    <text x="473" y="387" font-size="14" font-weight="700" text-anchor="middle" font-family="Consolas, Menlo, monospace">objects</text>
-    <text x="473" y="407" font-size="12" text-anchor="middle">mesh candidates</text>
-    <text x="473" y="423" font-size="12" text-anchor="middle">visible evidence</text>
-    <text x="473" y="441" font-size="11" fill="#475569" text-anchor="middle">fixed origin + scale</text>
-
-    <rect x="568" y="366" width="118" height="94" rx="8" fill="#FFFFFF" stroke="#D97706"/>
-    <text x="627" y="387" font-size="14" font-weight="700" text-anchor="middle" font-family="Consolas, Menlo, monospace">motion</text>
-    <text x="627" y="407" font-size="12" text-anchor="middle">FoundationPose</text>
-    <text x="627" y="423" font-size="12" text-anchor="middle">pose, every frame</text>
-    <text x="627" y="441" font-size="12" fill="#475569" text-anchor="middle">+ hypotheses</text>
-
-    <line x1="532" y1="400" x2="566" y2="400" stroke="#B45309" stroke-width="1.6" marker-end="url(#arrow-amber)"/>
-    <text x="550" y="393" font-size="11" fill="#B45309" text-anchor="middle">mesh</text>
-    <line x1="568" y1="432" x2="534" y2="432" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrow-amber)"/>
-    <text x="550" y="450" font-size="11" fill="#B45309" text-anchor="middle">fit</text>
-
-    <line x1="180" y1="474" x2="180" y2="511" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
-    <text x="190" y="498" font-size="12" fill="#475569">authoritative MHR</text>
-    <line x1="550" y1="474" x2="550" y2="511" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
-    <text x="560" y="498" font-size="12" fill="#475569">mesh · pose · evidence</text>
-
-    <!-- 4 refine -->
-    <rect x="40" y="514" width="660" height="100" rx="12" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
-    <text x="60" y="542" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">refine</text>
-    <text x="502" y="542" font-size="12" font-weight="700" fill="#047857" text-anchor="end">④ Temporal &amp; physics</text>
-    <rect x="512" y="528" width="54" height="20" rx="10" fill="#047857"/>
-    <text x="539" y="542" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">ACC-H</text>
-    <rect x="570" y="528" width="54" height="20" rx="10" fill="#047857"/>
-    <text x="597" y="542" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">ACC-O</text>
-    <rect x="628" y="528" width="54" height="20" rx="10" fill="#047857"/>
-    <text x="655" y="542" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">PEN</text>
-    <text x="60" y="574" font-size="13" font-weight="700">motion fidelity</text>
-    <text x="60" y="594" font-size="12" fill="#475569">timing + amplitude</text>
-    <text x="220" y="574" font-size="13" font-weight="700">contact relations</text>
-    <text x="220" y="594" font-size="12" fill="#475569">grasp · support · slide</text>
-    <text x="380" y="574" font-size="13" font-weight="700">occlusions</text>
-    <text x="380" y="594" font-size="12" fill="#475569">bidirectional evidence</text>
-    <text x="540" y="574" font-size="13" font-weight="700">bounded repair</text>
-    <text x="540" y="594" font-size="12" fill="#475569">accept or roll back</text>
-
-    <line x1="170" y1="614" x2="170" y2="651" stroke="#334155" stroke-width="1.6" marker-end="url(#arrow)"/>
-    <text x="180" y="638" font-size="12" fill="#475569">refined human + object</text>
-
-    <!-- 1 export -->
-    <rect x="40" y="654" width="260" height="100" rx="12" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
-    <text x="60" y="682" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">export</text>
-    <text x="280" y="682" font-size="12" font-weight="700" fill="#475569" text-anchor="end">① Platform</text>
-    <text x="60" y="712" font-size="13">Official pack + reload</text>
-    <text x="60" y="732" font-size="12" fill="#475569">adapter pending (G0)</text>
-
-    <line x1="300" y1="704" x2="398" y2="704" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
-    <text x="349" y="696" font-size="12" fill="#475569" text-anchor="middle" font-family="Consolas, Menlo, monospace">export/</text>
-
-    <!-- scoring requires ground truth, unavailable for Track 1 locally -->
-    <rect x="400" y="654" width="300" height="100" rx="12" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5 4"/>
-    <text x="420" y="682" font-size="16" font-weight="700" font-family="Consolas, Menlo, monospace">official</text>
-    <text x="680" y="682" font-size="12" fill="#475569" text-anchor="end">No public Track 1 GT</text>
-    <rect x="420" y="696" width="48" height="20" rx="10" fill="#2563EB"/>
-    <text x="444" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-H</text>
-    <rect x="474" y="696" width="48" height="20" rx="10" fill="#B45309"/>
-    <text x="498" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">CD-O</text>
-    <rect x="536" y="696" width="50" height="20" rx="10" fill="#047857"/>
-    <text x="561" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">ACC-H</text>
-    <rect x="592" y="696" width="50" height="20" rx="10" fill="#047857"/>
-    <text x="617" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">ACC-O</text>
-    <rect x="648" y="696" width="40" height="20" rx="10" fill="#047857"/>
-    <text x="668" y="710" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">PEN</text>
-    <path d="M420,724 v4 h102 v-4 M536,724 v4 h152 v-4" fill="none" stroke="#94A3B8"/>
-    <text x="471" y="744" font-size="12" fill="#475569" text-anchor="middle">accuracy target</text>
-    <text x="612" y="744" font-size="12" fill="#475569" text-anchor="middle">motion + hand contact</text>
-
-    <!-- allowed development inputs and the Track 1 scoring limit -->
-    <text x="740" y="352" font-size="11" font-weight="700" fill="#64748B" letter-spacing="0.6">VERSIONED EVIDENCE</text>
-    <text x="740" y="370" font-size="12" fill="#64748B">No Track 2 assets or labels</text>
-
-    <rect x="740" y="384" width="220" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 4"/>
-    <text x="756" y="406" font-size="13" font-weight="700">Track 1-derived evidence</text>
-    <text x="756" y="426" font-size="12" fill="#475569">video crops, masks, depth</text>
-    <line x1="740" y1="412" x2="703" y2="412" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
-
-    <rect x="740" y="536" width="220" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 4"/>
-    <text x="756" y="558" font-size="13" font-weight="700">Independent acceptance</text>
-    <text x="756" y="578" font-size="12" fill="#475569">accept · reject · unresolved</text>
-    <line x1="740" y1="564" x2="703" y2="564" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-gray)"/>
-
-    <rect x="740" y="676" width="220" height="56" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 4"/>
-    <text x="756" y="698" font-size="13" font-weight="700">One frozen candidate</text>
-    <text x="756" y="718" font-size="12" fill="#475569">all reports use its export</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1060" width="1100" height="1060" role="img" aria-labelledby="title desc">
+<title id="title">Video-conditioned pipeline: one joint baseline and bounded repairs</title>
+<desc id="desc">Proposed design, October 13, 2026. EpisodeEvidence feeds scale preparation and metric geometry, then one native CARI4D job creates an immutable SceneState. Independent diagnostics generate bounded SolvePlans; every repair creates a new scene. Early export round-trip and quality review are separate release gates. Runtime remains v1 with fake reconstruction stages.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#475569"/></marker><marker id="repair" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#b45309"/></marker><style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#0f172a}.title{font-size:24px;font-weight:700}.heading{font-size:17px;font-weight:700}.body{font-size:14px}.small{font-size:13px;fill:#475569}.label{font-size:12px;fill:#475569}.path{fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow)}.repair{fill:none;stroke:#b45309;stroke-width:2;marker-end:url(#repair)}</style></defs>
+<rect x="1" y="1" width="1098" height="1058" rx="18" fill="#fff" stroke="#cbd5e1"/>
+<text x="34" y="43" class="title">From video evidence to one coherent 3D scene</text>
+<text x="34" y="70" class="body">Target design · 2026-10-13 · v2 contracts proposed; current main uses v1 fake reconstruction stages</text>
+<rect x="330" y="102" width="430" height="60" rx="10" fill="#f8fafc" stroke="#64748b"/>
+<text x="348" y="130" class="heading">Track 1 video + metadata</text>
+<text x="348" y="151" class="small">Original frame IDs, timestamps and target identity</text>
+<rect x="330" y="196" width="430" height="86" rx="10" fill="#eff6ff" stroke="#2563eb"/>
+<text x="348" y="224" class="heading">EpisodeEvidence</text>
+<text x="348" y="247" class="body">Observations · visibility · anchors · event candidates</text>
+<text x="348" y="269" class="small">Explicit fit/review lineage; missing evidence stays unknown</text>
+<rect x="330" y="316" width="430" height="70" rx="10" fill="#f8fafc" stroke="#64748b"/>
+<text x="348" y="344" class="heading">Human + depth scale preparation</text>
+<text x="348" y="368" class="small">Camera convention, metric priors and uncertainty</text>
+<rect x="330" y="420" width="430" height="70" rx="10" fill="#f8fafc" stroke="#64748b"/>
+<text x="348" y="448" class="heading">Metric object geometry</text>
+<text x="348" y="472" class="small">Mesh, origin, symmetry and one constant object scale</text>
+<rect x="330" y="524" width="430" height="84" rx="10" fill="#eff6ff" stroke="#2563eb"/>
+<text x="348" y="552" class="heading">ONE native CARI4D joint task</text>
+<text x="348" y="575" class="body">Coupled human, camera and object trajectories</text>
+<text x="348" y="597" class="small">Pin actual consumed inputs; review preparation conflicts</text>
+<rect x="330" y="642" width="430" height="86" rx="10" fill="#eef2ff" stroke="#6366f1"/>
+<text x="348" y="670" class="heading">Immutable SceneState</text>
+<text x="348" y="694" class="body">Native human + camera + mesh/scale + motion/contact</text>
+<text x="348" y="716" class="small">All source frames; exact hashes and one scene identity</text>
+<rect x="330" y="767" width="430" height="74" rx="10" fill="#f0fdf4" stroke="#16a34a"/>
+<text x="348" y="795" class="heading">Independent diagnostics + quality review</text>
+<text x="348" y="821" class="small">Full-clip checks, events, boundaries and reserved evidence</text>
+<rect x="330" y="918" width="430" height="84" rx="10" fill="#f0fdf4" stroke="#16a34a"/>
+<text x="348" y="946" class="heading">Final release gate</text>
+<text x="348" y="970" class="body">Execution + quality + export valid for the same scene</text>
+<text x="348" y="991" class="small">Full expected set; frozen policy and restoration record</text>
+<path d="M545 162V194" class="path"/>
+<path d="M545 282V314" class="path"/>
+<path d="M545 386V418" class="path"/>
+<path d="M545 490V522" class="path"/>
+<path d="M545 608V640" class="path"/>
+<path d="M545 728V765" class="path"/>
+<path d="M545 841V916" class="path"/>
+<text x="555" y="884" class="label">quality accepted</text>
+<rect x="30" y="196" width="260" height="148" rx="10" fill="#f8fafc" stroke="#64748b"/>
+<text x="48" y="224" class="heading">Adapt using evidence</text>
+<text x="48" y="251" class="body">Thin or symmetric geometry</text>
+<text x="48" y="275" class="body">Occlusion and image scale</text>
+<text x="48" y="299" class="body">Grasp, slide, roll, foot or seat</text>
+<text x="48" y="325" class="small">Multiple contact edges may coexist</text>
+<rect x="30" y="376" width="260" height="208" rx="10" fill="#f8fafc" stroke="#64748b"/>
+<text x="48" y="404" class="heading">Four owners, shared state</text>
+<text x="48" y="433" class="body">M1 · Evidence, coordinator, export</text>
+<text x="48" y="459" class="body">M2 · Native human and scale</text>
+<text x="48" y="485" class="body">M3 · Geometry and object motion</text>
+<text x="48" y="511" class="body">M4 · Contact and bounded repairs</text>
+<text x="48" y="543" class="small">Six stage folders expose views;</text>
+<text x="48" y="565" class="small">they do not rerun the joint model.</text>
+<rect x="30" y="642" width="260" height="132" rx="10" fill="#f0fdf4" stroke="#16a34a"/>
+<text x="48" y="670" class="heading">Early export round-trip</text>
+<text x="48" y="696" class="body">Pack → reload → decode/render</text>
+<text x="48" y="722" class="small">Start with execution-valid baseline</text>
+<text x="48" y="746" class="small">Native units, mesh and frame map</text>
+<path d="M330 685H292" class="path"/>
+<path d="M160 774V957H328" class="path"/>
+<text x="170" y="901" class="label">export valid</text>
+<text x="170" y="920" class="label">for same scene</text>
+<rect x="804" y="376" width="266" height="208" rx="10" fill="#fff7ed" stroke="#d97706"/>
+<text x="822" y="404" class="heading">Global inconsistency</text>
+<text x="822" y="432" class="body">Camera, geometry or scale conflict</text>
+<text x="822" y="460" class="small">Review and revise preparation.</text>
+<text x="822" y="484" class="small">Invalidate dependent artifacts;</text>
+<text x="822" y="508" class="small">rerun or explicitly revalidate.</text>
+<text x="822" y="549" class="small">Outside the local repair registry.</text>
+<path d="M804 453H762" class="repair"/>
+<rect x="804" y="642" width="266" height="199" rx="10" fill="#fff7ed" stroke="#d97706"/>
+<text x="822" y="670" class="heading">Bounded SolvePlan → repair</text>
+<text x="822" y="700" class="body">orientation_branch</text>
+<text x="822" y="725" class="body">contact_transition</text>
+<text x="822" y="750" class="body">occlusion_recovery</text>
+<text x="822" y="780" class="small">Pin parent, evidence, fixed/free blocks,</text>
+<text x="822" y="802" class="small">bounds, budget and acceptance policy.</text>
+<text x="822" y="826" class="small">Fail/ambiguous → retain parent + logs</text>
+<path d="M760 804H802" class="repair"/>
+<path d="M804 683H762" class="repair"/>
+<text x="805" y="622" class="label">New scene version; never overwrite parent</text>
+<rect x="804" y="890" width="266" height="112" rx="10" fill="#f8fafc" stroke="#64748b"/>
+<text x="822" y="918" class="heading">Generalization review</text>
+<text x="822" y="944" class="small">30 videos · grouped exposure audit</text>
+<text x="822" y="966" class="small">Frozen policy · worst-case regressions</text>
+<text x="822" y="988" class="small">No unseen-data claim without history</text>
+<text x="34" y="1037" class="small">Design only. Quality review cannot certify hidden-reference 3D accuracy or official scores.</text>
 </svg>

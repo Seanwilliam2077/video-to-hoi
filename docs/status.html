@@ -164,12 +164,12 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
 
   <header>
     <div>
-      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 10 月 3 日</div>
-      <h1>新方案已写入，先跑通真实结果</h1>
+      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 10 月 13 日</div>
+      <h1>处理方案已细化，完整结果待验收</h1>
     </div>
     <div class="count">
       <div class="l">距比赛截止还有</div>
-      <div class="n" id="cd-days">38 天</div>
+      <div class="n" id="cd-days">-- 天</div>
       <div class="clock" id="cd-clock" role="timer" aria-label="距比赛截止的剩余时间">
         <span><b id="cd-h">--</b>时</span><span><b id="cd-m">--</b>分</span><span><b id="cd-s">--</b>秒</span>
       </div>
@@ -177,7 +177,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>已用最新要求替换旧规则，并更新评分检查程序：动作要符合真实变化，被挡住的物体也不能丢帧。<b>正式提交工具已经公布，我们还没有完成对接或真实运行。</b>当前改进的是规则和检查方法；暂不部署，没有新增比赛成绩。</p>
+  <p class="lead"><b>一句话：</b>已细化适应不同物体、视角和动作的处理方案，并列出 30 段视频的检查重点。<b>已有局部试验记录，统一流程和完整结果仍待验收。</b>下一步先复核泡沫块和平底锅，再按统一标准扩大覆盖；本轮未运行新视频，没有新增比赛成绩。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -199,7 +199,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
 
   <section id="team">
     <h2>团队分工</h2>
-    <p>工作仍分四块，每块明确“交什么、交给谁、怎样检查”。先保留一套完整可用的结果，再逐项验证改进；改动没有证据支持时，退回上一版。</p>
+    <p>工作仍分四块，每块明确“交什么、交给谁、怎样检查”。下图表示分工；实际还原时，人和物体需共同确定，不能各自改动后直接拼接。先保留一套完整可用的结果，再逐项验证改进。</p>
 
     <div class="handoff" role="img" aria-label="交接关系：平台与数据把视频预处理结果交给人体和物体两块；人体把人体动作和场景尺寸交给物体，并把人体动作交给动作流畅与真实感；物体把物体模型和运动交给动作流畅与真实感；动作流畅与真实感把修正后的结果交回平台与数据，由平台整合并提交。">
       <svg viewBox="0 0 860 336" aria-hidden="true">
@@ -331,9 +331,9 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <ol class="steps">
       <li class="done"><div class="t">读懂规则</div><div class="s">已替换旧要求</div><div class="d">评分检查同步更新</div></li>
       <li class="done"><div class="t">搭建框架</div><div class="s">已完成</div><div class="d">四人可并行开发</div></li>
-      <li class="now"><div class="t">接入 AI 模型</div><div class="s">主要材料已公开</div><div class="d">还没有运行视频</div></li>
-      <li class="next"><div class="t">第一批结果</div><div class="s">未开始</div><div class="d">目标 10 月 8 日</div></li>
-      <li class="next"><div class="t">全部出结果</div><div class="s">未开始</div><div class="d">目标 10 月 15 日</div></li>
+      <li class="now"><div class="t">接入 AI 模型</div><div class="s">已有局部试验</div><div class="d">统一流程待接通</div></li>
+      <li class="stuck"><div class="t">第一批结果</div><div class="s">待完整验收</div><div class="d">原目标 10 月 8 日</div></li>
+      <li class="stuck"><div class="t">全部出结果</div><div class="s">有风险</div><div class="d">原目标 10 月 15 日</div></li>
       <li class="next"><div class="t">优化与提交</div><div class="s">未开始</div><div class="d">截止 11 月 4 日</div></li>
     </ol>
   </section>
@@ -341,6 +341,9 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   <section>
     <h2>已经完成的</h2>
     <ul class="done-list">
+      <li>已完成按视频证据组织的处理方案：先核对可见内容和尺寸，再共同还原人和物体；修正前限定范围，修正后检查整段视频。</li>
+      <li>已整理全部 30 段视频的物体、任务和视角差异。真实遮挡、接触时刻和适合检查的画面仍需逐段核对，任务说明不能代替画面证据。</li>
+      <li>已拆解从方案落地到全部视频交付的六步工作安排，明确负责人分工、验收材料和失败后的处理方式。</li>
       <li>六项最终要求已经替换旧规则：人体和物体统一定位和尺寸；使用规定的人体表示；物体形状和位置一起检查；动作变化对比标准答案；遮挡时逐帧保留轨迹；所有估计只用本赛道提供的数据。</li>
       <li>已更新评分检查程序，用自行构造的模拟动作检查错误尺寸、后续漂移、动作过度平滑和漏帧等情况。这是程序检查，不是比赛成绩。</li>
       <li>已将新方案写入项目资料：先跑通真实结果，再根据证据修正问题，并逐项检查、保留可退回的版本。</li>
@@ -392,9 +395,9 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <div class="need">平台与人体负责人先完成转换和交接检查；项目负责人向主办方确认物体定位方式及能否合用同一物体的多段视频。</div>
       </div>
       <div class="issue mid">
-        <b>新方案还没有真实视频结果支持</b>
-        <p style="margin:4px 0 0">当前完成的是规则替换和评分检查方法更新。下一步先检查泡沫块和平底锅，再覆盖不同难点和全部视频，不凭少量演示宣布整体改进。</p>
-        <div class="need">四块负责人按验收安排交付真实结果、前后对比和失败清单；只接受视频证据支持的改动。</div>
+        <b>局部试验还不能证明整套方案可用</b>
+        <p style="margin:4px 0 0">历史试验已有泡沫块和平底锅结果，但尺寸、朝向、接触和交付后的检查仍待统一验收。新方案还需覆盖脚推、滚动、坐下和搬运等差异，并核对哪些视频已被反复用于调整方案。</p>
+        <div class="need">四块负责人先复核历史试验，再交付两段完整结果、逐帧对照和失败清单；固定检查方法后扩大覆盖。</div>
       </div>
     </div>
   </section>
@@ -407,13 +410,13 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <tbody>
           <tr><td class="date">10 月 1 日</td><td>服务器和模型使用权限到位</td><td><span class="tag stuck">有风险，待服务器</span></td></tr>
           <tr><td class="date">10 月 8 日</td><td>拿到第一批结果（2 段视频）</td><td><span class="tag stuck">有风险</span></td></tr>
-          <tr><td class="date">10 月 15 日</td><td>30 段视频全部出结果，第一次正式提交</td><td><span class="tag next">未开始</span></td></tr>
+          <tr><td class="date">10 月 15 日</td><td>30 段视频全部出结果，第一次正式提交</td><td><span class="tag stuck">有风险</span></td></tr>
           <tr><td class="date">10 月 29 日</td><td>攻克难点：细长物体、大件家具、人坐在物体上等情况</td><td><span class="tag next">未开始</span></td></tr>
           <tr><td class="date">11 月 4 日</td><td>比赛截止前集中优化和提交</td><td><span class="tag next">未开始</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="muted" style="margin-top:12px">比赛期间本赛道每周最多提交 5 次，最后 3 天不限次数。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。以上保留原有目标日期，不代表重新承诺；首批真实结果尚未开始，后续时间有风险。本轮暂不部署，先完成新方案和正式工具的对接安排。</p>
+    <p class="muted" style="margin-top:12px">比赛期间本赛道每周最多提交 5 次，最后 3 天不限次数。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。以上保留原有目标日期，不代表重新承诺；首批完整结果尚未验收，后续时间有风险。本轮完成处理方案设计，尚未运行新视频。</p>
   </section>
 
   <section>
@@ -421,12 +424,12 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <ol class="asks">
       <li><b>确认接收人、服务器配置和缺项安排</b>新材料已经公开；项目负责人确认接收人和服务器配置，各模块补齐手动下载或单独授权的模型文件，平台负责人准备对应的运行软件。本轮暂不部署，后续再安排真实视频运行。</li>
       <li><b>确认团队分工</b>三位同学分别负责哪一块工作（见上方“团队分工”）。</li>
-      <li><b>先验收完整结果，再扩展方案</b>优先完成正式工具对接和两段真实视频，保留失败记录；后续方案只有证明值得投入时才增加。</li>
+      <li><b>先验收完整结果，再扩展方案</b>先审查已有试验，完成正式工具对接和两段完整视频检查，再覆盖不同动作；保留失败记录和人工修正记录，避免只看成功演示。</li>
     </ol>
   </section>
 
 
-  <footer>数据截至 2026 年 10 月 3 日；本次更新：六项最终要求替换旧规则，评分检查程序同步更新并接受模拟动作验证。正式提交工具已公布但尚未对接。历史模型文件交接记录保留；本轮未运行真实视频、未部署，没有新增得分或排名。只用比赛给的 30 段视频及其重建结果开展实验。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 10 月 13 日；本次更新：细化视频处理方案、整理 30 段视频的检查重点并拆解交付安排。历史局部试验待完整验收；本轮未运行新视频、未部署，没有新增得分或排名。本页在线版本尚待同步。只用比赛给的 30 段视频及其重建结果开展实验。技术细节和准备记录见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

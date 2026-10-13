@@ -2,7 +2,19 @@
 
 Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
-## Planning update (2026-10-03)
+## Pipeline design record (2026-10-13)
+
+The repository design now separates module ownership from runtime jobs. Platform owns a dependency coordinator that pins the source timeline, preparation estimates, metric object asset and one native CARI4D invocation per episode. Human and Object own conversion and geometry validation of that same invocation; stage directories are views of its output, not permission to rerun independent human/camera estimates. Physics owns bounded diagnostic plans and repairs; Platform promotes only coherent, validated snapshots.
+
+The proposed `EpisodeEvidence`, `SceneState` and `SolvePlan` specifications are in [contracts-v2.md](contracts-v2.md). The [architecture](design.md), [30-video coverage inventory](video-coverage.md), and [P0–P5 backlog](implementation-plan.md) define owners, dependencies, native round-trip evidence and stop/rollback rules. Execution validity, reconstruction acceptance and export validity remain separate decisions. The current runner and v1 contract are unchanged.
+
+Before runtime work, audit reusable components on `origin/windows-cari4d` (`fb0bac9`) against current main (`0e86889696edc4d81a3c287cb93d76baece4a1d5`). Recorded native experiments exist, but provisional metric scale, unresolved pan orientation and invalidated contact after repairs prevent treating them as accepted baselines. Freeze one reviewed upstream/patch/environment combination; the older documented pin and later experimental pin must not be combined implicitly.
+
+This update runs no model, installs no environment and changes no deployment. Next deliverables are the component/exposure audit, executable v2 contracts, and complete native import/export/read-back on episodes 12 and 16. Local page sources are updated; live module/status publication is pending as recorded in [page-publication.md](page-publication.md).
+
+Design verification: all 30 inventory entries match the pinned gallery metadata (16,563 metadata frames), both recorded gallery hashes match, three illustrative JSON fragments parse, modified Markdown file targets exist, SVG XML parses, and `git diff --check` passes. Local browser checks cover the diagram, mobile status in light/dark themes with a ticking countdown, hub language switching and the portable reading copy. These are documentation checks; no runtime unit suite, source-video decoding, model inference or reconstruction-quality validation was performed for this update.
+
+## Earlier planning update (2026-10-03)
 
 The new plan prioritizes a verified native baseline over expanding the model or server inventory. [implementation-plan.md](implementation-plan.md) defines G0 official/native contract validation, G1 real episodes 16/12, G2 camera/scale evidence, G3 bounded repairs and G4 full-set export rehearsal. [evaluation.md](evaluation.md) records the now-available official kit: reference-relative acceleration, 22 body joints for ACC-H, and predicted hand penetration for PEN. Self-smoothness is only a diagnostic. The official adapter, proposed contract v2 and real baselines remain unimplemented or unverified.
 

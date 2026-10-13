@@ -1,10 +1,10 @@
 # Track 1 reconstruction design
 
-Updated 2026-10-03. This is the implementation direction following the repository and official-kit review. It is a plan, not a claim that the real reconstruction pipeline has been implemented or validated.
+Updated 2026-10-13. This specifies the video-conditioned pipeline and its integration with the existing modules. The execution graph and v2 contracts below are the target design; the checked-out runtime remains v1 with fake reconstruction stages.
 
 Build one reproducible native-MHR CARI4D baseline, preserve it, and add bounded repairs only where independent image evidence supports them. More models, a smaller optimization loss, and a smoother animation are not evidence of better reconstruction.
 
-Follow [track1-requirements.md](track1-requirements.md), the single authoritative statement of the owner's latest six requirements. Read [evaluation.md](evaluation.md) for source-pinned external mechanics and diagnostic limitations, [implementation-plan.md](implementation-plan.md) for the G0-G4 delivery gates, and [contracts.md](contracts.md) for implemented v1 files and proposed future contracts.
+Follow [track1-requirements.md](track1-requirements.md), the single authoritative statement of the owner's latest six requirements. Read [evaluation.md](evaluation.md) for source-pinned external mechanics and diagnostic limitations, [implementation-plan.md](implementation-plan.md) for delivery packages and G0-G4 gates, [contracts.md](contracts.md) for implemented v1 files, [contracts-v2.md](contracts-v2.md) for the proposed v2 contracts, and [video-coverage.md](video-coverage.md) for the 30-video inventory and validation boundaries.
 
 ### Latest project authority: final requirements supplied on 2026-10-03
 
@@ -25,7 +25,7 @@ The task is to reconstruct human motion with hands, object geometry, and object 
 | Candidate comparison | Prepared recipes and record/ranking validation | Verified extraction of real measurements and comparisons |
 | Runtime assets | Source/model manifests and acquisition records | Successful inference and a reproducible accepted baseline |
 
-The reconstruction findings originated from the audit of `6a53e84` and still describe the fake-stage pipeline. The replacement reference-based diagnostic scorer is a separate implementation from reconstruction/export; its current scope is recorded in evaluation.md. Downloaded weights and passing synthetic tests do not establish reconstruction quality. No numerical quality improvement is asserted by this design.
+The checked-out `main` at `0e86889696edc4d81a3c287cb93d76baece4a1d5` restored the tracked tree to the pre-Windows-development state. The inspected `windows-cari4d` tip `fb0bac9` retains native execution, conversion, observation repair and preview experiments. Those components require individual source, dependency and geometry reviews before reuse; their recorded experiments do not make them registered main-branch backends or accepted baselines. In particular, provisional scales, unaccepted pan orientation and contact checks invalidated by object repair remain unresolved. The replacement reference diagnostic is separate from reconstruction/export. Design completion, downloaded weights and synthetic tests do not establish reconstruction quality.
 
 ### Evaluation consequences
 
@@ -35,7 +35,7 @@ Track 1 does not expose the reference needed for local official Chamfer and refe
 
 ## 2. Baseline and upstream boundaries
 
-Use the MHR implementation in NVIDIA's video_to_data toolkit at `33129dd0f2d2dcfd1164d43fd076542660756ed2`. Keep its code, model identities, preprocessing, and outputs intact for the initial baseline. The standalone NVlabs/CARI4D repository and paper are related methods, not interchangeable runtime specifications.
+The documented baseline source pin is the MHR implementation in NVIDIA's video_to_data toolkit at `33129dd0f2d2dcfd1164d43fd076542660756ed2`. The Windows experiments refer to a later upstream revision and compatibility patches; the runtime work package must resolve and freeze one tested source/model/converter combination before execution. Preserve this documented pin until that review records a replacement. Keep code, model identities, preprocessing and outputs intact for the initial baseline. The standalone NVlabs/CARI4D repository and paper are related methods, not interchangeable runtime specifications.
 
 The pinned toolkit accepts RGB, human/object masks, and an already metric object mesh. SAM 3D Objects is external mesh preparation. Its transform/intrinsics sidecars are not automatically consumed; the supplied geometry retains its scale. The native launcher constructs its own MoGe2 depth/intrinsics, human initialization, depth alignment, object tracking, CoCoNet output, and post-optimization. It has no public override for the project's planned shared camera/depth/human artifacts. The internal stages must be adapted explicitly before claiming that those artifacts govern inference.
 
@@ -45,33 +45,109 @@ Sources: [pinned toolkit README](https://github.com/nvidia-isaac/video_to_data/b
 
 Do not transplant the standalone implementation's SMPL-era parameterization, mesh scaling procedure, optimizer settings, or paper metrics into this baseline. The [standalone custom-video instructions](https://github.com/NVlabs/CARI4D/blob/main/docs/custom_video.md) are useful research context; their limitations motivate tests, not unmeasured claims about the toolkit fork.
 
-## 3. Architecture: observations, baseline, optional repair
+## 3. Video evidence and execution architecture
 
-The existing six-stage interface remains useful for ownership and storage. Do not force native CARI4D into six supposedly independent estimators: it already couples human and object inference. A baseline adapter should import the coupled outputs atomically and expose stage identities without rerunning hidden estimators.
+Use one scene representation and a fixed set of operations across episodes. Input evidence determines the anchor frames, plausible hypotheses, active contact relations and parameters allowed to change. Episode IDs and object names select input records; they do not select hidden solver weights, special-case trajectories or acceptance thresholds. The same stool may be carried or support a seated person, and those intervals require different constraints.
 
-```text
-Track 1 video + metadata
-  -> observations: masks, image transforms, camera/depth proposals
-  -> object preparation: candidate geometry + explicit metric-scale estimate
-  -> pinned native MHR CARI4D
-  -> immutable baseline: decoded geometry, native parameters, object poses
-  -> diagnostics and flagged intervals
-  -> optional bounded repair, with the baseline retained
-  -> verified native export -> official-kit-compatible artifact
+### Module responsibilities
+
+The six existing stages remain responsibility boundaries. The coordinator executes dependency-defined jobs, including one joint native job; it does not call a separate CARI4D inference for each output directory.
+
+| Existing stage | Responsibility in v2 | Shared result |
+|---|---|---|
+| `inputs` | Source-frame indexing, target association, visible observations, image transforms, anchors and event proposals | `EpisodeEvidence` and preparation inputs |
+| `human` | Standalone human/scale preparation, native representation validation, bounded human repair | Explicit preparation prior; final native human from the joint estimate |
+| `objects` | Episode-local geometry candidates, physical-scale preparation, canonical frame, topology and symmetry | Versioned geometry paired with pose-frame transforms |
+| `motion` | Full-frame object trajectories, orientation hypotheses and visibility-aware trajectory diagnostics | Initial native trajectory and proposed motion repairs |
+| `refine` | Execute bounded plans; preserve unrelated variables and report candidate changes | New immutable candidate `SceneState` |
+| `export` | Diagnostic packing/read-back of one execution-valid scene; final promotion also requires its quality acceptance | Export manifest and separate export validation |
+
+Platform owns orchestration and the independent validation entry. Human, Object and Physics own the semantics of their states and repair operations. Refinement cannot mark its own lower fitting loss as acceptance.
+
+### Execution graph
+
+![Proposed video evidence execution graph](pipeline.svg)
+
+```mermaid
+flowchart TD
+    V[Track 1 video and metadata] --> E[EpisodeEvidence]
+    E --> P[Human and depth scale preparation]
+    P --> O[Metric object geometry]
+    E --> O
+    O --> J[One native CARI4D joint task]
+    J --> S[Immutable SceneState]
+    E --> D[Video diagnostics and validation]
+    S --> D
+    D -->|supported local failure| L[Bounded SolvePlan]
+    L --> R[Refine candidate]
+    R -->|new scene version| S
+    D -->|global inconsistency| O
+    S --> X[Diagnostic native packing and readback]
+    D -->|quality accepted| F[Final release gate]
+    X -->|export valid for same scene| F
 ```
 
-An observation records what was measured or predicted from an image; an estimate records the scene explanation being optimized. Rendering an estimate back into a pseudo-observation does not create independent evidence. Record common upstream models: human initialization, depth, and contact predictions can have correlated errors.
+Every loop edge creates a new artifact lineage. A global inconsistency is a diagnosis to investigate, not automatic permission to change geometry: the coordinator records the evidence and a preparation revision, then recomputes or explicitly revalidates every affected descendant. Diagnostic packing/read-back begins with the first execution-valid baseline in P2; quality and export checks may run in either order. Final release requires both passing for the same scene, plus complete challenge coverage. No loop overwrites the accepted snapshot.
 
-The proposed future artifacts include:
+### Evidence pass
 
-- Native MHR trajectory and rig identity; derived human geometry and optional SOMA-X views.
-- Object mesh identity, canonical origin/axes, baked scale and explicit pose-scale convention.
-- Camera and image-transform lineage, including crop/resize/padding and distortion assumptions.
-- Visible masks, invalid/occluded/out-of-frame regions, depth validity and observation provenance.
-- Pose hypotheses, visibility state, diagnostic uncertainty, contact events and repair decisions.
-- Content hashes for every dependency and an immutable run manifest.
+Decode the source timeline before choosing samples. Associate the intended person and required objects, including through occlusion and among background people or similar objects. Keep evidence in original-image coordinates and record every crop, resize and padding operation. Distinguish visible object pixels, reliable background, human occlusion, out-of-frame regions and unknown regions; an empty detector result alone cannot label reliable absence.
 
-These are contract proposals, not additional fields already available in `CONTRACT_VERSION = 1`. Introduce a reviewed migration before a consumer depends on them.
+The first pass collects masks, image landmarks, sparse correspondences and depth validity at an explicit sampling density. Expensive observations may be sparse while the final reconstruction covers every source frame. Record sampled frame IDs and unobserved intervals rather than inventing dense evidence. Preserve fine contours, handles and holes when selecting resolution; record how observed image size determines a resolution choice under one policy.
+
+Select anchors for complementary visible surfaces, reliable appearance, low blur and boundaries of contact or visibility events. Similar adjacent frames contribute little new geometric information. Keep fit and review observations separate before candidate selection. Anchor selection never changes the R1 reference alignment frame. Task text proposes events; image evidence and later geometry confirm, reject or leave them unresolved.
+
+An observation records what was measured or predicted from an image; a scene estimate records the explanation being optimized. Rendering an estimate back into a pseudo-observation does not create independent evidence. Human, depth and contact predictions with shared upstream inputs can have correlated errors. A model confidence, fit residual and uncertainty of the reconstructed state are separate values.
+
+### Scene variables and lifetimes
+
+| Scope | Variables | Update rule |
+|---|---|---|
+| Whole episode | Camera assumptions, human identity and structural scales, object shape/scale/canonical frame, static support patches | Initialize from several informative views; change only through a new global preparation revision |
+| Every source frame | Native MHR pose/root state, object rigid transform | Complete finite timeline in the shared frame; no per-frame object rescaling |
+| Event interval | Grasp, touch, slide, support, release, body/foot contact, visibility | Relations may coexist; boundaries and confidence remain revisable |
+| Competing hypothesis | Geometry candidate, symmetry representative, ambiguous orientation, hidden path | Bounded candidate set; eliminate using discriminating observations and record remaining ambiguity |
+
+The rigid target representation follows the submission contract. Visible subpart motion, such as a roller rotating about its handle, must be recorded as a possible representation mismatch rather than silently creating an unsupported articulated export. Local support geometry is estimated from permitted images; it is not a borrowed scene mesh. Cross-episode asset/camera sharing remains disabled.
+
+### Preparation and native joint estimate
+
+Prepare camera, standalone human and depth priors under one declared convention; use reliable visible evidence to establish a metric mesh candidate. Compare geometry candidates with their corresponding anchor poses across several views. Do not simultaneously release focal length, human size, object size and depth bias to improve one projection. Absolute monocular scale remains ambiguous; the human prior anchors a convention and relative scale still requires evidence.
+
+The native adapter then consumes the prepared RGB, masks and metric mesh once. It imports the camera, depth, human, aligned mesh and object trajectory that actually ran as a coherent snapshot. The preliminary human/depth estimates remain labeled preparation priors. They do not override native estimates unless a reviewed hook proves they were consumed. Material scale disagreement between preparation and native inference invalidates acceptance and opens a diagnosed preparation revision.
+
+Native output supplies the initial scene candidate. Execution validity and quality acceptance are recorded separately. Keep the original native result and all conversion discrepancies; an invalid or rejected baseline is never an automatic export fallback.
+
+### Diagnostics and operation selection
+
+The proposed `EpisodeEvidence`, `SceneState` and `SolvePlan` contracts are specified in [contracts-v2.md](contracts-v2.md). `SceneState` is an immutable manifest referencing the existing typed artifacts, not a second independently editable human representation. The first coordinator uses explicit operation rules and bounded iteration counts. It does not require a learned routing model.
+
+| Diagnostic evidence | First investigation or operation | Variables retained |
+|---|---|---|
+| Inconsistent visible contours across complementary views | Check masks, image transforms, camera and mesh/scale; propose preparation revision only with supporting evidence | Previous accepted scene and all candidate identities |
+| Local orientation flip with discriminating appearance | Compare orientation branches, then refit the affected poses | Camera, geometry, object scale, unrelated human state |
+| Object hidden but stable grasp supported | Forward/backward trajectory hypotheses constrained by hand-relative motion | Global scene; uncertainty in invisible degrees of freedom |
+| Handover, release, foot push or body support | Revise contact relations and solve only justified state blocks | Unrelated body/hand controls and all global variables |
+| Object placed with support and image-stationarity evidence | Test a near-static interval with correct support constraints | No hard static lock based only on estimated low speed |
+| Both human and object evidence insufficient | Preserve bounded hypotheses or declared weak interpolation | Record unresolved ambiguity; do not manufacture observed motion |
+
+Every plan pins a parent scene, evidence version, fit/review split, operation parameters, fixed/mutable blocks, allowed intervals, iteration/time/memory/hypothesis budgets and rollback target. Unknown operations or missing budgets fail before execution. Geometry/scale/camera revisions are outside the first local-repair operation set. Their review and descendant invalidation are explicit coordinator jobs.
+
+Weights reflect recorded observation reliability and units. They are fixed by the frozen policy for a trial; the optimizer cannot freely reduce them to hide errors. Compare jointly rendered visible surfaces, preserving occlusion and image boundaries. Normalize pixel diagnostics by declared image or target dimensions, keep distances in declared metric units, and use timestamps for time-based diagnostics. Lower prediction-only acceleration cannot certify better motion.
+
+### Local solving and validation
+
+Start from reliable anchors, propagate in both directions and solve overlapping intervals with boundary continuity checks. A reappearance frame can constrain earlier occluded motion. Symmetry-aware comparisons retain appearance distinctions; a smooth representative does not reveal an unobservable spin. Test initial-condition sensitivity and competing hypotheses; a small image residual alone does not establish a unique three-dimensional solution.
+
+Use alternating, bounded updates: object pose first when supported, then relevant native human controls where independent evidence warrants them. Contact changes re-open human/object consistency checks. Grasp can constrain a stable contact region; sliding must allow tangential motion; support constrains normal geometry without inventing known friction or forces. The three first operations are orientation-branch repair, contact-transition repair and occlusion recovery; more complex physical models require a measured failure and separate acceptance.
+
+Validation reads one pinned candidate and its retained baseline. It checks structural validity, provenance, unchanged fixed blocks, full-frame coverage, held-out observations, contact persistence, motion timing and repaired-window boundaries. Acceptance limits are calibrated on development evidence and frozen before candidate comparisons. Accept, reject and unresolved are distinct outcomes; a failed repair leaves the prior accepted state intact. The final pack/reload step validates the exact compiled mesh and human geometry, with an export failure blocking release of that candidate.
+
+### Coordinator and migration boundary
+
+Current `run.py` iterates a fixed stage tuple, and `Run.find()` falls back to the nearest upstream file. The proposed coordinator instead resolves declared inputs by content identity and invokes preparation, joint reconstruction, diagnostics, planning, repair, validation and export jobs. Human and motion directories may expose views of the single joint result; they must not trigger duplicate inference or assemble an accidental mixture of scenes.
+
+Do not bump the runtime contract merely by editing this specification. Implement v2 serializers and validators in a separate reviewed migration, preserve v1 fixtures, and make unsupported conversion fail explicitly. Prior branch experiments enter through reviewed adapters, not a bulk restoration of the reverted tree. The dependency and rollout sequence is in [implementation-plan.md](implementation-plan.md).
 
 ## 4. Representation and coordinates
 
@@ -143,13 +219,15 @@ The complete model can be described as a sum of visible-image, visible-depth, te
 
 Use robust residuals with explicit units and observation reliability. Keep original observations separate from learned priors. Specify the allowed parameter block, interval, displacement bounds, hypothesis budget and rollback rule before each experiment. A lower objective does not justify promotion if independent observations deteriorate.
 
-The initial repair order is:
+Camera/scale or mesh/pose-frame inconsistencies return to preparation before motion repair. These revisions invalidate their consumers and are outside the initial repair registry.
 
-1. Correct camera/scale or mesh/pose-frame inconsistencies before refining motion.
-2. Repair flagged object pose intervals with fixed geometry and camera, using visible contours/features and clear anchor frames.
-3. Release human root or body controls only with independent image anchors and a bounded change from the baseline.
-4. Release hand parameters only when the visible hand evidence or stable interaction state can constrain them.
-5. Recheck the full sequence, including boundaries of repaired windows, and export from the authoritative native MHR state.
+The first repair operations are:
+
+1. `orientation_branch`: compare bounded object orientation candidates using visible contours/features and clear anchors, with camera and geometry fixed.
+2. `contact_transition`: repair evidenced grasp/release, sliding or support changes. Release bounded human root/body/hand controls only where the plan declares them and independent image anchors constrain them; hand edits require sufficient visible hand or interaction evidence.
+3. `occlusion_recovery`: compare bounded bidirectional object-trajectory hypotheses against reappearance and boundary evidence, with global state fixed.
+
+Choose an operation from its diagnosed failure, rather than running all three on every clip. Recheck the full sequence after each candidate, including window boundaries and the authoritative native MHR geometry.
 
 Use reference-relative acceleration implications from evaluation.md. Prediction self-acceleration is a diagnostic, not the target official error. Do not turn rapid real motion into a smooth, wrong trajectory. A static segment must be established from image/support evidence and contact state, not merely low estimated speed; ambiguous intervals retain a soft prior.
 
@@ -177,7 +255,7 @@ Use independent synthetic sequences for known-answer geometry, native conversion
 
 Freeze a comparison protocol after baseline observation and before candidate ranking. Publish per-episode outcomes and the worst failures, not only averages. Frame-adjacent samples are correlated; do not present them as independent replication. No universal numerical pass threshold or automatic promotion is implemented today.
 
-Promote only when:
+Initial baseline quality acceptance uses the frozen review protocol, complete source overlays, evidence limits and recorded failures; it cannot require improvement over itself. Execution validity alone does not confer quality acceptance. Promote a repaired candidate only when:
 
 - Provenance, native-format validity, frame coverage and asset identity remain valid.
 - The targeted failure improves on held-out observation evidence or permitted official results.

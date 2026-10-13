@@ -187,8 +187,8 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
   <section aria-labelledby="pipe-h">
     <h2 id="pipe-h">Pipeline</h2>
     <figure>
-      <img src="pipeline.svg" alt="The video-to-hoi pipeline: six stages owned by four modules, from the Track 1 video to the export.">
-      <figcaption>Six stages owned by four modules. Human geometry supplies a scale prior; bounded refinement preserves video evidence. The diagram is the target design, not an implemented real-model pipeline.</figcaption>
+      <img src="pipeline.svg" alt="Proposed video-conditioned pipeline: evidence, one joint baseline, immutable scenes, bounded repair and independent release gates.">
+      <figcaption>Four modules share one coherent scene. Video evidence and metric geometry feed one joint reconstruction; bounded repairs create new candidates. Quality review and export read-back are separate gates. Runtime integration is pending.</figcaption>
     </figure>
   </section>
 
@@ -232,8 +232,8 @@ figcaption { margin-top: 8px; font-size: 12px; color: var(--fg-muted); }
     "Visible-surface mesh selection, a fixed mesh origin and scale, structured symmetry, and continuous poses with explicit occlusion hypotheses.": "按可见表面选择网格，固定原点和尺度，明确对称性，并在连续轨迹中记录遮挡假设。",
     "Motion timing and amplitude, simultaneous contact relations, bounded joint repair, independent acceptance checks, and rollback.": "保持动作时序与幅值，表达同时存在的接触关系，有限联合修正，独立验收并支持回退。",
     "Stages": "阶段", "Branch": "分支", "all five, as gatekeeper": "全部五个，负责把关",
-    "The video-to-hoi pipeline: six stages owned by four modules, from the Track 1 video to the export.": "video-to-hoi 流水线：从 Track 1 视频到导出，六个阶段分属四个模块。",
-    "Six stages owned by four modules. Human geometry supplies a scale prior; bounded refinement preserves video evidence. The diagram is the target design, not an implemented real-model pipeline.": "六个阶段分属四个模块。人体几何提供尺度先验；有限修正应保持视频证据。图中是目标设计，真实模型流水线尚未实现。",
+    "Proposed video-conditioned pipeline: evidence, one joint baseline, immutable scenes, bounded repair and independent release gates.": "按视频证据组织的目标管线：视频观测、一次联合重建、固定场景版本、有限修正和独立验收。",
+    "Four modules share one coherent scene. Video evidence and metric geometry feed one joint reconstruction; bounded repairs create new candidates. Quality review and export read-back are separate gates. Runtime integration is pending.": "四个模块共享一致的场景。视频证据和带尺寸的物体形状用于一次联合重建；有限修正生成新候选。质量检查与导出回读分别验收。运行流程仍待接通。",
     "Final requirements audit": "最终要求审计", "Six requirements checked against the current implementation": "逐项核对六条要求与当前实现",
     "Final Track 1 requirements": "最终Track 1要求", "The six current rules replace all conflicting earlier guidance": "六条现行规则替代此前所有冲突说明",
     "Evaluation specification": "评测规范", "Verified kit semantics, sources, and remaining questions": "已核实的工具包定义、来源及待确认问题",

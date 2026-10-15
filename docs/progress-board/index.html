@@ -10,29 +10,40 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <aside class="sidebar">
-    <a class="brand" href="#"><span class="brand-mark">v/h</span><span>video-to-hoi<small>RECONSTRUCTION WORKSPACE</small></span></a>
-    <div class="workspace-label">TRACK 1 <span>30 VIDEOS</span></div>
-    <nav aria-label="Workspace">
-      <button class="nav-item active" id="nav-board"><span>▦</span><span data-i18n="boardNav">视频交付看板</span></button>
-      <button class="nav-item" id="nav-attention"><span>◉</span><span data-i18n="attentionNav">需要跟进</span><b id="attention-count">0</b></button>
-      <button class="nav-item" id="nav-capabilities"><span>◇</span><span data-i18n="capabilitiesNav">模块准备情况</span></button>
-    </nav>
-    <div class="sidebar-section" data-i18n="workingAreas">工作分区</div>
-    <div id="module-links"></div>
-    <div class="sidebar-bottom">
-      <a href="https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S" target="_blank" rel="noopener" data-i18n="openHub">打开团队 Hub ↗</a>
-      <a href="https://github.com/Seanwilliam2077/video-to-hoi/tree/main/deliveries" target="_blank" rel="noopener" data-i18n="deliveryGuide">交付目录与模板 ↗</a>
-      <div class="role-note"><span class="status-dot"></span><span data-i18n="floatingRoles">按任务协作，角色自由流动</span></div>
+  <nav class="sitenav" aria-label="Team pages">
+    <div class="container">
+      <a href="https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S" target="_blank" rel="noopener" data-i18n="teamHub">团队主页</a>
+      <a href="https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1" target="_blank" rel="noopener" data-i18n="projectStatus">项目进展</a>
+      <a href="https://claude.ai/artifact/YXL887jxTTp7aQByCQvC6b" target="_blank" rel="noopener" data-i18n="reference">比赛资料</a>
+      <span class="sep" aria-hidden="true"></span>
+      <a href="https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg" target="_blank" rel="noopener" data-i18n="platformNav">① 平台</a>
+      <a href="https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk" target="_blank" rel="noopener" data-i18n="humanNav">② 人体</a>
+      <a href="https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8" target="_blank" rel="noopener" data-i18n="objectNav">③ 物体</a>
+      <a href="https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV" target="_blank" rel="noopener" data-i18n="physicsNav">④ 物理</a>
     </div>
-  </aside>
-  <div class="workspace">
-    <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <b data-i18n="boardNav">视频交付看板</b></div><div class="topbar-actions"><span class="live-dot"></span><span id="source-label" class="source-label">Git snapshot</span><button id="language" class="text-button" aria-label="Switch language">EN</button></div></header>
-    <main>
+  </nav>
+  <header class="repohead">
+    <div class="container">
+      <div class="repo-top">
+        <div class="crumbs">
+          <svg class="oct" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 13.5V2.5A1.5 1.5 0 0 1 4.5 1H13v11H4.5A1.5 1.5 0 0 0 3 13.5Zm0 0A1.5 1.5 0 0 0 4.5 15H13v-3"/></svg>
+          <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">video-to-hoi</a><span>/</span><strong>progress-board</strong><span class="pill">Track 1</span>
+        </div>
+        <div class="head-actions"><span id="source-label" class="source-label">Git snapshot</span><button id="language" class="button" aria-label="Switch language">EN</button><a class="button" href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener" data-i18n="repository">仓库</a></div>
+      </div>
+      <nav class="tabline" aria-label="Board views">
+        <button class="nav-item active" id="nav-board"><svg class="oct" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><path d="M1.5 6h13M6 6v7.5"/></svg><span data-i18n="boardNav">视频交付看板</span><span class="counter">30</span></button>
+        <button class="nav-item" id="nav-attention"><svg class="oct" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5v4M8 11v.5"/></svg><span data-i18n="attentionNav">需要跟进</span><b class="counter" id="attention-count">0</b></button>
+        <button class="nav-item" id="nav-capabilities"><svg class="oct" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m8 1 6.5 3.5L8 8 1.5 4.5 8 1Zm-6.5 7L8 11.5 14.5 8M1.5 11.5 8 15l6.5-3.5"/></svg><span data-i18n="capabilitiesNav">模块准备情况</span></button>
+      </nav>
+    </div>
+  </header>
+    <main class="container">
       <section class="page-heading">
-        <div><div class="eyebrow">VIDEO → HUMAN · OBJECT → SCENE</div><h1 data-i18n="title">30 段视频，一张交付地图。</h1><p data-i18n="subtitle">从输入到最终导出，追踪每次交付、缺失材料和下一步。</p></div>
+        <div><h1 data-i18n="title">Track 1 视频交付看板</h1><p data-i18n="subtitle">跟踪全部 30 个视频的六个阶段、交付材料与迭代记录。</p></div>
         <div class="heading-actions"><button id="guide-button" class="button" data-i18n="howTo">如何更新</button><button id="refresh" class="button" data-i18n="refresh">↻ 刷新仓库</button><button id="export" class="button primary"><span data-i18n="export">导出草稿</span><span id="draft-count">0</span></button></div>
       </section>
+      <div class="module-toolbar"><span data-i18n="workingAreas">递交分区</span><div id="module-links"></div><a href="https://github.com/Seanwilliam2077/video-to-hoi/tree/main/deliveries" target="_blank" rel="noopener" data-i18n="deliveryGuide">交付目录与模板 ↗</a></div>
       <div id="load-error" class="notice error" hidden></div>
       <section class="stats" aria-label="Delivery summary">
         <article><span data-i18n="videos">跟踪视频</span><div><strong id="stat-videos">30</strong><small data-i18n="videoGroups">10 组物体</small></div><div class="stat-foot" data-i18n="fullSet">完整赛道清单</div></article>
@@ -59,9 +70,8 @@
         <div class="board-footer"><span data-i18n="cellHint">点击任一阶段，查看交付清单与迭代历史。</span><button id="import-button" class="text-button" data-i18n="import">导入记录 JSON</button><input type="file" accept="application/json,.json" id="import-file" hidden></div>
       </section>
       <section class="capabilities" id="capabilities"><div class="section-heading"><h2 data-i18n="sharedPreparation">共享基础准备</h2><span data-i18n="separateProgress">工程准备与逐视频结果分别记录</span></div><div id="capability-grid"></div></section>
-      <footer class="page-footer"><span id="snapshot-info"></span><span data-i18n="footerNote">状态由交付记录申报；文件真实性与模型质量以所附检查证据为准。</span></footer>
+      <footer class="page-footer"><div><span id="snapshot-info"></span><span data-i18n="floatingRoles">按任务协作，角色自由流动</span></div><span data-i18n="footerNote">状态由交付记录申报；文件真实性与模型质量以所附检查证据为准。</span></footer>
     </main>
-  </div>
   <dialog id="detail" aria-labelledby="detail-title"><div class="detail-header"><div id="detail-heading"></div><button class="close-button" id="close-detail" aria-label="Close details">×</button></div><div id="detail-content"></div></dialog>
   <dialog id="guide" aria-labelledby="guide-title"><div class="detail-header"><h2 id="guide-title" data-i18n="howTo">如何更新</h2><button class="close-button" id="close-guide" aria-label="Close guide">×</button></div><div id="guide-content"></div></dialog>
   <div id="toast" role="status" aria-live="polite" hidden></div>

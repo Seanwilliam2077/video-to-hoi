@@ -4,9 +4,22 @@ Updated **2026-10-15**, Asia/Shanghai. Static artifact publication remains incom
 
 ## Module Progress posts and GitHub entry points (2026-10-15)
 
-The owner requested a progress submission to each of the four live module sections. The four module-specific titles, bodies and evidence links are prepared in [page-updates-20261015.json](page-updates-20261015.json). They distinguish implemented shared checks and documentation from pending native model work. None has been posted or verified in the live database in this attempt. The connected browser currently shows **Sign in to view this page**, including after the owner reported successful login in another browser/session. This is the current access blocker for Progress posting; the older authenticated state below is historical. Authorization to post already exists. Reconcile against the live rows before writing to avoid duplicates, then record actual save/reload evidence.
+All four requested module Progress notes were posted through the authenticated [Team hub](https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S). The live hub exposes module and Progress routes inside its artifact iframe; these are not verified top-level URL fragments. No separately documented module artifact URL was edited or verified in this pass.
+
+| Module | Observed iframe Progress route | Entry count before / after |
+| --- | --- | --- |
+| Platform | `#platform-progress` | 3 / 4 |
+| Human | `#human-progress` | 2 / 3 |
+| Object | `#object-progress` | 2 / 3 |
+| Physics | `#physics-progress` | 2 / 3 |
+
+After all four saves, the top-level hub was fully reloaded and each module Progress view reopened. Each complete submitted text and its delivery link matched exactly once. The entries display author **sean (you)**, type **Progress** and date **Oct 15**. Each delivery link is pinned to repository commit `b9fcb7e750bd96372108f4eac34e9b7b3530d6bb`. Counts are UI observations, not database identifiers; unavailable row IDs and publication revisions remain null. The [publication receipt](evidence/page-publication-20261015.json) records the actual posted text, links, routes and verification evidence; [page-updates-20261015.json](page-updates-20261015.json) retains the prepared updates and publication outcome.
+
+The notes distinguish implemented shared checks and documentation from pending native model work. They do not establish a new real baseline, model-quality improvement or official export acceptance. Earlier attempts in another connected browser showed **Sign in to view this page**; access was subsequently resolved through the owner's existing authenticated hub tab. Login is no longer a blocker for these completed Progress posts.
 
 The repository README now omits its standalone Project status section while retaining the Team hub entry. The hub/status HTML sources and the hub's status navigation/card are preserved. The README links the four [module delivery folders](../deliveries/README.md), and a shared template and PR checklist explain code, review-record and large-output locations. These folders are a human review index, not implemented native transport or accepted model deliveries. Publishing these Git files does not publish Claude Progress rows or static artifact source.
+
+Only the four Progress entries were published in this pass. Static Overview/Challenge text, hub source/diagram and status source were not republished. The dated local-update sections below preserve their earlier publication state; this latest receipt supersedes their pending module-Progress statements, while static refresh remains pending.
 
 ## Local delivery-gate and collaboration follow-up (2026-10-15; not published)
 
@@ -56,14 +69,14 @@ Do not duplicate the earlier task/resource rows or the seven answered questions 
 
 ## What remains unpublished
 
-Overall status remains **`pending_static_publication`**. The coordinator checked both the direct artifact interface and the Cowork Artifact options; neither exposed a usable source editor. An authenticated database UI was available for the answer replacements, but this does not imply that complete artifact source can be edited.
+Overall static-source status remains **`pending_static_publication`**. Earlier checks of the direct artifact interface and Cowork Artifact options did not expose a usable source editor. Authenticated database access supported the earlier answer replacements and the four verified module Progress posts above; neither establishes that complete artifact source has been republished.
 
 - Static Overview/Challenge text on the Reference and module subpages has not been republished and may still contain superseded wording.
 - The updated local team hub and diagram, `docs/hub.html` and `docs/pipeline.svg`, have not been republished to the existing hub artifact.
 - The updated local Chinese status page, `docs/status.html`, has not been republished to its existing artifact.
 - Proposed full task bodies, acceptance fields and translation-dictionary changes were not applied through an unsupported live schema.
 
-The corrected Reference answers are live; the static-source refresh is not complete. Do not describe all pages as updated. A Git commit or updated local HTML file alone does not update a live artifact.
+The earlier corrected Reference answers and the four new module Progress entries are recorded as published; the static-source refresh is not complete. The separately documented module artifact URLs were not verified in this pass. Do not describe all pages as updated. A Git commit or updated local HTML file alone does not update a live artifact.
 
 ## Completing the static refresh
 
@@ -73,4 +86,4 @@ The corrected Reference answers are live; the static-source refresh is not compl
 4. Publish through an available source-editing interface, then reload and verify both languages, navigation, retained rows and resource links.
 5. Record the actual scope, timestamp, exposed revision and verification evidence. Mark static publication complete only for artifacts whose new source is confirmed.
 
-The user's authorization to update these pages persists. Static source refresh still needs a supported source editor; the current Progress-post attempt additionally needs access to the owner's authenticated module session, as recorded above. Current implementation status belongs in [track1-compliance.md](track1-compliance.md); newly edited answers and created tasks do not establish real reconstruction, a completed export or official scores.
+The user's authorization to update these pages persists. Access for the four Progress posts was resolved and their saves were verified after reload. Static source refresh still needs a supported source editor. Current implementation status belongs in [track1-compliance.md](track1-compliance.md); published progress, edited answers and created tasks do not establish real reconstruction, a completed export or official scores.

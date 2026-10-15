@@ -1,21 +1,13 @@
 {
   "date": "2026-10-15",
   "timezone": "Asia/Shanghai",
-  "purpose": "Four module-specific Progress notes requested by the owner. Prepared content is not evidence of live publication.",
-  "publication_status": "pending_authenticated_module_access",
-  "published": false,
+  "purpose": "Four requested module Progress notes are published and verified after reload. Original prepared bodies are retained separately; exact submitted text is recorded in the publication receipt.",
+  "publication_status": "module_progress_published_verified",
+  "published": true,
   "current_requirements": "docs/track1-requirements.md",
-  "access_snapshot": {
-    "hub_url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S",
-    "observed_page": "Sign in to view this page",
-    "user_report": "The owner reports successful login in another browser or desktop session; the browser available to this task still shows the sign-in page.",
-    "current_module_rows_read": false,
-    "external_writes_performed": false,
-    "requires": "Access to the owner's authenticated module page in the connected browser. Existing authorization to post these routine progress notes is sufficient."
-  },
   "publication_rules": [
     "Read current Progress entries and inspect supported fields before writing; avoid duplicating a matching dated entry.",
-    "Use the four existing module URLs and Progress forms, not a new page or an AI chat prompt.",
+    "Use the existing Hub module Progress views observed in the authenticated UI; preserve previously documented standalone URLs as history. Do not invent a top-level deep link from an iframe fragment, create a new page or send an AI chat prompt.",
     "Keep existing history and floating roles. Record only actual participants if the form requires attribution.",
     "Verify the saved text after reload. Record real exposed IDs and revision evidence; unavailable IDs remain null.",
     "A successful Progress post does not publish static hub/status source or accept a model result."
@@ -24,70 +16,125 @@
     {
       "key": "platform-progress-20261015",
       "module": "platform",
-      "url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
       "section": "Progress",
       "title": "2026-10-15 | Delivery gates, independent handoffs and platform plan",
-      "body": "Completed engineering support: all six internal v1 stages now use preflight/output checks, fresh attempts, fixed input snapshots, exact predecessor/hash records and stale-result blocking. The recheck CLI and a synthetic demonstration across five folders on one host are available. The recorded explicit CPU suite passed 453 tests; this is historical implementation evidence, not a new test run from this progress post. The opt-in v2 foundation provides immutable storage, structural contracts and geometry helpers.\n\nThe distributed design separates Human 01-04, Object 05 and Physics 06-07 while preserving exact input dependencies. Module 1's plan prioritizes one complete real import/scene/export/reload path, then a two-host rehearsal, then baseline/candidate experiments. Members work across modules; execution and review participants are recorded per task.\n\nLimit: registered reconstruction backends remain fake. No new real baseline, native conversion, cross-machine model run, quality acceptance or official export acceptance is established. Next: obtain one permitted native output sample, implement typed import and scene normalization, and verify export/reload on a complete episode before accepting cross-machine execution.\n\nSubmission location: deliveries/platform/<unique-delivery-id>/README.md through a PR to main; large outputs use a new result-specific Release or agreed storage with exact hashes. This review index does not implement native package transport.",
       "evidence": [
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/8fabd163c8391a4d6a574e27ebd90598d39839ae/docs/delivery-gates.md",
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/8fabd163c8391a4d6a574e27ebd90598d39839ae/docs/evidence/delivery-gates-validation-20261015.json",
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/78403e48d4ab0cd1d5bf380fb7e0d25f0825bd22/docs/platform-plan.md",
         "https://github.com/Seanwilliam2077/video-to-hoi/tree/main/deliveries/platform"
       ],
-      "published": false,
+      "published": true,
       "live_row_id": null,
-      "verified_after_reload": false
+      "verified_after_reload": true,
+      "previously_documented_module_url": "https://claude.ai/artifact/A9hrz9B8qed9WWqkFWpAHg",
+      "prepared_body": "Completed engineering support: all six internal v1 stages now use preflight/output checks, fresh attempts, fixed input snapshots, exact predecessor/hash records and stale-result blocking. The recheck CLI and a synthetic demonstration across five folders on one host are available. The recorded explicit CPU suite passed 453 tests; this is historical implementation evidence, not a new test run from this progress post. The opt-in v2 foundation provides immutable storage, structural contracts and geometry helpers.\n\nThe distributed design separates Human 01-04, Object 05 and Physics 06-07 while preserving exact input dependencies. Module 1's plan prioritizes one complete real import/scene/export/reload path, then a two-host rehearsal, then baseline/candidate experiments. Members work across modules; execution and review participants are recorded per task.\n\nLimit: registered reconstruction backends remain fake. No new real baseline, native conversion, cross-machine model run, quality acceptance or official export acceptance is established. Next: obtain one permitted native output sample, implement typed import and scene normalization, and verify export/reload on a complete episode before accepting cross-machine execution.\n\nSubmission location: deliveries/platform/<unique-delivery-id>/README.md through a PR to main; large outputs use a new result-specific Release or agreed storage with exact hashes. This review index does not implement native package transport.",
+      "body": "Completed: automatic preflight/output checks for all six internal v1 stages, fresh attempts, fixed input snapshots, exact predecessor/hash records, stale-result blocking and a read-only recheck CLI. The independent synthetic demonstration passed six stages across five folders on one host; tampering with upstream motion blocked the consumer before execution. The recorded CPU allowlist passed 453 tests at commit 8fabd16; these are existing engineering checks, not new model results. The v2 foundation adds immutable storage, structural contracts and geometry helpers.\n\nThe native split preserves Human 01-04, Object 05 and Physics 06-07 dependencies. The platform plan prioritizes one complete native import/scene/export/reload path, then a two-host rehearsal, then baseline/candidate comparisons. Roles float across modules; execution and review participants are recorded per task.\n\nPending: real model adapters, native conversion, verified transport, quality acceptance and official export/reload. Registered reconstruction backends remain fake; no new real baseline or official score was produced. Next: obtain one permitted native sample, implement typed import and scene normalization, and verify a complete episode through export/reload.\n\nSubmit platform records at deliveries/platform/<unique-delivery-id>/README.md through a PR to main. Large outputs go to a new result-specific Release or agreed storage with exact hashes. This review index is not native package transport.\n\nEvidence: docs/delivery-gates.md; docs/evidence/delivery-gates-validation-20261015.json (8fabd16); docs/platform-plan.md (78403e4). Current requirements remain docs/track1-requirements.md, R1-R6; Track 1 only.",
+      "publication_entry_url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S",
+      "module_route": "#platform",
+      "progress_route": "#platform-progress",
+      "route_scope": "artifact_iframe",
+      "submitted_type": "Progress",
+      "submitted_link": "https://github.com/Seanwilliam2077/video-to-hoi/tree/b9fcb7e750bd96372108f4eac34e9b7b3530d6bb/deliveries/platform",
+      "submitted_text_sha256": "b8372e0e0d13ee275e1b7ec0ea6d3a4b5b4bc028d308e6899d3aca8b60aec87d",
+      "verification_evidence": "docs/evidence/page-publication-20261015.json"
     },
     {
       "key": "human-progress-20261015",
       "module": "human",
-      "url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
       "section": "Progress",
       "title": "2026-10-15 | Human contracts and handoff boundaries ready for adapter work",
-      "body": "Shared infrastructure now checks internal human outputs for complete frame coverage, required finite arrays, positive depth scale and valid upstream dependencies. The opt-in v2 foundation separately checks declared native-human shapes and rig/decoder bindings; it does not decode or convert MHR. The native split distinguishes early human/depth bootstrap from formal 01-04 preparation, which requires the metric object asset.\n\nThese changes produced no new real-model reconstruction or quality acceptance. Native adapters, receiving-machine import and conversion/reload validation remain pending. Members may develop, execute or review across modules; participants are recorded per task.\n\nNext: obtain one permitted real bootstrap/native output sample, implement its typed adapter, and verify original-frame mapping and scale consistency with the object and platform consumers.\n\nSubmission location: deliveries/human/<unique-delivery-id>/README.md through a PR to main. Include exact upstream identities, native representation, full frame mapping, checks and missing products. Large native outputs use a new result-specific Release or agreed storage with hashes.",
       "evidence": [
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/2a5fbbc8974793eeb65b6f92444b1d3c6fb3cdbe/docs/v2-foundation.md",
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/8fabd163c8391a4d6a574e27ebd90598d39839ae/docs/delivery-gates.md",
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/ad173162df333bcacf99a73feae3a42c38cc3980/docs/team-handoffs.md",
         "https://github.com/Seanwilliam2077/video-to-hoi/tree/main/deliveries/human"
       ],
-      "published": false,
+      "published": true,
       "live_row_id": null,
-      "verified_after_reload": false
+      "verified_after_reload": true,
+      "previously_documented_module_url": "https://claude.ai/artifact/3jiAK6fqoNwqGtLwDKf3pk",
+      "prepared_body": "Shared infrastructure now checks internal human outputs for complete frame coverage, required finite arrays, positive depth scale and valid upstream dependencies. The opt-in v2 foundation separately checks declared native-human shapes and rig/decoder bindings; it does not decode or convert MHR. The native split distinguishes early human/depth bootstrap from formal 01-04 preparation, which requires the metric object asset.\n\nThese changes produced no new real-model reconstruction or quality acceptance. Native adapters, receiving-machine import and conversion/reload validation remain pending. Members may develop, execute or review across modules; participants are recorded per task.\n\nNext: obtain one permitted real bootstrap/native output sample, implement its typed adapter, and verify original-frame mapping and scale consistency with the object and platform consumers.\n\nSubmission location: deliveries/human/<unique-delivery-id>/README.md through a PR to main. Include exact upstream identities, native representation, full frame mapping, checks and missing products. Large native outputs use a new result-specific Release or agreed storage with hashes.",
+      "body": "Completed shared support: internal human deliveries are checked for complete frame coverage, required finite arrays, positive depth scale and valid upstream dependencies. The opt-in v2 foundation separately checks declared native-human shapes and rig/decoder bindings; it does not decode or convert MHR. The native design distinguishes early human/depth bootstrap from formal 01-04 preparation, which requires the exact metric object asset.\n\nPending: native adapters, receiving-machine import, conversion/reload verification and real body/hand quality review. These infrastructure changes produced no new real-model reconstruction or quality acceptance. Roles float: participants are recorded per task, with no permanent module owner required.\n\nNext: obtain a permitted real bootstrap/native sample, implement its typed adapter, and verify original-frame mapping and scale consistency with the object and platform consumers. Do not treat the bootstrap as the final human trajectory.\n\nSubmit at deliveries/human/<unique-delivery-id>/README.md through a PR to main. Include exact upstream identities, native representation, full frame mapping, checks and missing products. Large native outputs use a new result-specific Release or agreed storage with exact hashes.\n\nEvidence: docs/v2-foundation.md (2a5fbbc); docs/delivery-gates.md (8fabd16); docs/team-handoffs.md (ad17316). Current requirements remain R1-R6; Track 1 only.",
+      "publication_entry_url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S",
+      "module_route": "#human",
+      "progress_route": "#human-progress",
+      "route_scope": "artifact_iframe",
+      "submitted_type": "Progress",
+      "submitted_link": "https://github.com/Seanwilliam2077/video-to-hoi/tree/b9fcb7e750bd96372108f4eac34e9b7b3530d6bb/deliveries/human",
+      "submitted_text_sha256": "337344943c58cc14dff9a8c2a58d72f6339873e4577300aa9159fb3514064e70",
+      "verification_evidence": "docs/evidence/page-publication-20261015.json"
     },
     {
       "key": "object-progress-20261015",
       "module": "object",
-      "url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
       "section": "Progress",
       "title": "2026-10-15 | Mesh, trajectory and dependency checks implemented",
-      "body": "Internal delivery gates now reload object meshes and records, check finite geometry and positive scale, and validate every frame's rigid pose and confidence range. Changed upstream results invalidate dependent deliveries. The v2 foundation adds structural mesh-pose-canonical-frame/scale bindings and episode-local source declarations. These checks can pass synthetic fixtures; they do not establish correct reconstruction.\n\nThe native design permits unscaled asset preparation alongside human bootstrap, then metric asset delivery before formal 01-04 preparation and native 05 tracking. No new real tracking result or quality acceptance came from these infrastructure updates. Typed native adapters and cross-machine import remain pending. Roles float across tasks.\n\nNext: deliver one explicitly scaled asset and a native 05 sample with exact upstream identities, then verify full-frame coverage, mesh/origin consistency and occlusion failures with the receiving stages.\n\nSubmission location: deliveries/object/<unique-delivery-id>/README.md through a PR to main. Distinguish an unscaled candidate, metric asset and tracking result. Store large meshes/trajectories in a new result-specific Release or agreed storage with exact hashes.",
       "evidence": [
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/2a5fbbc8974793eeb65b6f92444b1d3c6fb3cdbe/docs/v2-foundation.md",
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/ad173162df333bcacf99a73feae3a42c38cc3980/docs/distributed-execution.md",
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/8fabd163c8391a4d6a574e27ebd90598d39839ae/docs/evidence/delivery-gates-validation-20261015.json",
         "https://github.com/Seanwilliam2077/video-to-hoi/tree/main/deliveries/object"
       ],
-      "published": false,
+      "published": true,
       "live_row_id": null,
-      "verified_after_reload": false
+      "verified_after_reload": true,
+      "previously_documented_module_url": "https://claude.ai/artifact/35K4apKHN75wiUuB8qxmq8",
+      "prepared_body": "Internal delivery gates now reload object meshes and records, check finite geometry and positive scale, and validate every frame's rigid pose and confidence range. Changed upstream results invalidate dependent deliveries. The v2 foundation adds structural mesh-pose-canonical-frame/scale bindings and episode-local source declarations. These checks can pass synthetic fixtures; they do not establish correct reconstruction.\n\nThe native design permits unscaled asset preparation alongside human bootstrap, then metric asset delivery before formal 01-04 preparation and native 05 tracking. No new real tracking result or quality acceptance came from these infrastructure updates. Typed native adapters and cross-machine import remain pending. Roles float across tasks.\n\nNext: deliver one explicitly scaled asset and a native 05 sample with exact upstream identities, then verify full-frame coverage, mesh/origin consistency and occlusion failures with the receiving stages.\n\nSubmission location: deliveries/object/<unique-delivery-id>/README.md through a PR to main. Distinguish an unscaled candidate, metric asset and tracking result. Store large meshes/trajectories in a new result-specific Release or agreed storage with exact hashes.",
+      "body": "Completed shared support: internal delivery gates reload meshes and records, check finite geometry and positive scale, and validate every frame's rigid pose and confidence range. Changed upstream results invalidate dependent deliveries. The v2 foundation adds structural mesh-pose-canonical-frame/scale bindings and episode-local source declarations. Passing these checks on synthetic fixtures does not establish correct reconstruction.\n\nThe native design permits unscaled asset preparation alongside human bootstrap, then metric asset delivery before formal 01-04 preparation and native 05 tracking. Typed native adapters, cross-machine import and real tracking/quality review remain pending. No new real tracking result or quality acceptance was produced. Roles float across tasks.\n\nNext: deliver one explicitly scaled asset and a native 05 sample with exact upstream identities; verify complete original-frame coverage, mesh/origin consistency and occlusion failures with the receiving stages.\n\nSubmit at deliveries/object/<unique-delivery-id>/README.md through a PR to main. Distinguish an unscaled candidate, metric asset and tracking result. Large meshes/trajectories use a new result-specific Release or agreed storage with exact hashes.\n\nEvidence: docs/v2-foundation.md (2a5fbbc); docs/distributed-execution.md (ad17316); docs/evidence/delivery-gates-validation-20261015.json (8fabd16). Current requirements remain R1-R6; Track 1 only.",
+      "publication_entry_url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S",
+      "module_route": "#object",
+      "progress_route": "#object-progress",
+      "route_scope": "artifact_iframe",
+      "submitted_type": "Progress",
+      "submitted_link": "https://github.com/Seanwilliam2077/video-to-hoi/tree/b9fcb7e750bd96372108f4eac34e9b7b3530d6bb/deliveries/object",
+      "submitted_text_sha256": "087f43e7aef53ad135d35f208d9b22bc9e4a88f2f27d377296010629b444bd4a",
+      "verification_evidence": "docs/evidence/page-publication-20261015.json"
     },
     {
       "key": "physics-progress-20261015",
       "module": "physics",
-      "url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
       "section": "Progress",
       "title": "2026-10-15 | Bounded-repair contracts and checked refinement handoffs",
-      "body": "The opt-in v2 foundation validates declared repair plans: affected entities/frames, mutable and fixed variables, fit/review partitions, budgets and the exact rollback scene. Registering orientation, contact and occlusion operation names does not implement their solvers. Internal gates require both refined human and object outputs and reject missing or stale dependencies; the registered refine backend still passes inputs through.\n\nThe native split gives 06-07 joint inference/post-optimization a coherent-input boundary and keeps research candidates separate from a frozen baseline. No new real improvement or quality acceptance was established. Native adapters, transport and empirical acceptance thresholds remain pending. Participants can change between tasks.\n\nNext: build an independently authored synthetic repair/ablation harness, then compare a bounded candidate against the same real baseline when available, documenting genuine-motion preservation, contact effects, failures and rollback. Self-smoothness alone is not official ACC improvement.\n\nSubmission location: deliveries/physics/<unique-delivery-id>/README.md through a PR to main. Bind the fixed baseline and observations, list permitted changes and regressions, and preserve separate candidate outputs. Large artifacts use a new result-specific Release or agreed storage with hashes.",
       "evidence": [
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/2a5fbbc8974793eeb65b6f92444b1d3c6fb3cdbe/docs/v2-foundation.md#solveplan-payload",
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/ad173162df333bcacf99a73feae3a42c38cc3980/docs/team-handoffs.md",
         "https://github.com/Seanwilliam2077/video-to-hoi/blob/78403e48d4ab0cd1d5bf380fb7e0d25f0825bd22/docs/platform-plan.md",
         "https://github.com/Seanwilliam2077/video-to-hoi/tree/main/deliveries/physics"
       ],
-      "published": false,
+      "published": true,
       "live_row_id": null,
-      "verified_after_reload": false
+      "verified_after_reload": true,
+      "previously_documented_module_url": "https://claude.ai/artifact/DUFpvGZmA2DyuU68afM7DV",
+      "prepared_body": "The opt-in v2 foundation validates declared repair plans: affected entities/frames, mutable and fixed variables, fit/review partitions, budgets and the exact rollback scene. Registering orientation, contact and occlusion operation names does not implement their solvers. Internal gates require both refined human and object outputs and reject missing or stale dependencies; the registered refine backend still passes inputs through.\n\nThe native split gives 06-07 joint inference/post-optimization a coherent-input boundary and keeps research candidates separate from a frozen baseline. No new real improvement or quality acceptance was established. Native adapters, transport and empirical acceptance thresholds remain pending. Participants can change between tasks.\n\nNext: build an independently authored synthetic repair/ablation harness, then compare a bounded candidate against the same real baseline when available, documenting genuine-motion preservation, contact effects, failures and rollback. Self-smoothness alone is not official ACC improvement.\n\nSubmission location: deliveries/physics/<unique-delivery-id>/README.md through a PR to main. Bind the fixed baseline and observations, list permitted changes and regressions, and preserve separate candidate outputs. Large artifacts use a new result-specific Release or agreed storage with hashes.",
+      "body": "Completed shared support: the opt-in v2 foundation validates declared repair plans, including affected entities/frames, mutable and fixed variables, fit/review partitions, budgets and the exact rollback scene. Registered orientation/contact/occlusion operation names are not implemented solvers. Internal gates require both refined human and object outputs and reject missing or stale dependencies; the registered refine backend still passes inputs through.\n\nThe native split defines a coherent-input boundary for 06-07 joint inference/post-optimization and keeps research candidates separate from a frozen baseline. Native adapters, transport, empirical acceptance thresholds and real improvement evidence remain pending. No new real quality improvement was established. Participants may change between tasks.\n\nNext: build an independently authored synthetic repair/ablation harness, then compare a bounded candidate against the same real baseline when available. Record motion timing/amplitude, contact effects, failure intervals, regressions and rollback. Self-smoothness alone is not official ACC improvement.\n\nSubmit at deliveries/physics/<unique-delivery-id>/README.md through a PR to main. Bind the baseline and observations, state permitted changes, and preserve separate candidate outputs. Large artifacts use a new result-specific Release or agreed storage with exact hashes.\n\nEvidence: docs/v2-foundation.md (2a5fbbc); docs/team-handoffs.md (ad17316); docs/platform-plan.md (78403e4). Current requirements remain R1-R6; Track 1 only.",
+      "publication_entry_url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S",
+      "module_route": "#physics",
+      "progress_route": "#physics-progress",
+      "route_scope": "artifact_iframe",
+      "submitted_type": "Progress",
+      "submitted_link": "https://github.com/Seanwilliam2077/video-to-hoi/tree/b9fcb7e750bd96372108f4eac34e9b7b3530d6bb/deliveries/physics",
+      "submitted_text_sha256": "f702f2e26c6680e85894a0cf045cf9a45ad20b23679b452478c05d5730a8b825",
+      "verification_evidence": "docs/evidence/page-publication-20261015.json"
     }
-  ]
+  ],
+  "static_source_published": false,
+  "publication_receipt": "docs/evidence/page-publication-20261015.json",
+  "initial_access_snapshot": {
+    "hub_url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S",
+    "observed_page": "Sign in to view this page",
+    "user_report": "The owner reports successful login in another browser or desktop session; the browser available to this task still shows the sign-in page.",
+    "current_module_rows_read": false,
+    "external_writes_performed": false,
+    "requires": "Access to the owner's authenticated module page in the connected browser. Existing authorization to post these routine progress notes is sufficient."
+  },
+  "access_snapshot": {
+    "hub_url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S",
+    "authenticated_browser_available": true,
+    "observed_page": "video-to-hoi Team Hub; authenticated module Progress forms",
+    "current_module_rows_read": true,
+    "external_writes_performed": true,
+    "posting_blocker": null,
+    "static_source_refresh": "Still pending; no source editor or republication was used in this pass."
+  }
 }

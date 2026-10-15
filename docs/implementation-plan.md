@@ -4,6 +4,12 @@ Updated 2026-10-13. This delivery backlog implements the video-driven architectu
 
 ## Foundation delivery status
 
+**2026-10-15 internal delivery increment:** the six v1 stages now have fresh-attempt execution, typed output
+checks, fixed prerequisite copies, immutable reports, dependency invalidation and a read-only recheck CLI.
+The CPU demonstration crosses independent local module folders and blocks a consumer after upstream tampering.
+See [delivery-gates.md](delivery-gates.md) and [team-handoffs.md](team-handoffs.md). Native stages still need
+typed adapters and transport; the P2 real-model and G0-G4 acceptance gates remain open.
+
 | Work package | Recorded progress | Remaining acceptance work |
 |---|---|---|
 | P0.1 | [Component audit](component-audit.md): exact branch/upstream/patch identities and individual reuse decisions; provisional reproduction stack nominated | Restore and verify an actual runtime on the selected host |

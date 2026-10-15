@@ -2,6 +2,31 @@
 
 Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
+## Automatic deliveries and independent module work (2026-10-15)
+
+The internal v1 runner now applies [automatic delivery gates](delivery-gates.md) before and after each of
+its six stages. Fresh attempts cannot borrow missing outputs from older runs. Typed reload checks cover
+files, frames, finite geometry, scales, rigid transforms and internal export read-back. Verified input copies,
+output hashes and exact predecessor receipts expose same-run changes and stop stale downstream work.
+Failed/running attempts block consumers; reports are immutable and local checks never grant quality approval.
+
+The read-only `python -m v2hoi.check` command checks a completed stage, prerequisites for a next stage,
+or all six statuses. `tools/demo_delivery_gates.py` uses independent synthetic metadata to pass through five
+separate module folders on one host, then alters tracking: export readiness fails and the consumer backend
+is never started. This demonstrates local isolation and rejection, not a real two-host model run.
+
+[team-handoffs.md](team-handoffs.md) and [the ownership map](../configs/team-modules.json) define independent
+starting work, exact handoffs and consumer reviewers. Owners and execution workers are separate. Use one
+episode/experiment per run for isolation; replacing part of a multi-episode batch invalidates that batch's
+receipt. Module branches remain unchanged. The map documents roles, not a scheduler.
+
+Native binary schemas, transport/relocation, authentic source verification, decoder normalization and
+real quality/export acceptance remain pending. The native distributed profile is still design-only and
+unsupported stage names cannot bypass the internal gate. No model, challenge pixels, deployment or upload
+was executed. Verification is recorded in [the delivery receipt](evidence/delivery-gates-validation-20261015.json).
+The complete explicit CPU allowlist passed: 453 tests, with no failures, errors or skips on local Windows.
+Local team/status source updates are complete; live publication remains pending.
+
 ## Independent-machine execution design (2026-10-13)
 
 The owner reports different server access for each teammate. [The distributed execution design](distributed-execution.md)

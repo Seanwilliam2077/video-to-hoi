@@ -84,7 +84,7 @@ def test_stage_reuse_requires_fresh_refinement(tmp_path, dataset_root):
 
     child = run_pipeline(runs / "try", "track1", stages=["motion", "refine", "export"],
                          upstream=runs / "base", dataset_root=dataset_root, **QUIET)
-    assert sorted(p.name for p in child.root.iterdir()) == ["export", "motion", "refine", "run.json"]
+    assert sorted(p.name for p in child.root.iterdir()) == [".gates", "export", "motion", "refine", "run.json"]
     assert list_episodes(child.root / "export") == [3, 4, 8]
 
 

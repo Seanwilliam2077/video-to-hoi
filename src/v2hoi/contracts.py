@@ -373,14 +373,19 @@ class Run:
         return self.find(ObjectAsset, name=name).parent / ObjectAsset.MESH
 
     @classmethod
-    def open(cls, root: Path) -> "Run":
+    def open(cls, root: Path, *, _seen: set[Path] | None = None) -> "Run":
         root = Path(root)
+        seen = set() if _seen is None else _seen
+        identity = root.resolve()
+        if identity in seen:
+            raise ContractError(f"cyclic upstream run chain at {root}")
+        seen.add(identity)
         meta_path = root / "run.json"
         if not meta_path.is_file():
             raise ContractError(f"{root} is not a run (no run.json)")
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
         _check_version(meta["contract"], meta_path)
-        upstream = cls.open(meta["upstream"]) if meta.get("upstream") else None
+        upstream = cls.open(meta["upstream"], _seen=seen) if meta.get("upstream") else None
         return cls(root, meta["dataset"], upstream)
 
     @classmethod

@@ -1,6 +1,14 @@
 # Team-page publication record and remaining work
 
-Updated **2026-10-13**, Asia/Shanghai. Static artifact publication remains incomplete. The single active project specification is [track1-requirements.md](track1-requirements.md), R1–R6; older page text and earlier receipts do not override it.
+Updated **2026-10-15**, Asia/Shanghai. Static artifact publication remains incomplete. The single active project specification is [track1-requirements.md](track1-requirements.md), R1–R6; older page text and earlier receipts do not override it.
+
+## Local delivery-gate and collaboration follow-up (2026-10-15; not published)
+
+The six internal v1 stages now have automatic deliverable/lineage checks and fail-closed continuation.
+[platform.md](platform.md) records the implementation, independent-folder synthetic demonstration and remaining
+native/transport gaps. [team-handoffs.md](team-handoffs.md) records independent starting work and consumer review.
+The local Chinese status source reflects this increment. No native model, deployment or external publication
+was performed. Live module/status refresh remains pending under the same unavailable publication capability.
 
 ## Local distributed-execution follow-up (2026-10-13; not published)
 

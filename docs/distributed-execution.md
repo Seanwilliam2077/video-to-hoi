@@ -4,6 +4,12 @@
 
 ## Source and acceptance boundary
 
+**Implementation follow-up, 2026-10-15:** [automatic gates](delivery-gates.md) now cover the six internal
+v1 stages with fresh attempts, structural reload checks and exact predecessor receipts. Native format
+adapters and transport are still pending; this native profile remains non-executable. Use
+[team-handoffs.md](team-handoffs.md) for independent work and review assignments. Every proposed native boundary
+must gain its own typed delivery check before its consumer can run; file existence is insufficient.
+
 The cuts below follow the eight native stage calls recorded in the pinned Windows branch, rather than assuming that the four team modules are four independent final models. Read-only source/history review does not certify a running multi-host backend.
 
 | Source | Identity and use |

@@ -1,0 +1,94 @@
+{
+  "scope": "Automatic internal v1 delivery gates and independent module handoff demonstration; no real reconstruction acceptance",
+  "verified_date": "2026-10-15",
+  "profile": "v1-internal-delivery.1",
+  "base_commit": "2084ba6e7179ac10f226949ac39ad2e0a8ad1a53",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "pyarrow": "26.0.0",
+    "trimesh": "5.1.1",
+    "huggingface_hub": "2.2.0",
+    "rfc8785": "0.1.4",
+    "pytest": "9.1.1"
+  },
+  "test_selection": "Exact explicit allowlist from .github/workflows/tests.yml",
+  "test_files": [
+    "tests/test_bundle.py",
+    "tests/test_contracts.py",
+    "tests/test_dataset.py",
+    "tests/test_fetch_assets.py",
+    "tests/test_download_foundationpose.py",
+    "tests/test_model_release_prepare.py",
+    "tests/test_model_release_restore.py",
+    "tests/test_handoff_restore.py",
+    "tests/test_benchmark_first3.py",
+    "tests/test_rank_first3.py",
+    "tests/test_geometry.py",
+    "tests/test_metrics.py",
+    "tests/test_track1_score.py",
+    "tests/test_run.py",
+    "tests/test_deliverables.py",
+    "tests/test_delivery_gates.py",
+    "tests/test_v2_artifacts.py",
+    "tests/test_v2_geometry.py",
+    "tests/test_v2_contracts.py"
+  ],
+  "tests": {
+    "tests": 453,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "passed": 453
+  },
+  "test_seconds": 283.304,
+  "junit_xml_sha256": "16207cada5a6ed6f28276dfe0a7c255eb6d93c2066d62c903be336497a1079c9",
+  "source_sha256": {
+    "src/v2hoi/contracts.py": "304731faca80d7fdc30a4f7eea1cdeb5ebfcf182f9fc3f698b4640b60e1cc8ea",
+    "src/v2hoi/run.py": "80462a0b5fcb042f6f25732bb9154ee8d465fada0a2ac802f69cf6b0e59de6a7",
+    "src/v2hoi/check.py": "83b26ddb5d79f67b4cc92e5b6f8e5381e0f349f1d25b7664672c447f69f5da4f",
+    "src/v2hoi/deliverables.py": "3e92912e5bf6dad489352da3d1b11986eef76cf4908f3f6ee93351535f3e39fd",
+    "src/v2hoi/gates.py": "75388d9bbbd67bb7ba269050a442df0dec259037f35ecb94e96aade37c7f9498",
+    "tools/demo_delivery_gates.py": "c673612acd7fa0fead4c13e62dfc970e4d92d7ce5f695da7313ecd9caa10c2f2",
+    "tests/test_deliverables.py": "d6940577a831638227c6b002a61cc420adc4d5b5f5a318519872f2251a49818d",
+    "tests/test_delivery_gates.py": "b6f9a6edc1c3664217682edeccfbf85061575b17573bcb2c380f7d7177b3da47",
+    "tests/test_run.py": "bd8ff45708d90b140c34b49760612b5cbf71f53d0897b0d77ec5c3056b036748"
+  },
+  "demo": {
+    "scope": "Independent synthetic internal v1 fixture; one host, five module folders",
+    "valid_stage_checks": {
+      "inputs": true,
+      "human": true,
+      "objects": true,
+      "motion": true,
+      "refine": true,
+      "export": true
+    },
+    "tampered_upstream_blocks_export": true,
+    "blocked_consumer_started": false,
+    "failure": [
+      {
+        "check_id": "delivery_and_lineage",
+        "passed": false,
+        "message": "motion: output changed, missing, or not covered by its receipt"
+      }
+    ],
+    "native_model_execution": false,
+    "quality_acceptance": false
+  },
+  "model_runs": 0,
+  "real_source_videos_decoded": 0,
+  "native_decoder_executed": false,
+  "official_export_executed": false,
+  "online_pages_published": false,
+  "limitations": [
+    "Internal format and dependency readiness does not establish real reconstruction quality or submission compliance.",
+    "The demonstration uses independently authored synthetic metadata and fake backends on one host in five module folders; it is not a two-host model run.",
+    "Native typed adapters, package transport, relocation and source authenticity review remain pending.",
+    "Receipts are local consistency evidence, not authenticated claims against malicious producers.",
+    "Test environment is local Windows CPU; hosted Linux CI was not executed in this session."
+  ]
+}

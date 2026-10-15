@@ -20,6 +20,11 @@ Track 1 has no public reconstruction ground truth. The official evaluation kit i
 
 ## Modules
 
+Use [team-handoffs.md](team-handoffs.md) and [the ownership map](../configs/team-modules.json)
+for independent starting tasks, producer/consumer responsibilities and worker assignment.
+The [automatic delivery gate](delivery-gates.md) now stops the internal v1 runner after missing, invalid
+or stale output. Receivers recheck actual files before continuation; semantic/quality review is separate.
+
 The boundaries follow three dependencies:
 
 1. **The scale prior.** In the planned real pipeline, human geometry supplies a `DepthScale` prior for the object module; the current fake value is not an estimate and estimated human scale is not ground truth. Refinement must track its uncertainty and avoid freely changing focal length, human scale and object depth together.
@@ -73,7 +78,7 @@ The native-MHR reference diagnostic supports explicit permitted inputs and indep
 
 1. Run the explicit synthetic test list in `.github/workflows/tests.yml`, including `test_track1_score.py`. Historical scorer tests with prohibited benchmark assumptions have been replaced. Continue to avoid bare `pytest`. Fake-stage runs through export test wiring only; synthetic diagnostic tests do not validate a real MHR model, real reconstruction or source-provenance truth.
 2. Run changed real stages on `dev-mini` with `--dataset track1` and a fixed Track 1 `--upstream runs/baseline-vN`. Rerun dependent stages after any changed input, scale, mesh or pose. Do not pass the runner's disabled `--score` flag. Invoke the standalone reference diagnostic only with its explicit permitted inputs; missing Track 1 ground truth is not permission to use another track.
-3. Attach a before/after table for each episode and links to overlays and native-output evidence. Include run/baseline IDs, code/model/runtime versions, input and output hashes, observation versions, failure intervals and resource use. Explain regressions and uncertainty; do not label proxies as official CD, ACC or PEN. The proposed hash-based dependency graph is not yet implemented, so explicitly audit each dependency before promotion.
+3. Attach a before/after table for each episode and links to overlays and native-output evidence. Include run/baseline IDs, code/model/runtime versions, input and output hashes, observation versions, failure intervals and resource use. Explain regressions and uncertainty; do not label proxies as official CD, ACC or PEN. Internal v1 gates now recheck bytes and predecessor receipts. Native distributed dependency/consumption checks and scientific promotion remain separate work; audit those dependencies explicitly.
 4. Review official-format compatibility, source provenance, complete per-frame outputs, first-reference-frame mapping and quality, contact and motion fidelity, and the module's target evidence. Record accept/reject/unresolved and any trade-off; retain a recoverable baseline. A documentation design score is not an empirical quality score. Until the complete promotion gate is implemented, there is no automatic numerical pass threshold.
 
 A stage can be developed against a fixed Track 1 upstream run using `--upstream`. For example, a human backend can run with `--dataset track1 --episodes 0 6 9 16 24 --upstream runs/baseline-vN --stages human refine export --backend human=<name>`. This is a run command, not a score command. Use only Track 1-derived upstream artifacts; a fake upstream verifies plumbing but cannot establish reconstruction quality.

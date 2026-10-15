@@ -12,8 +12,11 @@ person can work on their stage without waiting for the others. These fake
 backends do not reconstruct the video. Track 1 has no public ground truth, so
 this runner has no ground-truth scoring mode. A run that re-runs human or motion
 must re-run refine too; export checks the upstream-run case.
-Re-running stages in an existing run overwrites their outputs and keeps the
-rest. See docs/contracts.md and docs/workflow.md.
+Every stage runs in a fresh attempt directory. Required outputs are reloaded
+and checked before publication; missing, invalid or stale deliveries stop the
+pipeline. Re-running stages replaces their published outputs and invalidates
+dependent receipts. These are internal format gates, not quality acceptance.
+See docs/delivery-gates.md and docs/workflow.md.
 """
 from __future__ import annotations
 
@@ -23,6 +26,7 @@ from pathlib import Path
 
 from v2hoi.clips import DATASETS, load_clips
 from v2hoi.contracts import Run
+from v2hoi.gates import DeliveryGate, run_lock
 from v2hoi.stages import DEFAULT_BACKENDS, STAGES, make
 
 RUNS_DIR = Path("runs")
@@ -59,16 +63,20 @@ def run_pipeline(
         raise ValueError(f"unknown stages {unknown}; expected some of {STAGES}")
     backends = {**DEFAULT_BACKENDS, **(backends or {})}
     clips = load_clips(dataset, episodes, dataset_root)
-    run = Run.start(
-        root, dataset, Run.open(upstream) if upstream else None,
-        episodes=[c.episode for c in clips], stages=stages, backends={s: backends[s] for s in stages},
-    )
-    for stage in STAGES:
-        if stage not in stages:
-            continue
-        start = time.time()
-        make(stage, backends[stage]).run(run, clips)
-        log(f"{stage:<8} {backends[stage]:<12} {time.time() - start:6.1f}s")
+    catalog = load_clips(dataset, None, dataset_root) if episodes is not None else clips
+    with run_lock(Run(Path(root), dataset)):
+        run = Run.start(
+            root, dataset, Run.open(upstream) if upstream else None,
+            episodes=[c.episode for c in clips], stages=stages, backends={s: backends[s] for s in stages},
+        )
+        gate = DeliveryGate(run, clips, catalog=catalog)
+        for stage in STAGES:
+            if stage not in stages:
+                continue
+            start = time.time()
+            backend = make(stage, backends[stage])
+            receipt = gate.execute(stage, backends[stage], backend)
+            log(f"{stage:<8} {backends[stage]:<12} {time.time() - start:6.1f}s DELIVERY PASS: {receipt}")
     return run
 
 
@@ -82,6 +90,7 @@ def main() -> None:
     parser.add_argument("--backend", action="extend", nargs="+", default=[], metavar="STAGE=NAME",
                         help="select a registered Track 1 backend, e.g. --backend motion=mytracker")
     parser.add_argument("--upstream", type=Path, help="run to read missing artifacts from")
+    parser.add_argument("--dataset-root", type=Path, help="local Track 1 metadata root")
     parser.add_argument("--score", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
 
@@ -89,7 +98,7 @@ def main() -> None:
         parser.error("--score is disabled: Track 1 has no public ground truth")
     run = run_pipeline(
         args.runs_dir / args.run_id, args.dataset, args.episodes, args.stages,
-        parse_backends(args.backend), args.upstream,
+        parse_backends(args.backend), args.upstream, args.dataset_root,
     )
     print(f"run: {run.root}")
 

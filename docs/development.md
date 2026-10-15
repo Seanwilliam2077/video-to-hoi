@@ -17,6 +17,8 @@ In the planned real pipeline, the human supplies a scale prior for the object mo
 Four people build the pipeline in parallel, one module and one branch each. Every stage has a fake backend, so `main` runs end to end from day one and each module replaces its fakes with real models.
 
 - [workflow.md](workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
+- [delivery-gates.md](delivery-gates.md): executable internal v1 delivery checks, stop/continue behavior, receipts and recheck CLI.
+- [team-handoffs.md](team-handoffs.md) and [ownership map](../configs/team-modules.json): independent starting work, interface ownership and consumer review.
 - [distributed-execution.md](distributed-execution.md) and [design-only profile](distributed-execution.json): model-stage ownership across independent machines, immutable result packages and remaining transport/native-adapter work.
 - [contracts.md](contracts.md): the files the stages exchange.
 - [contracts-v2.md](contracts-v2.md): proposed evidence, immutable scene and bounded solve-plan contracts; v1 remains implemented.
@@ -32,6 +34,7 @@ Four people build the pipeline in parallel, one module and one branch each. Ever
 
 ## Current state
 
+- **Delivery gates (2026-10-15):** all six internal v1 stages now run behind automatic preflight/output checks, fresh attempts, copied input snapshots, exact predecessor receipts and fail-closed continuation. A read-only check CLI and independent-folder CPU demonstration are available. This is executable internal/synthetic readiness, not native adapter, quality or official export acceptance. Separate module start/review responsibilities are documented.
 - **Distributed design (2026-10-13):** separate model-stage workers replace the shared-server assumption. Native 01-04, 05 and 06-07 retain exact dependencies and form one logical run, followed by atomic scene import and GPU-aware export. Git coordinates small manifests; large artifacts use verified packages. Stage wrappers, transport, relocation and a two-host full-episode rehearsal are still pending; no runtime code or model execution changed.
 - **Foundation implementation (2026-10-13):** the P0 source/exposure audit and initial structural/review policy are recorded. `v2hoi.v2` implements strict artifact IO, immutable record publication, atomic scene selection, evidence/scene/plan structural checks and synthetic native-array/rigid-geometry checks. This is partial P1 infrastructure; `v2hoi.run`, v1 artifacts and fake reconstruction backends remain unchanged. A separate local CPU test environment was prepared; no model environment was restored or executed.
 - **Design update (2026-10-13):** video evidence and metric-mesh preparation feed one atomic native CARI4D task. Its coupled outputs become an immutable `SceneState`; diagnostic `SolvePlan` repairs produce new candidates, independently reviewed before promotion and export/read-back. The v2 specification, 30-video metadata coverage and implementation backlog are documented; no runtime contract version, model execution or acceptance gate changed in this update.

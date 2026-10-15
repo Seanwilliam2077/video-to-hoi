@@ -4,6 +4,10 @@ Updated 2026-10-13. This specifies the video-conditioned pipeline and its integr
 
 The [P0 component/exposure audit](component-audit.md) and [opt-in v2 foundation](v2-foundation.md) now implement the first audit and structural-storage work packages. They do not wire the real reconstruction graph or close native/quality/export acceptance gates.
 
+As of 2026-10-15, [delivery gates](delivery-gates.md) automatically check all six internal v1 stages and
+block incomplete or stale handoffs. [Independent module work](team-handoffs.md) defines starts, owners and
+consumer review. These executable internal checks do not activate the proposed native distributed graph.
+
 Build one reproducible native-MHR CARI4D baseline, preserve it, and add bounded repairs only where independent image evidence supports them. More models, a smaller optimization loss, and a smoother animation are not evidence of better reconstruction.
 
 Follow [track1-requirements.md](track1-requirements.md), the single authoritative statement of the owner's latest six requirements. Read [evaluation.md](evaluation.md) for source-pinned external mechanics and diagnostic limitations, [implementation-plan.md](implementation-plan.md) for delivery packages and G0-G4 gates, [contracts.md](contracts.md) for implemented v1 files, [contracts-v2.md](contracts-v2.md) for the proposed v2 contracts, and [video-coverage.md](video-coverage.md) for the 30-video inventory and validation boundaries.

@@ -1,0 +1,36 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 3,
+  "video_sha256": "8eb7153abeeb32895741d80dc79305143967b701094af2eea9321260577a6b39",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:17:42.384693+00:00",
+  "sample_frame_ids": [
+    0,
+    74,
+    148,
+    222,
+    296,
+    369,
+    443,
+    517,
+    591
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all nine recorded frames. The patterned-shirt interaction participant remains selected while approaching the table, flipping the red bowl and stepping away. Visible head, torso and limbs remain localized; table, bowl and background equipment stay outside the human mask. Contact-related finger occlusion does not create a visible Body-localization blocker in these samples. No automatic mask flags or invalid frames were reported. Camera status is consistent across 13 source frames: focal median 808.953 px, relative p10-p90 spread 1.41%, maximum relative deviation 1.31%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "flag_resolutions": [],
+  "sampling_limitation": "Visual inspection covers the listed original/overlay sample frames and every generated QA image, not every source frame. Full mask coverage and hashes were verified automatically. Fine boundary accuracy and later Body reconstruction quality remain unverified.",
+  "reviewed_artifacts": {
+    "observations.json": "fab372af09876d4be811f97fa48c5a46d541e235f1af9b48c5e402874a1e98d7",
+    "masks-manifest.json": "64bf28762c82c2585f23c050d3be5171a6f62b35581b914ca096a596432427c8",
+    "masks-provenance.json": "a740cafb69091eb955a34aead5e77feec25bee263bb287729b726462e8a0068c",
+    "intrinsics.json": "71a94db7c05a9c5ba00923ce10731ab0aed4a4278c46d7fab4aea95208fc5a0a",
+    "camera-estimation.json": "e939dbbe95248c04084a87a9ea58d3a19f78cbf032474c59162b3a4d54adf99a",
+    "mask-qa/review-001.jpg": "4af4d3a2de9a63967566bae1c4458c085a03b7a1faef05cb0076d6afe3aed6b3",
+    "mask-qa/targets-001.jpg": "8f9f3f6fb13f94e8d4a988216ea6f92e79a7ceb9deaf1a7d18e1a83791b25621",
+    "mask-qa/targets-002.jpg": "9b3799c1e4baa78777e439115bbd201fb302fc4b41fc94ae0603742ca5f77641",
+    "mask-qa/targets-manifest.json": "0f866959cc3c6aaf90f768cdef6148a6d9f8d0c6dd6c14808e3605ba9f1347c2"
+  }
+}

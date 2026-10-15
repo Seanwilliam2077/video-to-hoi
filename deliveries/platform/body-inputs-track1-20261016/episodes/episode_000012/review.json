@@ -1,0 +1,31 @@
+{
+  "episode_index": 12,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:41:57.290501+00:00",
+  "sample_frame_ids": [
+    0,
+    50,
+    101,
+    152,
+    202,
+    252,
+    303,
+    354,
+    404
+  ],
+  "findings": "Viewed the full-frame sheet and both original/overlay target-crop sheets for all nine listed frames. The same foreground participant is retained through reaching, lifting and rotating the pan, changing orientation, and replacing it. Visible arms, torso and legs remain localized; the pan, round tabletop and background seated person remain excluded in the inspected views. No identity switch, empty localization, broad background takeover or major visible-body loss was observed. Camera median and within-episode consistency were independently rechecked. This sampled review establishes usable input localization and mask conditioning, not pixel-level segmentation accuracy, true camera calibration or Body reconstruction quality.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "89559b416130e2e7b8801f6fe92fe8ec1d8dfa46ee5ab6aac56cf9e130fa7503",
+    "input.json": "49c75e6a62d704cf6dd762956c65634751c9d82057da7781615e65226f40dcc8",
+    "intrinsics.json": "7c626a7c9393949a2bc18e98ad5480ef209d38c638f0b532532a944b7db7fe8f",
+    "masks-manifest.json": "321367d963b495419cc7aa99f58a3ba9bcfd1e69fc90997b8bd21d9674fb30d9",
+    "observations.json": "c6c5202e5e1e38e61ef5388deb07f4f4fb7138be2de1a02354561be51985ea56",
+    "timeline.json": "232e4fd728f8378f9f540fe3e7d716bc3aac83cf821cb2c0a8e53aee8edbd63e"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "c7987b21826fc067b0909b983986a41485d5cd1949ef3e37bfec92075d5035ae"
+}

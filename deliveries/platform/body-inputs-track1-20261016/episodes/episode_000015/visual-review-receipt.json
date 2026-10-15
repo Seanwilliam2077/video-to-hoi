@@ -1,0 +1,34 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 15,
+  "video_sha256": "c368809329e922b75629c1d94c39c1c820c9211464a5e5a77a4cdb55803400f0",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:48:16.117980+00:00",
+  "sample_frame_ids": [
+    0,
+    62,
+    125,
+    188,
+    250,
+    312,
+    375,
+    438,
+    500
+  ],
+  "findings": "Inspected the full-frame contact sheet and both original/overlay target-crop sheets for these nine actual source frames. The same teal-shirt participant remains localized while reaching for, lifting, rotating and replacing the patterned cube. Head, torso, arms, hands and visible legs remain covered; the held cube, round table, background seated observer and standing camera operator remain excluded. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed in the sampled frames. Independently recomputed camera aggregation and consistency checks from the raw per-frame estimates. These are estimated camera intrinsics and sampled mask checks; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "reviewed_artifacts": {
+    "camera-estimation.json": "988e93f57e1161aaadfed3f0076cdd0f819bb296f7e269e4712635d1c0a803ae",
+    "intrinsics.json": "446727f35fccc0e3ac6cc9fec9d019d4d60e1ae52fab77e8a6b760c3f95616cd",
+    "mask-qa/review-001.jpg": "806df82b9cb3dcc17528f6cfa19349c3251afbd340725476e2f83077a1c47683",
+    "mask-qa/targets-001.jpg": "6fe5de853e0f325a5163121790ec25379ec6347c74d497c5da49c4cef7635bf5",
+    "mask-qa/targets-002.jpg": "e1c6f4fe82b3d17ee3a384d5ee94ea8e2dc074df411484d57fbb13ac601e0928",
+    "mask-qa/targets-manifest.json": "54433d60bf1cb4ce44871a2bafc273fd521523729808583f88038f388ca43bee",
+    "masks-manifest.json": "3697265cdd13bc067140c3e008c7e8fc5b80afc218d0b1461a041a3856463c11",
+    "masks-provenance.json": "0f86b182d4ceb8e2e32315182abdb0980e0ce6e41b4b7730499061dfe35774a5",
+    "observations.json": "037fa94a2b8c4f77d926f62f44ec42b2c9a30ec18ca4ecae0c080b218eab1daa"
+  }
+}

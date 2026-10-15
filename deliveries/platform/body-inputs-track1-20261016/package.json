@@ -1,0 +1,12 @@
+{
+  "schema_version": "body_bundle_verification.v1",
+  "verified_at": "2026-10-15T17:28:52.541512+00:00",
+  "archive_name": "body-inputs-track1-20261016.zip",
+  "bytes": 627464556,
+  "sha256": "c5d09ae93d5608ec0d24beebc1f7dabec7fcc60eb5cb1d24b42a3fd743d4f5aa",
+  "archive_members_verified": 17105,
+  "extracted_receiver_passed": true,
+  "all_30_body_inputs_verified": true,
+  "receiver_checks_sha256": "79718300624e61a46c13fad1febad2272c3d358d1f7843a767b84df6671c2deb",
+  "body_execution_completed": false
+}

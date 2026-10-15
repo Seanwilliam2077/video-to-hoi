@@ -1,0 +1,31 @@
+{
+  "episode_index": 1,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:12:48.1653554+00:00",
+  "sample_frame_ids": [
+    0,
+    83,
+    167,
+    250,
+    334,
+    417,
+    500,
+    584,
+    667
+  ],
+  "findings": "Inspected overview review-001 and both targets sheets at all nine sample frames. The green-shirt foreground actor remains selected through bending, stepping through the hoop, torso flexion and turning away. Head, visible arms and legs remain localized; the seated background person and tripod are excluded. Thin hoop contact does not create a visible Body-localization blocker in these samples. No automatic mask flags or invalid frames were reported. Camera status is consistent across 13 sampled frames: focal median 836.202 px, relative p10-p90 spread 1.39%, maximum relative deviation 1.68%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "4b0f2d8558d23709797edf3205d0be2b36cf9a0fb4a9e5a896cc2a6939b812da",
+    "input.json": "895a65883d13eb36dc5dfafaf9fdd0a96775943fc3d28b700adb742e73e0cde4",
+    "intrinsics.json": "3bd8bba647349c2ac636bab35ba0f28dd43c5e50c808214ee0d471596ac3583b",
+    "masks-manifest.json": "0ff308ea4d67f876cadb7ce33d01ea4f8a8ffa042838907b29ab527bf0a34709",
+    "observations.json": "ebc359dde1420914987bc878dd6816c991628f19f1c83d3d875088f2a715fa25",
+    "timeline.json": "e531533ec5a23c1ca59bcb4b06420cdb714a9c5c0ffe6c9383e7f4cef950c3c1"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "a92b3263a02542808317db53146d2022e1c4b61fc39b3989803ad59c2046fb64"
+}

@@ -1,0 +1,31 @@
+{
+  "episode_index": 5,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:23:23.017066+00:00",
+  "sample_frame_ids": [
+    0,
+    83,
+    167,
+    250,
+    334,
+    417,
+    500,
+    584,
+    667
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all nine recorded frames. The dark-hoodie interaction participant remains selected while bending to pick up the red bowl, transferring it between hands and placing it on the chair. Visible head, torso and limbs remain localized; bowl, chair and seated background person are excluded. Bowl occlusion over the torso and hands does not produce a visible Body-localization blocker in these samples. No automatic mask flags or invalid frames were reported. Camera status is consistent across 13 source frames: focal median 826.733 px, relative p10-p90 spread 1.89%, maximum relative deviation 1.72%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "a5c2a9cd2e2941c6dfedfa6b7492ff4c138522b3f3b7ff073844c7019c728aed",
+    "input.json": "a8543dd37eaae7e331e5fc53717bf3df451034dbb950399f1e79159b0e70d060",
+    "intrinsics.json": "b86aab37c337956226f65f7d81d8e1251132affcb6f6d01fdf0769dddd776b26",
+    "masks-manifest.json": "0eceea108a5419fb77cc595f11fd516f48eac7c83155ed8355e48b4de6d1dbc2",
+    "observations.json": "415534441837a4f2f1b08766a9e5797ce128fe58c9ded6f34c224920cc6f3737",
+    "timeline.json": "38e409331a0cf42d4d37d359af2d16bf0288434a54d0295ff2114df4ff5b8548"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "b971d25918522d0dcca7cd1d89a760d07d67ff65a5f92904cf73c9cce648c094"
+}

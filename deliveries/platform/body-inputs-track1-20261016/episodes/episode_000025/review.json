@@ -1,0 +1,31 @@
+{
+  "episode_index": 25,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T17:04:13.909543+00:00",
+  "sample_frame_ids": [
+    0,
+    46,
+    91,
+    136,
+    182,
+    228,
+    273,
+    318,
+    364
+  ],
+  "findings": "Inspected the full-frame contact sheet and both original/overlay target-crop sheets for these nine actual source frames. The same teal-shirt participant remains localized while approaching, lifting, carrying, turning with and replacing a wooden stool. Head, torso, arms, hands and visible legs remain covered, including visible leg regions behind the stool at frame 182. The stool, desks, tripods, seated background observer and standing camera operator remain excluded. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed in the sampled frames. Independently recomputed camera aggregation and consistency checks from raw per-frame estimates. These are estimated camera intrinsics and sampled mask checks; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "2592263112d80baf49d0320af076727a1497d9d1a8ca3b53ee35d5460ce34f51",
+    "input.json": "f3c6275de3bea204186d4f1e6a04aa901ba18015c7b520819f804a53f8725257",
+    "intrinsics.json": "ddcbf3715d55c5a4d68ed60f0239df28ee98d6ec1ea25ec7d47fd381f851186d",
+    "masks-manifest.json": "4e400e4c99b9358ccd3f4bf6f13e30c7eb21493d757a69bfa3af2cca8d74f69c",
+    "observations.json": "43fd233cde9e8b171d64468cb97141973c6bd85c0d150570f7d1060512eb1c67",
+    "timeline.json": "4bedcdf631f9b6d8501f391b9b6070f43c7cbf3dfaec9933f239eae81b67bfb7"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "af5c26ab91a0dd5e39114526a0011319218a2436c0c59762dc918d686178774c"
+}

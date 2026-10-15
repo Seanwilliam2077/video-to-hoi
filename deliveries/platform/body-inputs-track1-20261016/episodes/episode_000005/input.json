@@ -1,0 +1,41 @@
+{
+  "schema_version": "body_input.v1",
+  "profile": "sam3d_body_masks_camera.v1",
+  "episode_index": 5,
+  "target_id": "human_0",
+  "source": {
+    "repository": "nvidia/video_to_data_challenge",
+    "revision": "5f68335f3acc802033d1e80728c1633197521de8",
+    "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000005.mp4",
+    "video_sha256": "9613c76d9a4f9f34ecaf7697f2129ee2c59b6b03b0f014ee531a53d1fe39c30e",
+    "timeline_sha256": "38e409331a0cf42d4d37d359af2d16bf0288434a54d0295ff2114df4ff5b8548"
+  },
+  "producer": {
+    "method": "SAM2.1 Hiera Large video predictor",
+    "code_revision": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+    "checkpoint_sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318",
+    "environment": {
+      "python": "3.12.14",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "torch": "2.7.1+cu128",
+      "torchvision": "0.22.1+cu128",
+      "av": "19.0.1",
+      "Pillow": "12.3.0",
+      "numpy": "2.5.2",
+      "hydra-core": "1.3.7",
+      "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+      "cuda_runtime": "12.8",
+      "autocast_dtype": "bfloat16",
+      "device": "cuda"
+    },
+    "provenance_path": "masks-provenance.json",
+    "provenance_sha256": "cc5ee15083d3fa78b4ec14b3323a27edc22f4a70b5849642bc6d68d98e0a55cd"
+  },
+  "artifacts": {
+    "camera-estimation.json": "a5c2a9cd2e2941c6dfedfa6b7492ff4c138522b3f3b7ff073844c7019c728aed",
+    "intrinsics.json": "b86aab37c337956226f65f7d81d8e1251132affcb6f6d01fdf0769dddd776b26",
+    "masks-manifest.json": "0eceea108a5419fb77cc595f11fd516f48eac7c83155ed8355e48b4de6d1dbc2",
+    "observations.json": "415534441837a4f2f1b08766a9e5797ce128fe58c9ded6f34c224920cc6f3737",
+    "timeline.json": "38e409331a0cf42d4d37d359af2d16bf0288434a54d0295ff2114df4ff5b8548"
+  }
+}

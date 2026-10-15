@@ -1,0 +1,35 @@
+{
+  "episode_index": 10,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:39:30.166169+00:00",
+  "sample_frame_ids": [
+    0,
+    72,
+    144,
+    216,
+    288,
+    360,
+    400,
+    416,
+    432,
+    448,
+    464,
+    504,
+    576
+  ],
+  "findings": "Viewed the full-frame sheet and both original/overlay target-crop sheets for every listed sample. The participant wearing a light shirt remains the tracked foreground human while walking around and stepping across the desk area. The desk is excluded where it occludes the body; no identity switch, missing target, or major body truncation is visible. Frame 432 has a localized over-segmented background region inside the arm-to-torso gap; this is retained as a segmentation-boundary limitation because the human identity and usable Body localization remain correct. All declared camera samples pass independently recomputed consistency and median checks; estimated-camera accuracy and Body reconstruction quality remain unverified. The pinned Body consumer uses the supplied mask for both crop localization and mask conditioning; the effect of this localized residual on reconstructed pose has not been measured and must be checked in the downstream Body output review. Supplemental original/overlay inspection at frames 400,416,432,448,464 localizes the visible interior-background inclusion to samples 416 and 432; it is absent or substantially reduced at 400,448,464. All five extra views retain the same complete participant and exclude the desk. No broader foreground takeover or major body loss was seen in these inspected neighboring frames.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "df343f9f8a6c0d0455f53257415bbfff963f0e25b39ff763ee4c8cdbf9f260ed",
+    "input.json": "e38079bbae8879413cc984c52d5909e49450407e25b9db9663d904ec3f3771b6",
+    "intrinsics.json": "25ba03646d26c317a43a638edab3f58a855af76ec0240d6c69a37ea5f4207528",
+    "masks-manifest.json": "1d8a87ef450e596688c91680b21faac113313b94f80997eace017dd0ce7827a8",
+    "observations.json": "903782dbdb4aebfa2f6185edbfd48b060ae2374a9fa3a1a5b609b7f393f43d59",
+    "timeline.json": "edf0b6117bd98c3536b7d7afd032a07e4806894283613c18b6895cd6feb61bb9"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "965a69621577329375eb37e81fc45d8fe0a01d5195c7dba433b161e51c759ef1"
+}

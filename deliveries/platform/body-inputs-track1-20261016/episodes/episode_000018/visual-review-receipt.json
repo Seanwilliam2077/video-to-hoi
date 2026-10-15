@@ -1,0 +1,34 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 18,
+  "video_sha256": "e65132e95b0755a720c5e5238654a6fb8a01cd9e5d13fe481bcbb5e5612e44bd",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:50:42.163304+00:00",
+  "sample_frame_ids": [
+    0,
+    67,
+    134,
+    200,
+    267,
+    334,
+    400,
+    467,
+    534
+  ],
+  "findings": "Inspected the full-frame contact sheet and both original/overlay target-crop sheets for these nine actual source frames. The same striped-shirt participant remains localized while walking around the table and using a white roller, including rear, side and front views. Head, torso, arms and visible legs remain localized; the roller, table, tripods and two seated background observers stay excluded. Table occlusion in frames 334 and 400 is retained rather than filling the foreground table with the human mask. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed in the sampled frames. Fine shoe and contact boundaries are not certified pixel accurate by this sampled review. Independently recomputed camera aggregation and consistency checks from the raw per-frame estimates. These are estimated camera intrinsics; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "reviewed_artifacts": {
+    "camera-estimation.json": "9d6eb6a82df4b8fd4c4d2e5cf478240d9dc1efa508f5c8a4c60d65d2fd8e5677",
+    "intrinsics.json": "c4c159f2f716c5b325e4a7bb31290c2d32b7b5b4db7937f809a57d7503c67c4d",
+    "mask-qa/review-001.jpg": "bd414e566af5a5b3f15404b21516da6a2a7f670498730bbf945fd39496a12274",
+    "mask-qa/targets-001.jpg": "9a3f1959b2d90daceadb0a1c622ac152fdbbdd4ae8346a4df06621903500b395",
+    "mask-qa/targets-002.jpg": "5f7c14339ca5110a8dcb50583dab566ace6288e1f4c80f4f7687f12496541074",
+    "mask-qa/targets-manifest.json": "898b584c127d091c0218b5bd7ef497d85415971f32374392c95e721cecb0df0e",
+    "masks-manifest.json": "553c8691240999a86fa7badd7c4f932fd3e16a2b2847dca287441f52ec430656",
+    "masks-provenance.json": "61b609452d9d52b25d05418906f06432d77e240c37a89d6b6713aa1d66ffbfdb",
+    "observations.json": "f029b25edc69d4514ae07e214de2041dcf971e5b6eee43df556cf18bc3d6fed9"
+  }
+}

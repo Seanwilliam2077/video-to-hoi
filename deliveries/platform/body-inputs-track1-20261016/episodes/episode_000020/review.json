@@ -1,0 +1,31 @@
+{
+  "episode_index": 20,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:53:48.624402+00:00",
+  "sample_frame_ids": [
+    0,
+    68,
+    137,
+    206,
+    274,
+    342,
+    411,
+    480,
+    548
+  ],
+  "findings": "Inspected the complete overview sheet and both target-cropped original/mask-overlay sheets at all nine listed frames, including first, exact midpoint and last. The light-shirted interaction participant remains correctly localized while using a roller on the table and walking around it; head, torso and visible legs are retained. Table, roller and room background are excluded from the human region at the reviewed samples. No target swap or Body-localization blocker is visible. Fine hand/tool contact boundaries are not certified. No automatic temporal-quality flags or invalid masks were reported. Camera estimation is camera_estimate_consistent with no blockers: median focal length approximately 794.498 pixels, p10-p90 relative spread 1.51% and maximum relative deviation 1.67%. These are consistency checks of a monocular estimate, not independent metric calibration, distortion validation or principal-point validation.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "930932473eced46e197a4f7c2f14beebab938eb87cc27f40f082245440f7a6b8",
+    "input.json": "5a898cd2e92bd4c8b9ca35e3315b5bbf685a033cfe6beb5e28240b8f8366abf0",
+    "intrinsics.json": "8cc9fb7f8ffb087b87ed073eec262add97b49d26372e6cb47c3f6ef0043f9695",
+    "masks-manifest.json": "7bf79def1f2f866c2f716e7ec91d6a2fc3b8d80a009d1bf89638b756d5e2f268",
+    "observations.json": "f4a309771b0b320729c7fa0c53427daf15a858cef08e541bc721b8647f38a08d",
+    "timeline.json": "08ab13ee845bb5b55899392f15502848d66adfa7e81ba6e651307c4438739cfb"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "acf514b04cbdd87a613b5f605eae53626dea10dbdd0da4e178d5bdb8ce88a4e4"
+}

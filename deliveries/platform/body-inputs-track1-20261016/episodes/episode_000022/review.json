@@ -1,0 +1,31 @@
+{
+  "episode_index": 22,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:58:13.756197+00:00",
+  "sample_frame_ids": [
+    0,
+    66,
+    133,
+    200,
+    266,
+    332,
+    399,
+    466,
+    532
+  ],
+  "findings": "Inspected the complete overview sheet and both target-cropped original/mask-overlay sheets at all nine listed frames, including first, exact midpoint and last. The dark-shirted interaction participant remains correctly localized while lowering and rolling the pink cylinder on the table. Visible head, torso, arms and legs are retained, including the separated hands at frame 466; the pink cylinder, table and background stay outside the human region at the reviewed samples. No target swap or Body-localization blocker is visible. Fine finger/contact boundaries and self-occluded anatomy are not certified. No automatic temporal-quality flags or invalid masks were reported. Camera estimation is camera_estimate_consistent with no blockers: median focal length approximately 805.575 pixels, p10-p90 relative spread 0.98% and maximum relative deviation 1.18%. These are consistency checks of a monocular estimate, not independent metric calibration, distortion validation or principal-point validation.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "f6c1297939cf0b1fdb4035f27405b45cfae1fbeab986e819e700e939e4ee019b",
+    "input.json": "25df912ddbc2a9f31587bd3ec66f3ba30c298c232c948ecccd1e09d8997fb499",
+    "intrinsics.json": "82aad69c362c90ba8cc438492cb917b97c3f87b545ed7688ca1ff84fd6ae9154",
+    "masks-manifest.json": "5d31355d9a309fa68685a576fb7e11495047c69b7ee23af8bf3391564692b89f",
+    "observations.json": "fdc10ca855a1e566e1a68ff999da318aeb6c8bcac03d6fadbec45ddee08a4700",
+    "timeline.json": "1440e01d08b0213a811a4850c1f6f6fd35b710101bd702071b0b485a20f0a3fa"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "5670a26308f77d7eefc65910117cc3ea1a9bcc1f9d2cba1cd4efc068dd9fb3d5"
+}

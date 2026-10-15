@@ -1,0 +1,31 @@
+{
+  "episode_index": 11,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:40:05.347282+00:00",
+  "sample_frame_ids": [
+    0,
+    110,
+    219,
+    328,
+    438,
+    548,
+    657,
+    766,
+    876
+  ],
+  "findings": "Viewed the full-frame QA sheet and both target-crop original/overlay sheets for all nine listed frames. The same light-shirt, blue-trouser participant stays localized during walking, turning and tipping the desk. In sample 766 the tabletop occludes the lower body and is correctly excluded while the visible upper body, hands and feet remain masked. Desk legs and other background items remain excluded in the inspected views. No identity switch, empty localization or major visible-body loss was observed. Camera median and within-episode consistency were independently rechecked. This is sampled input review, not pixel-level ground truth or Body reconstruction validation; masks provide both localization and downstream mask conditioning.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "a662048fccb793b14db50e9f005dbb42938891a9de16e47961aa0e94004f1ff3",
+    "input.json": "b81f660f03e76bd0ca8e276e65679e30a7af8a2301a092cdad9c0aa827491de7",
+    "intrinsics.json": "1bca5df67abbdf36a04b75d03a7eb1a54d78666c18a94c2d22213f2139d4bb95",
+    "masks-manifest.json": "f8b5ee199e1070a9309965f54fe106f0216be1cdca8659f154fcb3e899dcaada",
+    "observations.json": "e3527e251b34ba1f72182fc82cb415ba97561ad163b468b72a29fce2be67849a",
+    "timeline.json": "644878a1f67b1cf210ea0b278af6c07c03d1600841455e3d1aa480093fa0c89f"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "3bfe032ab7312c2d3782300fc1e73bb58051985e50502d2262db2895f4428e36"
+}

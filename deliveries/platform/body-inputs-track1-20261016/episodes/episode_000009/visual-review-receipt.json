@@ -1,0 +1,36 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 9,
+  "video_sha256": "4fe69ca521fc2717e2938339b0a37843ada391f4b074753584c7cd8c2e36a277",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:33:47.777866+00:00",
+  "sample_frame_ids": [
+    0,
+    52,
+    104,
+    155,
+    207,
+    259,
+    310,
+    362,
+    414
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all nine recorded frames. The blue-sweatshirt interaction participant remains selected while approaching, bending over and flipping the white desk. Visible head, torso and lower-body silhouette remain localized despite desk bars crossing the body; both seated background people and the desk are excluded. Fine hand boundaries at the desk-bar occlusion are not certified, but no target swap or visible Body-localization blocker appears in these samples. No automatic mask flags or invalid frames were reported. Camera status is consistent across 13 source frames: focal median 835.528 px, relative p10-p90 spread 2.84%, maximum relative deviation 2.14%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "flag_resolutions": [],
+  "sampling_limitation": "Visual inspection covers the listed original/overlay sample frames and every generated QA image, not every source frame. Full mask coverage and hashes were verified automatically. Fine boundary accuracy and later Body reconstruction quality remain unverified.",
+  "reviewed_artifacts": {
+    "observations.json": "6a9b3907ca32f58622b68b0ed7cce1104e74a309bee5a8ffcba822132af3aeed",
+    "masks-manifest.json": "ae6e5e93d73e105824d931ba5edecd74f7bcec9bb6ce7b8f4d3c5edc8d1ef6b7",
+    "masks-provenance.json": "930c90f12d700688ec2bc80f4c9b07d6db0e86b92941a6e8db82c5f50fa165a8",
+    "intrinsics.json": "0c94b87f216130b31f0c01872d942fe27512b31cac08be54307d70fc90052dab",
+    "camera-estimation.json": "8d39706c25db011656a91c0a6aa2e912d90c111b695c07b8905df5a5e4bb8de4",
+    "mask-qa/review-001.jpg": "c315a92c74477fba6bc95afa9f4f1ee21d91df139fb8fe4c41b9b882f058413a",
+    "mask-qa/targets-001.jpg": "01257a448adb7e2c87d152f388843278b97967260735dc471e7820609f0ac9c6",
+    "mask-qa/targets-002.jpg": "9c6bff88aaf60825af25ad469470751b8f8057159d5041e1f83d03c5ad6049c2",
+    "mask-qa/targets-manifest.json": "fa2bfba69443ebcb3b3d04ce59d6b250e582867813138fbf4c7cec9c54b23f6c"
+  }
+}

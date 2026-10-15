@@ -1,0 +1,36 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 29,
+  "video_sha256": "0a2288f183e4d0fffff1c55688c1ea27c09e60588dfc9f52c10137b3abc1b5e1",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review (primary agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T17:10:28.261782+00:00",
+  "sample_frame_ids": [
+    0,
+    52,
+    104,
+    157,
+    209,
+    261,
+    314,
+    366,
+    418
+  ],
+  "findings": "Actually inspected all nine listed frames in the complete full-frame review sheet and both original/overlay target-crop sheets. The grey-shirted participant remains localized through standing, reaching onto the desk, pushing it across the room and returning to an upright stance. The mask retains the visible head, torso, arms, hands, legs and feet in these side/rear views. The wheeled desk, basket, pole, wheels, curtains and tripods remain excluded; no target switch, empty localization, major background takeover or major visible-body loss was observed. Fine hand-to-table contact pixels and shoe/leg boundaries are not certified by the sampled views. The mask is a conditioning input as well as localization, and Body prediction quality must be reviewed separately. Independently verified the camera aggregation and declared consistency screens against this original source.",
+  "unresolved_issues": [],
+  "flag_resolutions": [],
+  "sampling_limitation": "Machine-assisted sampled visual review, not human review or exhaustive per-pixel validation. Complete frame and byte coverage is checked automatically. Monocular intrinsics are estimates, not ground-truth calibration, metric scale or evidence of completed Body inference.",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "bdc2b20cf485f7df1c84400502939f3387071450fb4d14e248e9b6e49a2647db",
+    "intrinsics.json": "b71ed261047be0f920bcd551322b0366bed887b2bcd1e66bf7d88fc6168bed87",
+    "mask-qa/review-001.jpg": "5cff510a81fa6ad10a5ee53fe1dadd5668e1c8842a4b7e2bde929e6b9a61f218",
+    "mask-qa/targets-001.jpg": "41e84c18753142be90cd9319fd0e3ab354e7922a25c3f7b5ce2287cf0e936828",
+    "mask-qa/targets-002.jpg": "e689b2fa9885df021ccd50bd18042fbd7fa9859b6eb26d939285fdb7294350e5",
+    "mask-qa/targets-manifest.json": "c3c4856c5061114219bf47731a61d20a87f289f59df2db606ed829c0af0a21ea",
+    "masks-manifest.json": "ef673708e2c63b6741c4f66126403525d0c5b2ff42e4b17895b8ed078ad7e43c",
+    "masks-provenance.json": "611f9452965963d4a7966407ff10893e34367e035e895bcfa1f8cf7484ea49ce",
+    "observations.json": "e458f4e5533f84d9cabbb4dcf229432884bca5ff16ce3faeb528f9123bda9698"
+  }
+}

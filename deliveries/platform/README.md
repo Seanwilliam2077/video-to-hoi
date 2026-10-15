@@ -2,7 +2,7 @@
 
 Submit a small delivery record at **`deliveries/platform/<unique-delivery-id>/README.md`** using the [shared template](../TEMPLATE.md), and open a PR to `main`. Any member may contribute.
 
-Current preparation delivery: [30 verified Track 1 raw inputs and the Body handoff plan](raw-track1-20261015/README.md). Raw bytes, decoding and timelines passed; real human masks, camera estimates, Body execution and receiver acceptance remain pending.
+Current delivery: [all 30 videos ready for standalone Body input](body-inputs-track1-20261016/README.md). All 16,563 source frames have target-human masks, estimated intrinsics and reviewed inputs. The complete gate, native readers and same-host relocated archive check passed; Body inference and second-host execution remain separate. The [earlier raw preparation record](raw-track1-20261015/README.md) is retained as history.
 
 | Work | Existing code or plan location |
 | --- | --- |

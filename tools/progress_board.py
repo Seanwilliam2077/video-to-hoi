@@ -59,10 +59,10 @@ STAGES = [
 STAGE_MAP = {stage["id"]: stage for stage in STAGES}
 CAPABILITIES = [
     {"module": "platform", "status": "infrastructure_available",
-     "summary": "Internal delivery gates and delivery folders exist. Native import, package relocation and official export acceptance remain pending.",
-     "evidence_url": f"{REPOSITORY}/blob/main/docs/platform-plan.md"},
+     "summary": "All 30 standalone Body inputs passed full-frame checks, pinned native readers and same-host archive relocation. Full Inputs, second-host inference and official export remain pending.",
+     "evidence_url": f"{REPOSITORY}/tree/main/deliveries/platform/body-inputs-track1-20261016"},
     {"module": "human", "status": "infrastructure_available",
-     "summary": "Internal human-array structural checks exist. Real native human adapter and per-video accepted results are not registered.",
+     "summary": "All 30 standalone Body input packages are available. Body inference, native output import and accepted human reconstruction remain pending.",
      "evidence_url": f"{REPOSITORY}/blob/main/docs/delivery-gates.md"},
     {"module": "object", "status": "infrastructure_available",
      "summary": "Internal mesh and motion structural checks exist. Real reconstruction, tracking and per-video accepted results are not registered.",

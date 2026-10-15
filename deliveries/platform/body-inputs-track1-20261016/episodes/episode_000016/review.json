@@ -1,0 +1,31 @@
+{
+  "episode_index": 16,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:08:27.463340+00:00",
+  "sample_frame_ids": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    224,
+    269,
+    314,
+    359
+  ],
+  "findings": "Inspected the overview sheet and both target-cropped original/overlay sheets for all nine recorded sample frames. The mask stays on the striped-shirt interaction participant, preserves visible head, torso and limbs, and excludes the table and foam block. Occlusion at the hands and table does not produce a visible localization blocker in these samples. No automatic mask flags or invalid masks were reported. Reviewed the 13-frame episode-local MoGe camera summary: status camera_estimate_consistent, focal median 818.746 px, relative p10-p90 spread about 1.31%, maximum relative deviation about 1.05%, and no blockers. This is a consistent monocular estimate with unverified absolute calibration, distortion and principal point.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "50816989e15d311c06c8c3f2d25a6ab4396c22a4a841462c9d816b8746c457ac",
+    "input.json": "028542aababb85c6d8ab6330fd3aec2a8100afc53556f010b61989e27191bc18",
+    "intrinsics.json": "af77ed87e1b1f1f90227e71ae027bbbf719c66bfb2b348eef20a30b682022682",
+    "masks-manifest.json": "06aee9ed4d7b24187fbfaac14fade4bab10773d97a892eed4953fd9741135cf0",
+    "observations.json": "57f522201cb4f1c34d2f2c929ee34495e0ceb180cb6b82088b54f6ef80cf9fc6",
+    "timeline.json": "4abe4ce0cf913fcb5d3ed0738e38a6b0886846de33f3760fd38a1a29f5080031"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "a8cb77f808842eb7210dd7e913484d5be5b5069424a57917e7f9a1e5ce7f5673"
+}

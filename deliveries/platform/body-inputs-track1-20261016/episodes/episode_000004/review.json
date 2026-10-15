@@ -1,0 +1,31 @@
+{
+  "episode_index": 4,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:20:34.139581+00:00",
+  "sample_frame_ids": [
+    0,
+    93,
+    186,
+    280,
+    373,
+    466,
+    560,
+    653,
+    746
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all nine recorded frames. The black-shirt participant remains selected while walking around the table and pushing the red bowl, including front, back and side views. Visible head, torso and limbs remain localized; the seated background person, table and bowl are excluded. Table occlusion and hand contact do not create a visible Body-localization blocker in these samples. No automatic mask flags or invalid frames were reported. Camera status is consistent across 13 source frames: focal median 843.707 px, relative p10-p90 spread 2.32%, maximum relative deviation 1.66%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "152e839d7848ec0cc9a1902d3ad9ae50de9ea6bc5c7bbad3f1116251653d9b9d",
+    "input.json": "cdcb4f7400f7dcef5c154bab477021b176c13f64dc30844f77f791d9642ed991",
+    "intrinsics.json": "01c62f253e112b7c3ce35d23104ec29615ff54a9ed9d960702e7bec7dbe35016",
+    "masks-manifest.json": "35cbf1f05abd2c2668fa2ed6b2683c58ac3eaa240b18eb4af9df744493149e92",
+    "observations.json": "d12d3ef2cff6a9f236ba08a6b2bc9547e22cc1f136c378b51a8249f47b3c5732",
+    "timeline.json": "2851715f23c7719e7b2ff5bda0868b7ca35a4b09297fb0ec8d3780bba66a4f38"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "77635b0cd904e8e67ac5e6812daabbec8994a44684c647758e59bbfb85a4bdc5"
+}

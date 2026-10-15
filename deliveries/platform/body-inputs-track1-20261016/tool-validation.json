@@ -1,0 +1,72 @@
+{
+  "schema_version": "body_tool_validation.v1",
+  "passed": true,
+  "body_model_inference_tested": false,
+  "created_at": "2026-10-15T16:35:06.461641+00:00",
+  "source_commit": "3238f9c6657605e6fac168d91a1f0b12edc889be",
+  "checks": [
+    {
+      "name": "final_ci_explicit_python_allowlist",
+      "status": "passed",
+      "tests_passed": 676,
+      "tests_failed": 0,
+      "seconds": 54.77,
+      "environment": "GitHub Actions Ubuntu / Python 3.10",
+      "source_commit": "3238f9c6657605e6fac168d91a1f0b12edc889be",
+      "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/38769901267/job/116542661280"
+    },
+    {
+      "name": "final_ci_progress_board_node",
+      "status": "passed",
+      "tests_passed": 24,
+      "tests_failed": 0,
+      "environment": "GitHub Actions Ubuntu / Node 22",
+      "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/38769901267/job/116542661605"
+    },
+    {
+      "name": "final_ci_progress_registry_validation",
+      "status": "passed",
+      "note": "The registry was empty at tool validation; final delivery records are validated separately before publication.",
+      "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/actions/runs/38769901267/job/116542661280"
+    },
+    {
+      "name": "earlier_local_explicit_python_allowlist",
+      "status": "passed",
+      "tests_passed": 661,
+      "tests_failed": 0,
+      "environment": "Windows / dedicated CPU review environment",
+      "report_sha256": "91c940c724706939ad3e817180061f0509a288d8e2b6d83e47e8c7781de3fb15",
+      "note": "Earlier full suite preceded 14 new bbox/native report cases and one additional timestamp case. Final full 676-test evidence is the Linux CI run above."
+    },
+    {
+      "name": "local_handoff_gate_and_package_after_native_review",
+      "status": "passed",
+      "tests_passed": 73,
+      "tests_failed": 0,
+      "seconds": 45.85,
+      "note": "Focused regression run after exact native bbox and stale-native-report fixes."
+    },
+    {
+      "name": "local_progress_timestamp_compatibility",
+      "status": "passed",
+      "tests_passed": 77,
+      "tests_failed": 0,
+      "seconds": 1.03,
+      "note": "Focused timestamp parsing and registry tests after the Python 3.10 CI correction."
+    },
+    {
+      "name": "offline_release_and_delivery_record_guards",
+      "status": "passed",
+      "tests_passed": 27,
+      "tests_failed": 0,
+      "seconds": 19.09,
+      "note": "Offline mutation and complete mocked publication-flow tests only; both new-draft and existing-draft paths require exact identity on draft-update and publish PATCH requests. No actual credentials, network or release publication in these tests. Runtime publication receipts are separate evidence.",
+      "helper_sha256": {
+        "publish_body_release.py": "a4bfda4ee18757c457e5485a75a5679a92ad7521873ba7638afec378abbc6655",
+        "record_body_delivery.py": "1a31d1c7a5fc1762afda221732cbc91237ab48a7d59995504d5279799e282fd8"
+      },
+      "test_file_sha256": "18bfb74101b35ced0364f77f7a966204702b28ae98c7c8812e424c8ee41c7a57"
+    }
+  ],
+  "scope": "Independent synthetic CPU fixtures, source metadata and registry tests. Real Track 1 mask/camera execution and every-frame input/native-reader checks are separate evidence; no Body inference or official score is claimed."
+}

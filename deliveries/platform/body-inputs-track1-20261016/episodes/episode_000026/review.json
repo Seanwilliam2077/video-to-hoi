@@ -1,0 +1,31 @@
+{
+  "episode_index": 26,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T17:06:05.765082+00:00",
+  "sample_frame_ids": [
+    0,
+    50,
+    100,
+    149,
+    199,
+    249,
+    298,
+    348,
+    398
+  ],
+  "findings": "Inspected the full-frame contact sheet and both original/overlay target-crop sheets for these nine actual source frames. The same beige-shirt participant remains localized while approaching a wooden stool, sitting, turning while seated, standing and stepping away. Head, torso, arms and visible legs remain localized through the pose changes; the stool and seated background observer remain excluded. Visible far-leg regions behind the stool are retained at sampled frames 149, 199, 298 and 348, without filling the wooden stool into the human mask. Fine boundaries and heavily occluded far-leg detail, particularly frame 249, are not certified pixel accurate by this sampled review. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed. Independently recomputed camera aggregation and consistency checks from raw per-frame estimates. These are estimated camera intrinsics; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "5edb0490f4c92ed9bc4904751ceb8582e00b3da5952548c0400c2abc8fb6ac0a",
+    "input.json": "43f706d7b288d612f257d00cebbb279d4ff058cee9b6d0965b038eeda3d9ea51",
+    "intrinsics.json": "1e76b0a295db405b6d90bb4fb2bd74e096b043151acb347cc8c61a7cccc329cb",
+    "masks-manifest.json": "7356b0e45155ea197773f0f9622e28772414ec0cc9642faec5e4c60cdce3551f",
+    "observations.json": "2a706b8c7c7fd09cecdf58154aeaefdba7e56f1173ce8f8e7a9ff4e2bec5cc88",
+    "timeline.json": "44a7e6edfd66a70893c91380d0c4c547cca28bffbae54bf9e18d1fddf69ae3d1"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "fb7dc2f9a07f6d408e3eda0b1cbc08c8ae97f3d6b76801ed3985e1c855b4bb23"
+}

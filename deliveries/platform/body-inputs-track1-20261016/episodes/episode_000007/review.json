@@ -1,0 +1,31 @@
+{
+  "episode_index": 7,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:30:11.970837+00:00",
+  "sample_frame_ids": [
+    0,
+    97,
+    194,
+    291,
+    388,
+    485,
+    582,
+    679,
+    776
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all nine recorded frames. The black-shirt participant remains selected through floor pickup, turning with the iron, showing it in front of the torso and setting it down. Head, torso, visible arms and legs remain localized; the iron is excluded where visibly separable, with contact-boundary precision unverified. No target swap or visible Body-localization blocker appears in these samples; no automatic mask flags or invalid frames were reported. Camera status is consistent across 13 source frames: focal median 813.585 px, relative p10-p90 spread 1.44%, maximum relative deviation 0.89%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "bd41ca203094ef81f81b478d0e9de41c30c07c1db6ec7e0a3eae7f2af0644369",
+    "input.json": "8ffc908f74f2a023bfcb529b1ef15b0fba8cf3af6dd08964f4999fa6b3d05860",
+    "intrinsics.json": "c1133adc0c156a103916cd107bdb1ae82b1f9f9b2db182e4ff6bb492ee0ed388",
+    "masks-manifest.json": "c00dbaafea06b6232d8e3f1cbfeb33d966708bd3f3118257790724c0aabc955d",
+    "observations.json": "5927ad1837cec85a7e32bb4a34d09a405292464af567529be0325397a2ab1cad",
+    "timeline.json": "a557d70880eba25686f7d2c1cc143b99f8a1ef117066c6a3ebf7e2b9a65ece5b"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "44c042df618190602b95568aa95fc5fb1cdaf0332e219434de98791115dc0cf1"
+}

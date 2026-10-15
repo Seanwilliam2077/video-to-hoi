@@ -3,3 +3,5 @@ deployment/licenses/* -text -whitespace
 deployment/model-redistribution.json text eol=lf
 # Preserve the exact browser text bytes hashed by the replacement receipt.
 docs/evidence/reference-answers-20261003.txt -text
+# Keep published Body delivery evidence byte-identical to its immutable archive.
+deliveries/platform/body-inputs-track1-20261016/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

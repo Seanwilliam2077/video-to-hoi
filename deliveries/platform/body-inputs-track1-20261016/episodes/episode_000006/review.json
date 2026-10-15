@@ -1,0 +1,31 @@
+{
+  "episode_index": 6,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:27:17.155155+00:00",
+  "sample_frame_ids": [
+    0,
+    102,
+    204,
+    306,
+    408,
+    509,
+    611,
+    713,
+    815
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all nine recorded frames. The grey-shirt interaction participant remains selected during approach, alternating-hand iron manipulation and stepping away. Visible head, torso, arms and legs remain localized; the round table, its central support and the iron remain excluded. The table and iron partially occlude the body and hand, without a visible Body-localization blocker in these samples. No automatic mask flags or invalid frames were reported. Camera status is consistent across 13 source frames: focal median 811.784 px, relative p10-p90 spread 1.00%, maximum relative deviation 1.07%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "62d8ff7ca0213525b82469404ec567f9a8d433928c10788f6b78339ebc796d67",
+    "input.json": "b4a0a6537dad2f82c763cc7fd0c034e4db83dbb2bd474b34f356ce2aae901372",
+    "intrinsics.json": "783f6fb7627f8bdf0dfb740303465aa1f45d1061b95d1886fc50ce29d8958260",
+    "masks-manifest.json": "2e0030fad1cefc75279c512e6cd62a8b3749e495908b2fb7b04f9ce2120b2df2",
+    "observations.json": "2f75a1f9fcbea5153242f56bcaf879d6798a73ed422a6c902df8cc6230b82ba3",
+    "timeline.json": "d33966e70d9636cc7cd183e97bbd897737d531482556e6209785553e82383111"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "be5ac1b23cd6006f22af9be54ef1a6fb56dd290e5d0924e81cf54b8ba96dcd56"
+}

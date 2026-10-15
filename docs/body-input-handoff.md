@@ -47,7 +47,7 @@ The archive does not include Body model weights, its full GPU environment, objec
 
 ## Check the receiving copy before running Body
 
-Compare the archive hash with the value provided alongside the delivery, then extract into a fresh directory. Run the following from that extracted directory in a dedicated CPU validation environment:
+Compare the archive hash with the value provided alongside the delivery, then extract into a fresh directory. Create and activate a dedicated CPU validation environment using the tested **Python 3.12** version before installing the pinned requirements. Run the following from that extracted directory, with `python` resolving to that Python 3.12 environment:
 
 ```bash
 python -m pip install -r requirements.txt

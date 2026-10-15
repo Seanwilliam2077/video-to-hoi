@@ -1,0 +1,31 @@
+{
+  "episode_index": 13,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:43:37.526927+00:00",
+  "sample_frame_ids": [
+    0,
+    53,
+    106,
+    159,
+    212,
+    265,
+    318,
+    371,
+    424
+  ],
+  "findings": "Viewed the full-frame sheet and both original/overlay target-crop sheets for all nine listed frames. The blue-top participant remains the tracked target while reaching for, presenting, turning and replacing the pan. The visible body silhouette and extremities remain localized, and the pan is excluded when it overlaps the torso. The round table, tripod and room background remain excluded in the inspected views. No identity switch, empty localization, major background takeover or major visible-body loss was observed. Independently checked the camera median and within-episode consistency. This is sampled input review for localization and mask conditioning, not ground-truth segmentation/calibration or a validation of Body predictions.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "ac1d69a94e4d0f295a5e1ccbe9b476c531f2987e54485661b486689a2f0a8015",
+    "input.json": "b156edfacf2fddb636d65eb16cbe05de57aee4777659671586e913645ad9338c",
+    "intrinsics.json": "9f2bbb8c8f4dbe5c2434f1a1c514ee8dbf0d3b72b46284693246dbbdfe149f4f",
+    "masks-manifest.json": "07e3485e1f3556a5c78f91492806c52fc5af3abb4b8bca2933dd0779ca816dae",
+    "observations.json": "9cc15e8644bb3549a47893af938d443f8dd419dda2bedce39e399223f22d4f79",
+    "timeline.json": "40e46261f9d0640b6638a062cd28554620a1745f1a6484824e14ca02c004eff7"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "af7a083e44e14aff4c4297be2fee738b37d7f9b37225394cd370ae56c2985333"
+}

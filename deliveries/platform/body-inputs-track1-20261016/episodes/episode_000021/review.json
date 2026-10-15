@@ -1,0 +1,31 @@
+{
+  "episode_index": 21,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:56:33.015096+00:00",
+  "sample_frame_ids": [
+    0,
+    70,
+    140,
+    211,
+    281,
+    351,
+    422,
+    492,
+    562
+  ],
+  "findings": "Inspected the complete overview sheet and both target-cropped original/mask-overlay sheets at all nine listed frames, including first, exact midpoint and last. The striped-top interaction participant remains correctly localized when walking, bending, picking up, carrying and lowering the pink cylinder. Visible head, torso, arms and legs are retained; the pink cylinder, tripod and room background stay outside the human region at the reviewed samples. No target swap or Body-localization blocker is visible. Fine fingertip/contact boundaries are not certified. No automatic temporal-quality flags or invalid masks were reported. Camera estimation is camera_estimate_consistent with no blockers: median focal length approximately 796.228 pixels, p10-p90 relative spread 2.42% and maximum relative deviation 1.66%. These are consistency checks of a monocular estimate, not independent metric calibration, distortion validation or principal-point validation.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "bec09ee3a5ebcbfe46d4e6944ac0b38065448b123f5620f63243f8060260555a",
+    "input.json": "97cb5aa4ea3c87d1304da9aef64eaf4d08f6f05149666f2c7120b61fcf04d47c",
+    "intrinsics.json": "9b89d2a41cd27c973b6ec1b7fee83e56fc6f7dde9e72dd8da687f5de3b8c08b0",
+    "masks-manifest.json": "fee2b591e4fc3824514c78fc4278003fb105d92a742e7666b2b3bf568f1f20dd",
+    "observations.json": "5c4279daa422e9a72d07f1703d939ddc2d496c144f5a12c1a1d290655f0274d1",
+    "timeline.json": "d733e12a414123583c74a72e4a6cc4f3e7e513dbee7907450c6931cc5785aefd"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "6fc065abe18e8f67eed1da0b3e8c8e96de9c3c1196dfed7b05d2843828c080c2"
+}

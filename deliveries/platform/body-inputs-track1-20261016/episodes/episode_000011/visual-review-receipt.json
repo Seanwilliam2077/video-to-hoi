@@ -1,0 +1,34 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 11,
+  "video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:40:05.347282+00:00",
+  "sample_frame_ids": [
+    0,
+    110,
+    219,
+    328,
+    438,
+    548,
+    657,
+    766,
+    876
+  ],
+  "findings": "Viewed the full-frame QA sheet and both target-crop original/overlay sheets for all nine listed frames. The same light-shirt, blue-trouser participant stays localized during walking, turning and tipping the desk. In sample 766 the tabletop occludes the lower body and is correctly excluded while the visible upper body, hands and feet remain masked. Desk legs and other background items remain excluded in the inspected views. No identity switch, empty localization or major visible-body loss was observed. Camera median and within-episode consistency were independently rechecked. This is sampled input review, not pixel-level ground truth or Body reconstruction validation; masks provide both localization and downstream mask conditioning.",
+  "unresolved_issues": [],
+  "reviewed_artifacts": {
+    "camera-estimation.json": "a662048fccb793b14db50e9f005dbb42938891a9de16e47961aa0e94004f1ff3",
+    "intrinsics.json": "1bca5df67abbdf36a04b75d03a7eb1a54d78666c18a94c2d22213f2139d4bb95",
+    "mask-qa/review-001.jpg": "f34dbedca6af8ca46f80ee9ad475c35e8b4f97bb7a4f4d98b749485204f76938",
+    "mask-qa/targets-001.jpg": "2e9ae1ed843c8de8cd14610bab348091e7875b8cadb25f25e27dfd2deddd723d",
+    "mask-qa/targets-002.jpg": "cf9c0b7eec6ed474d078451e05b6bd11b9124572c8c3489f5bcebaee39c30c6d",
+    "mask-qa/targets-manifest.json": "fc190c58ef5163a71012e92474dcf1e7e2f05bc15965e45fe4bd5c1abc2f5e9c",
+    "masks-manifest.json": "f8b5ee199e1070a9309965f54fe106f0216be1cdca8659f154fcb3e899dcaada",
+    "masks-provenance.json": "e5674839bd3b0d6f8d0776cc2217dd6d4506c099bef888d8e1bf16fad52a46c7",
+    "observations.json": "e3527e251b34ba1f72182fc82cb415ba97561ad163b468b72a29fce2be67849a"
+  }
+}

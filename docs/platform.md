@@ -2,6 +2,14 @@
 
 Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
+## Complete 30-video Body input delivery (2026-10-16)
+
+[The delivery record](../deliveries/platform/body-inputs-track1-20261016/README.md) provides the public archive, exact hashes and per-video evidence. All 30 original Track 1 videos / 16,563 frames now have actual SAM2 target-human masks, per-episode MoGe2 intrinsics, exact timelines and recorded machine-assisted sampled visual reviews. All 30 passed the dedicated Body input gate; the pinned upstream readers loaded every RGB/mask pair and camera. The archive passed member hashing and its bundled gate after extraction into a separate directory on this workstation.
+
+The [receiving guide](body-input-handoff.md) separates CPU input validation from the receiver's Body GPU environment and weights. No Body inference, metric-scale certification, second-host model run or official reconstruction acceptance is claimed. The standalone `sam3d_body_masks_camera.v1` profile can proceed while object preparation continues; full M1 Inputs and formal CARI4D dependencies remain separate. Fine boundary defects and camera uncertainty remain explicit in the reviews, rather than being converted into accuracy claims.
+
+The [30 progress records](../tracking/README.md) register actual partial Inputs submissions, with archive and camera evidence; they do not accept the full stage. [Tool verification](../deliveries/platform/body-inputs-track1-20261016/tool-validation.json) records the 676-test CI allowlist and 24 browser-core checks. Any available teammate can receive this immutable package, run its checks, execute Body and submit a new result bound to these inputs. Native reconstruction import, output acceptance and end-to-end integration remain next work.
+
 ## Module 1 scope for the team discussion (2026-10-15)
 
 [The platform plan](platform-plan.md) records seven capabilities, task/result records, four integration boundaries and three acceptance layers. The proposed order is one complete real input-to-export/reload path, then an actual two-host handoff, then fixed-baseline experiments and broader coverage. Roles float across tasks; no permanent module owner is needed. The meeting checklist covers the real sample, available execution capability, transfer boundary and completion evidence.

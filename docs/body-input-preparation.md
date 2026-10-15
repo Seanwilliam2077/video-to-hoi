@@ -1,6 +1,8 @@
 # Video preparation through the Body handoff
 
-Updated 2026-10-16. The requested scope is a complete Body input handoff for **all 30 Track 1 videos**, not a two-video pilot. This preparation ends when the complete archive and the selected native input readers pass on the receiving copy. Body model runtime validation, inference and accepted human reconstruction remain separate states. See the [receiving guide](body-input-handoff.md) for exact package layout and consumer commands.
+Updated 2026-10-16. Body inputs are prepared for **all 30 Track 1 videos / 16,563 original frames**. The complete input gate, pinned upstream input readers and a fresh extraction of the portable archive have passed on the preparation host. A second worker still needs to repeat the receiving checks on its own copy. Body model runtime validation, inference and accepted human reconstruction remain separate states. See the [receiving guide](body-input-handoff.md) for exact package layout and consumer commands.
+
+The [all-30 input delivery record](../deliveries/platform/body-inputs-track1-20261016/README.md) carries the archive identity, check evidence and current transfer location.
 
 ## Boundary and execution order
 
@@ -64,6 +66,8 @@ For each frame, record observation state and confidence separately from the mask
 
 Inspect overlays at the beginning, middle and end, at large mask-area/box changes, and around interaction/occlusion events. Automatic bounds and continuity checks help find failures but cannot certify target identity or segmentation quality. Record the actual reviewer and findings. Roles remain flexible.
 
+The supplied masks affect both the native bounding-box selection and the network's mask conditioning. Passing localization checks therefore does not make mask boundary errors irrelevant to Body predictions. The completed review covers 279 actual source frames across all 30 videos, with full-frame overlays and target crops bound to each receipt. EP10 retains a documented localized arm-to-torso-gap background inclusion at frames 416 and 432, plus surrounding-frame evidence. It passed the declared input-localization review; its effect on Body predictions remains unmeasured. Preserve these limitations with the input and inspect the eventual reconstruction overlays.
+
 **Completion:** source-bound, full-frame human observations with explicit validity and reviewed target identity. No reconstruction quality claim follows from this check.
 
 ## 3. Estimate the camera on the same episode
@@ -81,16 +85,22 @@ Depth can be useful for later scale evidence, but it is not an additional standa
 The model-specific package below is assembled from actual producer artifacts and actual visual review receipts by `tools/package_body_handoff.py`. Empty templates are not successful artifacts.
 
 ```text
-body-inputs/episode_000000/ ... episode_000029/
-  input.json                  # source video/timeline identities, targets, producer versions
-  timeline.json               # exact copy of the verified original timeline
-  human_masks/000000.png ...   # actual complete mask sequence
-  observations.json           # frame IDs, validity, provenance and reviewed target
-  intrinsics.json             # real camera estimate in original pixels
-  camera-estimation.json      # method, source frames, raw estimates and transforms
-  checks.json                 # typed input checks and unresolved issues
-  review.json                 # actual visual review, not an automatic approval
-  SHA256SUMS                  # complete dependency/output inventory
+body-inputs/
+  assembly-checks.json         # all-30 input gate from assembly
+  native-reader-checks.json    # actual pinned RGB/mask/camera reader check
+  episode_000000/ ... episode_000029/
+    input.json                # source video/timeline identities, targets, producer versions
+    timeline.json             # exact copy of the verified original timeline
+    human_masks/000000.png ... # actual complete mask sequence
+    observations.json         # frame IDs, validity, provenance and reviewed target
+    masks-manifest.json       # every mask file and its hash
+    masks-provenance.json     # prompts, model, runtime and producer QA findings
+    intrinsics.json           # camera estimate in original pixels
+    camera-estimation.json    # raw estimates, source frames and transforms
+    mask-qa/                  # source-bound full-frame/cropped visual evidence
+    review.json               # actual visual review, not an automatic approval
+    visual-review-receipt.json # retained producer review and artifact bindings
+    SHA256SUMS                # complete episode dependency/output inventory
 ```
 
 The original video can stay in a shared raw package if the handoff names its exact hash and includes that dependency. `input.json` must resolve every dependency after relocation; an absolute path from the producer is insufficient.
@@ -109,11 +119,15 @@ There is a concrete compatibility issue to resolve before invoking the historica
 
 **Completion of this input preparation task:** `all_30_body_inputs_verified` plus `all_30_native_readers_passed`, with all 30 original videos and their input dependencies in the portable archive. Body model environment validation and weight availability must be recorded separately on the inference worker. `body_execution_completed`, scientific review and final native-MHR acceptance are later, separate states.
 
-## Current execution constraints
+## Completed preparation and remaining execution
 
 The current Windows host has an RTX 5070 Laptop GPU with about 8 GB VRAM. A dedicated PyTorch CUDA preprocessing environment, the pinned SAM2/MoGe sources and verified preprocessing checkpoints are now installed. The all-30 camera batch completed in 102.84 seconds, with peak allocated CUDA memory of 2,504,214,016 bytes; all 30 reports passed the declared consistency screens. These measurements apply to the camera producer, not Body reconstruction.
 
-At this progress checkpoint, full-sequence human-mask generation is running across all 30 episodes after the episode-16 smoke test. Each completed sequence still needs its source-bound visual review, followed by the complete handoff gate, native reader check and relocated archive verification. The batch being started is not an all-30 completion claim. Body inference has not run. Members may perform receiving checks and later model execution on different machines, without fixed personal module assignments.
+Full-sequence SAM2 masks, MoGe2 camera estimates and hash-bound visual review receipts are complete for every episode. The assembly gate verified all 30 videos and all 16,563 frame masks. The selected upstream `FrameSource` and `CameraIntrinsics` readers then read all 16,563 RGB/mask pairs and all 30 camera files successfully. Both checks were performed on the preparation host; the native reader check does not initialize the Body model.
+
+The locally completed archive is `dist/body-inputs-track1-20261016.zip`: **627,464,556 bytes**, **17,105 verified archive members**, SHA256 `c5d09ae93d5608ec0d24beebc1f7dabec7fcc60eb5cb1d24b42a3fd743d4f5aa`. Its full inventory was verified and its bundled input gate passed again after extraction into a fresh directory on the same host. Evidence is recorded in `data/body-ready/all30-20261016/assembly-checks.json`, `data/body-ready/all30-20261016/native-reader-checks.json`, `dist/body-inputs-track1-20261016.zip.verification.json` and the adjacent archive receiver-check report. The archive verification establishes local portability; upload availability and execution on another machine require their own evidence.
+
+`all_30_body_inputs_verified` and `all_30_native_readers_passed` are true. `body_model_environment_verified` and `body_execution_completed` remain false, and second-host receiving checks have not run. The next worker should obtain the unchanged archive, repeat the [receiving procedure](body-input-handoff.md), prepare the pinned Body runtime and verified standalone weight view, then record inference and output review separately. Members can do this on their own machines without fixed personal module assignments. This standalone human-input handoff does not complete object inputs, depth/scale validation or the full M1/native CARI4D preparation.
 
 ## Reproduce the preprocessing
 

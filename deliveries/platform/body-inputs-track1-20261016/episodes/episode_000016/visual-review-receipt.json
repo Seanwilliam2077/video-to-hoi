@@ -1,0 +1,36 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 16,
+  "video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:08:27.463340+00:00",
+  "sample_frame_ids": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    224,
+    269,
+    314,
+    359
+  ],
+  "findings": "Inspected the overview sheet and both target-cropped original/overlay sheets for all nine recorded sample frames. The mask stays on the striped-shirt interaction participant, preserves visible head, torso and limbs, and excludes the table and foam block. Occlusion at the hands and table does not produce a visible localization blocker in these samples. No automatic mask flags or invalid masks were reported. Reviewed the 13-frame episode-local MoGe camera summary: status camera_estimate_consistent, focal median 818.746 px, relative p10-p90 spread about 1.31%, maximum relative deviation about 1.05%, and no blockers. This is a consistent monocular estimate with unverified absolute calibration, distortion and principal point.",
+  "unresolved_issues": [],
+  "flag_resolutions": [],
+  "sampling_limitation": "Visual inspection covers the listed frames and every generated QA image, not every original frame. Full mask coverage and file hashes were checked automatically; boundary accuracy and Body reconstruction quality remain unverified.",
+  "reviewed_artifacts": {
+    "observations.json": "57f522201cb4f1c34d2f2c929ee34495e0ceb180cb6b82088b54f6ef80cf9fc6",
+    "masks-manifest.json": "06aee9ed4d7b24187fbfaac14fade4bab10773d97a892eed4953fd9741135cf0",
+    "masks-provenance.json": "db81582ea90b0b19bfff682f287e8c10b277e22d1759456eed379e053683b942",
+    "intrinsics.json": "af77ed87e1b1f1f90227e71ae027bbbf719c66bfb2b348eef20a30b682022682",
+    "camera-estimation.json": "50816989e15d311c06c8c3f2d25a6ab4396c22a4a841462c9d816b8746c457ac",
+    "mask-qa/review-001.jpg": "751bd796e6783776f6f74eb9eebdffbd343bf73285515744b38937cd19cfdb75",
+    "mask-qa/targets-001.jpg": "2577217035858699bb61dd0bc1afba4b3246a92503650917e46c5accfb88e8e4",
+    "mask-qa/targets-002.jpg": "435f0624866c14c22d2fe9d4d9230cd625824174c974d4853e2135847a95432d",
+    "mask-qa/targets-manifest.json": "cf3cadbfd15547237f4637cadf6bb291e72b80b7212fb77a1e34eebbc143a7de"
+  }
+}

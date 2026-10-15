@@ -1,0 +1,32 @@
+{
+  "episode_index": 8,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:31:53.769166+00:00",
+  "sample_frame_ids": [
+    0,
+    79,
+    158,
+    237,
+    316,
+    317,
+    396,
+    475,
+    554,
+    633
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all ten recorded frames, including exact midpoint frame 317. The dark-hoodie foreground actor remains selected through standing, kneeling to iron the floor, leaning forward and standing again. Head, torso, visible arm and folded-leg silhouette remain localized; both seated background people and the iron remain excluded. Self-occluded limbs are not treated as independently observed. No visible Body-localization blocker or automatic mask flag appears in these samples, and no invalid frames were reported. Camera status is consistent across 13 source frames: focal median 806.190 px, relative p10-p90 spread 1.03%, maximum relative deviation 0.69%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "57145def48faff8d64d82dbad423ce1116c807573b23462dba2fd79066477bd6",
+    "input.json": "7243020a06f24089573ae9a8fac1a101a27267ec1668603c86cb044adf71e01f",
+    "intrinsics.json": "663f1333795fd68a59ce5551428918a609590d0c72aa8871ecfaa6f7a50ef399",
+    "masks-manifest.json": "fb4e21d6718a19c60f5c8874afcf3af1a6d1bd95b4f4e5bc2c4a3550ca10c84b",
+    "observations.json": "1858516bc1afb8920afd24de973a91d6f542fb69347432e892e094994fc213ea",
+    "timeline.json": "d4c09fa5369a0a9c2751a56aeeb6d9126588a95881cc5608e6ee23ddc6accc1f"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "34f1a3dcc0c7a59f002b6dfdb0b8a2fba9f9702eda9bd361b27b0aa377ca7e68"
+}

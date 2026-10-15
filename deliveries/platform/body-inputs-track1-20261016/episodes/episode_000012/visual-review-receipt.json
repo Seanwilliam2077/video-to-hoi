@@ -1,0 +1,34 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 12,
+  "video_sha256": "6494246c131a9161eb342c615ea835988d254b9c09abb659349bdb05e6935b39",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:41:57.290501+00:00",
+  "sample_frame_ids": [
+    0,
+    50,
+    101,
+    152,
+    202,
+    252,
+    303,
+    354,
+    404
+  ],
+  "findings": "Viewed the full-frame sheet and both original/overlay target-crop sheets for all nine listed frames. The same foreground participant is retained through reaching, lifting and rotating the pan, changing orientation, and replacing it. Visible arms, torso and legs remain localized; the pan, round tabletop and background seated person remain excluded in the inspected views. No identity switch, empty localization, broad background takeover or major visible-body loss was observed. Camera median and within-episode consistency were independently rechecked. This sampled review establishes usable input localization and mask conditioning, not pixel-level segmentation accuracy, true camera calibration or Body reconstruction quality.",
+  "unresolved_issues": [],
+  "reviewed_artifacts": {
+    "camera-estimation.json": "89559b416130e2e7b8801f6fe92fe8ec1d8dfa46ee5ab6aac56cf9e130fa7503",
+    "intrinsics.json": "7c626a7c9393949a2bc18e98ad5480ef209d38c638f0b532532a944b7db7fe8f",
+    "mask-qa/review-001.jpg": "338db106db1c8e5bd675019317728be214015d11988a681b9068fcccc3a3e02f",
+    "mask-qa/targets-001.jpg": "850d084b65458d333eb772fa17378e97001a97dd08a3c459696b3aac50ded88e",
+    "mask-qa/targets-002.jpg": "69dadd4146600b9d9c8876e6c5ec628113672c1b4d4b4f8eda7554fe17a54f45",
+    "mask-qa/targets-manifest.json": "3f7fdf672aa60b2a3cd9588b6d894a42a14a00d22b662a49c8a41313edc27936",
+    "masks-manifest.json": "321367d963b495419cc7aa99f58a3ba9bcfd1e69fc90997b8bd21d9674fb30d9",
+    "masks-provenance.json": "50c5a75d2039d438922afe23161e7568496ea57a73478bae39c5a1d686244b8b",
+    "observations.json": "c6c5202e5e1e38e61ef5388deb07f4f4fb7138be2de1a02354561be51985ea56"
+  }
+}

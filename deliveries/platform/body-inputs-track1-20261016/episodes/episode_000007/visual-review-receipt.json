@@ -1,0 +1,36 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 7,
+  "video_sha256": "e76d386123f8221e390d9accd35d8d19794efb1279d78a02a0e56553e4f9948d",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:30:11.970837+00:00",
+  "sample_frame_ids": [
+    0,
+    97,
+    194,
+    291,
+    388,
+    485,
+    582,
+    679,
+    776
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all nine recorded frames. The black-shirt participant remains selected through floor pickup, turning with the iron, showing it in front of the torso and setting it down. Head, torso, visible arms and legs remain localized; the iron is excluded where visibly separable, with contact-boundary precision unverified. No target swap or visible Body-localization blocker appears in these samples; no automatic mask flags or invalid frames were reported. Camera status is consistent across 13 source frames: focal median 813.585 px, relative p10-p90 spread 1.44%, maximum relative deviation 0.89%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "flag_resolutions": [],
+  "sampling_limitation": "Visual inspection covers the listed original/overlay sample frames and every generated QA image, not every source frame. Full mask coverage and hashes were verified automatically. Fine boundary accuracy and later Body reconstruction quality remain unverified.",
+  "reviewed_artifacts": {
+    "observations.json": "5927ad1837cec85a7e32bb4a34d09a405292464af567529be0325397a2ab1cad",
+    "masks-manifest.json": "c00dbaafea06b6232d8e3f1cbfeb33d966708bd3f3118257790724c0aabc955d",
+    "masks-provenance.json": "269f002577fddd99db7b56fe84e11e6e1cd248e59f3bcaa33301de0bed856b83",
+    "intrinsics.json": "c1133adc0c156a103916cd107bdb1ae82b1f9f9b2db182e4ff6bb492ee0ed388",
+    "camera-estimation.json": "bd41ca203094ef81f81b478d0e9de41c30c07c1db6ec7e0a3eae7f2af0644369",
+    "mask-qa/review-001.jpg": "e31fe319e0973d3998277bde409fb66a7bc811950c8c3ebe20ed165f1d16ca99",
+    "mask-qa/targets-001.jpg": "9b5b67f98c07ba30e2441e3bab5ed094f409dd838be58f0d077670b5d0979bce",
+    "mask-qa/targets-002.jpg": "5c6a9966c4bf718287f1cac46b038454b60e17cc7206ed220fa0c79f546ddf96",
+    "mask-qa/targets-manifest.json": "44bb985bce2d447ce9afb5351fee6aefbc24fb7aa3db15a801d9e8f5844c0198"
+  }
+}

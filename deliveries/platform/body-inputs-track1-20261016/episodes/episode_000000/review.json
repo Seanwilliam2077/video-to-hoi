@@ -1,0 +1,32 @@
+{
+  "episode_index": 0,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:10:44.957441+00:00",
+  "sample_frame_ids": [
+    0,
+    99,
+    197,
+    296,
+    394,
+    395,
+    493,
+    592,
+    690,
+    789
+  ],
+  "findings": "Inspected overview review-001 and target sheets targets-001 and targets-002 for all ten listed frames. The green-shirt interaction participant remains selected through walking, crouching, lifting the hoop over the torso and returning upright. The seated background person and tripod remain outside the mask. Visible head, torso, arms and legs remain localized; thin hoop contact does not create a Body-localization blocker in these samples. No automated mask flags or invalid masks were reported. Camera report is camera_estimate_consistent with 13 source frames, focal median 829.277 px, relative p10-p90 spread about 1.71%, maximum relative deviation about 1.32%, and no blockers. This establishes temporal estimator consistency only; absolute calibration, distortion and the principal point are unverified.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "3ae3beee65d01357f8f3fcd1f9dc9467dc2f7cf9a9ce4c6d23678dcc254854a4",
+    "input.json": "73e7735a3895d2b59f8cabc193b12e1ddcef23d2a2996ba62e02f29a5ffe9d7b",
+    "intrinsics.json": "a4221bb1122cf31d5981fae8442613f383e0347d60cfe979c31b49c1ac833dfa",
+    "masks-manifest.json": "140a0631c9c815cd535649ad2243e694d144a6329dbed07ad47632ee55f8ba29",
+    "observations.json": "9fccaedcd367117abe804c3f003f6ddeba58ef5ff4c789d3f633c4cf913f1d9b",
+    "timeline.json": "acda3ee87adfb9122f6cb44e51664bc1a531e798a8c80a95841ccc3ca0e484e5"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "ce6fa2d7ce1ad0b8327f75acd307b23492732abc9c1cec23971c63973b640032"
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 14,
+  "video_sha256": "f9f2bed8abe60898aef8f62c245ff03ed32f94b76b079c128e363fdfd4a7e70e",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:47:38.190142+00:00",
+  "sample_frame_ids": [
+    0,
+    55,
+    110,
+    165,
+    220,
+    221,
+    276,
+    331,
+    386,
+    441
+  ],
+  "findings": "Inspected every full-frame contact sheet and both original/overlay target-crop sheets for these ten actual source frames. The same beige-shirt participant remains localized while reaching for, lifting, holding, turning and replacing the black pan. Head, torso, arms and visible legs remain covered; the pan, round table, tripod and room background remain excluded. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed in the sampled frames. Independently recomputed camera aggregation and consistency checks from the raw per-frame estimates. These are estimated camera intrinsics and sampled mask checks; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "reviewed_artifacts": {
+    "camera-estimation.json": "9eae48359c4d6fadc18e40e70b71c17a991f9e5116d7f0c7960265919a038896",
+    "intrinsics.json": "179683193ac0ca3d34b901ee4c88216e485daed7b5a084eaf8d9d0e4a3d1cb44",
+    "mask-qa/review-001.jpg": "b71c81306af9b0f8e8a5692ce8ba5a6a2d4b9314f98a47a9551f72619e783bfe",
+    "mask-qa/targets-001.jpg": "3b852a3bae1ba54ad09916a8b98c126e9b4235d206739870540da467ac141b34",
+    "mask-qa/targets-002.jpg": "31d118d098b120138b11b24e0be86a3dc62709d49b23ed9c60cc1f8176f76254",
+    "mask-qa/targets-manifest.json": "a3144017d8323bf3cadc0ae46c957c3ef7ad4b63d345cf64f992ba32557eb8bd",
+    "masks-manifest.json": "a50d3b791d4723e9fb6e0fa7101123ef318a85cbaf4a4e849a6bec1546176faf",
+    "masks-provenance.json": "7f6af4123e35a070428925dc1a765f4e74f066c32dcb70e8b277748d154756c8",
+    "observations.json": "84237eb836dc39e8afb93062e51eb6b7ec7b919c51d57de2f02d3fe2a758e644"
+  }
+}

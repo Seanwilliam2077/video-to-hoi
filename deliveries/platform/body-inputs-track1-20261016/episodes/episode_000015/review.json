@@ -1,0 +1,31 @@
+{
+  "episode_index": 15,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:48:16.117980+00:00",
+  "sample_frame_ids": [
+    0,
+    62,
+    125,
+    188,
+    250,
+    312,
+    375,
+    438,
+    500
+  ],
+  "findings": "Inspected the full-frame contact sheet and both original/overlay target-crop sheets for these nine actual source frames. The same teal-shirt participant remains localized while reaching for, lifting, rotating and replacing the patterned cube. Head, torso, arms, hands and visible legs remain covered; the held cube, round table, background seated observer and standing camera operator remain excluded. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed in the sampled frames. Independently recomputed camera aggregation and consistency checks from the raw per-frame estimates. These are estimated camera intrinsics and sampled mask checks; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "988e93f57e1161aaadfed3f0076cdd0f819bb296f7e269e4712635d1c0a803ae",
+    "input.json": "53ad6eeaf160df7b305e6325ec517e72b80be6191900b1945981b744a37cc7f0",
+    "intrinsics.json": "446727f35fccc0e3ac6cc9fec9d019d4d60e1ae52fab77e8a6b760c3f95616cd",
+    "masks-manifest.json": "3697265cdd13bc067140c3e008c7e8fc5b80afc218d0b1461a041a3856463c11",
+    "observations.json": "037fa94a2b8c4f77d926f62f44ec42b2c9a30ec18ca4ecae0c080b218eab1daa",
+    "timeline.json": "de437c28bb56764078fcb954d9e4bd20edd207d0f0943f1eb461adb8fa99ba6e"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "86dc5c75a0a24276abf656e379e577bd3f752ea0d2b2f1d1cce33f5c597e9349"
+}

@@ -1,0 +1,625 @@
+{
+  "schema_version": "body_camera_estimation.v1",
+  "status": "camera_estimate_consistent",
+  "episode_index": 4,
+  "video_sha256": "f1cadfa308b37dc91a3f296c2e5a2b538236cbe8a76d76d651df19554386cce6",
+  "timeline_sha256": "2851715f23c7719e7b2ff5bda0868b7ca35a4b09297fb0ec8d3780bba66a4f38",
+  "source_frame_ids": [
+    0,
+    62,
+    124,
+    187,
+    249,
+    311,
+    373,
+    435,
+    497,
+    560,
+    622,
+    684,
+    746
+  ],
+  "method": "MoGe2 ViT-L per-frame point-map focal recovery; episode-local median",
+  "code_revision": "925b8ed835a7a9cdb7578ba15c658a0afc969030",
+  "checkpoint_sha256": "280741fd09bc3f403ccff9967784c2a391b52d2c0742ae3efdb21d9f90cc1a01",
+  "aggregation": "componentwise median of all sampled original-pixel estimates; no outlier removal",
+  "coordinate_transform": "K_original = [[width,0,-0.5],[0,height,-0.5],[0,0,1]] @ K_normalized; integer pixel centers",
+  "transforms": {
+    "original_width": 1536,
+    "original_height": 1152,
+    "external_crop": null,
+    "external_resize": null,
+    "rgb_range": "uint8 / 255 to float32 [0,1]",
+    "uv_to_original_pixel_matrix": [
+      [
+        1536,
+        0,
+        -0.5
+      ],
+      [
+        0,
+        1152,
+        -0.5
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "backbone_resizing": "MoGe DINOv2 whole-image interpolation to rounded token grid * 14; unchanged field of view"
+  },
+  "assumptions": [
+    "static intrinsics within this clip",
+    "pinhole camera without distortion estimation",
+    "MoGe fixes normalized principal point at (0.5,0.5); it is not independently estimated"
+  ],
+  "quality_policy": {
+    "maximum_relative_p10_p90_spread": 0.25,
+    "maximum_relative_deviation": 0.4,
+    "thresholds_are": "engineering consistency screens, not calibrated confidence intervals"
+  },
+  "provenance": {
+    "created_at": "2026-10-15T16:03:35.697624+00:00",
+    "raw_manifest_sha256": "156096c31ef4411531a2e723502f312e4f639b0247855340cc60d10f42e77030",
+    "dataset_revision": "5f68335f3acc802033d1e80728c1633197521de8",
+    "moge_source": {
+      "repository": "microsoft/MoGe",
+      "revision": "925b8ed835a7a9cdb7578ba15c658a0afc969030",
+      "verification": "clean_pinned_git_checkout"
+    },
+    "utils3d_source": {
+      "repository": "EasternJournalist/utils3d",
+      "revision": "3fab839f0be9931dac7c8488eb0e1600c236e183",
+      "verification": "clean_pinned_git_checkout"
+    },
+    "checkpoint": {
+      "repository": "Ruicheng/moge-2-vitl-normal",
+      "revision": "b135031bae30b5ac2ae141a0e68717795ce38340",
+      "sha256": "280741fd09bc3f403ccff9967784c2a391b52d2c0742ae3efdb21d9f90cc1a01",
+      "size_bytes": 1323815904
+    },
+    "adapter_sha256": "41537e0790f5b532c5c82c7ebfe6d5a69f6d0883b8dce3dbb5f48b96a671827e",
+    "environment": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "torch": "2.7.1+cu128",
+      "torch_cuda": "12.8",
+      "numpy": "2.5.2",
+      "av": "19.0.1",
+      "device": "cuda",
+      "packages": [
+        "Jinja2==3.1.6",
+        "MarkupSafe==3.0.3",
+        "PyYAML==6.0.3",
+        "Pygments==2.21.0",
+        "SAM-2==1.0",
+        "antlr4-python3-runtime==4.9.3",
+        "anyio==4.15.1",
+        "av==19.0.1",
+        "click==8.5.0",
+        "colorama==0.4.6",
+        "filelock==3.32.3",
+        "fsspec==2026.7.0",
+        "h11==0.16.0",
+        "hf-xet==1.7.0",
+        "httpcore2==2.13.1",
+        "httpx2==2.13.1",
+        "huggingface_hub==2.2.0",
+        "hydra-core==1.3.7",
+        "idna==3.20",
+        "iniconfig==2.3.1",
+        "iopath==0.1.10",
+        "mpmath==1.3.0",
+        "networkx==3.6.1",
+        "numpy==2.5.2",
+        "omegaconf==2.3.1",
+        "opencv-python==5.0.0.93",
+        "packaging==26.3",
+        "pandas==3.0.6",
+        "pillow==12.3.0",
+        "pip==25.0.1",
+        "pluggy==1.7.0",
+        "portalocker==4.4.0",
+        "pyarrow==26.0.0",
+        "pytest==9.1.1",
+        "python-dateutil==2.9.0.post0",
+        "scipy==1.18.1",
+        "setuptools==78.1.0",
+        "six==1.17.0",
+        "sympy==1.14.0",
+        "torch==2.7.1+cu128",
+        "torchvision==0.22.1+cu128",
+        "tqdm==4.70.1",
+        "truststore==0.10.5",
+        "typing_extensions==4.16.0",
+        "tzdata==2026.5",
+        "wheel==0.48.0"
+      ],
+      "cuda_device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+      "cuda_capability": [
+        12,
+        0
+      ]
+    },
+    "inference": {
+      "samples": 13,
+      "num_tokens": 1600,
+      "batch_size": 1,
+      "precision": "fp16 autocast with fp32 geometry recovery",
+      "supplied_fov": null,
+      "seed": 0,
+      "native_sdpa": true
+    }
+  },
+  "raw_estimates": [
+    {
+      "fx": 855.695068359375,
+      "fy": 855.6950225830078,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 0,
+      "normalized_intrinsics": [
+        [
+          0.5570931434631348,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7427908182144165,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 0,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "6053cd0e286d94bbdc48652635bc8800407f109dfd49e3fe63229192cb4a37f5",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.11809920147061348
+    },
+    {
+      "fx": 843.2322692871094,
+      "fy": 843.2322692871094,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 62,
+      "normalized_intrinsics": [
+        [
+          0.5489793419837952,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7319724559783936,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 31744,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "54cd0f4a6cb2cea0fc1158d781000b518fac94cde04f7b714b8e3314cdb156b9",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.12179839983582497
+    },
+    {
+      "fx": 836.1884765625,
+      "fy": 836.1885223388672,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 124,
+      "normalized_intrinsics": [
+        [
+          0.5443935394287109,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7258580923080444,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 63488,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "3013da77f4ec237de18af8be99e8cb041c2653090cdf9ee09a2360db3874b0ef",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.12533039972186089
+    },
+    {
+      "fx": 852.4070434570312,
+      "fy": 852.4070892333984,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 187,
+      "normalized_intrinsics": [
+        [
+          0.5549525022506714,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7399367094039917,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 95744,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "dbb4191815fd84516d9a7b3ba717b7e2d2f7da00ae37fe3b9e8febc4656ef9d4",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.1179783008992672
+    },
+    {
+      "fx": 844.87646484375,
+      "fy": 844.8764419555664,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 249,
+      "normalized_intrinsics": [
+        [
+          0.5500497817993164,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7333996891975403,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 127488,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "1ca38967eb8df3055b37a092a57dd5312b5928483fce56e456600239213dc44c",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.12402560003101826
+    },
+    {
+      "fx": 839.4152526855469,
+      "fy": 839.4152755737305,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 311,
+      "normalized_intrinsics": [
+        [
+          0.5464943051338196,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7286590933799744,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 159232,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "08a63e8b49d199a0db60a6f56e0d66e767317b8a6a1a10fc2276d1cd75d0bcb1",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.1173785999417305
+    },
+    {
+      "fx": 842.24560546875,
+      "fy": 842.2456283569336,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 373,
+      "normalized_intrinsics": [
+        [
+          0.5483369827270508,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.731115996837616,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 190976,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "97970197b0eaba44a3ffb705f4d2b00794abb1c3ec96e0450853a76b68322ad4",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.11802629940211773
+    },
+    {
+      "fx": 829.681640625,
+      "fy": 829.6816635131836,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 435,
+      "normalized_intrinsics": [
+        [
+          0.5401573181152344,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7202097773551941,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 222720,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "ba9759df9f176ee106cc16d4944905f070159ceaa116f6f23f773988747e4aec",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.12208690121769905
+    },
+    {
+      "fx": 843.7068786621094,
+      "fy": 843.7068786621094,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 497,
+      "normalized_intrinsics": [
+        [
+          0.5492883324623108,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.732384443283081,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 254464,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "e4cc9be0d76f59422b58b701a845a2f875049e0060a1a9f3ff77aed98024bd9c",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.12106440030038357
+    },
+    {
+      "fx": 835.25244140625,
+      "fy": 835.2524185180664,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 560,
+      "normalized_intrinsics": [
+        [
+          0.5437841415405273,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7250455021858215,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 286720,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "5c3b68c4031fd57338ec5c986225d82fae689c7555c17646c9184e005036bad9",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.1245218999683857
+    },
+    {
+      "fx": 850.0843505859375,
+      "fy": 850.0843048095703,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 622,
+      "normalized_intrinsics": [
+        [
+          0.5534403324127197,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7379204034805298,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 318464,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "aba6ddd70b99270629020e6a8c43310f2d73ba7e338fc765a97d78dd0bb6b24d",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.11905920132994652
+    },
+    {
+      "fx": 848.9563293457031,
+      "fy": 848.9563522338867,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 684,
+      "normalized_intrinsics": [
+        [
+          0.5527059435844421,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7369412779808044,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 350208,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "f6c9bece7bf6a299a3eb60b06fd36db55d90558c261eb4ccaecd56957a919e9b",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.12395809963345528
+    },
+    {
+      "fx": 857.3538208007812,
+      "fy": 857.3538208007812,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152,
+      "frame_id": 746,
+      "normalized_intrinsics": [
+        [
+          0.5581730604171753,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.7442307472229004,
+          0.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pts": 381952,
+      "time_base": {
+        "numerator": 1,
+        "denominator": 15360
+      },
+      "rgb_sha256": "f376ff8d5d33f70973e2733ced535b1f417675cc57ef9a7e1c7381a5e6d9d7fb",
+      "valid_geometry_fraction": 1.0,
+      "inference_seconds": 0.11768459901213646
+    }
+  ],
+  "blockers": [],
+  "focal_diagnostics": {
+    "fx": {
+      "median": 843.7068786621094,
+      "minimum": 829.681640625,
+      "maximum": 857.3538208007812,
+      "p10": 835.4396484375,
+      "p90": 855.0374633789063,
+      "median_absolute_deviation": 6.377471923828125,
+      "relative_p10_p90_spread": 0.023228227050232385,
+      "maximum_relative_deviation": 0.016623353906216345
+    },
+    "fy": {
+      "median": 843.7068786621094,
+      "minimum": 829.6816635131836,
+      "maximum": 857.3538208007812,
+      "p10": 835.4396392822266,
+      "p90": 855.0374359130859,
+      "median_absolute_deviation": 6.3774261474609375,
+      "relative_p10_p90_spread": 0.023228205347734163,
+      "maximum_relative_deviation": 0.016623326778093802
+    }
+  },
+  "uncertainty_review": "Sample spread is temporal estimator disagreement, not absolute calibration error. A consistent result remains a monocular estimate; metric accuracy, distortion and principal point are unverified. All predeclared episode-local consistency screens passed.",
+  "elapsed_seconds": 2.732745999470353,
+  "completed_at": "2026-10-15T16:03:52.444633+00:00"
+}

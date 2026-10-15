@@ -1,0 +1,31 @@
+{
+  "episode_index": 9,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:33:47.777866+00:00",
+  "sample_frame_ids": [
+    0,
+    52,
+    104,
+    155,
+    207,
+    259,
+    310,
+    362,
+    414
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all nine recorded frames. The blue-sweatshirt interaction participant remains selected while approaching, bending over and flipping the white desk. Visible head, torso and lower-body silhouette remain localized despite desk bars crossing the body; both seated background people and the desk are excluded. Fine hand boundaries at the desk-bar occlusion are not certified, but no target swap or visible Body-localization blocker appears in these samples. No automatic mask flags or invalid frames were reported. Camera status is consistent across 13 source frames: focal median 835.528 px, relative p10-p90 spread 2.84%, maximum relative deviation 2.14%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "8d39706c25db011656a91c0a6aa2e912d90c111b695c07b8905df5a5e4bb8de4",
+    "input.json": "26feabd2aac7eca2b799f99206bf45e01c82fbf25b09fdf3b4846f0f69aef9c3",
+    "intrinsics.json": "0c94b87f216130b31f0c01872d942fe27512b31cac08be54307d70fc90052dab",
+    "masks-manifest.json": "ae6e5e93d73e105824d931ba5edecd74f7bcec9bb6ce7b8f4d3c5edc8d1ef6b7",
+    "observations.json": "6a9b3907ca32f58622b68b0ed7cce1104e74a309bee5a8ffcba822132af3aeed",
+    "timeline.json": "92a13027ca4b71a3b036f4c2b243e4be8632a4f07f432531eeda8587688fc6d9"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "b24b12386053954095e931d41c95e8f9a74e4eda25742ecda719265a835f26db"
+}

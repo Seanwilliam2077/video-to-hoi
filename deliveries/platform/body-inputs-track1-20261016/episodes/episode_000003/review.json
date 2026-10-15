@@ -1,0 +1,31 @@
+{
+  "episode_index": 3,
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:17:42.384693+00:00",
+  "sample_frame_ids": [
+    0,
+    74,
+    148,
+    222,
+    296,
+    369,
+    443,
+    517,
+    591
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all nine recorded frames. The patterned-shirt interaction participant remains selected while approaching the table, flipping the red bowl and stepping away. Visible head, torso and limbs remain localized; table, bowl and background equipment stay outside the human mask. Contact-related finger occlusion does not create a visible Body-localization blocker in these samples. No automatic mask flags or invalid frames were reported. Camera status is consistent across 13 source frames: focal median 808.953 px, relative p10-p90 spread 1.41%, maximum relative deviation 1.31%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "e939dbbe95248c04084a87a9ea58d3a19f78cbf032474c59162b3a4d54adf99a",
+    "input.json": "16ae581a623ebfb05c8891b2efaa2485e42eb7fb2a84f83d0c259159b3d566a8",
+    "intrinsics.json": "71a94db7c05a9c5ba00923ce10731ab0aed4a4278c46d7fab4aea95208fc5a0a",
+    "masks-manifest.json": "64bf28762c82c2585f23c050d3be5171a6f62b35581b914ca096a596432427c8",
+    "observations.json": "fab372af09876d4be811f97fa48c5a46d541e235f1af9b48c5e402874a1e98d7",
+    "timeline.json": "258a446850c5b338945d64a9a95da098c50a074da00ca10d51a513125ce17b6d"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "4068e183f3b7aaa31106bd1dac234c63f932f06a0681fa3dbff3676079d7def3"
+}

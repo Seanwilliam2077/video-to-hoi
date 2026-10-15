@@ -1,0 +1,31 @@
+{
+  "episode_index": 17,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:48:54.021223+00:00",
+  "sample_frame_ids": [
+    0,
+    52,
+    104,
+    157,
+    209,
+    261,
+    314,
+    366,
+    418
+  ],
+  "findings": "Inspected the full-frame contact sheet and both original/overlay target-crop sheets for these nine actual source frames. The same beige-shirt participant remains localized while lifting the patterned cube from the table, turning, bending at the knees and lowering the cube to the floor. Head, torso, arms and visible legs remain covered across those pose changes; the held cube, round table, tripods and curtain background remain excluded. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed in the sampled frames. Independently recomputed camera aggregation and consistency checks from the raw per-frame estimates. These are estimated camera intrinsics and sampled mask checks; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "142bbf82b82662de417e5ab57ae1505c16410ad16c8199f656add9e91e10a96f",
+    "input.json": "04972838e60a1b183f12890b77feeb82eef86e7f6cd6c29c094291bcfc8d86ee",
+    "intrinsics.json": "fdeb36231d1f35a428f4b00e6c330e16c3f1d590a9617971be4e41c18c6fc0cf",
+    "masks-manifest.json": "fd490f89521d0e949a05d94ebff8294ed34fe94b6b83002c20f482e7ec05634b",
+    "observations.json": "68b47c68f3655cf6a3fd23b518063e5eb4b9f30a4087cf5fe860bd02dfdc83b3",
+    "timeline.json": "6c3c631b32b6742a458dad601087ded1de55ab3ee25f5d9db8d41f9a7456d0d2"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "7066fa3092595e56fabd2e2785f15fffa2bf92075e78972251036bda8dafb000"
+}

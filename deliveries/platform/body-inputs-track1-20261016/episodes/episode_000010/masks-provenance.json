@@ -1,0 +1,148 @@
+{
+  "schema_version": "body_masks_provenance.v1",
+  "created_at": "2026-10-15T16:35:11.403816+00:00",
+  "episode_index": 10,
+  "method": "SAM2.1 Hiera Large video predictor",
+  "code_repository": "https://github.com/facebookresearch/sam2",
+  "code_revision": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+  "checkpoint_repository": "facebook/sam2.1-hiera-large",
+  "checkpoint_revision": "665f8e2ad61cf5f53d65644ff27c8ee525124610",
+  "checkpoint_sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318",
+  "checkpoint_bytes": 898083611,
+  "configuration": "configs/sam2.1/sam2.1_hiera_l.yaml",
+  "configuration_sha256": "4c9983b04adddc5e4586c7809a4c21dd90975bccc5026aea3c22232783c18112",
+  "hydra_overrides": [
+    "++model.sam_mask_decoder_extra_args.dynamic_multimask_via_stability=true",
+    "++model.sam_mask_decoder_extra_args.dynamic_multimask_stability_delta=0.05",
+    "++model.sam_mask_decoder_extra_args.dynamic_multimask_stability_thresh=0.98",
+    "++model.binarize_mask_from_pts_for_mem_enc=true",
+    "++model.fill_hole_area=0"
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.7.1+cu128",
+    "torchvision": "0.22.1+cu128",
+    "av": "19.0.1",
+    "Pillow": "12.3.0",
+    "numpy": "2.5.2",
+    "hydra-core": "1.3.7",
+    "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "cuda_runtime": "12.8",
+    "autocast_dtype": "bfloat16",
+    "device": "cuda"
+  },
+  "source_video_sha256": "4a75aec2a5d5621295979c8cd4b8b7c346c24ff6e9a4241b39dcfda623e94c39",
+  "timeline_sha256": "edf0b6117bd98c3536b7d7afd032a07e4806894283613c18b6895cd6feb61bb9",
+  "raw_manifest_sha256": "156096c31ef4411531a2e723502f312e4f639b0247855340cc60d10f42e77030",
+  "prompts_sha256": "cc92f7a8bdd4afbcff8d87692178b46e7aef452647bc95a36cdfbc689fb7b760",
+  "prompt_entry_sha256": "9e4b578f8a8126acd2a0a4659a4b9b85cc46440bf644a08e9bd1f361aad1e9a2",
+  "annotation": {
+    "episode_index": 10,
+    "frame_id": 0,
+    "target_id": "human_0",
+    "video_sha256": "4a75aec2a5d5621295979c8cd4b8b7c346c24ff6e9a4241b39dcfda623e94c39",
+    "width": 1536,
+    "height": 1152,
+    "target_point_xy": [
+      599.04,
+      656.64
+    ],
+    "bbox_xyxy": [
+      529.0117797851562,
+      438.06683349609375,
+      658.4229125976562,
+      857.7327270507812
+    ],
+    "selected_score": 0.999476969242096,
+    "candidates": [
+      {
+        "bbox_xyxy": [
+          529.0117797851562,
+          438.06683349609375,
+          658.4229125976562,
+          857.7327270507812
+        ],
+        "score": 0.999476969242096
+      }
+    ],
+    "selection_error": null
+  },
+  "annotation_review": {
+    "status": "approved",
+    "reviewer": "Codex visual review",
+    "review_method": "machine_assisted_visual",
+    "reviewed_at": "2026-10-15T15:59:03.733105+00:00",
+    "reviewed_episode_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "findings": "Viewed all three original-frame-0 detection contact sheets. Each selected green box identifies the foreground interaction participant; seated and standing background people remain excluded. All 30 target prompts are spatially consistent with the reviewed red torso point. This validates prompt identity only, not subsequent tracking quality."
+  },
+  "decoder": "PyAV sequential presentation-order decode, exact PTS checked",
+  "image_transform": {
+    "jpeg_quality": 95,
+    "jpeg_subsampling": 0,
+    "sam_internal_resize": [
+      1024,
+      1024
+    ],
+    "mask_output_dimensions": [
+      1536,
+      1152
+    ],
+    "frame_stride": 1,
+    "mask_logit_threshold": 0
+  },
+  "offload_video_to_cpu": true,
+  "offload_state_to_cpu": true,
+  "async_loading_frames": false,
+  "custom_cuda_postprocessing": false,
+  "tqdm_progress_bars_disabled": true,
+  "torch_compile": false,
+  "peak_cuda_allocated_bytes": 1888793600,
+  "elapsed_seconds": 133.5159999988973,
+  "quality_flagged_frames": [],
+  "visual_review_frame_ids": [
+    0,
+    72,
+    144,
+    216,
+    288,
+    360,
+    432,
+    504,
+    576
+  ],
+  "visual_review_status": "pending",
+  "invalid_frame_ids": [],
+  "producer_script_sha256": "e51997ea287720138ee58f57b05dace7b360f970972b28f0ed44642e80de4c03"
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 26,
+  "video_sha256": "9cf9112417778299780a3e2a7f009d38bbf24059149eaa1591b8df02551607a4",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T17:06:05.765082+00:00",
+  "sample_frame_ids": [
+    0,
+    50,
+    100,
+    149,
+    199,
+    249,
+    298,
+    348,
+    398
+  ],
+  "findings": "Inspected the full-frame contact sheet and both original/overlay target-crop sheets for these nine actual source frames. The same beige-shirt participant remains localized while approaching a wooden stool, sitting, turning while seated, standing and stepping away. Head, torso, arms and visible legs remain localized through the pose changes; the stool and seated background observer remain excluded. Visible far-leg regions behind the stool are retained at sampled frames 149, 199, 298 and 348, without filling the wooden stool into the human mask. Fine boundaries and heavily occluded far-leg detail, particularly frame 249, are not certified pixel accurate by this sampled review. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed. Independently recomputed camera aggregation and consistency checks from raw per-frame estimates. These are estimated camera intrinsics; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "reviewed_artifacts": {
+    "camera-estimation.json": "5edb0490f4c92ed9bc4904751ceb8582e00b3da5952548c0400c2abc8fb6ac0a",
+    "intrinsics.json": "1e76b0a295db405b6d90bb4fb2bd74e096b043151acb347cc8c61a7cccc329cb",
+    "mask-qa/review-001.jpg": "48551f3729097b334ddfb1dde2229a2a44ac2075f1a38f9ab9758c4ba733bd41",
+    "mask-qa/targets-001.jpg": "c93f885e8e896e4a67f0b2ddaff03d77acc27f0bb2cac8098e1d7889e60f07e7",
+    "mask-qa/targets-002.jpg": "b9758fc679af22b6f6da6f784ed53ee2e28c9a0ca950cbbe0f47b74fcb7a7a3a",
+    "mask-qa/targets-manifest.json": "933395051b7e720f130a90b7dc8072ba86230097373aa29830ddd0f7efeef45e",
+    "masks-manifest.json": "7356b0e45155ea197773f0f9622e28772414ec0cc9642faec5e4c60cdce3551f",
+    "masks-provenance.json": "0ba8e7b565c77351a0ede714710c9b3962686da61388bd8b9d4fa8d5d3be33b8",
+    "observations.json": "2a706b8c7c7fd09cecdf58154aeaefdba7e56f1173ce8f8e7a9ff4e2bec5cc88"
+  }
+}

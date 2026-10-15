@@ -1,0 +1,37 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 8,
+  "video_sha256": "7f2967bd12518ded44094c9ac397bed826c572f7cbfbab7c9909735a240c2770",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:31:53.769166+00:00",
+  "sample_frame_ids": [
+    0,
+    79,
+    158,
+    237,
+    316,
+    317,
+    396,
+    475,
+    554,
+    633
+  ],
+  "findings": "Inspected overview review-001 and both target original/overlay sheets at all ten recorded frames, including exact midpoint frame 317. The dark-hoodie foreground actor remains selected through standing, kneeling to iron the floor, leaning forward and standing again. Head, torso, visible arm and folded-leg silhouette remain localized; both seated background people and the iron remain excluded. Self-occluded limbs are not treated as independently observed. No visible Body-localization blocker or automatic mask flag appears in these samples, and no invalid frames were reported. Camera status is consistent across 13 source frames: focal median 806.190 px, relative p10-p90 spread 1.03%, maximum relative deviation 0.69%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "unresolved_issues": [],
+  "flag_resolutions": [],
+  "sampling_limitation": "Visual inspection covers the listed original/overlay sample frames and every generated QA image, not every source frame. Full mask coverage and hashes were verified automatically. Fine boundary accuracy and later Body reconstruction quality remain unverified.",
+  "reviewed_artifacts": {
+    "observations.json": "1858516bc1afb8920afd24de973a91d6f542fb69347432e892e094994fc213ea",
+    "masks-manifest.json": "fb4e21d6718a19c60f5c8874afcf3af1a6d1bd95b4f4e5bc2c4a3550ca10c84b",
+    "masks-provenance.json": "1bcbdab4de4f3c2ccc6d7307fa1e8220912f970caeda7632a038f1f146788478",
+    "intrinsics.json": "663f1333795fd68a59ce5551428918a609590d0c72aa8871ecfaa6f7a50ef399",
+    "camera-estimation.json": "57145def48faff8d64d82dbad423ce1116c807573b23462dba2fd79066477bd6",
+    "mask-qa/review-001.jpg": "b1586f33b982d4e3a903e2fb566f036ff180bb5f68219f9abdf97551da02c797",
+    "mask-qa/targets-001.jpg": "a08a6b6bda5379f0ed96cd55b4dca4511d84164a23fa83e34d8d223083de528a",
+    "mask-qa/targets-002.jpg": "9c915b6ad684b33ae8d0af2dd234bf3e1905b77f10eec3f5d4b9fb6431728ba6",
+    "mask-qa/targets-manifest.json": "fb0dc2deb2a3b54984016ba04aba55d789b318ed6bb82cdbe9fde837689b0b31"
+  }
+}

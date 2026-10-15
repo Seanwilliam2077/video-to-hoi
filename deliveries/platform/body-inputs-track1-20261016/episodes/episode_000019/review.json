@@ -1,0 +1,31 @@
+{
+  "episode_index": 19,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:52:29.488572+00:00",
+  "sample_frame_ids": [
+    0,
+    55,
+    110,
+    166,
+    221,
+    276,
+    332,
+    387,
+    442
+  ],
+  "findings": "Inspected the full-frame contact sheet and both original/overlay target-crop sheets for these nine actual source frames. The same striped-polo participant remains localized while approaching the table, using a white roller and turning from rear/side to front views. Head, torso, arms, hands and visible legs remain covered; the roller, round table, tripods and curtain background stay excluded. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed in the sampled frames. Independently recomputed camera aggregation and consistency checks from the raw per-frame estimates. These are estimated camera intrinsics and sampled mask checks; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "413a297c4d3d2d39bbc2f9a125d5e1a65a69568b759a01c17f2ba3ca1eae169a",
+    "input.json": "33abea7347f0c3660ec4649f9c2eea2069839396649aff2271446cff58667bb7",
+    "intrinsics.json": "a92a1ea5dd64a79d2eebade5ded0569bf7c8aeeef7f555fe4f613482959546df",
+    "masks-manifest.json": "9148fb0d04570b14eac2b2e02d6f7266dd42fd9431e3b1c2852888b75196c613",
+    "observations.json": "bdc4ae1f1d7a67401f7c508b434564cfcc794e7c71784c83b7fb2722d1fdf0b0",
+    "timeline.json": "b6ec36fac4ca034e3f7c2b9a4b01d3f405fd589f004bc23f7cbf6b76af25f96f"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "a04b946181921ced2898d5d272d10a181c1247a0351ac8f2d121bbae7608065b"
+}

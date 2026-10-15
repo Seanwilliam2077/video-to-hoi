@@ -3,8 +3,12 @@
 This registry powers the [30-video progress board](../docs/progress-board/index.html).
 It indexes per-video, per-stage evidence for iteration and review. No registered
 record means **unregistered / unknown**, not that nobody has started the work.
-The initial registry contains no per-video records. Shared platform capabilities
-are shown separately and never count as completed videos.
+The registry now contains 30 `body-prep-v1` Inputs submissions, one per video,
+linked to the [verified Body input delivery](../deliveries/platform/body-inputs-track1-20261016/README.md).
+All standalone Body inputs passed their dedicated checks. Full Inputs still
+needs object/depth/scale evidence, so these records remain `submitted`, with
+full-stage checks `not_run`; none represents accepted human reconstruction.
+Shared platform capabilities are shown separately and never count as completed videos.
 
 The [hosted board](https://video-to-hoi-progress.almondclock256.chatgpt.site) is
 currently an owner-private Site; its URL does not grant access to teammates.

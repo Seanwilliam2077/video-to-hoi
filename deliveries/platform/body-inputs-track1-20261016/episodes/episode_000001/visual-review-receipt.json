@@ -1,0 +1,36 @@
+{
+  "sample_frame_ids": [
+    0,
+    83,
+    167,
+    250,
+    334,
+    417,
+    500,
+    584,
+    667
+  ],
+  "status": "approved",
+  "sampling_limitation": "Visual review covers the listed sample frames and all generated QA images, not every original frame. Full mask coverage and hashes were checked automatically; fine boundary accuracy and later Body reconstruction quality remain unverified.",
+  "flag_resolutions": [],
+  "findings": "Inspected overview review-001 and both targets sheets at all nine sample frames. The green-shirt foreground actor remains selected through bending, stepping through the hoop, torso flexion and turning away. Head, visible arms and legs remain localized; the seated background person and tripod are excluded. Thin hoop contact does not create a visible Body-localization blocker in these samples. No automatic mask flags or invalid frames were reported. Camera status is consistent across 13 sampled frames: focal median 836.202 px, relative p10-p90 spread 1.39%, maximum relative deviation 1.68%, no blockers. Temporal consistency does not establish absolute calibration, distortion or principal-point accuracy.",
+  "video_sha256": "1198635d7f04f73aa9466e02d105fa89b3630b2aa92a5e4f249898023ecfed30",
+  "reviewer": "Codex visual review",
+  "unresolved_issues": [],
+  "episode_index": 1,
+  "reviewed_at": "2026-10-15T16:12:48.1653554+00:00",
+  "reviewed_artifacts": {
+    "observations.json": "ebc359dde1420914987bc878dd6816c991628f19f1c83d3d875088f2a715fa25",
+    "masks-manifest.json": "0ff308ea4d67f876cadb7ce33d01ea4f8a8ffa042838907b29ab527bf0a34709",
+    "intrinsics.json": "3bd8bba647349c2ac636bab35ba0f28dd43c5e50c808214ee0d471596ac3583b",
+    "masks-provenance.json": "c836c6f8c9965118fcd03ed96b6eb4c562df08a73bad05f50e2a361f1098576a",
+    "camera-estimation.json": "4b0f2d8558d23709797edf3205d0be2b36cf9a0fb4a9e5a896cc2a6939b812da",
+    "mask-qa/targets-002.jpg": "1cd77174000b57cd68ca2b80b87ea0378936e32f962e1549e9431d03c50e676d",
+    "mask-qa/targets-manifest.json": "0e8705f44feed98c267354d3399a4710eb41c854b99009c82f0fc1c990051e4f",
+    "mask-qa/review-001.jpg": "b0e85c32ccce3b939ca4f4d18e7005e6e3f64b38b4829167e2c873853aafea02",
+    "mask-qa/targets-001.jpg": "04f1908bab7f7070240dfdf74f13c632aac175039272f20cc7eb9a2b4a58bc94"
+  },
+  "review_method": "machine_assisted_visual",
+  "target_id": "human_0",
+  "schema_version": "body_visual_review_receipt.v1"
+}

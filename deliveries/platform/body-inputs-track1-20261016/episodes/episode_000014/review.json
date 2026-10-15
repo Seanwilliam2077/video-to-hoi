@@ -1,0 +1,32 @@
+{
+  "episode_index": 14,
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:47:38.190142+00:00",
+  "sample_frame_ids": [
+    0,
+    55,
+    110,
+    165,
+    220,
+    221,
+    276,
+    331,
+    386,
+    441
+  ],
+  "findings": "Inspected every full-frame contact sheet and both original/overlay target-crop sheets for these ten actual source frames. The same beige-shirt participant remains localized while reaching for, lifting, holding, turning and replacing the black pan. Head, torso, arms and visible legs remain covered; the pan, round table, tripod and room background remain excluded. No identity switch, broad background takeover, empty target localization or major visible-body omission was observed in the sampled frames. Independently recomputed camera aggregation and consistency checks from the raw per-frame estimates. These are estimated camera intrinsics and sampled mask checks; Body inference has not run. Body uses masks for both bounding-box localization and direct conditioning, so input approval is not a reconstruction-quality claim.",
+  "unresolved_issues": [],
+  "schema_version": "body_input_review.v1",
+  "reviewed_artifacts": {
+    "camera-estimation.json": "9eae48359c4d6fadc18e40e70b71c17a991f9e5116d7f0c7960265919a038896",
+    "input.json": "ef9cb46667430e866090d413b20c312d4379115a009e6e533ac0614e3c882960",
+    "intrinsics.json": "179683193ac0ca3d34b901ee4c88216e485daed7b5a084eaf8d9d0e4a3d1cb44",
+    "masks-manifest.json": "a50d3b791d4723e9fb6e0fa7101123ef318a85cbaf4a4e849a6bec1546176faf",
+    "observations.json": "84237eb836dc39e8afb93062e51eb6b7ec7b919c51d57de2f02d3fe2a758e644",
+    "timeline.json": "8572984ff3a5d4e227673695a2102cf7da74aacf4c30f4a5b0c254a693fc9953"
+  },
+  "source_receipt_path": "visual-review-receipt.json",
+  "source_receipt_sha256": "f9b9bbf4271b213c8ccfd3d16166b8c96daf91c56259904acf5da391ea599d85"
+}

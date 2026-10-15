@@ -1,0 +1,38 @@
+{
+  "schema_version": "body_release_publication.v1",
+  "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/body-inputs-track1-20261016",
+  "tag": "body-inputs-track1-20261016",
+  "source_commit": "3238f9c6657605e6fac168d91a1f0b12edc889be",
+  "published_at": "2026-10-15T17:33:58Z",
+  "assets": [
+    {
+      "name": "body-inputs-track1-20261016.zip",
+      "bytes": 627464556,
+      "sha256": "c5d09ae93d5608ec0d24beebc1f7dabec7fcc60eb5cb1d24b42a3fd743d4f5aa",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/body-inputs-track1-20261016/body-inputs-track1-20261016.zip",
+      "asset_id": 644633364
+    },
+    {
+      "name": "body-inputs-track1-20261016.zip.verification.json",
+      "bytes": 520,
+      "sha256": "64a0841de1a217f483383856e6182f50c92d373f7a7ade2eac52f809090ae08a",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/body-inputs-track1-20261016/body-inputs-track1-20261016.zip.verification.json",
+      "asset_id": 644635678
+    },
+    {
+      "name": "body-inputs-track1-20261016.zip.receiver-checks.json",
+      "bytes": 18881,
+      "sha256": "79718300624e61a46c13fad1febad2272c3d358d1f7843a767b84df6671c2deb",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/body-inputs-track1-20261016/body-inputs-track1-20261016.zip.receiver-checks.json",
+      "asset_id": 644635710
+    },
+    {
+      "name": "native-reader-checks.json",
+      "bytes": 11867,
+      "sha256": "6491eac34c6ed75d08d2248082e0ddfb7e8e496f2c2d9f697ccc460e4530cf94",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/body-inputs-track1-20261016/native-reader-checks.json",
+      "asset_id": 644635747
+    }
+  ],
+  "github_asset_digests_verified": true
+}

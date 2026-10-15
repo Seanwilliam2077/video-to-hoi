@@ -1,0 +1,48 @@
+{
+  "schema_version": "body_visual_review_receipt.v1",
+  "episode_index": 10,
+  "video_sha256": "4a75aec2a5d5621295979c8cd4b8b7c346c24ff6e9a4241b39dcfda623e94c39",
+  "target_id": "human_0",
+  "status": "approved",
+  "reviewer": "Codex visual review (camera adapter agent)",
+  "review_method": "machine_assisted_visual",
+  "reviewed_at": "2026-10-15T16:39:30.166169+00:00",
+  "sample_frame_ids": [
+    0,
+    72,
+    144,
+    216,
+    288,
+    360,
+    400,
+    416,
+    432,
+    448,
+    464,
+    504,
+    576
+  ],
+  "findings": "Viewed the full-frame sheet and both original/overlay target-crop sheets for every listed sample. The participant wearing a light shirt remains the tracked foreground human while walking around and stepping across the desk area. The desk is excluded where it occludes the body; no identity switch, missing target, or major body truncation is visible. Frame 432 has a localized over-segmented background region inside the arm-to-torso gap; this is retained as a segmentation-boundary limitation because the human identity and usable Body localization remain correct. All declared camera samples pass independently recomputed consistency and median checks; estimated-camera accuracy and Body reconstruction quality remain unverified. The pinned Body consumer uses the supplied mask for both crop localization and mask conditioning; the effect of this localized residual on reconstructed pose has not been measured and must be checked in the downstream Body output review. Supplemental original/overlay inspection at frames 400,416,432,448,464 localizes the visible interior-background inclusion to samples 416 and 432; it is absent or substantially reduced at 400,448,464. All five extra views retain the same complete participant and exclude the desk. No broader foreground takeover or major body loss was seen in these inspected neighboring frames.",
+  "unresolved_issues": [],
+  "quality_limitations": [
+    "Sampled visual review does not certify every boundary pixel. At source frames 416 and 432, a background region within the arm-to-torso gap is included; assessed as nonblocking for usable target localization, with unmeasured Body-conditioning impact.",
+    "The supplied mask also enters the native Body mask-prompt embedding. No claim is made that the frame-432 residual has zero effect on reconstruction."
+  ],
+  "reviewed_artifacts": {
+    "camera-estimation.json": "df343f9f8a6c0d0455f53257415bbfff963f0e25b39ff763ee4c8cdbf9f260ed",
+    "intrinsics.json": "25ba03646d26c317a43a638edab3f58a855af76ec0240d6c69a37ea5f4207528",
+    "mask-qa/review-001.jpg": "228c5c8f9aaf96139e21522b2b4936c218926ccf2b50da58b1525c39e7a308fd",
+    "mask-qa/targets-001.jpg": "5c1ae2e3460df40ed82b538ba8f5ef3d9e57be566d74e917200e7130cbfece81",
+    "mask-qa/targets-002.jpg": "103a6ce351a5f52bd646b40bd3412fa5d8bfb55a6a1d8798172734ba50f10570",
+    "mask-qa/targets-manifest.json": "6945eb63dfe44dee315b8e1240a7c3459d94f350aa9b0bfa0e42975ea0298d41",
+    "masks-manifest.json": "1d8a87ef450e596688c91680b21faac113313b94f80997eace017dd0ce7827a8",
+    "masks-provenance.json": "959a97287fea1b36db35c418669b545bf4d05d2f3fc451528e6bf7fc9205bcdd",
+    "observations.json": "903782dbdb4aebfa2f6185edbfd48b060ae2374a9fa3a1a5b609b7f393f43d59",
+    "mask-qa/residual-0432-context.jpg": "22e7600785c0e7cebccc40e144170224949d78a0f793f4cb7d1bd052c6139e54",
+    "mask-qa/residual-0432-context.json": "bb3646ca790f8f20ec41602c01345b74697401aae9bca948fa6bdbe98f06131d"
+  },
+  "consumer_interface_evidence": [
+    "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/sam_3d_body_estimator.py",
+    "https://github.com/nvidia-isaac/video_to_data/blob/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/meta_arch/sam3d_body.py"
+  ]
+}

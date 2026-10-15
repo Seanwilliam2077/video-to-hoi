@@ -4,24 +4,24 @@ Monocular 4D human–object reconstruction for Track 1 of the NVIDIA Video to Da
 
 The plan starts with one real CARI4D baseline, then permits bounded corrections supported by independent video evidence. The owner's latest six requirements are the current specification. A native-MHR reference diagnostic checks reconstruction geometry and motion with explicit permitted inputs; it is not an official evaluator and supplies no hidden reference data. The official export adapter and real reconstruction backends remain to be implemented. Registered pipeline backends are still fake, with no measured reconstruction results.
 
-![The video-to-hoi pipeline: six stages owned by four modules](docs/pipeline.svg)
+![The video-to-hoi pipeline: six stages across four modules](docs/pipeline.svg)
 
 **Track 1 only.** All reconstructed assets and estimated parameters, including cameras, must come from Track 1. Track 2 data and derivatives are prohibited for development, tuning, validation, tests, scorer checks and submissions. The current requirements, setup, diagnostics and tests are linked from the [developer guide](docs/development.md).
 
-## Project status
+## Team hub
 
-Progress in plain Chinese, for leadership and product: **[open the status page](https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1)**.
+**[Open the team hub](https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S)** for the project status, Track 1 reference and four module pages. Post work updates in each module page's **Progress** section; use Tasks for current work and Resources for reading. Project status remains available inside the hub. Roles float: any member may contribute across modules.
 
-## Team pages
+## Module submissions
 
-**[Open the team hub](https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S)**. It leads to the Track 1 reference (rules, scoring, the 30 videos, organizer Q&A) and to the four module pages (tasks, progress, reading list). Every page carries the same navigation bar, so you can move between them directly.
+| Module | Code area under `src/v2hoi/` | Delivery records and review |
+|---|---|---|
+| ① Platform & perception | `stages/inputs.py`, `stages/export.py`, shared contracts/checks and `v2/` | [deliveries/platform/](deliveries/platform/) |
+| ② Human | `stages/human.py` and related adapters | [deliveries/human/](deliveries/human/) |
+| ③ Object | `stages/objects.py`, `stages/motion.py` | [deliveries/object/](deliveries/object/) |
+| ④ Temporal & physics | `stages/refine.py` and related adapters | [deliveries/physics/](deliveries/physics/) |
 
-| Module | Stages | Metrics | Branch |
-|---|---|---|---|
-| ① Platform & perception | inputs, export | all five, as gatekeeper | `platform` |
-| ② Human | human | CD-H | `human` |
-| ③ Object | objects, motion | CD-O | `object` |
-| ④ Temporal & physics | refine | ACC-H, ACC-O, PEN | `physics` |
+Submit code and a small delivery record through a task branch and PR to `main`. Each record lives at `deliveries/<module>/<unique-delivery-id>/README.md`; include output locations, exact versions, check evidence and remaining work. Use the [submission guide and template](deliveries/README.md). Large outputs belong in a new result-specific Release or agreed team storage, with hashes and exact download references. A progress post or merged record does not by itself accept a model result or start the next stage.
 
 ## Model weights and data
 

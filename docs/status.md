@@ -2,7 +2,7 @@
 
 `docs/status.html` is the project's status page. The project owner presents it to **non-technical leadership and product managers** and uses it in team meetings. Read this guide before changing the page, whether you are a person or an agent.
 
-- Online copy: https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1, linked from the first line of the README.
+- Online copy: https://claude.ai/artifact/U2vgULC1h3DurtZwyQRHS1, available through the Team hub linked from the README. Keep the hub's status entry; the README has no standalone Project status section.
 - Source of truth: `docs/status.html` on `main`. Editing the file does not update the online copy; see [Publishing](#publishing).
 
 ## Language and audience

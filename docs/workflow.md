@@ -67,7 +67,7 @@ Reject frozen-motion controls that reduce self-acceleration but fail observed mo
 ## Branches and pull requests
 
 - `main` stays green and runnable. Everything reaches it through a pull request.
-- Use `platform`, `human`, `object`, and `physics` as work-area labels. Any teammate may contribute to any area. Concurrent tasks use separate topic branches/worktrees, such as `human/<task-id>`, and unique result directories. Keep each task branch current with `main` and open a pull request when the change is reviewable.
+- Use `platform`, `human`, `object`, and `physics` as work-area labels. Any teammate may contribute to any area. Concurrent tasks use separate topic branches/worktrees, such as `human-frame-map-20261015`, and unique result directories. Use flat task branch names because existing module branches conflict with names such as `human/<task-id>`. Keep each task branch current with `main` and open a pull request when the change is reviewable.
 - **Contracts first.** A change to a field's meaning or shape goes in a small PR of its own, bumps `CONTRACT_VERSION`, and is reviewed by task-selected reviewers familiar with the stages that read it. Implementation PRs follow.
 - Module 1 owns the stage contracts, validation tools, and CI. Version any evaluator change so reports from different versions are not treated as directly comparable.
 - The repository is in English: code, docs, commit messages, and PR descriptions.
@@ -96,7 +96,7 @@ Record the update date, completed deliverables, what was actually verified, outs
 
 ## Runs and storage
 
-`runs/` is not committed. Each member uses their own accessible machine; no common account or shared filesystem is required. Git carries code, configuration, small handoff manifests and reviewed package references. Large permitted outputs travel through Release assets or one agreed team store, with exact hashes and a complete dependency closure. See [distributed-execution.md](distributed-execution.md) for model-stage boundaries and the proposed transport contract; these adapters are not implemented yet.
+`runs/` is not committed. Each member uses their own accessible machine; no common account or shared filesystem is required. Submit small records at `deliveries/<module>/<unique-delivery-id>/README.md` through a PR to `main`; the [submission guide](../deliveries/README.md) provides the four folders and template. This is a human review index, not the pending native transport implementation. Git carries code, configuration, small handoff manifests and reviewed package references. Large permitted outputs travel through new result-specific Release assets or one agreed team store, with exact hashes and a complete dependency closure. See [distributed-execution.md](distributed-execution.md) for model-stage boundaries and the proposed transport contract; these adapters are not implemented yet. Post the summary and record link in the live module page's Progress section; a Git push alone does not publish that update.
 
 Module branches remain `platform`, `human`, `object` and `physics`. Pin the input manifest before a job starts; publish a new uniquely identified result instead of editing an earlier one. Keep human-readable run labels such as `human-sam3d-2` as aliases for immutable results, not overwriteable identities. Each machine uses a local ArtifactStore; never synchronize registry locks, local selection pointers or native stage caches through Git. An imported package does not become an accepted scene automatically.
 

@@ -2,6 +2,12 @@
 
 Updated **2026-10-15**, Asia/Shanghai. Static artifact publication remains incomplete. The single active project specification is [track1-requirements.md](track1-requirements.md), R1–R6; older page text and earlier receipts do not override it.
 
+## Module Progress posts and GitHub entry points (2026-10-15)
+
+The owner requested a progress submission to each of the four live module sections. The four module-specific titles, bodies and evidence links are prepared in [page-updates-20261015.json](page-updates-20261015.json). They distinguish implemented shared checks and documentation from pending native model work. None has been posted or verified in the live database in this attempt. The connected browser currently shows **Sign in to view this page**, including after the owner reported successful login in another browser/session. This is the current access blocker for Progress posting; the older authenticated state below is historical. Authorization to post already exists. Reconcile against the live rows before writing to avoid duplicates, then record actual save/reload evidence.
+
+The repository README now omits its standalone Project status section while retaining the Team hub entry. The hub/status HTML sources and the hub's status navigation/card are preserved. The README links the four [module delivery folders](../deliveries/README.md), and a shared template and PR checklist explain code, review-record and large-output locations. These folders are a human review index, not implemented native transport or accepted model deliveries. Publishing these Git files does not publish Claude Progress rows or static artifact source.
+
 ## Local delivery-gate and collaboration follow-up (2026-10-15; not published)
 
 The Module 1 planning discussion is saved in [platform-plan.md](platform-plan.md), linked from the developer guide, implementation backlog and local platform record. The Chinese status source summarizes the proposed sequence and meeting needs. This records planning progress only; no native adapter or model execution is added, and the live static pages still need republication.
@@ -67,4 +73,4 @@ The corrected Reference answers are live; the static-source refresh is not compl
 4. Publish through an available source-editing interface, then reload and verify both languages, navigation, retained rows and resource links.
 5. Record the actual scope, timestamp, exposed revision and verification evidence. Mark static publication complete only for artifacts whose new source is confirmed.
 
-The user's authorization to update these pages persists. The remaining blocker is the unavailable source editor, not login or permission. Current implementation status belongs in [track1-compliance.md](track1-compliance.md); newly edited answers and created tasks do not establish real reconstruction, a completed export or official scores.
+The user's authorization to update these pages persists. Static source refresh still needs a supported source editor; the current Progress-post attempt additionally needs access to the owner's authenticated module session, as recorded above. Current implementation status belongs in [track1-compliance.md](track1-compliance.md); newly edited answers and created tasks do not establish real reconstruction, a completed export or official scores.

@@ -19,7 +19,7 @@ These rules apply to every coding agent working in this repository (Codex, Claud
 
 ## README
 
-Keep the README to four parts, in this order: the project introduction, the status page, the team pages, then model weights and data. Each part links to one page at most (the team hub stands for all team pages). Everything else for developers goes in `docs/development.md`.
+Keep the README to four parts, in this order: the project introduction, Team hub, Module submissions, then Model weights and data. The owner removed the standalone Project status section on 2026-10-15; retain the status entry inside the hub and do not remove the status page. Link the four module delivery folders directly from Module submissions. Detailed developer instructions belong in `docs/development.md` and `deliveries/README.md`.
 
 ## Team pages
 

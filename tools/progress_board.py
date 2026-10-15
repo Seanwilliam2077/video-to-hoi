@@ -119,7 +119,10 @@ def timestamp(value, label):
     string(value, label, nonempty=True)
     require(bool(TIMESTAMP_PATTERN.fullmatch(value)), f"{label} requires full ISO date/time, timezone and at most millisecond precision")
     try:
-        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        # Python 3.10's fromisoformat accepts only 3 or 6 fractional digits.
+        # strptime preserves the supported 1-3 digit browser timestamps too.
+        date_format = "%Y-%m-%dT%H:%M:%S.%f%z" if "." in value else "%Y-%m-%dT%H:%M:%S%z"
+        parsed = datetime.strptime(value.replace("Z", "+00:00"), date_format)
     except ValueError as exc:
         raise BoardError(f"{label} must be an ISO timestamp") from exc
     require("T" in value and parsed.tzinfo is not None, f"{label} requires date, time and timezone")

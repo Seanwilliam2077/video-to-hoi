@@ -321,9 +321,17 @@ def test_timestamp_precision_and_format_match_browser(repository, value):
         board.validate_record(record(created_at=value), index(repository))
 
 
-@pytest.mark.parametrize("value", ["2026-10-15T01:00:00Z", "2026-10-15T01:00:00.1Z", "2026-10-15T01:00:00.123+08:00"])
-def test_timestamp_accepts_timezone_and_milliseconds(repository, value):
+@pytest.mark.parametrize("value,microsecond,offset_seconds", [
+    ("2026-10-15T01:00:00Z", 0, 0),
+    ("2026-10-15T01:00:00.1Z", 100000, 0),
+    ("2026-10-15T01:00:00.12-05:30", 120000, -19800),
+    ("2026-10-15T01:00:00.123+08:00", 123000, 28800),
+])
+def test_timestamp_accepts_timezone_and_milliseconds(repository, value, microsecond, offset_seconds):
     board.validate_record(record(created_at=value), index(repository))
+    parsed = board.timestamp(value, "fixture.created_at")
+    assert parsed.microsecond == microsecond
+    assert parsed.utcoffset().total_seconds() == offset_seconds
 
 
 def test_integer_declarations_must_be_exact_in_browser(repository):

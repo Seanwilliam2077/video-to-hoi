@@ -1,0 +1,652 @@
+{
+  "repository": "nvidia/video_to_data_challenge",
+  "revision": "5f68335f3acc802033d1e80728c1633197521de8",
+  "files": [
+    {
+      "type": "file",
+      "path": "track_1/.gitignore",
+      "size": 23,
+      "oid": "64777da0fbb4b64e1c9bd2c05af650b9d8497a17"
+    },
+    {
+      "type": "file",
+      "path": "track_1/README.md",
+      "size": 2814,
+      "oid": "7cd54d19f6c8425d44e8c616a76f2b11da2efc6d"
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000000.parquet",
+      "size": 14415,
+      "oid": "bd4f4df4e6c308c77b1bce03900c310457262501",
+      "lfs": {
+        "oid": "796291b55d912b894ab1e827b8e7653bb27caf5e1b5cf04da48ee5015f53f463",
+        "size": 14415
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000001.parquet",
+      "size": 12503,
+      "oid": "42754997a228f096bad107af39b9923a6bd43203",
+      "lfs": {
+        "oid": "ae5b8baaa79dbc4df0e1679a4bb56e0b041c0005dd7d713ace94433a24931119",
+        "size": 12503
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000002.parquet",
+      "size": 15634,
+      "oid": "b4aa7d9f0126c86c88389ce751d0aeac462b63ad",
+      "lfs": {
+        "oid": "796c776c182f42c6f9bf5aae6c6db4ac8820818943d0b06d10059e284c7667a0",
+        "size": 15634
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000003.parquet",
+      "size": 11290,
+      "oid": "87491a63b0de823d02dca2745f4d96e457fedc14",
+      "lfs": {
+        "oid": "4a02256d3e3861c8bd32972f4f76f5e71bf75f58170f7022ca5ad8cc9c32cd23",
+        "size": 11290
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000004.parquet",
+      "size": 13751,
+      "oid": "2abd2e6252bec4125304ab99f06a73c05653c155",
+      "lfs": {
+        "oid": "a3491157ffa33b1c89e27b0697e5dc08c96766582d08327c7b54477f949f7ebb",
+        "size": 13751
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000005.parquet",
+      "size": 12503,
+      "oid": "0740d164ae1701842c6ce2de68ea6b333df754fb",
+      "lfs": {
+        "oid": "5a33a6fbfa8ab156d4b3651f34e2ea72248a93ba94bc8b64272a9ddd18f337a9",
+        "size": 12503
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000006.parquet",
+      "size": 14822,
+      "oid": "adfaf1fef3c6e3a9fcef4b48a8426a3cc71d09ed",
+      "lfs": {
+        "oid": "16e05da3b2dcef145cc6b362a95977b2d77f1718e085f8e6ab7526664f3ba458",
+        "size": 14822
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000007.parquet",
+      "size": 14234,
+      "oid": "038d4382a498b632be3203f0d20013518b364fc7",
+      "lfs": {
+        "oid": "5279150ade69b597d1ac6abd88ce59c37ac149057f13902d02e25f267aa52472",
+        "size": 14234
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000008.parquet",
+      "size": 11975,
+      "oid": "50e35b5887e4edc277bae3433cb4b74a6a51e57e",
+      "lfs": {
+        "oid": "480f5ddaacafd2c7bea285946c255f2dae657c2ee4c98510d86339ebefd0d73c",
+        "size": 11975
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000009.parquet",
+      "size": 8339,
+      "oid": "355da0e42c6deb6fc6903787f51a5541f0f47c57",
+      "lfs": {
+        "oid": "73a16bca1d4fc77a4f4e0caedf86d670f71921a69b5ccf30b24f58f761d16150",
+        "size": 8339
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000010.parquet",
+      "size": 11080,
+      "oid": "7a1c396afbbb9fecbb3c206621bf9f40b65beb7b",
+      "lfs": {
+        "oid": "a90f9e5642d6415c2ea7d369f5d53e975c818d50ab920f642c97437db67bb10a",
+        "size": 11080
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000011.parquet",
+      "size": 15797,
+      "oid": "246dcdbec643bc2a0e9f3a4a5ad9a274fa5b3175",
+      "lfs": {
+        "oid": "3b14398e694390c4d91da3e8afb5c552aff9d414ff853860db5fe4c8f722e072",
+        "size": 15797
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000012.parquet",
+      "size": 8192,
+      "oid": "8ff7d0acbec2e46a729577d5e1b0611817a96904",
+      "lfs": {
+        "oid": "312ca4f5850e758128cefca0a9ab4d2de3531a41b8a61a802822d2022c9d0afb",
+        "size": 8192
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000013.parquet",
+      "size": 8516,
+      "oid": "6a8b5514f007c0a708be1ac0699d7e002ca90c5e",
+      "lfs": {
+        "oid": "7cfe25d7461fb478eaab646c3c09a77e9757786a612e7f03c9b53001e2ebef4e",
+        "size": 8516
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000014.parquet",
+      "size": 8771,
+      "oid": "efd42c81a45b5d8a99639d93ba26ca868d396d6a",
+      "lfs": {
+        "oid": "4f2c44df213ad0304424c6d3cac1ebce4e24090f9008075eddfd10043cd4bd1e",
+        "size": 8771
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000015.parquet",
+      "size": 9671,
+      "oid": "b6d2683e166aeafd9f66cf2485f09644837378a7",
+      "lfs": {
+        "oid": "58d1c267648bf513c95def18628fe833b70650500d09dffa97222952955a0e94",
+        "size": 9671
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000016.parquet",
+      "size": 7490,
+      "oid": "c361220f855fcb87afad533dd0e9839147094ea0",
+      "lfs": {
+        "oid": "80c6cb9a85c9e9b57c0dcf98fadcfb93c689438b50817678e210cd24f0d6e746",
+        "size": 7490
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000017.parquet",
+      "size": 8414,
+      "oid": "609263ae11505dfbf0a329879236b681755d8b5e",
+      "lfs": {
+        "oid": "ae96701185793cf374d67d6bb40e59239c18af9127a0b8301b7fd7a4f031aef1",
+        "size": 8414
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000018.parquet",
+      "size": 10395,
+      "oid": "6a066b7d9f64c24012a5c0fd8a0e23c73567fe3b",
+      "lfs": {
+        "oid": "14024fa8c62c39581a88250f83a9e63a59ca5137e0ab08528f5cf52ab527ea56",
+        "size": 10395
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000019.parquet",
+      "size": 8783,
+      "oid": "8961758284a3a4581eb49c8c9a821160a8f62ce4",
+      "lfs": {
+        "oid": "34e1396e6ded004efe5def0b45075962c7c8261823e07fdbdfe9ac231541dc4f",
+        "size": 8783
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000020.parquet",
+      "size": 10624,
+      "oid": "80eb1c1ddfbbef9223cfc998b75f79990c5f0063",
+      "lfs": {
+        "oid": "aa0b7af191d8b9c7615c736d7dd0d7059d2a6e7317cd2abb1eb7df79b4323bb7",
+        "size": 10624
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000021.parquet",
+      "size": 10856,
+      "oid": "57bac0a6124cb4dd543f08d8c48f885f608ce8e0",
+      "lfs": {
+        "oid": "f407f21a5b83b6010bd683f7855245f729b7ae162bf0472bd3b488e29f4646ef",
+        "size": 10856
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000022.parquet",
+      "size": 10371,
+      "oid": "02c046bc206b981e7ed75a59506663b0287afe0f",
+      "lfs": {
+        "oid": "45a0b91861e3c1bad4e26573970412d4b72e31eeb9303e4a9218cf663bb332d5",
+        "size": 10371
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000023.parquet",
+      "size": 10660,
+      "oid": "592849146a26d22ba355776af5a59191cd4487f5",
+      "lfs": {
+        "oid": "fe1ad175219113990efe58e742b284befef88699f60876a35fa722c5bd173637",
+        "size": 10660
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000024.parquet",
+      "size": 8426,
+      "oid": "8f84889647a6e02e79abd762b4575e4b924d8176",
+      "lfs": {
+        "oid": "ce406755d4bfab45eebc08540b9f4c8a81037e8b13edcd2c473b93f8059e0725",
+        "size": 8426
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000025.parquet",
+      "size": 7577,
+      "oid": "7a0e564d89100cbb3abd097fd029b321fdf08ca6",
+      "lfs": {
+        "oid": "5301a06db93a67317f104faa4bb506928878888dcca31f99d44ce4c6e677a8dd",
+        "size": 7577
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000026.parquet",
+      "size": 8093,
+      "oid": "0753b21187ca0b629f66f7ac86ef67aca69b2f6c",
+      "lfs": {
+        "oid": "7ca62e56805e5dd6312babcbec4edcf5bd53677ae0929d3cdc53bd23c11d7fbb",
+        "size": 8093
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000027.parquet",
+      "size": 8720,
+      "oid": "1160c26850f362ace4281a2287a4b06272d80ed0",
+      "lfs": {
+        "oid": "960f4e33745469bf806411d9a556d432eb8923b6530de25e3d4e63390306ebbc",
+        "size": 8720
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000028.parquet",
+      "size": 7589,
+      "oid": "4f12a391a9f49683322e495bd2e6230481804e2c",
+      "lfs": {
+        "oid": "b4591a7520230d7c443be7ac323f06185b0d9e4eafc73f1a0d4a3bfb0e537560",
+        "size": 7589
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/data/chunk-000/episode_000029.parquet",
+      "size": 8414,
+      "oid": "960f4403d5625551865c6e047c6891d82cc728ca",
+      "lfs": {
+        "oid": "6640591b3b2673a8b4a28af18ce56bbb6dd72dff25cfbbdf9d4485e992747827",
+        "size": 8414
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/meta/episodes.jsonl",
+      "size": 6850,
+      "oid": "f9b955051afc807a179b23cee1b483eb76494335"
+    },
+    {
+      "type": "file",
+      "path": "track_1/meta/episodes_metadata.jsonl",
+      "size": 7597,
+      "oid": "9142de89384b7fac7bf792ec3f6eb9bfbbf2243a"
+    },
+    {
+      "type": "file",
+      "path": "track_1/meta/episodes_stats.jsonl",
+      "size": 57505,
+      "oid": "0e3096a196aca8c398534c772789dabab7e7e073",
+      "lfs": {
+        "oid": "ed9bff1cac70865d95f3d798d82f4aa1da37b032de2c149c03bbcfd539d0c0da",
+        "size": 57505
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/meta/info.json",
+      "size": 1956,
+      "oid": "4593450430e50a5bf681be228fd2f69c64a055b7"
+    },
+    {
+      "type": "file",
+      "path": "track_1/meta/tasks.jsonl",
+      "size": 4493,
+      "oid": "35c097808e421a370140bfba4779af1fcc7cb3f6"
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000000.mp4",
+      "size": 21716125,
+      "oid": "a71a1cddd7874bb427e4e288578256c78b2c9914",
+      "lfs": {
+        "oid": "1eb6293e4552397668a5013adbcee95e0bf230dd8c79a594aa7d7f8ea4991ab1",
+        "size": 21716125
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000001.mp4",
+      "size": 18324428,
+      "oid": "bb2e9377d332a31af3463ec03ba68872d8042888",
+      "lfs": {
+        "oid": "1198635d7f04f73aa9466e02d105fa89b3630b2aa92a5e4f249898023ecfed30",
+        "size": 18324428
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000002.mp4",
+      "size": 28822754,
+      "oid": "04d54b206df2a4a28972251d3736f2d35d3f25e7",
+      "lfs": {
+        "oid": "2ccb43dd362c2a430d341611e888ef1ea79e3a3989e8af2a015d34e0b2196747",
+        "size": 28822754
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000003.mp4",
+      "size": 16656000,
+      "oid": "91d70b6b729f13e11b22b7b9cec31591f4e8c4f5",
+      "lfs": {
+        "oid": "8eb7153abeeb32895741d80dc79305143967b701094af2eea9321260577a6b39",
+        "size": 16656000
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000004.mp4",
+      "size": 21247810,
+      "oid": "49a437f49d6288bf870b5afeba0991048a52701c",
+      "lfs": {
+        "oid": "f1cadfa308b37dc91a3f296c2e5a2b538236cbe8a76d76d651df19554386cce6",
+        "size": 21247810
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000005.mp4",
+      "size": 18477663,
+      "oid": "cdd6a67170ed3d862b77ec9d7966a2c27fb96714",
+      "lfs": {
+        "oid": "9613c76d9a4f9f34ecaf7697f2129ee2c59b6b03b0f014ee531a53d1fe39c30e",
+        "size": 18477663
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000006.mp4",
+      "size": 20480668,
+      "oid": "94c5138e66e45c7ca1fabe533eacf7464419f2ed",
+      "lfs": {
+        "oid": "295db21337393fc4ffbb0a872c4156580cfe1fbda26bf1df211b07cfecf979e4",
+        "size": 20480668
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000007.mp4",
+      "size": 22640651,
+      "oid": "1f248ad37229eb97c299ac92d9ab6cae6ec0bc8d",
+      "lfs": {
+        "oid": "e76d386123f8221e390d9accd35d8d19794efb1279d78a02a0e56553e4f9948d",
+        "size": 22640651
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000008.mp4",
+      "size": 18223522,
+      "oid": "b83b5d543b3811dc71f0e0cfe76d9ed41ed06175",
+      "lfs": {
+        "oid": "7f2967bd12518ded44094c9ac397bed826c572f7cbfbab7c9909735a240c2770",
+        "size": 18223522
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000009.mp4",
+      "size": 11564665,
+      "oid": "e563eefd0fa8f5bda6118debd54cd3fc820ba73c",
+      "lfs": {
+        "oid": "4fe69ca521fc2717e2938339b0a37843ada391f4b074753584c7cd8c2e36a277",
+        "size": 11564665
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000010.mp4",
+      "size": 14926552,
+      "oid": "383cda7071d672275446b5afa8c9a11f660bd5e1",
+      "lfs": {
+        "oid": "4a75aec2a5d5621295979c8cd4b8b7c346c24ff6e9a4241b39dcfda623e94c39",
+        "size": 14926552
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000011.mp4",
+      "size": 30120808,
+      "oid": "51513b63d0b3091ab0308bc5e26abd9ac2071a6a",
+      "lfs": {
+        "oid": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+        "size": 30120808
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000012.mp4",
+      "size": 12982814,
+      "oid": "6fd0e4248bc6e0dd08d68b16d4067a8d93036a07",
+      "lfs": {
+        "oid": "6494246c131a9161eb342c615ea835988d254b9c09abb659349bdb05e6935b39",
+        "size": 12982814
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000013.mp4",
+      "size": 13619019,
+      "oid": "4cb902e56ca6398ad9efb4678bd1f102886527f4",
+      "lfs": {
+        "oid": "fa74d6754b90eebc9513909e8570dfd2dd7726c71dba16df45cb17cc49e79f1a",
+        "size": 13619019
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000014.mp4",
+      "size": 14565467,
+      "oid": "94d87ecd04d4d74985ceb05eeed9363b370ae053",
+      "lfs": {
+        "oid": "f9f2bed8abe60898aef8f62c245ff03ed32f94b76b079c128e363fdfd4a7e70e",
+        "size": 14565467
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000015.mp4",
+      "size": 17030518,
+      "oid": "cf5f88a1ad23c9b2c8cdc59b1294edf1e852249a",
+      "lfs": {
+        "oid": "c368809329e922b75629c1d94c39c1c820c9211464a5e5a77a4cdb55803400f0",
+        "size": 17030518
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000016.mp4",
+      "size": 11744057,
+      "oid": "67394f2905b75a754cc970bf1ae5e4e94b0e4265",
+      "lfs": {
+        "oid": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+        "size": 11744057
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000017.mp4",
+      "size": 13432528,
+      "oid": "0083286fee59d7a13e3e3ffb9060632517bf5b45",
+      "lfs": {
+        "oid": "4c536c20aff3e803c0d5caf1f91b0dfab1054444361fdae2799212e5af15a94b",
+        "size": 13432528
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000018.mp4",
+      "size": 17888420,
+      "oid": "c147cd1984188837710973c0340b9652642254a0",
+      "lfs": {
+        "oid": "e65132e95b0755a720c5e5238654a6fb8a01cd9e5d13fe481bcbb5e5612e44bd",
+        "size": 17888420
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000019.mp4",
+      "size": 14346970,
+      "oid": "066740b47396ad7957cac14c7be5df9d0e740759",
+      "lfs": {
+        "oid": "730e8392a32944856b3f9e2b02e57c48ba955e0832cfaf40e06d2de72a3a3bc9",
+        "size": 14346970
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000020.mp4",
+      "size": 18003843,
+      "oid": "698d6a5ee6dd4e191909763bdd67ffc4f8238948",
+      "lfs": {
+        "oid": "781ec1de0edcf8bf30cbc9f3847f80efd8cd2e97e53b0b4f80ccb0b505ef03ce",
+        "size": 18003843
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000021.mp4",
+      "size": 18861975,
+      "oid": "6569043c851d8923ba0615c96049201d73b12a60",
+      "lfs": {
+        "oid": "66443de1239172913edf324e9d4affb960883c99ca4f9e307a7ec76a9264adec",
+        "size": 18861975
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000022.mp4",
+      "size": 18346879,
+      "oid": "f881b6330e8f0b23cba5f832095a0ea463f4d4ce",
+      "lfs": {
+        "oid": "17e2de04b320c3ff3004f659326cbacfb51402af19c9564ffc4f1fed88fadad0",
+        "size": 18346879
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000023.mp4",
+      "size": 18480186,
+      "oid": "a32f3f7cf06d9fe867817e3ca082450641c97e18",
+      "lfs": {
+        "oid": "4b132f8efe20da727f2d5fd7ba56835cf08b032f11e6dc2800f26bfcfff0f0b5",
+        "size": 18480186
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000024.mp4",
+      "size": 13954465,
+      "oid": "a9ed8d80f23715d74ed04831e8320320612a0d6d",
+      "lfs": {
+        "oid": "e36eda1c9ac7f6a1da298412c301da27775055df4c6ff19167f6b1a8c504d2ef",
+        "size": 13954465
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000025.mp4",
+      "size": 12900883,
+      "oid": "6974c53072eec15143d8bb0e5e3caf5fdb3fb176",
+      "lfs": {
+        "oid": "efcce8025e4e94ed92553277bc6fddd5ae7c8d7c7e70d71d09ff9a86a1ea3ae0",
+        "size": 12900883
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000026.mp4",
+      "size": 13430270,
+      "oid": "1f5e88f393395db1612af0b76e8ae46de0264ef4",
+      "lfs": {
+        "oid": "9cf9112417778299780a3e2a7f009d38bbf24059149eaa1591b8df02551607a4",
+        "size": 13430270
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000027.mp4",
+      "size": 14761642,
+      "oid": "03e0dcc5f48d662dad8ad5564df948aa740f2e76",
+      "lfs": {
+        "oid": "07790526fc281dfb37f84cc9fa4cc25925e7e8fa6cd5600fd5cd9179ecd03e37",
+        "size": 14761642
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000028.mp4",
+      "size": 11604821,
+      "oid": "c4e7b6bc244610eb642964b9b29bedda83e9226f",
+      "lfs": {
+        "oid": "9f84471dcd5e44113cc21e5bd40e8877ad6c5bcc1ba1d03cfdbc866b8df61538",
+        "size": 11604821
+      }
+    },
+    {
+      "type": "file",
+      "path": "track_1/videos/chunk-000/observation.images.exo_camera/episode_000029.mp4",
+      "size": 13630018,
+      "oid": "3dc3df04d61e85c7b85f87e0b91f8a5b476341ee",
+      "lfs": {
+        "oid": "0a2288f183e4d0fffff1c55688c1ea27c09e60588dfc9f52c10137b3abc1b5e1",
+        "size": 13630018
+      }
+    }
+  ]
+}

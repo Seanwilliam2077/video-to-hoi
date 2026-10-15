@@ -1,6 +1,8 @@
 # M1 Platform deliveries
 
-Submit a small delivery record at **`deliveries/platform/<unique-delivery-id>/README.md`** using the [shared template](../TEMPLATE.md), and open a PR to `main`. This folder currently contains instructions only, not completed delivery records. Any member may contribute.
+Submit a small delivery record at **`deliveries/platform/<unique-delivery-id>/README.md`** using the [shared template](../TEMPLATE.md), and open a PR to `main`. Any member may contribute.
+
+Current preparation delivery: [30 verified Track 1 raw inputs and the Body handoff plan](raw-track1-20261015/README.md). Raw bytes, decoding and timelines passed; real human masks, camera estimates, Body execution and receiver acceptance remain pending.
 
 | Work | Existing code or plan location |
 | --- | --- |

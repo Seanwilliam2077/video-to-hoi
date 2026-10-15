@@ -22,6 +22,7 @@ dependencies = [
 # the CUDA build that matches the machine first.
 soma = ["py-soma-x==0.2.1"]
 dev = ["pytest"]
+video = ["av>=14,<20"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

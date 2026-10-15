@@ -1,0 +1,931 @@
+{
+  "schema_version": "track1_raw_delivery.v1",
+  "repository": "nvidia/video_to_data_challenge",
+  "revision": "5f68335f3acc802033d1e80728c1633197521de8",
+  "total_videos": 30,
+  "total_frames": 16563,
+  "source_bytes": 513185541,
+  "raw_data_ready": true,
+  "body_inference_ready": false,
+  "models_executed": false,
+  "source_inventory_sha256": "ca4b4e7a08e46426838f54d294e5ccb2682fdf0fc9a6a66381f12dce1374f56c",
+  "manifest_sha256": "156096c31ef4411531a2e723502f312e4f639b0247855340cc60d10f42e77030",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "av": "19.0.1",
+      "pandas": "3.0.6",
+      "numpy": "2.5.4"
+    },
+    "ffmpeg_libraries": {
+      "libavutil": [
+        61,
+        1,
+        102
+      ],
+      "libavcodec": [
+        63,
+        1,
+        102
+      ],
+      "libavformat": [
+        63,
+        1,
+        102
+      ],
+      "libavdevice": [
+        63,
+        1,
+        102
+      ],
+      "libavfilter": [
+        12,
+        1,
+        102
+      ],
+      "libswscale": [
+        10,
+        1,
+        102
+      ],
+      "libswresample": [
+        7,
+        1,
+        102
+      ]
+    }
+  },
+  "episodes": [
+    {
+      "episode_index": 0,
+      "sequence_id": "2026-03-16_15-04-26_hula_hoop_inside_ground_01",
+      "object": "hula_hoop",
+      "camera": "back_stereo_camera_left",
+      "object_prompt": "a shiny skinny hula hoop.",
+      "tasks": [
+        "Walk over to the hula hoop on the floor and step inside the hula hoop. Lift the hula hoop over your entire body and place back on the floor when done."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000000.mp4",
+      "parquet_path": "data/chunk-000/episode_000000.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 790,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000000.json",
+      "timeline_sha256": "acda3ee87adfb9122f6cb44e51664bc1a531e798a8c80a95841ccc3ca0e484e5",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 21716125,
+        "sha256": "1eb6293e4552397668a5013adbcee95e0bf230dd8c79a594aa7d7f8ea4991ab1",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "1eb6293e4552397668a5013adbcee95e0bf230dd8c79a594aa7d7f8ea4991ab1"
+        }
+      }
+    },
+    {
+      "episode_index": 1,
+      "sequence_id": "2026-03-16_15-07-35_hula_hoop_through_01",
+      "object": "hula_hoop",
+      "camera": "back_stereo_camera_left",
+      "object_prompt": "a shiny skinny hula hoop.",
+      "tasks": [
+        "Walk over to the hula hoop on the floor and grasp it with your right hand keeping the hula hoop vertical. Pass your right foot  through the hula hoop and then your head and torso while shifting the hula hoop from your right hand to the left hand. Finally step through the hula hoop using your left leg. Place the hula hoop on the floor."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000001.mp4",
+      "parquet_path": "data/chunk-000/episode_000001.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 668,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000001.json",
+      "timeline_sha256": "e531533ec5a23c1ca59bcb4b06420cdb714a9c5c0ffe6c9383e7f4cef950c3c1",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 18324428,
+        "sha256": "1198635d7f04f73aa9466e02d105fa89b3630b2aa92a5e4f249898023ecfed30",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "1198635d7f04f73aa9466e02d105fa89b3630b2aa92a5e4f249898023ecfed30"
+        }
+      }
+    },
+    {
+      "episode_index": 2,
+      "sequence_id": "2026-04-25_14-46-14_hula_hoop_jump_rope_06",
+      "object": "hula_hoop",
+      "camera": "back_stereo_camera_left",
+      "object_prompt": "a shiny skinny hula hoop.",
+      "tasks": [
+        "Walk over to the hula hoop on the floor and pick up the hula hoop using both hands. Jump through the hula hoop as if it was a jump rope 3x."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000002.mp4",
+      "parquet_path": "data/chunk-000/episode_000002.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 866,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000002.json",
+      "timeline_sha256": "6f159ec57dd4a5932316441862e36b9a971eaaf6e45b9d11d63a85dfc4e84672",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 28822754,
+        "sha256": "2ccb43dd362c2a430d341611e888ef1ea79e3a3989e8af2a015d34e0b2196747",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "2ccb43dd362c2a430d341611e888ef1ea79e3a3989e8af2a015d34e0b2196747"
+        }
+      }
+    },
+    {
+      "episode_index": 3,
+      "sequence_id": "2026-06-03_18-26-12_big_red_bowl_flip_03",
+      "object": "big_red_bowl",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "A red plastic bowl.",
+      "tasks": [
+        "Walk over to the big red bowl on the round table and flip the big red bowl onto the round table. Step away when complete."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000003.mp4",
+      "parquet_path": "data/chunk-000/episode_000003.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 592,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000003.json",
+      "timeline_sha256": "258a446850c5b338945d64a9a95da098c50a074da00ca10d51a513125ce17b6d",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 16656000,
+        "sha256": "8eb7153abeeb32895741d80dc79305143967b701094af2eea9321260577a6b39",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "8eb7153abeeb32895741d80dc79305143967b701094af2eea9321260577a6b39"
+        }
+      }
+    },
+    {
+      "episode_index": 4,
+      "sequence_id": "2026-06-08_15-30-20_big_red_bowl_push_05",
+      "object": "big_red_bowl",
+      "camera": "front_stereo_camera_left",
+      "object_prompt": "A red plastic bowl.",
+      "tasks": [
+        "Walk over to the big red bowl on the round table and push the red bowl away you using both hands as you walk around the round table. Step away when complete."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000004.mp4",
+      "parquet_path": "data/chunk-000/episode_000004.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 747,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000004.json",
+      "timeline_sha256": "2851715f23c7719e7b2ff5bda0868b7ca35a4b09297fb0ec8d3780bba66a4f38",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 21247810,
+        "sha256": "f1cadfa308b37dc91a3f296c2e5a2b538236cbe8a76d76d651df19554386cce6",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "f1cadfa308b37dc91a3f296c2e5a2b538236cbe8a76d76d651df19554386cce6"
+        }
+      }
+    },
+    {
+      "episode_index": 5,
+      "sequence_id": "2026-06-09_11-19-34_big_red_bowl_skinny_wood_chair_05",
+      "object": "big_red_bowl",
+      "camera": "front_stereo_camera_left",
+      "object_prompt": "A red plastic bowl.",
+      "tasks": [
+        "Walk over to the big red bowl on the floor and pick up the red bowl using your right hand and then handover to your left hand and then place the big red bowl on the skinny wood chair. Step away when complete."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000005.mp4",
+      "parquet_path": "data/chunk-000/episode_000005.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 668,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000005.json",
+      "timeline_sha256": "38e409331a0cf42d4d37d359af2d16bf0288434a54d0295ff2114df4ff5b8548",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 18477663,
+        "sha256": "9613c76d9a4f9f34ecaf7697f2129ee2c59b6b03b0f014ee531a53d1fe39c30e",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "9613c76d9a4f9f34ecaf7697f2129ee2c59b6b03b0f014ee531a53d1fe39c30e"
+        }
+      }
+    },
+    {
+      "episode_index": 6,
+      "sequence_id": "2026-05-29_15-24-23_iron_pick_place_right_left_hand_02",
+      "object": "iron",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "An metallic iron with blue accents.",
+      "tasks": [
+        "Walk over to the iron on the round table and pick it up with your right hand stand it up vertically. Pick up the iron with your left hand and set it down horizontally on the round table."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000006.mp4",
+      "parquet_path": "data/chunk-000/episode_000006.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 816,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000006.json",
+      "timeline_sha256": "d33966e70d9636cc7cd183e97bbd897737d531482556e6209785553e82383111",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 20480668,
+        "sha256": "295db21337393fc4ffbb0a872c4156580cfe1fbda26bf1df211b07cfecf979e4",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "295db21337393fc4ffbb0a872c4156580cfe1fbda26bf1df211b07cfecf979e4"
+        }
+      }
+    },
+    {
+      "episode_index": 7,
+      "sequence_id": "2026-06-08_15-54-40_iron_rotate_mid_air_04",
+      "object": "iron",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "An metallic iron with blue accents.",
+      "tasks": [
+        "Walk over to the iron on the floor and pick up the iron using both hands and rotate the iron as you walk within the bounding area and place it on the ground, step away when complete."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000007.mp4",
+      "parquet_path": "data/chunk-000/episode_000007.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 777,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000007.json",
+      "timeline_sha256": "a557d70880eba25686f7d2c1cc143b99f8a1ef117066c6a3ebf7e2b9a65ece5b",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 22640651,
+        "sha256": "e76d386123f8221e390d9accd35d8d19794efb1279d78a02a0e56553e4f9948d",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "e76d386123f8221e390d9accd35d8d19794efb1279d78a02a0e56553e4f9948d"
+        }
+      }
+    },
+    {
+      "episode_index": 8,
+      "sequence_id": "2026-06-09_11-34-07_iron_ground_05",
+      "object": "iron",
+      "camera": "right_stereo_camera_left",
+      "object_prompt": "An metallic iron with blue accents.",
+      "tasks": [
+        "Walk over to the iron on the ground and kneel near the iron and pick up the iron using your right hand and proceed to iron the ground infront of you. Place the iron on the ground when complete and stand up."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000008.mp4",
+      "parquet_path": "data/chunk-000/episode_000008.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 634,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000008.json",
+      "timeline_sha256": "d4c09fa5369a0a9c2751a56aeeb6d9126588a95881cc5608e6ee23ddc6accc1f",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 18223522,
+        "sha256": "7f2967bd12518ded44094c9ac397bed826c572f7cbfbab7c9909735a240c2770",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "7f2967bd12518ded44094c9ac397bed826c572f7cbfbab7c9909735a240c2770"
+        }
+      }
+    },
+    {
+      "episode_index": 9,
+      "sequence_id": "2026-03-12_16-43-03_white_desk_side_to_side_01",
+      "object": "white_desk",
+      "camera": "front_stereo_camera_left",
+      "object_prompt": "a medium sized white desk.",
+      "tasks": [
+        "Walk to the white desk that is lying on its side. Place both hands on it and use them to carefully flip the desk onto the other side."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000009.mp4",
+      "parquet_path": "data/chunk-000/episode_000009.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 415,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000009.json",
+      "timeline_sha256": "92a13027ca4b71a3b036f4c2b243e4be8632a4f07f432531eeda8587688fc6d9",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 11564665,
+        "sha256": "4fe69ca521fc2717e2938339b0a37843ada391f4b074753584c7cd8c2e36a277",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "4fe69ca521fc2717e2938339b0a37843ada391f4b074753584c7cd8c2e36a277"
+        }
+      }
+    },
+    {
+      "episode_index": 10,
+      "sequence_id": "2026-03-13_11-18-20_white_desk_left_foot_push_04",
+      "object": "white_desk",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "a medium sized white desk.",
+      "tasks": [
+        "Walk to the white desk, use your left foot to push the desk."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000010.mp4",
+      "parquet_path": "data/chunk-000/episode_000010.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 577,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000010.json",
+      "timeline_sha256": "edf0b6117bd98c3536b7d7afd032a07e4806894283613c18b6895cd6feb61bb9",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 14926552,
+        "sha256": "4a75aec2a5d5621295979c8cd4b8b7c346c24ff6e9a4241b39dcfda623e94c39",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "4a75aec2a5d5621295979c8cd4b8b7c346c24ff6e9a4241b39dcfda623e94c39"
+        }
+      }
+    },
+    {
+      "episode_index": 11,
+      "sequence_id": "2026-04-29_14-21-44_white_desk_lower_to_ground_09",
+      "object": "white_desk",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "a medium sized white desk.",
+      "tasks": [
+        "Walk to the white desk, use both your hands to grasp on the edge of the table closest to you, and lower the desk to the ground."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000011.mp4",
+      "parquet_path": "data/chunk-000/episode_000011.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 877,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000011.json",
+      "timeline_sha256": "644878a1f67b1cf210ea0b278af6c07c03d1600841455e3d1aa480093fa0c89f",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 30120808,
+        "sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40"
+        }
+      }
+    },
+    {
+      "episode_index": 12,
+      "sequence_id": "2026-09-11_15-27-19_black_pan_wipe_06",
+      "object": "black_pan",
+      "camera": "front_stereo_camera_left",
+      "object_prompt": "a black frying pan.",
+      "tasks": [
+        "Pick up the pan from the table using one hand. Take a few steps away from the table. Using your other hand, touch the bottom of the pan with your palm, and make some circular motions to wipe it. Walk back to the table and put the pan down."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000012.mp4",
+      "parquet_path": "data/chunk-000/episode_000012.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 405,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000012.json",
+      "timeline_sha256": "232e4fd728f8378f9f540fe3e7d716bc3aac83cf821cb2c0a8e53aee8edbd63e",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 12982814,
+        "sha256": "6494246c131a9161eb342c615ea835988d254b9c09abb659349bdb05e6935b39",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "6494246c131a9161eb342c615ea835988d254b9c09abb659349bdb05e6935b39"
+        }
+      }
+    },
+    {
+      "episode_index": 13,
+      "sequence_id": "2026-09-11_15-28-23_black_pan_wipe_07",
+      "object": "black_pan",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "a black frying pan.",
+      "tasks": [
+        "Pick up the pan from the table using one hand. Take a few steps away from the table. Using your other hand, touch the bottom of the pan with your palm, and make some circular motions to wipe it. Walk back to the table and put the pan down."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000013.mp4",
+      "parquet_path": "data/chunk-000/episode_000013.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 425,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000013.json",
+      "timeline_sha256": "40e46261f9d0640b6638a062cd28554620a1745f1a6484824e14ca02c004eff7",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 13619019,
+        "sha256": "fa74d6754b90eebc9513909e8570dfd2dd7726c71dba16df45cb17cc49e79f1a",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "fa74d6754b90eebc9513909e8570dfd2dd7726c71dba16df45cb17cc49e79f1a"
+        }
+      }
+    },
+    {
+      "episode_index": 14,
+      "sequence_id": "2026-09-11_15-55-29_black_pan_wipe_08",
+      "object": "black_pan",
+      "camera": "front_stereo_camera_left",
+      "object_prompt": "a black frying pan.",
+      "tasks": [
+        "Pick up the pan from the table using one hand. Take a few steps away from the table. Using your other hand, touch the bottom of the pan with your palm, and make some circular motions to wipe it. Walk back to the table and put the pan down."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000014.mp4",
+      "parquet_path": "data/chunk-000/episode_000014.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 442,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000014.json",
+      "timeline_sha256": "8572984ff3a5d4e227673695a2102cf7da74aacf4c30f4a5b0c254a693fc9953",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 14565467,
+        "sha256": "f9f2bed8abe60898aef8f62c245ff03ed32f94b76b079c128e363fdfd4a7e70e",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "f9f2bed8abe60898aef8f62c245ff03ed32f94b76b079c128e363fdfd4a7e70e"
+        }
+      }
+    },
+    {
+      "episode_index": 15,
+      "sequence_id": "2026-09-10_16-14-06_foam_grass_block_rotate_02",
+      "object": "foam_grass_block",
+      "camera": "right_stereo_camera_left",
+      "object_prompt": "a foam block with a pixalated design of various shades of green and various shades of brown.",
+      "tasks": [
+        "Pick up the block from the table with both hands. Hold it by two opposite corners. Slowly rotate it several rotations while maintaining contact. Put it back on the table."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000015.mp4",
+      "parquet_path": "data/chunk-000/episode_000015.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 501,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000015.json",
+      "timeline_sha256": "de437c28bb56764078fcb954d9e4bd20edd207d0f0943f1eb461adb8fa99ba6e",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 17030518,
+        "sha256": "c368809329e922b75629c1d94c39c1c820c9211464a5e5a77a4cdb55803400f0",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "c368809329e922b75629c1d94c39c1c820c9211464a5e5a77a4cdb55803400f0"
+        }
+      }
+    },
+    {
+      "episode_index": 16,
+      "sequence_id": "2026-09-11_15-12-36_foam_grass_block_rotate_04",
+      "object": "foam_grass_block",
+      "camera": "front_stereo_camera_left",
+      "object_prompt": "a foam block with a pixalated design of various shades of green and various shades of brown.",
+      "tasks": [
+        "Pick up the block from the table with both hands. Hold it by two opposite corners. Slowly rotate it several rotations while maintaining contact. Put it back on the table."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000016.mp4",
+      "parquet_path": "data/chunk-000/episode_000016.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 360,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000016.json",
+      "timeline_sha256": "4abe4ce0cf913fcb5d3ed0738e38a6b0886846de33f3760fd38a1a29f5080031",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 11744057,
+        "sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74"
+        }
+      }
+    },
+    {
+      "episode_index": 17,
+      "sequence_id": "2026-09-11_15-53-19_foam_grass_block_pick_place_05",
+      "object": "foam_grass_block",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "a foam block with a pixalated design of various shades of green and various shades of brown.",
+      "tasks": [
+        "Pick up the block from the table with both hands. Shift to holding it with one hand from the bottom. take a few steps back and face a different direction. Hold it with both hands again, and put it on the ground."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000017.mp4",
+      "parquet_path": "data/chunk-000/episode_000017.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 419,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000017.json",
+      "timeline_sha256": "6c3c631b32b6742a458dad601087ded1de55ab3ee25f5d9db8d41f9a7456d0d2",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 13432528,
+        "sha256": "4c536c20aff3e803c0d5caf1f91b0dfab1054444361fdae2799212e5af15a94b",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "4c536c20aff3e803c0d5caf1f91b0dfab1054444361fdae2799212e5af15a94b"
+        }
+      }
+    },
+    {
+      "episode_index": 18,
+      "sequence_id": "2026-09-10_15-45-17_paint_roller_table_roll_03",
+      "object": "paint_roller",
+      "camera": "back_stereo_camera_left",
+      "object_prompt": "white with yellow stipped paint roller with a blue handle.",
+      "tasks": [
+        "Pick up the roller on the table. Slowly roll the roller back and forth on the table surface a few times while moving around the table. Lay the roller back on the table and step back."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000018.mp4",
+      "parquet_path": "data/chunk-000/episode_000018.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 535,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000018.json",
+      "timeline_sha256": "46b7076a92d67e8c030767ae42c0c7ca66efba26ff664804b6d817cf99acbd5a",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 17888420,
+        "sha256": "e65132e95b0755a720c5e5238654a6fb8a01cd9e5d13fe481bcbb5e5612e44bd",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "e65132e95b0755a720c5e5238654a6fb8a01cd9e5d13fe481bcbb5e5612e44bd"
+        }
+      }
+    },
+    {
+      "episode_index": 19,
+      "sequence_id": "2026-09-11_15-00-57_paint_roller_table_roll_04",
+      "object": "paint_roller",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "white with yellow stipped paint roller with a blue handle.",
+      "tasks": [
+        "Pick up the roller on the table. Slowly roll the roller back and forth on the table surface a few times while moving around the table. Lay the roller back on the table and step back."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000019.mp4",
+      "parquet_path": "data/chunk-000/episode_000019.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 443,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000019.json",
+      "timeline_sha256": "b6ec36fac4ca034e3f7c2b9a4b01d3f405fd589f004bc23f7cbf6b76af25f96f",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 14346970,
+        "sha256": "730e8392a32944856b3f9e2b02e57c48ba955e0832cfaf40e06d2de72a3a3bc9",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "730e8392a32944856b3f9e2b02e57c48ba955e0832cfaf40e06d2de72a3a3bc9"
+        }
+      }
+    },
+    {
+      "episode_index": 20,
+      "sequence_id": "2026-09-11_15-45-25_paint_roller_table_roll_05",
+      "object": "paint_roller",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "white with yellow stipped paint roller with a blue handle.",
+      "tasks": [
+        "Pick up the roller on the table. Slowly roll the roller back and forth on the table surface a few times while moving around the table. Lay the roller back on the table and step back."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000020.mp4",
+      "parquet_path": "data/chunk-000/episode_000020.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 549,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000020.json",
+      "timeline_sha256": "08ab13ee845bb5b55899392f15502848d66adfa7e81ba6e651307c4438739cfb",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 18003843,
+        "sha256": "781ec1de0edcf8bf30cbc9f3847f80efd8cd2e97e53b0b4f80ccb0b505ef03ce",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "781ec1de0edcf8bf30cbc9f3847f80efd8cd2e97e53b0b4f80ccb0b505ef03ce"
+        }
+      }
+    },
+    {
+      "episode_index": 21,
+      "sequence_id": "2026-09-10_15-52-02_pink_foam_roll_tap_03",
+      "object": "pink_foam_roll",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "pink foam roll.",
+      "tasks": [
+        "Walk over to the pink foam roll, and pick it up from the ground. Hold it from one end using one hand. Touch the other end of the roll on the ground a few times. Switch to the other hand and do the same. Put the roll back on the ground."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000021.mp4",
+      "parquet_path": "data/chunk-000/episode_000021.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 563,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000021.json",
+      "timeline_sha256": "d733e12a414123583c74a72e4a6cc4f3e7e513dbee7907450c6931cc5785aefd",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 18861975,
+        "sha256": "66443de1239172913edf324e9d4affb960883c99ca4f9e307a7ec76a9264adec",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "66443de1239172913edf324e9d4affb960883c99ca4f9e307a7ec76a9264adec"
+        }
+      }
+    },
+    {
+      "episode_index": 22,
+      "sequence_id": "2026-09-10_15-57-50_pink_foam_roll_table_001",
+      "object": "pink_foam_roll",
+      "camera": "front_stereo_camera_left",
+      "object_prompt": "pink foam roll.",
+      "tasks": [
+        "Pick up the foam roll on the table. Use your hands to slowly roll the roller back and forth on the table surface a few times while walking along with it. Lay the roller back on the table and step back."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000022.mp4",
+      "parquet_path": "data/chunk-000/episode_000022.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 533,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000022.json",
+      "timeline_sha256": "1440e01d08b0213a811a4850c1f6f6fd35b710101bd702071b0b485a20f0a3fa",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 18346879,
+        "sha256": "17e2de04b320c3ff3004f659326cbacfb51402af19c9564ffc4f1fed88fadad0",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "17e2de04b320c3ff3004f659326cbacfb51402af19c9564ffc4f1fed88fadad0"
+        }
+      }
+    },
+    {
+      "episode_index": 23,
+      "sequence_id": "2026-09-11_15-04-48_pink_foam_roll_tap_04",
+      "object": "pink_foam_roll",
+      "camera": "front_stereo_camera_left",
+      "object_prompt": "pink foam roll.",
+      "tasks": [
+        "Walk over to the pink foam roll, and pick it up from the ground. Hold it from one end using one hand. Touch the other end of the roll on the ground a few times. Switch to the other hand and do the same. Put the roll back on the ground."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000023.mp4",
+      "parquet_path": "data/chunk-000/episode_000023.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 552,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000023.json",
+      "timeline_sha256": "2959fe19b106ac081d22bbbef97568a626c4f0652b2699818f63be8c1845a3da",
+      "timestamp_max_abs_error_seconds": 8.900960288826809e-07,
+      "video": {
+        "size_bytes": 18480186,
+        "sha256": "4b132f8efe20da727f2d5fd7ba56835cf08b032f11e6dc2800f26bfcfff0f0b5",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "4b132f8efe20da727f2d5fd7ba56835cf08b032f11e6dc2800f26bfcfff0f0b5"
+        }
+      }
+    },
+    {
+      "episode_index": 24,
+      "sequence_id": "2026-09-10_16-02-58_short_wood_stool_sit_rotate_001",
+      "object": "short_wood_stool",
+      "camera": "front_stereo_camera_left",
+      "object_prompt": "short wooden stool with no back support.",
+      "tasks": [
+        "Walk up to the wooden stool and sit on the stool. Rotate the direction you're facing while remaining seated. Stand up."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000024.mp4",
+      "parquet_path": "data/chunk-000/episode_000024.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 420,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000024.json",
+      "timeline_sha256": "ed84322abe8f9dba1f74bb9a26a6ab74f1cca5cfc1cd77d2982c5b25e71c1761",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 13954465,
+        "sha256": "e36eda1c9ac7f6a1da298412c301da27775055df4c6ff19167f6b1a8c504d2ef",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "e36eda1c9ac7f6a1da298412c301da27775055df4c6ff19167f6b1a8c504d2ef"
+        }
+      }
+    },
+    {
+      "episode_index": 25,
+      "sequence_id": "2026-09-10_16-08-39_short_wood_stool_pick_place_02",
+      "object": "short_wood_stool",
+      "camera": "right_stereo_camera_left",
+      "object_prompt": "short wooden stool with no back support.",
+      "tasks": [
+        "Pick up the wooden stool from the ground using both hands. Let go of one hand and take a few steps. hold the stool with both hands again and place it back on the ground."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000025.mp4",
+      "parquet_path": "data/chunk-000/episode_000025.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 365,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000025.json",
+      "timeline_sha256": "4bedcdf631f9b6d8501f391b9b6070f43c7cbf3dfaec9933f239eae81b67bfb7",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 12900883,
+        "sha256": "efcce8025e4e94ed92553277bc6fddd5ae7c8d7c7e70d71d09ff9a86a1ea3ae0",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "efcce8025e4e94ed92553277bc6fddd5ae7c8d7c7e70d71d09ff9a86a1ea3ae0"
+        }
+      }
+    },
+    {
+      "episode_index": 26,
+      "sequence_id": "2026-09-11_15-49-16_short_wood_stool_sit_rotate_05",
+      "object": "short_wood_stool",
+      "camera": "right_stereo_camera_left",
+      "object_prompt": "short wooden stool with no back support.",
+      "tasks": [
+        "Walk up to the wooden stool and sit on the stool. Rotate the direction you're facing while remaining seated. Stand up."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000026.mp4",
+      "parquet_path": "data/chunk-000/episode_000026.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 399,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000026.json",
+      "timeline_sha256": "44a7e6edfd66a70893c91380d0c4c547cca28bffbae54bf9e18d1fddf69ae3d1",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 13430270,
+        "sha256": "9cf9112417778299780a3e2a7f009d38bbf24059149eaa1591b8df02551607a4",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "9cf9112417778299780a3e2a7f009d38bbf24059149eaa1591b8df02551607a4"
+        }
+      }
+    },
+    {
+      "episode_index": 27,
+      "sequence_id": "2026-09-10_15-07-44_white_laptop_cart_place_down_01",
+      "object": "white_laptop_cart",
+      "camera": "right_stereo_camera_left",
+      "object_prompt": "white_laptop_cart.",
+      "tasks": [
+        "Use both hands to pick up the white laptop cart, then lay it down sideways on the ground. Release it and stand up."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000027.mp4",
+      "parquet_path": "data/chunk-000/episode_000027.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 440,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000027.json",
+      "timeline_sha256": "220c579b86ed37df350f8b43a7fdf53ff6a2492027cd879043669b4d42b6b65a",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 14761642,
+        "sha256": "07790526fc281dfb37f84cc9fa4cc25925e7e8fa6cd5600fd5cd9179ecd03e37",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "07790526fc281dfb37f84cc9fa4cc25925e7e8fa6cd5600fd5cd9179ecd03e37"
+        }
+      }
+    },
+    {
+      "episode_index": 28,
+      "sequence_id": "2026-09-10_15-36-27_white_laptop_cart_place_down_02",
+      "object": "white_laptop_cart",
+      "camera": "back_stereo_camera_left",
+      "object_prompt": "rolling white laptop desk with cup holder and basket.",
+      "tasks": [
+        "Use both hands to pick up the white laptop cart, then lay it down sideways on the ground. Release it and stand up."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000028.mp4",
+      "parquet_path": "data/chunk-000/episode_000028.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 366,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000028.json",
+      "timeline_sha256": "603d04e14ad83b18be71f2abecb9c255d149df411cdc2fa5df834a3be0b86b8a",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 11604821,
+        "sha256": "9f84471dcd5e44113cc21e5bd40e8877ad6c5bcc1ba1d03cfdbc866b8df61538",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "9f84471dcd5e44113cc21e5bd40e8877ad6c5bcc1ba1d03cfdbc866b8df61538"
+        }
+      }
+    },
+    {
+      "episode_index": 29,
+      "sequence_id": "2026-09-10_15-38-09_white_laptop_cart_push_pull_003",
+      "object": "white_laptop_cart",
+      "camera": "left_stereo_camera_left",
+      "object_prompt": "rolling white laptop desk with cup holder and basket.",
+      "tasks": [
+        "Step up to the white laptop cart, and use one hand to push it forward a few steps. Put both hands on the cart, and pull it side ways a few steps. Release the cart and step away."
+      ],
+      "video_path": "videos/chunk-000/observation.images.exo_camera/episode_000029.mp4",
+      "parquet_path": "data/chunk-000/episode_000029.parquet",
+      "first_source_frame_id": 0,
+      "frame_count": 419,
+      "declared_fps": 30,
+      "decoded_average_fps": 30.0,
+      "width": 1536,
+      "height": 1152,
+      "timeline_path": "timelines/episode_000029.json",
+      "timeline_sha256": "6888cd40a76bd66dde6e4ab2cbc53d696b4774bcbe556f6115fc15f7a3534f1e",
+      "timestamp_max_abs_error_seconds": 4.4504801444134046e-07,
+      "video": {
+        "size_bytes": 13630018,
+        "sha256": "0a2288f183e4d0fffff1c55688c1ea27c09e60588dfc9f52c10137b3abc1b5e1",
+        "verified_identity": {
+          "algorithm": "sha256",
+          "value": "0a2288f183e4d0fffff1c55688c1ea27c09e60588dfc9f52c10137b3abc1b5e1"
+        }
+      }
+    }
+  ]
+}

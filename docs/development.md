@@ -68,6 +68,8 @@ The README's download command writes the Track 1 subtree to `data/v2d/track_1/`.
 
 [track1-videos/index.html](track1-videos/index.html) previews all 30 Track 1 videos, filterable by object and camera. GitHub shows its source, so open it from a clone. `python tools/track1_gallery/build.py` rebuilds it from the downloaded videos.
 
+[Video preparation through the Body handoff](body-input-preparation.md) gives the pinned all-30 download, executable CPU byte/decode/timeline gate, and the remaining human-observation, camera and receiver checks. Install the optional `video` extra for decoding. Raw-data readiness does not accept the camera/masks/depth stage or make a Body runtime ready.
+
 ## Running the pipeline
 
 ```bash

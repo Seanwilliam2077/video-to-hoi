@@ -18,7 +18,7 @@ jobs:
       # Synthetic CPU fixtures and Track 1 metadata only: no videos, GPU, or model inference.
       # The native-MHR diagnostic scorer tests never load challenge assets.
       # Keep an explicit allowlist; the obsolete legacy scorer suite is removed.
-      - run: pip install -e ".[dev]"
+      - run: pip install -e ".[dev,video]"
       - run: >-
           pytest -q
           tests/test_bundle.py
@@ -41,6 +41,7 @@ jobs:
           tests/test_v2_geometry.py
           tests/test_v2_contracts.py
           tests/test_progress_board.py
+          tests/test_prepare_track1_data.py
       - run: python tools/progress_board.py validate
   progress-board:
     runs-on: ubuntu-latest

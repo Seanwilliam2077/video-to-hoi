@@ -1,0 +1,23 @@
+{
+  "schema_version": "track1_raw_checks.v1",
+  "passed": true,
+  "raw_data_ready": true,
+  "body_inference_ready": false,
+  "models_executed": false,
+  "source_files_verified": 66,
+  "videos_fully_decoded": 30,
+  "frames_verified": 16563,
+  "parquet_timelines_matched": 30,
+  "manifest_sha256": "156096c31ef4411531a2e723502f312e4f639b0247855340cc60d10f42e77030",
+  "source_bytes_reverified_before_publish": true,
+  "checks": [
+    "exact Track 1 file allowlist",
+    "pinned source sizes and hashes",
+    "full sequential CPU decode",
+    "constant dimensions and positive rational time base",
+    "integer increasing PTS",
+    "contiguous original frame IDs",
+    "parquet frame IDs, episode IDs and timestamps"
+  ],
+  "hash_coverage": "SHA256SUMS covers every generated JSON; the checksum listing excludes itself"
+}

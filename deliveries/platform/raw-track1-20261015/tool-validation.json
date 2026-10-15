@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scope": "CPU tooling tests, not real model execution or reconstruction acceptance",
+  "suite": "explicit Python test allowlist in .github/workflows/tests.yml",
+  "passed": 565,
+  "failed": 0,
+  "elapsed_seconds": 200.85,
+  "new_raw_video_gate_tests": 36,
+  "real_data_check": "checks.json",
+  "archive_byte_check": "package.json",
+  "progress_registry_validation": "passed; 30 episodes, 0 registered model-stage records"
+}

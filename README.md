@@ -37,4 +37,6 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download(repo
 python tools/fetch_assets.py verify --root combined-assets --group all
 ```
 
+Use the [video-to-Body preparation guide](docs/body-input-preparation.md) to pin the 30 source videos, verify every byte and decoded frame, and prepare the human-observation/camera handoff. The raw-video gate is separate from model-input and reconstruction acceptance.
+
 The completion handoff is published: 11 archives in 15 verified parts (16,873,320,178 bytes), plus five companion files. It adds seven original baseline model entries, host wheels, four Module 1 model packages, and separate CPython 3.10/3.11/3.12 runtime acquisition packages. The older FoundationPose and CARI4D/SAM3D releases supply the other five selected baseline model entries. Human/physics weights, SMPL-family access, restricted distributions, legacy candidate environments, container/APT/native builds, adapters and server validation remain outstanding. No models have been run and no new rankings are available.

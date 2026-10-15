@@ -1,0 +1,11 @@
+{
+  "archive": "track1-raw-inputs-20261015.zip",
+  "bytes": 514457486,
+  "sha256": "eee97dd46601356108a6d85b0893f3209d7d9274627fc213e74838e0473b50fa",
+  "member_hashes_verified": 103,
+  "local_archive_verification": "passed",
+  "receiver_on_another_host": "pending",
+  "published": false,
+  "raw_data_ready": true,
+  "body_inference_ready": false
+}

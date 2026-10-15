@@ -1,7 +1,7 @@
 {
   "schema_version": "exposure_ledger.v1",
-  "updated": "2026-10-13",
-  "status": "initial_repository_evidence_audit_external_history_incomplete",
+  "updated": "2026-10-16",
+  "status": "repository_audit_with_recorded_all30_preprocessing_external_history_incomplete",
   "authority": "docs/track1-requirements.md R1-R6",
   "audit_scope": {
     "starting_main_revision": "062df9d47b6393dce71dd326cdf0f19edc056302",
@@ -17,7 +17,9 @@
       "External/manual history is unknown.",
       "Recorded run artifacts were not reloaded or independently verified.",
       "Legacy or unknown-provenance data remains excluded; no old scorer datasets or metrics loaded."
-    ]
+    ],
+    "as_of": "2026-10-13",
+    "scope_note": "Historical Git-only audit; later real video processing is recorded in execution_follow_up and per-episode exposures."
   },
   "evidence": [
     {
@@ -136,6 +138,16 @@
       "sha256": "780dc987342305d84d237494bd803d075d05bd681c26ca43fc882a5dafffc7e5",
       "evidence_type": "repository_document_or_record_not_reexecuted",
       "claim": "Dynamic-contact v4 on same 120-frame subset; mixed diagnostics, no production/export acceptance."
+    },
+    {
+      "evidence_id": "body-inputs-track1-20261016",
+      "revision": "19c11378d1f2e0f9aac2ac579743bb8cf14b8213",
+      "path": "deliveries/platform/body-inputs-track1-20261016/inventory.json",
+      "sha256": "a63de9b4441df5065540326f96e6faf26530ba2ae0a8bceb1219169cbf53adf9",
+      "evidence_type": "executed_track1_preprocessing_and_sampled_visual_review",
+      "claim": "All 30 original videos processed by SAM2 and MoGe2; full-frame masks, estimated cameras and sampled visual reviews verified. Body inference not run.",
+      "source_commit": "3238f9c6657605e6fac168d91a1f0b12edc889be",
+      "git_blob": "78e4f75888db7fb54c89557e746c90373ce8a675"
     }
   ],
   "groups": [
@@ -288,9 +300,16 @@
             "first3-protocol"
           ],
           "scope": "All source frames recorded decoded/hashed; no model execution in this record."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -300,7 +319,22 @@
         "established_dev_mini_regression",
         "existing_first3_integration_fixture"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          99,
+          197,
+          296,
+          394,
+          395,
+          493,
+          592,
+          690,
+          789
+        ]
+      }
     },
     {
       "episode_id": "episode_000001",
@@ -322,9 +356,16 @@
             "first3-protocol"
           ],
           "scope": "All source frames recorded decoded/hashed; no model execution in this record."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -333,7 +374,21 @@
       "planning_roles": [
         "existing_first3_integration_fixture"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          83,
+          167,
+          250,
+          334,
+          417,
+          500,
+          584,
+          667
+        ]
+      }
     },
     {
       "episode_id": "episode_000002",
@@ -355,9 +410,16 @@
             "first3-protocol"
           ],
           "scope": "All source frames recorded decoded/hashed; no model execution in this record."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -367,7 +429,22 @@
         "expanded_coverage_candidate",
         "existing_first3_integration_fixture"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          108,
+          216,
+          324,
+          432,
+          433,
+          541,
+          649,
+          757,
+          865
+        ]
+      }
     },
     {
       "episode_id": "episode_000003",
@@ -381,16 +458,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          74,
+          148,
+          222,
+          296,
+          369,
+          443,
+          517,
+          591
+        ]
+      }
     },
     {
       "episode_id": "episode_000004",
@@ -404,16 +502,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          93,
+          186,
+          280,
+          373,
+          466,
+          560,
+          653,
+          746
+        ]
+      }
     },
     {
       "episode_id": "episode_000005",
@@ -427,16 +546,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          83,
+          167,
+          250,
+          334,
+          417,
+          500,
+          584,
+          667
+        ]
+      }
     },
     {
       "episode_id": "episode_000006",
@@ -457,9 +597,16 @@
             "established-dev-mini"
           ],
           "scope": "Planned regression set; inference execution unknown unless separately recorded."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -468,7 +615,21 @@
       "planning_roles": [
         "established_dev_mini_regression"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          102,
+          204,
+          306,
+          408,
+          509,
+          611,
+          713,
+          815
+        ]
+      }
     },
     {
       "episode_id": "episode_000007",
@@ -482,16 +643,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "development_regression",
       "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          97,
+          194,
+          291,
+          388,
+          485,
+          582,
+          679,
+          776
+        ]
+      }
     },
     {
       "episode_id": "episode_000008",
@@ -505,16 +687,38 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "development_regression",
       "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          79,
+          158,
+          237,
+          316,
+          317,
+          396,
+          475,
+          554,
+          633
+        ]
+      }
     },
     {
       "episode_id": "episode_000009",
@@ -535,9 +739,16 @@
             "established-dev-mini"
           ],
           "scope": "Planned regression set; inference execution unknown unless separately recorded."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -546,7 +757,21 @@
       "planning_roles": [
         "established_dev_mini_regression"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          52,
+          104,
+          155,
+          207,
+          259,
+          310,
+          362,
+          414
+        ]
+      }
     },
     {
       "episode_id": "episode_000010",
@@ -560,9 +785,16 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -571,7 +803,25 @@
       "planning_roles": [
         "expanded_coverage_candidate"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          72,
+          144,
+          216,
+          288,
+          360,
+          400,
+          416,
+          432,
+          448,
+          464,
+          504,
+          576
+        ]
+      }
     },
     {
       "episode_id": "episode_000011",
@@ -585,16 +835,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "development_regression",
       "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          110,
+          219,
+          328,
+          438,
+          548,
+          657,
+          766,
+          876
+        ]
+      }
     },
     {
       "episode_id": "episode_000012",
@@ -623,9 +894,16 @@
             "manual-asset12"
           ],
           "scope": "Manually interpreted source RGB and shape/appearance priors; exact observation frames retained in source records."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "historical_execution_documented_not_reverified",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -634,7 +912,21 @@
       "planning_roles": [
         "engineering_baseline_candidate"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          50,
+          101,
+          152,
+          202,
+          252,
+          303,
+          354,
+          404
+        ]
+      }
     },
     {
       "episode_id": "episode_000013",
@@ -648,16 +940,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "development_regression",
       "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          53,
+          106,
+          159,
+          212,
+          265,
+          318,
+          371,
+          424
+        ]
+      }
     },
     {
       "episode_id": "episode_000014",
@@ -671,16 +984,38 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "development_regression",
       "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          55,
+          110,
+          165,
+          220,
+          221,
+          276,
+          331,
+          386,
+          441
+        ]
+      }
     },
     {
       "episode_id": "episode_000015",
@@ -694,16 +1029,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "development_regression",
       "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          62,
+          125,
+          188,
+          250,
+          312,
+          375,
+          438,
+          500
+        ]
+      }
     },
     {
       "episode_id": "episode_000016",
@@ -760,9 +1116,16 @@
             209
           ],
           "scope": "Manual corner/contact hypotheses and repeated native-human/object optimization on a subset."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "historical_execution_documented_not_reverified",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -772,7 +1135,21 @@
         "established_dev_mini_regression",
         "engineering_baseline_candidate"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          45,
+          90,
+          135,
+          180,
+          224,
+          269,
+          314,
+          359
+        ]
+      }
     },
     {
       "episode_id": "episode_000017",
@@ -786,16 +1163,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "development_regression",
       "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          52,
+          104,
+          157,
+          209,
+          261,
+          314,
+          366,
+          418
+        ]
+      }
     },
     {
       "episode_id": "episode_000018",
@@ -809,16 +1207,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          67,
+          134,
+          200,
+          267,
+          334,
+          400,
+          467,
+          534
+        ]
+      }
     },
     {
       "episode_id": "episode_000019",
@@ -832,16 +1251,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          55,
+          110,
+          166,
+          221,
+          276,
+          332,
+          387,
+          442
+        ]
+      }
     },
     {
       "episode_id": "episode_000020",
@@ -855,16 +1295,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          68,
+          137,
+          206,
+          274,
+          342,
+          411,
+          480,
+          548
+        ]
+      }
     },
     {
       "episode_id": "episode_000021",
@@ -878,16 +1339,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          70,
+          140,
+          211,
+          281,
+          351,
+          422,
+          492,
+          562
+        ]
+      }
     },
     {
       "episode_id": "episode_000022",
@@ -901,9 +1383,16 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -912,7 +1401,21 @@
       "planning_roles": [
         "expanded_coverage_candidate"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          66,
+          133,
+          200,
+          266,
+          332,
+          399,
+          466,
+          532
+        ]
+      }
     },
     {
       "episode_id": "episode_000023",
@@ -926,16 +1429,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          69,
+          138,
+          207,
+          276,
+          344,
+          413,
+          482,
+          551
+        ]
+      }
     },
     {
       "episode_id": "episode_000024",
@@ -956,9 +1480,16 @@
             "established-dev-mini"
           ],
           "scope": "Planned regression set; inference execution unknown unless separately recorded."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -968,7 +1499,21 @@
         "established_dev_mini_regression",
         "expanded_coverage_candidate"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          52,
+          105,
+          157,
+          210,
+          262,
+          314,
+          367,
+          419
+        ]
+      }
     },
     {
       "episode_id": "episode_000025",
@@ -982,9 +1527,16 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
@@ -993,7 +1545,21 @@
       "planning_roles": [
         "expanded_coverage_candidate"
       ],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          46,
+          91,
+          136,
+          182,
+          228,
+          273,
+          318,
+          364
+        ]
+      }
     },
     {
       "episode_id": "episode_000026",
@@ -1007,16 +1573,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "development_regression",
       "role_reason": "A member of this object group has a declared regression role or recorded development/preparation exposure; this does not assert execution for every member.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          50,
+          100,
+          149,
+          199,
+          249,
+          298,
+          348,
+          398
+        ]
+      }
     },
     {
       "episode_id": "episode_000027",
@@ -1030,16 +1617,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          55,
+          110,
+          165,
+          220,
+          274,
+          329,
+          384,
+          439
+        ]
+      }
     },
     {
       "episode_id": "episode_000028",
@@ -1053,16 +1661,38 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          46,
+          91,
+          137,
+          182,
+          183,
+          228,
+          274,
+          319,
+          365
+        ]
+      }
     },
     {
       "episode_id": "episode_000029",
@@ -1076,16 +1706,37 @@
             "all30-planning"
           ],
           "scope": "Metadata-derived design/coverage planning; visual and algorithm exposure not implied."
+        },
+        {
+          "kind": "model_preprocessing_and_sampled_visual_review",
+          "evidence_ids": [
+            "body-inputs-track1-20261016"
+          ],
+          "scope": "Full-sequence target-human segmentation, episode-local camera estimation, and documented QA samples; no reconstruction or score."
         }
       ],
-      "model_execution_status": "unknown_no_execution_evidence_in_reviewed_records",
+      "model_execution_status": "sam2_and_moge2_preprocessing_executed_body_inference_not_run_in_this_delivery",
       "external_or_unrecorded_manual_history": "unknown",
       "complete_exposure_history_verified": false,
       "clean_holdout_status": "not_established",
       "evaluation_role": "unassigned_history_incomplete",
       "role_reason": "Metadata planning exposure exists; external/manual history and tuning remain unknown.",
       "planning_roles": [],
-      "new_video_review_in_this_audit": false
+      "new_video_review_in_this_audit": false,
+      "latest_visual_review": {
+        "delivery": "body-inputs-track1-20261016",
+        "sample_frame_ids": [
+          0,
+          52,
+          104,
+          157,
+          209,
+          261,
+          314,
+          366,
+          418
+        ]
+      }
     }
   ],
   "summary": {
@@ -1111,5 +1762,17 @@
     "Append any external/manual viewing, tuning, prompting or selection evidence without erasing prior rows.",
     "Review complete object-group histories before assigning prospective evaluation roles.",
     "Keep reviewed evaluation outcomes as development exposure once they change models, policies or thresholds."
-  ]
+  ],
+  "execution_follow_up": {
+    "date": "2026-10-16",
+    "delivery": "body-inputs-track1-20261016",
+    "source_video_and_preview_payloads_loaded": true,
+    "sam2_and_moge2_preprocessing_executed": true,
+    "videos_processed": 30,
+    "original_frames": 16563,
+    "visually_reviewed_samples": 279,
+    "body_reconstruction_executed": false,
+    "second_host_execution_verified": false,
+    "track2_content_or_derivatives_used": false
+  }
 }

@@ -1,0 +1,49 @@
+{
+  "schema_version": "body_hub_publication.v1",
+  "verified_at": "2026-10-15T17:40:31.281Z",
+  "hub_url": "https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S",
+  "source_commit": "19c11378d1f2e0f9aac2ac579743bb8cf14b8213",
+  "method": "Authenticated Hub UI; full top-level reload followed by reopening both module Progress views",
+  "static_source_publication": false,
+  "separate_module_artifact_urls_verified": false,
+  "posts": [
+    {
+      "module": "platform",
+      "observed_route": "#platform-progress",
+      "type": "Progress",
+      "author_display": "sean (you)",
+      "date_display": "Oct 16, 2026",
+      "count_before": 4,
+      "count_after": 5,
+      "exact_text_matches_after_reload": 1,
+      "link": "https://github.com/Seanwilliam2077/video-to-hoi/tree/19c11378d1f2e0f9aac2ac579743bb8cf14b8213/deliveries/platform/body-inputs-track1-20261016",
+      "text": "2026-10-16 | All 30 videos ready for standalone Body input\n\nCompleted actual SAM2 target-human masks and MoGe2 camera estimates for all 30 Track 1 videos: 16,563 original frames, unchanged source timelines, provenance and recorded machine-assisted visual review of 279 sampled frames.\n\nAll 30 passed the complete input gate. The pinned upstream Body readers loaded every RGB/mask pair and camera. The complete 627 MB archive passed member hashing and the bundled gate after fresh extraction on this workstation. All four published Release assets were also downloaded anonymously and matched their exact hashes and sizes. The linked delivery contains the download, receiving guide and per-video evidence.\n\nThirty body-prep-v1 records are registered in Git as partial Inputs submissions. Full M1 object/depth/scale evidence remains incomplete. Body inference, second-host execution and official reconstruction acceptance have not run. Camera values are estimates; sampled mask limitations remain recorded.\n\nNext: any available teammate can verify the immutable package on their machine, prepare the pinned Body environment/weights, then run and review human reconstruction. Roles remain flexible.",
+      "row_id": null,
+      "publication_revision": null,
+      "screenshot": {
+        "name": "body-platform-progress-20261016.jpg",
+        "sha256": "05e5acf62977373665bae1477726f119c9f1e3e3fcf38e7d9f7ea83271b955ee",
+        "location": "Local session outputs; not uploaded"
+      }
+    },
+    {
+      "module": "human",
+      "observed_route": "#human-progress",
+      "type": "Progress",
+      "author_display": "sean (you)",
+      "date_display": "Oct 16, 2026",
+      "count_before": 3,
+      "count_after": 4,
+      "exact_text_matches_after_reload": 1,
+      "link": "https://github.com/Seanwilliam2077/video-to-hoi/tree/19c11378d1f2e0f9aac2ac579743bb8cf14b8213/deliveries/platform/body-inputs-track1-20261016",
+      "text": "2026-10-16 | Complete upstream inputs available for all 30 Body runs\n\nThe Platform delivery now supplies all 30 original Track 1 videos / 16,563 frames, complete target-human mask sequences, per-video estimated intrinsics, exact timelines and review/provenance records. The full input gate, pinned upstream readers and same-host extracted-copy check passed. The public download has been verified without credentials.\n\nReceive the archive through the linked delivery and follow docs/body-input-handoff.md: use a separate Python 3.12 environment for input checks, then prepare the pinned Body GPU runtime and verified standalone weight layout on your chosen machine. Keep complete episode sequences together and bind each run to its input/model hashes.\n\nNo Body reconstruction result is claimed yet. For each run, check native output coverage, prompt_counts.mask against the original frame count, zero localization fallbacks and visual overlays. Masks also condition the network; retain the recorded fine-boundary limitations, including EP10 arm-gap background inclusion. Camera consistency does not establish metric scale.\n\nSubmit actual reconstruction evidence at deliveries/human/<unique-delivery-id>/README.md through a PR to main. Any teammate may continue; input readiness does not accept the Human stage.",
+      "row_id": null,
+      "publication_revision": null,
+      "screenshot": {
+        "name": "body-human-progress-20261016.jpg",
+        "sha256": "bf90bdded76a2946e1aa7215a475580ce4d4c46251242658eb70b58875b4ac00",
+        "location": "Local session outputs; not uploaded"
+      }
+    }
+  ]
+}

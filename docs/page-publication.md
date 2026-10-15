@@ -1,6 +1,16 @@
 # Team-page publication record and remaining work
 
-Updated **2026-10-15**, Asia/Shanghai. Static artifact publication remains incomplete. The single active project specification is [track1-requirements.md](track1-requirements.md), R1–R6; older page text and earlier receipts do not override it.
+Updated **2026-10-16**, Asia/Shanghai. Static artifact publication remains incomplete. The single active project specification is [track1-requirements.md](track1-requirements.md), R1–R6; older page text and earlier receipts do not override it.
+
+## All-30 Body input delivery posts (2026-10-16)
+
+The [verified delivery](../deliveries/platform/body-inputs-track1-20261016/README.md) is published in a public Release and registered as 30 partial Inputs submissions in Git. It contains all 30 original videos, 16,563 target-human masks, estimated cameras, exact timelines and 279 sampled visual reviews. Full input checks, pinned native readers, same-host extracted-copy validation and anonymous public download verification passed. Body inference, full M1 acceptance and second-host execution remain pending.
+
+Two new **Progress** notes were saved through the authenticated [Team hub](https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S): Platform increased from 4 to 5 entries, and Human from 3 to 4. After a full top-level reload, both complete texts and their delivery links were observed exactly once in the module Progress views. Both display **sean (you)** and **Oct 16, 2026**. Their links are pinned to delivery commit `19c11378d1f2e0f9aac2ac579743bb8cf14b8213`. The [publication receipt](evidence/page-publication-body-inputs-20261016.json) preserves the actual text, counts, routes and local screenshot hashes; unavailable database IDs and publication revisions remain null.
+
+The Human note tells any available teammate how to receive the complete package and submit actual reconstruction results. Neither note claims new Body predictions or official scores. Object and Physics entries were not changed. These are Hub database posts; the separately documented module artifact URLs and static source were not edited or verified.
+
+The Chinese status source now reports all-30 preparation and the next receiving/inference step. Its phone-width light/dark layouts and live countdown were checked, but its online static artifact still needs republication through a supported source-editing interface. The progress board's shared Git snapshot now contains 30 submissions; its source provides a Git refresh control, while its separately hosted Site's bundled snapshot has not been republished in this pass. That Site showed a sign-in requirement in this browser, so its live rendered records were not verified here.
 
 ## Module Progress posts and GitHub entry points (2026-10-15)
 
@@ -76,7 +86,7 @@ Overall static-source status remains **`pending_static_publication`**. Earlier c
 - The updated local Chinese status page, `docs/status.html`, has not been republished to its existing artifact.
 - Proposed full task bodies, acceptance fields and translation-dictionary changes were not applied through an unsupported live schema.
 
-The earlier corrected Reference answers and the four new module Progress entries are recorded as published; the static-source refresh is not complete. The separately documented module artifact URLs were not verified in this pass. Do not describe all pages as updated. A Git commit or updated local HTML file alone does not update a live artifact.
+The earlier corrected Reference answers and the module Progress entries recorded above are published; the static-source refresh is not complete. The separately documented module artifact URLs were not verified in this pass. Do not describe all pages as updated. A Git commit or updated local HTML file alone does not update a live artifact.
 
 ## Completing the static refresh
 

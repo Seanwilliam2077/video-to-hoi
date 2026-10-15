@@ -1,0 +1,24 @@
+{
+  "id": "replace-with-unique-record-id",
+  "episode_id": "episode_000016",
+  "stage": "inputs",
+  "iteration": "baseline",
+  "state": "planned",
+  "kind": "real_track1",
+  "created_at": "2026-10-15T00:00:00Z",
+  "contributor": "Replace with the actual contributor",
+  "reviewer": "",
+  "summary": "Replace with the actual task scope. This template is not a registered result.",
+  "delivery_url": "",
+  "source_commit": "",
+  "upstream": [],
+  "artifacts": [],
+  "coverage": {"frames": null, "objects_complete": null},
+  "checks": {
+    "structural": {"status": "not_run", "evidence_url": ""},
+    "quality": {"status": "not_run", "evidence_url": ""},
+    "export": {"status": "not_run", "evidence_url": ""}
+  },
+  "blocker": "",
+  "next_action": ""
+}

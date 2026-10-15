@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Video-to-HOI: all 30 Track 1 videos, stage deliveries, evidence and immutable iteration records.">
+  <title>Video-to-HOI · Delivery board</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">v/h</span><span>video-to-hoi<small>RECONSTRUCTION WORKSPACE</small></span></a>
+    <div class="workspace-label">TRACK 1 <span>30 VIDEOS</span></div>
+    <nav aria-label="Workspace">
+      <button class="nav-item active" id="nav-board"><span>▦</span><span data-i18n="boardNav">视频交付看板</span></button>
+      <button class="nav-item" id="nav-attention"><span>◉</span><span data-i18n="attentionNav">需要跟进</span><b id="attention-count">0</b></button>
+      <button class="nav-item" id="nav-capabilities"><span>◇</span><span data-i18n="capabilitiesNav">模块准备情况</span></button>
+    </nav>
+    <div class="sidebar-section" data-i18n="workingAreas">工作分区</div>
+    <div id="module-links"></div>
+    <div class="sidebar-bottom">
+      <a href="https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S" target="_blank" rel="noopener" data-i18n="openHub">打开团队 Hub ↗</a>
+      <a href="https://github.com/Seanwilliam2077/video-to-hoi/tree/main/deliveries" target="_blank" rel="noopener" data-i18n="deliveryGuide">交付目录与模板 ↗</a>
+      <div class="role-note"><span class="status-dot"></span><span data-i18n="floatingRoles">按任务协作，角色自由流动</span></div>
+    </div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <b data-i18n="boardNav">视频交付看板</b></div><div class="topbar-actions"><span class="live-dot"></span><span id="source-label" class="source-label">Git snapshot</span><button id="language" class="text-button" aria-label="Switch language">EN</button></div></header>
+    <main>
+      <section class="page-heading">
+        <div><div class="eyebrow">VIDEO → HUMAN · OBJECT → SCENE</div><h1 data-i18n="title">30 段视频，一张交付地图。</h1><p data-i18n="subtitle">从输入到最终导出，追踪每次交付、缺失材料和下一步。</p></div>
+        <div class="heading-actions"><button id="guide-button" class="button" data-i18n="howTo">如何更新</button><button id="refresh" class="button" data-i18n="refresh">↻ 刷新仓库</button><button id="export" class="button primary"><span data-i18n="export">导出草稿</span><span id="draft-count">0</span></button></div>
+      </section>
+      <div id="load-error" class="notice error" hidden></div>
+      <section class="stats" aria-label="Delivery summary">
+        <article><span data-i18n="videos">跟踪视频</span><div><strong id="stat-videos">30</strong><small data-i18n="videoGroups">10 组物体</small></div><div class="stat-foot" data-i18n="fullSet">完整赛道清单</div></article>
+        <article><span data-i18n="registered">已登记阶段</span><div><strong id="stat-registered">0</strong><small>/ 180</small></div><div class="mini-bar"><i id="registered-bar"></i></div></article>
+        <article><span data-i18n="pendingReview">等待检查</span><div><strong id="stat-review">0</strong><small data-i18n="stageUnits">阶段</small></div><div class="stat-foot" data-i18n="reviewHint">已递交、尚未通过结构检查</div></article>
+        <article><span data-i18n="acceptedVideos">已登记验收的视频</span><div><strong id="stat-accepted">0</strong><small>/ 30</small></div><div class="stat-foot" data-i18n="acceptedHint">六个阶段及最终导出均已登记验收</div></article>
+      </section>
+      <div class="context-note"><span class="info-icon">i</span><p id="context-message"></p><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/delivery-gates.md" target="_blank" rel="noopener" data-i18n="checkScope">检查范围 ↗</a></div>
+      <section class="board-panel" id="board-panel">
+        <div class="board-title"><div><h2 data-i18n="videoMatrix">视频 × 交付阶段</h2><span id="result-count"></span></div><div class="view-options"><button id="table-view" class="icon-button selected" aria-label="Matrix view">▦ <span data-i18n="matrix">矩阵</span></button><button id="card-view" class="icon-button" aria-label="Card view">▤ <span data-i18n="cards">卡片</span></button></div></div>
+        <div class="filters">
+          <label class="search"><span>⌕</span><input id="search" type="search" data-placeholder="search" aria-label="Search videos"></label>
+          <select id="object-filter" aria-label="Object group"></select>
+          <select id="scope-filter" aria-label="Video subset"></select>
+          <select id="stage-filter" aria-label="Stage"></select>
+          <select id="state-filter" aria-label="Record status"></select>
+          <label class="iteration-label"><span data-i18n="iteration">迭代</span><select id="iteration-filter" aria-label="Iteration"></select></label>
+          <button class="text-button" id="clear-filters" data-i18n="clearFilters">重置筛选</button>
+        </div>
+        <div class="legend" id="legend"></div>
+        <div class="matrix-scroll" id="matrix-container"><table id="matrix"><thead></thead><tbody></tbody></table></div>
+        <div class="video-cards" id="cards-container" hidden></div>
+        <div class="empty-state" id="no-results" hidden><span>⌕</span><h3 data-i18n="noResults">没有符合条件的视频</h3><p data-i18n="tryFilter">试试其他筛选条件，或清空搜索。</p></div>
+        <div class="board-footer"><span data-i18n="cellHint">点击任一阶段，查看交付清单与迭代历史。</span><button id="import-button" class="text-button" data-i18n="import">导入记录 JSON</button><input type="file" accept="application/json,.json" id="import-file" hidden></div>
+      </section>
+      <section class="capabilities" id="capabilities"><div class="section-heading"><h2 data-i18n="sharedPreparation">共享基础准备</h2><span data-i18n="separateProgress">工程准备与逐视频结果分别记录</span></div><div id="capability-grid"></div></section>
+      <footer class="page-footer"><span id="snapshot-info"></span><span data-i18n="footerNote">状态由交付记录申报；文件真实性与模型质量以所附检查证据为准。</span></footer>
+    </main>
+  </div>
+  <dialog id="detail" aria-labelledby="detail-title"><div class="detail-header"><div id="detail-heading"></div><button class="close-button" id="close-detail" aria-label="Close details">×</button></div><div id="detail-content"></div></dialog>
+  <dialog id="guide" aria-labelledby="guide-title"><div class="detail-header"><h2 id="guide-title" data-i18n="howTo">如何更新</h2><button class="close-button" id="close-guide" aria-label="Close guide">×</button></div><div id="guide-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

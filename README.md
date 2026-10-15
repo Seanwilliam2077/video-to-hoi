@@ -23,6 +23,8 @@ The plan starts with one real CARI4D baseline, then permits bounded corrections 
 
 Submit code and a small delivery record through a task branch and PR to `main`. Each record lives at `deliveries/<module>/<unique-delivery-id>/README.md`; include output locations, exact versions, check evidence and remaining work. Use the [submission guide and template](deliveries/README.md). Large outputs belong in a new result-specific Release or agreed team storage, with hashes and exact download references. A progress post or merged record does not by itself accept a model result or start the next stage.
 
+The [30-video progress board](https://video-to-hoi-progress.almondclock256.chatgpt.site) shows each video's stage deliveries and iteration history. This Site is currently owner-private; teammates do not automatically have access. The [Git progress registry](tracking/README.md) is the shared record: export browser drafts, import and validate them locally, then submit the resulting records and snapshot through Git. Unregistered video progress remains unknown.
+
 ## Model weights and data
 
 Large files are GitHub Release attachments, not ordinary Git blobs or the repository's source ZIP. The current filtered handoff preserves model files and runtime sources while excluding upstream dataset/demo payloads. Use the [handoff guide](deployment/COMPLETION_HANDOFF.md) for download commands, extraction paths, licenses and the verified publication record.

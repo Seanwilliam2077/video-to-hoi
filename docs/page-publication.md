@@ -4,6 +4,8 @@ Updated **2026-10-15**, Asia/Shanghai. Static artifact publication remains incom
 
 ## Local delivery-gate and collaboration follow-up (2026-10-15; not published)
 
+The Module 1 planning discussion is saved in [platform-plan.md](platform-plan.md), linked from the developer guide, implementation backlog and local platform record. The Chinese status source summarizes the proposed sequence and meeting needs. This records planning progress only; no native adapter or model execution is added, and the live static pages still need republication.
+
 The user clarified that all member roles float. Local module/profile, workflow, plan, hub and status sources now describe task-scoped participation without permanent module assignees. Actual execution and review records remain attached to each result. This correction does not change repository permissions or implement a task scheduler; the live static pages still need republication.
 
 The six internal v1 stages now have automatic deliverable/lineage checks and fail-closed continuation.

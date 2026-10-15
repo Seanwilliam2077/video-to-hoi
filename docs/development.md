@@ -17,6 +17,7 @@ In the planned real pipeline, the human supplies a scale prior for the object mo
 Members work across all four modules with floating roles. Module labels define input/output boundaries; concurrent tasks use separate branches and result directories. Every stage has a fake backend, so `main` runs end to end from day one and each module replaces its fakes with real models.
 
 - [workflow.md](workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
+- [platform-plan.md](platform-plan.md): Module 1 scope, existing progress, proposed implementation rounds and team discussion checklist.
 - [delivery-gates.md](delivery-gates.md): executable internal v1 delivery checks, stop/continue behavior, receipts and recheck CLI.
 - [team-handoffs.md](team-handoffs.md) and [module capability map](../configs/team-modules.json): independent starting work, interface boundaries and consumer review.
 - [distributed-execution.md](distributed-execution.md) and [design-only profile](distributed-execution.json): model-stage responsibilities across independent machines, immutable result packages and remaining transport/native-adapter work.

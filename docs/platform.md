@@ -2,6 +2,12 @@
 
 Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
+## Module 1 scope for the team discussion (2026-10-15)
+
+[The platform plan](platform-plan.md) records seven capabilities, task/result records, four integration boundaries and three acceptance layers. The proposed order is one complete real input-to-export/reload path, then an actual two-host handoff, then fixed-baseline experiments and broader coverage. Roles float across tasks; no permanent module owner is needed. The meeting checklist covers the real sample, available execution capability, transfer boundary and completion evidence.
+
+This is a documentation update. Existing internal delivery gates and the earlier 453-test record remain the implemented foundation; no new adapter, model execution, transfer implementation or accepted baseline is claimed. Live team-page publication remains pending.
+
 ## Automatic deliveries and independent module work (2026-10-15)
 
 The internal v1 runner now applies [automatic delivery gates](delivery-gates.md) before and after each of
@@ -45,9 +51,10 @@ native adapters must verify dependency closure, relative-path materialization an
 current v2 validators do not enforce these stage transitions. Original native evidence remains preserved.
 
 This delivery changes documentation only. No deployment, new model run, artifact upload or runtime implementation
-was performed. The next implementation is pack/verify/import, native stage adapters, then one full episode on two
-actual hosts with conversion/export/reload checks. Resource assignments remain pending a per-person capability
-inventory. Source/profile/document and rendered-page checks accompany this design; earlier 379 CPU tests remain
+was performed. The historical sequence proposed pack/verify/import, native stage adapters, then a full episode on two
+actual hosts. The 2026-10-15 [platform plan](platform-plan.md) now prioritizes a real import/export/reload path before
+accepting cross-machine execution; capability and access are checked per task without permanent member assignments.
+Source/profile/document and rendered-page checks accompanied this design; earlier 379 CPU tests remain
 evidence for the unchanged foundation, not a new multi-host test. Live module/status publication remains pending.
 
 ## P0 audit and P1 foundation delivery (2026-10-13)

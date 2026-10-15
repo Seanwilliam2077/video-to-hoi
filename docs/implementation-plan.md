@@ -1,8 +1,10 @@
 # Implementation plan: Track 1 baseline and bounded repair
 
-Updated 2026-10-13. This delivery backlog implements the video-driven architecture in [design.md](design.md), the proposed [v2 contracts](contracts-v2.md), and the [video coverage and validation protocol](video-coverage.md). Initial P0 audit and partial P1 infrastructure are implemented below; real reconstruction-quality and submission gates remain open.
+Updated 2026-10-15. This delivery backlog implements the video-driven architecture in [design.md](design.md), the proposed [v2 contracts](contracts-v2.md), and the [video coverage and validation protocol](video-coverage.md). Initial P0 audit and partial P1 infrastructure are implemented below; real reconstruction-quality and submission gates remain open.
 
 ## Foundation delivery status
+
+**2026-10-15 platform planning update:** [platform-plan.md](platform-plan.md) makes Module 1's proposed input, adapter, transport, scene/export and experiment capabilities explicit. Its three rounds elaborate the existing backlog without implementing new runtime behavior, closing gates or changing milestone dates. The team discussion selects small task-scoped deliveries with floating participation.
 
 **2026-10-15 internal delivery increment:** the six v1 stages now have fresh-attempt execution, typed output
 checks, fixed prerequisite copies, immutable reports, dependency invalidation and a read-only recheck CLI.

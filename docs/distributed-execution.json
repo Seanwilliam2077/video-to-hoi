@@ -6,7 +6,8 @@
   "title": "Independent workers with Git-coordinated immutable handoffs",
   "requirements": "track1-requirements.md",
   "source_kind": "track1",
-  "actual_machine_assignments": "pending_capability_inventory",
+  "actual_machine_assignments": "task_scoped_after_capability_and_access_check",
+  "module_semantics": "Node owner/reviewer fields identify capability and review areas, not permanent people. Any capable available member may take any task; record actual participants per result.",
   "sources": {
     "windows_candidate": "fb0bac9f02d346d32e086036c80f7c3041978d56",
     "reported_executed_upstream": "193382a184308f6800331f3db829f76dc4294cfe",
@@ -22,11 +23,11 @@
     {"id":"native_01_04","owner":"M2","worker":"human_gpu","depends_on":["inputs_masks","metric_asset"],"native_stages":["01_depth","02_export","03_human_initialization","04_depth_alignment"],"outputs":["complete_prepared_export","wild_export_marker","depth_intrinsics","mhr_init","aligned_depth","aligned_mesh","stage_records"]},
     {"id":"native_05","owner":"M3","worker":"foundationpose_gpu","depends_on":["native_01_04","metric_asset"],"native_stages":["05_object_pose"],"outputs":["foundationpose_trajectory","diagnostics","stage_records"]},
     {"id":"native_06_07","owner":"M4","worker":"compatible_joint_inference_gpu","depends_on":["native_01_04","native_05","metric_asset"],"native_stages":["06_coconet","07_refinement"],"outputs":["coupled_native_bundles","native_checkpoints","diagnostics","stage_records"]},
-    {"id":"native_preview","owner":"M1","worker":"M2_or_M4_gpu_as_needed","depends_on":["inputs_masks","native_01_04","native_06_07"],"native_stages":["08_render"],"outputs":["raw_native_preview","native_stage_records"],"constraint":"Consumes original prepared export, source video, aligned mesh and CoCoNet/refined native bundles; never an arbitrary SceneState."},
-    {"id":"scene_import","owner":"M1","worker":"M2_or_M4_gpu_as_needed","depends_on":["native_01_04","native_05","native_06_07"],"outputs":["normalized_pose_T_136_shape_45_scales_68","immutable_complete_baseline_scene","conversion_error_evidence","execution_validation_evidence"],"constraint":"Pinned decoder/converter normalization before atomic scene publication; preserve raw artifacts. Native08 is a side job, not an import dependency. No automatic quality acceptance or selected-scene promotion."},
-    {"id":"baseline_export","owner":"M1","worker":"M2_or_M4_gpu_as_needed","depends_on":["scene_import"],"outputs":["scene_bound_preview","official_serialization","packed_export","reload_decode_geometry_checks"],"constraint":"Serialize the exact normalized scene; no new fitting and no native 08 call."},
+    {"id":"native_preview","owner":"M1","worker":"compatible_decoder_render_gpu_as_needed","depends_on":["inputs_masks","native_01_04","native_06_07"],"native_stages":["08_render"],"outputs":["raw_native_preview","native_stage_records"],"constraint":"Consumes original prepared export, source video, aligned mesh and CoCoNet/refined native bundles; never an arbitrary SceneState."},
+    {"id":"scene_import","owner":"M1","worker":"compatible_decoder_render_gpu_as_needed","depends_on":["native_01_04","native_05","native_06_07"],"outputs":["normalized_pose_T_136_shape_45_scales_68","immutable_complete_baseline_scene","conversion_error_evidence","execution_validation_evidence"],"constraint":"Pinned decoder/converter normalization before atomic scene publication; preserve raw artifacts. Native08 is a side job, not an import dependency. No automatic quality acceptance or selected-scene promotion."},
+    {"id":"baseline_export","owner":"M1","worker":"compatible_decoder_render_gpu_as_needed","depends_on":["scene_import"],"outputs":["scene_bound_preview","official_serialization","packed_export","reload_decode_geometry_checks"],"constraint":"Serialize the exact normalized scene; no new fitting and no native 08 call."},
     {"id":"bounded_research","owner":"M4","worker":"optimization_worker","depends_on":["scene_import","inputs_masks"],"outputs":["bounded_solve_plan","separate_candidate_scene","review_evidence"],"constraint":"Requires execution-valid baseline and frozen observations; preserves baseline."},
-    {"id":"candidate_export","owner":"M1","worker":"M2_or_M4_gpu_as_needed","depends_on":["bounded_research"],"outputs":["scene_bound_candidate_preview","official_serialization","packed_export","reload_decode_geometry_checks"],"constraint":"Serialize the exact validated candidate parameters; no new fitting and no native 08 call."}
+    {"id":"candidate_export","owner":"M1","worker":"compatible_decoder_render_gpu_as_needed","depends_on":["bounded_research"],"outputs":["scene_bound_candidate_preview","official_serialization","packed_export","reload_decode_geometry_checks"],"constraint":"Serialize the exact validated candidate parameters; no new fitting and no native 08 call."}
   ],
   "coordination": {
     "git": ["source","configuration","small_immutable_manifests","hashes","reviews","package_references"],

@@ -54,7 +54,8 @@ Round sizes and counts, or leave them out, when the exact number means nothing t
 - **Keep preparation and results apart.** Downloading, packaging, and passing automated checks is preparation. Only a real run on the challenge videos is a result. Never present preparation as a result.
 - **Use the current requirements.** [track1-requirements.md](track1-requirements.md) is the sole active technical specification. Explain its consequences in plain Chinese; do not present superseded scoring assumptions as current rules. Updating diagnostic code is engineering progress, not completed reconstruction or an official score.
 - **No invented scores.** The challenge videos have no public answers, so we cannot compute official scores ourselves. Do not show scores or percentages that suggest otherwise.
-- **Every blocker says what it needs.** Each item under "卡在哪里" ends with a "需要：" line naming who has to do what.
+- **Every blocker says what it needs.** Each item under "卡在哪里" ends with a "需要：" line stating the next action and the participants needed for that task. Do not require a permanent module owner before work can begin.
+- **Participation is flexible (confirmed 2026-10-15).** The four modules define work and deliverables, not fixed assignments to people. Any team member can work across modules or take over a task. Record the current executor, available machine and reviewer on the task when work starts; do not present missing permanent owners as a blocker or a meeting decision. Separate module boundaries from temporary participation.
 - **Date every update.** Update "数据截至" and the footer's "本次更新" line each time.
 - **No unagreed dates.** Change a date in "时间安排" only after the team has agreed to it, and mark slipping items "有风险".
 - **Data rule.** The project uses only the 30 challenge videos. On the page, say "只用比赛给的 30 段视频", not the dataset's technical name.
@@ -67,7 +68,7 @@ Keep these sections in this order:
 1. Header: a headline sentence, and the **live countdown** to the deadline (2026-11-04 17:00 US Eastern = 2026-11-05 06:00 Beijing). It shows days, hours, minutes, and seconds and updates every second. Do not replace it with a fixed number.
 2. 一句话: one paragraph that says where we are and the main blockers.
 3. 我们在做什么: the task in everyday terms, with the input → system → output sketch and the three scoring questions.
-4. 团队分工: straight after the introduction, because meetings move from the project to who does what. It holds the hand-off diagram; one card per role (owns, delivers, needs, first two weeks, scoring share, workload, suitable background, link to the module page); what each role delivers for the first results; the working rules; and open questions about roles.
+4. 团队分工: straight after the introduction, because meetings move from the project to the work. It holds the hand-off diagram; one card per module (scope, delivers, needs, first two weeks, scoring share, workload, suitable background, link to the module page); what each module delivers for the first results; flexible participation rules; and current task priorities. Cards represent work boundaries, not permanent personal roles.
 5. 进度: the six-step progress bar.
 6. 已经完成的
 7. 卡在哪里: each item gives what is wrong and what is needed.
@@ -75,7 +76,7 @@ Keep these sections in this order:
 9. 需要支持的事: the decisions and help we ask of leadership.
 10. Footer: "数据截至" date, "本次更新" summary, and a link to the repository for technical detail.
 
-When a role gets an owner, replace "待认领" with the person's name on that role's card.
+Keep module cards labelled "按任务参与". Names belong in individual task records and describe current execution or review only; do not replace the module labels with fixed owners or "待认领". A switch of executor must preserve the task's current results, checks and remaining work so another team member can continue.
 
 ## When to update
 

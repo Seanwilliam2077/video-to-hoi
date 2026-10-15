@@ -5,7 +5,7 @@ Updated 2026-10-13. This specifies the video-conditioned pipeline and its integr
 The [P0 component/exposure audit](component-audit.md) and [opt-in v2 foundation](v2-foundation.md) now implement the first audit and structural-storage work packages. They do not wire the real reconstruction graph or close native/quality/export acceptance gates.
 
 As of 2026-10-15, [delivery gates](delivery-gates.md) automatically check all six internal v1 stages and
-block incomplete or stale handoffs. [Independent module work](team-handoffs.md) defines starts, owners and
+block incomplete or stale handoffs. [Independent module work](team-handoffs.md) defines independent starts, task-scoped work and
 consumer review. These executable internal checks do not activate the proposed native distributed graph.
 
 Build one reproducible native-MHR CARI4D baseline, preserve it, and add bounded repairs only where independent image evidence supports them. More models, a smaller optimization loss, and a smoother animation are not evidence of better reconstruction.
@@ -59,7 +59,7 @@ Use one scene representation and a fixed set of operations across episodes. Inpu
 
 The six existing stages remain responsibility boundaries. The coordinator executes dependency-defined jobs, including one logical joint native run; it does not call a separate CARI4D inference for each output directory. Atomic scene publication does not require a shared server. The [independent-machine design](distributed-execution.md) partitions the existing subprocess boundaries into native 01-04 (Human), 05 (Object), and 06-07 (Physics or a compatible worker), with Platform coordinating import and export. Each result pins its actual predecessor inputs. Standalone bootstrap and metric asset preparation precede these blocks; renderer/converter jobs may need a GPU worker even when Platform owns them.
 
-This is a proposed execution adapter, not a capability of the current runner. Stage entry points, portable packages, path relocation, per-stage environment validation and complete-run checks remain to implement. The [design-only profile](distributed-execution.json) is not an executable workflow. Module ownership and worker assignment are separate, allowing each teammate to use their own accessible computer or server.
+This is a proposed execution adapter, not a capability of the current runner. Stage entry points, portable packages, path relocation, per-stage environment validation and complete-run checks remain to implement. The [design-only profile](distributed-execution.json) is not an executable workflow. Modules define interfaces; teammates choose development, execution and review roles per task. Any capable member may use an accessible computer or server without a permanent module assignment.
 
 | Existing stage | Responsibility in v2 | Shared result |
 |---|---|---|

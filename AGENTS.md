@@ -12,7 +12,8 @@ These rules apply to every coding agent working in this repository (Codex, Claud
 
 ## Branches and commits
 
-- The owner's changes land on `main`. Teammates work on their module branches (`platform`, `human`, `object`, `physics`) and merge through pull requests.
+- The owner's changes land on `main`. Teammates work on module or task branches and merge through pull requests. `platform`, `human`, `object`, and `physics` identify work areas, not personal branches. Use separate task branches/worktrees for concurrent changes.
+- **Floating roles (owner clarified 2026-10-15):** no permanent module owners or named-role assignment are required. Any member may take work in any module according to current capability and availability. Keep module input/output contracts stable; record the actual executor, environment and reviewer per task/result. Missing permanent assignees are not a blocker. Existing repository permissions and data/quality review requirements still apply.
 - The local checkout can be shared between agents and may be on another agent's branch. Check `git branch --show-current` before committing. Do not switch a checkout that another agent is using; add a separate worktree for `main` instead.
 - Never delete or rewrite a branch that has commits of its own without the owner's approval.
 

@@ -1,23 +1,29 @@
 # Independent module work and checked handoffs
 
-**Updated 2026-10-15.** Each module owns an interface and its evidence; a compatible worker runs its models on an accessible machine. Teammates do not need one server, one environment, or simultaneous access. The [ownership profile](../configs/team-modules.json) records responsibilities only: it is not a scheduler or an access-control policy.
+**Updated 2026-10-15.** Member roles float across tasks. M1-M4 name capability and input/output boundaries, not permanent people: any member may develop, run or review work in any module. A missing permanent assignee does not block progress. The [module profile](../configs/team-modules.json) records boundaries and review scopes only; it is not a scheduler or an access-control policy.
 
 The current executable path has six internal v1 stages with fake backends. [Delivery gates](delivery-gates.md) check those outputs and their dependencies before continuation. Passing them proves structural readiness for that internal path, not successful reconstruction, native MHR conversion, or challenge submission compliance. [Native stage boundaries](distributed-execution.md) remain a separate design awaiting adapters and schemas.
 
 ## Work that can start independently
 
-| Module / branch | Start now without another module's GPU run | Integration input that must eventually arrive | Accountable output |
+| Module / branch area | Start now without another module's GPU run | Integration input that must eventually arrive | Required output |
 | --- | --- | --- | --- |
-| M1 Platform / `platform` / Sean | Contract fixtures, automatic checks, input preparation, segmentation adapter, transfer verification and export reload tooling | Exact model-stage outputs for real integration | Versioned observations; delivery reports; coherent final package and reload evidence |
-| M2 Human / `human` / owner TBD | Human/depth adapter and standalone scale bootstrap from a permitted input revision; test schema and full-frame indexing on independent synthetic fixtures | M1 observations; metric object asset before the current native 01-04 block | Human/bootstrap evidence, then complete native 01-04 prepared products |
-| M3 Object / `object` / owner TBD | Unscaled object candidates, origin/axis conventions, mesh and tracker interfaces; independent synthetic geometry tests | M2 bootstrap for metric scale; exact native 01-04 outputs for FoundationPose | Metric asset and native 05 trajectory, complete through occlusions |
-| M4 Physics / `physics` / owner TBD | Synthetic event/visibility/contact cases, bounded repair implementation, failure diagnostics and ablation harness | Fixed accepted human/object baseline and observations for real improvement claims | Native 06-07 results and separately identified research candidates |
+| M1 Platform / `platform` | Contract fixtures, automatic checks, input preparation, segmentation adapter, transfer verification and export reload tooling | Exact model-stage outputs for real integration | Versioned observations; delivery reports; coherent final package and reload evidence |
+| M2 Human / `human` | Human/depth adapter and standalone scale bootstrap from a permitted input revision; test schema and full-frame indexing on independent synthetic fixtures | M1 observations; metric object asset before the current native 01-04 block | Human/bootstrap evidence, then complete native 01-04 prepared products |
+| M3 Object / `object` | Unscaled object candidates, origin/axis conventions, mesh and tracker interfaces; independent synthetic geometry tests | M2 bootstrap for metric scale; exact native 01-04 outputs for FoundationPose | Metric asset and native 05 trajectory, complete through occlusions |
+| M4 Physics / `physics` | Synthetic event/visibility/contact cases, bounded repair implementation, failure diagnostics and ablation harness | Fixed accepted human/object baseline and observations for real improvement claims | Native 06-07 results and separately identified research candidates |
 
 M2's early bootstrap is preparation, not the final human trajectory. It can start before M3's final mesh. M3 can prepare an unscaled candidate in parallel; depth-conditioned generation explicitly declares and waits for its depth input. The current full native 01-04 path still requires the real metric asset. Do not fabricate a mesh or completion marker to bypass that dependency.
 
 M4 can implement and test the innovation before a real baseline exists. Synthetic success establishes algorithm and interface behavior only. A claimed improvement needs the same frozen real baseline, observations, exported candidate and review protocol on both sides of the comparison.
 
-An owner need not operate the GPU. For example, M1 can own final export while M2 runs its GPU-dependent decoder/converter. Record owner, actual worker and environment separately; transfer output responsibility through review, not by sharing credentials.
+The same teammate may prepare a human result today and work on object tracking tomorrow. Another teammate may run a GPU-dependent converter while the first reviews its output. Record the actual executor, environment and reviewer for each task/result; no permanent module owner or member-to-machine mapping is required. Review scopes in the table below describe the knowledge needed for that result, not a fixed roster. Preserve any required independent quality review when choosing reviewers.
+
+## Task-scoped coordination
+
+Use a small task note or pull request to identify the module/stage, episode, exact input revision, expected outputs, current activity and any handoff. Record who actually executed or reviewed the result and link its check report. A teammate can take over using those records and a compatible environment; no permanent assignment needs to change.
+
+Concurrent changes use separate task branches/worktrees and unique attempt directories. A Git note is coordination, not an atomic distributed lock. If two members run alternatives, preserve both candidates and select an explicitly reviewed result; never overwrite each other's output or accept whichever file arrived last. The existing runner lock remains local to one run directory. Automated task claiming and cross-machine scheduling are not implemented.
 
 ## Producer and consumer agreement
 
@@ -36,7 +42,7 @@ These roles define the review procedure. They are not enforced branch-protection
 ## One immutable experiment, one handoff
 
 1. **Choose inputs.** Pin source episodes, upstream result identities and hashes, contract/profile, code revision, model/rig identities, configuration and environment. Use only Track 1 or independently authored synthetic fixtures; reject unknown provenance and all Track 2 derivatives.
-2. **Create a new experiment ID.** Keep its input snapshot fixed. Run the selected stage on the assigned worker. Repeating or changing an experiment creates a new attempt/result identity; accepted baseline packages are never overwritten.
+2. **Create a new experiment ID.** Keep its input snapshot fixed. Run the selected stage on a compatible available worker. Repeating or changing an experiment creates a new attempt/result identity; accepted baseline packages are never overwritten.
 3. **Check the producer's own delivery.** A fresh attempt must produce all its outputs itself. Missing files cannot be silently filled from an older upstream copy. A backend returning successfully is not sufficient.
 4. **Publish a complete handoff.** Share small manifests, result identities, hashes, report references and review records through the module branch. Put large permitted files in the agreed Release/team storage and retain exact package identities. Do not commit `runs/`, model weights, masks or depth arrays to ordinary Git.
 5. **Verify on the consumer machine.** Obtain the exact required artifacts, verify their bytes and schemas, and resolve dependencies before running. A producer's passing report alone does not establish that the receiving machine has the same files. Automated native package import/relocation is still pending.

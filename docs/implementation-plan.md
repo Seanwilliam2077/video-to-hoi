@@ -44,7 +44,7 @@ These adapter tasks do not close G0/G1 by themselves or change the existing mile
 
 The reviewed `main` at `0e86889` retains fake reconstruction stages, pass-through refinement, and the internal v1 exporter after the Windows development changes were reverted. `origin/windows-cari4d` contains candidate adapters, native conversion/export, runtime patches, previews and repair experiments. Those components and recorded runs are audit inputs, not an accepted current baseline. Historical preparation receipts establish the identity of downloaded files; they do not establish a runnable environment on the selected machine.
 
-Before reusing any branch component, record its exact commit/path, upstream and model dependencies, intended behavior, local modifications, input provenance, coordinate/scale assumptions, frame handling, run evidence, and portability limits. Classify it as reusable after verification, requiring revision, or deferred; give it an owner and a focused acceptance check. Review components individually rather than treating the branch as a single approved implementation. In particular, distinguish a portability patch from a changed inference or optimization method.
+Before reusing any branch component, record its exact commit/path, upstream and model dependencies, intended behavior, local modifications, input provenance, coordinate/scale assumptions, frame handling, run evidence, and portability limits. Classify it as reusable after verification, requiring revision, or deferred; give it a task record and a focused acceptance check. Review components individually rather than treating the branch as a single approved implementation. In particular, distinguish a portability patch from a changed inference or optimization method.
 
 Runtime version selection remains open. The historical external-code pin in `evaluation.md`, deployment manifests, and the branch's actually executed revisions must be reconciled before P2. Record the selected source commits and patches, model/rig identities, OS, Python, CUDA/PyTorch and native dependencies, plus the effective runtime configuration. A documentation source pin or a mutable container tag alone cannot close that task. Any different runtime needs a compatibility decision against R1–R6 and explicit conversion checks.
 
@@ -65,9 +65,9 @@ P0–P5 specify execution order and work packages. G0–G4 below remain the auth
 
 ### Ordered backlog
 
-Owners: **M1** Platform (Sean), **M2** Human, **M3** Object, **M4** Temporal/Physics. Individual M2–M4 assignees remain TBD. `A → B` means B cannot be accepted before A's recorded result; independent preparation may proceed earlier. The four modules retain ownership while a single native task produces coupled human/object state.
+Capability areas: **M1** Platform, **M2** Human, **M3** Object, **M4** Temporal/Physics. Member roles float across tasks; no permanent assignee is required. `A → B` means B cannot be accepted before A's recorded result; independent preparation may proceed earlier. The four modules retain their input/output boundaries while a single native task produces coupled human/object state. The tables name work and review scopes; execution and review participants are recorded per task.
 
-| ID | Depends on | Owner; reviewers | Concrete artifact and acceptance |
+| ID | Depends on | Capability; review scopes | Concrete artifact and acceptance |
 |---|---|---|---|
 | P0.1 | None | M1; M2/M3/M4 | Main/branch component inventory and runtime decision register. Every reuse candidate has a source identity, provenance assessment, unresolved dependencies and verification task; experiments are not labelled accepted baselines. |
 | P0.2 | None | M1; M3/M4 | All-30 coverage matrix plus exposure ledger: geometry, view, interaction, occlusion, reviewed frames and prior tuning/selection history. Unreviewed video properties and unknown history remain explicit. |
@@ -105,19 +105,19 @@ Quality thresholds are chosen and documented after baseline characterization and
 
 The entire 30-video collection has already informed architecture discussion, and branch experiments may have additional exposure. Audit that history before assigning holdout roles. If no untouched object group remains, report grouped retrospective or prospective frozen-policy validation with its limits; do not call it an unbiased holdout. A validation group becomes regression/development data once it influences a policy change. Full-set coverage and input perturbations are useful stress tests, but cannot independently prove unseen-object generalization.
 
-## Gate overview and ownership
+## Gate overview and review scopes
 
 Gates close on recorded evidence, not on a date, downloaded checkpoint count, or a design-review score. A later gate cannot make an incomplete earlier gate disappear.
 
-| Gate | Deliverable | Primary owner | Required reviewers | Current state |
+| Gate | Deliverable | Primary capability | Required review scopes | Current state |
 |---|---|---|---|---|
-| G0 | Evaluation/native-conversion/provenance contract | Module 1 Platform, Sean | Module 2 Human; Module 3 Object; Module 4 Physics for metric tests | Open: diagnostic/source review exists; runtime, real decoder/export and end-to-end provenance acceptance remain unresolved |
+| G0 | Evaluation/native-conversion/provenance contract | Module 1 Platform | Module 2 Human; Module 3 Object; Module 4 Physics for metric tests | Open: diagnostic/source review exists; runtime, real decoder/export and end-to-end provenance acceptance remain unresolved |
 | G1 | Immutable real baseline on episodes 16 and 12 | Module 1 Platform | Modules 2, 3 and 4 | Open: branch run records require audit and reproduction through the accepted contracts |
 | G2 | Reliable observations, camera/scale/asset lineage | Module 1 Platform + Module 3 Object | Module 2 Human; Module 4 Physics | Open: proposed design; diagnostic decisions require multi-interaction review |
 | G3 | Bounded repairs with evidence and rollback | Module 4 Physics + relevant state owner | Module 1 integration; Modules 2/3 as affected | Open: branch experiments are candidates for audit, not accepted policies |
 | G4 | Complete 30-episode, reproducible submission candidate | Module 1 Platform | All module owners | Open: G0-G2 and any enabled G3 policy need evidence; G3 may remain disabled |
 
-Module 2, 3 and 4 individual assignees remain TBD. A module is accountable for its artifacts even when another module runs a coupled upstream method. G4 may ship the accepted G1/G2 baseline if no G3 repair survives review; research novelty is not a completeness requirement.
+Any available member with the required capability may execute or review work in M1-M4. Record the actual participants per result; permanent assignment is not a gate. Artifact contracts and required review evidence continue to apply when participants change. G4 may ship the accepted G1/G2 baseline if no G3 repair survives review; research novelty is not a completeness requirement.
 
 ## G0: establish the executable truth
 
@@ -149,7 +149,7 @@ Reject G0 closure if conversion is justified only by shape checks, old normaliza
 
 Start with Track 1 episode 16 (foam block) and episode 12 (pan), both explicitly treated as development cases. Run the toolkit MHR CARI4D runtime selected in P0.1/P2.1, without unrecorded changes to its learned components or optimization behavior. Reusing an earlier branch result requires the same provenance, conversion, full-coverage and reproducibility checks as a new result. Use episode-local meshes until cross-episode estimation is explicitly permitted. Keep a single baseline segmentation route and a small recorded mesh-candidate set.
 
-### Required work and owners
+### Required work and capability areas
 
 | Owner | Work |
 |---|---|
@@ -169,7 +169,7 @@ Resolve the metric-mesh bootstrap explicitly. Before the full CARI4D call, a pre
 - Baseline export accepted by the G0 converter checks and the permitted official-format validation path. Do this at P2, before repair implementation: reload and compare human geometry, posed object geometry, canonical frame, scale application and original source-frame identities for the exact exported scene. Format acceptance and 3D-quality judgments remain separate.
 - Source-image overlays and a three-stage comparison where available; clear marking of occlusion, low-confidence intervals, the explicit initial-frame mapping and known failures.
 - A reproducible command/configuration on an identified execution environment. Bitwise equality across hardware is not required; declared comparison tolerances and provenance are.
-- A review signed by Platform, Human and Object owners; Physics records the failure inventory.
+- A review covering Platform, Human and Object concerns, with the actual reviewers recorded per result; the task's Physics work records the failure inventory.
 
 Reject if output existence substitutes for coverage, supplied reference geometry is used, a generated mesh is treated as metric without a scale check, or the original mesh is paired with poses for a recentered mesh. This gate can close with visible reconstruction weaknesses if they are documented; it cannot close with missing or invalid artifacts.
 

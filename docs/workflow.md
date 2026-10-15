@@ -1,8 +1,8 @@
 # Team workflow
 
-Four people build six stages in parallel, one module each. `main` currently runs end to end with fake backends, which test the wiring but do not reconstruct a scene or produce a validated challenge submission. The stages exchange files specified in [contracts.md](contracts.md). A real backend replaces a fake stage and is checked on Track 1 inputs against a fixed Track 1 upstream run.
+Team members build six stages across four modules with floating roles; anyone may work in any module. `main` currently runs end to end with fake backends, which test the wiring but do not reconstruct a scene or produce a validated challenge submission. The stages exchange files specified in [contracts.md](contracts.md). A real backend replaces a fake stage and is checked on Track 1 inputs against a fixed Track 1 upstream run.
 
-Planning update, 2026-10-03: [design.md](design.md) defines the bounded refinement proposal, [evaluation.md](evaluation.md) records the current official evaluator semantics, and [implementation-plan.md](implementation-plan.md) defines gates G0–G4. These are implementation requirements, not completed backends or measured quality improvements. Retain the six stages and four owners; an internal coordinator may repeat affected stages only after the proposed dependency and acceptance gates exist.
+Planning update, 2026-10-03: [design.md](design.md) defines the bounded refinement proposal, [evaluation.md](evaluation.md) records the current official evaluator semantics, and [implementation-plan.md](implementation-plan.md) defines gates G0–G4. These are implementation requirements, not completed backends or measured quality improvements. Retain the six stages and four interface areas; an internal coordinator may repeat affected stages only after the proposed dependency and acceptance gates exist.
 
 ## Final owner requirements (2026-10-03)
 
@@ -20,8 +20,8 @@ Track 1 has no public reconstruction ground truth. The official evaluation kit i
 
 ## Modules
 
-Use [team-handoffs.md](team-handoffs.md) and [the ownership map](../configs/team-modules.json)
-for independent starting tasks, producer/consumer responsibilities and worker assignment.
+Use [team-handoffs.md](team-handoffs.md) and [the module capability map](../configs/team-modules.json)
+for independent starting tasks, producer/consumer review scopes and task-scoped execution. Permanent module assignees are not required.
 The [automatic delivery gate](delivery-gates.md) now stops the internal v1 runner after missing, invalid
 or stale output. Receivers recheck actual files before continuation; semantic/quality review is separate.
 
@@ -33,12 +33,12 @@ The boundaries follow three dependencies:
 
 [pipeline.svg](pipeline.svg) draws the six stages and four modules. The metric names below identify challenge outcomes, not measurements already produced by the repository. The current official semantics and availability of local evidence are specified in [evaluation.md](evaluation.md).
 
-| Module | Owner | Stages | Challenge outcome | Independent starting input | Main risk |
+| Module | Participation | Stages | Challenge outcome | Independent starting input | Main risk |
 |---|---|---|---|---|---|
-| 1 Platform & perception | Sean | inputs, export | all, as integration gatekeeper | Track 1 videos and metadata; synthetic contract fixtures | on the critical path for the first two weeks |
-| 2 Human | TBD | human | CD-H, ACC-H; hand geometry for PEN | Track 1 videos, then a fixed Track 1 inputs snapshot | human geometry at the first reference frame determines the fixed alignment |
-| 3 Object | TBD | objects, motion | CD-O | Track 1 frames, masks, and scaled depth; a fixed Track 1 upstream run | the largest workload: the hula hoop, white furniture, and foot-pushed objects |
-| 4 Temporal & physics | TBD | refine | ACC-H, ACC-O, PEN, subject to image fidelity | independent synthetic trajectories, then a fixed Track 1 human and motion snapshot | over-smoothing can reduce self-acceleration while worsening reference-relative ACC |
+| 1 Platform & perception | Any capable member | inputs, export | all, as integration gatekeeper | Track 1 videos and metadata; synthetic contract fixtures | on the critical path for the first two weeks |
+| 2 Human | Any capable member | human | CD-H, ACC-H; hand geometry for PEN | Track 1 videos, then a fixed Track 1 inputs snapshot | human geometry at the first reference frame determines the fixed alignment |
+| 3 Object | Any capable member | objects, motion | CD-O | Track 1 frames, masks, and scaled depth; a fixed Track 1 upstream run | the largest workload: the hula hoop, white furniture, and foot-pushed objects |
+| 4 Temporal & physics | Any capable member | refine | ACC-H, ACC-O, PEN, subject to image fidelity | independent synthetic trajectories, then a fixed Track 1 human and motion snapshot | over-smoothing can reduce self-acceleration while worsening reference-relative ACC |
 
 What each module delivers:
 
@@ -67,8 +67,8 @@ Reject frozen-motion controls that reduce self-acceleration but fail observed mo
 ## Branches and pull requests
 
 - `main` stays green and runnable. Everything reaches it through a pull request.
-- Each module works on its own branch: `platform` (module 1), `human` (2), `object` (3), and `physics` (4). Merge `main` into your branch at least once a week, and open a pull request when the change is reviewable.
-- **Contracts first.** A change to a field's meaning or shape goes in a small PR of its own, bumps `CONTRACT_VERSION`, and is reviewed by the owners of the stages that read it. Implementation PRs follow.
+- Use `platform`, `human`, `object`, and `physics` as work-area labels. Any teammate may contribute to any area. Concurrent tasks use separate topic branches/worktrees, such as `human/<task-id>`, and unique result directories. Keep each task branch current with `main` and open a pull request when the change is reviewable.
+- **Contracts first.** A change to a field's meaning or shape goes in a small PR of its own, bumps `CONTRACT_VERSION`, and is reviewed by task-selected reviewers familiar with the stages that read it. Implementation PRs follow.
 - Module 1 owns the stage contracts, validation tools, and CI. Version any evaluator change so reports from different versions are not treated as directly comparable.
 - The repository is in English: code, docs, commit messages, and PR descriptions.
 
@@ -111,7 +111,7 @@ Record Track 1 source episodes, original frames/timestamps, input hashes, code/m
 | Automatic Track 1 source-provenance checks for inputs, upstream runs, and submissions | 1 |
 | Real backends for every stage, starting with the CARI4D baseline on Track 1 | everyone; baseline by 1 |
 | Keep module 4's human refinement consistent with submitted MHR | 4, reviewed by 2 |
-| Per-module CODEOWNERS and required reviews on `main` once teammates are collaborators | 1 |
+| Consumer-scoped reviewers selected per PR; existing CODEOWNERS routing is repository administration, not permanent module assignment | 1 |
 | Official-kit-compatible native MHR export adapter and reload/render rehearsal (G0/G4) | 1, reviewed by 2 and 3 |
 | Proposed v2 observations, symmetry, provenance and dependency-hash contracts; keep v1 explicitly documented | 1, reviewed by all consumers |
 | Immutable native baselines (G1), evidence-driven geometry checks (G2), bounded failure repairs (G3) | everyone |

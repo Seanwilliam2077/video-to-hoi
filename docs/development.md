@@ -14,12 +14,12 @@ From one video taken by a single static RGB camera, and a text description of th
 
 In the planned real pipeline, the human supplies a scale prior for the object module through `DepthScale`; the current fake value is not an estimate. Mesh generation and tracking feed each other inside one module. The proposed refine stage makes bounded, evidence-supported human/object repairs; decreasing self-acceleration alone is not an official ACC improvement. Modules develop against immutable Track 1 snapshots, with independent synthetic fixtures for interface tests. Cross-episode geometry sharing is an engineering prior and remains disabled pending organizer clarification of allowable evidence pooling.
 
-Four people build the pipeline in parallel, one module and one branch each. Every stage has a fake backend, so `main` runs end to end from day one and each module replaces its fakes with real models.
+Members work across all four modules with floating roles. Module labels define input/output boundaries; concurrent tasks use separate branches and result directories. Every stage has a fake backend, so `main` runs end to end from day one and each module replaces its fakes with real models.
 
 - [workflow.md](workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
 - [delivery-gates.md](delivery-gates.md): executable internal v1 delivery checks, stop/continue behavior, receipts and recheck CLI.
-- [team-handoffs.md](team-handoffs.md) and [ownership map](../configs/team-modules.json): independent starting work, interface ownership and consumer review.
-- [distributed-execution.md](distributed-execution.md) and [design-only profile](distributed-execution.json): model-stage ownership across independent machines, immutable result packages and remaining transport/native-adapter work.
+- [team-handoffs.md](team-handoffs.md) and [module capability map](../configs/team-modules.json): independent starting work, interface boundaries and consumer review.
+- [distributed-execution.md](distributed-execution.md) and [design-only profile](distributed-execution.json): model-stage responsibilities across independent machines, immutable result packages and remaining transport/native-adapter work.
 - [contracts.md](contracts.md): the files the stages exchange.
 - [contracts-v2.md](contracts-v2.md): proposed evidence, immutable scene and bounded solve-plan contracts; v1 remains implemented.
 - [v2-foundation.md](v2-foundation.md): opt-in executable structural profile, immutable store, typed records, report trust and CPU fixtures.

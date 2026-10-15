@@ -15,8 +15,8 @@ or all six statuses. `tools/demo_delivery_gates.py` uses independent synthetic m
 separate module folders on one host, then alters tracking: export readiness fails and the consumer backend
 is never started. This demonstrates local isolation and rejection, not a real two-host model run.
 
-[team-handoffs.md](team-handoffs.md) and [the ownership map](../configs/team-modules.json) define independent
-starting work, exact handoffs and consumer reviewers. Owners and execution workers are separate. Use one
+[team-handoffs.md](team-handoffs.md) and [the module capability map](../configs/team-modules.json) define independent
+starting work, exact handoffs and consumer review scopes. Development, execution and review participants are chosen per task; no permanent module assignment is required. Use one
 episode/experiment per run for isolation; replacing part of a multi-episode batch invalidates that batch's
 receipt. Module branches remain unchanged. The map documents roles, not a scheduler.
 
@@ -26,6 +26,8 @@ unsupported stage names cannot bypass the internal gate. No model, challenge pix
 was executed. Verification is recorded in [the delivery receipt](evidence/delivery-gates-validation-20261015.json).
 The complete explicit CPU allowlist passed: 453 tests, with no failures, errors or skips on local Windows.
 Local team/status source updates are complete; live publication remains pending.
+
+The user's floating-role clarification is recorded in the module profile, handoff guide, workflow and agent instructions. There are no permanent module assignees. Task notes and separate branches/run directories support handover and parallel alternatives; they are not a distributed lock. This documentation correction preserves the native dependency graph and existing delivery gates.
 
 ## Independent-machine execution design (2026-10-13)
 

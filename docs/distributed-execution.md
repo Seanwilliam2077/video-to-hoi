@@ -23,9 +23,9 @@ Select one coherent scientific source/model/rig/converter/configuration set befo
 
 ## Proposed division of work
 
-An owner is accountable for an output; the worker is whichever teammate has a compatible machine. Owning M1's export does not imply that M1 has a GPU. Resource assignments remain pending an actual inventory of GPU/VRAM, OS/driver, disk, network and available time; no measured minimum VRAM is asserted here.
+M1-M4 identify interface and capability areas, not permanent people. Any teammate may develop, execute or review a task across these areas. Record the actual executor, environment and reviewer per result. Verify machine capability and access for the selected task; a missing permanent assignee is not a blocker. No measured minimum VRAM is asserted here.
 
-| Package / stage | Default owner / worker | Exact dependency and deliverable |
+| Package / stage | Interface area / required capability | Exact dependency and deliverable |
 | --- | --- | --- |
 | Inputs and masks | M1 / suitable segmentation GPU | Original video hash, decoded original-frame/PTS map, dimensions, target IDs, complete masks, prompts and image transforms; one immutable input revision |
 | Standalone human/depth bootstrap | M2 / human GPU | Consumes the input package; produces selected-frame human geometry, depth/intrinsics, scale evidence and model identities. This is preparation, not the final human trajectory |
@@ -34,10 +34,10 @@ An owner is accountable for an output; the worker is whichever teammate has a co
 | Native 01-04 | M2 / human GPU | `01_depth`, `02_export`, `03_human_initialization`, `04_depth_alignment`; consumes the complete input package and metric asset; transfers the full prepared export, depth/intrinsics, initialized MHR, aligned depth, aligned mesh and source records |
 | Native 05 | M3 / FoundationPose GPU | `05_object_pose`; consumes exact native 01-04 products and mesh; produces complete FoundationPose initialization/tracking and diagnostics |
 | Native 06-07 | M4 / compatible joint-inference GPU | `06_coconet`, `07_refinement`; consumes exact native 01-05 products; produces coupled human/object bundles, native checkpoints, diagnostics and effective configuration |
-| Native 08 raw preview | M1 / M2 or M4 GPU when needed | `08_render` consumes the original prepared export, source video, aligned mesh and CoCoNet/refined native bundles. Its output documents the raw native run; it cannot consume an arbitrary repaired SceneState |
-| Atomic scene import and normalization | M1 / M2 or M4 GPU when needed | Checks the complete logical native run and all inputs; invokes the pinned MHR decoder/converter to normalize native human results to pose `[T,136]`, shape `[45]`, scales `[68]` and the shared scene frame. Preserve raw artifacts, conversion settings and measured mapping/fitting error before publishing one coherent full scene |
+| Native 08 raw preview | M1 / compatible decoder/render GPU when needed | `08_render` consumes the original prepared export, source video, aligned mesh and CoCoNet/refined native bundles. Its output documents the raw native run; it cannot consume an arbitrary repaired SceneState |
+| Atomic scene import and normalization | M1 / compatible decoder/render GPU when needed | Checks the complete logical native run and all inputs; invokes the pinned MHR decoder/converter to normalize native human results to pose `[T,136]`, shape `[45]`, scales `[68]` and the shared scene frame. Preserve raw artifacts, conversion settings and measured mapping/fitting error before publishing one coherent full scene |
 | Bounded research | M4 / suitable optimization worker | Consumes an execution-valid immutable baseline and frozen observations; creates a separate candidate under a bounded SolvePlan. The ordinary baseline remains available for comparison |
-| Scene-bound render, official serialization and reload | M1 / M2 or M4 GPU when needed | Serialize the already normalized, validated parameters of each exact baseline/candidate; reload, decode and render that same scene. No second independent fitting or implicit call to native `08_render`; GPU-dependent decoding/rendering must remain available |
+| Scene-bound render, official serialization and reload | M1 / compatible decoder/render GPU when needed | Serialize the already normalized, validated parameters of each exact baseline/candidate; reload, decode and render that same scene. No second independent fitting or implicit call to native `08_render`; GPU-dependent decoding/rendering must remain available |
 
 The first baseline should follow the unmodified native 01-07 sequence before research repairs. Standalone bootstrap estimates do not silently override the depth/human estimates recomputed by native 01-04. Compare their scale consistency and reopen preparation if they disagree.
 
@@ -119,7 +119,7 @@ Use a thin file-based coordinator and explicit commands first. A distributed que
 
 ## Three-day adapter rollout goals
 
-These are goals after owners, compatible machines and access are confirmed, not promises based on unmeasured resources. Preparation and innovation prototypes continue in parallel.
+These are goals after compatible machines and access are verified for the selected task, not promises based on unmeasured resources. Preparation and innovation prototypes continue in parallel.
 
 | Day | Deliverable and acceptance |
 | --- | --- |

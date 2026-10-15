@@ -48,7 +48,7 @@
 <text x="48" y="299" class="body">Grasp, slide, roll, foot or seat</text>
 <text x="48" y="325" class="small">Multiple contact edges may coexist</text>
 <rect x="30" y="376" width="260" height="208" rx="10" fill="#f8fafc" stroke="#64748b"/>
-<text x="48" y="404" class="heading">Four owners, shared state</text>
+<text x="48" y="404" class="heading">Four modules, shared state</text>
 <text x="48" y="433" class="body">M1 · Evidence, coordinator, export</text>
 <text x="48" y="459" class="body">M2 · Native human and scale</text>
 <text x="48" y="485" class="body">M3 · Geometry and object motion</text>

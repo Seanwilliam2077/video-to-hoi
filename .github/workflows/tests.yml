@@ -42,6 +42,10 @@ jobs:
           tests/test_v2_contracts.py
           tests/test_progress_board.py
           tests/test_prepare_track1_data.py
+          tests/test_prepare_body_masks.py
+          tests/test_prepare_body_camera.py
+          tests/test_check_body_handoff.py
+          tests/test_package_body_handoff.py
       - run: python tools/progress_board.py validate
   progress-board:
     runs-on: ubuntu-latest

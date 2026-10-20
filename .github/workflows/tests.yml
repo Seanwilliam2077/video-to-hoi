@@ -43,6 +43,8 @@ jobs:
           tests/test_sam_body_inputs.py
           tests/test_human_batch.py
           tests/test_package_human_delivery.py
+          tests/test_compare_human_hands.py
+          tests/test_publish_human_delivery.py
           tests/test_deliverables.py
           tests/test_delivery_gates.py
           tests/test_v2_artifacts.py
@@ -61,6 +63,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"

@@ -66,7 +66,16 @@ def fixture_batch(tmp_path):
             (directory / "frames" / f"{frame:06d}.jpg").write_bytes(b"synthetic image bytes")
         (directory / video).write_bytes(b"synthetic media transport bytes, not real model video")
         (directory / "index.html").write_text(f'<video src="{video}"></video><img src="frames/000000.jpg"><a href="summary.json">details</a>')
-        save(directory / "summary.json", {"fixture_provenance": "independent synthetic transport fixture"})
+        if stage == "hand_comparison":
+            summary = {"track": 1, "episode": 16, "video_sha256": source_sha, "frames": 3}
+        else:
+            (directory / "contact-sheet.jpg").write_bytes(b"independent synthetic rendered contact sheet")
+            summary = {"dataset": "track_1", "episode": 16, "source_video_sha256": source_sha,
+                       "decoded_frames": 3, "prediction_frames": 3, "missing_frames": [],
+                       "prediction_frames_outside_video": [], "decode_count_matches_metadata": True,
+                       "contact_sheet_frames": [0, 2]}
+        summary["fixture_provenance"] = "independent synthetic transport fixture"
+        save(directory / "summary.json", summary)
     checks = {"schema_version": "human_batch_episode_checks.v1", "track": 1, "episode": 16, "frames": 3,
               "structural_checks_passed": True, "source_video_sha256": source_sha, "mhr_model_sha256": model_sha,
               "native_results": hashes, "selected_candidate": "baseline", "selection_reason": "Independent synthetic fixture tests preserve the baseline",
@@ -108,6 +117,20 @@ def test_package_is_portable_and_selected_native_bytes_are_exact(tmp_path):
     assert depth["shared_human_object_scale_verified"] is False
     assert "scale_factor" not in depth
     assert (relocated / "attempts/inference/attempt-0001.log").is_file()
+    previews = {item["role"]: item for item in result["previews"]}
+    assert set(previews) == {"baseline_full_body", "refined_full_body", "hands_comparison", "baseline_contact_sheet", "refined_contact_sheet", "hand_qa_frame"}
+    for role, stage, name in (("baseline_full_body", "baseline_review", "comparison.mp4"),
+                              ("refined_full_body", "refined_review", "comparison.mp4"),
+                              ("hands_comparison", "hand_comparison", "hands-comparison.mp4")):
+        preview = previews[role]
+        assert Path(preview["path"]).read_bytes() == (outputs[stage] / name).read_bytes()
+        assert preview["content_type"] == "video/mp4"
+        assert preview["coverage"] == {"kind": "full_sequence", "original_frame_count": 3}
+        assert preview["source_video_sha256"] == result["source_video_sha256"]
+        assert preview["mhr_model_sha256"] == result["mhr_model_sha256"]
+    assert previews["baseline_contact_sheet"]["coverage"] == {"kind": "sampled", "original_frame_ids": [0, 2]}
+    assert previews["hand_qa_frame"]["coverage"] == {"kind": "sampled", "original_frame_ids": [1]}
+    assert previews["hand_qa_frame"]["content_type"] == "image/jpeg"
 
 
 def test_changed_model_output_cannot_be_packaged_from_old_check_receipt(tmp_path):
@@ -163,6 +186,8 @@ def test_local_packaging_emits_no_fake_remote_records_or_urls(tmp_path):
     uploads = package.read_json(destination / "upload-manifest.json")
     assert uploads["upload_performed"] is False
     assert all(asset["intended_url"] is None for asset in uploads["assets"])
+    assert len([item for item in uploads["assets"] if item["content_type"] == "video/mp4"]) == 3
+    assert len([item for item in uploads["assets"] if item["content_type"] == "image/jpeg"]) == 3
     assert package.main(["--batch-root", str(batch), "--episodes", "16", "--output", str(destination),
                          "--delivery-id", "synthetic-local"]) == 1
 
@@ -179,3 +204,28 @@ def test_upstream_camera_mismatch_cannot_be_attached_to_board(tmp_path):
     with pytest.raises(ValueError, match="does not bind the consumed intrinsics"):
         package.published_records([result], "https://fixtures.example.test/assets/synthetic", "c" * 40,
                                   "synthetic-wrong-camera", upstream, "Independent synthetic test executor")
+
+
+def test_preview_coverage_cannot_be_invented_from_other_episode_summary(tmp_path):
+    batch, outputs, _ = fixture_batch(tmp_path)
+    summary_path = outputs["baseline_review"] / "summary.json"
+    summary = package.read_json(summary_path)
+    summary["source_video_sha256"] = "0" * 64
+    summary_path.write_text(json.dumps(summary))
+    receipt_path = outputs["baseline_review"].parent / "attempt-0001.finished.json"
+    receipt = package.read_json(receipt_path)
+    receipt["outputs"]["summary.json"] = package.file_identity(summary_path)
+    receipt_path.write_text(json.dumps(receipt))
+    destination = tmp_path / "delivery"
+    destination.mkdir()
+    with pytest.raises(ValueError, match="does not bind this Track 1 episode"):
+        package.package_episode(batch, 16, destination, "synthetic-wrong-media-source")
+
+
+def test_modified_video_bytes_fail_receipt_verification_before_public_preview(tmp_path):
+    batch, outputs, _ = fixture_batch(tmp_path)
+    (outputs["hand_comparison"] / "hands-comparison.mp4").write_bytes(b"changed video bytes")
+    destination = tmp_path / "delivery"
+    destination.mkdir()
+    with pytest.raises(ValueError, match="Source result changed after stage completion"):
+        package.package_episode(batch, 16, destination, "synthetic-modified-media")

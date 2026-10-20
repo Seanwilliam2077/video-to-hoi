@@ -145,6 +145,66 @@ def portable_index(directory: Path, episode: int, frames: int, selected: str, re
     (directory / "index.html").write_text(page, encoding="utf-8")
 
 
+def preview_assets(outputs: dict, receipts: dict, manifest: dict, output: Path, prefix: str) -> list[dict]:
+    """Expose exact rendered bytes for browser playback without extracting ZIPs."""
+    episode, count = manifest["episode"], manifest["video_frames"]
+    source_sha, model_sha = manifest["video_sha256"], manifest["mhr_model_sha256"]
+    previews = []
+
+    def export(stage, source, suffix, role, content_type, coverage):
+        destination = output / f"{prefix}-{suffix}"
+        # Verify original source bytes against the immutable completed-stage
+        # receipt again; do not derive previews from a loose external filename.
+        verified_copy(source, destination, outputs[stage], receipts[stage][0])
+        previews.append({"role": role, "path": str(destination), "name": destination.name,
+                         **file_identity(destination), "content_type": content_type, "episode": episode,
+                         "source_video_sha256": source_sha, "mhr_model_sha256": model_sha,
+                         "episode_frames": count, "coverage": coverage})
+
+    summaries = {}
+    for stage, label in (("baseline_review", "baseline"), ("refined_review", "refined")):
+        summary_path = outputs[stage] / "summary.json"
+        verified_identity(summary_path, outputs[stage], receipts[stage][0])
+        summary = read_json(summary_path)
+        require(summary.get("dataset") == "track_1" and summary.get("episode") == episode
+                and summary.get("source_video_sha256") == source_sha,
+                f"{stage}: visual review does not bind this Track 1 episode")
+        require(summary.get("decoded_frames") == count and summary.get("prediction_frames") == count
+                and summary.get("missing_frames") == [] and summary.get("prediction_frames_outside_video") == []
+                and summary.get("decode_count_matches_metadata") is True,
+                f"{stage}: visual review does not cover the complete original video")
+        export(stage, outputs[stage] / "comparison.mp4", f"{label}-comparison.mp4", f"{label}_full_body", "video/mp4",
+               {"kind": "full_sequence", "original_frame_count": count})
+        summaries[stage] = summary
+    hand_summary_path = outputs["hand_comparison"] / "summary.json"
+    verified_identity(hand_summary_path, outputs["hand_comparison"], receipts["hand_comparison"][0])
+    hand_summary = read_json(hand_summary_path)
+    require(hand_summary.get("track") == 1 and hand_summary.get("episode") == episode
+            and hand_summary.get("video_sha256") == source_sha and hand_summary.get("frames") == count,
+            "Hand comparison does not bind the complete original Track 1 video")
+    export("hand_comparison", outputs["hand_comparison"] / "hands-comparison.mp4", "hands-comparison.mp4",
+           "hands_comparison", "video/mp4", {"kind": "full_sequence", "original_frame_count": count})
+    sheets = 0
+    for stage, label in (("baseline_review", "baseline"), ("refined_review", "refined")):
+        source = outputs[stage] / "contact-sheet.jpg"
+        if not source.exists():
+            continue
+        ids = summaries[stage].get("contact_sheet_frames")
+        require(isinstance(ids, list) and bool(ids) and all(type(frame) is int and 0 <= frame < count for frame in ids)
+                and len(set(ids)) == len(ids), f"{stage}: invalid actual contact-sheet source frame IDs")
+        export(stage, source, f"{label}-contact-sheet.jpg", f"{label}_contact_sheet", "image/jpeg",
+               {"kind": "sampled", "original_frame_ids": ids})
+        sheets += 1
+    require(sheets > 0, "At least one actual rendered contact sheet is required for the browser preview")
+    hand_frames = sorted((outputs["hand_comparison"] / "frames").glob("*.jpg"))
+    candidates = [path for path in hand_frames if re.fullmatch(r"[0-9]{6}", path.stem) and 0 <= int(path.stem) < count]
+    if candidates:
+        source = min(candidates, key=lambda path: (abs(int(path.stem) - count // 3), int(path.stem)))
+        export("hand_comparison", source, f"hand-qa-frame-{source.stem}.jpg", "hand_qa_frame", "image/jpeg",
+               {"kind": "sampled", "original_frame_ids": [int(source.stem)]})
+    return previews
+
+
 def verify_zip(archive: Path) -> dict:
     with zipfile.ZipFile(archive) as stream:
         require(stream.testzip() is None, "ZIP CRC verification failed")
@@ -302,6 +362,7 @@ generic model observations. It supplies no Track 2 data or derived references.
 """
     (target / "README.md").write_text(readme, encoding="utf-8")
     verify_local_links(target)
+    previews = preview_assets(outputs, receipts, manifest, output, target.name)
     files = {p.relative_to(target).as_posix(): file_identity(p) for p in sorted(target.rglob("*")) if p.is_file()}
     write_json(target / "file-manifest.json", {"schema_version": "human_delivery_files.v1", "delivery_id": delivery_id,
                "episode": episode, "files": files, "scope": "Portable review plus authoritative native Human candidates; not a complete HOI submission"})
@@ -322,6 +383,7 @@ generic model observations. It supplies no Track 2 data or derived references.
     descriptor = {"schema_version": "human_delivery_package.v1", "delivery_id": delivery_id, "episode": episode,
                   "frames": count, "selected_candidate": selected, "source_commit": source_commit,
                   "source_video_sha256": manifest["video_sha256"], "archive": {"path": str(archive), "name": archive.name, **file_identity(archive)},
+                  "mhr_model_sha256": manifest["mhr_model_sha256"], "previews": previews,
                   "input_intrinsics_sha256": manifest.get("input_artifact_sha256", {}).get("intrinsics.json"),
                   "zip_verification": verification, "assets": assets, "structural_check": "pass",
                   "quality_review": "pending", "depth_scale": "unverified_monocular_scale", "official_export": "not_run"}
@@ -407,8 +469,8 @@ def main(argv=None) -> int:
                                      source_commit=args.source_commit) for episode in args.episodes]
         uploads = []
         for package in packages:
-            for asset in [package["archive"], *package["assets"]]:
-                uploads.append({**asset, "content_type": mimetypes.guess_type(asset["name"])[0] or "application/octet-stream",
+            for asset in [package["archive"], *package["assets"], *package["previews"]]:
+                uploads.append({**asset, "content_type": asset.get("content_type") or mimetypes.guess_type(asset["name"])[0] or "application/octet-stream",
                                 "intended_url": args.release_base_url.rstrip("/") + "/" + quote(asset["name"]) if args.release_base_url else None,
                                 "upload_status": "not_uploaded"})
             descriptor = args.output / f"{args.delivery_id}-ep{package['episode']:02d}-package.json"

@@ -21,6 +21,49 @@ from review_human import Predictions, VideoWriter, draw_prediction
 HAND_EDGES = [(0, start) for start in (1, 5, 9, 13, 17)] + [
     (start + j, start + j + 1) for start in (1, 5, 9, 13, 17) for j in range(3)
 ]
+PANEL_HEADER = 40
+
+
+def observations_for_side(image: np.ndarray, points: np.ndarray, weights: np.ndarray,
+                          side: int) -> tuple[np.ndarray, int]:
+    """A crop may overlap the other hand; never draw that hand's evidence here."""
+    observed = image.copy()
+    valid = (weights[side] > 0) & np.isfinite(points[side]).all(axis=1)
+    for a, b in HAND_EDGES:
+        if valid[a] and valid[b]:
+            cv2.line(observed, tuple(np.rint(points[side, a]).astype(int)),
+                     tuple(np.rint(points[side, b]).astype(int)), (80, 240, 120), 1, cv2.LINE_AA)
+    for point in points[side, valid]:
+        cv2.circle(observed, tuple(np.rint(point).astype(int)), 2, (80, 240, 120), -1, cv2.LINE_AA)
+    return observed, int(valid.sum())
+
+
+def fitted_text(panel: np.ndarray, text: str, baseline: int, *, scale: float = .40,
+                color=(235, 235, 235)) -> None:
+    """Constrain text to this panel, including long variant labels at 256 px."""
+    width = max(1, panel.shape[1] - 12)
+    size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, scale, 1)[0][0]
+    if size > width:
+        scale = max(.25, scale * width / size)
+    while text and cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, scale, 1)[0][0] > width:
+        text = text[:-4].rstrip() + "..." if len(text) > 4 else text[:-1]
+    cv2.putText(panel, text, (6, baseline), cv2.FONT_HERSHEY_SIMPLEX, scale, color, 1, cv2.LINE_AA)
+
+
+def panel_header(canvas: np.ndarray, x: int, y: int, width: int, side: str,
+                 role: str, accepted: int | None = None) -> None:
+    panel = canvas[y:y + PANEL_HEADER, x:x + width]
+    first = f"{side} hand" + (f" | {accepted}/21 landmarks" if accepted is not None else "")
+    fitted_text(panel, first, 15, scale=.38)
+    fitted_text(panel, role, 32, scale=.40)
+
+
+def snapshot_frame_ids(count: int, episode: int) -> set[int]:
+    if count < 1:
+        raise ValueError("A snapshot sequence must contain original frames")
+    if episode == 16:
+        return {frame for frame in (0, 40, 60, 110, 120, 210, 240, 284, 285, 286, 287, 308, 359) if frame < count}
+    return set(np.rint(np.linspace(0, count - 1, min(13, count))).astype(int).tolist())
 
 
 class MeshOnly:
@@ -112,11 +155,11 @@ def main() -> None:
         raise ValueError("Observation fps differs from the source video")
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / "frames").mkdir()
-    headers = ["Source RGB", "Accepted 2D observations"] + [label for label, _ in variants]
-    width, height = args.size * len(headers), 2 * (args.size + 32) + 44
+    headers = ["Source RGB", "Independent 2D evidence"] + [label for label, _ in variants]
+    width, height = args.size * len(headers), 2 * (args.size + PANEL_HEADER) + 44
     writer = VideoWriter(args.output / "hands-comparison.mp4", (width, height), fps, cv2)
     count = 0
-    snapshots = {0, 40, 60, 110, 120, 210, 240, 284, 285, 286, 287, 308, 359}
+    snapshots = snapshot_frame_ids(args.expected_frames, args.episode)
     try:
         while True:
             ok, image = capture.read()
@@ -124,37 +167,27 @@ def main() -> None:
                 break
             if count >= len(frame_ids):
                 raise ValueError("Source video has more frames than the experiment")
-            observed = image.copy()
-            accepted_by_side = []
-            for side in range(2):
-                valid = (weights[count, side] > 0) & np.isfinite(points[count, side]).all(axis=1)
-                accepted_by_side.append(int(valid.sum()))
-                for a, b in HAND_EDGES:
-                    if valid[a] and valid[b]:
-                        cv2.line(observed, tuple(np.rint(points[count, side, a]).astype(int)),
-                                 tuple(np.rint(points[count, side, b]).astype(int)),
-                                 (80, 240, 120), 1, cv2.LINE_AA)
-                for point in points[count, side, valid]:
-                    cv2.circle(observed, tuple(np.rint(point).astype(int)), 2,
-                               (80, 240, 120), -1, cv2.LINE_AA)
-            images = [image, observed] + [
+            observed_by_side = [observations_for_side(image, points[count], weights[count], side)
+                                for side in range(2)]
+            images = [image, None] + [
                 draw_prediction(image, MeshOnly(prediction) if args.mesh_only else prediction, count, 0.0, 50000, cv2)[0]
                 for _, prediction in variants
             ]
             canvas = np.full((height, width, 3), (24, 26, 30), dtype=np.uint8)
-            cv2.putText(canvas, f"Source frame {count:03d} / {len(frame_ids)-1} | {count/fps:.3f} s | Same crops for every variant",
+            cv2.putText(canvas, f"Source frame {count:03d} / {len(frame_ids)-1} | {count/fps:.3f} s | Shared crops",
                         (10, 28), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (240, 240, 240), 1, cv2.LINE_AA)
-            for side, name in enumerate(("Left hand", "Right hand")):
-                y = 44 + side * (args.size + 32)
+            for side, name in enumerate(("Left", "Right")):
+                y = 44 + side * (args.size + PANEL_HEADER)
                 for column, (label, panel) in enumerate(zip(headers, images)):
                     x = column * args.size
-                    suffix = f" ({accepted_by_side[side]}/21)" if column == 1 else ""
-                    cv2.putText(canvas, f"{name}: {label}{suffix}", (x+6, y+21),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.39, (235, 235, 235), 1, cv2.LINE_AA)
-                    canvas[y+32:y+32+args.size, x:x+args.size] = crop_panel(panel, boxes[count, side], args.size)
-                    if column == 1 and accepted_by_side[side] == 0:
-                        cv2.putText(canvas, "NO RELIABLE DETECTION", (x+8, y+54),
-                                    cv2.FONT_HERSHEY_SIMPLEX, 0.43, (80, 100, 255), 1, cv2.LINE_AA)
+                    accepted = observed_by_side[side][1] if column == 1 else None
+                    panel_header(canvas, x, y, args.size, name, label, accepted)
+                    if column == 1:
+                        panel = observed_by_side[side][0]
+                    image_panel = canvas[y+PANEL_HEADER:y+PANEL_HEADER+args.size, x:x+args.size]
+                    image_panel[:] = crop_panel(panel, boxes[count, side], args.size)
+                    if column == 1 and accepted == 0:
+                        fitted_text(image_panel, "NO RELIABLE DETECTION", 22, scale=.43, color=(80, 100, 255))
             writer.write(canvas)
             if count in snapshots:
                 if not cv2.imwrite(str(args.output / "frames" / f"{count:06d}.jpg"), canvas):
@@ -175,6 +208,9 @@ def main() -> None:
         "renderer_sha256": digest(Path(__file__)),
         "variants": [{"label": label, "path": str(prediction.path.resolve())} for label, prediction in variants],
         "crop_contract": "Same observation crop, source frame, original time and camera across all panels",
+        "observation_draw_contract": "Each anatomical row draws only accepted landmarks of that same hand; overlapping crops never show the opposite hand's evidence",
+        "snapshot_original_frame_ids": sorted(snapshots),
+        "header_layout": "Two bounded lines per panel: anatomical side/count and display role",
         "diagnostic_joint_dots_displayed": not args.mesh_only,
         "elapsed_seconds": round(time.perf_counter()-started, 3), "codec": writer.codec,
         "scope": "Image-consistency comparison, not hidden-reference accuracy or official scores",

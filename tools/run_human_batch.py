@@ -87,6 +87,18 @@ def configure_stage_runtime(root: Path | None) -> dict:
     return {"driver": driver, "stage_source": stage}
 
 
+def hand_comparison_sources(override: Path | None = None) -> tuple[Path, list[Path]]:
+    """Resolve the renderer and the helpers it actually imports beside itself."""
+    tool = (override if override is not None else ROOT / "tools/compare_human_hands.py").resolve(strict=True)
+    review = tool.parent / "review_human.py"
+    template = tool.parent / "human_review/template.html"
+    for path in (tool, review, template):
+        if path.is_symlink() or not path.is_file():
+            raise ValueError(f"Hand comparison renderer dependency is not a regular file: {path}")
+    source_paths = [tool, review, *sorted(p for p in template.parent.glob("*") if p.is_file())]
+    return tool, source_paths
+
+
 def digest(path: Path) -> str:
     value = hashlib.sha256()
     with path.open("rb") as stream:
@@ -485,13 +497,14 @@ def run_episode(args, episode: int) -> dict:
             "--episode", episode, "--output", out, "--panel-width", args.panel_width,
             "--title", f"Track 1 episode {episode:02d}: {label}, all original frames"],
             inputs={**common, "parameters_sha256": digest(output[label] / parameters)}, source_paths=[tool("review_human.py"), *sorted(p for p in (ROOT / "tools/human_review").glob("*") if p.is_file())])
+    comparison_tool, comparison_sources = hand_comparison_sources(args.hand_comparison_tool)
     output["hand_comparison"] = execute_stage(parent, "hand_comparison", lambda out: [args.sam_python,
-        tool("compare_human_hands.py"), "--video", item["video"], "--observations", obs / "observations.npz",
+        comparison_tool, "--video", item["video"], "--observations", obs / "observations.npz",
         "--episode", episode, "--expected-frames", item["frames"], "--size", 256, "--mesh-only", "--output", out,
         "--variant", f"Fixed body={base / 'review_arrays'}", "--variant", f"MediaPipe hand candidate={refined / 'review_arrays'}"],
         inputs={**common, "baseline_sha256": digest(base / parameters), "refined_sha256": digest(refined / parameters),
                 "observations_sha256": digest(obs / "observations.npz")},
-        source_paths=[tool("compare_human_hands.py"), tool("review_human.py"), *sorted(p for p in (ROOT / "tools/human_review").glob("*") if p.is_file())])
+        source_paths=comparison_sources)
     output["checks"] = execute_stage(parent, "checks", lambda out: [args.sam_python, runner, "check", "--inference", inf,
         "--baseline", base, "--refined", refined, "--observations", obs, "--model", args.mhr_model,
         "--output", out, "--device", args.fit_device, *driver_stage_args],
@@ -522,6 +535,7 @@ def main(argv=None) -> int:
     check.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
     run = sub.add_parser("run", help="Run complete episodes, reusing verified immutable successes")
     run.add_argument("--stage-runtime-root", type=Path, help="Reuse unchanged external tools/modules from this verified snapshot; the current driver runs hands/checks")
+    run.add_argument("--hand-comparison-tool", type=Path, help="Optional renderer override, fingerprinted with its own adjacent review helper/template; model stages keep their source snapshot")
     for name in ("input-root", "receiver-checks", "output", "sam-python", "mediapipe-python", "checkpoint", "mhr-model", "converter", "sam-source", "mediapipe-model"):
         run.add_argument(f"--{name}", type=Path, required=True)
     run.add_argument("--episodes", nargs="+", required=True, help="Original episode IDs, or all")
@@ -552,6 +566,11 @@ def main(argv=None) -> int:
         if args.operation == "check":
             check_episode_results(args.inference, args.baseline, args.refined, args.observations, args.model, args.output, device=args.device)
             return 0
+        comparison_tool, comparison_sources = hand_comparison_sources(args.hand_comparison_tool)
+        if args.hand_comparison_tool is not None:
+            args.hand_comparison_tool = comparison_tool
+        execution_sources["hand_comparison_renderer"] = {"tool": str(comparison_tool),
+            "override": args.hand_comparison_tool is not None, "sources": source_identities(comparison_sources)}
         episodes = list(range(30)) if args.episodes == ["all"] else list(map(int, args.episodes))
         if len(set(episodes)) != len(episodes) or any(i not in range(30) for i in episodes):
             raise ValueError("Episodes must be unique Track 1 IDs 0..29, or all")

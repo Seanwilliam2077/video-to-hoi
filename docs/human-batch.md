@@ -62,6 +62,14 @@ command paths, source hashes, model identities and verified output bytes still
 determine reuse. Changed driver wrappers/checks receive their own new attempts;
 there is no hash override or relabeling of previous evidence.
 
+For a rendering-only correction, `--hand-comparison-tool <new-renderer.py>`
+selects a different hand renderer while leaving model-stage tools in the chosen
+stage snapshot. The renderer's adjacent `review_human.py` and
+`human_review/template.html` are required and fingerprinted with it. Its command
+and source hashes invalidate the hand-comparison cache; the override identity is
+recorded separately from common model-stage inputs. The default renderer path
+and its source identity remain unchanged when the option is omitted.
+
 ## Stages and evidence
 
 Each episode keeps independent attempt directories, start/finish JSON receipts,
@@ -92,7 +100,11 @@ per-frame cache when the signature matches; other tools get fresh directories.
    byte-for-byte, with a separate abstention receipt.
 5. **Visual review:** both baseline and hand candidate receive full-frame videos
    and original-frame viewers. A synchronized close-up video uses identical crops
-   for source RGB, accepted observations and both native geometries.
+   for source RGB, accepted observations and both native geometries. Each anatomical
+   row draws only its own accepted observations, even when its crop overlaps the
+   other hand. Side/count and variant-role headers stay within their image cell.
+   Non-EP16 snapshot sets sample thirteen evenly spaced original frames including
+   both endpoints; EP16 retains its previously reviewed grasp/release QA frames.
 6. **Checks:** full parameter/frame coverage, one identity/scale vector, finite
    complete meshes, camera/frame consistency and native model identity are
    checked. Four deterministic original frames are independently decoded and

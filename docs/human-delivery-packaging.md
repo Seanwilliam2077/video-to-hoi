@@ -49,6 +49,34 @@ coverage, checks source/model agreement, and refuses changed results. It verifie
 all local HTML links after relocation and every ZIP member by CRC and SHA256.
 Keep the returned package descriptor, not just the archive filename.
 
+For direct playback in the dashboard, each episode also exports exact standalone
+copies of the baseline full-body comparison, refined full-body comparison and
+synchronized hand video. One or both actual contact sheets and an optional actual
+hand snapshot are separate JPEG assets. These are copies of existing verified
+renders; the packager does not create or alter their visual content. They are
+additional to the complete portable ZIP.
+
+The package descriptor's `previews` list supplies exact filenames, local paths,
+byte counts, SHA256, MIME types, episode identity, source-video and MHR-model
+identities, original episode length and one of these roles:
+
+| Role | Content and coverage |
+| --- | --- |
+| `baseline_full_body` | Baseline comparison MP4; full original sequence |
+| `refined_full_body` | Hand-candidate comparison MP4; full original sequence |
+| `hands_comparison` | Same-crop source/observation/candidate MP4; full original sequence |
+| `baseline_contact_sheet` | Actual baseline contact-sheet JPEG; sampled original frame IDs |
+| `refined_contact_sheet` | Actual candidate contact-sheet JPEG; sampled original frame IDs |
+| `hand_qa_frame` | Existing hand-comparison JPEG; its actual original frame ID |
+
+Full-sequence preview coverage is `{"kind":"full_sequence","original_frame_count":T}`.
+Still-image coverage is `{"kind":"sampled","original_frame_ids":[...]}`. Video
+coverage must agree with the actual renderer's complete-frame/source identity
+summary. Contact-sheet IDs come from its saved summary; the hand snapshot ID
+comes from its original-frame filename. A sampled image is never presented as
+complete temporal coverage. These direct assets retain the same pending quality
+and scale limitations as the native candidates.
+
 `depth-scale.json` explicitly records `unverified_monocular_scale`. It retains
 the estimated intrinsics and their identity, native unit conventions and
 unresolved metric/shared human-object scale. It supplies no arbitrary `1` scale,
@@ -70,7 +98,9 @@ also supply that base and the full source commit:
 
 This creates `upload-manifest.json`, listing the exact local archive, checks,
 selection, input bindings, scale record and package descriptor for each episode,
-including filename, byte count, SHA256, content type and intended download URL.
+as well as every direct video/JPEG preview, including filename, byte count,
+SHA256, content type and intended download URL. Preview MP4 assets use
+`video/mp4`; JPEG assets use `image/jpeg`.
 No upload is performed. Upload those exact assets and verify their remotely
 accessible identities before importing `dashboard-submitted-records.json` into
 the dashboard. Do not import a declaration whose assets are still local.

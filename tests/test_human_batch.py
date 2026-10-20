@@ -216,3 +216,23 @@ def test_new_driver_checks_keep_unchanged_external_stage_cache(tmp_path):
     assert first_check != second_check
     assert (episode / "baseline/attempt-0001.finished.json").read_bytes() == original_model_receipt
     assert len(list((episode / "baseline").glob("*.started.json"))) == 1
+
+
+def test_comparison_override_uses_its_own_helper_and_template_without_changing_default(tmp_path, monkeypatch):
+    """Renderer changes do not redirect model-stage sources or default commands."""
+    stage = tmp_path / "model-snapshot"
+    override = tmp_path / "new-renderer-snapshot"
+    for root in (stage, override):
+        (root / "tools/human_review").mkdir(parents=True)
+        (root / "tools/compare_human_hands.py").write_text("# independent renderer fixture\n")
+        (root / "tools/review_human.py").write_text("# independent renderer helper fixture\n")
+        (root / "tools/human_review/template.html").write_text("<p>independent template fixture</p>\n")
+    monkeypatch.setattr(batch, "ROOT", stage)
+    default_tool, default_sources = batch.hand_comparison_sources()
+    actual_tool, actual_sources = batch.hand_comparison_sources(override / "tools/compare_human_hands.py")
+    assert default_tool == stage / "tools/compare_human_hands.py"
+    assert default_sources == [stage / "tools/compare_human_hands.py", stage / "tools/review_human.py", stage / "tools/human_review/template.html"]
+    assert actual_tool == override / "tools/compare_human_hands.py"
+    assert all(path.is_relative_to(override) for path in actual_sources)
+    assert batch.ROOT == stage
+    assert batch.hand_comparison_sources() == (default_tool, default_sources)

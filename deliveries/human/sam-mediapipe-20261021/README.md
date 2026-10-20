@@ -1,11 +1,13 @@
 # Local SAM 3D Body and MediaPipe batch
 
 Status on 2026-10-21: all inputs received and independently checked. EP16's
-complete 360-frame Human result is published and registered as `submitted`,
-with a rich preview in the Human catalog. Its hand candidate failed 9 of 11
-support-boundary motion screens, so the fixed-body baseline remains selected.
-EP11 and the remaining episodes are pending final delivery. This is not a
-completed all-30 delivery or a quality acceptance.
+complete 360-frame result and EP11's complete 877-frame result are published
+and registered as `submitted`, with exact-record Human previews. The hand
+candidates failed 9 of 11 and 33 of 35 support-boundary motion screens,
+respectively, so each fixed-body baseline remains selected. The remaining
+28 episodes are queued and the source-bound batch has started. These planned
+declarations contain no completed outputs. This is not a completed all-30
+delivery or a quality acceptance.
 
 The executor is Codex on the owner's Windows workstation. Code is isolated on
 the `human` branch; execution uses an immutable source snapshot. The existing
@@ -94,11 +96,50 @@ the separate motion screen. Therefore the hand candidate is retained for
 inspection and is not the selected native trajectory. Passing a native check
 or an image screen is not reconstruction-quality or true-contact acceptance.
 
+## Published EP11 result
+
+The [EP11 portable review and native parameters](https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11.zip)
+contain all 877 original frames and both candidates. The archive is 327,819,561
+bytes, SHA256
+`929c357bb697d6770a8ccbca965c740bbeeb0a4cc3f4d03eb360ea60c09a04a8`.
+It uses the same pinned source revision as EP16.
+
+- [Selected baseline: full-body comparison](https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-baseline-comparison.mp4).
+- [Unselected hand candidate: full-body comparison](https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-refined-comparison.mp4).
+- [Synchronized hand close-ups](https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-hands-comparison.mp4).
+- [Native and hand checks](https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-checks.json),
+  [scale limitations](https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-depth-scale.json),
+  and [publication/result summary](pilot-review/ep11-published-result.json).
+
+All 12 result assets and their 12 checksum sidecars were independently downloaded
+and verified. The immutable publication receipt has SHA256
+`024984f594a6c8ffb609192fea5d8b4236c8f0386669f7d38fc8311ee3d75ae2`.
+The complete hand movie was decoded, and selected original frames were visually
+reviewed. The reviewer did not watch every frame continuously or independently
+rerun the native decoder. Local browser checks loaded, sought and played all
+three actual Release videos for each pilot without JavaScript errors; their
+receipt identities are included in the operational summary below.
+
+The hand candidate improved held-out image agreement from 7.36 to 5.90 pixels
+over 71 left-hand frames and 7.48 to 5.18 pixels over 78 right-hand frames.
+However, 33 of 35 support boundaries failed the independent motion screen.
+The exact native baseline remains selected, and the hand candidate is available
+for inspection. Occluded hand depth, contact, penetration and release timing
+remain unverified.
+
 ## Remaining delivery work
 
-Finish and review the other pilot before continuing the remaining episodes.
-Preserve the published EP16 package and immutable record; do not regenerate its
-bytes or identifier when adding later episodes. Publish the remaining native
+Both pilots passed the operational coverage, native-decoding and sampled
+visual review gate. The [operational start and runtime summary](pilot-review/all30-operational-start.json)
+binds the final gate, actual batch launch, planned queue, and measured two-pilot
+forecast by receipt hashes. The remaining 15,326 frames have a 19.59-hour compute
+estimate, with an empirical pilot envelope of 18.74 to 20.62 hours and a planning
+allowance of 19 to 26 hours. This estimate includes complete preview generation
+and native checks; packaging, upload, manual review and interruptions are excluded.
+It is a planning estimate, not a completion promise.
+
+Preserve both published pilot packages and immutable records; do not regenerate
+their bytes or identifiers when adding later episodes. Publish the remaining native
 parameters, comparison videos and check receipts, then append their Human
 records and exact preview entries. No all-30 output package, Human board
 acceptance, verified scene scale, physical contact, official export or competition

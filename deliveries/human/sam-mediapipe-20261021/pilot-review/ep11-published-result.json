@@ -1,0 +1,245 @@
+{
+  "schema_version": "human_pilot_published_result.v1",
+  "recorded_at": "2026-10-20T19:18:35.979349+00:00",
+  "track": 1,
+  "episode": 11,
+  "original_frames": 877,
+  "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+  "record_id": "sam-mediapipe-20261021-ep11",
+  "registry_record_sha256": "6a08bd472944cc01103375f7e099cf50266153d24184e4adf2c453b836902608",
+  "registered_state": "submitted",
+  "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+  "mhr_model_sha256": "352e271a6c42729c68554ceaea0c955e866970160c31e35506d782dc0f7377bc",
+  "archive": {
+    "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11.zip",
+    "bytes": 327819561,
+    "sha256": "929c357bb697d6770a8ccbca965c740bbeeb0a4cc3f4d03eb360ea60c09a04a8"
+  },
+  "publication": {
+    "immutable_attempt_name": "attempt-51fef3830fe54e2baeb697b936ef0b02.json",
+    "receipt_sha256": "024984f594a6c8ffb609192fea5d8b4236c8f0386669f7d38fc8311ee3d75ae2",
+    "release_id": 418760708,
+    "verified_assets_including_checksum_sidecars": 24,
+    "all_manifest_assets_verified": true,
+    "anonymous_download_verified": true,
+    "scope": "Summary of a preserved successful publication receipt; not a replacement for its exact original bytes"
+  },
+  "native_check_sha256": "a11f8ad7a4719f669934b089524d24be0d36186cc1d87497f531a8f281e97401",
+  "selected_candidate": "baseline",
+  "selected_native_parameters_sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+  "native_results": {
+    "baseline": {
+      "frames": 877,
+      "pose_shape": [
+        877,
+        136
+      ],
+      "scales_shape": [
+        68
+      ],
+      "shape_shape": [
+        45
+      ],
+      "identity_and_scales_shared": true,
+      "artifact_scope": "human_only_not_complete_submission",
+      "parameters_sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+      "native_decode_max_abs_metres": 9.5367431640625e-07,
+      "native_decode_sample_original_frame_ids": [
+        0,
+        292,
+        584,
+        876
+      ]
+    },
+    "refined": {
+      "frames": 877,
+      "pose_shape": [
+        877,
+        136
+      ],
+      "scales_shape": [
+        68
+      ],
+      "shape_shape": [
+        45
+      ],
+      "identity_and_scales_shared": true,
+      "artifact_scope": "human_only_not_complete_submission",
+      "parameters_sha256": "76ce0f840c4f354fd2d2fadc67c0d5af892e8b8e28e6d9099d7c3aec8503e49c",
+      "native_decode_max_abs_metres": 1.1920928955078125e-06,
+      "native_decode_sample_original_frame_ids": [
+        0,
+        292,
+        584,
+        876
+      ]
+    }
+  },
+  "hand_heldout_nonregression": {
+    "left": {
+      "heldout_observed_frames": 71,
+      "sufficient": true,
+      "before_px": 7.360947305923315,
+      "after_px": 5.902026064950138,
+      "nonregression": true
+    },
+    "right": {
+      "heldout_observed_frames": 78,
+      "sufficient": true,
+      "before_px": 7.483898613171456,
+      "after_px": 5.181142279239538,
+      "nonregression": true
+    }
+  },
+  "hand_support_boundary_motion": {
+    "status": "fail",
+    "boundary_count": 35,
+    "failed_boundaries": 33,
+    "active_hands_pairs_verified": true,
+    "interpretation": "Separate engineering motion screen; failing the hand candidate preserves the exact full-body baseline, not an accepted physical reconstruction"
+  },
+  "previews": [
+    {
+      "role": "baseline_full_body",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-baseline-comparison.mp4",
+      "bytes": 2171756,
+      "sha256": "c376959027eae0273f37e0cc4d259f3df043a1a14f58b16489b73134fd43e67d",
+      "coverage": {
+        "kind": "full_sequence",
+        "original_frame_count": 877
+      },
+      "verified": true
+    },
+    {
+      "role": "refined_full_body",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-refined-comparison.mp4",
+      "bytes": 2176218,
+      "sha256": "96b4a5c869ae75dececb55e4275206df4b949ba31021b57b14cf1831f071c085",
+      "coverage": {
+        "kind": "full_sequence",
+        "original_frame_count": 877
+      },
+      "verified": true
+    },
+    {
+      "role": "hands_comparison",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-hands-comparison.mp4",
+      "bytes": 6572426,
+      "sha256": "88e67e082904a64d406f076c7a4256677c2521ca1cf05acb773c24c1c0fc6272",
+      "coverage": {
+        "kind": "full_sequence",
+        "original_frame_count": 877
+      },
+      "verified": true
+    },
+    {
+      "role": "baseline_contact_sheet",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-baseline-contact-sheet.jpg",
+      "bytes": 610582,
+      "sha256": "1f6c7fe19171bddbe11a6b420e85d5250daaba6094f4d2758accd9ca55d14994",
+      "coverage": {
+        "kind": "sampled",
+        "original_frame_ids": [
+          0,
+          110,
+          219,
+          328,
+          438,
+          548,
+          657,
+          766,
+          876
+        ]
+      },
+      "verified": true
+    },
+    {
+      "role": "refined_contact_sheet",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-refined-contact-sheet.jpg",
+      "bytes": 610594,
+      "sha256": "7398827fe1cf3d5a53f40fa8a409e59af0ee640f224ac7e8a8c4301642edb291",
+      "coverage": {
+        "kind": "sampled",
+        "original_frame_ids": [
+          0,
+          110,
+          219,
+          328,
+          438,
+          548,
+          657,
+          766,
+          876
+        ]
+      },
+      "verified": true
+    },
+    {
+      "role": "hand_qa_frame",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-hand-qa-frame-000292.jpg",
+      "bytes": 146118,
+      "sha256": "f5c1b029203a1ade4d292d485574f65474f16187f27805802e2ad10f5b6d2353",
+      "coverage": {
+        "kind": "sampled",
+        "original_frame_ids": [
+          292
+        ]
+      },
+      "verified": true
+    }
+  ],
+  "sampled_visual_review": {
+    "source_receipt_name": "independent-pilot11-final-hand-review.json",
+    "source_receipt_sha256": "fdb221e8d44239fad023716dba68a9218e4f5420a47ddaae63292e30b18fd160",
+    "checks_sha256": "a11f8ad7a4719f669934b089524d24be0d36186cc1d87497f531a8f281e97401",
+    "complete_hand_movie_frames_decoded": 877,
+    "reported_viewed_original_frame_ids": [
+      0,
+      73,
+      154,
+      155,
+      219,
+      365,
+      438,
+      511,
+      512,
+      657,
+      766,
+      876
+    ],
+    "body_review_sampled_original_frame_ids": [
+      0,
+      109,
+      219,
+      328,
+      438,
+      547,
+      657,
+      766,
+      876
+    ],
+    "sampled_visual_review_completed": true,
+    "quality_acceptance": false,
+    "independent_native_decoder_rerun_by_visual_reviewer": false,
+    "scope": "Complete final hand-movie decoding with sampled visual review of source RGB, independent evidence, fixed native-MHR baseline and MediaPipe hand candidate; not continuous manual viewing of every frame."
+  },
+  "validation": {
+    "registry": "pass",
+    "body_input_catalog": "pass",
+    "human_preview_catalog": "pass",
+    "node_tests": 44,
+    "node_passed": 44,
+    "node_failed": 0
+  },
+  "reconstruction_quality_accepted": false,
+  "shared_scene_scale_verified": false,
+  "physical_contact_verified": false,
+  "official_export_accepted": false,
+  "official_score_available": false,
+  "all_30_delivered": false,
+  "main_deployed": false,
+  "independent_observed_hand_frames_left_right": [
+    346,
+    389
+  ]
+}

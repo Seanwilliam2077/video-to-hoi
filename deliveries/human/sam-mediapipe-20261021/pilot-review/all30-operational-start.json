@@ -1,0 +1,186 @@
+{
+  "schema_version": "human_bulk_operational_start.v1",
+  "recorded_at": "2026-10-20T19:18:35.993359+00:00",
+  "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+  "track": 1,
+  "scope": "Two published pilots and sampled visual/structural gates permit remaining-28 processing. This is a launch and planning receipt, not completed output or quality acceptance.",
+  "pilot_gate": {
+    "receipt_name": "pilot-review-gate03.json",
+    "receipt_sha256": "78c469a3319af20596eefb36d5460afa4ec1c6f6646ab1cddeb73161c60c52d9",
+    "reviewed_at": "2026-10-20T19:14:54.378012+00:00",
+    "bulk_execution_ready": true,
+    "quality_acceptance": false,
+    "driver_sha256": "dac13e8b750d508548e11b480413a28a48e283111c5bf017ad9af123b9deeece",
+    "stage_snapshot_sha256": "0ef843efaf010292411129eeea7f021d179e0b46eaa0db168aeff20fd9608e3d",
+    "receiver_checks_sha256": "9d079897105d712d3ffcb05460b0578e5ac1ffadf6d8ca1410e7619462fa7e62",
+    "pilots": [
+      {
+        "episode": 16,
+        "native_checks_passed": true,
+        "sampled_visual_review_completed": true,
+        "checks_sha256": "8bb595f7f09e7fc67d3ced9893ee686dbd58667330fcce5f84faaedbfe598fb8",
+        "selected_candidate": "baseline",
+        "selected_parameters_sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777",
+        "visual_review_sha256": "821f15a83e383e2832e35387fa6cc4b1bbd2a765e0e55f27eb2c144bb20781dd",
+        "quality_acceptance": false
+      },
+      {
+        "episode": 11,
+        "native_checks_passed": true,
+        "sampled_visual_review_completed": true,
+        "checks_sha256": "a11f8ad7a4719f669934b089524d24be0d36186cc1d87497f531a8f281e97401",
+        "selected_candidate": "baseline",
+        "selected_parameters_sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+        "visual_review_sha256": "fdb221e8d44239fad023716dba68a9218e4f5420a47ddaae63292e30b18fd160",
+        "quality_acceptance": false
+      }
+    ]
+  },
+  "actual_launch": {
+    "receipt_name": "all30-job03.started.json",
+    "receipt_sha256": "85db7ae4c6cbd4b0b5ba671c5e7489b2259e7370002ef071048f1029a3744de3",
+    "started_at": "2026-10-20T19:14:54.506327+00:00",
+    "driver_pid_at_launch": 51376,
+    "launcher_pid_at_launch": 87056,
+    "remaining_episode_count": 28,
+    "remaining_original_frames": 15326,
+    "preserved_pilot_episodes": [
+      11,
+      16
+    ],
+    "scope": "Launch identities only; a PID does not prove continued execution or completion."
+  },
+  "queue_declarations": {
+    "envelope_sha256": "4983c18104f8dd2a0964b3b07c8c1153b314fa9afb46878125b468abb492b7dd",
+    "record_count": 28,
+    "state": "planned",
+    "outputs_declared": false,
+    "registry_commit": "08705456c59bcdb220e30dfaa76aee7a516636be"
+  },
+  "runtime_estimate": {
+    "receipt_name": "runtime-estimate-final06.json",
+    "receipt_sha256": "c96ab88e4386855a97c4b2ee4303932ea1c4cd8ffaa33f6083d7979d5160921a",
+    "measured_pilot_episodes": [
+      16,
+      11
+    ],
+    "remaining_original_frames": 15326,
+    "forecast": {
+      "remaining_compute_hours_point": 19.59,
+      "observed_pilot_envelope_hours": [
+        18.74,
+        20.62
+      ],
+      "planning_allowance_hours": [
+        19,
+        26
+      ],
+      "planning_allowance_basis": "Rounded observed envelope and 25% heuristic upper contingency; not a measured confidence interval.",
+      "clock_start": "From actual remaining-28 model execution start; no absolute completion time is promised.",
+      "includes_complete_previews_and_native_checks": true,
+      "excludes": [
+        "Manual quality review and approval gate",
+        "Re-experiments or changed source signatures that invalidate cached pilots",
+        "Packaging and compression",
+        "GitHub upload and fresh anonymous re-download verification",
+        "Final dashboard import/Node checks/commit/push",
+        "Machine sleep, interruption, thermal or competing workload slowdowns"
+      ]
+    },
+    "limits": [
+      "Only EP16 (360 frames) and EP11 (877 frames) are sampled; this is a planning estimate, not a benchmark of all object/action categories.",
+      "Independent per-stage minima/maxima form an empirical envelope, not a statistical confidence interval.",
+      "Per-frame hand fitting depends on the number/visibility of accepted observations; abstention may be faster and never establishes quality.",
+      "Raw log timing is rounded to 0.01s and excludes startup/export/unattributed work. Residuals are measured stage wall minus instrumented core, not pure fixed startup.",
+      "Native checks use four deterministic decoded frames plus full saved geometry validity scanning.",
+      "Historical failed/cancelled/repeated pilot attempts are excluded; remaining clips are assumed to run once with unchanged frozen sources.",
+      "A completed candidate may select baseline after guard failure; runtime completion is not reconstruction, metric-scale/contact or official-export acceptance."
+    ],
+    "scope": "Empirical two-pilot planning estimate; no all-30 completion time is guaranteed."
+  },
+  "ep16_actual_browser_review": {
+    "receipt_name": "browser-ep16.json",
+    "receipt_sha256": "604833798853ae826de87f3032c365ad371e4809460e8c7e90294ec2cf21a682",
+    "episode": 16,
+    "checked_at": "2026-10-20T19:07:40.958Z",
+    "passed": true,
+    "videos": [
+      {
+        "src": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-baseline-comparison.mp4",
+        "duration": 12,
+        "width": 1440,
+        "height": 588,
+        "readyState": 4,
+        "currentTime": 4.50398,
+        "error": null
+      },
+      {
+        "src": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-refined-comparison.mp4",
+        "duration": 12,
+        "width": 1440,
+        "height": 588,
+        "readyState": 4,
+        "currentTime": 4.502612,
+        "error": null
+      },
+      {
+        "src": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-hands-comparison.mp4",
+        "duration": 12,
+        "width": 1024,
+        "height": 636,
+        "readyState": 4,
+        "currentTime": 4.505785,
+        "error": null
+      }
+    ],
+    "page_errors": [],
+    "quality_acceptance": false,
+    "scope": "Local board loaded, played and sought the three actual Release videos. This is playback/interface QA."
+  },
+  "reconstruction_quality_accepted": false,
+  "shared_scene_scale_verified": false,
+  "physical_contact_verified": false,
+  "official_export_accepted": false,
+  "official_score_available": false,
+  "all_30_delivered": false,
+  "main_deployed": false,
+  "ep11_actual_browser_review": {
+    "receipt_name": "browser-ep11.json",
+    "receipt_sha256": "aca42de0b4fd53ce4e37ac921bef6a4a176ca93f3cbd957c68cd1e1a98ed298a",
+    "episode": 11,
+    "checked_at": "2026-10-20T19:17:17.468Z",
+    "passed": true,
+    "videos": [
+      {
+        "src": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-baseline-comparison.mp4",
+        "duration": 29.233333,
+        "width": 1440,
+        "height": 588,
+        "readyState": 4,
+        "currentTime": 4.512709,
+        "error": null
+      },
+      {
+        "src": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-refined-comparison.mp4",
+        "duration": 29.233333,
+        "width": 1440,
+        "height": 588,
+        "readyState": 4,
+        "currentTime": 4.506627,
+        "error": null
+      },
+      {
+        "src": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-hands-comparison.mp4",
+        "duration": 29.233333,
+        "width": 1024,
+        "height": 636,
+        "readyState": 4,
+        "currentTime": 4.501155,
+        "error": null
+      }
+    ],
+    "page_errors": [],
+    "quality_acceptance": false,
+    "scope": "Local board loaded, played and sought the three actual Release videos. This is playback/interface QA."
+  }
+}

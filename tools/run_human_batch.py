@@ -7,6 +7,7 @@ real artifacts have a published, receiver-accessible location.
 from __future__ import annotations
 
 import argparse
+import ast
 from datetime import datetime, timezone
 import hashlib
 import html
@@ -97,6 +98,44 @@ def hand_comparison_sources(override: Path | None = None) -> tuple[Path, list[Pa
             raise ValueError(f"Hand comparison renderer dependency is not a regular file: {path}")
     source_paths = [tool, review, *sorted(p for p in template.parent.glob("*") if p.is_file())]
     return tool, source_paths
+
+
+def hand_refinement_sources(override: Path | None = None) -> tuple[Path, list[Path]]:
+    """Resolve one refiner without changing other stages' selected source tree."""
+    selected = override if override is not None else ROOT / "tools/refine_human_hands.py"
+    if selected.is_symlink() or not selected.is_file():
+        raise ValueError(f"Hand refiner is not a regular file: {selected}")
+    tool = selected.resolve(strict=True)
+    if tool.name != "refine_human_hands.py" or tool.parent.name != "tools":
+        raise ValueError("Hand refiner must use the tools/refine_human_hands.py layout")
+    root = tool.parents[1]
+    source = root / "src/v2hoi"
+    paths = [tool, source / "hand_refinement.py", source / "human_result.py", source / "__init__.py"]
+
+    def regular(path):
+        if path.is_symlink() or not path.is_file() or not path.resolve().is_relative_to(root):
+            raise ValueError(f"Hand refinement dependency is not a regular contained file: {path}")
+
+    for path in paths:
+        regular(path)
+    needs_contact = False
+    for path in paths:
+        try:
+            syntax = ast.parse(path.read_text(encoding="utf-8-sig"), filename=str(path))
+        except SyntaxError as exc:
+            raise ValueError(f"Invalid Python source in hand refinement dependency: {path}") from exc
+        for node in ast.walk(syntax):
+            if isinstance(node, ast.Import):
+                needs_contact |= any(item.name == "v2hoi.hand_contact" for item in node.names)
+            elif isinstance(node, ast.ImportFrom):
+                needs_contact |= (node.module == "v2hoi.hand_contact" or
+                                  (node.level > 0 and node.module == "hand_contact") or
+                                  (node.module == "v2hoi" and any(item.name == "hand_contact" for item in node.names)))
+    if needs_contact:
+        contact = source / "hand_contact.py"
+        regular(contact)
+        paths.append(contact)
+    return tool, paths
 
 
 def digest(path: Path) -> str:
@@ -310,6 +349,88 @@ def refine_or_preserve(baseline: Path, observations: Path, output: Path, command
                "baseline_sha256": digest(baseline), "observations_sha256": digest(observations), "at": utcnow()}, exclusive=True)
 
 
+def hand_support_boundary_guard(report: dict) -> dict:
+    """Bound added support-edge motion without treating estimated metres as truth."""
+    policy = {"minimum_common_accepted_fingers": 8, "observed_velocity_relative_tolerance": 1.05,
+              "observed_velocity_absolute_tolerance_pixels": .25,
+              "unknown_motion_max_correction_step_pixels": 1.,
+              "unknown_motion_max_correction_step_native_estimated_metres": .005,
+              "interpretation": "Engineering nonregression/budget checks on support transitions; native estimated metres are not verified physical accuracy"}
+    if report.get("hand_refinement_status") == "abstained_insufficient_independent_observations":
+        return {"status": "abstained", "passed": None, "boundary_count": None, "boundaries": [], "policy": policy}
+    motion = report.get("support_boundary_motion")
+    if motion is None:
+        return {"status": "missing_report", "passed": False, "boundary_count": None, "boundaries": [], "policy": policy}
+    if (not isinstance(motion, dict) or not {"interpretation", "boundary_count", "boundaries"} <= set(motion)
+            or set(motion) - {"interpretation", "boundary_count", "boundaries", "independent_motion_evidence"}
+            or not isinstance(motion["interpretation"], str) or not motion["interpretation"].strip()
+            or ("independent_motion_evidence" in motion and (not isinstance(motion["independent_motion_evidence"], str) or not motion["independent_motion_evidence"].strip()))
+            or type(motion["boundary_count"]) is not int or motion["boundary_count"] < 0
+            or not isinstance(motion["boundaries"], list) or len(motion["boundaries"]) != motion["boundary_count"]):
+        raise ValueError("Invalid support-boundary motion report schema or count")
+    step_keys = {f"{name}_mean_wrist_relative_step_{unit}" for name in ("baseline", "candidate", "correction_only") for unit in ("px", "metres")}
+    observed_keys = {"observed_mean_wrist_relative_step_px", "baseline_mean_velocity_vector_discrepancy_px", "candidate_mean_velocity_vector_discrepancy_px"}
+    fields = step_keys | observed_keys | {"side", "from_original_frame_id", "to_original_frame_id", "transition", "common_accepted_finger_count", "adjacent_wrists_accepted"}
+    seen, checked = set(), []
+    for row in motion["boundaries"]:
+        if not isinstance(row, dict) or set(row) != fields:
+            raise ValueError("Invalid support-boundary row schema")
+        first, last = row["from_original_frame_id"], row["to_original_frame_id"]
+        if (row["side"] not in ("left", "right") or type(first) is not int or type(last) is not int
+                or first < 0 or last != first + 1 or row["transition"] not in ("enter_support", "leave_support")):
+            raise ValueError("Support boundaries require a side, adjacent original frame IDs and a valid transition")
+        identity = (row["side"], first, last)
+        if identity in seen:
+            raise ValueError("Duplicate support-boundary frame pair")
+        seen.add(identity)
+        count, wrists = row["common_accepted_finger_count"], row["adjacent_wrists_accepted"]
+        if type(count) is not int or not 0 <= count <= 20 or type(wrists) is not bool:
+            raise ValueError("Invalid common finger count or adjacent wrist acceptance")
+        for key in step_keys | observed_keys:
+            value = row[key]
+            if value is None and key in observed_keys:
+                continue
+            if type(value) not in (int, float) or not math.isfinite(value) or value < 0:
+                raise ValueError("Support-boundary metrics must be finite nonnegative numbers")
+        has_observation = count > 0 and wrists
+        if any((row[key] is not None) != has_observation for key in observed_keys):
+            raise ValueError("Support-boundary observed motion must match accepted adjacent wrists/fingers")
+        supported = count >= 8 and wrists
+        if supported:
+            passed = row["candidate_mean_velocity_vector_discrepancy_px"] <= row["baseline_mean_velocity_vector_discrepancy_px"] * 1.05 + .25
+            mode = "observed_velocity_nonregression"
+        else:
+            passed = (row["correction_only_mean_wrist_relative_step_px"] <= 1.
+                      and row["correction_only_mean_wrist_relative_step_metres"] <= .005)
+            mode = "unknown_motion_correction_budget"
+        checked.append({**row, "guard": mode, "passed": bool(passed)})
+    passed = all(row["passed"] for row in checked)
+    return {"status": "pass" if passed else "fail", "passed": passed, "boundary_count": len(checked),
+            "boundaries": checked, "policy": policy}
+
+
+def validate_support_boundary_pairs(report: dict, active_hands, frame_indices) -> None:
+    """Reconcile every declared boundary with the fitted support mask itself."""
+    import numpy as np
+
+    if report.get("support_boundary_motion") is None:
+        return  # The separate selection guard already refuses this candidate.
+    hand_support_boundary_guard(report)
+    active, indices = np.asarray(active_hands), np.asarray(frame_indices)
+    if active.dtype.kind != "b" or active.shape != (len(indices), 2):
+        raise ValueError("Fitted active_hands must be a Boolean [T,left/right] mask")
+    if indices.ndim != 1 or indices.dtype.kind not in "iu" or not len(indices) or np.any(indices < 0) or np.any(np.diff(indices) != 1):
+        raise ValueError("Support-boundary checks require consecutive original frame IDs")
+    expected = set()
+    for side_index, side in enumerate(("left", "right")):
+        for index in np.flatnonzero(active[1:, side_index] != active[:-1, side_index]):
+            expected.add((side, int(indices[index]), int(indices[index + 1]), "enter_support" if active[index + 1, side_index] else "leave_support"))
+    actual = {(row["side"], row["from_original_frame_id"], row["to_original_frame_id"], row["transition"])
+              for row in report["support_boundary_motion"]["boundaries"]}
+    if expected != actual:
+        raise ValueError("Support-boundary report omits or changes transitions in fitted active_hands")
+
+
 def hand_candidate_guards(report: dict) -> dict:
     """Sparse evidence cannot prove improvement, but can still veto regression."""
     guards = {}
@@ -330,11 +451,21 @@ def hand_candidate_guards(report: dict) -> dict:
         guards[side] = {"heldout_observed_frames": count, "sufficient": count >= 5,
                         "before_px": pre, "after_px": post,
                         "nonregression": bool(post <= pre * 1.05 + .25) if count > 0 else None}
-    usable = any(value["sufficient"] for value in guards.values()) and not any(value["nonregression"] is False for value in guards.values())
+    image_usable = any(value["sufficient"] for value in guards.values()) and not any(value["nonregression"] is False for value in guards.values())
+    boundary = hand_support_boundary_guard(report)
+    usable = image_usable and boundary["passed"] is True
+    if usable:
+        reason = "Sufficient held-out evidence, no observed-side image regression and all support-boundary motion guards passed"
+    elif boundary["status"] == "missing_report":
+        reason = "Missing support-boundary motion report; preserve fixed-body baseline"
+    elif boundary["passed"] is False:
+        reason = "Support-boundary motion regression or added correction exceeds the engineering budget; preserve fixed-body baseline"
+    else:
+        reason = "Insufficient held-out evidence or image regression on an observed side; preserve fixed-body baseline"
     return {"per_side": guards, "candidate_usable": usable,
+            "support_boundary_motion": boundary,
             "selected_candidate": "refined" if usable else "baseline",
-            "selection_reason": ("Sufficient held-out evidence on at least one side and no observed-side image regression"
-                                 if usable else "Insufficient held-out evidence or image regression on an observed side; preserve fixed-body baseline")}
+            "selection_reason": reason}
 
 
 def check_episode_results(inference: Path, baseline: Path, refined: Path, observations: Path,
@@ -390,10 +521,17 @@ def check_episode_results(inference: Path, baseline: Path, refined: Path, observ
         observed = (archive["confidence"].sum(axis=2) > 0).sum(axis=0).tolist()
     report = read_json(refined / "report.json")
     decision = hand_candidate_guards(report)
+    if (report.get("hand_refinement_status") != "abstained_insufficient_independent_observations"
+            and report.get("support_boundary_motion") is not None):
+        active_path = refined / "active_hands.npy"
+        validate_support_boundary_pairs(report, np.load(active_path, allow_pickle=False), expected)
+        decision["support_boundary_motion"]["active_hands_sha256"] = digest(active_path)
+        decision["support_boundary_motion"]["active_hands_pairs_verified"] = True
     result = {"schema_version": "human_batch_episode_checks.v1", "track": 1, "episode": manifest["episode"],
               "frames": count, "source_video_sha256": manifest["video_sha256"], "mhr_model_sha256": model_hash,
               "structural_checks_passed": True, "native_results": results,
               "independent_observed_hand_frames_left_right": observed, "hand_heldout_nonregression": decision["per_side"],
+              "hand_support_boundary_motion": decision["support_boundary_motion"],
               "selected_candidate": decision["selected_candidate"], "selection_reason": decision["selection_reason"],
               "reconstruction_quality_accepted": False, "quality_review": "pending human review; image diagnostics do not establish true 3D contact or hidden accuracy",
               "depth_scale": {"status": "unverified_monocular_scale", "camera": "per-episode Track 1 estimate", "shared_scene_scale_verified": False},
@@ -479,16 +617,17 @@ def run_episode(args, episode: int) -> dict:
         source_paths=[tool("human_hand/observations.py")])
     base, obs = output["baseline"], output["observations"]
     parameters = f"episode_{episode:06d}_human.npz"
+    refinement_tool, refinement_sources = hand_refinement_sources(args.hand_refinement_tool)
     output["refined"] = execute_stage(parent, "refined", lambda out: [args.sam_python, runner, "hands",
         *driver_stage_args,
         "--baseline", base / parameters, "--observations", obs / "observations.npz", "--output", out,
-        "--", args.sam_python, tool("refine_human_hands.py"),
+        "--", args.sam_python, refinement_tool,
         "--baseline", base / parameters, "--observations", obs / "observations.npz", "--manifest", inf / "manifest.json",
         "--review-arrays", base / "review_arrays", "--output", out, "--model", args.mhr_model,
         "--device", args.hand_device, "--threads", 1, "--model-batch", args.hand_model_batch,
         "--iterations", args.hand_iterations, "--optimize-wrist-chain", "--unobserved-policy", "preserve"],
         inputs={**common, "baseline_sha256": digest(base / parameters), "observations_sha256": digest(obs / "observations.npz")},
-        source_paths=[runner, tool("refine_human_hands.py"), ROOT / "src/v2hoi/hand_refinement.py", *modules])
+        source_paths=[runner, ROOT / "src/v2hoi/__init__.py", ROOT / "src/v2hoi/hand_refinement.py", *modules, *refinement_sources])
     refined = output["refined"]
     for label in ("baseline", "refined"):
         arrays = output[label] / "review_arrays"
@@ -536,6 +675,7 @@ def main(argv=None) -> int:
     run = sub.add_parser("run", help="Run complete episodes, reusing verified immutable successes")
     run.add_argument("--stage-runtime-root", type=Path, help="Reuse unchanged external tools/modules from this verified snapshot; the current driver runs hands/checks")
     run.add_argument("--hand-comparison-tool", type=Path, help="Optional renderer override, fingerprinted with its own adjacent review helper/template; model stages keep their source snapshot")
+    run.add_argument("--hand-refinement-tool", type=Path, help="Optional tools/refine_human_hands.py override, fingerprinted with its adjacent src/v2hoi dependencies; other model stages keep their source snapshot")
     for name in ("input-root", "receiver-checks", "output", "sam-python", "mediapipe-python", "checkpoint", "mhr-model", "converter", "sam-source", "mediapipe-model"):
         run.add_argument(f"--{name}", type=Path, required=True)
     run.add_argument("--episodes", nargs="+", required=True, help="Original episode IDs, or all")
@@ -571,6 +711,11 @@ def main(argv=None) -> int:
             args.hand_comparison_tool = comparison_tool
         execution_sources["hand_comparison_renderer"] = {"tool": str(comparison_tool),
             "override": args.hand_comparison_tool is not None, "sources": source_identities(comparison_sources)}
+        refinement_tool, refinement_sources = hand_refinement_sources(args.hand_refinement_tool)
+        if args.hand_refinement_tool is not None:
+            args.hand_refinement_tool = refinement_tool
+        execution_sources["hand_refinement"] = {"tool": str(refinement_tool),
+            "override": args.hand_refinement_tool is not None, "sources": source_identities(refinement_sources)}
         episodes = list(range(30)) if args.episodes == ["all"] else list(map(int, args.episodes))
         if len(set(episodes)) != len(episodes) or any(i not in range(30) for i in episodes):
             raise ValueError("Episodes must be unique Track 1 IDs 0..29, or all")

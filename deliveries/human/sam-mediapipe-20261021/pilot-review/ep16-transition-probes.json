@@ -1,0 +1,63 @@
+{
+  "schema_version": "finger_transition_probe_conclusion.v1",
+  "recorded_at": "2026-10-20T18:25:59.475710+00:00",
+  "track": 1,
+  "episode": 16,
+  "change": "Regularize first/second differences of the added masked native finger correction across support boundaries; per-hand active-edge/triple normalization and independently observed wrist-relative motion gating. Baseline motion and inactive controls remain unchanged.",
+  "configurable_default_weight": 0.08,
+  "probe02_runtime_seconds": 49.766,
+  "final_actual_torch_tests": {
+    "file": "tests/test_hand_refinement.py",
+    "passed": 34,
+    "skipped": 0,
+    "reported_seconds": 5.59,
+    "runtime": "Existing SAM Python/Torch runtime; reused pure pytest dependency path without installing packages or mutating the runtime"
+  },
+  "old02_vs_probe02": {
+    "heldout_left_px": [
+      5.460837184792698,
+      5.532719073909344
+    ],
+    "heldout_right_px": [
+      4.9186062635281385,
+      4.9456456304112555
+    ],
+    "failing_support_boundaries": [
+      11,
+      9
+    ],
+    "total_boundaries": 11
+  },
+  "decision": "Preserve fixed native baseline as selected result; keep MediaPipe candidate as rejected-by-boundary-screen comparison. The soft regularizer improves some diagnostics but does not solve observation-onset twitch.",
+  "scope": "Continuous all-30 baseline coverage and honest independent-hand comparison; reconstruction/contact/scene-scale quality remain pending. No hidden reference or official score.",
+  "new_probe_full_mesh_review_created": false,
+  "no_further_tuning_planned": true,
+  "no_existing_snapshot_or_result_overwritten": true,
+  "source_identities": {
+    "src/v2hoi/hand_refinement.py": "d35d5a1af7ee7e1c1184bf31dc5008ee1022663d2972669df82f26916c6d91c5",
+    "tools/refine_human_hands.py": "e7e0696a421834c9ce971c0e83c2f8bbaa9e9489ee7598dc57bf9ebf4a5f60d1",
+    "tests/test_hand_refinement.py": "deb26791f737c7647fbeaa82ce1fd59f75b9822b2f12ae87339bd635737d97c5"
+  },
+  "evidence": {
+    "independent-pilot16-review.json": {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot16-review.json",
+      "sha256": "5a59db7c989b3feac6e08a7f658f1eb0f150da7d29c05272ea3d843eef828c05"
+    },
+    "finger-transition-probe01-comparison.json": {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\finger-transition-probe01-comparison.json",
+      "sha256": "5ab7a32812c6710822639763fbb2dd3a7e422d8fa987e973591c6460bdf67098"
+    },
+    "finger-transition-probe02-comparison.json": {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\finger-transition-probe02-comparison.json",
+      "sha256": "ea042d2333a910c3d59d9264ef53d012d3bde3cc0496fc671dda7200991820aa"
+    },
+    "finger-transition-probe01.log": {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\finger-transition-probe01.log",
+      "sha256": "1ec0188b539dc5f9c789befd7062f08b3ba1d30bfa1cd810a312c6fa1e29a8c0"
+    },
+    "finger-transition-probe02.log": {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\finger-transition-probe02.log",
+      "sha256": "4ae4e64699324dad769be8eb48fd8f0c121abea8f095268cbae2f6bd0bbfb881"
+    }
+  }
+}

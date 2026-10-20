@@ -46,6 +46,7 @@ def main() -> None:
     parser.add_argument("--arm-delta-limit-radians", type=float, default=0.10)
     parser.add_argument("--wrist-max-displacement-metres", type=float, default=0.04)
     parser.add_argument("--arm-update-temporal-weight", type=float, default=0.08)
+    parser.add_argument("--finger-update-temporal-weight", type=float, default=0.08)
     parser.add_argument("--spatial-acceleration-weight", type=float, default=0.0)
     parser.add_argument("--motion-phases", type=Path)
     parser.add_argument("--contact-object", type=Path)
@@ -100,6 +101,7 @@ def main() -> None:
                            arm_delta_limit_radians=args.arm_delta_limit_radians,
                            wrist_max_displacement_metres=args.wrist_max_displacement_metres,
                            arm_update_temporal_weight=args.arm_update_temporal_weight,
+                           finger_update_temporal_weight=args.finger_update_temporal_weight,
                            spatial_acceleration_weight=args.spatial_acceleration_weight)
     config.validate()
     hands = NativeMHRHands(str(args.model), device=args.device)

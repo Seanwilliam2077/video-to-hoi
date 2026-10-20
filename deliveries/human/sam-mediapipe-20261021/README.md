@@ -1,8 +1,10 @@
 # Local SAM 3D Body and MediaPipe batch
 
-Status on 2026-10-21: inputs received and independently checked; complete EP16
-and EP11 pilots are running. This is not a completed all-30 reconstruction
-delivery or a declaration of reconstruction quality.
+Status on 2026-10-21: all inputs received and independently checked. EP16
+completed 360 frames; its hand candidate failed a new support-boundary motion
+screen, so the fixed-body baseline will remain selected. EP11 completed all 877
+raw inference frames and is being fitted. Final pilot checks and the all-30 batch
+are pending. This is not a completed all-30 delivery or a quality acceptance.
 
 The executor is Codex on the owner's Windows workstation. Code is isolated on
 the `human` branch; execution uses an immutable source snapshot. The existing
@@ -43,6 +45,22 @@ with batch 8 and 77.000 seconds with batch 1; maximum geometry difference was
 0.04323 mm. These are short smoke measurements, not all-episode throughput or
 accuracy against hidden references. The executed native model uses float32
 with a float64 solver. No model-math precision change is inferred from chunking.
+
+## Hand transition review
+
+[Independent EP16 review](pilot-review/ep16-initial-review.json) found extra
+finger motion when independent observations resumed or disappeared. At original
+frames 285 to 286, mean wrist-relative image motion was 1.30 pixels in the
+baseline and 8.67 pixels in the initial hand candidate. The 17 common independent
+finger observations moved about 1.51 pixels. These are image diagnostics, not
+hidden-reference errors.
+
+[Two correction-continuity probes](pilot-review/ep16-transition-probes.json)
+reduced that onset jump but still failed 9 of 11 boundary screens. Held-out image
+agreement alone passed, so it cannot authorize the candidate. The final runner
+checks every fitted support boundary, keeps both candidates and falls back to
+the native baseline when needed. The occluded left grasp still lacks independent
+observations; hand twitching and physical contact have not been solved.
 
 ## Remaining delivery work
 

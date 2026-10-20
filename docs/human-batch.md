@@ -70,6 +70,13 @@ and source hashes invalidate the hand-comparison cache; the override identity is
 recorded separately from common model-stage inputs. The default renderer path
 and its source identity remain unchanged when the option is omitted.
 
+`--hand-refinement-tool <snapshot>/tools/refine_human_hands.py` similarly selects
+an updated hand optimizer without redirecting inference, native baseline fitting,
+observations or body review. Its adjacent native modules and package initializer
+are fingerprinted, including conditional contact imports. Driver wrappers keep
+their own source identities. This permits a new, honestly identified hand attempt
+to reuse unchanged, verified body inference and fixed-identity geometry.
+
 ## Stages and evidence
 
 Each episode keeps independent attempt directories, start/finish JSON receipts,
@@ -98,6 +105,10 @@ per-frame cache when the signature matches; other tools get fresh directories.
    phase labels are applied to another video. If no training-frame
    evidence supports fitting, the optimizer abstains and preserves the baseline
    byte-for-byte, with a separate abstention receipt.
+   First and second differences of the added finger correction are regularized
+   across support boundaries, separately for each hand. Unsupported corrections
+   remain zero; independently observed fast motion relaxes this prior. This is
+   not smoothing the baseline trajectory or manufacturing hidden image targets.
 5. **Visual review:** both baseline and hand candidate receive full-frame videos
    and original-frame viewers. A synchronized close-up video uses identical crops
    for source RGB, accepted observations and both native geometries. Each anatomical
@@ -113,12 +124,27 @@ per-frame cache when the signature matches; other tools get fresh directories.
    frames, can veto a regression. Fewer than five held-out observed frames still
    leaves that side insufficient to demonstrate improvement. Counts must agree
    and all image metrics must be finite and nonnegative.
+   Every activation/deactivation boundary is reconciled against the actual fitted
+   Boolean support mask. With at least eight common accepted finger observations
+   and both adjacent wrists, boundary image-velocity discrepancy must not regress
+   beyond 5% plus 0.25 pixels. Without that evidence, the added wrist-relative
+   correction step must stay within both 1 pixel and 0.005 native estimated metres.
+   These are explicit engineering budgets, not physical accuracy or challenge
+   thresholds. Missing boundary reports prevent candidate selection.
 
 The local candidate selector requires at least one sufficiently observed side
-and no observed side failing the image non-regression screen.
+and no observed side failing the image non-regression screen, with every support
+boundary passing the separate motion screen.
 Otherwise it selects the preserved fixed-body baseline. This is a reproducible
 diagnostic selection, **not** a claim that unobserved fingers, real 3D contact,
 global motion, metric scale or competition accuracy have passed.
+
+The EP16 pilot demonstrated why both screens are needed: held-out image errors
+improved, while the hand candidate introduced extra motion when observations
+resumed or disappeared. A correction-continuity prior reduced these jumps but
+did not eliminate all boundary failures. Keep that candidate for comparison and
+select the fixed-body baseline when the motion screen fails. Do not describe
+this fallback as having solved hand twitching or recovered the occluded grasp.
 
 The latest navigation files are `batch-progress.json`, each episode's
 `current-result.json`, and `episode_XXXXXX/report/index.html`. Attempt receipts

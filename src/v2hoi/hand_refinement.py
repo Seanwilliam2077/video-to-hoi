@@ -49,6 +49,7 @@ class HandFitConfig:
     wrist_anchor_weight: float = 0.025
     wrist_max_displacement_metres: float = 0.04
     arm_update_temporal_weight: float = 0.08
+    finger_update_temporal_weight: float = 0.08
     spatial_acceleration_weight: float = 0.0
 
     def validate(self) -> None:
@@ -70,7 +71,7 @@ class HandFitConfig:
                      "arm_delta_limit_radians", "wrist_max_displacement_metres"):
             if not np.isfinite(getattr(self, name)) or getattr(self, name) <= 0:
                 raise ValueError(f"{name} must be finite and positive")
-        for name in ("velocity_weight", "acceleration_weight", "pose_prior_weight", "arm_prior_weight", "wrist_observation_weight", "wrist_anchor_weight", "arm_update_temporal_weight", "spatial_acceleration_weight"):
+        for name in ("velocity_weight", "acceleration_weight", "pose_prior_weight", "arm_prior_weight", "wrist_observation_weight", "wrist_anchor_weight", "arm_update_temporal_weight", "finger_update_temporal_weight", "spatial_acceleration_weight"):
             if not np.isfinite(getattr(self, name)) or getattr(self, name) < 0:
                 raise ValueError(f"{name} must be finite and nonnegative")
         if not 0 < self.min_confidence <= 1 or not 0 <= self.relative_weight <= 1:
@@ -120,8 +121,8 @@ def supported_frames(confidence: np.ndarray, config: HandFitConfig) -> np.ndarra
     return active
 
 
-def observation_motion_gate(points: np.ndarray, confidence: np.ndarray, config: HandFitConfig) -> np.ndarray:
-    """Reduce acceleration regularization during independently observed motion.
+def observation_edge_motion_gate(points: np.ndarray, confidence: np.ndarray, config: HandFitConfig) -> np.ndarray:
+    """Relax correction continuity only on independently observed fast edges.
 
     Wrist-relative displacement avoids treating body/camera translation as finger
     articulation. Only adjacent high-confidence observations contribute; long
@@ -133,10 +134,13 @@ def observation_motion_gate(points: np.ndarray, confidence: np.ndarray, config: 
     weight *= np.minimum(confidence[1:, :, :1], confidence[:-1, :, :1])
     weight = np.where(weight >= config.min_confidence, weight, 0)
     mean_speed = (speed * weight).sum(-1) / np.maximum(weight.sum(-1), 1e-8)
-    gate = np.ones((max(0, len(points) - 2), 2), dtype=np.float32)
-    if len(points) >= 3:
-        gate = 1 / (1 + (np.maximum(mean_speed[1:], mean_speed[:-1]) / config.motion_gate_pixels) ** 2)
-    return gate.astype(np.float32)
+    return (1 / (1 + (mean_speed / config.motion_gate_pixels) ** 2)).astype(np.float32)
+
+
+def observation_motion_gate(points: np.ndarray, confidence: np.ndarray, config: HandFitConfig) -> np.ndarray:
+    """Reduce acceleration regularization during independently observed motion."""
+    edges = observation_edge_motion_gate(points, confidence, config)
+    return np.minimum(edges[1:], edges[:-1])
 
 
 def hand_diagnostics(projected: np.ndarray, observations: Mapping[str, Any], active: np.ndarray) -> dict[str, Any]:
@@ -167,6 +171,47 @@ def hand_diagnostics(projected: np.ndarray, observations: Mapping[str, Any], act
             "relative_second_difference_p95_pixels_per_frame2": float(np.percentile(second[:, side], 95)) if len(second) else None,
         }
     return output
+
+
+def correction_boundary_diagnostics(baseline: np.ndarray, candidate: np.ndarray, active: np.ndarray,
+                                    frame_indices: np.ndarray, intrinsics: np.ndarray,
+                                    observations: Mapping[str, Any], min_confidence: float) -> dict[str, Any]:
+    """Measure every support transition without an unavailable reference target."""
+    def relative_pixels(joints):
+        projected = joints @ intrinsics.T
+        projected = projected[..., :2] / np.maximum(projected[..., 2:], 1e-5)
+        return projected[:, :, 1:] - projected[:, :, :1]
+
+    base_px, candidate_px = relative_pixels(baseline), relative_pixels(candidate)
+    base_m = baseline[:, :, 1:] - baseline[:, :, :1]
+    candidate_m = candidate[:, :, 1:] - candidate[:, :, :1]
+    observed = observations["joints2d"][:, :, 1:] - observations["joints2d"][:, :, :1]
+    confidence = observations["confidence"]
+    rows = []
+    for before, side in np.argwhere(active[1:] != active[:-1]):
+        after = before + 1
+        row = {"side": ("left", "right")[side], "from_original_frame_id": int(frame_indices[before]),
+               "to_original_frame_id": int(frame_indices[after]),
+               "transition": "enter_support" if active[after, side] else "leave_support"}
+        for unit, original, fitted in (("px", base_px, candidate_px), ("metres", base_m, candidate_m)):
+            correction = fitted - original
+            for name, value in (("baseline", original), ("candidate", fitted), ("correction_only", correction)):
+                row[f"{name}_mean_wrist_relative_step_{unit}"] = float(np.linalg.norm(value[after, side] - value[before, side], axis=-1).mean())
+        wrist_supported = bool(min(confidence[before, side, 0], confidence[after, side, 0]) >= min_confidence)
+        common = (np.minimum(confidence[before, side, 1:], confidence[after, side, 1:]) >= min_confidence) & wrist_supported
+        row.update(common_accepted_finger_count=int(common.sum()), adjacent_wrists_accepted=wrist_supported,
+                   observed_mean_wrist_relative_step_px=None, baseline_mean_velocity_vector_discrepancy_px=None,
+                   candidate_mean_velocity_vector_discrepancy_px=None)
+        if common.any():
+            velocity = observed[after, side, common] - observed[before, side, common]
+            row["observed_mean_wrist_relative_step_px"] = float(np.linalg.norm(velocity, axis=-1).mean())
+            for name, value in (("baseline", base_px), ("candidate", candidate_px)):
+                predicted_velocity = value[after, side, common] - value[before, side, common]
+                row[f"{name}_mean_velocity_vector_discrepancy_px"] = float(np.linalg.norm(predicted_velocity - velocity, axis=-1).mean())
+        rows.append(row)
+    return {"interpretation": "Prediction-only support-boundary steps relative to each wrist, not reference-relative ACC or verified physical motion",
+            "independent_motion_evidence": "Full independent observations are used only after fitting for this report; accepted adjacent fingers require both accepted wrists and both accepted finger observations",
+            "boundary_count": len(rows), "boundaries": rows}
 
 
 class NativeMHRHands:
@@ -289,6 +334,10 @@ def refine_hands(
     arm_selection[torch.arange(14, device=device), arm_indices] = 1
     optimizer = torch.optim.Adam([delta, arm_delta] if config.optimize_wrist_chain else [delta], lr=config.learning_rate)
     motion_gate = torch.as_tensor(observation_motion_gate(training["joints2d"], training["confidence"], config), device=device)
+    edge_motion_gate = torch.as_tensor(observation_edge_motion_gate(training["joints2d"], training["confidence"], config), device=device)
+    update_edge_gate = torch.cat([edge_motion_gate[:, 1:2].expand(-1, 27), edge_motion_gate[:, :1].expand(-1, 27)], dim=1)
+    update_edge_support = torch.maximum(mask[:-1], mask[1:])
+    update_second_support = torch.maximum(torch.maximum(mask[:-2], mask[1:-1]), mask[2:])
     spatial_phase = torch.as_tensor(np.minimum(np.minimum(prior_phase[:-2], prior_phase[1:-1]), prior_phase[2:]), device=device)
     gate_controls = torch.cat([motion_gate[:, 1:2].expand(-1, 27), motion_gate[:, :1].expand(-1, 27)], dim=1)
     triple = mask[:-2] * mask[1:-1] * mask[2:]
@@ -296,7 +345,8 @@ def refine_hands(
     velocity_weights = torch.minimum(relative_weights[1:], relative_weights[:-1])
     observed_relative = points[:, :, 1:] - points[:, :, :1]
     with torch.no_grad():
-        baseline_wrists = hand_forward(base, scales)[:, :, 0].detach()
+        baseline_hands = hand_forward(base, scales).detach()
+        baseline_wrists = baseline_hands[:, :, 0]
 
     def assembled_pose():
         hand = base[:, 68:122] + delta * mask
@@ -332,10 +382,29 @@ def refine_hands(
         angular_acceleration = torch.atan2(torch.sin(angular_acceleration), torch.cos(angular_acceleration))
         acceleration = (angular_acceleration.square() * gate_controls * triple).sum() / triple.sum().clamp_min(1) / 0.2**2
         prior = ((delta * mask).square()).sum() / mask.sum().clamp_min(1) / 0.35**2
+        # The old full-active triple mask ignores an observation onset/offset.
+        # Regularize the ADDED correction across that boundary, where inactive
+        # corrections stay exactly zero. The baseline motion is never smoothed
+        # by this term. Supported fast image articulation relaxes the penalty;
+        # missing observations supply no asserted motion or target coordinates.
+        finger_update = delta * mask
+        def per_hand_supported_mean(values, support):
+            denominator = support.reshape(-1, 2, 27).sum(dim=(0, 2))
+            numerator = values.reshape(-1, 2, 27).sum(dim=(0, 2))
+            present = (denominator > 0).to(values.dtype)
+            # A sparsely observed hand must not be diluted by the other hand's
+            # much longer support interval. Unsupported sides add no penalty.
+            return ((numerator / denominator.clamp_min(1)) * present).sum() / present.sum().clamp_min(1)
+        finger_update_temporal = (
+            per_hand_supported_mean(torch.diff(finger_update, n=2, dim=0).square() * gate_controls * update_second_support,
+                                    update_second_support)
+            + .25 * per_hand_supported_mean(torch.diff(finger_update, dim=0).square() * update_edge_gate * update_edge_support,
+                                           update_edge_support)
+        ) / 0.2**2
         data = (1 - config.relative_weight) * absolute + config.relative_weight * relative_loss
-        total = data + config.velocity_weight * velocity + config.acceleration_weight * acceleration + config.pose_prior_weight * prior
+        total = data + config.velocity_weight * velocity + config.acceleration_weight * acceleration + config.pose_prior_weight * prior + config.finger_update_temporal_weight * finger_update_temporal
         parts = {"data": data, "absolute": absolute, "relative": relative_loss, "velocity": velocity,
-                 "acceleration": acceleration, "prior": prior, "total": total}
+                 "acceleration": acceleration, "prior": prior, "finger_update_temporal": finger_update_temporal, "total": total}
         if config.optimize_wrist_chain:
             wrist_observation = weighted_huber(projected[:, :, 0] - points[:, :, 0], weights[:, :, 0])
             wrist_anchor = (joints[:, :, 0] - baseline_wrists).square().sum(-1).mean() / 0.02**2
@@ -442,6 +511,10 @@ def refine_hands(
         untouched = np.setdiff1d(untouched, ARM_CONTROLS.reshape(-1))
     if not np.array_equal(out_pose[:, untouched], np.asarray(result["pose"])[:, untouched]):
         raise AssertionError("body, root or wrist controls changed during hand-only fitting")
+    for side, (start, stop) in enumerate(HAND_SLICES):
+        if not np.array_equal(out_pose[~active[:, side], start:stop], np.asarray(result["pose"])[~active[:, side], start:stop]):
+            raise AssertionError("inactive finger controls changed from the baseline")
+    boundaries = correction_boundary_diagnostics(baseline_hands.cpu().numpy(), final_hands.cpu().numpy(), active, indices, k_array, observation, config.min_confidence)
     return {
         "pose": out_pose, "scales": np.array(result["scales"], dtype=np.float32, copy=True),
         "shape": np.array(result["shape"], dtype=np.float32, copy=True),
@@ -460,6 +533,8 @@ def refine_hands(
             "before_heldout": before_heldout, "after_heldout": after_heldout,
             "heldout_frame_indices": indices[holdout_frames].tolist(),
             "heldout_policy": "All image position, velocity and motion gate targets on these frames excluded from fitting; temporal priors may update them",
+            "finger_update_temporal_semantics": "Per-hand normalized first/second differences of the added masked finger correction include active/inactive boundaries; inactive values stay at baseline. Independently observed wrist-relative fast motion relaxes the penalty; no missing image targets or baseline trajectory smoothing are introduced.",
+            "support_boundary_motion": boundaries, "inactive_finger_controls_exactly_preserved": True,
             "prior_only_frame_indices": {name: indices[active[:, side] & ~observed_support[:, side]].tolist()
                                          for side, name in enumerate(("left", "right"))},
             "admitted_motion_prior_frame_indices": {name: indices[prior_phase[:, side] > 0].tolist()

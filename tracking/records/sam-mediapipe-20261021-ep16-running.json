@@ -1,0 +1,41 @@
+{
+  "id": "sam-mediapipe-20261021-ep16-running",
+  "episode_id": "episode_000016",
+  "stage": "human",
+  "iteration": "sam-mediapipe-20261021",
+  "state": "running",
+  "kind": "real_track1",
+  "created_at": "2026-10-20T17:41:14.514+00:00",
+  "contributor": "Codex on the owner's local Windows workstation",
+  "reviewer": "",
+  "summary": "New received mask/camera profile: all 360 original frames inferred on the local GPU; shared native identity/scales and independent hand fitting/review are in progress.",
+  "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/tree/93f557d14f7f48a7811c23dcb6671f638ab729fb/deliveries/human/sam-mediapipe-20261021",
+  "source_commit": "93f557d14f7f48a7811c23dcb6671f638ab729fb",
+  "upstream": [
+    {
+      "stage": "inputs",
+      "record_id": "body-inputs-20261016-ep16"
+    }
+  ],
+  "artifacts": [],
+  "coverage": {
+    "frames": null,
+    "objects_complete": null
+  },
+  "checks": {
+    "structural": {
+      "status": "not_run",
+      "evidence_url": ""
+    },
+    "quality": {
+      "status": "not_run",
+      "evidence_url": ""
+    },
+    "export": {
+      "status": "not_run",
+      "evidence_url": ""
+    }
+  },
+  "blocker": "",
+  "next_action": "Complete both pilots, inspect native/body/hand evidence, then execute the remaining episodes. Publish exact result URLs and append a submitted record; do not infer quality acceptance from execution."
+}

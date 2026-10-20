@@ -1,10 +1,10 @@
 {
   "schema_version": "hoi_progress.v1",
-  "updated_at": "2026-10-15T17:35:16Z",
+  "updated_at": "2026-10-20T17:41:15Z",
   "source": {
     "inventory_path": "docs/track1-videos/index.html#DATA",
     "repository": "https://github.com/Seanwilliam2077/video-to-hoi",
-    "revision": "3238f9c6657605e6fac168d91a1f0b12edc889be",
+    "revision": "93f557d14f7f48a7811c23dcb6671f638ab729fb",
     "scope": "Track 1 metadata and manually registered evidence declarations; six internal stage boundaries, native adapters and official acceptance remain separate"
   },
   "episodes": [
@@ -2035,6 +2035,88 @@
       },
       "blocker": "Full M1 Inputs acceptance still needs object masks and depth/scale evidence; this does not block the standalone Body input profile.",
       "next_action": "Receiver: verify the archive, prepare the pinned Body runtime/weights and run human reconstruction. Preserve input/model hashes."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep11-planned",
+      "episode_id": "episode_000011",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "planned",
+      "kind": "real_track1",
+      "created_at": "2026-10-20T17:41:14.514+00:00",
+      "contributor": "Codex on the owner's local Windows workstation",
+      "reviewer": "",
+      "summary": "Longest pilot: 877 original frames, walking/turning/desk occlusion. Queued after EP16 before the all-30 execution decision.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/tree/93f557d14f7f48a7811c23dcb6671f638ab729fb/deliveries/human/sam-mediapipe-20261021",
+      "source_commit": "93f557d14f7f48a7811c23dcb6671f638ab729fb",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep11"
+        }
+      ],
+      "artifacts": [],
+      "coverage": {
+        "frames": null,
+        "objects_complete": null
+      },
+      "checks": {
+        "structural": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "blocker": "",
+      "next_action": "Complete both pilots, inspect native/body/hand evidence, then execute the remaining episodes. Publish exact result URLs and append a submitted record; do not infer quality acceptance from execution."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep16-running",
+      "episode_id": "episode_000016",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "running",
+      "kind": "real_track1",
+      "created_at": "2026-10-20T17:41:14.514+00:00",
+      "contributor": "Codex on the owner's local Windows workstation",
+      "reviewer": "",
+      "summary": "New received mask/camera profile: all 360 original frames inferred on the local GPU; shared native identity/scales and independent hand fitting/review are in progress.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/tree/93f557d14f7f48a7811c23dcb6671f638ab729fb/deliveries/human/sam-mediapipe-20261021",
+      "source_commit": "93f557d14f7f48a7811c23dcb6671f638ab729fb",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep16"
+        }
+      ],
+      "artifacts": [],
+      "coverage": {
+        "frames": null,
+        "objects_complete": null
+      },
+      "checks": {
+        "structural": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "blocker": "",
+      "next_action": "Complete both pilots, inspect native/body/hand evidence, then execute the remaining episodes. Publish exact result URLs and append a submitted record; do not infer quality acceptance from execution."
     }
   ],
   "capabilities": [

@@ -543,7 +543,7 @@ def check_episode_results(inference: Path, baseline: Path, refined: Path, observ
 
 def html_report(episode: int, outputs: dict[str, Path], checks: dict, destination: Path) -> None:
     """Portable relative links; no runtime file upload, tracking, or hidden scores."""
-    destination.mkdir(parents=True)
+    destination.mkdir(parents=True, exist_ok=True)
     relative = lambda path: html.escape(os.path.relpath(path, destination).replace("\\", "/"), quote=True)
     checks_link = relative(outputs["checks"] / "checks.json")
     sections = []

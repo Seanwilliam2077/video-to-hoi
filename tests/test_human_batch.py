@@ -239,6 +239,27 @@ def test_comparison_override_uses_its_own_helper_and_template_without_changing_d
     assert batch.hand_comparison_sources() == (default_tool, default_sources)
 
 
+def test_resuming_updates_derived_report_without_rewriting_stage_evidence(tmp_path):
+    """A cached rerun must refresh navigation after its immutable stages finish."""
+    outputs = {name: tmp_path / name / "attempt-0001" for name in
+               ("checks", "baseline_review", "refined_review", "hand_comparison")}
+    for path in outputs.values():
+        path.mkdir(parents=True)
+    evidence = outputs["checks"] / "checks.json"
+    evidence.write_text('{"independent_synthetic_evidence": true}\n')
+    original = evidence.read_bytes()
+    destination = tmp_path / "report"
+    checks = {"frames": 3, "selected_candidate": "refined", "selection_reason": "Initial synthetic selection"}
+    batch.html_report(16, outputs, checks, destination)
+    checks.update(selected_candidate="baseline", selection_reason="Synthetic boundary regression fallback")
+    batch.html_report(16, outputs, checks, destination)
+    page = (destination / "index.html").read_text()
+    assert "<strong>baseline</strong>" in page
+    assert "Synthetic boundary regression fallback" in page
+    assert "Initial synthetic selection" not in page
+    assert evidence.read_bytes() == original
+
+
 def refinement_source_fixture(root, *, contact=False):
     """Independent Python text only; resolving dependencies never imports it."""
     (root / "tools").mkdir(parents=True)

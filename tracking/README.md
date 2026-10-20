@@ -1,6 +1,7 @@
 # Video progress and evidence registry
 
-This registry powers the [30-video progress board](../docs/progress-board/index.html).
+This registry powers the public [30-video progress board](https://seanwilliam2077.github.io/video-to-hoi/)
+([source](../docs/progress-board/index.html)).
 It indexes per-video, per-stage evidence for iteration and review. No registered
 record means **unregistered / unknown**, not that nobody has started the work.
 The registry now contains 30 `body-prep-v1` Inputs submissions, one per video,
@@ -10,10 +11,16 @@ needs object/depth/scale evidence, so these records remain `submitted`, with
 full-stage checks `not_run`; none represents accepted human reconstruction.
 Shared platform capabilities are shown separately and never count as completed videos.
 
-The [hosted board](https://video-to-hoi-progress.almondclock256.chatgpt.site) is
-currently an owner-private Site; its URL does not grant access to teammates.
-Git records are the shared source of project progress. The browser's drafts
-remain local until exported, imported into the repository and merged.
+The hosted board uses GitHub Pages and needs no sign-in. The
+[publication workflow](../.github/workflows/progress-pages.yml) validates the
+registry and board, then publishes only the four board assets and
+`tracking/board.json` when relevant changes reach `main`. It can also be run
+manually from Actions. The deployed snapshot comes from that exact checkout;
+use **Refresh repository** to read the latest merged snapshot immediately.
+The earlier owner-private Site is no longer the team's primary entry point.
+Git records remain the shared source of project progress. Browser drafts
+remain local until exported, imported into the repository and merged; drafts
+on the old Site or localhost are not transferred automatically to this origin.
 
 ## Data flow
 

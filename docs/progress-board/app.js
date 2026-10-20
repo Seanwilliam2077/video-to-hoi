@@ -18,7 +18,8 @@
     subtitle: '跟踪全部 30 个视频的六个阶段、交付材料与迭代记录。',
     workingAreas: '递交分区', repository: '仓库', teamHub: '团队主页',
     projectStatus: '项目进展', reference: '比赛资料', platformNav: '① 平台',
-    humanNav: '② 人体', objectNav: '③ 物体', physicsNav: '④ 物理'
+    humanNav: '② 人体', objectNav: '③ 物体', physicsNav: '④ 物理',
+    privateNote: '团队看板由 GitHub Pages 公开托管，无需登录。本机草稿只保存在当前浏览器和网址下；导出并提交 Git 后才成为团队记录。'
   });
   Object.assign(en, {
     title: 'Track 1 delivery board',
@@ -27,7 +28,8 @@
     projectStatus: 'Status', reference: 'Reference', platformNav: '① Platform',
     humanNav: '② Human', objectNav: '③ Object', physicsNav: '④ Physics',
     videos: 'Videos tracked', registered: 'Real stages registered',
-    pendingReview: 'Awaiting checks', acceptedVideos: 'Videos declared accepted'
+    pendingReview: 'Awaiting checks', acceptedVideos: 'Videos declared accepted',
+    privateNote: 'The team board is public on GitHub Pages and needs no sign-in. Drafts stay in this browser and site origin until exported and submitted through Git.'
   });
   const objectZh = {hula_hoop:'呼啦圈',big_red_bowl:'大红碗',iron:'熨斗',white_desk:'白色桌子',black_pan:'黑色平底锅',foam_grass_block:'草坪泡沫块',paint_roller:'油漆滚筒',pink_foam_roll:'粉色泡沫轴',short_wood_stool:'矮木凳',white_laptop_cart:'白色电脑推车'};
   const requirementZh = {camera:'相机与源帧身份',masks:'逐帧分割掩码',depth:'深度与尺度证据',human:'人体轨迹与表示契约',depth_scale:'深度尺度记录',object_record:'物体身份、坐标系与尺度',mesh:'物体网格与来源',transforms:'全帧物体变换',confidence:'逐帧置信度',refined_human:'优化后人体轨迹',refined_objects:'优化后物体轨迹',metadata:'视频、物体与帧清单',parquet:'完整轨迹数据表',mhr_arrays:'人体参数数组与表示契约',meshes:'物体网格与姿态配对'};

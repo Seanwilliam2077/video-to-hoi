@@ -2,6 +2,18 @@
 
 Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
+## Public progress board entry point (2026-10-20)
+
+The repository homepage links the [30-video board](https://seanwilliam2077.github.io/video-to-hoi/).
+The [Pages workflow](../.github/workflows/progress-pages.yml) validates the shared
+registry and browser core, then publishes the four static board assets and the
+committed snapshot after relevant changes reach `main`. Large input packages
+remain in their existing result Release. Browser drafts remain local and must
+be exported and submitted through Git.
+
+This publishes existing delivery evidence, with 30 partial Inputs submissions.
+It does not change stage acceptance or establish Body runtime execution.
+
 ## Complete 30-video Body input delivery (2026-10-16)
 
 [The delivery record](../deliveries/platform/body-inputs-track1-20261016/README.md) provides the public archive, exact hashes and per-video evidence. All 30 original Track 1 videos / 16,563 frames now have actual SAM2 target-human masks, per-episode MoGe2 intrinsics, exact timelines and recorded machine-assisted sampled visual reviews. All 30 passed the dedicated Body input gate; the pinned upstream readers loaded every RGB/mask pair and camera. The archive passed member hashing and its bundled gate after extraction into a separate directory on this workstation.

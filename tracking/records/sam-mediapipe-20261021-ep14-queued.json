@@ -1,0 +1,41 @@
+{
+  "id": "sam-mediapipe-20261021-ep14-queued",
+  "episode_id": "episode_000014",
+  "stage": "human",
+  "iteration": "sam-mediapipe-20261021",
+  "state": "planned",
+  "kind": "real_track1",
+  "created_at": "2026-10-20T19:09:30.781+00:00",
+  "contributor": "Codex on the owner's local Windows workstation",
+  "reviewer": "",
+  "summary": "Queued for complete original-frame SAM 3D Body inference, shared native MHR identity/skeleton fitting and independent MediaPipe hand observations after the two operational pilot reviews. This planned record declares no completed outputs or reconstruction-quality acceptance.",
+  "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/tree/human/deliveries/human/sam-mediapipe-20261021",
+  "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+  "upstream": [
+    {
+      "stage": "inputs",
+      "record_id": "body-inputs-20261016-ep14"
+    }
+  ],
+  "artifacts": [],
+  "checks": {
+    "structural": {
+      "status": "not_run",
+      "evidence_url": ""
+    },
+    "quality": {
+      "status": "not_run",
+      "evidence_url": ""
+    },
+    "export": {
+      "status": "not_run",
+      "evidence_url": ""
+    }
+  },
+  "coverage": {
+    "frames": null,
+    "objects_complete": null
+  },
+  "blocker": "",
+  "next_action": "Run the source-bound all-30 queue after the operational pilot gate; preserve baseline fallback, then verify full-frame native outputs and publish a new submitted record before quality review."
+}

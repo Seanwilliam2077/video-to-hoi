@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "dinov3_revision": "6876159a11b4df116f30f667f8c9888617df0751",
+  "purpose": "Pinned inference source only; no examples, pretrained weights, videos, datasets, scores, or challenge assets.",
+  "sam_revision": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+  "files": [
+    {
+      "path": "sam_3d_body/LICENSE",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/LICENSE",
+      "sha256": "b3a5a0e2d973ab80e6610ccf1cffc40756050d0ace3cd4fec879b3ec290b2e9b",
+      "bytes": 8204
+    },
+    {
+      "path": "sam_3d_body/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/__init__.py",
+      "sha256": "f69e252dc42ef8d58ae1b72e97c5d34d6ac8d2fb342ba63c5f620caaa875db3f",
+      "bytes": 305
+    },
+    {
+      "path": "sam_3d_body/build_models.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/build_models.py",
+      "sha256": "445b5408109232c770b892cbced52c34c3a104a76c685885e66963dcc349a41e",
+      "bytes": 1665
+    },
+    {
+      "path": "sam_3d_body/data/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/data/__init__.py",
+      "sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379",
+      "bytes": 53
+    },
+    {
+      "path": "sam_3d_body/data/transforms/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/data/transforms/__init__.py",
+      "sha256": "ca65add3a731bf54d9917382f34f4eb3c3d8a45e9813a72c7896338f331eb4fc",
+      "bytes": 401
+    },
+    {
+      "path": "sam_3d_body/data/transforms/bbox_utils.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/data/transforms/bbox_utils.py",
+      "sha256": "0f49a3f857a09f98d1fd9c609df42f875899515f5e10a0ea6b25acd7a9197d79",
+      "bytes": 11974
+    },
+    {
+      "path": "sam_3d_body/data/transforms/common.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/data/transforms/common.py",
+      "sha256": "165697629df2fe23a62bb90daa2ac8a0f67cac09d70f36844b3c089a9af5a45f",
+      "bytes": 11721
+    },
+    {
+      "path": "sam_3d_body/data/utils/io.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/data/utils/io.py",
+      "sha256": "821bd310455dafeb1bbb0314d239d4802d6c889a203462ff964a90e5a62df079",
+      "bytes": 3342
+    },
+    {
+      "path": "sam_3d_body/data/utils/prepare_batch.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/data/utils/prepare_batch.py",
+      "sha256": "c0555035944f02cfdb9d811b377a3c1ffdd2bfbfe256ee6dc501c8d9409298d0",
+      "bytes": 2156
+    },
+    {
+      "path": "sam_3d_body/metadata/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/metadata/__init__.py",
+      "sha256": "0f8dc30002c8612ef4897dea399f8b7fa45ec4e5d8d78e149f976480a3b89b53",
+      "bytes": 1825
+    },
+    {
+      "path": "sam_3d_body/metadata/mhr70.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/metadata/mhr70.py",
+      "sha256": "695c2c7d472e32757c480114fdb054d54ee4af53f69b2a6e040b00a55b270dc9",
+      "bytes": 26326
+    },
+    {
+      "path": "sam_3d_body/models/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/__init__.py",
+      "sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379",
+      "bytes": 53
+    },
+    {
+      "path": "sam_3d_body/models/backbones/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/backbones/__init__.py",
+      "sha256": "d20122a214bc25371bf679b9e7aeb9aa8e195019e277843b69662a3eccc5a8cd",
+      "bytes": 845
+    },
+    {
+      "path": "sam_3d_body/models/backbones/dinov3.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/backbones/dinov3.py",
+      "sha256": "53ae01ccdffa647f16b0fefe366f947162874a9e593d510864d52ffcd259e0e8",
+      "bytes": 2309
+    },
+    {
+      "path": "sam_3d_body/models/backbones/vit.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/backbones/vit.py",
+      "sha256": "361308ff8fd80c6fd4a32baec1b8eee738fdf8cf638fc0c72921f3ceb408c794",
+      "bytes": 19385
+    },
+    {
+      "path": "sam_3d_body/models/decoders/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/decoders/__init__.py",
+      "sha256": "943c89cb865277d6bb2274a086f314143a6e115b6b5ec99ac5858f7633c0d464",
+      "bytes": 1198
+    },
+    {
+      "path": "sam_3d_body/models/decoders/keypoint_prompt_sampler.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/decoders/keypoint_prompt_sampler.py",
+      "sha256": "8f7692c5f4a5b0b8999c46651b702f4f7c02d0297a99e008a3d7a42df72bee81",
+      "bytes": 6666
+    },
+    {
+      "path": "sam_3d_body/models/decoders/prompt_encoder.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/decoders/prompt_encoder.py",
+      "sha256": "a9160aa5ccdd4d5e2ae047605d86eee9e0e558344b85f716d963fd091f9a33d1",
+      "bytes": 9542
+    },
+    {
+      "path": "sam_3d_body/models/decoders/promptable_decoder.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/decoders/promptable_decoder.py",
+      "sha256": "73c1219c176478e52358d9448d8087017e8294202653ca9fb62e2c964f7c363a",
+      "bytes": 7389
+    },
+    {
+      "path": "sam_3d_body/models/heads/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/heads/__init__.py",
+      "sha256": "e7605eced4289ad6e8d0d55d006949de6960ce1ad7483577016c6bca072cc02e",
+      "bytes": 1133
+    },
+    {
+      "path": "sam_3d_body/models/heads/camera_head.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/heads/camera_head.py",
+      "sha256": "84a14112e5c4b216559c1f9a39c3a33d6fa277182c2037f44a76a9cb538de55e",
+      "bytes": 3562
+    },
+    {
+      "path": "sam_3d_body/models/heads/mhr_head.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/heads/mhr_head.py",
+      "sha256": "62af48b1f33462bc445d7f342009fcbceabd221f2a6e9bcd1d3739d582bc9fd6",
+      "bytes": 14148
+    },
+    {
+      "path": "sam_3d_body/models/meta_arch/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/meta_arch/__init__.py",
+      "sha256": "68a23d54173e7a34a7224d16f015c4af18ceb143fa5cb87e1a5e9d7b7ac16b05",
+      "bytes": 88
+    },
+    {
+      "path": "sam_3d_body/models/meta_arch/base_lightning_module.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/meta_arch/base_lightning_module.py",
+      "sha256": "c04fa1f3fcc840bf6b51ab8a90b4334fb260e851099b7a59cb9357914f1dc783",
+      "bytes": 2056
+    },
+    {
+      "path": "sam_3d_body/models/meta_arch/base_model.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/meta_arch/base_model.py",
+      "sha256": "baf4c93ab865e6e9f4f498056a673698e59bafe89b17f969833884a3b352e8bc",
+      "bytes": 6746
+    },
+    {
+      "path": "sam_3d_body/models/meta_arch/sam3d_body.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/meta_arch/sam3d_body.py",
+      "sha256": "851b7475f18b56891aa02606e7c0ee9e03120fa208cc85df5127b792e1abfeee",
+      "bytes": 80820
+    },
+    {
+      "path": "sam_3d_body/models/modules/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/modules/__init__.py",
+      "sha256": "ddad96a6a9bf09d36156ba82ebaa9ee6798045fe1fc715174cec4c0b4bd2ead1",
+      "bytes": 463
+    },
+    {
+      "path": "sam_3d_body/models/modules/camera_embed.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/modules/camera_embed.py",
+      "sha256": "42f2483368fa3249557464aaa188c5d422f4e2faeb29ecd6facc131a97141539",
+      "bytes": 3392
+    },
+    {
+      "path": "sam_3d_body/models/modules/drop_path.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/modules/drop_path.py",
+      "sha256": "04c2f8bf7f13382c3d5c992fca00692a0591d187a2d271f49afaa5bce2ec9525",
+      "bytes": 1444
+    },
+    {
+      "path": "sam_3d_body/models/modules/geometry_utils.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/modules/geometry_utils.py",
+      "sha256": "2553899d9a0f781da1a1d73e8d49dcdd08376c5c0e471d6262e662229b645ef1",
+      "bytes": 9106
+    },
+    {
+      "path": "sam_3d_body/models/modules/layer_scale.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/modules/layer_scale.py",
+      "sha256": "ef4e0f769dd072425384f354c9527e2fdd7346843379e5f3b0cb2110a72c1c81",
+      "bytes": 1520
+    },
+    {
+      "path": "sam_3d_body/models/modules/mhr_utils.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/modules/mhr_utils.py",
+      "sha256": "40d33308c83516c15e14889d148419b8c610a8c33aca57b3922354aa4987ec6e",
+      "bytes": 15157
+    },
+    {
+      "path": "sam_3d_body/models/modules/misc.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/modules/misc.py",
+      "sha256": "f942d181ee8578c67a9ab4c0828d030aefdadd8891450ab1319b33a8237891eb",
+      "bytes": 694
+    },
+    {
+      "path": "sam_3d_body/models/modules/swiglu_ffn.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/modules/swiglu_ffn.py",
+      "sha256": "7a25fff5fa99c910c8daea7737f3650881a92da11388ddfbfd57794dc9de5355",
+      "bytes": 2894
+    },
+    {
+      "path": "sam_3d_body/models/modules/transformer.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/modules/transformer.py",
+      "sha256": "0cc343878ba8cdf28f9061de53ac0bc0fd6f829889ade96341729db5860ecbe4",
+      "bytes": 23141
+    },
+    {
+      "path": "sam_3d_body/models/optim/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/optim/__init__.py",
+      "sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379",
+      "bytes": 53
+    },
+    {
+      "path": "sam_3d_body/models/optim/fp16_utils.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/models/optim/fp16_utils.py",
+      "sha256": "90e25559a99fa341666c9c5da5b7e91d679ffdfab635aed9e9cf21d8f43c107d",
+      "bytes": 1486
+    },
+    {
+      "path": "sam_3d_body/sam_3d_body_estimator.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/sam_3d_body_estimator.py",
+      "sha256": "c7c55f35e24d79335d0976b4358622b77464fc15a93094db805e64361671dd9d",
+      "bytes": 16391
+    },
+    {
+      "path": "sam_3d_body/utils/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/utils/__init__.py",
+      "sha256": "f7b853e9727808b777120cacc5ef9835af0ceaee101e134f7b7a8dc6cbe0a410",
+      "bytes": 85
+    },
+    {
+      "path": "sam_3d_body/utils/checkpoint.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/utils/checkpoint.py",
+      "sha256": "a54ec1f1c1ac899f29e1fa6bc5ab8c46834f7a803ce21dcc54ded658a883e4c0",
+      "bytes": 4279
+    },
+    {
+      "path": "sam_3d_body/utils/config.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/utils/config.py",
+      "sha256": "9c7ce1d62d4dc5b62b027ebf63d7ac825d8fd29784db518b3aa7bf75f17fdbbc",
+      "bytes": 2705
+    },
+    {
+      "path": "sam_3d_body/utils/dist.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/utils/dist.py",
+      "sha256": "db6b4ebe17043c13eb7aa1c9b26debdb7e12a13310a349f5225f0b7105b2b87b",
+      "bytes": 22047
+    },
+    {
+      "path": "sam_3d_body/utils/logging.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/utils/logging.py",
+      "sha256": "d4b62bb43b5c383a8e237e63333f4ab5e84f4601bd21c27d060166c668210c54",
+      "bytes": 724
+    },
+    {
+      "path": "sam_3d_body/visualization/__init__.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/visualization/__init__.py",
+      "sha256": "abe836cd309d15d814afb3cf18e6eb7abd0726ea6ecc3091335bb82d7236c379",
+      "bytes": 53
+    },
+    {
+      "path": "sam_3d_body/visualization/renderer.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/visualization/renderer.py",
+      "sha256": "7c58769b2165b3b067dc514e883670c1e5a61b40bd43799bb3d010d6e9ca1460",
+      "bytes": 14224
+    },
+    {
+      "path": "sam_3d_body/visualization/skeleton_visualizer.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/visualization/skeleton_visualizer.py",
+      "sha256": "04d24ff555265aecc878c5ccd979c1456b5ddc553240df2cd3bbe7b40dcf2e74",
+      "bytes": 12043
+    },
+    {
+      "path": "sam_3d_body/visualization/utils.py",
+      "url": "https://raw.githubusercontent.com/nvidia-isaac/video_to_data/33129dd0f2d2dcfd1164d43fd076542660756ed2/reconstruction/modules/v2d_sam3d_body/lib/sam_3d_body/visualization/utils.py",
+      "sha256": "119552d35e5374a7d9e8ac1f9e87af5a33ad6634bce4ea883531196a09bd748f",
+      "bytes": 10704
+    },
+    {
+      "path": "DINOv3-LICENSE.md",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/LICENSE.md",
+      "sha256": "25d122eb8f5b880fd23c736fb6ea8018ee45c12237e00b8a86d14c653904999e",
+      "bytes": 7503
+    },
+    {
+      "path": "dinov3/__init__.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/__init__.py",
+      "sha256": "cfcd49b9d41705ef9bd6ce61bccc38e8ab8fa52fa365de48c10a7d7e1710b631",
+      "bytes": 186
+    },
+    {
+      "path": "dinov3/hub/__init__.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/hub/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "dinov3/hub/backbones.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/hub/backbones.py",
+      "sha256": "6c9a18aca0b5fcb1fce439213a94a528e072376a6023718e03dbd9fcfaa10deb",
+      "bytes": 17247
+    },
+    {
+      "path": "dinov3/hub/utils.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/hub/utils.py",
+      "sha256": "24d0e4bd083510bb00677ebd0082dd486a1f9c8b8467f98b7fe6109aefc4712d",
+      "bytes": 576
+    },
+    {
+      "path": "dinov3/layers/__init__.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/__init__.py",
+      "sha256": "0707ef3e9c20aff594c3817f64a2c8ff34a21bd3b55e7d03471969fd314dde20",
+      "bytes": 551
+    },
+    {
+      "path": "dinov3/layers/attention.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/attention.py",
+      "sha256": "dfc21def6ba17d00cba18ea23a8726e7f1dd5a0dc8e43510852c999a173d37a8",
+      "bytes": 6298
+    },
+    {
+      "path": "dinov3/layers/block.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/block.py",
+      "sha256": "809a3615ec93019042ab440f31c21d5242186d9e503c67ac0f42a324ceae1950",
+      "bytes": 10382
+    },
+    {
+      "path": "dinov3/layers/dino_head.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/dino_head.py",
+      "sha256": "cd7a83f00ac449f962484bad0f2959be477781e57943508428d32ff88f41fe33",
+      "bytes": 2089
+    },
+    {
+      "path": "dinov3/layers/ffn_layers.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/ffn_layers.py",
+      "sha256": "fa2caadb52ff43a7e6888966a00ee07842fed9fd05c68305962cc1577d221fbe",
+      "bytes": 2590
+    },
+    {
+      "path": "dinov3/layers/fp8_linear.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/fp8_linear.py",
+      "sha256": "f5b4d46e8c159e1830bc99968baf9a2e8070f0c46d0dda235eac46cc11c34f47",
+      "bytes": 4992
+    },
+    {
+      "path": "dinov3/layers/layer_scale.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/layer_scale.py",
+      "sha256": "f9a10ee763a62136f9e814bfe2f2209c2cb501dfdc5573f858ab01ba9a69c23f",
+      "bytes": 798
+    },
+    {
+      "path": "dinov3/layers/patch_embed.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/patch_embed.py",
+      "sha256": "c592c7262779c8e1789ed502aee81bdd55eba4607065f8d04ae95eea683d0ef1",
+      "bytes": 2874
+    },
+    {
+      "path": "dinov3/layers/rms_norm.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/rms_norm.py",
+      "sha256": "8509ffc53f0bbe9e353a8b9e57ca2396795640b4ecc85140c27b17127c971869",
+      "bytes": 721
+    },
+    {
+      "path": "dinov3/layers/rope_position_encoding.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/layers/rope_position_encoding.py",
+      "sha256": "af8ea35acb76d18ad4d53b844d5057bf01472a848375c51d70583a87f044efd1",
+      "bytes": 5304
+    },
+    {
+      "path": "dinov3/models/__init__.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/models/__init__.py",
+      "sha256": "3e993968b5ffe2be00eaea8b16cd52f8d165ac683b9035d3ceb769cffdd72914",
+      "bytes": 5159
+    },
+    {
+      "path": "dinov3/models/convnext.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/models/convnext.py",
+      "sha256": "ab969325158df58f4b0957f81f77d543392df61611dc0c72e89ba172ecdf0fb9",
+      "bytes": 13485
+    },
+    {
+      "path": "dinov3/models/vision_transformer.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/models/vision_transformer.py",
+      "sha256": "1af05405e19bc42188f80bfcb204b87ed1ec72af998e0bbd4658a85d7fae93f2",
+      "bytes": 15084
+    },
+    {
+      "path": "dinov3/utils/__init__.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/utils/__init__.py",
+      "sha256": "83e6ec1f0cea862f18ae111560e2eadf2fff1873e3fdd7d358dee8d32d0ade8d",
+      "bytes": 377
+    },
+    {
+      "path": "dinov3/utils/dtype.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/utils/dtype.py",
+      "sha256": "0c53f5cc155ea7e9899bc611493193fef9b985f23cb7d990401e22c363ac4419",
+      "bytes": 1070
+    },
+    {
+      "path": "dinov3/utils/utils.py",
+      "url": "https://raw.githubusercontent.com/facebookresearch/dinov3/6876159a11b4df116f30f667f8c9888617df0751/dinov3/utils/utils.py",
+      "sha256": "d6fe7fe621b2ae3db89e3af588fbee0c78afe2130f4548dff87c94cbd734fe40",
+      "bytes": 3898
+    }
+  ]
+}

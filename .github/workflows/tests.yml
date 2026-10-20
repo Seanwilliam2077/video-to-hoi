@@ -35,6 +35,14 @@ jobs:
           tests/test_metrics.py
           tests/test_track1_score.py
           tests/test_run.py
+          tests/test_human_result.py
+          tests/test_hand_refinement.py
+          tests/test_hand_contact.py
+          tests/test_review_human.py
+          tests/test_human_runtime_assets.py
+          tests/test_sam_body_inputs.py
+          tests/test_human_batch.py
+          tests/test_package_human_delivery.py
           tests/test_deliverables.py
           tests/test_delivery_gates.py
           tests/test_v2_artifacts.py

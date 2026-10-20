@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human reconstruction review</title>
+  <style>
+    :root { color-scheme:dark; font-family:Inter,Segoe UI,system-ui,sans-serif; background:#10141c; color:#e6ebf3; }
+    * { box-sizing:border-box; }
+    body { margin:0; }
+    main { max-width:1600px; margin:auto; padding:28px; }
+    h1 { font-size:26px; margin:0 0 10px; }
+    p { color:#aebacf; line-height:1.6; }
+    .top { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; flex-wrap:wrap; }
+    .badge { padding:8px 12px; background:#153a31; border:1px solid #287a61; border-radius:9px; color:#a9efcf; }
+    .badge.bad { background:#4a2229; border-color:#b64c61; color:#ffb5c2; }
+    a { color:#91baff; }
+    .links { display:flex; gap:20px; flex-wrap:wrap; margin:8px 0 22px; }
+    .viewer { border:1px solid #354055; border-radius:12px; overflow:hidden; background:#0b0d12; }
+    #frame { display:block; width:100%; height:auto; }
+    .controls { padding:18px; display:grid; gap:16px; }
+    #slider { width:100%; accent-color:#76aaff; }
+    .row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    button,input[type=number] { font:inherit; color:#e6ebf3; border:1px solid #46536b; border-radius:7px; background:#1c2535; padding:8px 13px; }
+    button { cursor:pointer; }
+    button:hover { background:#2b3b54; }
+    input[type=number] { width:115px; }
+    #position { color:#b7c6dd; margin-left:auto; font-variant-numeric:tabular-nums; }
+    .metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:18px; }
+    .metric { border:1px solid #303c51; border-radius:9px; padding:15px; background:#161e2b; }
+    .metric b { display:block; font-size:21px; margin-top:7px; font-variant-numeric:tabular-nums; }
+    .metric span { color:#acbad0; font-size:13px; }
+    .note { margin-top:22px; padding:16px 18px; border-left:3px solid #7398d4; background:#182131; }
+    details { margin:24px 0; }
+    summary { cursor:pointer; color:#b9cae4; }
+    pre { white-space:pre-wrap; word-break:break-word; color:#aebacf; }
+    footer { color:#93a1b7; font-size:13px; line-height:1.7; margin:24px 0 8px; }
+    @media(max-width:700px) { main { padding:16px; } h1 { font-size:23px; } #position { margin-left:0; } }
+  </style>
+</head>
+<body>
+<main>
+  <div class="top"><div><h1 id="title">Human reconstruction review</h1><p>Inspect every decoded input frame beside its reconstruction overlay.</p></div><div id="coverage" class="badge"></div></div>
+  <nav class="links"><a href="comparison.mp4">Comparison video</a><a href="diagnostics.csv">Frame diagnostics</a><a href="contact-sheet.jpg">Contact sheet</a><a href="summary.json">Run details</a></nav>
+  <section class="viewer" aria-label="Frame comparison">
+    <img id="frame" src="frames/000000.jpg" alt="Input video and reconstruction overlay, frame 0">
+    <div class="controls">
+      <input id="slider" type="range" min="0" value="0" aria-label="Source frame">
+      <div class="row">
+        <button id="previous" aria-label="Previous frame">Previous</button><button id="play">Play</button><button id="next" aria-label="Next frame">Next</button>
+        <label>Frame <input id="jump" type="number" min="0" value="0"></label>
+        <button id="missing">Next missing frame</button><span id="position"></span>
+      </div>
+    </div>
+  </section>
+  <section class="metrics" aria-label="Per-frame diagnostics">
+    <div class="metric"><span>Prediction</span><b id="present"></b></div>
+    <div class="metric"><span>Keypoints inside image</span><b id="inside"></b></div>
+    <div class="metric"><span>Mean keypoint step</span><b id="step"></b></div>
+    <div class="metric"><span>Joint second difference</span><b id="accel"></b></div>
+    <div class="metric"><span>Median predicted depth</span><b id="depth"></b></div>
+  </section>
+  <p class="note" id="notice"></p>
+  <details><summary>Source and reconstruction details</summary><pre id="metadata"></pre></details>
+  <footer>Arrow keys move one frame. The slider selects saved images directly, preserving exact frame numbers. Orange points show predicted keypoints; cyan surfaces show the projected human mesh when supplied. Second differences describe the prediction itself and are not the official acceleration error. Review image alignment, missing frames, hand placement, shape stability and abrupt changes together.</footer>
+</main>
+<script>
+const data = __REVIEW_DATA__;
+const summary = data.summary;
+const max = data.frames.length - 1;
+let current = 0;
+let timer = null;
+const $ = id => document.getElementById(id);
+const number = (value, digits=2, unit='') => value == null ? 'Unavailable' : `${value.toFixed(digits)}${unit}`;
+$('title').textContent = summary.title;
+document.title = summary.title + ' | Human review';
+$('slider').max = max;
+$('jump').max = max;
+$('notice').textContent = summary.notice;
+$('metadata').textContent = JSON.stringify(summary, null, 2);
+const problems = summary.missing_frames.length || summary.prediction_frames_outside_video.length || !summary.decode_count_matches_metadata;
+$('coverage').textContent = `${summary.decoded_frames-summary.missing_frames.length} / ${summary.decoded_frames} frames reconstructed`;
+if (problems) $('coverage').classList.add('bad');
+$('missing').disabled = summary.missing_frames.length === 0;
+function show(index) {
+  current = Math.max(0, Math.min(max, Math.trunc(Number(index) || 0)));
+  const row = data.frames[current];
+  $('slider').value = current;
+  $('jump').value = current;
+  $('frame').src = `frames/${String(current).padStart(6, '0')}.jpg`;
+  $('frame').alt = `Input and reconstruction overlay, frame ${current}`;
+  $('position').textContent = `${current + 1} / ${max + 1} frames · ${row.time_seconds.toFixed(3)} s`;
+  $('present').textContent = row.prediction_present ? 'Available' : 'Missing';
+  $('inside').textContent = row.joint_count ? `${row.joints_in_image} / ${row.joint_count}` : 'Unavailable';
+  $('step').textContent = number(row.mean_joint_step_px, 2, ' px');
+  $('accel').textContent = number(row.mean_joint_second_difference_px, 2, ' px/frame²');
+  $('depth').textContent = number(row.median_depth_m, 3, ' m');
+  const preload = new Image();
+  if (current < max) preload.src = `frames/${String(current+1).padStart(6, '0')}.jpg`;
+}
+function stop() { clearInterval(timer); timer = null; $('play').textContent = 'Play'; }
+$('slider').addEventListener('input', e => { stop(); show(e.target.value); });
+$('jump').addEventListener('change', e => { stop(); show(e.target.value); });
+$('previous').onclick = () => { stop(); show(current-1); };
+$('next').onclick = () => { stop(); show(current+1); };
+$('play').onclick = () => {
+  if (timer) { stop(); return; }
+  if (current === max) show(0);
+  $('play').textContent = 'Pause';
+  timer = setInterval(() => { if (current === max) stop(); else show(current+1); }, 1000 / summary.fps);
+};
+$('missing').onclick = () => { stop(); show(summary.missing_frames.find(i => i > current) ?? summary.missing_frames[0]); };
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); stop(); show(current + (e.key === 'ArrowLeft' ? -1 : 1)); }
+});
+show(0);
+</script>
+</body>
+</html>

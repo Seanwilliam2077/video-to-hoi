@@ -1,0 +1,18 @@
+# Native Windows Human inference; keep separate from the CPU project environment.
+# Install torch/torchvision from the cu124 index using setup_human_windows.ps1.
+torch==2.5.1+cu124
+torchvision==0.20.1+cu124
+numpy==1.26.4
+scipy==1.15.3
+opencv-python-headless==4.11.0.86
+pillow==11.1.0
+pytorch-lightning==2.5.1
+torchmetrics==1.7.1
+omegaconf==2.3.0
+yacs==0.1.8
+roma==1.5.4
+timm==1.0.20
+braceexpand==0.1.7
+einops==0.8.1
+imageio-ffmpeg==0.6.0
+psutil==7.0.0

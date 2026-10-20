@@ -1,0 +1,76 @@
+{
+  "started_at_utc": "2026-10-20T17:11:28.125829+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "J:\\video-to-hoi\\work\\body-receiver-20261021\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "package_root": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016",
+  "all_30_handoff_passed": true,
+  "all_30_native_readers_passed": true,
+  "body_model_environment_verified": false,
+  "body_execution_completed": false,
+  "runs": [
+    {
+      "name": "handoff",
+      "command": [
+        "J:\\video-to-hoi\\work\\body-receiver-20261021\\.venv\\Scripts\\python.exe",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\runtime\\check_body_handoff.py",
+        "--package-root",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs",
+        "--dataset-root",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1",
+        "--raw-preparation-root",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\prepared\\track1",
+        "--source-inventory",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\source\\track1-source.json",
+        "--output",
+        "J:\\video-to-hoi\\work\\body-receiver-20261021\\receiver-checks-20261021-attempt01.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 257.0470000000205
+    },
+    {
+      "name": "native_readers",
+      "command": [
+        "J:\\video-to-hoi\\work\\body-receiver-20261021\\.venv\\Scripts\\python.exe",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\runtime\\check_body_native_readers.py",
+        "--upstream-root",
+        "J:\\video-to-hoi\\work\\body-receiver-20261021\\upstream-body-reader",
+        "--package-root",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs",
+        "--dataset-root",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1",
+        "--handoff-checks",
+        "J:\\video-to-hoi\\work\\body-receiver-20261021\\receiver-checks-20261021-attempt01.json",
+        "--output",
+        "J:\\video-to-hoi\\work\\body-receiver-20261021\\receiver-native-reader-checks-20261021-attempt01.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 318.375
+    }
+  ],
+  "pip_freeze": [
+    "av==19.0.1",
+    "colorama==0.4.6",
+    "h5py==3.16.0",
+    "ImageIO==2.38.1",
+    "numpy==2.5.2",
+    "opencv-python==5.0.0.93",
+    "pandas==3.0.6",
+    "pillow==12.3.0",
+    "pyarrow==26.0.0",
+    "python-dateutil==2.9.0.post0",
+    "scipy==1.18.1",
+    "six==1.17.0",
+    "tqdm==4.70.1",
+    "tzdata==2026.5"
+  ],
+  "package_receipt_sha256": {
+    "requirements.txt": "7259977aa50df84ec4d09f31ee954c6f9a57eaf07a5ca06fdd6133e889ca51ae",
+    "requirements-native-readers.txt": "ea585b33fa2cde997c7a1100352a0822ec3edc49742284030533dcad53fdaa74",
+    "bundle-manifest.json": "fb3233ee09891cddee9d238c4ea5d3eb7c74950e0b5e368ecef578c2ccea498b",
+    "SHA256SUMS": "e536722a6b75640a1c140bafc82f4522914b2a9abbf4653d15bc76c1f9f9f0fe"
+  },
+  "handoff_report_sha256": "9d079897105d712d3ffcb05460b0578e5ac1ffadf6d8ca1410e7619462fa7e62",
+  "frames_verified": 16563,
+  "native_reader_report_sha256": "59974d8b2edf967c11f41df2d0fc88c8d0d9ee7cf61b099c7d784275ed3e2e39"
+}

@@ -1,0 +1,207 @@
+{
+  "schema_version": "human_batch_readiness_audit.v1",
+  "audit_date": "2026-10-20",
+  "scope": "Track 1 only; repository and verified local runtime audit, no reconstruction execution",
+  "source_commit": "9e671e5ce21607cfaab14e5f6a4148f89a4b3858",
+  "sync": {
+    "previous_commit": "6a53e84",
+    "incoming_commits": 32,
+    "incoming_files": 403,
+    "resolved_local_files": [
+      ".github/workflows/tests.yml",
+      "docs/development.md",
+      "docs/status.html"
+    ],
+    "local_untracked_files_preserved": 29,
+    "backup": "work/sync-main-20261020-9e671e5",
+    "recovery_stash": "e149371311dd9afef1e1b92eaabc137a9f2cc603",
+    "committed_or_pushed": false
+  },
+  "input_delivery": {
+    "episodes": 30,
+    "original_frames": 16563,
+    "duration_seconds": 552.1,
+    "archive_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/body-inputs-track1-20261016/body-inputs-track1-20261016.zip",
+    "archive_bytes": 627464556,
+    "archive_sha256": "c5d09ae93d5608ec0d24beebc1f7dabec7fcc60eb5cb1d24b42a3fd743d4f5aa",
+    "producer_input_checks_passed": true,
+    "producer_native_readers_passed": true,
+    "body_execution_completed": false,
+    "current_checkout_archive_received": false,
+    "current_checkout_episode_videos": [
+      16
+    ],
+    "current_checkout_receiver_gate_completed": false,
+    "archive_head_checked": {
+      "status": 200,
+      "content_length": 627464556,
+      "archive_downloaded_by_this_audit": false
+    }
+  },
+  "runtime": {
+    "sam_runtime": "work/human-runtime/venv",
+    "torch": "2.5.1+cu124",
+    "cuda_import_available": true,
+    "verified_prior_inference": "episode 16 CPU, unmasked fixed-box profile",
+    "masked_camera_adapter_implemented": false,
+    "masked_inference_smoke_completed": false,
+    "external_mask_estimator_api_available": true,
+    "learned_mask_prompt_weights_present": true,
+    "missing_dino_patch_mask_token_blocks_external_segmentation": false,
+    "handflow_deployed_in_audited_project_environments": false,
+    "actual_prior_hand_observer": "MediaPipe 2D",
+    "missing_handflow_dependencies": [
+      "verified source/runtime",
+      "verified checkpoint",
+      "licensed MANO asset and compatible decoder"
+    ],
+    "handflow_other_locations": "not verified; optional owner clarification requested",
+    "mask_conditioning_audit": {
+      "kind": "source trace and CPU-mapped checkpoint inspection; no model forward pass",
+      "prompt_encoder_mask_tensor_count": 18,
+      "final_mask_convolution_shape": [
+        1280,
+        256,
+        1,
+        1
+      ],
+      "learned_mask_weights_finite_and_nonzero": true,
+      "segmentation_path": "batch mask -> prompt_encoder.mask_downscaling -> image embeddings",
+      "dino_patch_mask_token": "not used by this segmentation prompt path; backbone calls DINO without patch masks",
+      "remaining_runtime_checks": [
+        "0/255 mask semantics",
+        "exclusive-max boxes",
+        "identical RGB/mask affine crop",
+        "actual camera mapping",
+        "masked full body-and-hands model smoke"
+      ]
+    }
+  },
+  "native_integration": {
+    "authoritative_pose_shape": [
+      "T",
+      136
+    ],
+    "shared_identity_shape": [
+      45
+    ],
+    "shared_skeleton_scale_shape": [
+      68
+    ],
+    "exact_original_frame_ids_required": true,
+    "legacy_v1_human_schema_compatible": false,
+    "registered_real_human_backend_available": false,
+    "new_episode16_camera": {
+      "fx": 818.745849609375,
+      "fy": 818.7458724975586,
+      "cx": 767.5,
+      "cy": 575.5,
+      "width": 1536,
+      "height": 1152
+    },
+    "old_episode16_assumed_fx_pixels": 1330.215,
+    "existing_official_control_fx_pixels": 826.675,
+    "old_result_may_claim_new_input_consumption": false
+  },
+  "dashboard": {
+    "url": "https://seanwilliam2077.github.io/video-to-hoi/",
+    "http_status_observed": 200,
+    "record_count": 30,
+    "registered_human_records": 0,
+    "inference_launcher": false,
+    "uploads_artifacts": false,
+    "human_artifact_requirements": [
+      "human",
+      "depth_scale"
+    ],
+    "artifact_fields": [
+      "requirement_id",
+      "label",
+      "url",
+      "sha256",
+      "bytes"
+    ],
+    "required_urls": "HTTP(S), reachable by the intended reviewers; local filesystem paths are invalid",
+    "human_generic_artifact_view_available": true,
+    "human_rich_video_or_3d_catalog_available": false,
+    "full_inputs_records_state": "submitted",
+    "standalone_output_may_be_submitted_before_full_stage_acceptance": true,
+    "checked_or_accepted_requires_checked_or_accepted_upstream_inputs": true,
+    "registry_validates_declarations_not_model_quality": true
+  },
+  "cpu_estimate": {
+    "method": "linear extrapolation of the measured earlier EP16 CPU configuration, not a benchmark of the new masked pipeline",
+    "workload_ratio_to_360_frames": 46.00833333333333,
+    "raw_inference_seconds_per_frame": 16.024,
+    "raw_inference_hours": 73.7,
+    "shared_identity_fit_hours_approx": 19.9,
+    "review_hours_approx": 1.0,
+    "total_hours_approx": 95,
+    "excludes": [
+      "receiver verification",
+      "new input conditioning effects",
+      "HandFlow",
+      "retries",
+      "manual quality review"
+    ],
+    "gpu_throughput_measured": false
+  },
+  "ordered_work": [
+    "Receive the published archive and verify archive identity, all-30 handoff gate and native readers on this worker.",
+    "Adapt the existing pinned estimator or restore the pinned standalone consumer: exact masks, camera matrix, crop mapping, input hashes and no silent fallback.",
+    "Run a complete episode16 and a longer/different-action pilot using new inputs; perform a small measured GPU test and retain CPU fallback.",
+    "Export native parameters, fit shared identity/scales per episode, independently decode and review exact original frames; derive an honest depth/scale artifact where required.",
+    "Add per-episode resumable orchestration, immutable attempts, errors, model/input hashes and resource records; then execute all30.",
+    "Integrate the licensed independent hand model when available, preserving left/right association, occlusion uncertainty and native MHR fitting rather than pasting hand meshes.",
+    "Package native arrays, review videos, metadata and check evidence; publish only through an authorized result release/store, then import immutable per-video Human progress declarations.",
+    "Resolve full-input versus standalone-Body acceptance explicitly; implement a native stage adapter and optional verified Human-rich preview rather than falsely marking a legacy fake gate as passed."
+  ],
+  "validation": {
+    "python_ci_allowlist": {
+      "passed": 777,
+      "skipped": 14,
+      "test_files": 31,
+      "exit_code": 0,
+      "elapsed_seconds": 249.266,
+      "log": "work/sync-main-20261020-9e671e5/python-tests-after-dependency.log"
+    },
+    "node_board_tests_passed": 39,
+    "progress_registry_validation": "pass: 30 episodes, 30 declarations",
+    "delivery_catalog_validation": "pass: 30 episodes, 16563 frames, 60 unchanged QA previews",
+    "local_human_code_hash_preservation": "29 untracked files unchanged, none missing",
+    "online_module_or_status_publication": false,
+    "module_publication_reason": "No authorized Claude Artifact editing tool is available in this task",
+    "new_development_dependency_installed": "rfc8785==0.1.4, as pinned by incoming pyproject.toml; isolated Human runtime unchanged",
+    "status_page_visual_checks": {
+      "widths": [
+        1280,
+        390,
+        320
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "layout": "passed",
+      "countdown": "passed",
+      "online_copy_updated": false
+    },
+    "git_diff_check": "passed",
+    "unmerged_paths": []
+  },
+  "source_files": {
+    "docs/body-input-handoff.md": "6d6b551d918250bff2d9132773592d3e7ef06dff7cf281311787e272c7b8aff7",
+    "docs/delivery-gates.md": "926912b0d04efe32bb45849801de94fead5c1064dae693547d58d532fa1dde12",
+    "tracking/README.md": "2cc23cce5ca62781b7d65c38e16c48b4cb1047881e9ba9f29710298b38fff6e4",
+    "deliveries/human/README.md": "5168fc4b249fae1348843e549e65c26ef1fd5dc48ea9c45732cadff51df80160",
+    "src/v2hoi/contracts.py": "304731faca80d7fdc30a4f7eea1cdeb5ebfcf182f9fc3f698b4640b60e1cc8ea",
+    "src/v2hoi/stages/human.py": "3910412aeac1694aa1c15203ef083c3ab5921e48a288fa49a89756bc636bf106",
+    "tools/progress_board.py": "c6e3cae0d43816ab1da07a52f490cffe70268ad523e44fa93fd6b3fa7742ea1f",
+    "docs/progress-board/delivery-view.js": "eb965f1fd66e1fc66b6de1d360c8ecc24ede77a7e9c0bb43aee87f83b17fa87c",
+    "tools/run_sam3d_body.py": "22e159ab14271b4fcf8ea3e573dd573bd7533af503e4eea433ad2440b0ea6273",
+    "tools/run_human_episode16.ps1": "981f7738765ef3fe3cc37b3745e1461e7727ae1fd76bd20d12c8898bad3b7eee",
+    "docs/human-hand-experiment-20261015.md": "360511dcea4cf5fae62d56b4de93fb2732853a3dbbe35f522aa6b6445ab3bf27",
+    "docs/development.md": "db06b93e0511734c9a7c4e473304e454cf90a51b6a5f2142709beaecc2a3d18e",
+    ".github/workflows/tests.yml": "6563140d2c864e33f30cc51d57aaefad48749d9b032b9c0045dd2fcb9758505d"
+  }
+}

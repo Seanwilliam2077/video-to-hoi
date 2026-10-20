@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-10-20T17:16:55.493188+00:00",
+  "executor": "Codex /root/receive_all30_body_inputs",
+  "package_root": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016",
+  "all_manifest_file_hashes_match": true,
+  "all_top_level_checksums_match": true,
+  "no_extra_or_missing_files": true,
+  "manifest_payload_files_verified": 17103,
+  "complete_package_file_count": 17105,
+  "elapsed_seconds": 14.03100000001723
+}

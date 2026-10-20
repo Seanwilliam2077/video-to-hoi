@@ -1,0 +1,12 @@
+{
+  "archive": "J:\\video-to-hoi\\data\\incoming\\body-inputs-track1-20261016.zip",
+  "archive_size_bytes": 627464556,
+  "archive_sha256": "c5d09ae93d5608ec0d24beebc1f7dabec7fcc60eb5cb1d24b42a3fd743d4f5aa",
+  "archive_sha256_matches_external_receipt": true,
+  "destination": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016",
+  "zip_member_count": 17105,
+  "safe_relative_paths_verified": true,
+  "no_track2_or_tier_asset_paths": true,
+  "destination_was_fresh": true,
+  "elapsed_seconds": 32.25
+}

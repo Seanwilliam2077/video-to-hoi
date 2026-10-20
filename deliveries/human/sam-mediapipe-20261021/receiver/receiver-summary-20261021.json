@@ -1,0 +1,825 @@
+{
+  "schema_version": "body_receiver_summary.v1",
+  "completed_at_utc": "2026-10-20T17:21:15.763097+00:00",
+  "executor": "Codex /root/receive_all30_body_inputs",
+  "package_root": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016",
+  "all_30_input_handoff_passed": true,
+  "all_30_exact_native_readers_passed": true,
+  "frames_verified": 16563,
+  "selected_body_revision": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+  "body_model_environment_verified": false,
+  "body_execution_completed": false,
+  "scientific_accuracy_certified": false,
+  "receiver_manual_visual_review_performed": false,
+  "scope": "Input receipt, provenance, full bundle hashes, timelines, mask pixels, and exact native RGB/mask/camera reader compatibility only.",
+  "limitations": [
+    "Camera intrinsics are episode-local monocular estimates, not ground-truth physical calibration.",
+    "Producer visual review samples frames and does not provide pixel-wise segmentation ground truth.",
+    "No Body weights or model inference were loaded by this receiver task.",
+    "Passing these gates does not certify human reconstruction quality or final submission compliance."
+  ],
+  "evidence": [
+    {
+      "path": "J:\\video-to-hoi\\work\\body-receiver-20261021\\archive-receiver-receipt.json",
+      "sha256": "2679065170810fe3a4572a4f3edd24dcccb4185a2ef02e9fad7fd684e9deb3f3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\body-receiver-20261021\\receiver-bundle-inventory-20261021.json",
+      "sha256": "a092b2a09dcae85766a542d4c9d33b186092400ccb534ae58f43b174f97cf5fc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\body-receiver-20261021\\receiver-checks-20261021-attempt01.json",
+      "sha256": "9d079897105d712d3ffcb05460b0578e5ac1ffadf6d8ca1410e7619462fa7e62"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\body-receiver-20261021\\receiver-native-reader-checks-20261021-attempt01.json",
+      "sha256": "59974d8b2edf967c11f41df2d0fc88c8d0d9ee7cf61b099c7d784275ed3e2e39"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\body-receiver-20261021\\receiver-runtime-record.json",
+      "sha256": "85b6321f339203f6c28f443b99676debd6f2cd515cc39c5afe0fd1124986b142"
+    }
+  ],
+  "episodes": [
+    {
+      "episode_index": 0,
+      "original_frame_count": 790,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000000.mp4",
+      "video_sha256": "1eb6293e4552397668a5013adbcee95e0bf230dd8c79a594aa7d7f8ea4991ab1",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000000\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000000\\intrinsics.json",
+      "camera": {
+        "fx": 829.27734375,
+        "fy": 829.2772979736328,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "73e7735a3895d2b59f8cabc193b12e1ddcef23d2a2996ba62e02f29a5ffe9d7b",
+      "review_sha256": "6fe32ad7aecbb258ea8603ddcec904f3fdaf22ee4b44bc1f037824ef447020f3",
+      "artifact_sha256": {
+        "camera-estimation.json": "3ae3beee65d01357f8f3fcd1f9dc9467dc2f7cf9a9ce4c6d23678dcc254854a4",
+        "intrinsics.json": "a4221bb1122cf31d5981fae8442613f383e0347d60cfe979c31b49c1ac833dfa",
+        "masks-manifest.json": "140a0631c9c815cd535649ad2243e694d144a6329dbed07ad47632ee55f8ba29",
+        "observations.json": "9fccaedcd367117abe804c3f003f6ddeba58ef5ff4c789d3f633c4cf913f1d9b",
+        "timeline.json": "acda3ee87adfb9122f6cb44e51664bc1a531e798a8c80a95841ccc3ca0e484e5"
+      }
+    },
+    {
+      "episode_index": 1,
+      "original_frame_count": 668,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000001.mp4",
+      "video_sha256": "1198635d7f04f73aa9466e02d105fa89b3630b2aa92a5e4f249898023ecfed30",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000001\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000001\\intrinsics.json",
+      "camera": {
+        "fx": 836.2024841308594,
+        "fy": 836.2024612426758,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "895a65883d13eb36dc5dfafaf9fdd0a96775943fc3d28b700adb742e73e0cde4",
+      "review_sha256": "98943d87c30b2387859fe30143b13fb5a640d06dd358f68d4b26303dc669dca2",
+      "artifact_sha256": {
+        "camera-estimation.json": "4b0f2d8558d23709797edf3205d0be2b36cf9a0fb4a9e5a896cc2a6939b812da",
+        "intrinsics.json": "3bd8bba647349c2ac636bab35ba0f28dd43c5e50c808214ee0d471596ac3583b",
+        "masks-manifest.json": "0ff308ea4d67f876cadb7ce33d01ea4f8a8ffa042838907b29ab527bf0a34709",
+        "observations.json": "ebc359dde1420914987bc878dd6816c991628f19f1c83d3d875088f2a715fa25",
+        "timeline.json": "e531533ec5a23c1ca59bcb4b06420cdb714a9c5c0ffe6c9383e7f4cef950c3c1"
+      }
+    },
+    {
+      "episode_index": 2,
+      "original_frame_count": 866,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000002.mp4",
+      "video_sha256": "2ccb43dd362c2a430d341611e888ef1ea79e3a3989e8af2a015d34e0b2196747",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000002\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000002\\intrinsics.json",
+      "camera": {
+        "fx": 829.7527770996094,
+        "fy": 829.752799987793,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "81666deaef008c2fea7adf04209acae6743f75cd2bca0f651daabba4618a1dbb",
+      "review_sha256": "9471db76c0d9756fbe101015bbef20fcc610b93d121e63a0ef329cfc6a7b4fca",
+      "artifact_sha256": {
+        "camera-estimation.json": "b3cc004e9b5c5406ce5ab40b86a60d71616d0211c8c4472e614eea6c94561348",
+        "intrinsics.json": "41defe0c4d0b073ea7a016e4af88cef7d3135f67c42f0e2cbe1e0b36c2540d52",
+        "masks-manifest.json": "531f746c569046ad624c04151bfe8795152955634adda65b91f1866380004ed3",
+        "observations.json": "38451ccf49edf2952e8ea15f5434b5dca8680979fe7c7d8d245479985af13b1e",
+        "timeline.json": "6f159ec57dd4a5932316441862e36b9a971eaaf6e45b9d11d63a85dfc4e84672"
+      }
+    },
+    {
+      "episode_index": 3,
+      "original_frame_count": 592,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000003.mp4",
+      "video_sha256": "8eb7153abeeb32895741d80dc79305143967b701094af2eea9321260577a6b39",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000003\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000003\\intrinsics.json",
+      "camera": {
+        "fx": 808.9531860351562,
+        "fy": 808.9532089233398,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "16ae581a623ebfb05c8891b2efaa2485e42eb7fb2a84f83d0c259159b3d566a8",
+      "review_sha256": "e85623a778b679acbf7a1afe98eb104564c11490755eaae5dd98f62909f59377",
+      "artifact_sha256": {
+        "camera-estimation.json": "e939dbbe95248c04084a87a9ea58d3a19f78cbf032474c59162b3a4d54adf99a",
+        "intrinsics.json": "71a94db7c05a9c5ba00923ce10731ab0aed4a4278c46d7fab4aea95208fc5a0a",
+        "masks-manifest.json": "64bf28762c82c2585f23c050d3be5171a6f62b35581b914ca096a596432427c8",
+        "observations.json": "fab372af09876d4be811f97fa48c5a46d541e235f1af9b48c5e402874a1e98d7",
+        "timeline.json": "258a446850c5b338945d64a9a95da098c50a074da00ca10d51a513125ce17b6d"
+      }
+    },
+    {
+      "episode_index": 4,
+      "original_frame_count": 747,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000004.mp4",
+      "video_sha256": "f1cadfa308b37dc91a3f296c2e5a2b538236cbe8a76d76d651df19554386cce6",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000004\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000004\\intrinsics.json",
+      "camera": {
+        "fx": 843.7068786621094,
+        "fy": 843.7068786621094,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "cdcb4f7400f7dcef5c154bab477021b176c13f64dc30844f77f791d9642ed991",
+      "review_sha256": "e7523f1d32ad8c985c656639f1e1857349fde73d7e9d8f662ffefe8bc17c54ac",
+      "artifact_sha256": {
+        "camera-estimation.json": "152e839d7848ec0cc9a1902d3ad9ae50de9ea6bc5c7bbad3f1116251653d9b9d",
+        "intrinsics.json": "01c62f253e112b7c3ce35d23104ec29615ff54a9ed9d960702e7bec7dbe35016",
+        "masks-manifest.json": "35cbf1f05abd2c2668fa2ed6b2683c58ac3eaa240b18eb4af9df744493149e92",
+        "observations.json": "d12d3ef2cff6a9f236ba08a6b2bc9547e22cc1f136c378b51a8249f47b3c5732",
+        "timeline.json": "2851715f23c7719e7b2ff5bda0868b7ca35a4b09297fb0ec8d3780bba66a4f38"
+      }
+    },
+    {
+      "episode_index": 5,
+      "original_frame_count": 668,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000005.mp4",
+      "video_sha256": "9613c76d9a4f9f34ecaf7697f2129ee2c59b6b03b0f014ee531a53d1fe39c30e",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000005\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000005\\intrinsics.json",
+      "camera": {
+        "fx": 826.7326354980469,
+        "fy": 826.7326583862305,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "a8543dd37eaae7e331e5fc53717bf3df451034dbb950399f1e79159b0e70d060",
+      "review_sha256": "2863952a50b543daceba181189a1fa07ea41843fb9f96458556fac1b09031d09",
+      "artifact_sha256": {
+        "camera-estimation.json": "a5c2a9cd2e2941c6dfedfa6b7492ff4c138522b3f3b7ff073844c7019c728aed",
+        "intrinsics.json": "b86aab37c337956226f65f7d81d8e1251132affcb6f6d01fdf0769dddd776b26",
+        "masks-manifest.json": "0eceea108a5419fb77cc595f11fd516f48eac7c83155ed8355e48b4de6d1dbc2",
+        "observations.json": "415534441837a4f2f1b08766a9e5797ce128fe58c9ded6f34c224920cc6f3737",
+        "timeline.json": "38e409331a0cf42d4d37d359af2d16bf0288434a54d0295ff2114df4ff5b8548"
+      }
+    },
+    {
+      "episode_index": 6,
+      "original_frame_count": 816,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000006.mp4",
+      "video_sha256": "295db21337393fc4ffbb0a872c4156580cfe1fbda26bf1df211b07cfecf979e4",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000006\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000006\\intrinsics.json",
+      "camera": {
+        "fx": 811.7836303710938,
+        "fy": 811.7836303710938,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "b4a0a6537dad2f82c763cc7fd0c034e4db83dbb2bd474b34f356ce2aae901372",
+      "review_sha256": "1a1d69deb0ffb7131654d9211aac5730642fb9b3e5f49de329fc8f044ee48fbc",
+      "artifact_sha256": {
+        "camera-estimation.json": "62d8ff7ca0213525b82469404ec567f9a8d433928c10788f6b78339ebc796d67",
+        "intrinsics.json": "783f6fb7627f8bdf0dfb740303465aa1f45d1061b95d1886fc50ce29d8958260",
+        "masks-manifest.json": "2e0030fad1cefc75279c512e6cd62a8b3749e495908b2fb7b04f9ce2120b2df2",
+        "observations.json": "2f75a1f9fcbea5153242f56bcaf879d6798a73ed422a6c902df8cc6230b82ba3",
+        "timeline.json": "d33966e70d9636cc7cd183e97bbd897737d531482556e6209785553e82383111"
+      }
+    },
+    {
+      "episode_index": 7,
+      "original_frame_count": 777,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000007.mp4",
+      "video_sha256": "e76d386123f8221e390d9accd35d8d19794efb1279d78a02a0e56553e4f9948d",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000007\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000007\\intrinsics.json",
+      "camera": {
+        "fx": 813.5847473144531,
+        "fy": 813.5847702026367,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "8ffc908f74f2a023bfcb529b1ef15b0fba8cf3af6dd08964f4999fa6b3d05860",
+      "review_sha256": "0e3f33b369207c80c2277dabc8342f97c384607a0f1ba3c3be1da8ac2a9fc495",
+      "artifact_sha256": {
+        "camera-estimation.json": "bd41ca203094ef81f81b478d0e9de41c30c07c1db6ec7e0a3eae7f2af0644369",
+        "intrinsics.json": "c1133adc0c156a103916cd107bdb1ae82b1f9f9b2db182e4ff6bb492ee0ed388",
+        "masks-manifest.json": "c00dbaafea06b6232d8e3f1cbfeb33d966708bd3f3118257790724c0aabc955d",
+        "observations.json": "5927ad1837cec85a7e32bb4a34d09a405292464af567529be0325397a2ab1cad",
+        "timeline.json": "a557d70880eba25686f7d2c1cc143b99f8a1ef117066c6a3ebf7e2b9a65ece5b"
+      }
+    },
+    {
+      "episode_index": 8,
+      "original_frame_count": 634,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000008.mp4",
+      "video_sha256": "7f2967bd12518ded44094c9ac397bed826c572f7cbfbab7c9909735a240c2770",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000008\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000008\\intrinsics.json",
+      "camera": {
+        "fx": 806.1900329589844,
+        "fy": 806.1900100708008,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "7243020a06f24089573ae9a8fac1a101a27267ec1668603c86cb044adf71e01f",
+      "review_sha256": "ca61b0be0fbb9530421e5e1e029850011a67d434b439ba3e930713a2e66f96c3",
+      "artifact_sha256": {
+        "camera-estimation.json": "57145def48faff8d64d82dbad423ce1116c807573b23462dba2fd79066477bd6",
+        "intrinsics.json": "663f1333795fd68a59ce5551428918a609590d0c72aa8871ecfaa6f7a50ef399",
+        "masks-manifest.json": "fb4e21d6718a19c60f5c8874afcf3af1a6d1bd95b4f4e5bc2c4a3550ca10c84b",
+        "observations.json": "1858516bc1afb8920afd24de973a91d6f542fb69347432e892e094994fc213ea",
+        "timeline.json": "d4c09fa5369a0a9c2751a56aeeb6d9126588a95881cc5608e6ee23ddc6accc1f"
+      }
+    },
+    {
+      "episode_index": 9,
+      "original_frame_count": 415,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000009.mp4",
+      "video_sha256": "4fe69ca521fc2717e2938339b0a37843ada391f4b074753584c7cd8c2e36a277",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000009\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000009\\intrinsics.json",
+      "camera": {
+        "fx": 835.5276489257812,
+        "fy": 835.5276947021484,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "26feabd2aac7eca2b799f99206bf45e01c82fbf25b09fdf3b4846f0f69aef9c3",
+      "review_sha256": "8d1d631a61b173f7ee4347f6718f3716127f47cb9d86e65125edcac4dc7ac7d1",
+      "artifact_sha256": {
+        "camera-estimation.json": "8d39706c25db011656a91c0a6aa2e912d90c111b695c07b8905df5a5e4bb8de4",
+        "intrinsics.json": "0c94b87f216130b31f0c01872d942fe27512b31cac08be54307d70fc90052dab",
+        "masks-manifest.json": "ae6e5e93d73e105824d931ba5edecd74f7bcec9bb6ce7b8f4d3c5edc8d1ef6b7",
+        "observations.json": "6a9b3907ca32f58622b68b0ed7cce1104e74a309bee5a8ffcba822132af3aeed",
+        "timeline.json": "92a13027ca4b71a3b036f4c2b243e4be8632a4f07f432531eeda8587688fc6d9"
+      }
+    },
+    {
+      "episode_index": 10,
+      "original_frame_count": 577,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000010.mp4",
+      "video_sha256": "4a75aec2a5d5621295979c8cd4b8b7c346c24ff6e9a4241b39dcfda623e94c39",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000010\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000010\\intrinsics.json",
+      "camera": {
+        "fx": 809.7451171875,
+        "fy": 809.7451171875,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "e38079bbae8879413cc984c52d5909e49450407e25b9db9663d904ec3f3771b6",
+      "review_sha256": "c4f09b2afb4ac9ec7f8ccf4b3d4d4fa2cd35f3a527246a0654f7943315c71824",
+      "artifact_sha256": {
+        "camera-estimation.json": "df343f9f8a6c0d0455f53257415bbfff963f0e25b39ff763ee4c8cdbf9f260ed",
+        "intrinsics.json": "25ba03646d26c317a43a638edab3f58a855af76ec0240d6c69a37ea5f4207528",
+        "masks-manifest.json": "1d8a87ef450e596688c91680b21faac113313b94f80997eace017dd0ce7827a8",
+        "observations.json": "903782dbdb4aebfa2f6185edbfd48b060ae2374a9fa3a1a5b609b7f393f43d59",
+        "timeline.json": "edf0b6117bd98c3536b7d7afd032a07e4806894283613c18b6895cd6feb61bb9"
+      }
+    },
+    {
+      "episode_index": 11,
+      "original_frame_count": 877,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000011.mp4",
+      "video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000011\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000011\\intrinsics.json",
+      "camera": {
+        "fx": 807.6576232910156,
+        "fy": 807.6576461791992,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "b81f660f03e76bd0ca8e276e65679e30a7af8a2301a092cdad9c0aa827491de7",
+      "review_sha256": "e42eb74874bc5f020accc6f3426fc8d0f73b3a299bcbb94a0452f72c5103c25f",
+      "artifact_sha256": {
+        "camera-estimation.json": "a662048fccb793b14db50e9f005dbb42938891a9de16e47961aa0e94004f1ff3",
+        "intrinsics.json": "1bca5df67abbdf36a04b75d03a7eb1a54d78666c18a94c2d22213f2139d4bb95",
+        "masks-manifest.json": "f8b5ee199e1070a9309965f54fe106f0216be1cdca8659f154fcb3e899dcaada",
+        "observations.json": "e3527e251b34ba1f72182fc82cb415ba97561ad163b468b72a29fce2be67849a",
+        "timeline.json": "644878a1f67b1cf210ea0b278af6c07c03d1600841455e3d1aa480093fa0c89f"
+      }
+    },
+    {
+      "episode_index": 12,
+      "original_frame_count": 405,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000012.mp4",
+      "video_sha256": "6494246c131a9161eb342c615ea835988d254b9c09abb659349bdb05e6935b39",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000012\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000012\\intrinsics.json",
+      "camera": {
+        "fx": 808.6132507324219,
+        "fy": 808.6132507324219,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "49c75e6a62d704cf6dd762956c65634751c9d82057da7781615e65226f40dcc8",
+      "review_sha256": "ae5ef0fdcc5ff011de5d91a40255702941807a0d9d07dbd9ce9f014110dd548f",
+      "artifact_sha256": {
+        "camera-estimation.json": "89559b416130e2e7b8801f6fe92fe8ec1d8dfa46ee5ab6aac56cf9e130fa7503",
+        "intrinsics.json": "7c626a7c9393949a2bc18e98ad5480ef209d38c638f0b532532a944b7db7fe8f",
+        "masks-manifest.json": "321367d963b495419cc7aa99f58a3ba9bcfd1e69fc90997b8bd21d9674fb30d9",
+        "observations.json": "c6c5202e5e1e38e61ef5388deb07f4f4fb7138be2de1a02354561be51985ea56",
+        "timeline.json": "232e4fd728f8378f9f540fe3e7d716bc3aac83cf821cb2c0a8e53aee8edbd63e"
+      }
+    },
+    {
+      "episode_index": 13,
+      "original_frame_count": 425,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000013.mp4",
+      "video_sha256": "fa74d6754b90eebc9513909e8570dfd2dd7726c71dba16df45cb17cc49e79f1a",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000013\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000013\\intrinsics.json",
+      "camera": {
+        "fx": 797.5499267578125,
+        "fy": 797.5499496459961,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "b156edfacf2fddb636d65eb16cbe05de57aee4777659671586e913645ad9338c",
+      "review_sha256": "3f90635f484292a0b9d95eeb2ea339412045b537475b463157aeadce30c15e79",
+      "artifact_sha256": {
+        "camera-estimation.json": "ac1d69a94e4d0f295a5e1ccbe9b476c531f2987e54485661b486689a2f0a8015",
+        "intrinsics.json": "9f2bbb8c8f4dbe5c2434f1a1c514ee8dbf0d3b72b46284693246dbbdfe149f4f",
+        "masks-manifest.json": "07e3485e1f3556a5c78f91492806c52fc5af3abb4b8bca2933dd0779ca816dae",
+        "observations.json": "9cc15e8644bb3549a47893af938d443f8dd419dda2bedce39e399223f22d4f79",
+        "timeline.json": "40e46261f9d0640b6638a062cd28554620a1745f1a6484824e14ca02c004eff7"
+      }
+    },
+    {
+      "episode_index": 14,
+      "original_frame_count": 442,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000014.mp4",
+      "video_sha256": "f9f2bed8abe60898aef8f62c245ff03ed32f94b76b079c128e363fdfd4a7e70e",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000014\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000014\\intrinsics.json",
+      "camera": {
+        "fx": 809.3299255371094,
+        "fy": 809.3299026489258,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "ef9cb46667430e866090d413b20c312d4379115a009e6e533ac0614e3c882960",
+      "review_sha256": "cb8a428e7d117284916a2d2e4f95a9746ae8f4769b0e6dcb8f1e97944a82ccec",
+      "artifact_sha256": {
+        "camera-estimation.json": "9eae48359c4d6fadc18e40e70b71c17a991f9e5116d7f0c7960265919a038896",
+        "intrinsics.json": "179683193ac0ca3d34b901ee4c88216e485daed7b5a084eaf8d9d0e4a3d1cb44",
+        "masks-manifest.json": "a50d3b791d4723e9fb6e0fa7101123ef318a85cbaf4a4e849a6bec1546176faf",
+        "observations.json": "84237eb836dc39e8afb93062e51eb6b7ec7b919c51d57de2f02d3fe2a758e644",
+        "timeline.json": "8572984ff3a5d4e227673695a2102cf7da74aacf4c30f4a5b0c254a693fc9953"
+      }
+    },
+    {
+      "episode_index": 15,
+      "original_frame_count": 501,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000015.mp4",
+      "video_sha256": "c368809329e922b75629c1d94c39c1c820c9211464a5e5a77a4cdb55803400f0",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000015\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000015\\intrinsics.json",
+      "camera": {
+        "fx": 801.068115234375,
+        "fy": 801.068115234375,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "53ad6eeaf160df7b305e6325ec517e72b80be6191900b1945981b744a37cc7f0",
+      "review_sha256": "f8e6e282cc26e47938fbfc0bc482378baba87e1bccf42db279939235c2e52bb7",
+      "artifact_sha256": {
+        "camera-estimation.json": "988e93f57e1161aaadfed3f0076cdd0f819bb296f7e269e4712635d1c0a803ae",
+        "intrinsics.json": "446727f35fccc0e3ac6cc9fec9d019d4d60e1ae52fab77e8a6b760c3f95616cd",
+        "masks-manifest.json": "3697265cdd13bc067140c3e008c7e8fc5b80afc218d0b1461a041a3856463c11",
+        "observations.json": "037fa94a2b8c4f77d926f62f44ec42b2c9a30ec18ca4ecae0c080b218eab1daa",
+        "timeline.json": "de437c28bb56764078fcb954d9e4bd20edd207d0f0943f1eb461adb8fa99ba6e"
+      }
+    },
+    {
+      "episode_index": 16,
+      "original_frame_count": 360,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+      "video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000016\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000016\\intrinsics.json",
+      "camera": {
+        "fx": 818.745849609375,
+        "fy": 818.7458724975586,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "028542aababb85c6d8ab6330fd3aec2a8100afc53556f010b61989e27191bc18",
+      "review_sha256": "0e191cc5bf8354e3d23a4faebee996b8109f3a175f15fe93b0272541954d560c",
+      "artifact_sha256": {
+        "camera-estimation.json": "50816989e15d311c06c8c3f2d25a6ab4396c22a4a841462c9d816b8746c457ac",
+        "intrinsics.json": "af77ed87e1b1f1f90227e71ae027bbbf719c66bfb2b348eef20a30b682022682",
+        "masks-manifest.json": "06aee9ed4d7b24187fbfaac14fade4bab10773d97a892eed4953fd9741135cf0",
+        "observations.json": "57f522201cb4f1c34d2f2c929ee34495e0ceb180cb6b82088b54f6ef80cf9fc6",
+        "timeline.json": "4abe4ce0cf913fcb5d3ed0738e38a6b0886846de33f3760fd38a1a29f5080031"
+      }
+    },
+    {
+      "episode_index": 17,
+      "original_frame_count": 419,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000017.mp4",
+      "video_sha256": "4c536c20aff3e803c0d5caf1f91b0dfab1054444361fdae2799212e5af15a94b",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000017\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000017\\intrinsics.json",
+      "camera": {
+        "fx": 800.5068969726562,
+        "fy": 800.5069198608398,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "04972838e60a1b183f12890b77feeb82eef86e7f6cd6c29c094291bcfc8d86ee",
+      "review_sha256": "5c0351fbe212312b31921d4aefa861d39487c6ed4d777e459de907da5c617f64",
+      "artifact_sha256": {
+        "camera-estimation.json": "142bbf82b82662de417e5ab57ae1505c16410ad16c8199f656add9e91e10a96f",
+        "intrinsics.json": "fdeb36231d1f35a428f4b00e6c330e16c3f1d590a9617971be4e41c18c6fc0cf",
+        "masks-manifest.json": "fd490f89521d0e949a05d94ebff8294ed34fe94b6b83002c20f482e7ec05634b",
+        "observations.json": "68b47c68f3655cf6a3fd23b518063e5eb4b9f30a4087cf5fe860bd02dfdc83b3",
+        "timeline.json": "6c3c631b32b6742a458dad601087ded1de55ab3ee25f5d9db8d41f9a7456d0d2"
+      }
+    },
+    {
+      "episode_index": 18,
+      "original_frame_count": 535,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000018.mp4",
+      "video_sha256": "e65132e95b0755a720c5e5238654a6fb8a01cd9e5d13fe481bcbb5e5612e44bd",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000018\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000018\\intrinsics.json",
+      "camera": {
+        "fx": 808.0468139648438,
+        "fy": 808.0468368530273,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "ff1e357e71541bdada847a4c01b2c4e5dc4c8734e0e48a3d8a56bfb62888f2c0",
+      "review_sha256": "5b5fe5deafbd38674dac6d297baf97378749a2d83db23599fe74a7e92383fc0b",
+      "artifact_sha256": {
+        "camera-estimation.json": "9d6eb6a82df4b8fd4c4d2e5cf478240d9dc1efa508f5c8a4c60d65d2fd8e5677",
+        "intrinsics.json": "c4c159f2f716c5b325e4a7bb31290c2d32b7b5b4db7937f809a57d7503c67c4d",
+        "masks-manifest.json": "553c8691240999a86fa7badd7c4f932fd3e16a2b2847dca287441f52ec430656",
+        "observations.json": "f029b25edc69d4514ae07e214de2041dcf971e5b6eee43df556cf18bc3d6fed9",
+        "timeline.json": "46b7076a92d67e8c030767ae42c0c7ca66efba26ff664804b6d817cf99acbd5a"
+      }
+    },
+    {
+      "episode_index": 19,
+      "original_frame_count": 443,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000019.mp4",
+      "video_sha256": "730e8392a32944856b3f9e2b02e57c48ba955e0832cfaf40e06d2de72a3a3bc9",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000019\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000019\\intrinsics.json",
+      "camera": {
+        "fx": 788.6661987304688,
+        "fy": 788.6661987304688,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "33abea7347f0c3660ec4649f9c2eea2069839396649aff2271446cff58667bb7",
+      "review_sha256": "e29f2691b4f18a83dcee89fbb0c63bcc0433c1efb47b049f83b716fb87b2d584",
+      "artifact_sha256": {
+        "camera-estimation.json": "413a297c4d3d2d39bbc2f9a125d5e1a65a69568b759a01c17f2ba3ca1eae169a",
+        "intrinsics.json": "a92a1ea5dd64a79d2eebade5ded0569bf7c8aeeef7f555fe4f613482959546df",
+        "masks-manifest.json": "9148fb0d04570b14eac2b2e02d6f7266dd42fd9431e3b1c2852888b75196c613",
+        "observations.json": "bdc4ae1f1d7a67401f7c508b434564cfcc794e7c71784c83b7fb2722d1fdf0b0",
+        "timeline.json": "b6ec36fac4ca034e3f7c2b9a4b01d3f405fd589f004bc23f7cbf6b76af25f96f"
+      }
+    },
+    {
+      "episode_index": 20,
+      "original_frame_count": 549,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000020.mp4",
+      "video_sha256": "781ec1de0edcf8bf30cbc9f3847f80efd8cd2e97e53b0b4f80ccb0b505ef03ce",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000020\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000020\\intrinsics.json",
+      "camera": {
+        "fx": 794.4984741210938,
+        "fy": 794.4984970092773,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "5a898cd2e92bd4c8b9ca35e3315b5bbf685a033cfe6beb5e28240b8f8366abf0",
+      "review_sha256": "ad117b32a76c9844484d6a37d005cc74aea85e0b4992165f4c84b843c0eaa82e",
+      "artifact_sha256": {
+        "camera-estimation.json": "930932473eced46e197a4f7c2f14beebab938eb87cc27f40f082245440f7a6b8",
+        "intrinsics.json": "8cc9fb7f8ffb087b87ed073eec262add97b49d26372e6cb47c3f6ef0043f9695",
+        "masks-manifest.json": "7bf79def1f2f866c2f716e7ec91d6a2fc3b8d80a009d1bf89638b756d5e2f268",
+        "observations.json": "f4a309771b0b320729c7fa0c53427daf15a858cef08e541bc721b8647f38a08d",
+        "timeline.json": "08ab13ee845bb5b55899392f15502848d66adfa7e81ba6e651307c4438739cfb"
+      }
+    },
+    {
+      "episode_index": 21,
+      "original_frame_count": 563,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000021.mp4",
+      "video_sha256": "66443de1239172913edf324e9d4affb960883c99ca4f9e307a7ec76a9264adec",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000021\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000021\\intrinsics.json",
+      "camera": {
+        "fx": 796.2281799316406,
+        "fy": 796.228157043457,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "97cb5aa4ea3c87d1304da9aef64eaf4d08f6f05149666f2c7120b61fcf04d47c",
+      "review_sha256": "475b12d9e3b91b0c845bd2a00fd96d4fbfa10c6bd225a34f576623169a7ed201",
+      "artifact_sha256": {
+        "camera-estimation.json": "bec09ee3a5ebcbfe46d4e6944ac0b38065448b123f5620f63243f8060260555a",
+        "intrinsics.json": "9b89d2a41cd27c973b6ec1b7fee83e56fc6f7dde9e72dd8da687f5de3b8c08b0",
+        "masks-manifest.json": "fee2b591e4fc3824514c78fc4278003fb105d92a742e7666b2b3bf568f1f20dd",
+        "observations.json": "5c4279daa422e9a72d07f1703d939ddc2d496c144f5a12c1a1d290655f0274d1",
+        "timeline.json": "d733e12a414123583c74a72e4a6cc4f3e7e513dbee7907450c6931cc5785aefd"
+      }
+    },
+    {
+      "episode_index": 22,
+      "original_frame_count": 533,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000022.mp4",
+      "video_sha256": "17e2de04b320c3ff3004f659326cbacfb51402af19c9564ffc4f1fed88fadad0",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000022\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000022\\intrinsics.json",
+      "camera": {
+        "fx": 805.575439453125,
+        "fy": 805.5754623413086,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "25df912ddbc2a9f31587bd3ec66f3ba30c298c232c948ecccd1e09d8997fb499",
+      "review_sha256": "e600732044d9b2aa11b00392a23c5ccdb0fc22a09ce06a2f68452e6f7bfd33d7",
+      "artifact_sha256": {
+        "camera-estimation.json": "f6c1297939cf0b1fdb4035f27405b45cfae1fbeab986e819e700e939e4ee019b",
+        "intrinsics.json": "82aad69c362c90ba8cc438492cb917b97c3f87b545ed7688ca1ff84fd6ae9154",
+        "masks-manifest.json": "5d31355d9a309fa68685a576fb7e11495047c69b7ee23af8bf3391564692b89f",
+        "observations.json": "fdc10ca855a1e566e1a68ff999da318aeb6c8bcac03d6fadbec45ddee08a4700",
+        "timeline.json": "1440e01d08b0213a811a4850c1f6f6fd35b710101bd702071b0b485a20f0a3fa"
+      }
+    },
+    {
+      "episode_index": 23,
+      "original_frame_count": 552,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000023.mp4",
+      "video_sha256": "4b132f8efe20da727f2d5fd7ba56835cf08b032f11e6dc2800f26bfcfff0f0b5",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000023\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000023\\intrinsics.json",
+      "camera": {
+        "fx": 819.3526611328125,
+        "fy": 819.3526611328125,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "2df215144589043cb4e149af30d22ac775fac69023881b260c83cc71a738e719",
+      "review_sha256": "089bacc52cdbdab7b73fd77580c559b2369574cf9bb8ee0efd816c177185ebcc",
+      "artifact_sha256": {
+        "camera-estimation.json": "62989b3edb83e117ad9d9c4a5d2c79265d5cf2a167ac22952ff6b42592e282db",
+        "intrinsics.json": "f915668b08e2620092f55aad5e060d5f82460c64dbd4e3e57e458b88d5973cdd",
+        "masks-manifest.json": "8e85e8e63a275daf16f34020dbfe3e89d38b1702986d2be1df19042437075f17",
+        "observations.json": "54f1d58db509516ba397268c587d3d21b67e6ac0fa99b7b1b33db27d95084a43",
+        "timeline.json": "2959fe19b106ac081d22bbbef97568a626c4f0652b2699818f63be8c1845a3da"
+      }
+    },
+    {
+      "episode_index": 24,
+      "original_frame_count": 420,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000024.mp4",
+      "video_sha256": "e36eda1c9ac7f6a1da298412c301da27775055df4c6ff19167f6b1a8c504d2ef",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000024\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000024\\intrinsics.json",
+      "camera": {
+        "fx": 806.7041931152344,
+        "fy": 806.7041702270508,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "e2f4f57505ecfc6232f3d7146df1e2d43f681421b1570d58554e1b52b77c35ea",
+      "review_sha256": "cff1ccaf6ee04ee1db4beac0808ce3e84b3d370e927f4d26261a4d6050dd2611",
+      "artifact_sha256": {
+        "camera-estimation.json": "e7d7f696b8542d6c96776dcd3ac9f6bbc411f4cc7936596821b0b554f24b423f",
+        "intrinsics.json": "9e730c1ad2bc2fdd7cf5eb1d1b601b151a627cfc8fa7b7dc56a386ade6a87dad",
+        "masks-manifest.json": "48c77bf11789b2258fed3a4a0291e7b7daa9c2cc838fcbc1ef4e081154230fc6",
+        "observations.json": "28e16bb0b5aef037a7f636cd45bd133488ded23edb8cf8f7484b884ec01ed0a5",
+        "timeline.json": "ed84322abe8f9dba1f74bb9a26a6ab74f1cca5cfc1cd77d2982c5b25e71c1761"
+      }
+    },
+    {
+      "episode_index": 25,
+      "original_frame_count": 365,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000025.mp4",
+      "video_sha256": "efcce8025e4e94ed92553277bc6fddd5ae7c8d7c7e70d71d09ff9a86a1ea3ae0",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000025\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000025\\intrinsics.json",
+      "camera": {
+        "fx": 792.3782958984375,
+        "fy": 792.3782730102539,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "f3c6275de3bea204186d4f1e6a04aa901ba18015c7b520819f804a53f8725257",
+      "review_sha256": "54639a6ea013696f35d4dad4baf5a0cf35e27bb8abc56ac040b0eb0ac97087d4",
+      "artifact_sha256": {
+        "camera-estimation.json": "2592263112d80baf49d0320af076727a1497d9d1a8ca3b53ee35d5460ce34f51",
+        "intrinsics.json": "ddcbf3715d55c5a4d68ed60f0239df28ee98d6ec1ea25ec7d47fd381f851186d",
+        "masks-manifest.json": "4e400e4c99b9358ccd3f4bf6f13e30c7eb21493d757a69bfa3af2cca8d74f69c",
+        "observations.json": "43fd233cde9e8b171d64468cb97141973c6bd85c0d150570f7d1060512eb1c67",
+        "timeline.json": "4bedcdf631f9b6d8501f391b9b6070f43c7cbf3dfaec9933f239eae81b67bfb7"
+      }
+    },
+    {
+      "episode_index": 26,
+      "original_frame_count": 399,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000026.mp4",
+      "video_sha256": "9cf9112417778299780a3e2a7f009d38bbf24059149eaa1591b8df02551607a4",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000026\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000026\\intrinsics.json",
+      "camera": {
+        "fx": 800.947998046875,
+        "fy": 800.9480209350586,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "43f706d7b288d612f257d00cebbb279d4ff058cee9b6d0965b038eeda3d9ea51",
+      "review_sha256": "fc29d796cbfa9fa9b111ba14860a959632bad2bdafd2bff4b2e59286fd79a2cb",
+      "artifact_sha256": {
+        "camera-estimation.json": "5edb0490f4c92ed9bc4904751ceb8582e00b3da5952548c0400c2abc8fb6ac0a",
+        "intrinsics.json": "1e76b0a295db405b6d90bb4fb2bd74e096b043151acb347cc8c61a7cccc329cb",
+        "masks-manifest.json": "7356b0e45155ea197773f0f9622e28772414ec0cc9642faec5e4c60cdce3551f",
+        "observations.json": "2a706b8c7c7fd09cecdf58154aeaefdba7e56f1173ce8f8e7a9ff4e2bec5cc88",
+        "timeline.json": "44a7e6edfd66a70893c91380d0c4c547cca28bffbae54bf9e18d1fddf69ae3d1"
+      }
+    },
+    {
+      "episode_index": 27,
+      "original_frame_count": 440,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000027.mp4",
+      "video_sha256": "07790526fc281dfb37f84cc9fa4cc25925e7e8fa6cd5600fd5cd9179ecd03e37",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000027\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000027\\intrinsics.json",
+      "camera": {
+        "fx": 800.4959106445312,
+        "fy": 800.4958648681641,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "4f796197c6f47dbbb821269007b894b1ef0a74316f90dfec9e059eda7d6d7115",
+      "review_sha256": "a7fc0b7171a9bb4f585b730fb6b58ad110f7e8810603160cc35ff9fe87ca4329",
+      "artifact_sha256": {
+        "camera-estimation.json": "4f3fc65df6741e9b168b66b3937384c47d7e92db838528b781a47682b0a78cc0",
+        "intrinsics.json": "19ef638845812edbfc5f18083da111c126a5120c73a63a4e2fa67768a7e9d6c2",
+        "masks-manifest.json": "e7e8a7e43e21bbf92a549cec568a79ae2fc3f1155bd2b4da6a8d65de04701101",
+        "observations.json": "62983c59a5ce65bca1558dca8be0fb5865475664c61fb48d88821c1f471b757e",
+        "timeline.json": "220c579b86ed37df350f8b43a7fdf53ff6a2492027cd879043669b4d42b6b65a"
+      }
+    },
+    {
+      "episode_index": 28,
+      "original_frame_count": 366,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000028.mp4",
+      "video_sha256": "9f84471dcd5e44113cc21e5bd40e8877ad6c5bcc1ba1d03cfdbc866b8df61538",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000028\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000028\\intrinsics.json",
+      "camera": {
+        "fx": 819.3587951660156,
+        "fy": 819.358772277832,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "ac2fa0b036af138111e9a25631f91e4f487167953adce8774e7d98124f9c8bdb",
+      "review_sha256": "fbc988c63516286b972388825cba959af1b45efefa31875e25e544f6b48efb59",
+      "artifact_sha256": {
+        "camera-estimation.json": "6d2d256821520649f2c98e7235dd2c8acf99b6cb38e6ed461cc96bee3be13cb2",
+        "intrinsics.json": "c87f545d488bc2e36d77fd4d04bc42b20e4c53fa081c1bcae7024d784e74ffdb",
+        "masks-manifest.json": "61fcda2053f8ebc33aaee9e3869fa1d8acd1a31264bfde3388e24270fdb5699f",
+        "observations.json": "448795f3e67465c68422fb2dd5bb88c4b43772fb31e5e6281bc73276b92cf7e5",
+        "timeline.json": "603d04e14ad83b18be71f2abecb9c255d149df411cdc2fa5df834a3be0b86b8a"
+      }
+    },
+    {
+      "episode_index": 29,
+      "original_frame_count": 419,
+      "first_source_frame_id": 0,
+      "video_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000029.mp4",
+      "video_sha256": "0a2288f183e4d0fffff1c55688c1ea27c09e60588dfc9f52c10137b3abc1b5e1",
+      "mask_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000029\\human_masks",
+      "camera_path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000029\\intrinsics.json",
+      "camera": {
+        "fx": 788.3325805664062,
+        "fy": 788.3326263427734,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "input_sha256": "04bf12f70271c8be703973d23e09c184711718c4b6ab0fe15d00e3ca85d4de44",
+      "review_sha256": "01362c2688d15e75735ed2a9d30c0c54b05e6d82496f92c8ae80466ffc2d5893",
+      "artifact_sha256": {
+        "camera-estimation.json": "bdc2b20cf485f7df1c84400502939f3387071450fb4d14e248e9b6e49a2647db",
+        "intrinsics.json": "b71ed261047be0f920bcd551322b0366bed887b2bcd1e66bf7d88fc6168bed87",
+        "masks-manifest.json": "ef673708e2c63b6741c4f66126403525d0c5b2ff42e4b17895b8ed078ad7e43c",
+        "observations.json": "e458f4e5533f84d9cabbb4dcf229432884bca5ff16ce3faeb528f9123bda9698",
+        "timeline.json": "6888cd40a76bd66dde6e4ab2cbc53d696b4774bcbe556f6115fc15f7a3534f1e"
+      }
+    }
+  ]
+}

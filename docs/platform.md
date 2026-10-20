@@ -2,12 +2,31 @@
 
 Follow the owner's current [Track 1 requirements R1–R6](track1-requirements.md), effective 2026-10-03. Track 2 content and all derivatives are prohibited, including use in tests, diagnostics, baseline normalization, candidate comparisons and rankings. Use Track 1 inputs and their reconstructed artifacts; synthetic fixtures must be independently created. See `AGENTS.md`.
 
+## Clickable delivery contents (2026-10-20)
+
+The public board now separates video/timeline readiness, Body input readiness,
+object masks, depth evidence and registered Body outputs. Each preparation item
+opens all 30 videos; all six stage cells open their registered artifacts, missing
+requirements and check evidence. Record URLs pin an exact immutable submission.
+Input details show camera values, selected original mask review sheets, pinned
+receipts and paths inside the existing 598.4 MiB archive.
+
+The deterministic [catalog builder](../tools/build_delivery_catalog.py) validates
+the original all-30 record identities and pinned evidence/hash chain. The site
+contains 60 byte-identical QA JPEGs (21.9 MB), not generated demonstration images.
+Remaining QA sheets and full sequences stay in the existing release. New records
+cannot inherit old catalog readiness. CI checks the catalog, previews and registry
+before deployment; a catalog loading failure leaves stage records accessible.
+This improves delivery inspection without changing the 30 partial Inputs states
+or adding Body inference, complete Inputs, reconstruction acceptance or scores.
+The Claude module and status copies remain pending publication.
+
 ## Public progress board entry point (2026-10-20)
 
 The repository homepage links the [30-video board](https://seanwilliam2077.github.io/video-to-hoi/).
 The [Pages workflow](../.github/workflows/progress-pages.yml) validates the shared
-registry and browser core, then publishes the four static board assets and the
-committed snapshot after relevant changes reach `main`. Large input packages
+registry, browser behavior and delivery catalog, then publishes the static board
+assets, reviewed previews and committed snapshots after relevant changes reach `main`. Large input packages
 remain in their existing result Release. Browser drafts remain local and must
 be exported and submitted through Git.
 

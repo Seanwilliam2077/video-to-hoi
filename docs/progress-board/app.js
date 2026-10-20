@@ -4,6 +4,7 @@
   const $ = id => document.getElementById(id);
   const repo = 'https://github.com/Seanwilliam2077/video-to-hoi';
   const raw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/board.json';
+  const catalogRaw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/delivery-catalog.json';
   const draftKey = 'hoi-progress-drafts-v1';
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const link = (url, label) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`;
@@ -32,11 +33,43 @@
     privateNote: 'The team board is public on GitHub Pages and needs no sign-in. Drafts stay in this browser and site origin until exported and submitted through Git.'
   });
   const objectZh = {hula_hoop:'呼啦圈',big_red_bowl:'大红碗',iron:'熨斗',white_desk:'白色桌子',black_pan:'黑色平底锅',foam_grass_block:'草坪泡沫块',paint_roller:'油漆滚筒',pink_foam_roll:'粉色泡沫轴',short_wood_stool:'矮木凳',white_laptop_cart:'白色电脑推车'};
+  Object.assign(zh, {
+    preparationTitle:'输入准备与 Body 交接',preparationHint:'点击准备项，逐视频查看实际交付',
+    preparationScope:'统计范围：全部 30 个视频 ·',preparationBoundary:'Body 输入检查通过，不代表完整 Inputs 或人体重建已完成。',
+    rawPrepared:'原始视频与时间轴',bodyPrepared:'Body 输入',objectPrepared:'物体掩码',depthPrepared:'深度证据',resultPrepared:'Body 结果',
+    rawNote:'源视频身份、完整帧序列及时间对应关系',bodyNote:'人体掩码、观测记录、估计内参与读取检查',objectNote:'完整 Inputs 还需要所有目标物体的掩码',depthNote:'完整 Inputs 的深度产物；尺度对齐在人体阶段登记',resultNote:'人体阶段的重建产物登记，质量仍需查看检查证据',
+    verified:'已验证',notVerified:'未匹配验证证据',registeredData:'已有产物登记',missingData:'待递交',browseVideos:'查看视频与文件',collapse:'收起',
+    catalogUnavailable:'交付内容索引未能通过加载或校验。准备项显示为未验证；阶段登记仍可查看。请刷新仓库重试。',
+    filesShort:'项交付',viewFiles:'查看文件',viewChecklist:'查看待交清单',bodyReadyShort:'Body 输入已验证',
+    exactLink:'当前记录链接',stageLink:'此视频阶段链接',reviewHint:'完整阶段尚未通过结构检查',routeMissing:'此链接中的视频、阶段或交付记录不存在。请从看板选择有效记录。',
+    inputsUnmatched:'当前记录尚无匹配的详细交付索引。下方仍显示该记录已登记的文件；其他迭代的检查图不会作为本次证据。',
+    stageChecks:'完整阶段检查',previewError:'预览图暂时无法加载，可打开对应文件或下载交付包。'
+  });
+  Object.assign(en, {
+    preparationTitle:'Input preparation & Body handoff',preparationHint:'Open a preparation item to inspect each video’s delivery',
+    preparationScope:'Scope: all 30 videos ·',preparationBoundary:'Passing the Body input checks does not complete full Inputs or human reconstruction.',
+    rawPrepared:'Video & timeline',bodyPrepared:'Body inputs',objectPrepared:'Object masks',depthPrepared:'Depth evidence',resultPrepared:'Body results',
+    rawNote:'Source identity, complete frames and time alignment',bodyNote:'Human masks, observations, estimated intrinsics and reader checks',objectNote:'Full Inputs still needs masks for every target object',depthNote:'Full Inputs depth artifacts; scale alignment is registered in Human',resultNote:'Registered human reconstruction artifacts; inspect evidence for quality',
+    verified:'Verified',notVerified:'No matching verification',registeredData:'Artifact registered',missingData:'Awaiting delivery',browseVideos:'Browse videos & files',collapse:'Collapse',
+    catalogUnavailable:'The delivery catalog could not be loaded or validated. Preparation is shown as unverified; stage records remain available. Refresh the repository to retry.',
+    filesShort:'deliverables',viewFiles:'View files',viewChecklist:'View required files',bodyReadyShort:'Body inputs verified',
+    exactLink:'Link to this record',stageLink:'Link to this video stage',reviewHint:'Full stages awaiting structural checks',routeMissing:'This video, stage or delivery record does not exist. Select a valid record from the board.',
+    inputsUnmatched:'No detailed catalog matches this record. Its registered files remain below; evidence from other iterations is not reused.',
+    stageChecks:'Full-stage checks',previewError:'The preview could not load. Open its file or download the delivery package.'
+  });
   const requirementZh = {camera:'相机与源帧身份',masks:'逐帧分割掩码',depth:'深度与尺度证据',human:'人体轨迹与表示契约',depth_scale:'深度尺度记录',object_record:'物体身份、坐标系与尺度',mesh:'物体网格与来源',transforms:'全帧物体变换',confidence:'逐帧置信度',refined_human:'优化后人体轨迹',refined_objects:'优化后物体轨迹',metadata:'视频、物体与帧清单',parquet:'完整轨迹数据表',mhr_arrays:'人体参数数组与表示契约',meshes:'物体网格与姿态配对'};
-  const capabilityZh = {platform:'已有内部交付门禁与目录。原生产物导入、跨机器包迁移和正式导出验收仍待接入。',human:'已有内部人体数组结构检查。真实原生人体适配器与逐视频验收结果尚未登记。',object:'已有网格和运动结构检查。真实重建、跟踪和逐视频验收结果尚未登记。',physics:'已有优化输出结构检查。真实优化、交互质量和逐视频验收结果尚未登记。'};
+  const capabilityZh = {platform:'30 个视频的 Body 输入包、读取检查和抽样预览已登记，可逐视频查看并下载。其他机器的实际运行与正式导出验收仍待完成。',human:'已有内部人体数组结构检查。真实原生人体适配器与逐视频验收结果尚未登记。',object:'已有网格和运动结构检查。真实重建、跟踪和逐视频验收结果尚未登记。',physics:'已有优化输出结构检查。真实优化、交互质量和逐视频验收结果尚未登记。'};
   let language = 'zh', board = null, drafts = [], records = [], stale = new Set(), latest = new Map();
   let remote = false, attention = false, view = matchMedia('(max-width:760px)').matches ? 'cards' : 'matrix';
   let selectedEpisode = null, selectedStage = null, selectedRecordId = null, editing = false, recovery = null;
+  let catalog = null, catalogMatches = new WeakMap(), preparationCategory = null, selectedComponent = '';
+  const preparationItems = [
+    {id:'raw',title:'rawPrepared',note:'rawNote',stage:'inputs'},
+    {id:'body',title:'bodyPrepared',note:'bodyNote',stage:'inputs'},
+    {id:'object',title:'objectPrepared',note:'objectNote',stage:'inputs'},
+    {id:'depth',title:'depthPrepared',note:'depthNote',stage:'inputs'},
+    {id:'result',title:'resultPrepared',note:'resultNote',stage:'human'}
+  ];
   let toastTimer;
   const t = key => (language === 'zh' ? zh : en)[key] || key;
   const stageName = id => t(id === 'export' ? 'stageExport' : id);
@@ -89,6 +122,43 @@
     const old = $(id).value; $(id).innerHTML = items.map(([value,label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
     if (items.some(([v]) => v === old)) $(id).value = old;
   }
+  function setCatalog(value) {
+    catalog = value && !HOIDelivery.validateCatalog(value).length ? value : null;
+    catalogMatches = new WeakMap();
+  }
+  function deliveryEntry(record) {
+    if (!record || !catalog) return null;
+    if (!catalogMatches.has(record)) catalogMatches.set(record,HOIDelivery.entryFor(catalog,record));
+    return catalogMatches.get(record);
+  }
+  function preparationReady(ep, item) {
+    const r = latest.get(`${ep.id}:${item.stage}`);
+    if (!r || r.kind !== 'real_track1' || stale.has(r.id)) return false;
+    if (item.id === 'raw') return deliveryEntry(r)?.raw_verified === true;
+    if (item.id === 'body') return deliveryEntry(r)?.body_inputs_verified === true;
+    if (item.id === 'object') return r.coverage.objects_complete === true && r.artifacts.some(a=>a.requirement_id==='masks');
+    return r.artifacts.some(a=>a.requirement_id===(item.id==='depth'?'depth':'human'));
+  }
+  function renderPreparation() {
+    $('preparation-scope').textContent = `${t('preparationScope')} ${iteration() || t('allIterations')}. ${t('preparationBoundary')}`;
+    $('catalog-warning').hidden = !!catalog;
+    $('catalog-warning').textContent = t('catalogUnavailable');
+    $('preparation-cards').innerHTML = preparationItems.map(item=>{
+      const count=board.episodes.filter(ep=>preparationReady(ep,item)).length;
+      const status=t(['raw','body'].includes(item.id)?'verified':'registeredData');
+      return `<button class="preparation-card ${count===30?'ready':''}" data-preparation="${item.id}" aria-expanded="${item.id===preparationCategory}" aria-controls="preparation-browser"><span>${esc(t(item.title))}</span><strong>${count}<small>/ 30</small></strong><span class="preparation-status">${esc(status)}</span><p>${esc(t(item.note))}</p><span class="preparation-open">${esc(t('browseVideos'))} →</span></button>`;
+    }).join('');
+    const item=preparationItems.find(x=>x.id===preparationCategory);
+    $('preparation-browser').hidden=!item;
+    if (!item) return;
+    $('preparation-browser-title').textContent=t(item.title);
+    $('preparation-browser-note').textContent=t(item.note);
+    $('preparation-videos').innerHTML=board.episodes.map(ep=>{
+      const ready=preparationReady(ep,item),r=latest.get(`${ep.id}:${item.stage}`);
+      const status=t(['raw','body'].includes(item.id)?(ready?'verified':'notVerified'):(ready?'registeredData':'missingData'));
+      return `<button class="preparation-video" data-episode="${ep.id}" data-stage="${item.stage}" data-component="${item.id}"><span class="preparation-episode"><b>EP ${String(ep.ep).padStart(2,'0')}</b><span>${esc(objectName(ep))}</span></span><span class="preparation-state ${ready?'ready':''}">${esc(status)}</span><span class="preparation-action">${esc(t(r?.artifacts.length?'viewFiles':'viewChecklist'))} →</span></button>`;
+    }).join('');
+  }
   function populateFilters() {
     const seen = new Set(); const objects = board.episodes.filter(ep => !seen.has(ep.object) && seen.add(ep.object));
     options('object-filter', [['',t('allObjects')],...objects.map(ep => [ep.object,objectName(ep)])]);
@@ -99,7 +169,7 @@
   }
   function stageCell(ep,stage) {
     const r = latest.get(`${ep.id}:${stage.id}`), status = stateOf(r);
-    return `<button class="stage-cell ${status}" data-episode="${ep.id}" data-stage="${stage.id}" aria-label="${esc(`EP ${String(ep.ep).padStart(2,'0')} · ${stageName(stage.id)} · ${t(status)}`)}" title="${esc(r ? `${r.iteration} · ${r.summary}` : t('noRecord'))}"><i class="dot"></i>${esc(t(status))}${r && draftIds().has(r.id) ? '<i class="draft-marker" title="'+esc(t('local'))+'"></i>' : ''}${r && r.kind !== 'real_track1' ? `<span class="scope-mini" title="${esc(t(r.kind))}">◇</span>` : ''}</button>`;
+    return `<button class="stage-cell stage-file-button ${status}" data-episode="${ep.id}" data-stage="${stage.id}" aria-label="${esc(`EP ${String(ep.ep).padStart(2,'0')} · ${stageName(stage.id)} · ${t(status)}`)}" title="${esc(r ? `${r.iteration} · ${r.summary}` : t('noRecord'))}"><span><i class="dot"></i>${esc(t(status))}${r && draftIds().has(r.id) ? '<i class="draft-marker" title="'+esc(t('local'))+'"></i>' : ''}${r && r.kind !== 'real_track1' ? `<span class="scope-mini" title="${esc(t(r.kind))}">◇</span>` : ''}</span><small>${r?.artifacts.length?`${r.artifacts.length} ${esc(t('filesShort'))} · ${esc(t('viewFiles'))}`:esc(t('viewChecklist'))} →</small>${stage.id==='inputs' && deliveryEntry(r)?.body_inputs_verified ? `<small class="body-ready-label">${esc(t('bodyReadyShort'))}</small>`:''}</button>`;
   }
   function identity(ep) {
     return `<div class="video-identity"><img class="thumb" src="${esc(ep.poster_url)}" loading="lazy" alt="${esc(objectName(ep))}"><div class="video-name"><strong>EP ${String(ep.ep).padStart(2,'0')} <span>${esc(objectName(ep))}</span></strong><small title="${esc(ep.task)}">${esc(ep.task)}</small></div></div>`;
@@ -132,6 +202,8 @@
     $('stat-review').textContent = real.filter(r => stateOf(r) === 'submitted').length;
     $('stat-accepted').textContent = HOI.acceptedEpisodeIds(records,iteration()).size;
     $('attention-count').textContent = [...latest.values()].filter(needs).length;
+    $('stage-shortcuts').innerHTML = board.stages.map(s=>`<button class="stage-shortcut ${selected===s.id?'selected':''}" data-browse-stage="${s.id}" aria-pressed="${selected===s.id}">${esc(stageName(s.id))}<span>${board.episodes.filter(ep=>latest.get(`${ep.id}:${s.id}`)?.artifacts.length).length}/30</span></button>`).join('');
+    renderPreparation();
   }
   function render() {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
@@ -150,24 +222,52 @@
     if ($('detail').open && !editing) renderDetail();
     if ($('guide').open) renderGuide();
   }
-  function openDetail(episodeId, stageId) {
-    selectedEpisode = board.episodes.find(e => e.id === episodeId); selectedStage = board.stages.find(s => s.id === stageId); selectedRecordId = null; editing = false;
+  function detailHash(ep, stage, recordId, component='') {
+    const params=new URLSearchParams({episode:ep,stage});
+    if(recordId)params.set('record',recordId);
+    if(component)params.set('component',component);
+    return '#'+params.toString();
+  }
+  function focusComponent() {
+    const target=$(`delivery-${selectedComponent}`);
+    if(target && $('detail').open) {
+      if(target.tagName==='DETAILS')target.open=true;
+      target.scrollIntoView({block:'start'});
+    }
+  }
+  function openDetail(episodeId, stageId, recordId=null, component='', updateRoute=true) {
+    const ep=board?.episodes.find(e=>e.id===episodeId),stage=board?.stages.find(s=>s.id===stageId);
+    const record=recordId?records.find(r=>r.id===recordId):latest.get(`${episodeId}:${stageId}`);
+    if(!ep || !stage || (recordId && (!record || record.episode_id!==episodeId || record.stage!==stageId))) {if($('detail').open)$('detail').close();toast(t('routeMissing'));return;}
+    selectedEpisode=ep; selectedStage=stage; selectedRecordId=record?.id||null; selectedComponent=['raw','body','camera','review','package','object','depth'].includes(component)?component:''; editing=false;
     renderDetail(); if (!$('detail').open) $('detail').showModal(); $('detail').scrollTop = 0;
+    if(updateRoute) {
+      const hash=detailHash(ep.id,stage.id,record?.id,selectedComponent);
+      if(location.hash!==hash)history.pushState(null,'',hash);
+    }
+    focusComponent();
+  }
+  function restoreRoute() {
+    if(!board)return;
+    const params=new URLSearchParams(location.hash.slice(1));
+    if(!params.has('episode')) {if($('detail').open)$('detail').close();return;}
+    openDetail(params.get('episode'),params.get('stage'),params.get('record'),params.get('component')||'',false);
   }
   function renderDetail() {
     const ep = selectedEpisode, stage = selectedStage;
     const r = selectedRecordId ? records.find(r => r.id === selectedRecordId) : latest.get(`${ep.id}:${stage.id}`);
+    if(selectedRecordId && !r) {$('detail-content').innerHTML=`<p class="notice">${esc(t('routeMissing'))}</p>`;return;}
     $('detail-heading').innerHTML = `<div class="eyebrow">${esc(ep.id)} · ${esc(t(stage.module+'Module'))}</div><h2 id="detail-title">${esc(objectName(ep))} / ${esc(stageName(stage.id))}</h2>`;
     const history = records.filter(x => x.episode_id === ep.id && x.stage === stage.id).sort((a,b) => Date.parse(b.created_at)-Date.parse(a.created_at) || (a.id < b.id ? 1 : a.id > b.id ? -1 : 0));
-    const artifacts = new Map((r?.artifacts || []).map(a => [a.requirement_id,a]));
-    const missing = HOI.missingRequirements(r,stage);
+    const entry=stage.id==='inputs'?deliveryEntry(r):null;
     $('detail-content').innerHTML = `<div class="detail-video"><img src="${esc(ep.poster_url)}" alt="${esc(objectName(ep))}"><div><p>${ep.frames} ${esc(t('frames'))} · ${ep.seconds.toFixed(1)} ${esc(t('seconds'))}<br>${esc(ep.camera)}</p>${link(ep.video_url,t('sourceVideo'))}</div></div><details class="task-description"><summary>${esc(t('metadataTask'))}</summary><p>${esc(ep.task)}</p></details><div class="stage-tabs">${board.stages.map(s => `<button data-tab="${s.id}" class="${s.id===stage.id?'selected':''}">${esc(stageName(s.id))}</button>`).join('')}</div>
-      <div class="detail-status"><span class="stage-cell ${stateOf(r)}"><i class="dot"></i>${esc(t(stateOf(r)))}</span><span class="scope-chip">${esc(r ? `${r.iteration} · ${t(r.kind)}` : t('unreported'))}</span>${r && draftIds().has(r.id) ? `<span class="local-label">${esc(t('local'))}</span>`:''}</div>
+      <div class="detail-status"><span class="stage-cell ${stateOf(r)}"><i class="dot"></i>${esc(t(stateOf(r)))}</span>${r?`<span class="scope-chip">${esc(`${r.iteration} · ${t(r.kind)}`)}</span>`:''}${r && draftIds().has(r.id) ? `<span class="local-label">${esc(t('local'))}</span>`:''}</div>
       ${selectedRecordId && selectedRecordId !== latest.get(`${ep.id}:${stage.id}`)?.id ? `<p class="muted">${esc(t('historical'))} · ${esc(r.id)} <button class="text-button" id="view-latest">${esc(t('viewLatest'))}</button></p>`:''}
       <p class="detail-summary">${esc(r?.summary || t('noRecord'))}</p>${r && stale.has(r.id) ? `<div class="notice error">${esc(t('staleNotice'))}</div>` : ''}
-      <div class="detail-label"><h3>${esc(t('requirements'))}</h3><small>${stage.requirements.length-missing.length} / ${stage.requirements.length} ${esc(t('present'))}</small></div>
-      <div class="artifact-list">${stage.requirements.map(req => {const a=artifacts.get(req.id);return `<div class="artifact-row ${a?'present':''}"><span class="artifact-icon">${a?'✓':'○'}</span><div><strong>${esc(reqName(req))}</strong>${a ? `<small>${esc(a.label)} · ${Number(a.bytes).toLocaleString()} bytes</small><small>SHA-256: ${esc(a.sha256)}</small>${link(a.url,t('artifact'))}` : `<small>${esc(req.id)}</small>`}</div>${!a?`<span class="missing">${esc(t('missing'))}</span>`:''}</div>`;}).join('')}</div>
-      <div class="detail-label"><h3>${esc(t('evidence'))}</h3></div><div class="check-grid">${['structural','quality','export'].map(k => {const c=r?.checks[k];return `<div class="check-card ${c?.status||''}">${esc(t(k==='export'?'exportCheck':k))}<strong>${esc(t(c?.status||'not_run'))}</strong>${c?.evidence_url?link(c.evidence_url,t('evidence')):''}</div>`;}).join('')}</div><p class="small-note">${esc(t('checksNote'))}</p>
+      <p class="record-permalink">${link(detailHash(ep.id,stage.id,r?.id,selectedComponent),t(r?'exactLink':'stageLink'))}</p>
+      ${stage.id==='inputs' ? (entry ? HOIDelivery.renderInputs(entry,language) : `<p class="notice">${esc(t('inputsUnmatched'))}</p>`) : ''}
+      ${HOIDelivery.renderArtifacts(r,stage,language)}
+      <div class="detail-label"><h3>${esc(t('stageChecks'))}</h3></div><div class="check-grid">${['structural','quality','export'].map(k => {const c=r?.checks[k];return `<div class="check-card ${c?.status||''}">${esc(t(k==='export'?'exportCheck':k))}<strong>${esc(t(c?.status||'not_run'))}</strong>${c?.evidence_url?link(c.evidence_url,t('evidence')):''}</div>`;}).join('')}</div><p class="small-note">${esc(t('checksNote'))}</p>
       <div class="detail-key-values">${[[t('contributor'),r?.contributor],[t('reviewer'),r?.reviewer],[t('coverage'),`${r?.coverage.frames??'?'} / ${ep.frames}`],[t('objectCoverage'),t(r?.coverage.objects_complete===true?'yes':r?.coverage.objects_complete===false?'no':'unknown')],[t('commit'),r?.source_commit],[t('currentRecord'),r?.id]].map(([key,value]) => `<div><span>${esc(key)}</span><b>${esc(value||'—')}</b></div>`).join('')}</div>
       <div class="detail-label"><h3>${esc(t('upstream'))}</h3></div><div class="upstream-list">${stage.dependencies.length ? stage.dependencies.map(id => `<div><span>${esc(stageName(id))}</span><code>${esc(r?.upstream.find(p => p.stage===id)?.record_id || t('unbound'))}</code></div>`).join('') : `<p class="muted">${esc(t('noUpstream'))}</p>`}</div>
       ${r?.blocker?`<div class="detail-label"><h3>${esc(t('blocker'))}</h3></div><p class="detail-summary">${esc(r.blocker)}</p>`:''}${r?.next_action?`<div class="detail-label"><h3>${esc(t('nextAction'))}</h3></div><p class="detail-summary">${esc(r.next_action)}</p>`:''}
@@ -195,7 +295,7 @@
     event.preventDefault(); if(recovery) { $('form-errors').hidden=false; $('form-errors').textContent=t('invalidStorage'); return; }
     const form = new FormData(event.currentTarget), get = name => String(form.get(name)||'').trim();
     const record = {id:get('id'),episode_id:selectedEpisode.id,stage:selectedStage.id,iteration:get('iteration'),state:get('state'),kind:get('kind'),created_at:new Date().toISOString(),contributor:get('contributor'),reviewer:get('reviewer'),summary:get('summary'),blocker:get('blocker'),next_action:get('next_action'),delivery_url:get('delivery_url'),source_commit:get('source_commit'),coverage:{frames:get('frames')===''?null:Number(get('frames')),objects_complete:get('objects_complete')===''?null:get('objects_complete')==='true'},upstream:selectedStage.dependencies.filter(s=>get(`upstream_${s}`)).map(s=>({stage:s,record_id:get(`upstream_${s}`)})),artifacts:selectedStage.requirements.filter(req=>['url','sha256','bytes'].some(k=>get(`artifact_${req.id}_${k}`))).map(req=>({requirement_id:req.id,label:req.label,url:get(`artifact_${req.id}_url`),sha256:get(`artifact_${req.id}_sha256`),bytes:Number(get(`artifact_${req.id}_bytes`))})),checks:Object.fromEntries(['structural','quality','export'].map(k=>[k,{status:get(`check_${k}_status`),evidence_url:get(`check_${k}_url`)}]))};
-    try { const next = HOI.mergeRecords(drafts,[record]); if(next.errors.length)throw new Error(next.errors.join('\n')); const saved=persist(next.records); editing=false; selectedRecordId=record.id; render(); renderDetail(); toast(t(saved?'saved':'storageError')); }
+    try { const next = HOI.mergeRecords(drafts,[record]); if(next.errors.length)throw new Error(next.errors.join('\n')); const saved=persist(next.records); editing=false; selectedRecordId=record.id; render(); openDetail(selectedEpisode.id,selectedStage.id,record.id); toast(t(saved?'saved':'storageError')); }
     catch(e){ $('form-errors').textContent=t('validationError')+'\n'+e.message; $('form-errors').hidden=false; $('form-errors').scrollIntoView({block:'nearest'}); }
   }
   function renderGuide() {
@@ -212,21 +312,34 @@ http://localhost:8765/docs/progress-board/</pre>`;
   $('search').addEventListener('input',()=>board&&renderMatrix()); $('clear-filters').addEventListener('click',resetFilters);
   $('table-view').addEventListener('click',()=>{view='matrix';if(board)renderMatrix();}); $('card-view').addEventListener('click',()=>{view='cards';if(board)renderMatrix();});
   $('board-panel').addEventListener('click',event=>{const cell=event.target.closest('[data-episode][data-stage]');if(cell)openDetail(cell.dataset.episode,cell.dataset.stage);});
+  $('stage-shortcuts').addEventListener('click',event=>{const button=event.target.closest('[data-browse-stage]');if(!button)return;$('stage-filter').value=$('stage-filter').value===button.dataset.browseStage?'':button.dataset.browseStage;render();});
+  $('preparation').addEventListener('click',event=>{
+    const category=event.target.closest('[data-preparation]'),cell=event.target.closest('[data-episode][data-stage]');
+    if(category){preparationCategory=preparationCategory===category.dataset.preparation?null:category.dataset.preparation;renderPreparation();}
+    else if(cell)openDetail(cell.dataset.episode,cell.dataset.stage,null,cell.dataset.component);
+  });
+  $('close-preparation').addEventListener('click',()=>{const category=preparationCategory;preparationCategory=null;renderPreparation();document.querySelector(`[data-preparation="${category}"]`)?.focus();});
   $('nav-board').addEventListener('click',()=>{attention=false;if(board)render();$('board-panel').scrollIntoView({block:'start'});});
   $('nav-attention').addEventListener('click',()=>{attention=true;if(board)render();$('board-panel').scrollIntoView({block:'start'});});
   $('nav-capabilities').addEventListener('click',()=>$('capabilities').scrollIntoView({behavior:'smooth'}));
   $('close-detail').addEventListener('click',()=>$('detail').close()); $('close-guide').addEventListener('click',()=>$('guide').close());
-  $('detail').addEventListener('close',()=>{editing=false;});
+  $('detail').addEventListener('close',()=>{editing=false;if(new URLSearchParams(location.hash.slice(1)).has('episode'))history.replaceState(null,'',location.pathname+location.search);});
+  window.addEventListener('popstate',restoreRoute);
+  window.addEventListener('hashchange',restoreRoute);
   $('guide-button').addEventListener('click',()=>{renderGuide();$('guide').showModal();});
   $('detail-content').addEventListener('click',event=>{
     const button=event.target.closest('button');if(!button)return;
     if(button.dataset.tab)openDetail(selectedEpisode.id,button.dataset.tab);
-    else if(button.dataset.history){selectedRecordId=button.dataset.history;renderDetail();$('detail').scrollTop=0;}
+    else if(button.dataset.history)openDetail(selectedEpisode.id,selectedStage.id,button.dataset.history);
     else if(button.id==='new-record')renderForm();
     else if(button.id==='cancel-edit'){editing=false;renderDetail();}
-    else if(button.id==='view-latest'){selectedRecordId=null;renderDetail();}
-    else if(button.id==='remove-draft') {try{const saved=persist(drafts.filter(r=>r.id!==button.dataset.record));selectedRecordId=null;render();renderDetail();toast(t(saved?'removed':'storageError'));}catch(e){toast(e.message);}}
+    else if(button.id==='view-latest')openDetail(selectedEpisode.id,selectedStage.id);
+    else if(button.id==='remove-draft') {try{const saved=persist(drafts.filter(r=>r.id!==button.dataset.record));selectedRecordId=null;render();openDetail(selectedEpisode.id,selectedStage.id);toast(t(saved?'removed':'storageError'));}catch(e){toast(e.message);}}
   });
+  $('detail-content').addEventListener('error',event=>{
+    if(event.target.tagName!=='IMG' || !event.target.closest('.delivery-view'))return;
+    const note=document.createElement('p');note.className='small-note';note.textContent=t('previewError');event.target.replaceWith(note);
+  },true);
   $('export').addEventListener('click',()=>{if(recovery){download(recovery,'hoi-progress-recovery.json');return;}if(!drafts.length){toast(t('noDrafts'));return;}download({schema_version:'hoi_progress.v1',records:drafts},'hoi-progress-drafts.json');toast(t('exported'));});
   $('import-button').addEventListener('click',()=>$('import-file').click());
   $('import-file').addEventListener('change',async event=>{
@@ -235,7 +348,12 @@ http://localhost:8765/docs/progress-board/</pre>`;
   });
   $('refresh').addEventListener('click',async()=>{
     $('refresh').disabled=true;$('refresh').textContent=t('refreshing');
-    try{setBoard(await fetchJson(raw),true);error(recovery?t('invalidStorage'):'');toast(t('refreshed'));}catch(e){error(`${t('loadError')} ${e.message}`);}finally{$('refresh').disabled=false;$('refresh').textContent=t('refresh');}
+    try{
+      const [registry,contents]=await Promise.allSettled([fetchJson(raw),fetchJson(catalogRaw)]);
+      if(registry.status!=='fulfilled')throw registry.reason;
+      setCatalog(contents.status==='fulfilled'?contents.value:null);
+      setBoard(registry.value,true);error(recovery?t('invalidStorage'):'');toast(t('refreshed'));
+    }catch(e){error(`${t('loadError')} ${e.message}`);}finally{$('refresh').disabled=false;$('refresh').textContent=t('refresh');}
   });
   async function start() {
     render();
@@ -243,7 +361,9 @@ http://localhost:8765/docs/progress-board/</pre>`;
     for(const path of paths) {try{const candidate=await fetchJson(path);const errors=HOI.validateBoard(candidate);if(errors.length)throw new Error(errors[0]);snapshot=candidate;break;}catch{}}
     if(!snapshot){error(t('loadError'));return;}
     try { const stored=localStorage.getItem(draftKey);if(stored){try{const local=parseImport(stored);combined(snapshot,local);drafts=local;}catch{recovery=stored;error(t('invalidStorage'));}}}catch{error(t('storageError'));}
-    setBoard(snapshot,false);
+    const catalogPath=location.pathname.includes('/docs/progress-board/')?'../../tracking/delivery-catalog.json':'./delivery-catalog.json';
+    try{setCatalog(await fetchJson(catalogPath));}catch{setCatalog(null);}
+    setBoard(snapshot,false);restoreRoute();
   }
   start().catch(e=>error(`${t('loadError')} ${e.message}`));
 })();

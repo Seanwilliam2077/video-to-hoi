@@ -9,7 +9,12 @@ on:
       - "docs/track1-videos/index.html"
       - "tracking/**"
       - "tools/progress_board.py"
+      - "tools/build_delivery_catalog.py"
+      - "deliveries/platform/body-inputs-track1-20261016/**"
       - "tests/test_progress_board.cjs"
+      - "tests/test_delivery_view.cjs"
+      - "tests/test_progress_app.cjs"
+      - "tests/test_delivery_catalog.py"
   workflow_dispatch:
 
 permissions:
@@ -33,12 +38,15 @@ jobs:
       - name: Validate the shared registry and board
         run: |
           python tools/progress_board.py validate
-          node --test tests/test_progress_board.cjs
+          python tools/build_delivery_catalog.py --check
+          node --test tests/test_progress_board.cjs tests/test_delivery_view.cjs tests/test_progress_app.cjs
       - name: Assemble the static page
         run: |
           mkdir -p _site
-          cp docs/progress-board/index.html docs/progress-board/app.js docs/progress-board/core.js docs/progress-board/style.css _site/
+          cp docs/progress-board/index.html docs/progress-board/app.js docs/progress-board/core.js docs/progress-board/style.css docs/progress-board/delivery-view.js docs/progress-board/delivery-view.css _site/
+          cp -R docs/progress-board/previews _site/previews
           cp tracking/board.json _site/board.json
+          cp tracking/delivery-catalog.json _site/delivery-catalog.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

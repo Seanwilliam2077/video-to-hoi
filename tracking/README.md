@@ -97,6 +97,44 @@ errors exit `2`. A failed import does not silently overwrite a record.
 
 ## Record contract: `hoi_progress.v1`
 
+### Browsing the submitted contents
+
+The public board separates source video/timeline verification, Body input
+verification, object-mask declarations, depth declarations and Body output
+declarations. Preparation counts cover all 30 videos in the selected iteration;
+the matrix filters do not change that denominator. These counters do not grant
+full-stage acceptance.
+
+Open a preparation card for the per-video list, or any stage in the matrix for
+its files, missing requirements, checks and history. Input details include
+estimated camera values, selected original QA sheets, pinned JSON receipts and
+the exact path of each item inside the released archive. Remaining QA sheets
+and full frame sequences are available in the archive. The record link fixes
+the episode, stage and immutable record ID, including historical deliveries.
+Links to browser-local drafts work for teammates only after those records have
+been submitted to Git.
+
+`delivery-catalog.json` supplements the registry with inspected content; it does
+not change a record's state. `tools/build_delivery_catalog.py` verifies the
+pinned all-30 delivery evidence and unchanged QA JPEGs before building it:
+
+```bash
+python tools/build_delivery_catalog.py
+python tools/build_delivery_catalog.py --check
+```
+
+The check works in CI without ignored videos or model data. A catalog entry is
+shown only for the exact complete record it describes. A new iteration or
+modified record never inherits old readiness or review images. A missing or
+invalid catalog leaves the registry usable and marks preparation unverified.
+
+For a new delivery, first register its actual output URLs, hashes, sizes and
+check reports using the normal immutable-record workflow. All six stages will
+immediately expose those files through the generic delivery view. Rich previews
+require a separately verified catalog entry and stage renderer; do not reuse
+an older entry or fabricate previews. The current catalog builder supports
+the published all-30 Body input delivery only.
+
 | Field | Meaning |
 | --- | --- |
 | `id` | Unique lowercase ID, up to 96 safe letters/digits/`.`/`-`/`_`; filename matches ID. |

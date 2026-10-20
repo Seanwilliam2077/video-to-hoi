@@ -1,0 +1,71 @@
+/* Delivery evidence uses the same GitHub-inspired palette as the progress board. */
+.delivery-view { min-width: 0; margin-block: 20px; overflow-wrap: anywhere; }
+.delivery-view h3 { font-size: 15px; }
+.delivery-view h4 { margin: 0; font-size: 14px; font-weight: 600; }
+.delivery-view p + p { margin-top: 8px; }
+.delivery-section-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.delivery-muted, .delivery-file-meta { color: var(--fg-muted); font-size: 12px; }
+.delivery-readiness-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-block: 12px; }
+.delivery-readiness { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--canvas-subtle); font-size: 12px; }
+.delivery-readiness strong { text-align: right; font-weight: 600; }
+.delivery-ready strong { color: var(--done); }
+.delivery-pending strong { color: var(--fg-muted); }
+.delivery-notice { margin-block: 12px; padding: 12px; border: 1px solid var(--info-border); border-radius: 6px; background: var(--info-bg); color: var(--fg); font-size: 12px; }
+.delivery-notice strong { display: block; margin-top: 5px; font-family: var(--mono); font-size: 11px; font-weight: 500; }
+.delivery-group { border: 1px solid var(--border); border-radius: 6px; margin-block: 10px; background: var(--canvas); scroll-margin-top: 100px; }
+.delivery-group > summary { cursor: pointer; padding: 13px 14px; font-weight: 600; background: var(--canvas-subtle); border-radius: 6px; }
+.delivery-group[open] > summary { border-bottom: 1px solid var(--border); border-radius: 6px 6px 0 0; }
+.delivery-group-meta { float: right; max-width: 50%; margin-left: 10px; color: var(--fg-muted); font-size: 12px; font-weight: 400; }
+.delivery-group-body { padding: 14px; }
+.delivery-group-body > p { margin-bottom: 10px; }
+.delivery-files { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+.delivery-file { min-width: 0; padding: 12px; border: 1px solid var(--border-muted); border-radius: 6px; background: var(--canvas); }
+.delivery-file-top { display: flex; align-items: baseline; gap: 8px; }
+.delivery-file-top strong { min-width: 0; font-size: 12px; font-family: var(--mono); font-weight: 500; }
+.delivery-file-kind { flex: none; padding: 1px 5px; border-radius: 4px; color: var(--fg-muted); background: var(--neutral-muted); font-size: 10px; }
+.delivery-file-meta { margin-top: 6px; }
+.delivery-archive-path { font-size: 12px; margin-block: 8px 4px; }
+.delivery-archive-path code { display: block; margin-top: 3px; white-space: normal; }
+.delivery-file > a { display: inline-block; margin-top: 5px; font-size: 12px; }
+.delivery-hash { margin-top: 6px; color: var(--fg-muted); font-size: 11px; }
+.delivery-hash > summary { cursor: pointer; font-family: var(--mono); }
+.delivery-hash code { display: block; margin-top: 6px; padding: 8px; white-space: normal; word-break: break-all; }
+.delivery-camera { margin: 0 0 12px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.delivery-camera > div { border: 1px solid var(--border-muted); border-radius: 6px; padding: 10px; background: var(--canvas-subtle); }
+.delivery-camera dt { color: var(--fg-muted); font: 11px var(--mono); }
+.delivery-camera dd { margin: 3px 0 0; font: 600 15px var(--mono); }
+.delivery-prose { white-space: pre-line; }
+.delivery-review-report { border: 1px solid var(--border-muted); border-radius: 6px; margin-block: 12px; }
+.delivery-review-report > summary { cursor: pointer; padding: 12px; font-weight: 600; background: var(--canvas-subtle); border-radius: 6px; }
+.delivery-review-report[open] > summary { border-bottom: 1px solid var(--border-muted); border-radius: 6px 6px 0 0; }
+.delivery-review-report-body { padding: 12px; }
+.delivery-review-report-body > h4 { margin-bottom: 8px; }
+.delivery-review-report-body > p + h4 { margin-top: 14px; }
+.delivery-previews { display: grid; grid-template-columns: 1fr; gap: 16px; margin-block: 14px; }
+.delivery-preview { min-width: 0; margin: 0; }
+.delivery-preview > a { display: block; background: var(--canvas-inset); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.delivery-preview img { display: block; width: 100%; height: auto; }
+.delivery-preview figcaption { margin-top: 7px; color: var(--fg-muted); font-size: 12px; }
+.delivery-inventory { margin-top: 14px; }
+.delivery-inventory > summary { cursor: pointer; font-weight: 600; }
+.delivery-artifacts > p { margin-bottom: 12px; }
+.delivery-artifact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-block: 14px; }
+.delivery-artifact { min-width: 0; padding: 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--canvas); }
+.delivery-artifact-missing { background: var(--canvas-subtle); border-style: dashed; }
+.delivery-artifact-top { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 8px; }
+.delivery-state { padding: 1px 7px; border: 1px solid var(--border); border-radius: 2em; color: var(--fg-muted); font-size: 11px; }
+.delivery-artifact-present .delivery-state { color: var(--link); border-color: var(--info-border); background: var(--info-bg); }
+.delivery-artifact > p { margin-block: 8px; font-size: 12px; }
+.delivery-next { padding: 12px; border-left: 3px solid var(--border); background: var(--canvas-subtle); font-size: 12px; }
+@media (max-width: 600px) {
+  .delivery-readiness-grid, .delivery-artifact-grid { grid-template-columns: 1fr; }
+  .delivery-group > summary { padding: 12px; }
+  .delivery-group-meta { float: none; display: block; max-width: none; margin: 4px 0 0 14px; }
+  .delivery-group-body { padding: 12px; }
+  .delivery-file { padding: 10px; }
+  .delivery-file-top { flex-wrap: wrap; gap: 5px; }
+  .delivery-camera { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .delivery-camera dd { font-size: 13px; }
+  .delivery-section-heading > code { font-size: 10px; }
+  .delivery-view .button { max-width: 100%; white-space: normal; text-align: left; }
+}

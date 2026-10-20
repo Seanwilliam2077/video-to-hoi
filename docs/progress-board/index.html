@@ -6,7 +6,9 @@
   <meta name="description" content="Video-to-HOI: all 30 Track 1 videos, stage deliveries, evidence and immutable iteration records.">
   <title>Video-to-HOI · Delivery board</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="delivery-view.css">
   <script src="core.js" defer></script>
+  <script src="delivery-view.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -52,6 +54,16 @@
         <article><span data-i18n="acceptedVideos">已登记验收的视频</span><div><strong id="stat-accepted">0</strong><small>/ 30</small></div><div class="stat-foot" data-i18n="acceptedHint">六个阶段及最终导出均已登记验收</div></article>
       </section>
       <div class="context-note"><span class="info-icon">i</span><p id="context-message"></p><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/delivery-gates.md" target="_blank" rel="noopener" data-i18n="checkScope">检查范围 ↗</a></div>
+      <section class="preparation" id="preparation" aria-labelledby="preparation-title">
+        <div class="section-heading"><h2 id="preparation-title" data-i18n="preparationTitle">输入准备与 Body 交接</h2><span data-i18n="preparationHint">点击准备项，逐视频查看实际交付</span></div>
+        <p class="small-note" id="preparation-scope"></p>
+        <div id="catalog-warning" class="notice" role="status" hidden></div>
+        <div class="preparation-cards" id="preparation-cards"></div>
+        <div id="preparation-browser" class="preparation-browser" hidden>
+          <div class="preparation-browser-heading"><div><h3 id="preparation-browser-title"></h3><p class="small-note" id="preparation-browser-note"></p></div><button class="text-button" id="close-preparation" data-i18n="collapse">收起</button></div>
+          <div id="preparation-videos"></div>
+        </div>
+      </section>
       <section class="board-panel" id="board-panel">
         <div class="board-title"><div><h2 data-i18n="videoMatrix">视频 × 交付阶段</h2><span id="result-count"></span></div><div class="view-options"><button id="table-view" class="icon-button selected" aria-label="Matrix view">▦ <span data-i18n="matrix">矩阵</span></button><button id="card-view" class="icon-button" aria-label="Card view">▤ <span data-i18n="cards">卡片</span></button></div></div>
         <div class="filters">
@@ -64,6 +76,7 @@
           <button class="text-button" id="clear-filters" data-i18n="clearFilters">重置筛选</button>
         </div>
         <div class="legend" id="legend"></div>
+        <div class="stage-shortcuts" id="stage-shortcuts" aria-label="Browse stage deliveries"></div>
         <div class="matrix-scroll" id="matrix-container"><table id="matrix"><thead></thead><tbody></tbody></table></div>
         <div class="video-cards" id="cards-container" hidden></div>
         <div class="empty-state" id="no-results" hidden><span>⌕</span><h3 data-i18n="noResults">没有符合条件的视频</h3><p data-i18n="tryFilter">试试其他筛选条件，或清空搜索。</p></div>

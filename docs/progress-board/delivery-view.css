@@ -57,7 +57,17 @@
 .delivery-artifact-present .delivery-state { color: var(--link); border-color: var(--info-border); background: var(--info-bg); }
 .delivery-artifact > p { margin-block: 8px; font-size: 12px; }
 .delivery-next { padding: 12px; border-left: 3px solid var(--border); background: var(--canvas-subtle); font-size: 12px; }
+.delivery-human-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-block: 16px; }
+.delivery-human-media[data-human-role="hands_comparison"] { grid-column: 1 / -1; }
+.delivery-human-media video { display: block; width: 100%; height: auto; margin-top: 8px; background: var(--canvas-inset); border: 1px solid var(--border); border-radius: 6px; }
+.delivery-human-media figcaption p { margin-top: 4px; }
+.delivery-human-media > p { font-size: 12px; margin-top: 8px; }
+.delivery-human-table { overflow-x: auto; margin-block: 14px; }
+.delivery-human-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.delivery-human-table th, .delivery-human-table td { text-align: left; padding: 9px; border: 1px solid var(--border); }
+.delivery-human-table th { background: var(--canvas-subtle); }
 @media (max-width: 600px) {
+  .delivery-human-grid { grid-template-columns: 1fr; }
   .delivery-readiness-grid, .delivery-artifact-grid { grid-template-columns: 1fr; }
   .delivery-group > summary { padding: 12px; }
   .delivery-group-meta { float: none; display: block; max-width: none; margin: 4px 0 0 14px; }

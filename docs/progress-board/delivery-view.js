@@ -41,15 +41,15 @@
       value.split("/").every((part, index, parts) => part === "" ? index === parts.length - 1 : part !== "." && part !== "..");
   }
 
-  function recordErrors(record) {
+  function recordErrors(record, stage = "inputs") {
     const errors = [];
     const fields = ["id", "episode_id", "stage", "iteration", "state", "kind", "created_at", "contributor", "reviewer", "summary", "delivery_url", "source_commit", "coverage", "upstream", "artifacts", "checks", "blocker", "next_action"];
     if (!object(record) || fields.some(key => !Object.hasOwn(record, key)) || Object.keys(record).some(key => !fields.includes(key))) return ["Record fields are invalid."];
-    if (!nonempty(record.id) || !EPISODE.test(record.episode_id) || record.stage !== "inputs" || record.kind !== "real_track1" || !COMMIT.test(record.source_commit)) errors.push("Record identity is invalid.");
+    if (!nonempty(record.id) || !EPISODE.test(record.episode_id) || record.stage !== stage || record.kind !== "real_track1" || !COMMIT.test(record.source_commit)) errors.push("Record identity is invalid.");
     if (!["planned", "running", "blocked", "submitted", "checked", "accepted", "failed"].includes(record.state) ||
         !Number.isFinite(Date.parse(record.created_at)) || !safeUrl(record.delivery_url)) errors.push("Record state or URL is invalid.");
     for (const key of ["iteration", "contributor", "reviewer", "summary", "blocker", "next_action"]) if (!text(record[key])) errors.push(`Record ${key} is invalid.`);
-    if (!object(record.coverage) || !positive(record.coverage.frames) || typeof record.coverage.objects_complete !== "boolean") errors.push("Record coverage is invalid.");
+    if (!object(record.coverage) || !positive(record.coverage.frames) || !(typeof record.coverage.objects_complete === "boolean" || (stage === "human" && record.coverage.objects_complete === null))) errors.push("Record coverage is invalid.");
     if (!Array.isArray(record.upstream) || record.upstream.some(item => !object(item) || !nonempty(item.stage) || !nonempty(item.record_id))) errors.push("Record upstream is invalid.");
     if (!Array.isArray(record.artifacts) || record.artifacts.some(item => !object(item) || !nonempty(item.requirement_id) || !text(item.label) || !safeUrl(item.url) || !HASH.test(item.sha256) || !positive(item.bytes))) errors.push("Record artifacts are invalid.");
     if (!object(record.checks) || ["structural", "quality", "export"].some(key => !object(record.checks[key]) || !["not_run", "pass", "fail"].includes(record.checks[key].status) ||
@@ -185,6 +185,90 @@
       ${raw}${body}${camera}${review}${delivery}${objectSection}${depth}</section>`;
   }
 
+  const exact = (value, fields) => object(value) && Object.keys(value).length === fields.length && fields.every(key => Object.hasOwn(value, key));
+  // Human previews are published result assets, never arbitrary remote embeds.
+  const RELEASE = /^https:\/\/github\.com\/Seanwilliam2077\/video-to-hoi\/releases\/download\/([a-zA-Z0-9][a-zA-Z0-9._-]*)\/([a-zA-Z0-9][a-zA-Z0-9._-]*)$/;
+  const HUMAN_PROFILE = "native_mhr_mediapipe_review.v1";
+  const VIDEO_ROLES = ["baseline_full_body", "refined_full_body", "hands_comparison"];
+  const IMAGE_ROLES = ["baseline_contact_sheet", "refined_contact_sheet", "hand_qa_frame"];
+  const EVIDENCE_ROLES = ["checks", "depth_scale", "selection", "input_bindings"];
+  function humanAsset(value) {
+    return exact(value, ["url", "sha256", "bytes"]) && text(value.url) && RELEASE.test(value.url) && HASH.test(value.sha256) && positive(value.bytes);
+  }
+  function humanEntryErrors(entry) {
+    const fields = ["record", "episode_id", "profile", "frame_count", "source_video_sha256", "mhr_model_sha256", "archive", "selected_candidate", "selection_reason", "quality_accepted", "shared_scene_scale_verified", "official_export_accepted", "evidence", "previews", "hand_guards"];
+    if (!exact(entry, fields)) return ["Human preview fields are invalid."];
+    const errors = recordErrors(entry.record, "human");
+    const record = entry.record;
+    if (entry.profile !== HUMAN_PROFILE || !EPISODE.test(entry.episode_id) || entry.episode_id !== record?.episode_id || !positive(entry.frame_count) || entry.frame_count !== record?.coverage?.frames || !HASH.test(entry.source_video_sha256) || !HASH.test(entry.mhr_model_sha256)) errors.push("Human preview identity or coverage is invalid.");
+    if (record?.state !== "submitted" || record?.checks?.structural?.status !== "pass" || record?.checks?.quality?.status !== "not_run" || record?.checks?.export?.status !== "not_run" || ["quality_accepted", "shared_scene_scale_verified", "official_export_accepted"].some(key => entry[key] !== false)) errors.push("Human candidate preview cannot grant acceptance.");
+    if (!["baseline", "refined"].includes(entry.selected_candidate) || !nonempty(entry.selection_reason)) errors.push("Human candidate selection is invalid.");
+    const artifacts = list(record?.artifacts).filter(object);
+    const human = artifacts.find(item => item.requirement_id === "human");
+    const scale = artifacts.find(item => item.requirement_id === "depth_scale");
+    if (artifacts.length !== 2 || !human || !scale || !humanAsset(entry.archive) || !["url", "sha256", "bytes"].every(key => human[key] === entry.archive[key])) errors.push("Human archive does not bind the registered output.");
+    if (!exact(entry.evidence, EVIDENCE_ROLES) || EVIDENCE_ROLES.some(key => !humanAsset(entry.evidence[key]))) errors.push("Human evidence assets are invalid.");
+    else if (!["url", "sha256", "bytes"].every(key => scale?.[key] === entry.evidence.depth_scale[key]) || record?.checks?.structural?.evidence_url !== entry.evidence.checks.url) errors.push("Human checks or scale evidence differs from the record.");
+    const release = text(entry.archive?.url) ? entry.archive.url.match(RELEASE)?.[1] : null;
+    const prefix = record?.id;
+    const sameRelease = value => humanAsset(value) && value.url.match(RELEASE)[1] === release && value.url.match(RELEASE)[2].startsWith(`${prefix}-`);
+    if (!/^[a-z0-9][a-z0-9._-]{0,95}$/.test(prefix) || !humanAsset(entry.archive) || entry.archive.url.match(RELEASE)[2] !== `${prefix}.zip`) errors.push("Human assets must name the exact immutable record.");
+    if (!release || EVIDENCE_ROLES.some(key => !sameRelease(entry.evidence?.[key]))) errors.push("Human evidence must use the same immutable result release.");
+    const roles = new Set();
+    const urls = new Set();
+    if (!Array.isArray(entry.previews)) errors.push("Human previews must be an array.");
+    for (const preview of list(entry.previews)) {
+      if (!exact(preview, ["role", "url", "sha256", "bytes", "content_type", "coverage"]) || ![...VIDEO_ROLES, ...IMAGE_ROLES].includes(preview.role) || roles.has(preview.role) || urls.has(preview.url)) { errors.push("Human preview roles are invalid or duplicated."); continue; }
+      roles.add(preview.role); urls.add(preview.url);
+      if (!sameRelease({url: preview.url, sha256: preview.sha256, bytes: preview.bytes})) errors.push("Human preview URL or identity is invalid.");
+      const coverage = preview.coverage;
+      if (VIDEO_ROLES.includes(preview.role)) {
+        if (preview.content_type !== "video/mp4" || !text(preview.url) || !preview.url.endsWith(".mp4") || !exact(coverage, ["kind", "original_frame_count"]) || coverage.kind !== "full_sequence" || coverage.original_frame_count !== entry.frame_count) errors.push("Human video must cover the complete original sequence.");
+      } else if (!["image/jpeg", "image/png"].includes(preview.content_type) || !text(preview.url) || !(preview.content_type === "image/jpeg" ? /\.jpe?g$/.test(preview.url) : preview.url.endsWith(".png")) || !exact(coverage, ["kind", "original_frame_ids"]) || coverage.kind !== "sampled" || !Array.isArray(coverage.original_frame_ids) || !coverage.original_frame_ids.length || coverage.original_frame_ids.some((id, index, ids) => !Number.isSafeInteger(id) || id < 0 || id >= entry.frame_count || (index > 0 && id <= ids[index - 1]))) errors.push("Human sample image coverage is invalid.");
+    }
+    if (VIDEO_ROLES.some(role => !roles.has(role)) || !IMAGE_ROLES.some(role => roles.has(role))) errors.push("Human preview needs three actual videos and at least one actual sample image.");
+    if (!Array.isArray(entry.hand_guards) || entry.hand_guards.length !== 2 || entry.hand_guards.some((guard, index) => !exact(guard, ["side", "heldout_observed_frames", "sufficient", "before_px", "after_px", "nonregression"]) || guard.side !== ["left", "right"][index] || !(guard.heldout_observed_frames === null || (Number.isSafeInteger(guard.heldout_observed_frames) && guard.heldout_observed_frames >= 0 && guard.heldout_observed_frames <= entry.frame_count)) || guard.sufficient !== (guard.heldout_observed_frames >= 5) || ["before_px", "after_px"].some(key => !(guard[key] === null || (typeof guard[key] === "number" && Number.isFinite(guard[key]) && guard[key] >= 0))) || ![null, true, false].includes(guard.nonregression))) errors.push("Human held-out evidence summary is invalid.");
+    if (entry.selected_candidate === "refined" && (!list(entry.hand_guards).some(guard => guard?.sufficient === true) || list(entry.hand_guards).some(guard => guard?.nonregression === false))) errors.push("Selected hand candidate failed the available local image guards.");
+    return errors;
+  }
+  function validateHumanCatalog(catalog) {
+    if (!exact(catalog, ["schema_version", "entries"]) || catalog.schema_version !== "hoi_human_catalog.v1" || !Array.isArray(catalog.entries)) return ["Invalid Human catalog envelope."];
+    const errors = [], ids = new Set();
+    for (const entry of catalog.entries) {
+      errors.push(...humanEntryErrors(entry));
+      if (ids.has(entry?.record?.id)) errors.push("Duplicate Human preview record.");
+      ids.add(entry?.record?.id);
+    }
+    return errors;
+  }
+  function humanEntryFor(catalog, record) {
+    if (!object(record) || validateHumanCatalog(catalog).length) return null;
+    const entry = catalog.entries.find(item => item.record.id === record.id);
+    return entry && stable(entry.record) === stable(record) ? entry : null;
+  }
+  function renderHuman(entry, language = "zh") {
+    if (humanEntryErrors(entry).length) return "";
+    const tr = (en, zh) => choose(language, en, zh);
+    const abstained = entry.hand_guards.every(guard => guard.heldout_observed_frames === null);
+    const labels = {
+      baseline_full_body: tr("Fixed identity and skeleton baseline", "固定身份与骨架的基线"),
+      refined_full_body: abstained ? tr("Hand fitting abstained: unchanged baseline", "手部拟合已暂缓：保持原基线") : tr("MediaPipe hand fitting candidate", "MediaPipe 手部拟合候选"),
+      hands_comparison: tr("Hand close-ups: source, observations and both candidates", "手部近景：原视频、观测与两个候选"),
+      baseline_contact_sheet: tr("Baseline sampled frames", "基线抽样画面"),
+      refined_contact_sheet: tr("Hand candidate sampled frames", "手部候选抽样画面"),
+      hand_qa_frame: tr("Actual hand comparison sample", "真实手部对照抽样画面")
+    };
+    const selected = entry.selected_candidate === "baseline" ? tr("Fixed-body baseline", "固定身体基线") : tr("Hand fitting candidate", "手部拟合候选");
+    const media = entry.previews.map(item => {
+      const video = VIDEO_ROLES.includes(item.role);
+      const coverage = video ? tr(`${entry.frame_count} original frames`, `完整 ${entry.frame_count} 原始帧`) : tr(`Sampled original frame IDs: ${item.coverage.original_frame_ids.join(", ")}`, `抽样原始帧编号：${item.coverage.original_frame_ids.join("，")}`);
+      return `<figure class="delivery-preview delivery-human-media" data-human-role="${escape(item.role)}"><figcaption><h4>${escape(labels[item.role])}</h4><p>${escape(coverage)}</p></figcaption>${video ? `<video controls playsinline preload="none" src="${escape(item.url)}" aria-label="${escape(labels[item.role])}"></video>` : `<a href="${escape(item.url)}" target="_blank" rel="noopener noreferrer"><img loading="lazy" decoding="async" src="${escape(item.url)}" alt="${escape(labels[item.role])}"></a>`}<p>${link(item.url, tr("Open or download this media", "打开或下载此媒体"))} · ${escape(bytes(item.bytes, language))}</p>${fingerprint(item.sha256, language)}</figure>`;
+    }).join("");
+    const handRows = entry.hand_guards.map(guard => `<tr><td>${escape(guard.side === "left" ? tr("Left hand", "左手") : tr("Right hand", "右手"))}</td><td>${guard.heldout_observed_frames ?? tr("Unknown", "未知")}</td><td>${guard.before_px === null ? "—" : guard.before_px.toFixed(2)} → ${guard.after_px === null ? "—" : guard.after_px.toFixed(2)} px</td><td>${escape(guard.sufficient ? tr("Sufficient for the local guard", "满足局部检查的数量要求") : tr("Insufficient; keep uncertainty", "证据不足，保留不确定性"))}</td></tr>`).join("");
+    const evidenceLabels = {checks: tr("Native and hand checks", "原生参数与手部检查"), depth_scale: tr("Depth and scale limitations", "深度与尺度限制"), selection: tr("Exact local candidate selection", "准确的本地候选选择记录"), input_bindings: tr("Source and runtime identities", "输入来源与运行环境身份")};
+    return `<section class="delivery-view delivery-human" aria-label="${tr("Published Human candidate previews", "已发布人体候选预览")}"><div class="delivery-section-heading"><h3>${tr("Inspect the actual Human results", "查看真实人体重建结果")}</h3><code>${escape(entry.profile)}</code></div><p><strong>${tr("Selected local candidate", "当前本地选择")}：${escape(selected)}</strong></p><details class="delivery-review-report"><summary>${tr("Selection rationale (original report)", "选择依据（原始报告）")}</summary><p class="delivery-review-report-body">${escape(entry.selection_reason)}</p></details><p class="delivery-notice">${tr("These are submitted candidates, not accepted reconstructions. Native structure has been checked; reconstruction quality, true 3D hand contact, metric/shared scene scale and official export remain pending. Media previews do not change dashboard status. No hidden-reference score is available.", "这些是已递交候选，尚未通过重建验收。原生参数结构已检查；重建质量、真实三维手部接触、米制与人–物共同尺度、正式导出仍待验证。媒体预览不会改变看板状态，当前没有隐藏参考答案得分。")}</p><div class="delivery-human-grid">${media}</div><div class="delivery-human-table"><table><thead><tr><th>${tr("Hand", "手部")}</th><th>${tr("Held-out observed frames", "留出观测帧")}</th><th>${tr("Image agreement before → after", "图像偏差：拟合前 → 后")}</th><th>${tr("Evidence scope", "证据范围")}</th></tr></thead><tbody>${handRows}</tbody></table></div><p class="delivery-muted">${tr("Image agreement with MediaPipe observations does not measure hidden 3D accuracy. Sample images cover only the listed frames. Compare grasp, occlusion and release in the full videos.", "与 MediaPipe 观测的图像偏差不等于隐藏三维真值误差。抽样图片只覆盖列出的帧；请结合完整视频检查抓取、遮挡和松手。")}</p><ul class="delivery-files">${EVIDENCE_ROLES.map(role => `<li class="delivery-file">${link(entry.evidence[role].url, evidenceLabels[role])}${fingerprint(entry.evidence[role].sha256, language)}</li>`).join("")}</ul></section>`;
+  }
+
   const REQUIREMENTS = {
     inputs: [["camera", "Camera and source frame identity", "相机与原始帧身份"], ["masks", "Per-frame segmentation masks", "逐帧分割 mask"], ["depth", "Per-frame depth evidence", "逐帧深度证据"]],
     human: [["human", "Human trajectory and representation", "人体轨迹与表示契约"], ["depth_scale", "Human depth-scale alignment", "人体深度与尺度对齐"]],
@@ -231,5 +315,5 @@
       <div class="delivery-artifact-grid">${cards.join("")}</div><p class="delivery-next"><strong>${tr("Next step", "下一步")}：</strong>${escape(next)}</p></section>`;
   }
 
-  return Object.freeze({validateCatalog, entryFor, renderInputs, renderArtifacts});
+  return Object.freeze({validateCatalog, entryFor, renderInputs, renderArtifacts, validateHumanCatalog, humanEntryFor, renderHuman});
 });

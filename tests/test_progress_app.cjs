@@ -90,7 +90,7 @@ class Element {
   focus() {}
 }
 
-async function app({registry = board(), contents = catalog(), hash = ""} = {}) {
+async function app({registry = board(), contents = catalog(), humanContents = {schema_version: "hoi_human_catalog.v1", entries: []}, hash = ""} = {}) {
   assert.deepEqual(HOI.validateBoard(registry), []);
   const elements = new Map(), stored = new Map(), events = new Map();
   const get = id => {
@@ -98,7 +98,7 @@ async function app({registry = board(), contents = catalog(), hash = ""} = {}) {
     return elements.get(id);
   };
   const location = new URL(`https://example.test/progress/${hash}`);
-  const network = {registry: clone(registry), contents: clone(contents), catalogFailure: false};
+  const network = {registry: clone(registry), contents: clone(contents), humanContents: clone(humanContents), catalogFailure: false, humanCatalogFailure: false};
   const history = {
     pushState(_state, _title, url) { location.href = new URL(url, location.href).href; },
     replaceState(_state, _title, url) { location.href = new URL(url, location.href).href; }
@@ -120,9 +120,11 @@ async function app({registry = board(), contents = catalog(), hash = ""} = {}) {
       events.get(name).push(handler);
     }},
     fetch: async url => {
+      const isHuman = String(url).includes("human-catalog");
       const isCatalog = String(url).includes("delivery-catalog");
+      if (isHuman && network.humanCatalogFailure) throw new Error("Independent simulated Human preview outage");
       if (isCatalog && network.catalogFailure) throw new Error("Independent simulated catalog outage");
-      return {ok: true, json: async () => clone(isCatalog ? network.contents : network.registry)};
+      return {ok: true, json: async () => clone(isHuman ? network.humanContents : isCatalog ? network.contents : network.registry)};
     }
   };
   vm.runInNewContext(APP, sandbox, {filename: "app.js"});
@@ -224,4 +226,50 @@ test("catalog outage during refresh retains stage browsing but removes evidence-
   assert.equal(value.get("detail").open, true);
   assert.match(value.get("detail-content").innerHTML, /Open submitted content|打开递交内容/);
   assert.doesNotMatch(value.get("detail-content").innerHTML, /class="delivery-ready"/);
+});
+
+function humanContents() {
+  const base = "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-independent-app-test";
+  const asset = name => ({url: `${base}/fixture-ep00-${name}`, bytes: 123, sha256: SHA});
+  const archive = {...asset("review.zip"), url: `${base}/fixture-ep00.zip`};
+  const evidence = Object.fromEntries(["checks", "depth_scale", "selection", "input_bindings"].map(key => [key, asset(`${key}.json`)]));
+  const human = record("fixture-ep00", {stage: "human", created_at: "2026-10-15T10:00:00Z", coverage: {frames: 5, objects_complete: null},
+    artifacts: [{requirement_id: "human", label: "Human native archive", ...archive}, {requirement_id: "depth_scale", label: "Unverified scale", ...evidence.depth_scale}],
+    upstream: [{stage: "inputs", record_id: "baseline-inputs"}],
+    checks: {structural: {status: "pass", evidence_url: evidence.checks.url}, quality: {status: "not_run", evidence_url: ""}, export: {status: "not_run", evidence_url: ""}}});
+  return {schema_version: "hoi_human_catalog.v1", entries: [{record: human, episode_id: EP, profile: "native_mhr_mediapipe_review.v1", frame_count: 5,
+    source_video_sha256: SHA, mhr_model_sha256: SHA, archive, selected_candidate: "baseline", selection_reason: "Independent test preserved baseline",
+    quality_accepted: false, shared_scene_scale_verified: false, official_export_accepted: false, evidence,
+    previews: [...["baseline_full_body", "refined_full_body", "hands_comparison"].map(role => ({role, ...asset(`${role}.mp4`), content_type: "video/mp4", coverage: {kind: "full_sequence", original_frame_count: 5}})),
+      {role: "hand_qa_frame", ...asset("hands.jpg"), content_type: "image/jpeg", coverage: {kind: "sampled", original_frame_ids: [0]}}],
+    hand_guards: ["left", "right"].map(side => ({side, heldout_observed_frames: null, sufficient: false, before_px: null, after_px: null, nonregression: null}))}]};
+}
+
+test("Human previews load beside generic artifacts without changing submitted progress or acceptance", async () => {
+  const contents = humanContents(), human = contents.entries[0].record;
+  const value = await app({registry: board([record(), human]), humanContents: contents});
+  await value.click("board-panel", {episode: EP, stage: "human"});
+  assert.equal(recordInUrl(value), human.id);
+  assert.match(value.get("detail-content").innerHTML, /delivery-human-grid/);
+  assert.equal((value.get("detail-content").innerHTML.match(/<video /g) || []).length, 3);
+  assert.equal(value.get("stat-accepted").textContent, 0);
+  value.network.humanCatalogFailure = true;
+  await value.click("refresh");
+  assert.doesNotMatch(value.get("detail-content").innerHTML, /delivery-human-grid/);
+  assert.match(value.get("detail-content").innerHTML, /Open submitted content|打开递交内容/);
+});
+
+test("Human previews never migrate to newer records or stale upstream chains", async () => {
+  const contents = humanContents(), human = contents.entries[0].record;
+  const next = {...clone(human), id: "next-human", iteration: "next-v2", created_at: "2026-10-16T12:00:00Z"};
+  const value = await app({registry: board([record(), human, next]), humanContents: contents});
+  await value.click("board-panel", {episode: EP, stage: "human"});
+  assert.equal(recordInUrl(value), "next-human");
+  assert.doesNotMatch(value.get("detail-content").innerHTML, /delivery-human-grid/);
+  await value.navigate(`#episode=${EP}&stage=human&record=${human.id}`);
+  assert.match(value.get("detail-content").innerHTML, /delivery-human-grid/);
+  value.network.registry.records.push(record("newer-inputs", {created_at: "2026-10-16T13:00:00Z"}));
+  await value.click("refresh");
+  assert.doesNotMatch(value.get("detail-content").innerHTML, /delivery-human-grid/);
+  assert.match(value.get("detail-content").innerHTML, /需重新检查|stale/i);
 });

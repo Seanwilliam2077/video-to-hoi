@@ -132,8 +132,53 @@ For a new delivery, first register its actual output URLs, hashes, sizes and
 check reports using the normal immutable-record workflow. All six stages will
 immediately expose those files through the generic delivery view. Rich previews
 require a separately verified catalog entry and stage renderer; do not reuse
-an older entry or fabricate previews. The current catalog builder supports
-the published all-30 Body input delivery only.
+an older entry or fabricate previews. `build_delivery_catalog.py` continues to
+support the published all-30 Body input delivery only. Human candidates use the
+separate optional catalog described below.
+
+### Published Human candidate previews
+
+`human-catalog.json` starts empty. A matching, non-stale Human record can display
+three actual release videos: the fixed-body baseline, the independent MediaPipe
+hand candidate, and hand close-ups. Actual contact sheets or hand snapshots list
+their original source frame IDs; they are not full-clip quality certificates.
+Both languages identify the selected local candidate, including the baseline
+when hand fitting abstained or the image guard rejected the alternative.
+
+Only submitted real Track 1 Human records are supported by this preview profile.
+The complete record, native archive, source/model identities, original frame
+count, checks, selection and scale limitations must agree. Media and evidence
+URLs are restricted to this repository's exact GitHub Release download paths,
+with the same result tag and record-specific filenames. There are no local
+drive links, localhost links, arbitrary remote embeds or inferred result entries.
+The viewer fetches metadata and plays only the media the reader opens; it does
+not run inference, decode native parameters or promote acceptance.
+
+After packaging and publishing exact result assets, build this optional index:
+
+```bash
+python tools/progress_board.py import /path/to/dashboard-submitted-records.json
+python tools/build_human_catalog.py \
+  --packages /path/to/packages.json \
+  --records /path/to/dashboard-submitted-records.json \
+  --release-base-url https://github.com/Seanwilliam2077/video-to-hoi/releases/download/<delivery-id> \
+  --publication-receipt /path/to/publication.json
+python tools/build_human_catalog.py --check
+```
+
+The publication receipt must record successful anonymous verification of the
+exact remote asset bytes. The builder rehashes local preview/evidence files,
+checks cross-file selection and provenance, and uses the browser's pure schema
+validator through Node. It appends new exact record entries, never rewrites an
+existing entry with changed content. Commit the generated catalog with the
+immutable progress records through the normal PR workflow. Pages publishes it
+beside `board.json`; repository refresh also reloads it.
+
+The catalog links complete baseline/refined videos and hand comparisons while
+retaining `submitted`, unverified scene scale and pending quality/export review.
+An absent, invalid, mismatching or stale Human entry falls back to the ordinary
+registered artifact cards. It does not borrow media from a previous result or
+affect Body readiness, stage dependencies or official acceptance requirements.
 
 | Field | Meaning |
 | --- | --- |

@@ -10,6 +10,7 @@ on:
       - "tracking/**"
       - "tools/progress_board.py"
       - "tools/build_delivery_catalog.py"
+      - "tools/build_human_catalog.py"
       - "deliveries/platform/body-inputs-track1-20261016/**"
       - "tests/test_progress_board.cjs"
       - "tests/test_delivery_view.cjs"
@@ -39,6 +40,7 @@ jobs:
         run: |
           python tools/progress_board.py validate
           python tools/build_delivery_catalog.py --check
+          python tools/build_human_catalog.py --check
           node --test tests/test_progress_board.cjs tests/test_delivery_view.cjs tests/test_progress_app.cjs
       - name: Assemble the static page
         run: |
@@ -47,6 +49,7 @@ jobs:
           cp -R docs/progress-board/previews _site/previews
           cp tracking/board.json _site/board.json
           cp tracking/delivery-catalog.json _site/delivery-catalog.json
+          cp tracking/human-catalog.json _site/human-catalog.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

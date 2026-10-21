@@ -1,0 +1,56 @@
+{
+  "id": "sam-mediapipe-20261021-ep27",
+  "episode_id": "episode_000027",
+  "stage": "human",
+  "iteration": "sam-mediapipe-20261021",
+  "state": "submitted",
+  "kind": "real_track1",
+  "created_at": "2026-10-21T14:58:23.275+00:00",
+  "contributor": "Codex on the owner's local workstation",
+  "summary": "440 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+  "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27.zip",
+  "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+  "upstream": [
+    {
+      "stage": "inputs",
+      "record_id": "body-inputs-20261016-ep27"
+    }
+  ],
+  "artifacts": [
+    {
+      "requirement_id": "human",
+      "label": "Portable review and authoritative native Human parameters",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27.zip",
+      "sha256": "fbc2ca6a6bbce427d58178b09962522f77a74951c3e702d2e9bde136357add6c",
+      "bytes": 179363990
+    },
+    {
+      "requirement_id": "depth_scale",
+      "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27-depth-scale.json",
+      "sha256": "da7cafc731abeac86b0263cc151c14ca55b96b00debf819194a72190dc324658",
+      "bytes": 1201
+    }
+  ],
+  "checks": {
+    "structural": {
+      "status": "pass",
+      "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27-checks.json"
+    },
+    "quality": {
+      "status": "not_run",
+      "evidence_url": ""
+    },
+    "export": {
+      "status": "not_run",
+      "evidence_url": ""
+    }
+  },
+  "coverage": {
+    "frames": 440,
+    "objects_complete": null
+  },
+  "reviewer": "",
+  "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+  "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+}

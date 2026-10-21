@@ -1,0 +1,443 @@
+{
+  "schema_version": "human_delivery_publication.v1",
+  "passed": true,
+  "all_manifest_assets_verified": true,
+  "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+  "delivery_id": "sam-mediapipe-20261021",
+  "release_base_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021",
+  "upload_manifest_sha256": null,
+  "assets": [
+    {
+      "name": "sam-mediapipe-20261021-ep11-baseline-comparison.mp4",
+      "bytes": 2171756,
+      "sha256": "c376959027eae0273f37e0cc4d259f3df043a1a14f58b16489b73134fd43e67d",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-baseline-comparison.mp4",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-baseline-comparison.mp4.sha256",
+      "bytes": 118,
+      "sha256": "6c0ce1d9511f281f46dbbf601d47cc193a53598049018bf4cf4a1817d78b6aa2",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-baseline-comparison.mp4.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-baseline-contact-sheet.jpg",
+      "bytes": 610582,
+      "sha256": "1f6c7fe19171bddbe11a6b420e85d5250daaba6094f4d2758accd9ca55d14994",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-baseline-contact-sheet.jpg",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-baseline-contact-sheet.jpg.sha256",
+      "bytes": 121,
+      "sha256": "8c84517d24ab389936e12b9dd7f733c1085d672c4c04a3764a9b378aa6170c7d",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-baseline-contact-sheet.jpg.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-checks.json",
+      "bytes": 37013,
+      "sha256": "a11f8ad7a4719f669934b089524d24be0d36186cc1d87497f531a8f281e97401",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-checks.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-checks.json.sha256",
+      "bytes": 106,
+      "sha256": "55296f1648acf5239d8c6f752e6fb61bad2b31553c20a5b8556c078dcd353b0a",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-checks.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-depth-scale.json",
+      "bytes": 1202,
+      "sha256": "a34348ab53d4c9d08d0829a8e4e695db0781b3acadae14fbca3274a5f1f92097",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-depth-scale.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-depth-scale.json.sha256",
+      "bytes": 111,
+      "sha256": "0516229de8755ce7970c535ccf22214f9c5bca53ea528d24acff5cd93ac34135",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-depth-scale.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-hand-qa-frame-000292.jpg",
+      "bytes": 146118,
+      "sha256": "f5c1b029203a1ade4d292d485574f65474f16187f27805802e2ad10f5b6d2353",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-hand-qa-frame-000292.jpg",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-hand-qa-frame-000292.jpg.sha256",
+      "bytes": 119,
+      "sha256": "2b265169d072035d2c4b4d5c322ebc8c595578aff7030f215c8e1e36407607a6",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-hand-qa-frame-000292.jpg.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-hands-comparison.mp4",
+      "bytes": 6572426,
+      "sha256": "88e67e082904a64d406f076c7a4256677c2521ca1cf05acb773c24c1c0fc6272",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-hands-comparison.mp4",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-hands-comparison.mp4.sha256",
+      "bytes": 115,
+      "sha256": "96f74c4dc583167fa440c5a9f91464d41a8c684f6d03084ed06043865fd1fcd9",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-hands-comparison.mp4.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-input-bindings.json",
+      "bytes": 4742,
+      "sha256": "d34f2ef671f2148cb85a4067815dc79076cba2ace6310e8d581a523de3c2f79b",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-input-bindings.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-input-bindings.json.sha256",
+      "bytes": 114,
+      "sha256": "bb11fcdb96f9b5d6605543dae64bcbdf2dbf06f1e0d2a8027c9426041c54f872",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-input-bindings.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-package.json",
+      "bytes": 7238,
+      "sha256": "931be7169f401c8c46d623dcfd4456b86f4fd410a9ccca9351332d27957f4f65",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-package.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-package.json.sha256",
+      "bytes": 107,
+      "sha256": "d4ff0018cd80a1434971d004509ce57ab6c3f9439f195ba7d5818684c5ac54dc",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-package.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-refined-comparison.mp4",
+      "bytes": 2176218,
+      "sha256": "96b4a5c869ae75dececb55e4275206df4b949ba31021b57b14cf1831f071c085",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-refined-comparison.mp4",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-refined-comparison.mp4.sha256",
+      "bytes": 117,
+      "sha256": "ab1ef3950dbc763a4297781534ec968de56f53fc7ef520d6fb1cdc0041046792",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-refined-comparison.mp4.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-refined-contact-sheet.jpg",
+      "bytes": 610594,
+      "sha256": "7398827fe1cf3d5a53f40fa8a409e59af0ee640f224ac7e8a8c4301642edb291",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-refined-contact-sheet.jpg",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-refined-contact-sheet.jpg.sha256",
+      "bytes": 120,
+      "sha256": "3e8b20d3a8ac95665f0f354dc45a986e7d6e2ea9e45e36e6a1448e93a56022fc",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-refined-contact-sheet.jpg.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-selection.json",
+      "bytes": 548,
+      "sha256": "359366608b477afe4362dc58d43c680baed642d1afaf958a9a701bcaa29f4b12",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-selection.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11-selection.json.sha256",
+      "bytes": 109,
+      "sha256": "bc149e510aace8ba3bdcb27dcdedb2419ed2ab378c9efafa8cc116915d447263",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-selection.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11.zip",
+      "bytes": 327819561,
+      "sha256": "929c357bb697d6770a8ccbca965c740bbeeb0a4cc3f4d03eb360ea60c09a04a8",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11.zip",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep11.zip.sha256",
+      "bytes": 98,
+      "sha256": "9dcf040ffad93bb6759ea31c56029152ba42185bb2d91bb5a510d518a0048880",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11.zip.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-baseline-comparison.mp4",
+      "bytes": 601180,
+      "sha256": "b87dd941bed205a89fe51cf584ed93200fb29c384d8c0f2ba1b77f8feafcf464",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-baseline-comparison.mp4",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-baseline-comparison.mp4.sha256",
+      "bytes": 118,
+      "sha256": "8979b019ccc30c5d6c5ca7b0b97bd2e87d474f56ed02e3c9c52e723af0516a4d",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-baseline-comparison.mp4.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-baseline-contact-sheet.jpg",
+      "bytes": 671460,
+      "sha256": "7f48c30e28b75097eb26830dd962eb897119b06a79905636767cabab92589adc",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-baseline-contact-sheet.jpg",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-baseline-contact-sheet.jpg.sha256",
+      "bytes": 121,
+      "sha256": "57064f634fb40a7e82db1b601a7c9d7ea4a55209c8d7b271e3ae3932864215e6",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-baseline-contact-sheet.jpg.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-checks.json",
+      "bytes": 14002,
+      "sha256": "8bb595f7f09e7fc67d3ced9893ee686dbd58667330fcce5f84faaedbfe598fb8",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-checks.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-checks.json.sha256",
+      "bytes": 106,
+      "sha256": "4b48608f9b5eff7e370cd415a24a9c0c0c9fff0b6c783e3ed0b59ba882097472",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-checks.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-depth-scale.json",
+      "bytes": 1200,
+      "sha256": "aaf7f221c6c0824fdf35fdfa3fe7f166a90b2a5cd58eb9bfe8fd34b6e7476c33",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-depth-scale.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-depth-scale.json.sha256",
+      "bytes": 111,
+      "sha256": "8f10439ce8e46e1663f116c16d01e0f68c2c41ae5a127622b3f9b98f27ce98a5",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-depth-scale.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-hand-qa-frame-000120.jpg",
+      "bytes": 156474,
+      "sha256": "d73937af902e8d1da10391cc3cb5f136f6e3ac6f359bfae8bf8cd355f91dae7f",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-hand-qa-frame-000120.jpg",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-hand-qa-frame-000120.jpg.sha256",
+      "bytes": 119,
+      "sha256": "04fcf05222d4805a39bf2e3ba9067b1e15053754f1e3ba798468fe4f0b81d000",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-hand-qa-frame-000120.jpg.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-hands-comparison.mp4",
+      "bytes": 2414471,
+      "sha256": "79ccc941c371c01d4673696193549ef9bf3da36f200f5d588e248bfc6290d396",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-hands-comparison.mp4",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-hands-comparison.mp4.sha256",
+      "bytes": 115,
+      "sha256": "0906b6e0b1575843f74592e00afd14f859e1936e93da7b6ca22509cf2dfcccf1",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-hands-comparison.mp4.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-input-bindings.json",
+      "bytes": 4740,
+      "sha256": "8c1a799b4d3f74f64880b1fb7831c12c7aa9e4f8d55c81321ab70af79af3a7ee",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-input-bindings.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-input-bindings.json.sha256",
+      "bytes": 114,
+      "sha256": "293622da1802564a5d7c04b364b102e2d7e3e070722b73efb6af70254949ce31",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-input-bindings.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-package.json",
+      "bytes": 7232,
+      "sha256": "589152430de4ebdff7e374a48cca6ae8111d383f4703d27c1f9c23caf63323c6",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-package.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-package.json.sha256",
+      "bytes": 107,
+      "sha256": "81d29460e5d9f3800d91d604d25bcad93dcd6d9bb54acba0588d9f87a77126d6",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-package.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-refined-comparison.mp4",
+      "bytes": 601548,
+      "sha256": "bc0d8ca77daa5590201f6884bb6e778dde6a3a6deefc9f8d6c3c72f228c5d9c6",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-refined-comparison.mp4",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-refined-comparison.mp4.sha256",
+      "bytes": 117,
+      "sha256": "9d98b6ead1d2655fb9fdf6defde4a9870fe1d1635f483e0e4906ca5d808d8d4f",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-refined-comparison.mp4.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-refined-contact-sheet.jpg",
+      "bytes": 671466,
+      "sha256": "924a5edefa3f70248e6f3a0706132f30f4d29e5f0fdcdd46b5ef00c2af86bf84",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-refined-contact-sheet.jpg",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-refined-contact-sheet.jpg.sha256",
+      "bytes": 120,
+      "sha256": "0d12405176e222da6943f852601117c810c8dfaa56e0ff77d74e9b3f4c6980a0",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-refined-contact-sheet.jpg.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-selection.json",
+      "bytes": 548,
+      "sha256": "34f36a940574ce1bf3fd79415b5500a6073386ffa0c2dce440dac08ad0e1bfb4",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-selection.json",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16-selection.json.sha256",
+      "bytes": 109,
+      "sha256": "0e6fe113124367cbb43aedb5d1673f2d4692fc7995f4d733c5bc5eb31a18e2c8",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-selection.json.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16.zip",
+      "bytes": 150520145,
+      "sha256": "be81e717f6fd80b4d9b2fbf79ff854e2bb14c68430e6108fb1de4dae7f45df75",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16.zip",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "sam-mediapipe-20261021-ep16.zip.sha256",
+      "bytes": 98,
+      "sha256": "e7f665c9dde3bfa450a6b41ac0595cf2348290dc5e6543562471b26169ae7b0d",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16.zip.sha256",
+      "verified": true,
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    }
+  ]
+}

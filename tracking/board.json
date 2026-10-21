@@ -1,10 +1,10 @@
 {
   "schema_version": "hoi_progress.v1",
-  "updated_at": "2026-10-20T19:16:46Z",
+  "updated_at": "2026-10-21T15:45:45Z",
   "source": {
     "inventory_path": "docs/track1-videos/index.html#DATA",
     "repository": "https://github.com/Seanwilliam2077/video-to-hoi",
-    "revision": "08705456c59bcdb220e30dfaa76aee7a516636be",
+    "revision": "dcb27b4674d3a47a4d8fbc55d46bb95ca50bcec5",
     "scope": "Track 1 metadata and manually registered evidence declarations; six internal stage boundaries, native adapters and official acceptance remain separate"
   },
   "episodes": [
@@ -3372,6 +3372,1574 @@
       },
       "coverage": {
         "frames": 877,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep00",
+      "episode_id": "episode_000000",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.250+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "790 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep00.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep00"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep00.zip",
+          "sha256": "8a77b98385fabac91f52d4c37b90a63ab052e0835a3e7641e3a0f4a4703c9faa",
+          "bytes": 291408747
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep00-depth-scale.json",
+          "sha256": "dc6b73004f536e40ec87af0e2cc3032784afaa2589d99e28d9bccee295eaee1d",
+          "bytes": 1196
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep00-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 790,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep01",
+      "episode_id": "episode_000001",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.261+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "668 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep01.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep01"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep01.zip",
+          "sha256": "0211eb56c8c53fed9fe4ad58187aeffdf9d1affa3779b2890df637e2153748e8",
+          "bytes": 251875850
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep01-depth-scale.json",
+          "sha256": "de68d94258980943c8082e8ec27dff02bf956b056270a7eb8a25483c1cfab7a4",
+          "bytes": 1201
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep01-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 668,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep02",
+      "episode_id": "episode_000002",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.262+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "866 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep02.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep02"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep02.zip",
+          "sha256": "194cc2461fd831889688054147294042b85198ab4d0452ba08b152b60fba5a98",
+          "bytes": 323942881
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep02-depth-scale.json",
+          "sha256": "1f8a2dab36f77fcaf466d994d38dde07e8ab01ad1f35fd6a0ffbfaf4d7373361",
+          "bytes": 1201
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep02-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 866,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep03",
+      "episode_id": "episode_000003",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.262+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "592 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep03.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep03"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep03.zip",
+          "sha256": "cc00b066bd3f64020e9698260ed34d6eb1e6fc303f1a7abf0d44d31c7f01451a",
+          "bytes": 221962770
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep03-depth-scale.json",
+          "sha256": "291781dd6e773ee4e4f71e1a540abe0539fa167c7efc2ee97db94da635f49f98",
+          "bytes": 1201
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep03-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 592,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep04",
+      "episode_id": "episode_000004",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.264+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "747 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep04.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep04"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep04.zip",
+          "sha256": "00b3108b71db82d9a72839499a4e16c293f79daca691ca7a52313d2e34d18bd1",
+          "bytes": 315930880
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep04-depth-scale.json",
+          "sha256": "7ab1b6868cad48dbff8c55f89d03ebe6ea97aea2b7fca512a4c54d172a4309d8",
+          "bytes": 1201
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep04-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 747,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep05",
+      "episode_id": "episode_000005",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.264+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "668 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep05.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep05"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep05.zip",
+          "sha256": "79e314714cc3af4bb054904c839802a9292dd3c696803f06d84d522b2bab03ec",
+          "bytes": 275569864
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep05-depth-scale.json",
+          "sha256": "849280554c99b198ec52fea8741f32fd28eff24f4281534fb693281df96ac9ad",
+          "bytes": 1199
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep05-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 668,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep06",
+      "episode_id": "episode_000006",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.265+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "816 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep06.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep06"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep06.zip",
+          "sha256": "f1657c76efc55bc77087ca75f16d3489043b5a69a548f2a9b663903f9528f3d2",
+          "bytes": 297830167
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep06-depth-scale.json",
+          "sha256": "bb95b416e1411e4e32e78db581649b59f09a2fa06ed13006a64f0bb60ea6897b",
+          "bytes": 1201
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep06-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 816,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep07",
+      "episode_id": "episode_000007",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.265+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "777 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep07.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep07"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep07.zip",
+          "sha256": "51008b7e16c8b46e4d78790718e9640eb3a922cae92037169c7193e1b753df48",
+          "bytes": 288212770
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep07-depth-scale.json",
+          "sha256": "0e2e87d55fa20e1199311b243f3671ab8d91974aac2a1d84bc6e0783fd55ed6d",
+          "bytes": 1200
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep07-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 777,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep08",
+      "episode_id": "episode_000008",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.266+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "634 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep08.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep08"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep08.zip",
+          "sha256": "4603f2759af7f66ab6a4f3881dcd1fba365b9c35db5c272b66bcf99a5a02d0ba",
+          "bytes": 254818333
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep08-depth-scale.json",
+          "sha256": "81663b80eb598148bc4560fef543ee57f90e0b24c244310eeb0a496cb643cd93",
+          "bytes": 1201
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep08-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 634,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep09",
+      "episode_id": "episode_000009",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.267+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "415 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep09.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep09"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep09.zip",
+          "sha256": "d31a6b0f3dc6f87902e7ab5de618f2f1fff28922120cb44b6165fb57a0fe910e",
+          "bytes": 173794684
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep09-depth-scale.json",
+          "sha256": "d012590817831b8212465dd1dee3003d001fc312daf6aee813437a36677fb29b",
+          "bytes": 1201
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep09-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 415,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep10",
+      "episode_id": "episode_000010",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.267+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "577 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep10.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep10"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep10.zip",
+          "sha256": "d150d9b39ecc77c50fd193fa8a62361e6880921af8d6fdc2e67d9d8cc00f7297",
+          "bytes": 212072848
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep10-depth-scale.json",
+          "sha256": "9f917d07fa3917042f54b8471d454e5ce73b019574f114e6571b89838ba1a9b2",
+          "bytes": 1196
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep10-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 577,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep12",
+      "episode_id": "episode_000012",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.268+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "405 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep12.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep12"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep12.zip",
+          "sha256": "b4c4a58511f770d9c6c44aa190f1ffb4a62213816618a51d9567f74a648ec096",
+          "bytes": 166804781
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep12-depth-scale.json",
+          "sha256": "5e752fb76554bd3a3084d9526a4e0820628ab2d83053c6e1c5fb9eb2b4643b42",
+          "bytes": 1192
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep12-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 405,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep13",
+      "episode_id": "episode_000013",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.268+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "425 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep13.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep13"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep13.zip",
+          "sha256": "2a3b54a3e03b0eb07d4438d6eb3813c4b1f22fd415b0b266b2419d882703a35a",
+          "bytes": 155882554
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep13-depth-scale.json",
+          "sha256": "250d0926a34b058a27567881ce03d2916ef9b82b0afc65ed92a52faceba5b822",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep13-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 425,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep14",
+      "episode_id": "episode_000014",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.269+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "442 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep14.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep14"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep14.zip",
+          "sha256": "059e034f789e6610858ed58e1c9ac3b95c85fa661913dfac598dd585300381a3",
+          "bytes": 179072014
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep14-depth-scale.json",
+          "sha256": "f38e0e3eda25d47376364f4d62ea3d4de9f9674b627c8666c0a800b2268893e6",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep14-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 442,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep15",
+      "episode_id": "episode_000015",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.270+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "501 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep15.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep15"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep15.zip",
+          "sha256": "4de63dc448dcad90f4e246ad6d2983da5d7c12314023ea6448d50c67127b6daf",
+          "bytes": 203933034
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep15-depth-scale.json",
+          "sha256": "5f489d7c6fa336324402c53b6d3087c850581c504d6ecf298bec39c002f8b5ce",
+          "bytes": 1200
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep15-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 501,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep17",
+      "episode_id": "episode_000017",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.270+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "419 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep17.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep17"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep17.zip",
+          "sha256": "a53b8659b86ed5578bee0b590425df9d2bd300a24da0b3afeff49bc14e0239c8",
+          "bytes": 156019034
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep17-depth-scale.json",
+          "sha256": "40a6bd1fa5d04e30f90baf942827d5f11267c12f9ab2082f8361446e39525740",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep17-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 419,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep18",
+      "episode_id": "episode_000018",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.271+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "535 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep18.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep18"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep18.zip",
+          "sha256": "26d13f0602660485b5600ccd51187408a8836a51993eca7ff16b76f275e39ec7",
+          "bytes": 200002447
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep18-depth-scale.json",
+          "sha256": "140bb5c348c600767ffa74c29db5525937f7e0474060e282289a5b9d91e8f3fa",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep18-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 535,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep19",
+      "episode_id": "episode_000019",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.271+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "443 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep19.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep19"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep19.zip",
+          "sha256": "7f745a5287eea88b0e7bf022269c6e037c9521ee77abd5cd285060b0bd6b6591",
+          "bytes": 167121963
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep19-depth-scale.json",
+          "sha256": "40440125a8c7d85accd1ca8ce794929300fa84273043d256dfebb4657ddaf260",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep19-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 443,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep20",
+      "episode_id": "episode_000020",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.271+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "549 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep20.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep20"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep20.zip",
+          "sha256": "c204f794373827c2f5102b363f628b151005a6e57a4b1a6ac0a5929aff4c37c3",
+          "bytes": 204203556
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep20-depth-scale.json",
+          "sha256": "c2a98ebc8b3cabe34363de52eb1353a629bcdf488ac8db383deff2ee10e50c71",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep20-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 549,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep21",
+      "episode_id": "episode_000021",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.272+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "563 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep21.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep21"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep21.zip",
+          "sha256": "c196e8babf16f7fb2ba500a425d4ad10021dbb9df6c251d913e68b5f4220b4cb",
+          "bytes": 209450822
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep21-depth-scale.json",
+          "sha256": "709b1e3728918c4f6f105d2bbd24006121b63249d44510bec057448183bd87db",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep21-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 563,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep22",
+      "episode_id": "episode_000022",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.272+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "533 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep22.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep22"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep22.zip",
+          "sha256": "70172603ecb2c670acaba740c85124bf995fc2a9a5b5e6bfcd9342d1196832a9",
+          "bytes": 227055245
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep22-depth-scale.json",
+          "sha256": "008eb3efd2bcb789f72057fff0f52778de83332a0fcf208474d4bcb64e582a71",
+          "bytes": 1200
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep22-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 533,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep23",
+      "episode_id": "episode_000023",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.273+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "552 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep23.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep23"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep23.zip",
+          "sha256": "ca67e7cd42d29b53d0df4dc7f1d94c9c773b8cd419957f22275de4530a5f7c6b",
+          "bytes": 223510357
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep23-depth-scale.json",
+          "sha256": "3eb15b9c60f7d3c0474274e3e234861ff486d2ad89a26af70ebc92a469e0e74b",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep23-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 552,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep24",
+      "episode_id": "episode_000024",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.273+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "420 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep24"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24.zip",
+          "sha256": "484469077f9b217c3d705d55a5f200c88c4767a3caabff32b517d064643f4bac",
+          "bytes": 173847812
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24-depth-scale.json",
+          "sha256": "2db4790f7189ca1af98b331a7a179bc1b1b4a52f360ddbc944e964e04132f036",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 420,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep25",
+      "episode_id": "episode_000025",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.274+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "365 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep25.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep25"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep25.zip",
+          "sha256": "519d4d507a14b3a0f41dd9a1dfb2914f5535cfd247131e3a41acbfc5318adeeb",
+          "bytes": 151368692
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep25-depth-scale.json",
+          "sha256": "cf65e65e1c3fc1a5d69bc038e123d231b4fe7c6f4ca3a03dbd08a42854b93b72",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep25-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 365,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep26",
+      "episode_id": "episode_000026",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.274+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "399 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep26.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep26"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep26.zip",
+          "sha256": "01d873adc19c4ffe66129ab13e3c39e529c4d1d5245149d95d7c8f93b7e18e81",
+          "bytes": 158177842
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep26-depth-scale.json",
+          "sha256": "4195c8f60d829490affe16839025035bc97aa1e8ca9d1f67d05618f174d663cd",
+          "bytes": 1200
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep26-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 399,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep27",
+      "episode_id": "episode_000027",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.275+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "440 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep27"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27.zip",
+          "sha256": "fbc2ca6a6bbce427d58178b09962522f77a74951c3e702d2e9bde136357add6c",
+          "bytes": 179363990
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27-depth-scale.json",
+          "sha256": "da7cafc731abeac86b0263cc151c14ca55b96b00debf819194a72190dc324658",
+          "bytes": 1201
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 440,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep28",
+      "episode_id": "episode_000028",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.275+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "366 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep28.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep28"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep28.zip",
+          "sha256": "37d7b5b5774ffbb39abd926d0f2b1d83ee1c2afdb15b25cc600d06da35720cc0",
+          "bytes": 136533592
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep28-depth-scale.json",
+          "sha256": "41536f40bc5e530fa9a5a01e95328236f23d5d80b9660ce995e8e5c8fcb49132",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep28-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 366,
+        "objects_complete": null
+      },
+      "reviewer": "",
+      "blocker": "Quality/receiver review, shared scene-scale verification and complete upstream Inputs acceptance remain pending.",
+      "next_action": "Verify published package bytes and inspect complete videos before quality acceptance; retain submitted state while dependencies remain pending."
+    },
+    {
+      "id": "sam-mediapipe-20261021-ep29",
+      "episode_id": "episode_000029",
+      "stage": "human",
+      "iteration": "sam-mediapipe-20261021",
+      "state": "submitted",
+      "kind": "real_track1",
+      "created_at": "2026-10-21T14:58:23.276+00:00",
+      "contributor": "Codex on the owner's local workstation",
+      "summary": "419 original frames reconstructed with fixed native MHR and independent MediaPipe hand observations; local candidate baseline. Structural checks passed; quality, scene scale and official export remain pending.",
+      "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep29.zip",
+      "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "upstream": [
+        {
+          "stage": "inputs",
+          "record_id": "body-inputs-20261016-ep29"
+        }
+      ],
+      "artifacts": [
+        {
+          "requirement_id": "human",
+          "label": "Portable review and authoritative native Human parameters",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep29.zip",
+          "sha256": "17470a726f2897f6362e190ce97095197ad65b6d57dbbc62a9ebefc226ab6ed3",
+          "bytes": 154992822
+        },
+        {
+          "requirement_id": "depth_scale",
+          "label": "Explicit unverified monocular-scale record; shared scene scale pending",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep29-depth-scale.json",
+          "sha256": "661f945f743858195434c0bb530fbdfa94ec22872dcc35e957b9484e2b4b65f7",
+          "bytes": 1202
+        }
+      ],
+      "checks": {
+        "structural": {
+          "status": "pass",
+          "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep29-checks.json"
+        },
+        "quality": {
+          "status": "not_run",
+          "evidence_url": ""
+        },
+        "export": {
+          "status": "not_run",
+          "evidence_url": ""
+        }
+      },
+      "coverage": {
+        "frames": 419,
         "objects_complete": null
       },
       "reviewer": "",

@@ -1,0 +1,386 @@
+{
+  "schema_version": "independent_human_pilot_review.v1",
+  "track": "track_1",
+  "episode": 11,
+  "reviewed_at_utc": "2026-10-20T19:14:28.356054+00:00",
+  "reviewer": "Codex human_batch_delivery subagent; machine-assisted independent review",
+  "review_scope": "Complete final hand-movie decoding with sampled visual review of source RGB, independent evidence, fixed native-MHR baseline and MediaPipe hand candidate; not continuous manual viewing of every frame.",
+  "bindings": {
+    "source_video": {
+      "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000011.mp4",
+      "sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+      "bytes": 30120808
+    },
+    "mhr_model": {
+      "path": "J:\\video-to-hoi\\weights\\human\\mhr_model.pt",
+      "sha256": "352e271a6c42729c68554ceaea0c955e866970160c31e35506d782dc0f7377bc",
+      "bytes": 696110248
+    },
+    "baseline_native_parameters": {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\baseline\\attempt-0001\\episode_000011_human.npz",
+      "sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+      "bytes": 460787
+    },
+    "refined_native_parameters": {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\refined\\attempt-0002\\episode_000011_human.npz",
+      "sha256": "76ce0f840c4f354fd2d2fadc67c0d5af892e8b8e28e6d9099d7c3aec8503e49c",
+      "bytes": 465248
+    },
+    "current_result": {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\current-result.json",
+      "sha256": "ee3592982bc873fbeb7b52d9be074cfab9a40c4d8c6ad82b01e6533b6afed5b9",
+      "bytes": 1148
+    },
+    "checks": {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\checks\\attempt-0001\\checks.json",
+      "sha256": "a11f8ad7a4719f669934b089524d24be0d36186cc1d87497f531a8f281e97401",
+      "bytes": 37013
+    },
+    "hand_summary": {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\hand_comparison\\attempt-0001\\summary.json",
+      "sha256": "4b2898567ea131786ae0b2732362ac7a65cdb2d247a97e4792516a8dfe436a76",
+      "bytes": 1417
+    },
+    "hand_completed_attempt_receipt": {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\hand_comparison\\attempt-0001.finished.json",
+      "sha256": "2afc5816c36e4f4b000745a1f537d69a8708f0dea58f13fc861bcac0e117755a",
+      "bytes": 7091
+    },
+    "hand_movie": {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\hand_comparison\\attempt-0001\\hands-comparison.mp4",
+      "sha256": "88e67e082904a64d406f076c7a4256677c2521ca1cf05acb773c24c1c0fc6272",
+      "bytes": 6572426
+    },
+    "sample_bindings": {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-hand-sample-bindings.json",
+      "sha256": "9fdc44ae2580991a0b3338dad85da96212a04819d1bf7f870f0dfc37da9b1afa",
+      "bytes": 44781
+    },
+    "baseline_independent_review": {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-baseline-review.json",
+      "sha256": "18de826fa024b0fb65a1501915a4e4a94e0b44750dd2f98b2fb042f0e911f46f",
+      "bytes": 4698
+    },
+    "boundary_contact_sheet": {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-hand-boundaries.jpg",
+      "sha256": "6e0c4757f756b5e6b0db2ef9c8ec7c6a360b96c72aab4da92ee18b111dd1645a",
+      "bytes": 518043
+    }
+  },
+  "frame_count": 877,
+  "fps": 30.0,
+  "hand_movie_frames_decoded": 877,
+  "sampled_original_frame_ids": [
+    0,
+    48,
+    49,
+    73,
+    154,
+    155,
+    219,
+    365,
+    438,
+    511,
+    512,
+    657,
+    766,
+    876
+  ],
+  "body_review_sampled_original_frame_ids": [
+    0,
+    109,
+    219,
+    328,
+    438,
+    547,
+    657,
+    766,
+    876
+  ],
+  "directly_viewed_final_movie_original_frame_ids": [
+    0,
+    73,
+    154,
+    155,
+    219,
+    365,
+    438,
+    511,
+    512,
+    657,
+    766,
+    876
+  ],
+  "structural_checks_passed": true,
+  "native_decode_results_from_bound_pipeline_checks": {
+    "baseline": {
+      "frames": 877,
+      "pose_shape": [
+        877,
+        136
+      ],
+      "scales_shape": [
+        68
+      ],
+      "shape_shape": [
+        45
+      ],
+      "identity_and_scales_shared": true,
+      "artifact_scope": "human_only_not_complete_submission",
+      "parameters_sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+      "native_decode_max_abs_metres": 9.5367431640625e-07,
+      "native_decode_sample_original_frame_ids": [
+        0,
+        292,
+        584,
+        876
+      ]
+    },
+    "refined": {
+      "frames": 877,
+      "pose_shape": [
+        877,
+        136
+      ],
+      "scales_shape": [
+        68
+      ],
+      "shape_shape": [
+        45
+      ],
+      "identity_and_scales_shared": true,
+      "artifact_scope": "human_only_not_complete_submission",
+      "parameters_sha256": "76ce0f840c4f354fd2d2fadc67c0d5af892e8b8e28e6d9099d7c3aec8503e49c",
+      "native_decode_max_abs_metres": 1.1920928955078125e-06,
+      "native_decode_sample_original_frame_ids": [
+        0,
+        292,
+        584,
+        876
+      ]
+    }
+  },
+  "independent_native_decoder_rerun_by_this_reviewer": false,
+  "independent_observed_hand_frames_left_right": [
+    346,
+    389
+  ],
+  "heldout_image_nonregression": {
+    "left": {
+      "heldout_observed_frames": 71,
+      "sufficient": true,
+      "before_px": 7.360947305923315,
+      "after_px": 5.902026064950138,
+      "nonregression": true
+    },
+    "right": {
+      "heldout_observed_frames": 78,
+      "sufficient": true,
+      "before_px": 7.483898613171456,
+      "after_px": 5.181142279239538,
+      "nonregression": true
+    }
+  },
+  "support_boundary_checks": {
+    "boundary_count": 35,
+    "failed_boundary_count": 33,
+    "status": "fail",
+    "largest_added_correction_boundaries": [
+      {
+        "side": "right",
+        "from_original_frame_id": 511,
+        "to_original_frame_id": 512,
+        "transition": "enter_support",
+        "baseline_mean_wrist_relative_step_px": 0.7334433197975159,
+        "candidate_mean_wrist_relative_step_px": 9.270010948181152,
+        "correction_only_mean_wrist_relative_step_px": 9.240206718444824,
+        "baseline_mean_wrist_relative_step_metres": 0.003503190353512764,
+        "candidate_mean_wrist_relative_step_metres": 0.045777883380651474,
+        "correction_only_mean_wrist_relative_step_metres": 0.04743983596563339,
+        "common_accepted_finger_count": 0,
+        "adjacent_wrists_accepted": false,
+        "observed_mean_wrist_relative_step_px": null,
+        "baseline_mean_velocity_vector_discrepancy_px": null,
+        "candidate_mean_velocity_vector_discrepancy_px": null,
+        "guard": "unknown_motion_correction_budget",
+        "passed": false
+      },
+      {
+        "side": "left",
+        "from_original_frame_id": 154,
+        "to_original_frame_id": 155,
+        "transition": "leave_support",
+        "baseline_mean_wrist_relative_step_px": 0.7761771082878113,
+        "candidate_mean_wrist_relative_step_px": 7.288021087646484,
+        "correction_only_mean_wrist_relative_step_px": 7.854193687438965,
+        "baseline_mean_wrist_relative_step_metres": 0.0033832103945314884,
+        "candidate_mean_wrist_relative_step_metres": 0.03482888638973236,
+        "correction_only_mean_wrist_relative_step_metres": 0.03756668418645859,
+        "common_accepted_finger_count": 0,
+        "adjacent_wrists_accepted": false,
+        "observed_mean_wrist_relative_step_px": null,
+        "baseline_mean_velocity_vector_discrepancy_px": null,
+        "candidate_mean_velocity_vector_discrepancy_px": null,
+        "guard": "unknown_motion_correction_budget",
+        "passed": false
+      },
+      {
+        "side": "right",
+        "from_original_frame_id": 48,
+        "to_original_frame_id": 49,
+        "transition": "enter_support",
+        "baseline_mean_wrist_relative_step_px": 0.9639400243759155,
+        "candidate_mean_wrist_relative_step_px": 6.282799243927002,
+        "correction_only_mean_wrist_relative_step_px": 6.640599727630615,
+        "baseline_mean_wrist_relative_step_metres": 0.006260554306209087,
+        "candidate_mean_wrist_relative_step_metres": 0.036934126168489456,
+        "correction_only_mean_wrist_relative_step_metres": 0.040524475276470184,
+        "common_accepted_finger_count": 0,
+        "adjacent_wrists_accepted": false,
+        "observed_mean_wrist_relative_step_px": null,
+        "baseline_mean_velocity_vector_discrepancy_px": null,
+        "candidate_mean_velocity_vector_discrepancy_px": null,
+        "guard": "unknown_motion_correction_budget",
+        "passed": false
+      },
+      {
+        "side": "right",
+        "from_original_frame_id": 411,
+        "to_original_frame_id": 412,
+        "transition": "enter_support",
+        "baseline_mean_wrist_relative_step_px": 0.5239982008934021,
+        "candidate_mean_wrist_relative_step_px": 6.968845367431641,
+        "correction_only_mean_wrist_relative_step_px": 6.625466346740723,
+        "baseline_mean_wrist_relative_step_metres": 0.0027751177549362183,
+        "candidate_mean_wrist_relative_step_metres": 0.038512058556079865,
+        "correction_only_mean_wrist_relative_step_metres": 0.038729965686798096,
+        "common_accepted_finger_count": 0,
+        "adjacent_wrists_accepted": false,
+        "observed_mean_wrist_relative_step_px": null,
+        "baseline_mean_velocity_vector_discrepancy_px": null,
+        "candidate_mean_velocity_vector_discrepancy_px": null,
+        "guard": "unknown_motion_correction_budget",
+        "passed": false
+      },
+      {
+        "side": "right",
+        "from_original_frame_id": 647,
+        "to_original_frame_id": 648,
+        "transition": "enter_support",
+        "baseline_mean_wrist_relative_step_px": 2.6202478408813477,
+        "candidate_mean_wrist_relative_step_px": 4.75090217590332,
+        "correction_only_mean_wrist_relative_step_px": 6.556657314300537,
+        "baseline_mean_wrist_relative_step_metres": 0.012091991491615772,
+        "candidate_mean_wrist_relative_step_metres": 0.03797164931893349,
+        "correction_only_mean_wrist_relative_step_metres": 0.039252493530511856,
+        "common_accepted_finger_count": 0,
+        "adjacent_wrists_accepted": false,
+        "observed_mean_wrist_relative_step_px": null,
+        "baseline_mean_velocity_vector_discrepancy_px": null,
+        "candidate_mean_velocity_vector_discrepancy_px": null,
+        "guard": "unknown_motion_correction_budget",
+        "passed": false
+      },
+      {
+        "side": "left",
+        "from_original_frame_id": 404,
+        "to_original_frame_id": 405,
+        "transition": "leave_support",
+        "baseline_mean_wrist_relative_step_px": 0.8650375604629517,
+        "candidate_mean_wrist_relative_step_px": 6.736677646636963,
+        "correction_only_mean_wrist_relative_step_px": 6.459386348724365,
+        "baseline_mean_wrist_relative_step_metres": 0.004097959958016872,
+        "candidate_mean_wrist_relative_step_metres": 0.03337389975786209,
+        "correction_only_mean_wrist_relative_step_metres": 0.03349079191684723,
+        "common_accepted_finger_count": 0,
+        "adjacent_wrists_accepted": false,
+        "observed_mean_wrist_relative_step_px": null,
+        "baseline_mean_velocity_vector_discrepancy_px": null,
+        "candidate_mean_velocity_vector_discrepancy_px": null,
+        "guard": "unknown_motion_correction_budget",
+        "passed": false
+      }
+    ]
+  },
+  "visual_findings": [
+    {
+      "original_frame_ids": [
+        0,
+        73,
+        219,
+        365,
+        438,
+        511,
+        512,
+        657,
+        766,
+        876
+      ],
+      "finding": "Source time, crop side association and body overlays remain coherent in the sampled views. No gross camera-axis flip, wrong-person association or coverage truncation was seen."
+    },
+    {
+      "original_frame_ids": [
+        0,
+        219,
+        438,
+        657,
+        876
+      ],
+      "finding": "Missing per-side independent evidence is explicitly labeled. No green opposite-hand landmark leakage is visible in the sampled missing-detection crops; comparison role and side headers fit."
+    },
+    {
+      "original_frame_ids": [
+        73,
+        365,
+        766
+      ],
+      "finding": "The candidate sometimes follows the visible curled-finger silhouette better than the fixed-body baseline. This image agreement does not establish 3D finger orientation or physical contact."
+    },
+    {
+      "original_frame_ids": [
+        154,
+        155
+      ],
+      "finding": "The left candidate changes finger configuration abruptly when evidence disappears, while the source hand changes little. The visible boundary change agrees with the failed motion guard."
+    },
+    {
+      "original_frame_ids": [
+        511,
+        512
+      ],
+      "finding": "The right candidate changes abruptly toward a curled fist as independent evidence appears. The baseline remains much steadier and the source hand changes little across this pair. The independent detector itself is uncertain at this transition."
+    },
+    {
+      "original_frame_ids": [
+        0,
+        438,
+        657
+      ],
+      "finding": "The table occludes the hands. The cyan mesh is drawn without reconstructed-object depth composition, so mesh visible through the table cannot establish penetration or correct physical depth."
+    },
+    {
+      "original_frame_ids": [
+        876
+      ],
+      "finding": "The final source and overlay frame is present. The right hand has no accepted independent detection and is correctly shown as uncertain."
+    }
+  ],
+  "selected_candidate": "baseline",
+  "selection_reason": "Support-boundary motion regression or added correction exceeds the engineering budget; preserve fixed-body baseline",
+  "operational_gate": {
+    "passed": true,
+    "scope": "Proceed with continuous all-30 Track 1 baseline generation, retained hand candidates, videos and conservative per-episode candidate-selection guards. This is an interface, coverage and evidence-delivery gate."
+  },
+  "quality_acceptance": false,
+  "hand_temporal_quality_accepted": false,
+  "contact_quality_accepted": false,
+  "shared_metric_scale_accepted": false,
+  "official_export_accepted": false,
+  "official_score_available": false,
+  "limits": [
+    "Sampled image agreement and decoder round-trip accuracy are not hidden-reference reconstruction scores.",
+    "MediaPipe held-out image residual improves for both hands, but 33 of 35 support boundaries fail. Retain baseline as selected human result.",
+    "Occluded hand depth, hand-object contact, penetration and release timing remain unverified.",
+    "The source baseline, refined candidate, immutable runtime snapshots and generated result files were not modified. Only this independent review and sampled evidence under the work directory were created."
+  ]
+}

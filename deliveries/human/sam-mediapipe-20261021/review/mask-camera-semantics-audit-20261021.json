@@ -1,0 +1,216 @@
+{
+  "schema_version": "sam_body_mask_camera_semantics_audit.v1",
+  "checked_at_utc": "2026-10-21T08:22:14.017274+00:00",
+  "scope": "Read-only frozen-source and saved EP11/EP16 audit; no model forward or job changes; Track 1 only",
+  "source_manifest_sha256": "3e9793273507e342255a4fd7a6a283ec6f2540547690dfa64c587e651dd1e477",
+  "source_files_verified": 68,
+  "evidence_files": [
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\runtime-snapshots\\runtime02\\tools\\run_sam3d_body.py",
+      "sha256": "c2d2d50a3c6e23bdaaaf69f72d3d168629dc476bc1984750dc42f79560fb3792"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\runtime-snapshots\\runtime02\\src\\v2hoi\\sam_body_inputs.py",
+      "sha256": "188f47748fd7ffda9a06802b8bdf3867095780c3b87a818b210ea1fac55cb0cb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\third_party\\sam3d-body-runtime\\sam_3d_body\\sam_3d_body_estimator.py",
+      "sha256": "cb26ae2395aa6aab1582f9ca548c1a48a860cdb9f2022146283c54d89793b4bb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\third_party\\sam3d-body-runtime\\sam_3d_body\\data\\utils\\prepare_batch.py",
+      "sha256": "c0555035944f02cfdb9d811b377a3c1ffdd2bfbfe256ee6dc501c8d9409298d0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\third_party\\sam3d-body-runtime\\sam_3d_body\\data\\transforms\\common.py",
+      "sha256": "165697629df2fe23a62bb90daa2ac8a0f67cac09d70f36844b3c089a9af5a45f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\third_party\\sam3d-body-runtime\\sam_3d_body\\models\\meta_arch\\sam3d_body.py",
+      "sha256": "0e215c8633e01577f19a361559ef58246d554d26e021afc068d3f7ee168eed09"
+    },
+    {
+      "path": "J:\\video-to-hoi\\third_party\\sam3d-body-runtime\\sam_3d_body\\models\\decoders\\prompt_encoder.py",
+      "sha256": "a9160aa5ccdd4d5e2ae047605d86eee9e0e558344b85f716d963fd091f9a33d1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\third_party\\sam3d-body-runtime\\sam_3d_body\\models\\heads\\camera_head.py",
+      "sha256": "84a14112e5c4b216559c1f9a39c3a33d6fa277182c2037f44a76a9cb538de55e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\third_party\\sam3d-body-runtime\\sam_3d_body\\models\\modules\\geometry_utils.py",
+      "sha256": "2553899d9a0f781da1a1d73e8d49dcdd08376c5c0e471d6262e662229b645ef1"
+    }
+  ],
+  "conclusions": {
+    "constructor_mask_warning_is_fallback_capability_message": true,
+    "constructor_fov_warning_is_fallback_capability_message": true,
+    "external_masks_really_bound_to_consumed_frames": true,
+    "external_masks_define_target_and_body_crop_bbox": true,
+    "external_masks_feed_learned_body_mask_conditioning": true,
+    "external_masks_directly_feed_specialized_hand_crop_mask_prompts": false,
+    "explicit_per_episode_camera_overrides_default_before_forward": true,
+    "input_camera_used_for_rays_camera_translation_and_projection": true,
+    "native_geometry_review_uses_saved_input_camera": true,
+    "final_raw_sam70_2d_overwrite_uses_exact_six_field_K": false
+  },
+  "interpretation": [
+    "The constructor is given no internal human segmentor or FOV estimator; it prints unconditional capability warnings. Per-image external masks and cam_int are independent supported branches.",
+    "External masks get score 1, share the RGB affine crop, and pass through the configured learned mask_downscaling -> body image embeddings path. MASK_EMBED_TYPE=v2 and MASK_PROMPT=v1 are enabled. The checkpoint auditor records 18 loaded learned mask prompt tensors and zero learned weight mismatches.",
+    "No new SAM2 segmentation is executed in the consumer. The already received, reviewed SAM2 masks are consumed. RGB background is not simply zeroed by the mask.",
+    "Full inference first runs the mask-conditioned body decoder. Its predicted hand boxes seed separate RGB hand passes. Those prepare_batch calls pass camera but no external masks and therefore have mask_score zero. MediaPipe is a later independent RGB observer.",
+    "The explicit six-field original-pixel camera is converted to float32 without adding half a pixel. process_one_image overwrites its initially prepared default batch K before run_inference. Body and hand rays, camera translation and original camera-head projection use the supplied camera.",
+    "Upstream full-mode final SAM70 projection overwrites its earlier K-correct projection using fx for both axes and width/2,height/2 for principal point. Thus its returned raw SAM70 2D seeds are not a byte-exact projection under the supplied six-field K. Native 3D output is not shifted by this last 2D overwrite.",
+    "Our downstream native fitting/review copies raw camera_intrinsics.npy; review_human projects 3D vertices/joints with the full saved K. This does not validate metric scale, physical contact, hidden hands or official accuracy."
+  ],
+  "known_limitations": [
+    "This is source-trace plus saved-output consistency evidence, not an activation-hook capture of every model call or an ablation proving a quality benefit from masks.",
+    "The camera is a MoGe2 estimate, not measured calibration. The upstream camera-translation parameterization uses fx, while rays and the initial perspective projector use full K.",
+    "The upstream final raw 2D overwrite has an approximately +0.5 pixel offset per axis for the received centered cameras. Supplied fx/fy differ slightly; the y residual also contains that difference.",
+    "Neither full coverage nor mask/camera consumption establishes successful physical grasp or challenge compliance."
+  ],
+  "pilots": [
+    {
+      "episode_index": 16,
+      "frame_count": 360,
+      "manifest_sha256": "115ba62f458f632f037ef9347fad2c0181d92f5f27b70a2970c30a92b465c66d",
+      "state_sha256": "28871b666ae6bf21d1fe658eb770f74c90818c63dec5a4021814da1a20e4b22a",
+      "checkpoint_sha256_recorded": "b5a2f9d305dd02626b967aa2e86021fba07065df66ce7a7e00ffb9664f150abf",
+      "config_sha256": "1012fc3f39cb5e90e3f8fbadf7bded31604bfafdce0321d17a7c1a2d3f08b88d",
+      "camera_fields": {
+        "fx": 818.745849609375,
+        "fy": 818.7458724975586,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "saved_K_matches_received_float32_K_exactly": true,
+      "learned_mask_prompt_tensor_count": 18,
+      "mask_binding_samples": [
+        {
+          "frame_id": 0,
+          "mask_sha256": "7d21a9c4f41493ac1ee981ca0df104ff09cf88de0cb99b816edcfd3a58641276",
+          "bbox_xyxy": [
+            467,
+            439,
+            600,
+            890
+          ],
+          "frame_npz_sha256": "71bab951e9bb8e5d280701a61e7499327794104cf1fe0b3c9bcac59cacc432fc"
+        },
+        {
+          "frame_id": 180,
+          "mask_sha256": "1e8fb109acc49b05a6eb3120ba9615b4726018f0326a15889358c059e4c30e00",
+          "bbox_xyxy": [
+            553,
+            430,
+            692,
+            918
+          ],
+          "frame_npz_sha256": "9a83dbf3df3b26c8300f9e20f6e52fb1d4885e3a24115490f36c11a9a2674b45"
+        },
+        {
+          "frame_id": 359,
+          "mask_sha256": "d6a1e9b3de44d894c4d0654793eb34d31dc1cdc782cc5304c6280e98779bdc96",
+          "bbox_xyxy": [
+            537,
+            432,
+            670,
+            921
+          ],
+          "frame_npz_sha256": "41b223dddf12c1bafa1b3f77ba2678d1845f2c0a90c863d881a32f227c6034b5"
+        }
+      ],
+      "raw_sam70_minus_full_K_projection_x_pixels": {
+        "minimum": 0.4998876009392461,
+        "median": 0.5000002506723149,
+        "p95": 0.5000581467775419,
+        "maximum": 0.5001079445227106
+      },
+      "raw_sam70_minus_full_K_projection_y_pixels": {
+        "minimum": 0.4999087817814143,
+        "median": 0.49999984468399816,
+        "p95": 0.5000443014507254,
+        "maximum": 0.5000898129947018
+      },
+      "raw_sam70_vs_upstream_final_formula_norm_pixels": {
+        "minimum": 8.519931142045073e-08,
+        "median": 3.744666985242564e-05,
+        "p95": 7.530566835615513e-05,
+        "maximum": 0.00012147333942389105
+      }
+    },
+    {
+      "episode_index": 11,
+      "frame_count": 877,
+      "manifest_sha256": "42f53498d1d84f8288a7e2a14ec6fa9b4458d788a9eaaf0493cbc40ffb0642dd",
+      "state_sha256": "6b1eed874337803e5b9e24ae7573a755bf8e38f957f168cc891013ef354de2f8",
+      "checkpoint_sha256_recorded": "b5a2f9d305dd02626b967aa2e86021fba07065df66ce7a7e00ffb9664f150abf",
+      "config_sha256": "1012fc3f39cb5e90e3f8fbadf7bded31604bfafdce0321d17a7c1a2d3f08b88d",
+      "camera_fields": {
+        "fx": 807.6576232910156,
+        "fy": 807.6576461791992,
+        "cx": 767.5,
+        "cy": 575.5,
+        "width": 1536,
+        "height": 1152
+      },
+      "saved_K_matches_received_float32_K_exactly": true,
+      "learned_mask_prompt_tensor_count": 18,
+      "mask_binding_samples": [
+        {
+          "frame_id": 0,
+          "mask_sha256": "920d3148eea3360c8292c63805e7f9fafc4768fb95001cfe91a4e3a707231019",
+          "bbox_xyxy": [
+            703,
+            425,
+            781,
+            827
+          ],
+          "frame_npz_sha256": "bb162422ae1c9eb088202490c35627710c4bf95ba0bf3f70efc5450df0d73809"
+        },
+        {
+          "frame_id": 438,
+          "mask_sha256": "1a2dbd94a399ea44c576e9342868c5ec6818330a2e4f9ac0e9402dc05aa22c68",
+          "bbox_xyxy": [
+            505,
+            419,
+            654,
+            859
+          ],
+          "frame_npz_sha256": "988a3d9af06654d329977e844652cca2c36c78c8959b46ce8a0085e096bd1b4b"
+        },
+        {
+          "frame_id": 876,
+          "mask_sha256": "1c17014818aaa59a38f0a81b6c5b8b944369f9f37cb861398918d68162839621",
+          "bbox_xyxy": [
+            712,
+            404,
+            821,
+            891
+          ],
+          "frame_npz_sha256": "064b2b07fd07f08a4eeacd02a60d0eb70bd3ca395359037aa52d2666ac1cc3f8"
+        }
+      ],
+      "raw_sam70_minus_full_K_projection_x_pixels": {
+        "minimum": 0.4998525053447338,
+        "median": 0.5000000087429157,
+        "p95": 0.5000582657576501,
+        "maximum": 0.5001478076244439
+      },
+      "raw_sam70_minus_full_K_projection_y_pixels": {
+        "minimum": 0.499862045462919,
+        "median": 0.4999944347425753,
+        "p95": 0.5000403864751946,
+        "maximum": 0.5000884386969346
+      },
+      "raw_sam70_vs_upstream_final_formula_norm_pixels": {
+        "minimum": 2.480443322484375e-07,
+        "median": 3.818529836094804e-05,
+        "p95": 7.816586066737943e-05,
+        "maximum": 0.00015218738698560212
+      }
+    }
+  ]
+}

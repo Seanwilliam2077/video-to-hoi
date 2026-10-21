@@ -1,0 +1,2 @@
+# Preserve executor receipt bytes and their SHA256 bindings across platforms.
+*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

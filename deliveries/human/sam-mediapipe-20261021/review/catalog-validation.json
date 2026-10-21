@@ -1,0 +1,1347 @@
+{
+  "schema_version": "human_final_board_catalog_review.v1",
+  "checked_at": "2026-10-21T15:48:34.666Z",
+  "completion": {
+    "file": "finish-result.json",
+    "sha256": "15683aff44887417f1aa58fa940f4c7d7928effac369ac6aedea096eb4c40dd0",
+    "human_commit": "09dc691131bc1c3349d52fc01833c3a4362c0664"
+  },
+  "catalog_entries": 30,
+  "submitted_human_records": 30,
+  "original_frames": 16563,
+  "exact_record_and_public_url_bindings_verified": true,
+  "board_hashes": {
+    "board.json": "cfb8ea74974ecdd527cd0a3fe77a2d57e465c8b8fd233694526708925316f5ef",
+    "delivery-catalog.json": "2e939d6d3df0c4c9ed1472a8a05638d85e04a2a2769c511d065969d0c69091cc",
+    "human-catalog.json": "6466b2ff95080ac203c9824bab10a98160049076b027e57d232b5ecf4f890b49"
+  },
+  "episodes": [
+    {
+      "episode": 0,
+      "record_id": "sam-mediapipe-20261021-ep00",
+      "frames": 790,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "1eb6293e4552397668a5013adbcee95e0bf230dd8c79a594aa7d7f8ea4991ab1",
+      "archive_sha256": "8a77b98385fabac91f52d4c37b90a63ab052e0835a3e7641e3a0f4a4703c9faa",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep00-baseline-comparison.mp4",
+          "sha256": "b2ad420c861ab035caf86359ef208685e5315e8ad85557b32b9ab7ea5b8a5463",
+          "bytes": 1681990,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 790
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep00-refined-comparison.mp4",
+          "sha256": "8bb00882eb897eadd1412b7ef44c993d62423617c61cea2a3238d2b7b7675039",
+          "bytes": 1685871,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 790
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep00-hands-comparison.mp4",
+          "sha256": "7ae893b114dfe9e5fabe8a2797d8370179566dc8e1b629215c782a9862527081",
+          "bytes": 5663617,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 790
+          }
+        }
+      ]
+    },
+    {
+      "episode": 1,
+      "record_id": "sam-mediapipe-20261021-ep01",
+      "frames": 668,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "1198635d7f04f73aa9466e02d105fa89b3630b2aa92a5e4f249898023ecfed30",
+      "archive_sha256": "0211eb56c8c53fed9fe4ad58187aeffdf9d1affa3779b2890df637e2153748e8",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep01-baseline-comparison.mp4",
+          "sha256": "06afb83f0193fa8324d7a4264fc644738447245e58e04401d680b3b9060ef817",
+          "bytes": 1597750,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 668
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep01-refined-comparison.mp4",
+          "sha256": "edf8f0c3d0afcd18dd9a05abae86aabf958eed5ad6ba43e37bd39e6034fbc6e5",
+          "bytes": 1602744,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 668
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep01-hands-comparison.mp4",
+          "sha256": "82a96612f4d3fd850d3403839edf1c3297facbc88df5c43c4bbcc668cfc01ae3",
+          "bytes": 5223269,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 668
+          }
+        }
+      ]
+    },
+    {
+      "episode": 2,
+      "record_id": "sam-mediapipe-20261021-ep02",
+      "frames": 866,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "2ccb43dd362c2a430d341611e888ef1ea79e3a3989e8af2a015d34e0b2196747",
+      "archive_sha256": "194cc2461fd831889688054147294042b85198ab4d0452ba08b152b60fba5a98",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep02-baseline-comparison.mp4",
+          "sha256": "2c294190347bbb1f1448e64eed96bf49205642c48a3b5167168801875106357e",
+          "bytes": 1932987,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 866
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep02-refined-comparison.mp4",
+          "sha256": "e3f522f4e6c85cd4368b85cf5599be15dc0735a7b7a8e8f5d5eb8fc146b89b80",
+          "bytes": 1936099,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 866
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep02-hands-comparison.mp4",
+          "sha256": "8dfc99f01fd4b789ee383841422ceb24e097dcdf7a2f9531e3fe70ab4a61fbfd",
+          "bytes": 6432375,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 866
+          }
+        }
+      ]
+    },
+    {
+      "episode": 3,
+      "record_id": "sam-mediapipe-20261021-ep03",
+      "frames": 592,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "8eb7153abeeb32895741d80dc79305143967b701094af2eea9321260577a6b39",
+      "archive_sha256": "cc00b066bd3f64020e9698260ed34d6eb1e6fc303f1a7abf0d44d31c7f01451a",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep03-baseline-comparison.mp4",
+          "sha256": "94bd6fffa2e91f2efe2205ad2c26b49d5bd908812861c0e575b74f2cce3c59a6",
+          "bytes": 968441,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 592
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep03-refined-comparison.mp4",
+          "sha256": "1817497198b846708ac6192e2b952bfe503e822c19a58f6725a708d5a1b70642",
+          "bytes": 976350,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 592
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep03-hands-comparison.mp4",
+          "sha256": "a8f9286173bf1b53fb78711d67be3d69e60cc2b500538903f80dd0c0af5c588c",
+          "bytes": 3273297,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 592
+          }
+        }
+      ]
+    },
+    {
+      "episode": 4,
+      "record_id": "sam-mediapipe-20261021-ep04",
+      "frames": 747,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "f1cadfa308b37dc91a3f296c2e5a2b538236cbe8a76d76d651df19554386cce6",
+      "archive_sha256": "00b3108b71db82d9a72839499a4e16c293f79daca691ca7a52313d2e34d18bd1",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep04-baseline-comparison.mp4",
+          "sha256": "7fbab84c4da44b807331e7b83b0c4e49087c67a2032b9892ca836733c1a4c4e2",
+          "bytes": 1483995,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 747
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep04-refined-comparison.mp4",
+          "sha256": "ae319fa6684df3d5a4516adf6d608a118d6776d93450547303b98651d73a035c",
+          "bytes": 1489755,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 747
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep04-hands-comparison.mp4",
+          "sha256": "507d36c389b9baf0813ef94179bfdc29d64a55e8f28c79e27b5c3c2fa1708756",
+          "bytes": 4606371,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 747
+          }
+        }
+      ]
+    },
+    {
+      "episode": 5,
+      "record_id": "sam-mediapipe-20261021-ep05",
+      "frames": 668,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "9613c76d9a4f9f34ecaf7697f2129ee2c59b6b03b0f014ee531a53d1fe39c30e",
+      "archive_sha256": "79e314714cc3af4bb054904c839802a9292dd3c696803f06d84d522b2bab03ec",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep05-baseline-comparison.mp4",
+          "sha256": "ea59b7846bbc05f2b1716958324d3f6a776b0518a47f3fcde529ead6b444947d",
+          "bytes": 1188371,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 668
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep05-refined-comparison.mp4",
+          "sha256": "a4a868f8d65f09d3fe9c55d8db51f7502de2981b67bb487021bd56c83cc7c912",
+          "bytes": 1193560,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 668
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep05-hands-comparison.mp4",
+          "sha256": "5000963a9264d950b608d64d2e7fbffa8c5daae19faf4a49edfbc79c4d2b6353",
+          "bytes": 3872371,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 668
+          }
+        }
+      ]
+    },
+    {
+      "episode": 6,
+      "record_id": "sam-mediapipe-20261021-ep06",
+      "frames": 816,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "295db21337393fc4ffbb0a872c4156580cfe1fbda26bf1df211b07cfecf979e4",
+      "archive_sha256": "f1657c76efc55bc77087ca75f16d3489043b5a69a548f2a9b663903f9528f3d2",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep06-baseline-comparison.mp4",
+          "sha256": "1a042e9380e56b8a73484690a7146a55c69df7a57f85d6ad3f0c3d52cd710b4a",
+          "bytes": 1325482,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 816
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep06-refined-comparison.mp4",
+          "sha256": "8b1d8646fad93dd75407efec9c8d5771aa382acc853f6a9ec49c2ff2d681429e",
+          "bytes": 1328931,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 816
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep06-hands-comparison.mp4",
+          "sha256": "dcbfab655b9f0b1a4af0b099a60c90d4d0a6013d4a0458a35b304a47900a2564",
+          "bytes": 3764953,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 816
+          }
+        }
+      ]
+    },
+    {
+      "episode": 7,
+      "record_id": "sam-mediapipe-20261021-ep07",
+      "frames": 777,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "e76d386123f8221e390d9accd35d8d19794efb1279d78a02a0e56553e4f9948d",
+      "archive_sha256": "51008b7e16c8b46e4d78790718e9640eb3a922cae92037169c7193e1b753df48",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep07-baseline-comparison.mp4",
+          "sha256": "958bbf33fa939607d5939d4d768029a2b67ba0e86421eca4ca02e62d5e820622",
+          "bytes": 1598883,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 777
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep07-refined-comparison.mp4",
+          "sha256": "e005596034f04214423c956028151c12dcfdc365b02b7c42007431b7c8fa0c0d",
+          "bytes": 1601620,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 777
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep07-hands-comparison.mp4",
+          "sha256": "e0b892734c40b9959837e46268e700211a7c360b7f5da57b45fb55b1a1dd2912",
+          "bytes": 5459061,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 777
+          }
+        }
+      ]
+    },
+    {
+      "episode": 8,
+      "record_id": "sam-mediapipe-20261021-ep08",
+      "frames": 634,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "7f2967bd12518ded44094c9ac397bed826c572f7cbfbab7c9909735a240c2770",
+      "archive_sha256": "4603f2759af7f66ab6a4f3881dcd1fba365b9c35db5c272b66bcf99a5a02d0ba",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep08-baseline-comparison.mp4",
+          "sha256": "9dddf74856e8054e991aa1f02cc5883e1c6b3a0d0fdfcae36455e067dae99244",
+          "bytes": 1128609,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 634
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep08-refined-comparison.mp4",
+          "sha256": "eecd6413b8f7d73ba6408634489bb5f8d7dcd01f1d71fd13422f8c6a436e00e2",
+          "bytes": 1129319,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 634
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep08-hands-comparison.mp4",
+          "sha256": "57aff751ec0a253d56d126192f93e4486554a7a4d8ec5bda4119f198cf9ad3e4",
+          "bytes": 3257593,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 634
+          }
+        }
+      ]
+    },
+    {
+      "episode": 9,
+      "record_id": "sam-mediapipe-20261021-ep09",
+      "frames": 415,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "4fe69ca521fc2717e2938339b0a37843ada391f4b074753584c7cd8c2e36a277",
+      "archive_sha256": "d31a6b0f3dc6f87902e7ab5de618f2f1fff28922120cb44b6165fb57a0fe910e",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep09-baseline-comparison.mp4",
+          "sha256": "f9c8b1f62a2e77c9edf2d4078b33929f55b1d3eb22b3517fe335f2b9ae2372d0",
+          "bytes": 842537,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 415
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep09-refined-comparison.mp4",
+          "sha256": "60caa2d79df7261c2207a7a3b3bb4e97edab1cdbd8712a111abfb80ab3b425f2",
+          "bytes": 842661,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 415
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep09-hands-comparison.mp4",
+          "sha256": "95f318cf93dd6621172ec28547570fb854090920bc6e0641c8669c3e0ccaf42f",
+          "bytes": 2477315,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 415
+          }
+        }
+      ]
+    },
+    {
+      "episode": 10,
+      "record_id": "sam-mediapipe-20261021-ep10",
+      "frames": 577,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "4a75aec2a5d5621295979c8cd4b8b7c346c24ff6e9a4241b39dcfda623e94c39",
+      "archive_sha256": "d150d9b39ecc77c50fd193fa8a62361e6880921af8d6fdc2e67d9d8cc00f7297",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep10-baseline-comparison.mp4",
+          "sha256": "edea67bf823398516940c1aafc593176ff09e31c24d6b1ac68653efe1ff3542a",
+          "bytes": 1144770,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 577
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep10-refined-comparison.mp4",
+          "sha256": "74af679354169eed72eba045777ae9f404525498d2b69e64ffc7aa3c2c345877",
+          "bytes": 1147081,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 577
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep10-hands-comparison.mp4",
+          "sha256": "5dd37293c2f618f7203281667d3280e4ccf92ad83ae986cd73c248e3f14157fd",
+          "bytes": 3398992,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 577
+          }
+        }
+      ]
+    },
+    {
+      "episode": 11,
+      "record_id": "sam-mediapipe-20261021-ep11",
+      "frames": 877,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+      "archive_sha256": "929c357bb697d6770a8ccbca965c740bbeeb0a4cc3f4d03eb360ea60c09a04a8",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-baseline-comparison.mp4",
+          "sha256": "c376959027eae0273f37e0cc4d259f3df043a1a14f58b16489b73134fd43e67d",
+          "bytes": 2171756,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 877
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-refined-comparison.mp4",
+          "sha256": "96b4a5c869ae75dececb55e4275206df4b949ba31021b57b14cf1831f071c085",
+          "bytes": 2176218,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 877
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep11-hands-comparison.mp4",
+          "sha256": "88e67e082904a64d406f076c7a4256677c2521ca1cf05acb773c24c1c0fc6272",
+          "bytes": 6572426,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 877
+          }
+        }
+      ]
+    },
+    {
+      "episode": 12,
+      "record_id": "sam-mediapipe-20261021-ep12",
+      "frames": 405,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "6494246c131a9161eb342c615ea835988d254b9c09abb659349bdb05e6935b39",
+      "archive_sha256": "b4c4a58511f770d9c6c44aa190f1ffb4a62213816618a51d9567f74a648ec096",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep12-baseline-comparison.mp4",
+          "sha256": "de66ed6a1ce4de1b5942ff3f379ebbf2c24028ff4ea8015705f121515371964a",
+          "bytes": 648792,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 405
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep12-refined-comparison.mp4",
+          "sha256": "02f750c24adfd3bca2a68eb28b0a9f0baebaaf36f2c361d2aaaf586c0f2678cc",
+          "bytes": 651463,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 405
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep12-hands-comparison.mp4",
+          "sha256": "01ce1e928653f8a68c36a4cf636f82623d4917394f57c6e4c7da066a6faa4eab",
+          "bytes": 2363808,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 405
+          }
+        }
+      ]
+    },
+    {
+      "episode": 13,
+      "record_id": "sam-mediapipe-20261021-ep13",
+      "frames": 425,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "fa74d6754b90eebc9513909e8570dfd2dd7726c71dba16df45cb17cc49e79f1a",
+      "archive_sha256": "2a3b54a3e03b0eb07d4438d6eb3813c4b1f22fd415b0b266b2419d882703a35a",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep13-baseline-comparison.mp4",
+          "sha256": "9ecf400b790727d360e3975b0a96e141cc0bbf7f0ec8196fdb10f5dd1234176c",
+          "bytes": 668762,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 425
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep13-refined-comparison.mp4",
+          "sha256": "d16a57028b8960c55d0fbd72ed23ec0b3ce21a2a3c549153230627e162268149",
+          "bytes": 672565,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 425
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep13-hands-comparison.mp4",
+          "sha256": "d08123a2fcab339a2d1f3d732c5ba0e316487c224c66362246682e899267932d",
+          "bytes": 2456671,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 425
+          }
+        }
+      ]
+    },
+    {
+      "episode": 14,
+      "record_id": "sam-mediapipe-20261021-ep14",
+      "frames": 442,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "f9f2bed8abe60898aef8f62c245ff03ed32f94b76b079c128e363fdfd4a7e70e",
+      "archive_sha256": "059e034f789e6610858ed58e1c9ac3b95c85fa661913dfac598dd585300381a3",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep14-baseline-comparison.mp4",
+          "sha256": "ee0c36c4022727faf333300036da0afe788c9503c41c18184cc30379f6aa6499",
+          "bytes": 631635,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 442
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep14-refined-comparison.mp4",
+          "sha256": "b5cd66517c105be77a6a8a829e083c03d3ea67af589e766b9c0db6ab2b8be641",
+          "bytes": 637877,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 442
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep14-hands-comparison.mp4",
+          "sha256": "add13a122b5ae1829679dd435f1d1ff929e8a1ec21879351a30694d23e0b2302",
+          "bytes": 2245191,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 442
+          }
+        }
+      ]
+    },
+    {
+      "episode": 15,
+      "record_id": "sam-mediapipe-20261021-ep15",
+      "frames": 501,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "c368809329e922b75629c1d94c39c1c820c9211464a5e5a77a4cdb55803400f0",
+      "archive_sha256": "4de63dc448dcad90f4e246ad6d2983da5d7c12314023ea6448d50c67127b6daf",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep15-baseline-comparison.mp4",
+          "sha256": "5b1769e64e0167f63811334bc0bcbac39677ba359da63b42f0ed0e766a6c4e1f",
+          "bytes": 825993,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 501
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep15-refined-comparison.mp4",
+          "sha256": "e81bfe45968a7761cc52b8dac0774dcee6bb2a78c71f3268d7a0d85280344acf",
+          "bytes": 828984,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 501
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep15-hands-comparison.mp4",
+          "sha256": "6cdbe53426394e98e510607a489683dc752e14d20c7f1fbaa19919cb606b9dc2",
+          "bytes": 3527471,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 501
+          }
+        }
+      ]
+    },
+    {
+      "episode": 16,
+      "record_id": "sam-mediapipe-20261021-ep16",
+      "frames": 360,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+      "archive_sha256": "be81e717f6fd80b4d9b2fbf79ff854e2bb14c68430e6108fb1de4dae7f45df75",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-baseline-comparison.mp4",
+          "sha256": "b87dd941bed205a89fe51cf584ed93200fb29c384d8c0f2ba1b77f8feafcf464",
+          "bytes": 601180,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 360
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-refined-comparison.mp4",
+          "sha256": "bc0d8ca77daa5590201f6884bb6e778dde6a3a6deefc9f8d6c3c72f228c5d9c6",
+          "bytes": 601548,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 360
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep16-hands-comparison.mp4",
+          "sha256": "79ccc941c371c01d4673696193549ef9bf3da36f200f5d588e248bfc6290d396",
+          "bytes": 2414471,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 360
+          }
+        }
+      ]
+    },
+    {
+      "episode": 17,
+      "record_id": "sam-mediapipe-20261021-ep17",
+      "frames": 419,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "4c536c20aff3e803c0d5caf1f91b0dfab1054444361fdae2799212e5af15a94b",
+      "archive_sha256": "a53b8659b86ed5578bee0b590425df9d2bd300a24da0b3afeff49bc14e0239c8",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep17-baseline-comparison.mp4",
+          "sha256": "ca4519c92dddbc3581c8a30c4b5724c69777469be9a5955ff8c6f8824b9f683e",
+          "bytes": 711793,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 419
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep17-refined-comparison.mp4",
+          "sha256": "b0ddf0c95e91e2f27557ed257efc761b0f67b442405b489139068a39f3b6f22f",
+          "bytes": 715114,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 419
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep17-hands-comparison.mp4",
+          "sha256": "2f83a9541dcd1d99e249e7caabcaa99f0404a5b62834c27c0716918cd4cda490",
+          "bytes": 2795595,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 419
+          }
+        }
+      ]
+    },
+    {
+      "episode": 18,
+      "record_id": "sam-mediapipe-20261021-ep18",
+      "frames": 535,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "e65132e95b0755a720c5e5238654a6fb8a01cd9e5d13fe481bcbb5e5612e44bd",
+      "archive_sha256": "26d13f0602660485b5600ccd51187408a8836a51993eca7ff16b76f275e39ec7",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep18-baseline-comparison.mp4",
+          "sha256": "4bf646099ea1143fc2cd54147d790cbdbe685d0517cb097f65d99351e3a58e4f",
+          "bytes": 1236856,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 535
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep18-refined-comparison.mp4",
+          "sha256": "6164a993c3a5a16d412d0d7a7f4d720d49ab6720f0e7102c7b8788f32bad1c33",
+          "bytes": 1238161,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 535
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep18-hands-comparison.mp4",
+          "sha256": "4d7ac2c55f70cea0c49145ffb165b559c96c28ffb77fa7240513dc419a791582",
+          "bytes": 3541189,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 535
+          }
+        }
+      ]
+    },
+    {
+      "episode": 19,
+      "record_id": "sam-mediapipe-20261021-ep19",
+      "frames": 443,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "730e8392a32944856b3f9e2b02e57c48ba955e0832cfaf40e06d2de72a3a3bc9",
+      "archive_sha256": "7f745a5287eea88b0e7bf022269c6e037c9521ee77abd5cd285060b0bd6b6591",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep19-baseline-comparison.mp4",
+          "sha256": "103f81b89c3a3cf68e6bb83ceee1b16987a837dcc10d26790417cc660c2c9504",
+          "bytes": 761289,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 443
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep19-refined-comparison.mp4",
+          "sha256": "8ce71f2e7aca3498d0d07f46a83ad53d570ecac865fa6ef1be1061480df82541",
+          "bytes": 767554,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 443
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep19-hands-comparison.mp4",
+          "sha256": "06b305a6b6f63b2cb48f7ab0c5a503b4c9a5769b45231c2388fd01feb9e08764",
+          "bytes": 2449517,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 443
+          }
+        }
+      ]
+    },
+    {
+      "episode": 20,
+      "record_id": "sam-mediapipe-20261021-ep20",
+      "frames": 549,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "781ec1de0edcf8bf30cbc9f3847f80efd8cd2e97e53b0b4f80ccb0b505ef03ce",
+      "archive_sha256": "c204f794373827c2f5102b363f628b151005a6e57a4b1a6ac0a5929aff4c37c3",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep20-baseline-comparison.mp4",
+          "sha256": "673163e2115230dfe8b3efc20879631adaa1d7eb763446549e73364f2798eab1",
+          "bytes": 1173802,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 549
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep20-refined-comparison.mp4",
+          "sha256": "74100c7a83b15998b8e7e42453abcacf52c1819a34435197f6a5c72856c0a809",
+          "bytes": 1179493,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 549
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep20-hands-comparison.mp4",
+          "sha256": "d7ae4476b2c68fde9bc822b86c327f6a3caa4a61f132d50a241b44905d178883",
+          "bytes": 3469779,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 549
+          }
+        }
+      ]
+    },
+    {
+      "episode": 21,
+      "record_id": "sam-mediapipe-20261021-ep21",
+      "frames": 563,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "66443de1239172913edf324e9d4affb960883c99ca4f9e307a7ec76a9264adec",
+      "archive_sha256": "c196e8babf16f7fb2ba500a425d4ad10021dbb9df6c251d913e68b5f4220b4cb",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep21-baseline-comparison.mp4",
+          "sha256": "0ce597cc06b0e0da4b5d8400eada5c3d9905e67e7b360dd41f2dbd5e0c4b2b30",
+          "bytes": 1249864,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 563
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep21-refined-comparison.mp4",
+          "sha256": "1826bb6605d7ee18868eb971053860c7cb07e4dbe1bc5f4c5b0fb9b5cb5c976a",
+          "bytes": 1259021,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 563
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep21-hands-comparison.mp4",
+          "sha256": "ccd5c64dcf7d8874f0eb6f1ed62e2209fa06dc80a8e8af46f1500d066f40573d",
+          "bytes": 3864408,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 563
+          }
+        }
+      ]
+    },
+    {
+      "episode": 22,
+      "record_id": "sam-mediapipe-20261021-ep22",
+      "frames": 533,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "17e2de04b320c3ff3004f659326cbacfb51402af19c9564ffc4f1fed88fadad0",
+      "archive_sha256": "70172603ecb2c670acaba740c85124bf995fc2a9a5b5e6bfcd9342d1196832a9",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep22-baseline-comparison.mp4",
+          "sha256": "68f8030fa2fc15e2826e089eb795bc9b960d4153b6a026886bf566a4f00fa3e7",
+          "bytes": 1010832,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 533
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep22-refined-comparison.mp4",
+          "sha256": "9f4ae60ce92ff0228040e195d3291bd8ed5aab5da12c0fc6e4b58ae7d76335f4",
+          "bytes": 1016239,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 533
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep22-hands-comparison.mp4",
+          "sha256": "072d5ec0ab4e01c9e9a707f8709b2660086ba45d914488d2dd8c253acca1f1c9",
+          "bytes": 4004886,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 533
+          }
+        }
+      ]
+    },
+    {
+      "episode": 23,
+      "record_id": "sam-mediapipe-20261021-ep23",
+      "frames": 552,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "4b132f8efe20da727f2d5fd7ba56835cf08b032f11e6dc2800f26bfcfff0f0b5",
+      "archive_sha256": "ca67e7cd42d29b53d0df4dc7f1d94c9c773b8cd419957f22275de4530a5f7c6b",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep23-baseline-comparison.mp4",
+          "sha256": "32722c1295e99ef5f4cf498dc7062584c55f95c1576ee842399676462e3aaac4",
+          "bytes": 1037318,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 552
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep23-refined-comparison.mp4",
+          "sha256": "dc40f615df17a0e8b1d87917be2a9bb9693eb89a3a8bacaafa99fe56dc6eef0e",
+          "bytes": 1048178,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 552
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep23-hands-comparison.mp4",
+          "sha256": "a421c3e55c74e4f1ef9a94b74eb6b1c94af69e64a5bd67e18578416190415640",
+          "bytes": 3709077,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 552
+          }
+        }
+      ]
+    },
+    {
+      "episode": 24,
+      "record_id": "sam-mediapipe-20261021-ep24",
+      "frames": 420,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "e36eda1c9ac7f6a1da298412c301da27775055df4c6ff19167f6b1a8c504d2ef",
+      "archive_sha256": "484469077f9b217c3d705d55a5f200c88c4767a3caabff32b517d064643f4bac",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24-baseline-comparison.mp4",
+          "sha256": "f559873ebc08506c1a50aaf5ceed169323d7d15c93c146f711add33653b32c9e",
+          "bytes": 873945,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 420
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24-refined-comparison.mp4",
+          "sha256": "08a8cec7f817f2e9ee12817bfb5cc91eb3c3fd334d919594ee439e7a1dc4f8f5",
+          "bytes": 880392,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 420
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24-hands-comparison.mp4",
+          "sha256": "2baed4cf446530cb66283d9b02b849ca2a5871e8834ff944efaca446d08bfcb9",
+          "bytes": 2788424,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 420
+          }
+        }
+      ]
+    },
+    {
+      "episode": 25,
+      "record_id": "sam-mediapipe-20261021-ep25",
+      "frames": 365,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "efcce8025e4e94ed92553277bc6fddd5ae7c8d7c7e70d71d09ff9a86a1ea3ae0",
+      "archive_sha256": "519d4d507a14b3a0f41dd9a1dfb2914f5535cfd247131e3a41acbfc5318adeeb",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep25-baseline-comparison.mp4",
+          "sha256": "08aa1628ccb5260adf07f2bc2b0214618f3cb4a9801e2df617869de943bd52e8",
+          "bytes": 960762,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 365
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep25-refined-comparison.mp4",
+          "sha256": "909474887e5970d2fb941e0a0efca6ce1a1994ee31804a91d4d847d76e10c490",
+          "bytes": 966434,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 365
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep25-hands-comparison.mp4",
+          "sha256": "75914242cbeb1a456f204ef487db91663c348224e0cfe68d687777c123117fef",
+          "bytes": 2912634,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 365
+          }
+        }
+      ]
+    },
+    {
+      "episode": 26,
+      "record_id": "sam-mediapipe-20261021-ep26",
+      "frames": 399,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "9cf9112417778299780a3e2a7f009d38bbf24059149eaa1591b8df02551607a4",
+      "archive_sha256": "01d873adc19c4ffe66129ab13e3c39e529c4d1d5245149d95d7c8f93b7e18e81",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep26-baseline-comparison.mp4",
+          "sha256": "ddfa90b3c0d598db39b7581e93331e84e461abb6d971c21bddd9ae4f968e5c59",
+          "bytes": 851197,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 399
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep26-refined-comparison.mp4",
+          "sha256": "ce84635f5486e6adb73f0c472f54c958f10179ab7577b9f5a8def88645016ad5",
+          "bytes": 852997,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 399
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep26-hands-comparison.mp4",
+          "sha256": "53461dae98ec6dfc2052b1fbd5dc774bb25fbae1ac84bfa521344a163e6de9f4",
+          "bytes": 2433120,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 399
+          }
+        }
+      ]
+    },
+    {
+      "episode": 27,
+      "record_id": "sam-mediapipe-20261021-ep27",
+      "frames": 440,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "07790526fc281dfb37f84cc9fa4cc25925e7e8fa6cd5600fd5cd9179ecd03e37",
+      "archive_sha256": "fbc2ca6a6bbce427d58178b09962522f77a74951c3e702d2e9bde136357add6c",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27-baseline-comparison.mp4",
+          "sha256": "a7f9cfbd4e4f3d456a0e8ef33454edb9c65b8460b950f9ea5b42747025767b6e",
+          "bytes": 1061767,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 440
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27-refined-comparison.mp4",
+          "sha256": "3d07ac39c634928b0eb7344402197922b11d1f9a52d80600aa137a201fd804bf",
+          "bytes": 1063945,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 440
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep27-hands-comparison.mp4",
+          "sha256": "b1dc1c5cb9cb089b155ca55fb0b614dcaa0043f7aace11e8ada836550e584ced",
+          "bytes": 3466899,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 440
+          }
+        }
+      ]
+    },
+    {
+      "episode": 28,
+      "record_id": "sam-mediapipe-20261021-ep28",
+      "frames": 366,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "9f84471dcd5e44113cc21e5bd40e8877ad6c5bcc1ba1d03cfdbc866b8df61538",
+      "archive_sha256": "37d7b5b5774ffbb39abd926d0f2b1d83ee1c2afdb15b25cc600d06da35720cc0",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep28-baseline-comparison.mp4",
+          "sha256": "4fed9ad54ec6ad2a13d25cea7a5f64fe68002e5ecf15ce4c8a5dda56161188f3",
+          "bytes": 730694,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 366
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep28-refined-comparison.mp4",
+          "sha256": "9c304bffc0545f892571a60a4bad7eb41145e2ac4167ab8685b92c4d66316bed",
+          "bytes": 733499,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 366
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep28-hands-comparison.mp4",
+          "sha256": "f4abd19627dd45c2f79df1a292e783e93e9597a8f59fefa12a3e324ae6358fc9",
+          "bytes": 2416957,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 366
+          }
+        }
+      ]
+    },
+    {
+      "episode": 29,
+      "record_id": "sam-mediapipe-20261021-ep29",
+      "frames": 419,
+      "state": "submitted",
+      "selected_candidate": "baseline",
+      "source_video_sha256": "0a2288f183e4d0fffff1c55688c1ea27c09e60588dfc9f52c10137b3abc1b5e1",
+      "archive_sha256": "17470a726f2897f6362e190ce97095197ad65b6d57dbbc62a9ebefc226ab6ed3",
+      "videos": [
+        {
+          "role": "baseline_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep29-baseline-comparison.mp4",
+          "sha256": "10cabf73a0f283de51fbf1a1c9aab5f8f565f98749219e9159a87044e3b4aadf",
+          "bytes": 809390,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 419
+          }
+        },
+        {
+          "role": "refined_full_body",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep29-refined-comparison.mp4",
+          "sha256": "ff9adfe81105f207c52664b99b665a6c143c8d4038c209b4630203ec4b77f887",
+          "bytes": 818013,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 419
+          }
+        },
+        {
+          "role": "hands_comparison",
+          "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep29-hands-comparison.mp4",
+          "sha256": "51b81d208fd882d367d1f843d234759a00861d30f115b6ac398ba69bfc65b43b",
+          "bytes": 2312903,
+          "content_type": "video/mp4",
+          "coverage": {
+            "kind": "full_sequence",
+            "original_frame_count": 419
+          }
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "quality_acceptance": false,
+  "shared_scene_scale_verified": false,
+  "official_export_accepted": false,
+  "six_stage_episode_acceptance_claimed": false,
+  "main_deployed": false,
+  "scope": "Committed Human metadata and exact public-media URL bindings only; local playback is checked separately for three representative episodes."
+}

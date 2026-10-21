@@ -1,0 +1,94 @@
+{
+  "schema_version": "human_independent_baseline_review.v1",
+  "reviewed_at": "2026-10-20T18:58:41.142462+00:00",
+  "reviewer": "Codex human_batch_delivery subagent, machine-assisted independent source/overlay inspection",
+  "track": 1,
+  "episode": 11,
+  "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+  "mhr_model_sha256": "352e271a6c42729c68554ceaea0c955e866970160c31e35506d782dc0f7377bc",
+  "mhr_model_file_hash_verified": true,
+  "baseline_parameters_sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+  "baseline_finished_receipt_sha256": "514fddd2a2f5f61e297be159e6a761fbcb7ac92118bc2c39c106e2e901abac7e",
+  "sampled_original_frame_ids": [
+    0,
+    109,
+    219,
+    328,
+    438,
+    547,
+    657,
+    766,
+    876
+  ],
+  "source_frames_decoded": 877,
+  "source_decode_method": "Sequential OpenCV original-video decode; source RGB samples and native geometry rendered at exact original IDs using runtime02 Predictions/draw_prediction",
+  "output_hashes_verified_against_finished_receipt": true,
+  "all_baseline_parameters_finite": true,
+  "all_saved_native_vertices_and_joints_finite": true,
+  "complete_consecutive_original_frame_mapping": true,
+  "fixed_identity_and_skeleton_scale_vectors": true,
+  "camera_matches_inference_manifest": true,
+  "native_parameter_and_geometry_shape_checks": {
+    "frames": 877,
+    "pose_shape": [
+      877,
+      136
+    ],
+    "scales_shape": [
+      68
+    ],
+    "shape_shape": [
+      45
+    ],
+    "identity_and_scales_shared": true,
+    "artifact_scope": "human_only_not_complete_submission"
+  },
+  "sample_bindings": {
+    "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-baseline-sample-bindings.json",
+    "sha256": "e64c2ab883516e5392b1732c68509b518d79530d04eebf37026d70c8bbb9aafa"
+  },
+  "contact_sheet": {
+    "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-baseline.jpg",
+    "sha256": "fcdf0868545f42a2bb45186a985bd7e8f192c3ed5840ef825c6f31960fb2d364"
+  },
+  "additional_inspected_large_samples": [
+    219,
+    438,
+    657,
+    876
+  ],
+  "visual_findings": [
+    {
+      "id": "tracking_and_coordinates",
+      "status": "operational_pass_on_samples",
+      "detail": "Across standing, walking, turning and table-tipping samples, the projected native human remains on the source person with plausible head/torso/arm/leg placement. No gross camera-axis flip, horizontal mirroring, wrong-person tracking, scale explosion, missing limb or scene-wide offset is apparent in these nine samples."
+    },
+    {
+      "id": "turning_and_walk",
+      "status": "operational_pass_on_samples",
+      "detail": "Frames109/219/328/438/547 show changing body direction and foot placement following the walking person. Frames657/766 show the body returning to and bending over the desk. The fixed native body is narrower than loose clothing, which does not by itself demonstrate an alignment failure."
+    },
+    {
+      "id": "occlusion_and_contact",
+      "status": "unverified",
+      "detail": "Frames0/657/766/876 include table occlusion. The cyan rendering overlays the original image without a reconstructed-object depth compositor, so visible cyan through the table is not proof of a wrong human depth or proof of physical contact. Hidden limbs, hands, foot-floor contact, penetration and shared object scale are not accepted by this inspection."
+    },
+    {
+      "id": "temporal_limits",
+      "status": "pending",
+      "detail": "Nine image samples and complete finite output coverage do not prove smooth motion on every intermediate frame. The actual EP11 hand movie, hand candidate boundary checks and selected-candidate record still need the separate pilot gate."
+    }
+  ],
+  "raw_fit_change_diagnostic_mm": {
+    "mean": 1.1872711181640625,
+    "max_frame_mean": 2.671184539794922
+  },
+  "raw_fit_diagnostic_interpretation": "Difference from raw SAM prediction, not ground-truth or hidden-reference reconstruction error",
+  "operational_baseline_conclusion": "The longer EP11 baseline passes this read-only operational source/geometry/coverage review. Together with EP16 it supports continuous all-30 baseline generation; retain pending quality and require the separate complete hand/candidate gate before registering accepted reconstruction quality.",
+  "baseline_operational_review_passed": true,
+  "quality_acceptance": false,
+  "reconstruction_quality_accepted": false,
+  "official_export_accepted": false,
+  "independent_native_model_redecode_performed": false,
+  "no_code_snapshot_or_result_edited": true
+}

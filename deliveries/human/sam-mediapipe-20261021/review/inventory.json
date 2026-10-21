@@ -1,0 +1,149 @@
+{
+  "schema_version": "human_final_review_inventory.v1",
+  "recorded_at": "2026-10-21T15:56:36.627209+00:00",
+  "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+  "delivery_commit": "09dc691131bc1c3349d52fc01833c3a4362c0664",
+  "files": [
+    {
+      "file": "independent-episode00-spot-review.json",
+      "bytes": 9623,
+      "sha256": "2c649b493f35568399fbb641582f6c04c8d7d7e791dfda37a205c4e059895659",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-episode00-spot-review.json"
+    },
+    {
+      "file": "independent-pilot11-baseline-review.json",
+      "bytes": 4698,
+      "sha256": "18de826fa024b0fb65a1501915a4e4a94e0b44750dd2f98b2fb042f0e911f46f",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-baseline-review.json"
+    },
+    {
+      "file": "independent-pilot11-final-hand-review.json",
+      "bytes": 15447,
+      "sha256": "fdb221e8d44239fad023716dba68a9218e4f5420a47ddaae63292e30b18fd160",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-final-hand-review.json"
+    },
+    {
+      "file": "independent-pilot16-review.json",
+      "bytes": 9337,
+      "sha256": "5a59db7c989b3feac6e08a7f658f1eb0f150da7d29c05272ea3d843eef828c05",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot16-review.json"
+    },
+    {
+      "file": "final-pilot16-visual-review.json",
+      "bytes": 2237,
+      "sha256": "821f15a83e383e2832e35387fa6cc4b1bbd2a765e0e55f27eb2c144bb20781dd",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-pilot16-visual-review.json"
+    },
+    {
+      "file": "milestone-first10-visual-review.json",
+      "bytes": 45056,
+      "sha256": "c4135f2b3966277d34b85a0f6c5f92aee1ba3541604ab7188b301c23f35157be",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first10-visual-review.json"
+    },
+    {
+      "file": "milestone-first16-visual-review.json",
+      "bytes": 37640,
+      "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json"
+    },
+    {
+      "file": "milestone-first20-visual-review.json",
+      "bytes": 37686,
+      "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json"
+    },
+    {
+      "file": "milestone-first25-visual-review.json",
+      "bytes": 30624,
+      "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json"
+    },
+    {
+      "file": "milestone-first29-visual-review.json",
+      "bytes": 37453,
+      "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json"
+    },
+    {
+      "file": "final-episode29-visual-review.json",
+      "bytes": 8570,
+      "sha256": "09d0b43650c66a04687e25e18110a34e6755636d41c69a2eb319b5ed8f3bbf5c",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-episode29-visual-review.json"
+    },
+    {
+      "file": "all30-analysis-summary.json",
+      "bytes": 555313,
+      "sha256": "fc08187f31ede41340a20225a32b44708c273ed84c188ebee872d7cb0a7b7d91",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\all30-analysis-summary.json"
+    },
+    {
+      "file": "all30-visual-review-index.json",
+      "bytes": 96139,
+      "sha256": "37159c8c76c17132efc68eb3891e42c7a1aeedeab203f9bfd1e8beb9f72918a6",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\all30-visual-review-index.json"
+    },
+    {
+      "file": "mask-camera-semantics-audit-20261021.json",
+      "bytes": 10639,
+      "sha256": "e929f91e7fb080aadd3c0dcd708cc2487dce2e4a46ba8ac7e82c2329bf616ae3",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\mask-camera-semantics-audit-20261021.json"
+    },
+    {
+      "file": "source-freeze03.json",
+      "bytes": 1479,
+      "sha256": "bbb80245271de05a33a18b4c218da057b916b519e5d3d987ba35805b9703dee9",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\source-freeze03.json"
+    },
+    {
+      "file": "all30-job03.finished.json",
+      "bytes": 2546,
+      "sha256": "9116ceaa319c28a44fffbf1040bb7213d9d5e212e9e0c27b27eb38df2449d0bb",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\all30-job03.finished.json"
+    },
+    {
+      "file": "browser-final-ep00.json",
+      "bytes": 2231,
+      "sha256": "ebb7e2dfaab5d20630cacf0bafc08e3c23ba5364fecec54ff6fa400efca4f77d",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-browser-qa\\browser-final-ep00.json"
+    },
+    {
+      "file": "browser-final-ep24.json",
+      "bytes": 2213,
+      "sha256": "5b6249b0a11b6bb1ec74b7347450da9d8f2cfb4a0da50c4b7dfae59c0edad2e9",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-browser-qa\\browser-final-ep24.json"
+    },
+    {
+      "file": "browser-final-ep29.json",
+      "bytes": 2233,
+      "sha256": "df782f224a2d83878c7fb910a1aa48f53c8de61b0dd9f93e44801aabcf69225c",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-browser-qa\\browser-final-ep29.json"
+    },
+    {
+      "file": "catalog-validation.json",
+      "bytes": 56588,
+      "sha256": "4b62e7eeac8330a724d21c472ff8f1a35efd183255dee0f9018d5521ecb29971",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-browser-qa\\catalog-validation.json"
+    },
+    {
+      "file": "final-review-summary.json",
+      "bytes": 7958,
+      "sha256": "75993c2493b2f7c02a16c29ecf5e85cead88efc5816ff0a52925118e06b08e92",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-browser-qa\\final-review-summary.json"
+    },
+    {
+      "file": "completion-helper-finish-result.json",
+      "bytes": 440,
+      "sha256": "15683aff44887417f1aa58fa940f4c7d7928effac369ac6aedea096eb4c40dd0",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\completion-helper06\\finish-result.json"
+    },
+    {
+      "file": "final-delivery-audit.json",
+      "bytes": 22460,
+      "sha256": "80801bd8c7fa465268df9000cb55cafd476fd0b86c5fc61dfecbb9b6e06b297a",
+      "original_executor_path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-delivery-audit.json"
+    }
+  ],
+  "quality_accepted": false,
+  "main_deployed": false,
+  "scope": "Byte-identical copies of completed-run engineering and sampled visual reviews; original executor paths are provenance, not requirements for portable viewing."
+}

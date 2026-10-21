@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "human_commit": "09dc691131bc1c3349d52fc01833c3a4362c0664",
+  "config_sha256": "0b0b4efa886d602ba89961425c631772725d783f6429ed35d0913f9690eed032",
+  "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+  "release_base_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021",
+  "episodes_completed": 30,
+  "quality_accepted": false,
+  "main_deployed": false
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "human_batch_source_freeze.v1",
+  "source_commit": "21982effde7da5ba429aa618283ffb9f9bcc0277",
+  "branch": "human",
+  "delivery_id": "sam-mediapipe-20261021",
+  "release_base_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021",
+  "driver_snapshot": "J:\\video-to-hoi\\work\\human-all30-20261021\\runtime-snapshots\\runtime06",
+  "driver_sha256": "dac13e8b750d508548e11b480413a28a48e283111c5bf017ad9af123b9deeece",
+  "driver_snapshot_sha256": "55fde05374cad4e8bcdc12ada7d4c18c24cad43284707003c7b14b5aabde792e",
+  "stage_snapshot": "J:\\video-to-hoi\\work\\human-all30-20261021\\runtime-snapshots\\runtime02",
+  "stage_snapshot_sha256": "0ef843efaf010292411129eeea7f021d179e0b46eaa0db168aeff20fd9608e3d",
+  "hand_refinement_snapshot": "J:\\video-to-hoi\\work\\human-all30-20261021\\runtime-snapshots\\runtime05",
+  "recorded_at": "2026-10-20T18:54:25.705273+00:00",
+  "validation": {
+    "python_passed": 898,
+    "python_skipped": 17,
+    "actual_torch_hand_tests_passed": 34,
+    "node_passed": 44,
+    "derived_report_resume_batch_tests_passed": 44
+  },
+  "policy": "Final runtime06 driver refreshes derived reports. Unchanged inference/baseline/observations/body-review use runtime02; hand refiner and corrected renderer use runtime05. Package each final pilot once and append only new episodes. Baseline fallback is valid; reconstruction/scale/contact/export quality remain unaccepted."
+}

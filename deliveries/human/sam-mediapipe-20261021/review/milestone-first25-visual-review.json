@@ -1,0 +1,685 @@
+{
+  "schema_version": "human_batch_visual_milestone_review.v1",
+  "reviewed_at_utc": "2026-10-21T11:19:34.588684+00:00",
+  "reviewer": "Codex human_batch_delivery subagent; machine-assisted independent bounded visual spot review",
+  "track": 1,
+  "newly_reviewed_episodes": [
+    20,
+    21,
+    22,
+    23
+  ],
+  "skipped_requested_episodes": [
+    {
+      "episode": 24,
+      "reason": "No current-result.json at final bounded availability check; no complete checks/selection or visual review assumed."
+    }
+  ],
+  "newly_reviewed_original_frames_total": 2197,
+  "previous_milestone_review": {
+    "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+    "bytes": 37686,
+    "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+  },
+  "scope": "Actual saved baseline source/overlay contact sheets and one hand representative per newly complete episode; selected native/check/source/camera/frame lineage. No full movie decode, raw mesh load, model invocation, fit, tests or source changes. The requested file name is a milestone label, not a claim that EP24 was reviewed.",
+  "episodes": [
+    {
+      "episode": 20,
+      "frames": 549,
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "source_video": {
+        "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000020.mp4",
+        "bytes": 18003843,
+        "sha256": "781ec1de0edcf8bf30cbc9f3847f80efd8cd2e97e53b0b4f80ccb0b505ef03ce"
+      },
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\current-result.json",
+        "bytes": 1148,
+        "sha256": "7a76a3b8d1785ad97c4b05ae32b35f2cb9342aa31794aa46492bd99294517a7e"
+      },
+      "checks": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\checks\\attempt-0001\\checks.json",
+          "bytes": 24549,
+          "sha256": "dd4b7cdb26bf32f4f882805195d5a16520b3977bec9041b616e946398b809a78"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\checks\\attempt-0001.finished.json",
+          "bytes": 4476,
+          "sha256": "c0a22922cfdd8a45155c45a4086d3bba04d375ed2b9811cb1060c1762a321f6f"
+        }
+      },
+      "inference_manifest": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\inference\\attempt-0001\\manifest.json",
+        "bytes": 21843,
+        "sha256": "35a474bdd6380adb4b050ceea831e540dd96bf2b188e3cf0a6318ea1879c7156"
+      },
+      "selected_native_parameters": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\baseline\\attempt-0001\\episode_000020_human.npz",
+          "bytes": 290356,
+          "sha256": "ab728ae642293ddeea1de3fda7ffe1c36350ca156ac43bfd8130835a646a8ab7"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\baseline\\attempt-0001.finished.json",
+          "bytes": 5198,
+          "sha256": "c0204c5a4f01ca2ce4b4b8a129f68a19201a031ede1916463920f7ce9925ea19"
+        }
+      },
+      "native_pose_shape": [
+        549,
+        136
+      ],
+      "shared_identity_shape": [
+        45
+      ],
+      "shared_scales_shape": [
+        68
+      ],
+      "native_values_finite": true,
+      "native_original_frame_indices_complete": true,
+      "saved_body_preview_frame_count": 549,
+      "reported_decode_frames": 549,
+      "camera_lineage": {
+        "target_id": "human_0",
+        "camera_status": "camera_estimate_consistent",
+        "input_intrinsics": {
+          "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000020\\intrinsics.json",
+          "bytes": 130,
+          "sha256": "8cc9fb7f8ffb087b87ed073eec262add97b49d26372e6cb47c3f6ef0043f9695"
+        },
+        "K_original_pixels": [
+          [
+            794.4984741210938,
+            0.0,
+            767.5
+          ],
+          [
+            0.0,
+            794.4984741210938,
+            575.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "K_exactly_equal_after_float32_cast_for_all_three_stages": true,
+        "K_bindings": {
+          "inference": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\inference\\attempt-0001\\raw\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "bec42d4f948464c10ede282170e234298a4a6a8ca14cd1658198f8c634c750f0"
+          },
+          "baseline": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\baseline\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "bec42d4f948464c10ede282170e234298a4a6a8ca14cd1658198f8c634c750f0"
+          },
+          "refined": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\refined\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "bec42d4f948464c10ede282170e234298a4a6a8ca14cd1658198f8c634c750f0"
+          }
+        }
+      },
+      "review_summary": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\baseline_review\\attempt-0001\\summary.json",
+        "bytes": 1686,
+        "sha256": "a53732a5883922fea2a1d2903fb49a4de7d459a3d2f3ffc38e07a7a65c1f2068"
+      },
+      "visually_reviewed_body_contact_sheet": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+          "bytes": 602588,
+          "sha256": "52158cffbd60ad5100e53775a942cd9883a1961d16fe5f1edcde399dac929429"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\baseline_review\\attempt-0001.finished.json",
+          "bytes": 83625,
+          "sha256": "4bd495e5ef15ba5bbb6de0e552a0ef6e4bd44b989a489a45da963bfe2718fd1d"
+        }
+      },
+      "visually_reviewed_body_original_frame_ids": [
+        0,
+        68,
+        137,
+        206,
+        274,
+        342,
+        411,
+        480,
+        548
+      ],
+      "hand_summary": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\hand_comparison\\attempt-0001\\summary.json",
+        "bytes": 1416,
+        "sha256": "d1549e32e0ecb9bd0aecfad8aece4eff59f55095e20c37931438b3f2d013da30"
+      },
+      "visually_reviewed_hand_image": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\hand_comparison\\attempt-0001\\frames\\000183.jpg",
+          "bytes": 144882,
+          "sha256": "fc4e0dcd8afce0751585d0f60f4573b6c4cd20e3a3ddefa4e30715ea440c9d70"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\hand_comparison\\attempt-0001.finished.json",
+          "bytes": 7091,
+          "sha256": "1769cbc857e42281a12de26a92d55cc74e37d2f7c9398bf3487890112b8a84ca"
+        }
+      },
+      "visually_reviewed_hand_original_frame_ids": [
+        183
+      ],
+      "visual_findings": "The foreground actor stays grossly aligned during table interaction, walking around the table and return. Hand183 has accepted partial right-hand evidence and no accepted left evidence; both projected hands remain near the tool but fine articulation, tool use and contact remain unaccepted.",
+      "independent_observed_hand_frames_left_right": [
+        295,
+        375
+      ],
+      "hand_support_boundary_count": 22,
+      "hand_failed_boundary_count": 22,
+      "selection_reason": "Support-boundary motion regression or added correction exceeds the engineering budget; preserve fixed-body baseline",
+      "operational_gross_failure_found": false,
+      "quality_accepted": false
+    },
+    {
+      "episode": 21,
+      "frames": 563,
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "source_video": {
+        "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000021.mp4",
+        "bytes": 18861975,
+        "sha256": "66443de1239172913edf324e9d4affb960883c99ca4f9e307a7ec76a9264adec"
+      },
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\current-result.json",
+        "bytes": 1148,
+        "sha256": "cb0d317102ffb4b67cc9a46e1950e56124441081149d2ae8008d8eb8b402daff"
+      },
+      "checks": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\checks\\attempt-0001\\checks.json",
+          "bytes": 33251,
+          "sha256": "893c6899512dd78a00f4e79cf9d4645707ed66633ff7082206bca452b0f82f46"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\checks\\attempt-0001.finished.json",
+          "bytes": 4476,
+          "sha256": "a0629d8024601712e7e027643105cba59ec7acd4d4b053c7d6d2b8272aa09b64"
+        }
+      },
+      "inference_manifest": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\inference\\attempt-0001\\manifest.json",
+        "bytes": 21842,
+        "sha256": "2f947c914785e34194d62ab9df8ebbbd1c95f5fe622636603ad13fe21af275d8"
+      },
+      "selected_native_parameters": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\baseline\\attempt-0001\\episode_000021_human.npz",
+          "bytes": 297276,
+          "sha256": "e84946859d2718cb2deb9db21bfc49eeaed2cf40401c2cf063d7869e01481ff0"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\baseline\\attempt-0001.finished.json",
+          "bytes": 5197,
+          "sha256": "58f2770483ccf2fc2872e0d5cda3df242a6fe71a79744a99a64bb95ba7de8ee6"
+        }
+      },
+      "native_pose_shape": [
+        563,
+        136
+      ],
+      "shared_identity_shape": [
+        45
+      ],
+      "shared_scales_shape": [
+        68
+      ],
+      "native_values_finite": true,
+      "native_original_frame_indices_complete": true,
+      "saved_body_preview_frame_count": 563,
+      "reported_decode_frames": 563,
+      "camera_lineage": {
+        "target_id": "human_0",
+        "camera_status": "camera_estimate_consistent",
+        "input_intrinsics": {
+          "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000021\\intrinsics.json",
+          "bytes": 129,
+          "sha256": "9b89d2a41cd27c973b6ec1b7fee83e56fc6f7dde9e72dd8da687f5de3b8c08b0"
+        },
+        "K_original_pixels": [
+          [
+            796.2281494140625,
+            0.0,
+            767.5
+          ],
+          [
+            0.0,
+            796.2281494140625,
+            575.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "K_exactly_equal_after_float32_cast_for_all_three_stages": true,
+        "K_bindings": {
+          "inference": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\inference\\attempt-0001\\raw\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "3a314af032601e0d707d41de8937ab6fd4bc1e17805721ad5f10e9f9a28307b9"
+          },
+          "baseline": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\baseline\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "3a314af032601e0d707d41de8937ab6fd4bc1e17805721ad5f10e9f9a28307b9"
+          },
+          "refined": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\refined\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "3a314af032601e0d707d41de8937ab6fd4bc1e17805721ad5f10e9f9a28307b9"
+          }
+        }
+      },
+      "review_summary": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\baseline_review\\attempt-0001\\summary.json",
+        "bytes": 1686,
+        "sha256": "6edb6b17875a62fbde0b3b3787f8f86564632432541b5733260d39b7f084f025"
+      },
+      "visually_reviewed_body_contact_sheet": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+          "bytes": 602559,
+          "sha256": "493be1218fec638cd94faf5c4a0ababef99a7f2c7477e7104fb389ade2dc860b"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\baseline_review\\attempt-0001.finished.json",
+          "bytes": 85641,
+          "sha256": "e589932732ae1ad17d71f3eb1878428bee2c1bbf991fcd07a3771dca710b76de"
+        }
+      },
+      "visually_reviewed_body_original_frame_ids": [
+        0,
+        70,
+        140,
+        211,
+        281,
+        351,
+        422,
+        492,
+        562
+      ],
+      "hand_summary": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\hand_comparison\\attempt-0001\\summary.json",
+        "bytes": 1416,
+        "sha256": "d1da53a4942b6402668262d8be68024faf6e44c86d4a7cd26fd8436fa4d949ae"
+      },
+      "visually_reviewed_hand_image": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\hand_comparison\\attempt-0001\\frames\\000234.jpg",
+          "bytes": 142247,
+          "sha256": "ed4348efc15d7994449d525a39caf6c38166bd617be2e45491e38c80c376122a"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\hand_comparison\\attempt-0001.finished.json",
+          "bytes": 7091,
+          "sha256": "d915814bf2ba9763717409f98440a6e633f366ec093a9a6310544ec97f17d310"
+        }
+      },
+      "visually_reviewed_hand_original_frame_ids": [
+        234
+      ],
+      "visual_findings": "The foreground striped-shirt actor stays grossly aligned while bending to pick up the foam cylinder, holding it vertically, setting it down and walking away. Hand234 shows same-side evidence in both rows. The finger silhouette changes between baseline and candidate, but physical cylinder contact is not established.",
+      "independent_observed_hand_frames_left_right": [
+        316,
+        110
+      ],
+      "hand_support_boundary_count": 31,
+      "hand_failed_boundary_count": 29,
+      "selection_reason": "Support-boundary motion regression or added correction exceeds the engineering budget; preserve fixed-body baseline",
+      "operational_gross_failure_found": false,
+      "quality_accepted": false
+    },
+    {
+      "episode": 22,
+      "frames": 533,
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "source_video": {
+        "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000022.mp4",
+        "bytes": 18346879,
+        "sha256": "17e2de04b320c3ff3004f659326cbacfb51402af19c9564ffc4f1fed88fadad0"
+      },
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\current-result.json",
+        "bytes": 1148,
+        "sha256": "308ed67dcb50fb5e8401af8f8ae11f54d1f4ef9b61904c7f86bc3f6b2a591fa1"
+      },
+      "checks": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\checks\\attempt-0001\\checks.json",
+          "bytes": 28560,
+          "sha256": "88401708d197231062c6e16515aafcf3e13bce4f6f0276bdb2e0bd0f9d94652e"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\checks\\attempt-0001.finished.json",
+          "bytes": 4476,
+          "sha256": "e39363396356281e8e13bd0a2e315793acf493639e74040bba5d2aae5ed534a9"
+        }
+      },
+      "inference_manifest": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\inference\\attempt-0001\\manifest.json",
+        "bytes": 21846,
+        "sha256": "143640feaa6b3cc7fd397f54153e8a50719f676dc1cbff2dfe8e8d9411b2e547"
+      },
+      "selected_native_parameters": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\baseline\\attempt-0001\\episode_000022_human.npz",
+          "bytes": 281619,
+          "sha256": "d6b6f0f371f93356a4f344eece949793af68f1375be4f73408d63e6314512d11"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\baseline\\attempt-0001.finished.json",
+          "bytes": 5198,
+          "sha256": "ed4b8152a7924d75b4dcec1721f5805d9cdf52e68a9548715b34d91799e01a0e"
+        }
+      },
+      "native_pose_shape": [
+        533,
+        136
+      ],
+      "shared_identity_shape": [
+        45
+      ],
+      "shared_scales_shape": [
+        68
+      ],
+      "native_values_finite": true,
+      "native_original_frame_indices_complete": true,
+      "saved_body_preview_frame_count": 533,
+      "reported_decode_frames": 533,
+      "camera_lineage": {
+        "target_id": "human_0",
+        "camera_status": "camera_estimate_consistent",
+        "input_intrinsics": {
+          "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000022\\intrinsics.json",
+          "bytes": 129,
+          "sha256": "82aad69c362c90ba8cc438492cb917b97c3f87b545ed7688ca1ff84fd6ae9154"
+        },
+        "K_original_pixels": [
+          [
+            805.575439453125,
+            0.0,
+            767.5
+          ],
+          [
+            0.0,
+            805.575439453125,
+            575.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "K_exactly_equal_after_float32_cast_for_all_three_stages": true,
+        "K_bindings": {
+          "inference": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\inference\\attempt-0001\\raw\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "6c59e89bbc2b742676eb0fd4d898175cae027b0b02392d258be08eb99d0432bd"
+          },
+          "baseline": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\baseline\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "6c59e89bbc2b742676eb0fd4d898175cae027b0b02392d258be08eb99d0432bd"
+          },
+          "refined": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\refined\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "6c59e89bbc2b742676eb0fd4d898175cae027b0b02392d258be08eb99d0432bd"
+          }
+        }
+      },
+      "review_summary": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\baseline_review\\attempt-0001\\summary.json",
+        "bytes": 1686,
+        "sha256": "e38e562ce92dc7859c84d60fdd8e080e3aa7f964ca7515e65a4f9276e5fb4ec8"
+      },
+      "visually_reviewed_body_contact_sheet": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+          "bytes": 695738,
+          "sha256": "8afb7390ec09f8e6e8f25bee64cafde00cd7cee00282096bf897110edc04ce91"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\baseline_review\\attempt-0001.finished.json",
+          "bytes": 81321,
+          "sha256": "17c2cd9b5b0dba8cdf913b53614e68206b506e5c5ca545cb47d7f2b7ee1b5b76"
+        }
+      },
+      "visually_reviewed_body_original_frame_ids": [
+        0,
+        66,
+        133,
+        200,
+        266,
+        332,
+        399,
+        466,
+        532
+      ],
+      "hand_summary": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\hand_comparison\\attempt-0001\\summary.json",
+        "bytes": 1416,
+        "sha256": "f67976167072a7cdf86459dc392fe224fd166e84e7553013483130c3a0dbf3ad"
+      },
+      "visually_reviewed_hand_image": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\hand_comparison\\attempt-0001\\frames\\000266.jpg",
+          "bytes": 159978,
+          "sha256": "dc3acef1bc558abada236eec0a60a6ad40281713391a853996c7d7b68410c36f"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\hand_comparison\\attempt-0001.finished.json",
+          "bytes": 7091,
+          "sha256": "17152555c393575c5155a8959edaaa22b8597ba37a4fd82834595b56976227de"
+        }
+      },
+      "visually_reviewed_hand_original_frame_ids": [
+        266
+      ],
+      "visual_findings": "The foreground actor stays grossly aligned while rotating the foam cylinder and pressing it on the table. Hand266 shows accepted left evidence and absent right evidence without opposite-hand green-point leakage in overlapping crops. Source fingers are more spread than some native projected fingertips; fine articulation/contact remains unresolved.",
+      "independent_observed_hand_frames_left_right": [
+        477,
+        223
+      ],
+      "hand_support_boundary_count": 26,
+      "hand_failed_boundary_count": 22,
+      "selection_reason": "Support-boundary motion regression or added correction exceeds the engineering budget; preserve fixed-body baseline",
+      "operational_gross_failure_found": false,
+      "quality_accepted": false
+    },
+    {
+      "episode": 23,
+      "frames": 552,
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "source_video": {
+        "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000023.mp4",
+        "bytes": 18480186,
+        "sha256": "4b132f8efe20da727f2d5fd7ba56835cf08b032f11e6dc2800f26bfcfff0f0b5"
+      },
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\current-result.json",
+        "bytes": 1148,
+        "sha256": "209c8531ea8dd20fd280720323e8d8efebfaa83afc8d1dcbca3511a9a941d8a8"
+      },
+      "checks": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\checks\\attempt-0001\\checks.json",
+          "bytes": 25535,
+          "sha256": "e6c58e2df9be1bfc442f5ec0009bb7a41749a7190ffbf1241cdcb78fedd4e3e3"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\checks\\attempt-0001.finished.json",
+          "bytes": 4476,
+          "sha256": "659a85b09cdd2a3bd42587dfc563c2b66a419f080a1d350d79938ecfcbe1c61a"
+        }
+      },
+      "inference_manifest": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\inference\\attempt-0001\\manifest.json",
+        "bytes": 21857,
+        "sha256": "a7312e982b7725627dff92b5a0437d1c547a55a7e90287e8ac7ce591f6d9354e"
+      },
+      "selected_native_parameters": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\baseline\\attempt-0001\\episode_000023_human.npz",
+          "bytes": 290926,
+          "sha256": "04618dea7f90a9cd22e36e0212a853a5c9fda04ff8556942b64092fef31d9faa"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\baseline\\attempt-0001.finished.json",
+          "bytes": 5198,
+          "sha256": "cf09d6825696b0ec97a8753213af15dc163997fca88bc9bded6aae2ebbd3dd8f"
+        }
+      },
+      "native_pose_shape": [
+        552,
+        136
+      ],
+      "shared_identity_shape": [
+        45
+      ],
+      "shared_scales_shape": [
+        68
+      ],
+      "native_values_finite": true,
+      "native_original_frame_indices_complete": true,
+      "saved_body_preview_frame_count": 552,
+      "reported_decode_frames": 552,
+      "camera_lineage": {
+        "target_id": "human_0",
+        "camera_status": "camera_estimate_consistent",
+        "input_intrinsics": {
+          "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\body-inputs\\episode_000023\\intrinsics.json",
+          "bytes": 130,
+          "sha256": "f915668b08e2620092f55aad5e060d5f82460c64dbd4e3e57e458b88d5973cdd"
+        },
+        "K_original_pixels": [
+          [
+            819.3526611328125,
+            0.0,
+            767.5
+          ],
+          [
+            0.0,
+            819.3526611328125,
+            575.5
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "K_exactly_equal_after_float32_cast_for_all_three_stages": true,
+        "K_bindings": {
+          "inference": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\inference\\attempt-0001\\raw\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "44d011543e5bc6c17001319dc140f2b1e4da190875399b2259f93027740ed2c0"
+          },
+          "baseline": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\baseline\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "44d011543e5bc6c17001319dc140f2b1e4da190875399b2259f93027740ed2c0"
+          },
+          "refined": {
+            "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\refined\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+            "bytes": 164,
+            "sha256": "44d011543e5bc6c17001319dc140f2b1e4da190875399b2259f93027740ed2c0"
+          }
+        }
+      },
+      "review_summary": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\baseline_review\\attempt-0001\\summary.json",
+        "bytes": 1686,
+        "sha256": "f0155cf2dc75cfad0d0caf34e0459e74a00beed90fa5a92bfc20e16066039a42"
+      },
+      "visually_reviewed_body_contact_sheet": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+          "bytes": 668808,
+          "sha256": "085edd5596f04b96eac644ad1f1ff2a8778b4705506077d7d259453643874562"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\baseline_review\\attempt-0001.finished.json",
+          "bytes": 84056,
+          "sha256": "e9be3cd9b52acb67fd519ea7ef8466c3453648e774738a7af9c625f3cf1a750c"
+        }
+      },
+      "visually_reviewed_body_original_frame_ids": [
+        0,
+        69,
+        138,
+        207,
+        276,
+        344,
+        413,
+        482,
+        551
+      ],
+      "hand_summary": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\hand_comparison\\attempt-0001\\summary.json",
+        "bytes": 1416,
+        "sha256": "8665d5f680051ded513811d39d27467278c7ee119d20f60c75c90251e2f532f7"
+      },
+      "visually_reviewed_hand_image": {
+        "file": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\hand_comparison\\attempt-0001\\frames\\000230.jpg",
+          "bytes": 135998,
+          "sha256": "b2bd42f4f4991ef94fa42ed521c6e6a0fbe71ec574e9c46969d41ac380f4f328"
+        },
+        "completed_stage_receipt": {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\hand_comparison\\attempt-0001.finished.json",
+          "bytes": 7091,
+          "sha256": "079d503b30d2e7e17ed97931a1ddb27d8c187688a326c157f59879a893366d74"
+        }
+      },
+      "visually_reviewed_hand_original_frame_ids": [
+        230
+      ],
+      "visual_findings": "The foreground striped-shirt actor stays grossly aligned while crouching to lift/set down the foam cylinder and holding it vertically. Hand230 has no accepted independent evidence for either side; projected support fingers visibly do not exactly match the source hand and require quality work. This is a known hand/contact limitation rather than a target, K or rendering failure.",
+      "independent_observed_hand_frames_left_right": [
+        352,
+        203
+      ],
+      "hand_support_boundary_count": 23,
+      "hand_failed_boundary_count": 21,
+      "selection_reason": "Support-boundary motion regression or added correction exceeds the engineering budget; preserve fixed-body baseline",
+      "operational_gross_failure_found": false,
+      "quality_accepted": false
+    }
+  ],
+  "operational_result": "pass_no_actionable_gross_target_axis_camera_or_render_failure_found_in_sampled_views",
+  "new_actionable_failures": [],
+  "quality_acceptance": false,
+  "contact_quality_accepted": false,
+  "shared_scene_scale_verified": false,
+  "official_export_accepted": false,
+  "official_score_available": false,
+  "limits": [
+    "Hand94of102 support boundaries fail across these four episodes; all selected results correctly retain baseline.",
+    "Observed native finger/contact mismatches remain unresolved; preserving baseline does not imply that its hand pose is accurate.",
+    "Isolated images cannot validate continuous temporal motion, exclude transient flips/sliding, or establish hidden-reference accuracy.",
+    "No mask semantics or half-pixel raw-observation audit was repeated here; the task scope was native output bindings and bounded visual checks.",
+    "Only known Track1 batch paths were read. No job, source, immutable snapshot/result, registry or package was modified."
+  ]
+}

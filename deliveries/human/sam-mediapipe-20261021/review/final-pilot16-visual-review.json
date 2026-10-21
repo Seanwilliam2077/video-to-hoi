@@ -1,0 +1,37 @@
+{
+  "schema_version": "human_final_pilot_visual_review.v1",
+  "episode": 16,
+  "reviewed_at": "2026-10-20T19:05:39.956371+00:00",
+  "reviewer": "Codex root, with independent baseline review by human_batch_delivery",
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "current_result_sha256": "51bff72812bf098a717a49495964998ece20262aeea2d13f2edc32cdf6e5a61c",
+  "checks_path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\checks\\attempt-0003\\checks.json",
+  "checks_sha256": "8bb595f7f09e7fc67d3ced9893ee686dbd58667330fcce5f84faaedbfe598fb8",
+  "selected_candidate": "baseline",
+  "selected_parameters_sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777",
+  "initial_unchanged_baseline_review": {
+    "path": "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi\\deliveries\\human\\sam-mediapipe-20261021\\pilot-review\\ep16-initial-review.json",
+    "sha256": "5a59db7c989b3feac6e08a7f658f1eb0f150da7d29c05272ea3d843eef828c05"
+  },
+  "final_hand_images_actually_viewed": [
+    {
+      "original_frame_id": 110,
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\hand_comparison\\attempt-0003\\frames\\000110.jpg",
+      "sha256": "dc371829b62214b02178abdaf3a0b2c3cd8d11e1a8d6c1f18f779965d82c5417"
+    },
+    {
+      "original_frame_id": 286,
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\hand_comparison\\attempt-0003\\frames\\000286.jpg",
+      "sha256": "149387402d303b014aca70d6b33e7e6b69a07328e7b708f6b2a21b82cffeb9a1"
+    }
+  ],
+  "sampled_visual_review_completed": true,
+  "operational_batch_execution_ready": true,
+  "quality_acceptance": false,
+  "findings": [
+    "Baseline geometry unchanged from independently inspected full source/body contact sheet.",
+    "Final hand preview frame 110 correctly shows no reliable left-hand observation during grasp; right evidence is visible.",
+    "Final frame 286 shows visible hand evidence but support-boundary diagnostics still fail; baseline is correctly selected.",
+    "No claim of recovered occluded grasp, solved hand twitching, accurate contact or official competition score."
+  ]
+}

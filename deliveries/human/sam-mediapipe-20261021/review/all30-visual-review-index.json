@@ -1,0 +1,2647 @@
+{
+  "schema_version": "all30_human_visual_review_index.v1",
+  "created_at_utc": "2026-10-21T14:55:24.435555+00:00",
+  "reviewer": "Codex human_batch_delivery subagent; machine-assisted independent bounded review index",
+  "track": 1,
+  "batch_output_root": "J:\\video-to-hoi\\runs\\human-all30-20261021",
+  "reviewed_episode_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "coverage_check": {
+    "missing_episode_ids": [],
+    "unexpected_episode_ids": [],
+    "exactly_one_primary_body_review_per_episode": true,
+    "supplementary_repeated_pilot_episodes": [
+      11,
+      16
+    ],
+    "supplementary_repetition_is_not_additional_episode_coverage": true,
+    "earlier_skipped_EP14_and_EP24_now_covered_by_later_receipts": true
+  },
+  "review_receipts": [
+    {
+      "name": "independent-episode00-spot-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-episode00-spot-review.json",
+        "bytes": 9623,
+        "sha256": "2c649b493f35568399fbb641582f6c04c8d7d7e791dfda37a205c4e059895659"
+      },
+      "schema_version": "independent_human_spot_review.v1",
+      "role": "primary_body_and_optional_hand_review"
+    },
+    {
+      "name": "independent-pilot11-baseline-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-baseline-review.json",
+        "bytes": 4698,
+        "sha256": "18de826fa024b0fb65a1501915a4e4a94e0b44750dd2f98b2fb042f0e911f46f"
+      },
+      "schema_version": "human_independent_baseline_review.v1",
+      "role": "primary_body_and_optional_hand_review"
+    },
+    {
+      "name": "independent-pilot11-final-hand-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-final-hand-review.json",
+        "bytes": 15447,
+        "sha256": "fdb221e8d44239fad023716dba68a9218e4f5420a47ddaae63292e30b18fd160"
+      },
+      "schema_version": "independent_human_pilot_review.v1",
+      "role": "supplementary_final_hand_review"
+    },
+    {
+      "name": "independent-pilot16-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot16-review.json",
+        "bytes": 9337,
+        "sha256": "5a59db7c989b3feac6e08a7f658f1eb0f150da7d29c05272ea3d843eef828c05"
+      },
+      "schema_version": "human_independent_pilot_review.v1",
+      "role": "primary_body_and_optional_hand_review"
+    },
+    {
+      "name": "final-pilot16-visual-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-pilot16-visual-review.json",
+        "bytes": 2237,
+        "sha256": "821f15a83e383e2832e35387fa6cc4b1bbd2a765e0e55f27eb2c144bb20781dd"
+      },
+      "schema_version": "human_final_pilot_visual_review.v1",
+      "role": "supplementary_final_hand_review"
+    },
+    {
+      "name": "milestone-first10-visual-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first10-visual-review.json",
+        "bytes": 45056,
+        "sha256": "c4135f2b3966277d34b85a0f6c5f92aee1ba3541604ab7188b301c23f35157be"
+      },
+      "schema_version": "human_batch_visual_milestone_review.v1",
+      "role": "primary_body_and_optional_hand_review"
+    },
+    {
+      "name": "milestone-first16-visual-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "schema_version": "human_batch_visual_milestone_review.v1",
+      "role": "primary_body_and_optional_hand_review"
+    },
+    {
+      "name": "milestone-first20-visual-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "schema_version": "human_batch_visual_milestone_review.v1",
+      "role": "primary_body_and_optional_hand_review"
+    },
+    {
+      "name": "milestone-first25-visual-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json",
+        "bytes": 30624,
+        "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2"
+      },
+      "schema_version": "human_batch_visual_milestone_review.v1",
+      "role": "primary_body_and_optional_hand_review"
+    },
+    {
+      "name": "milestone-first29-visual-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "schema_version": "human_batch_visual_milestone_review.v1",
+      "role": "primary_body_and_optional_hand_review"
+    },
+    {
+      "name": "final-episode29-visual-review.json",
+      "binding": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-episode29-visual-review.json",
+        "bytes": 8570,
+        "sha256": "09d0b43650c66a04687e25e18110a34e6755636d41c69a2eb319b5ed8f3bbf5c"
+      },
+      "schema_version": "independent_human_final_episode_review.v1",
+      "role": "primary_body_and_optional_hand_review"
+    }
+  ],
+  "episodes": [
+    {
+      "episode": 0,
+      "frames": 790,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-episode00-spot-review.json",
+        "bytes": 9623,
+        "sha256": "2c649b493f35568399fbb641582f6c04c8d7d7e791dfda37a205c4e059895659"
+      },
+      "source_video_sha256": "1eb6293e4552397668a5013adbcee95e0bf230dd8c79a594aa7d7f8ea4991ab1",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000000\\current-result.json",
+        "bytes": 1147,
+        "sha256": "be73c67e8f6a98e546276fd445656ba9c511850a936c44f6def96090a2cc3200"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000000\\checks\\attempt-0001\\checks.json",
+        "bytes": 23655,
+        "sha256": "1fed0b89d89a114a5e800e012ef3a34ee9c812e4f91934e0df219e43db8238d4"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000000\\baseline\\attempt-0001\\episode_000000_human.npz",
+        "bytes": 415182,
+        "sha256": "6782f7a1da8d40c1b4be20f417454f3b2375aeb43e1e0f2821d1cb4ce0c9bf9c"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        99,
+        197,
+        296,
+        394,
+        493,
+        592,
+        690,
+        789
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        132,
+        263,
+        526,
+        789
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        99,
+        132,
+        197,
+        263,
+        296,
+        394,
+        493,
+        526,
+        592,
+        690,
+        789
+      ],
+      "hand_support_boundaries": 21,
+      "failed_hand_support_boundaries": 21,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 1,
+      "frames": 668,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first10-visual-review.json",
+        "bytes": 45056,
+        "sha256": "c4135f2b3966277d34b85a0f6c5f92aee1ba3541604ab7188b301c23f35157be"
+      },
+      "source_video_sha256": "1198635d7f04f73aa9466e02d105fa89b3630b2aa92a5e4f249898023ecfed30",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000001\\current-result.json",
+        "bytes": 1147,
+        "sha256": "010e51bdd4202eab467822b61adc456548047bbcfd6d6eb0783f70aacc148467"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000001\\checks\\attempt-0001\\checks.json",
+        "bytes": 45564,
+        "sha256": "f43576c32a66f398b31631781d9b205806ab16f83e6d534c2965f3bd2b8a2e77"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000001\\baseline\\attempt-0001\\episode_000001_human.npz",
+        "bytes": 351845,
+        "sha256": "f9778e1d257522adb5d6918fc42edf2bb0c77ce19ecf333e1abfe58b08cd631f"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        83,
+        167,
+        250,
+        334,
+        417,
+        500,
+        584,
+        667
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        83,
+        167,
+        250,
+        334,
+        417,
+        500,
+        584,
+        667
+      ],
+      "hand_support_boundaries": 44,
+      "failed_hand_support_boundaries": 44,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 2,
+      "frames": 866,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first10-visual-review.json",
+        "bytes": 45056,
+        "sha256": "c4135f2b3966277d34b85a0f6c5f92aee1ba3541604ab7188b301c23f35157be"
+      },
+      "source_video_sha256": "2ccb43dd362c2a430d341611e888ef1ea79e3a3989e8af2a015d34e0b2196747",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000002\\current-result.json",
+        "bytes": 1147,
+        "sha256": "66040c0abd1d1c0ce4d93189a116441fbc88d9b585fedf7994f9fba091d621f8"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000002\\checks\\attempt-0001\\checks.json",
+        "bytes": 22667,
+        "sha256": "06a8d6484d29b2d28d52264e4e506f187d007c4ac628367226e6815a04701e09"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000002\\baseline\\attempt-0001\\episode_000002_human.npz",
+        "bytes": 455464,
+        "sha256": "1e56162ff0708af0cd76f1651f2829d5f91ff5b6645150ab2fd77a715c5b39eb"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        108,
+        216,
+        324,
+        432,
+        541,
+        649,
+        757,
+        865
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        108,
+        216,
+        324,
+        432,
+        541,
+        649,
+        757,
+        865
+      ],
+      "hand_support_boundaries": 20,
+      "failed_hand_support_boundaries": 20,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 3,
+      "frames": 592,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first10-visual-review.json",
+        "bytes": 45056,
+        "sha256": "c4135f2b3966277d34b85a0f6c5f92aee1ba3541604ab7188b301c23f35157be"
+      },
+      "source_video_sha256": "8eb7153abeeb32895741d80dc79305143967b701094af2eea9321260577a6b39",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000003\\current-result.json",
+        "bytes": 1147,
+        "sha256": "f6c5be62faece60200c478c08871e03ae4b656f1f15f33fdc81975f9103ea078"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000003\\checks\\attempt-0001\\checks.json",
+        "bytes": 18789,
+        "sha256": "e394479067f7b81c81d0a409f62fa575bc9928e7ef462fcc9712c53e469625e8"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000003\\baseline\\attempt-0001\\episode_000003_human.npz",
+        "bytes": 312539,
+        "sha256": "e9bfa34e74082285c395b2dc0980e3eb399361664e43bfc39627da5573c6f7eb"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        74,
+        148,
+        222,
+        296,
+        369,
+        443,
+        517,
+        591
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        74,
+        148,
+        222,
+        296,
+        369,
+        443,
+        517,
+        591
+      ],
+      "hand_support_boundaries": 16,
+      "failed_hand_support_boundaries": 15,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 4,
+      "frames": 747,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first10-visual-review.json",
+        "bytes": 45056,
+        "sha256": "c4135f2b3966277d34b85a0f6c5f92aee1ba3541604ab7188b301c23f35157be"
+      },
+      "source_video_sha256": "f1cadfa308b37dc91a3f296c2e5a2b538236cbe8a76d76d651df19554386cce6",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000004\\current-result.json",
+        "bytes": 1147,
+        "sha256": "7beed26eab6d10f0a2c3817895645e0f76e10fbfb61474b03c3a01c283f565f7"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000004\\checks\\attempt-0001\\checks.json",
+        "bytes": 30381,
+        "sha256": "8326c96022e8853465420acaa130a517e1f46a4c099ae7c1bf9971f2716a0c1e"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000004\\baseline\\attempt-0001\\episode_000004_human.npz",
+        "bytes": 392869,
+        "sha256": "5caba36286e5c43ed61c2a1c4c79b2129182d62a928a942a3b1e484141ee6076"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        93,
+        186,
+        280,
+        373,
+        466,
+        560,
+        653,
+        746
+      ],
+      "additional_body_view_original_frame_ids": [
+        373
+      ],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        93,
+        186,
+        280,
+        373,
+        466,
+        560,
+        653,
+        746
+      ],
+      "hand_support_boundaries": 28,
+      "failed_hand_support_boundaries": 26,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 5,
+      "frames": 668,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first10-visual-review.json",
+        "bytes": 45056,
+        "sha256": "c4135f2b3966277d34b85a0f6c5f92aee1ba3541604ab7188b301c23f35157be"
+      },
+      "source_video_sha256": "9613c76d9a4f9f34ecaf7697f2129ee2c59b6b03b0f014ee531a53d1fe39c30e",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000005\\current-result.json",
+        "bytes": 1147,
+        "sha256": "86d1b751f54a56967d8a21378042f8a34a9b755d2b5fcd3ad325c54eb427613f"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000005\\checks\\attempt-0001\\checks.json",
+        "bytes": 36069,
+        "sha256": "c2e3ec1d405c0737557c65c2d2efe5cedc23a7ca597d1b0319ea95ea02530aef"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000005\\baseline\\attempt-0001\\episode_000005_human.npz",
+        "bytes": 352065,
+        "sha256": "294d849df5e43adac4396f0e524371de5ddc9a5991e0477368fe20750804121b"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        83,
+        167,
+        250,
+        334,
+        417,
+        500,
+        584,
+        667
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        83,
+        167,
+        250,
+        334,
+        417,
+        500,
+        584,
+        667
+      ],
+      "hand_support_boundaries": 34,
+      "failed_hand_support_boundaries": 33,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 6,
+      "frames": 816,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first10-visual-review.json",
+        "bytes": 45056,
+        "sha256": "c4135f2b3966277d34b85a0f6c5f92aee1ba3541604ab7188b301c23f35157be"
+      },
+      "source_video_sha256": "295db21337393fc4ffbb0a872c4156580cfe1fbda26bf1df211b07cfecf979e4",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000006\\current-result.json",
+        "bytes": 1147,
+        "sha256": "4f19f5d5e79fcb5514ca8569d57ba136cf3137758164f906bbb253a084e11d40"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000006\\checks\\attempt-0001\\checks.json",
+        "bytes": 30481,
+        "sha256": "7165f43f112713ea5348a550c8bd3f1f40afafbc23c82740a0ade2e6ae59646f"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000006\\baseline\\attempt-0001\\episode_000006_human.npz",
+        "bytes": 429511,
+        "sha256": "ecedc2280e1fe90df1c8ebc36b76104ccc2acd7846cdb1edbc7de2eec3234fe8"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        102,
+        204,
+        306,
+        408,
+        509,
+        611,
+        713,
+        815
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        102,
+        204,
+        306,
+        408,
+        509,
+        611,
+        713,
+        815
+      ],
+      "hand_support_boundaries": 28,
+      "failed_hand_support_boundaries": 23,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 7,
+      "frames": 777,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first10-visual-review.json",
+        "bytes": 45056,
+        "sha256": "c4135f2b3966277d34b85a0f6c5f92aee1ba3541604ab7188b301c23f35157be"
+      },
+      "source_video_sha256": "e76d386123f8221e390d9accd35d8d19794efb1279d78a02a0e56553e4f9948d",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000007\\current-result.json",
+        "bytes": 1147,
+        "sha256": "1c135f75368992c1f42492b6ec7f95382e1a65fc359c0a0c18126235fedbd214"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000007\\checks\\attempt-0001\\checks.json",
+        "bytes": 26448,
+        "sha256": "b355fd35ccb80c3fcb02e90cc55e25ec52739d27c04da0d0c2a94211cc372aa2"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000007\\baseline\\attempt-0001\\episode_000007_human.npz",
+        "bytes": 408378,
+        "sha256": "1b443ffb9e41124f04c64bae2f77e741d98108cd60acabfad5301a0f568920d4"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        97,
+        194,
+        291,
+        388,
+        485,
+        582,
+        679,
+        776
+      ],
+      "additional_body_view_original_frame_ids": [
+        388
+      ],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        97,
+        194,
+        291,
+        388,
+        485,
+        582,
+        679,
+        776
+      ],
+      "hand_support_boundaries": 24,
+      "failed_hand_support_boundaries": 22,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 8,
+      "frames": 634,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "source_video_sha256": "7f2967bd12518ded44094c9ac397bed826c572f7cbfbab7c9909735a240c2770",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000008\\current-result.json",
+        "bytes": 1147,
+        "sha256": "a8030da7fe5f669b6faf14f4317f3640472e74bb1a9a9e23db2a57970bbf08cf"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000008\\checks\\attempt-0001\\checks.json",
+        "bytes": 7179,
+        "sha256": "64b953894f0ccf2367c741ba2a4946ace175cfdc817d3551c515f89945d6f6d8"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000008\\baseline\\attempt-0001\\episode_000008_human.npz",
+        "bytes": 334017,
+        "sha256": "89a73ff859dcd74c9d98af9e0ed420254513dd3c909e118ecca6a1dfdd9bbfbb"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        79,
+        158,
+        237,
+        316,
+        396,
+        475,
+        554,
+        633
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        316
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        79,
+        158,
+        237,
+        316,
+        396,
+        475,
+        554,
+        633
+      ],
+      "hand_support_boundaries": 4,
+      "failed_hand_support_boundaries": 4,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 9,
+      "frames": 415,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "source_video_sha256": "4fe69ca521fc2717e2938339b0a37843ada391f4b074753584c7cd8c2e36a277",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000009\\current-result.json",
+        "bytes": 1147,
+        "sha256": "c185432e75ec5b2360b6bf9caa089beda9be641bd743c4742276d690876b07b2"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000009\\checks\\attempt-0001\\checks.json",
+        "bytes": 5305,
+        "sha256": "cea802799f31450d229b0662559e490e17948125c057e2998bd4689e5d294f1f"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000009\\baseline\\attempt-0001\\episode_000009_human.npz",
+        "bytes": 219895,
+        "sha256": "b99b3e7d0be2a5fab8053a52a8719b11a016d025d68a2f6da038f431c3fb170f"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        52,
+        104,
+        155,
+        207,
+        259,
+        310,
+        362,
+        414
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        207
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        52,
+        104,
+        155,
+        207,
+        259,
+        310,
+        362,
+        414
+      ],
+      "hand_support_boundaries": 2,
+      "failed_hand_support_boundaries": 2,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 10,
+      "frames": 577,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "source_video_sha256": "4a75aec2a5d5621295979c8cd4b8b7c346c24ff6e9a4241b39dcfda623e94c39",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000010\\current-result.json",
+        "bytes": 1148,
+        "sha256": "eb003917f2f126d39600b8b81fb366da5760ab66076b81ea0398ae567c3fec64"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000010\\checks\\attempt-0001\\checks.json",
+        "bytes": 20688,
+        "sha256": "8056a891d63be5146ff7acda9319e169285327f024cbd9a2e1e76e2e5ec8e6e2"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000010\\baseline\\attempt-0001\\episode_000010_human.npz",
+        "bytes": 304239,
+        "sha256": "5d164e9dfa64624705b4e59cd7b0cff5a4ea6ab104cb152d903b411554b34489"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        72,
+        144,
+        216,
+        288,
+        360,
+        432,
+        504,
+        576
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        240
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        72,
+        144,
+        216,
+        240,
+        288,
+        360,
+        432,
+        504,
+        576
+      ],
+      "hand_support_boundaries": 18,
+      "failed_hand_support_boundaries": 16,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 11,
+      "frames": 877,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-baseline-review.json",
+        "bytes": 4698,
+        "sha256": "18de826fa024b0fb65a1501915a4e4a94e0b44750dd2f98b2fb042f0e911f46f"
+      },
+      "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\current-result.json",
+        "bytes": 1148,
+        "sha256": "ee3592982bc873fbeb7b52d9be074cfab9a40c4d8c6ad82b01e6533b6afed5b9"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\checks\\attempt-0001\\checks.json",
+        "bytes": 37013,
+        "sha256": "a11f8ad7a4719f669934b089524d24be0d36186cc1d87497f531a8f281e97401"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\baseline\\attempt-0001\\episode_000011_human.npz",
+        "bytes": 460787,
+        "sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        109,
+        219,
+        328,
+        438,
+        547,
+        657,
+        766,
+        876
+      ],
+      "additional_body_view_original_frame_ids": [
+        219,
+        438,
+        657,
+        876
+      ],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        0,
+        73,
+        154,
+        155,
+        219,
+        365,
+        438,
+        511,
+        512,
+        657,
+        766,
+        876
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        73,
+        109,
+        154,
+        155,
+        219,
+        328,
+        365,
+        438,
+        511,
+        512,
+        547,
+        657,
+        766,
+        876
+      ],
+      "hand_support_boundaries": 35,
+      "failed_hand_support_boundaries": 33,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 12,
+      "frames": 405,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "source_video_sha256": "6494246c131a9161eb342c615ea835988d254b9c09abb659349bdb05e6935b39",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000012\\current-result.json",
+        "bytes": 1148,
+        "sha256": "6ddc1d217912b55c867cc8f09b2b11ee4450b20df93b724721a7b738c9b9fef0"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000012\\checks\\attempt-0001\\checks.json",
+        "bytes": 16908,
+        "sha256": "69e8fa9827215eeb689fdfaa4e6948aa490d514171879455e2e6eb767044a796"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000012\\baseline\\attempt-0001\\episode_000012_human.npz",
+        "bytes": 214629,
+        "sha256": "880b88dfdd94c76898fc3fcd9cb2aa238bee92969e05718d43ba6d6dda71a193"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        50,
+        101,
+        152,
+        202,
+        252,
+        303,
+        354,
+        404
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        202
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        50,
+        101,
+        152,
+        202,
+        252,
+        303,
+        354,
+        404
+      ],
+      "hand_support_boundaries": 14,
+      "failed_hand_support_boundaries": 14,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 13,
+      "frames": 425,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "source_video_sha256": "fa74d6754b90eebc9513909e8570dfd2dd7726c71dba16df45cb17cc49e79f1a",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000013\\current-result.json",
+        "bytes": 1148,
+        "sha256": "56270e96afe45310f1206d5157813861112b714a0a3ea6cbbb49053b2311a613"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000013\\checks\\attempt-0001\\checks.json",
+        "bytes": 23753,
+        "sha256": "b6676ac2df10eb3cac1da6fca3002007ccb9673d85690dba6ff7559a0fd7724c"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000013\\baseline\\attempt-0001\\episode_000013_human.npz",
+        "bytes": 225219,
+        "sha256": "948d3651adec08f9f4277d9f3c715fe397322987880e10af3e31ba081ea90afe"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        53,
+        106,
+        159,
+        212,
+        265,
+        318,
+        371,
+        424
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        212
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        53,
+        106,
+        159,
+        212,
+        265,
+        318,
+        371,
+        424
+      ],
+      "hand_support_boundaries": 21,
+      "failed_hand_support_boundaries": 17,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 14,
+      "frames": 442,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "source_video_sha256": "f9f2bed8abe60898aef8f62c245ff03ed32f94b76b079c128e363fdfd4a7e70e",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000014\\current-result.json",
+        "bytes": 1148,
+        "sha256": "9b99662ee75e110f7bce0cd28aa062510954d42e4a293654fcbe61f55a7509a7"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000014\\checks\\attempt-0001\\checks.json",
+        "bytes": 29501,
+        "sha256": "cd9dd20b78d51db10b0bb708238e2b503985f46f0347f93d06d3f4cca78e007b"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000014\\baseline\\attempt-0001\\episode_000014_human.npz",
+        "bytes": 235128,
+        "sha256": "0a01fcd8c37171a41735b8cde673d770a2d7191d51f1fbd545e8d2000354c0c6"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        55,
+        110,
+        165,
+        220,
+        276,
+        331,
+        386,
+        441
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        220
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        55,
+        110,
+        165,
+        220,
+        276,
+        331,
+        386,
+        441
+      ],
+      "hand_support_boundaries": 27,
+      "failed_hand_support_boundaries": 23,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 15,
+      "frames": 501,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "source_video_sha256": "c368809329e922b75629c1d94c39c1c820c9211464a5e5a77a4cdb55803400f0",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000015\\current-result.json",
+        "bytes": 1148,
+        "sha256": "906b38c3cde5a1e11b7f3ba41c1ab87723889bbde53e82dfe78ecd99ae46edaa"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000015\\checks\\attempt-0001\\checks.json",
+        "bytes": 15052,
+        "sha256": "3960217a63a58eed3972b41578dfd785a20c3df20bffca3318b4e658975ae065"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000015\\baseline\\attempt-0001\\episode_000015_human.npz",
+        "bytes": 265075,
+        "sha256": "2ad394795dd44abafe1ebe1009a8ad376c329c5ba328aa1bbf1e9b2ad5239ed2"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        62,
+        125,
+        188,
+        250,
+        312,
+        375,
+        438,
+        500
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        250
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        62,
+        125,
+        188,
+        250,
+        312,
+        375,
+        438,
+        500
+      ],
+      "hand_support_boundaries": 12,
+      "failed_hand_support_boundaries": 11,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 16,
+      "frames": 360,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot16-review.json",
+        "bytes": 9337,
+        "sha256": "5a59db7c989b3feac6e08a7f658f1eb0f150da7d29c05272ea3d843eef828c05"
+      },
+      "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\current-result.json",
+        "bytes": 1148,
+        "sha256": "51bff72812bf098a717a49495964998ece20262aeea2d13f2edc32cdf6e5a61c"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\checks\\attempt-0003\\checks.json",
+        "bytes": 14002,
+        "sha256": "8bb595f7f09e7fc67d3ced9893ee686dbd58667330fcce5f84faaedbfe598fb8"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz",
+        "bytes": 191669,
+        "sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        224,
+        269,
+        314,
+        359
+      ],
+      "additional_body_view_original_frame_ids": [
+        110,
+        285
+      ],
+      "additional_body_frame_ids_not_already_in_nine": [
+        110,
+        285
+      ],
+      "unique_hand_visual_original_frame_ids": [
+        110,
+        240,
+        284,
+        285,
+        286,
+        287,
+        359
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        45,
+        90,
+        110,
+        135,
+        180,
+        224,
+        240,
+        269,
+        284,
+        285,
+        286,
+        287,
+        314,
+        359
+      ],
+      "hand_support_boundaries": 11,
+      "failed_hand_support_boundaries": 9,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 17,
+      "frames": 419,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "source_video_sha256": "4c536c20aff3e803c0d5caf1f91b0dfab1054444361fdae2799212e5af15a94b",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000017\\current-result.json",
+        "bytes": 1148,
+        "sha256": "8cc0ab84c3b88ba408cf846a26a05e1676e72dfdfc47b35ebe12b5368ff83e09"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000017\\checks\\attempt-0001\\checks.json",
+        "bytes": 10204,
+        "sha256": "ccec0c9ddc9b59caaabefb3564f79ca37de07d249cdd6d536b0f0b88a2ca2eb3"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000017\\baseline\\attempt-0001\\episode_000017_human.npz",
+        "bytes": 222404,
+        "sha256": "0f15d7061dc9954d902913733a74dc94ccfd98ab69b0239d16c3bec4d5b5544a"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        52,
+        104,
+        157,
+        209,
+        261,
+        314,
+        366,
+        418
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        209
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        52,
+        104,
+        157,
+        209,
+        261,
+        314,
+        366,
+        418
+      ],
+      "hand_support_boundaries": 7,
+      "failed_hand_support_boundaries": 7,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 18,
+      "frames": 535,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "source_video_sha256": "e65132e95b0755a720c5e5238654a6fb8a01cd9e5d13fe481bcbb5e5612e44bd",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000018\\current-result.json",
+        "bytes": 1148,
+        "sha256": "ca13cf2d281faa7f55cc947cb80a496f5572b5b179ac1d2b5ef0e3920f20a48a"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000018\\checks\\attempt-0001\\checks.json",
+        "bytes": 23592,
+        "sha256": "8fb4e72e3f50228f624ea6bb57ef592fa5763ea30eb8116204224362e45b57e1"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000018\\baseline\\attempt-0001\\episode_000018_human.npz",
+        "bytes": 282865,
+        "sha256": "047355dcff0759150c1a6fda8853f27b18c681c7d15e25114ec41f4997d8bf10"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        67,
+        134,
+        200,
+        267,
+        334,
+        400,
+        467,
+        534
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        267
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        67,
+        134,
+        200,
+        267,
+        334,
+        400,
+        467,
+        534
+      ],
+      "hand_support_boundaries": 21,
+      "failed_hand_support_boundaries": 21,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 19,
+      "frames": 443,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "source_video_sha256": "730e8392a32944856b3f9e2b02e57c48ba955e0832cfaf40e06d2de72a3a3bc9",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000019\\current-result.json",
+        "bytes": 1148,
+        "sha256": "46c166641a25309a30e5eb1829c363c39eaf738488014defd8946da9015adf93"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000019\\checks\\attempt-0001\\checks.json",
+        "bytes": 21658,
+        "sha256": "0058d551bae37b31abe2486b051d909175e97f7875e8aff59393aa8ad9ad2478"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000019\\baseline\\attempt-0001\\episode_000019_human.npz",
+        "bytes": 235028,
+        "sha256": "aa9dd15042884529339a7bc68ba8e5fef5662b606d55a925e0f46a844a01245a"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        55,
+        110,
+        166,
+        221,
+        276,
+        332,
+        387,
+        442
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        221
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        55,
+        110,
+        166,
+        221,
+        276,
+        332,
+        387,
+        442
+      ],
+      "hand_support_boundaries": 19,
+      "failed_hand_support_boundaries": 17,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 20,
+      "frames": 549,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json",
+        "bytes": 30624,
+        "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2"
+      },
+      "source_video_sha256": "781ec1de0edcf8bf30cbc9f3847f80efd8cd2e97e53b0b4f80ccb0b505ef03ce",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\current-result.json",
+        "bytes": 1148,
+        "sha256": "7a76a3b8d1785ad97c4b05ae32b35f2cb9342aa31794aa46492bd99294517a7e"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\checks\\attempt-0001\\checks.json",
+        "bytes": 24549,
+        "sha256": "dd4b7cdb26bf32f4f882805195d5a16520b3977bec9041b616e946398b809a78"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\baseline\\attempt-0001\\episode_000020_human.npz",
+        "bytes": 290356,
+        "sha256": "ab728ae642293ddeea1de3fda7ffe1c36350ca156ac43bfd8130835a646a8ab7"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        68,
+        137,
+        206,
+        274,
+        342,
+        411,
+        480,
+        548
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        183
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        68,
+        137,
+        183,
+        206,
+        274,
+        342,
+        411,
+        480,
+        548
+      ],
+      "hand_support_boundaries": 22,
+      "failed_hand_support_boundaries": 22,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 21,
+      "frames": 563,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json",
+        "bytes": 30624,
+        "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2"
+      },
+      "source_video_sha256": "66443de1239172913edf324e9d4affb960883c99ca4f9e307a7ec76a9264adec",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\current-result.json",
+        "bytes": 1148,
+        "sha256": "cb0d317102ffb4b67cc9a46e1950e56124441081149d2ae8008d8eb8b402daff"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\checks\\attempt-0001\\checks.json",
+        "bytes": 33251,
+        "sha256": "893c6899512dd78a00f4e79cf9d4645707ed66633ff7082206bca452b0f82f46"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\baseline\\attempt-0001\\episode_000021_human.npz",
+        "bytes": 297276,
+        "sha256": "e84946859d2718cb2deb9db21bfc49eeaed2cf40401c2cf063d7869e01481ff0"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        70,
+        140,
+        211,
+        281,
+        351,
+        422,
+        492,
+        562
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        234
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        70,
+        140,
+        211,
+        234,
+        281,
+        351,
+        422,
+        492,
+        562
+      ],
+      "hand_support_boundaries": 31,
+      "failed_hand_support_boundaries": 29,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 22,
+      "frames": 533,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json",
+        "bytes": 30624,
+        "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2"
+      },
+      "source_video_sha256": "17e2de04b320c3ff3004f659326cbacfb51402af19c9564ffc4f1fed88fadad0",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\current-result.json",
+        "bytes": 1148,
+        "sha256": "308ed67dcb50fb5e8401af8f8ae11f54d1f4ef9b61904c7f86bc3f6b2a591fa1"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\checks\\attempt-0001\\checks.json",
+        "bytes": 28560,
+        "sha256": "88401708d197231062c6e16515aafcf3e13bce4f6f0276bdb2e0bd0f9d94652e"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\baseline\\attempt-0001\\episode_000022_human.npz",
+        "bytes": 281619,
+        "sha256": "d6b6f0f371f93356a4f344eece949793af68f1375be4f73408d63e6314512d11"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        66,
+        133,
+        200,
+        266,
+        332,
+        399,
+        466,
+        532
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        266
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        66,
+        133,
+        200,
+        266,
+        332,
+        399,
+        466,
+        532
+      ],
+      "hand_support_boundaries": 26,
+      "failed_hand_support_boundaries": 22,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 23,
+      "frames": 552,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json",
+        "bytes": 30624,
+        "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2"
+      },
+      "source_video_sha256": "4b132f8efe20da727f2d5fd7ba56835cf08b032f11e6dc2800f26bfcfff0f0b5",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\current-result.json",
+        "bytes": 1148,
+        "sha256": "209c8531ea8dd20fd280720323e8d8efebfaa83afc8d1dcbca3511a9a941d8a8"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\checks\\attempt-0001\\checks.json",
+        "bytes": 25535,
+        "sha256": "e6c58e2df9be1bfc442f5ec0009bb7a41749a7190ffbf1241cdcb78fedd4e3e3"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\baseline\\attempt-0001\\episode_000023_human.npz",
+        "bytes": 290926,
+        "sha256": "04618dea7f90a9cd22e36e0212a853a5c9fda04ff8556942b64092fef31d9faa"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        69,
+        138,
+        207,
+        276,
+        344,
+        413,
+        482,
+        551
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        230
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        69,
+        138,
+        207,
+        230,
+        276,
+        344,
+        413,
+        482,
+        551
+      ],
+      "hand_support_boundaries": 23,
+      "failed_hand_support_boundaries": 21,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 24,
+      "frames": 420,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "source_video_sha256": "e36eda1c9ac7f6a1da298412c301da27775055df4c6ff19167f6b1a8c504d2ef",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000024\\current-result.json",
+        "bytes": 1148,
+        "sha256": "eb52e61ac9e61f771f4d5325d77b4ab605a690e014e25502f4568031fdc4931d"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000024\\checks\\attempt-0001\\checks.json",
+        "bytes": 13995,
+        "sha256": "412d9d30d04112b483a3e628d6619b92de07d0d7eeb7360d6b370ba0203db078"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000024\\baseline\\attempt-0001\\episode_000024_human.npz",
+        "bytes": 223157,
+        "sha256": "ddfa4b14444e33074e711a84ba48c3e33e0d5f99b04823b2b60973d54f8cd442"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        52,
+        105,
+        157,
+        210,
+        262,
+        314,
+        367,
+        419
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        210
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        52,
+        105,
+        157,
+        210,
+        262,
+        314,
+        367,
+        419
+      ],
+      "hand_support_boundaries": 11,
+      "failed_hand_support_boundaries": 10,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 25,
+      "frames": 365,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "source_video_sha256": "efcce8025e4e94ed92553277bc6fddd5ae7c8d7c7e70d71d09ff9a86a1ea3ae0",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000025\\current-result.json",
+        "bytes": 1148,
+        "sha256": "4fa69c7c89e480324a51f884a0876e3fb49881fb919631e935989a445ee27474"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000025\\checks\\attempt-0001\\checks.json",
+        "bytes": 15904,
+        "sha256": "ca71c511099a72acf7fbd935e095cdd97ef4ed836fc5f68d85d5113d47e3984f"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000025\\baseline\\attempt-0001\\episode_000025_human.npz",
+        "bytes": 194422,
+        "sha256": "336ae6da04802b4b251bcbda9d85450946a283b1ea7e9f568b4916e75fc745df"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        46,
+        91,
+        136,
+        182,
+        228,
+        273,
+        318,
+        364
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        152
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        46,
+        91,
+        136,
+        152,
+        182,
+        228,
+        273,
+        318,
+        364
+      ],
+      "hand_support_boundaries": 13,
+      "failed_hand_support_boundaries": 12,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 26,
+      "frames": 399,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "source_video_sha256": "9cf9112417778299780a3e2a7f009d38bbf24059149eaa1591b8df02551607a4",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000026\\current-result.json",
+        "bytes": 1148,
+        "sha256": "91442b79349e35b293b932e137c8642613985ffd41eb59ad51d8899380ef2a4b"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000026\\checks\\attempt-0001\\checks.json",
+        "bytes": 12120,
+        "sha256": "27d6bfbead11cc8a0d0cd4c6d86830c93ff7bb67a1a215de2f9d404172ea19da"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000026\\baseline\\attempt-0001\\episode_000026_human.npz",
+        "bytes": 212062,
+        "sha256": "5ceee6acf0d44a1432e87fba866537213a030e7c7cf052fed3f3fa13c755be22"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        50,
+        100,
+        149,
+        199,
+        249,
+        298,
+        348,
+        398
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        199
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        50,
+        100,
+        149,
+        199,
+        249,
+        298,
+        348,
+        398
+      ],
+      "hand_support_boundaries": 9,
+      "failed_hand_support_boundaries": 9,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 27,
+      "frames": 440,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "source_video_sha256": "07790526fc281dfb37f84cc9fa4cc25925e7e8fa6cd5600fd5cd9179ecd03e37",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000027\\current-result.json",
+        "bytes": 1148,
+        "sha256": "4e771d070de72c2f9edad7851fa86906df3e9bb63fcebf53c13f1a07619efc03"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000027\\checks\\attempt-0001\\checks.json",
+        "bytes": 27461,
+        "sha256": "86c48539e3f681f4f2f63c8f7dc6244715b4d60bb2b1240df263eced6e9060f6"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000027\\baseline\\attempt-0001\\episode_000027_human.npz",
+        "bytes": 232650,
+        "sha256": "0a40ddf6cf8632ac831c5c9e4025e90139201d7586e7fd9baaaecb0051d12fc2"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        55,
+        110,
+        165,
+        220,
+        274,
+        329,
+        384,
+        439
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        220
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        55,
+        110,
+        165,
+        220,
+        274,
+        329,
+        384,
+        439
+      ],
+      "hand_support_boundaries": 25,
+      "failed_hand_support_boundaries": 23,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 28,
+      "frames": 366,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "source_video_sha256": "9f84471dcd5e44113cc21e5bd40e8877ad6c5bcc1ba1d03cfdbc866b8df61538",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000028\\current-result.json",
+        "bytes": 1148,
+        "sha256": "015c870bed271715512df0fefa43f6f64942ead708702bb526c3553236dac2b4"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000028\\checks\\attempt-0001\\checks.json",
+        "bytes": 15001,
+        "sha256": "6025586e8bc86de0c67bc89ccc33a6505b37eedbb4636550952a4f308f556e4d"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000028\\baseline\\attempt-0001\\episode_000028_human.npz",
+        "bytes": 194779,
+        "sha256": "b27b34c19a4518b10c2049f59e1152c5a8102c9e19b8ea7b9422dc318fb5469e"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        46,
+        91,
+        137,
+        182,
+        228,
+        274,
+        319,
+        365
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        213
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        46,
+        91,
+        137,
+        182,
+        213,
+        228,
+        274,
+        319,
+        365
+      ],
+      "hand_support_boundaries": 12,
+      "failed_hand_support_boundaries": 10,
+      "quality_acceptance": false
+    },
+    {
+      "episode": 29,
+      "frames": 419,
+      "primary_body_review": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-episode29-visual-review.json",
+        "bytes": 8570,
+        "sha256": "09d0b43650c66a04687e25e18110a34e6755636d41c69a2eb319b5ed8f3bbf5c"
+      },
+      "source_video_sha256": "0a2288f183e4d0fffff1c55688c1ea27c09e60588dfc9f52c10137b3abc1b5e1",
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000029\\current-result.json",
+        "bytes": 1148,
+        "sha256": "d18be562c8d2f47c3e4372f38e5d52e8021dfda859c67b8d3362595190d416e4"
+      },
+      "checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000029\\checks\\attempt-0001\\checks.json",
+        "bytes": 12008,
+        "sha256": "a89c04284b0c81b27fcef5925d85b2b0c8658053fd4dc1709f5ff0796c57f3fb"
+      },
+      "selected_native_parameters": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000029\\baseline\\attempt-0001\\episode_000029_human.npz",
+        "bytes": 222856,
+        "sha256": "ea6847dca6223594f14d9ae97afa16612dca0a1cc09a6aa7ce3e7ebfe34eb4c0"
+      },
+      "selected_candidate": "baseline",
+      "structural_checks_passed": true,
+      "baseline_body_original_frame_ids": [
+        0,
+        52,
+        104,
+        157,
+        209,
+        261,
+        314,
+        366,
+        418
+      ],
+      "additional_body_view_original_frame_ids": [],
+      "additional_body_frame_ids_not_already_in_nine": [],
+      "unique_hand_visual_original_frame_ids": [
+        104,
+        209
+      ],
+      "unique_visual_original_frame_ids_across_modalities": [
+        0,
+        52,
+        104,
+        157,
+        209,
+        261,
+        314,
+        366,
+        418
+      ],
+      "hand_support_boundaries": 9,
+      "failed_hand_support_boundaries": 8,
+      "quality_acceptance": false
+    }
+  ],
+  "sample_count_summary": {
+    "episodes_with_nine_baseline_body_samples": 30,
+    "baseline_body_sample_episode_frame_pairs": 270,
+    "additional_unique_body_episode_frame_pairs": 2,
+    "unique_body_episode_frame_pairs_including_extras": 272,
+    "unique_hand_visual_episode_frame_pairs": 44,
+    "recorded_hand_visual_events_across_candidate_versions": 46,
+    "unique_visual_episode_frame_pairs_across_modalities": 291,
+    "hash_verified_bound_image_files": 71,
+    "total_original_video_frames": 16563,
+    "total_hand_support_boundaries": 587,
+    "failed_hand_support_boundaries": 544
+  },
+  "hand_visual_events": [
+    {
+      "episode": 0,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-episode00-spot-review.json",
+        "bytes": 9623,
+        "sha256": "2c649b493f35568399fbb641582f6c04c8d7d7e791dfda37a205c4e059895659"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        132,
+        263,
+        526,
+        789
+      ],
+      "count": 4
+    },
+    {
+      "episode": 11,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-final-hand-review.json",
+        "bytes": 15447,
+        "sha256": "fdb221e8d44239fad023716dba68a9218e4f5420a47ddaae63292e30b18fd160"
+      },
+      "scope": "final runtime05 candidate in completed hand movie",
+      "original_frame_ids": [
+        0,
+        73,
+        154,
+        155,
+        219,
+        365,
+        438,
+        511,
+        512,
+        657,
+        766,
+        876
+      ],
+      "count": 12
+    },
+    {
+      "episode": 16,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot16-review.json",
+        "bytes": 9337,
+        "sha256": "5a59db7c989b3feac6e08a7f658f1eb0f150da7d29c05272ea3d843eef828c05"
+      },
+      "scope": "historical initial candidate and corrected renderer04 preview, not final candidate acceptance",
+      "original_frame_ids": [
+        110,
+        240,
+        284,
+        285,
+        286,
+        287,
+        359
+      ],
+      "count": 7
+    },
+    {
+      "episode": 16,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-pilot16-visual-review.json",
+        "bytes": 2237,
+        "sha256": "821f15a83e383e2832e35387fa6cc4b1bbd2a765e0e55f27eb2c144bb20781dd"
+      },
+      "scope": "final corrected candidate and renderer, supplement to unchanged body baseline",
+      "original_frame_ids": [
+        110,
+        286
+      ],
+      "count": 2
+    },
+    {
+      "episode": 8,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        316
+      ],
+      "count": 1
+    },
+    {
+      "episode": 9,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        207
+      ],
+      "count": 1
+    },
+    {
+      "episode": 10,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        240
+      ],
+      "count": 1
+    },
+    {
+      "episode": 12,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        202
+      ],
+      "count": 1
+    },
+    {
+      "episode": 13,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first16-visual-review.json",
+        "bytes": 37640,
+        "sha256": "2ccc5f180e62de5b772ba13eabda45b9a05001510d54f5390b48eebb200ea738"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        212
+      ],
+      "count": 1
+    },
+    {
+      "episode": 14,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        220
+      ],
+      "count": 1
+    },
+    {
+      "episode": 15,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        250
+      ],
+      "count": 1
+    },
+    {
+      "episode": 17,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        209
+      ],
+      "count": 1
+    },
+    {
+      "episode": 18,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        267
+      ],
+      "count": 1
+    },
+    {
+      "episode": 19,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first20-visual-review.json",
+        "bytes": 37686,
+        "sha256": "8f316a5ddda2f6391daf9e247eb9e22dfaa950c2ba49d254dcd8a0fef005acb7"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        221
+      ],
+      "count": 1
+    },
+    {
+      "episode": 20,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json",
+        "bytes": 30624,
+        "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        183
+      ],
+      "count": 1
+    },
+    {
+      "episode": 21,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json",
+        "bytes": 30624,
+        "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        234
+      ],
+      "count": 1
+    },
+    {
+      "episode": 22,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json",
+        "bytes": 30624,
+        "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        266
+      ],
+      "count": 1
+    },
+    {
+      "episode": 23,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first25-visual-review.json",
+        "bytes": 30624,
+        "sha256": "ab690107529463af7069059cf6feccfe62d06423690a6fc6c0d929aa8ae9d2b2"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        230
+      ],
+      "count": 1
+    },
+    {
+      "episode": 24,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        210
+      ],
+      "count": 1
+    },
+    {
+      "episode": 25,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        152
+      ],
+      "count": 1
+    },
+    {
+      "episode": 26,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        199
+      ],
+      "count": 1
+    },
+    {
+      "episode": 27,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        220
+      ],
+      "count": 1
+    },
+    {
+      "episode": 28,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\milestone-first29-visual-review.json",
+        "bytes": 37453,
+        "sha256": "aae10121611090e93035b20218c278a1f1abf3ee598fceea0a19678ff48b1239"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        213
+      ],
+      "count": 1
+    },
+    {
+      "episode": 29,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\final-episode29-visual-review.json",
+        "bytes": 8570,
+        "sha256": "09d0b43650c66a04687e25e18110a34e6755636d41c69a2eb319b5ed8f3bbf5c"
+      },
+      "scope": "current baseline and candidate",
+      "original_frame_ids": [
+        104,
+        209
+      ],
+      "count": 2
+    }
+  ],
+  "bound_review_images_verified_at_index_time": [
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000000\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 577862,
+      "sha256": "da294453e3286840462e1e1ec4eda164d0b7314384629d2f0fa6917cfa886146"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000000\\hand_comparison\\attempt-0001\\frames\\000132.jpg",
+      "bytes": 135256,
+      "sha256": "87951bd04c68be7b92dbbf654c75ae9d1271729ca26f045dce1a9b23028cab1f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000000\\hand_comparison\\attempt-0001\\frames\\000263.jpg",
+      "bytes": 141769,
+      "sha256": "ab01d486e9ead2dc803085909c8253878dd56760db3d34c7b6b21123c24c279c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000000\\hand_comparison\\attempt-0001\\frames\\000526.jpg",
+      "bytes": 135001,
+      "sha256": "92228c0846e70fceab9b15d11c949c02133e6b272f1135b5f18d3915cb172507"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000000\\hand_comparison\\attempt-0001\\frames\\000789.jpg",
+      "bytes": 143531,
+      "sha256": "3c89fce9587ed90f27b0d340dc9fadca9ee09209c30ec7047e61fbdfe7cfcda1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-baseline.jpg",
+      "bytes": 1331922,
+      "sha256": "fcdf0868545f42a2bb45186a985bd7e8f192c3ed5840ef825c6f31960fb2d364"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot11-hand-boundaries.jpg",
+      "bytes": 518043,
+      "sha256": "6e0c4757f756b5e6b0db2ef9c8ec7c6a360b96c72aab4da92ee18b111dd1645a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 671460,
+      "sha256": "7f48c30e28b75097eb26830dd962eb897119b06a79905636767cabab92589adc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 671485,
+      "sha256": "0d95d85bb56a5a19589a7f23163b05eae05658081f243afabe8c360e855b3770"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined_review\\attempt-0001\\frames\\000110.jpg",
+      "bytes": 172638,
+      "sha256": "d5e72e19612f22f92e7dd55ad4d5a29b6c976b93e2e72468ba29eadc0cad3161"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined_review\\attempt-0001\\frames\\000285.jpg",
+      "bytes": 173111,
+      "sha256": "2d8cf187fb372ef0f055ca04f9a5f5fb0f464b14dab90fd246dbe53fcdf5d1d3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\independent-pilot16-source-samples.jpg",
+      "bytes": 398762,
+      "sha256": "907743038715d75381706d120946dd1f61e9333d65f674bbe4447ed3e6679b0b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\renderer04-ep16-preview\\frames\\000110.jpg",
+      "bytes": 155860,
+      "sha256": "3542066d9ede7fa5cac041a4ee778430bbb53c70be9bcddaae8f15de82dbb2c1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\renderer04-ep16-preview\\frames\\000240.jpg",
+      "bytes": 159325,
+      "sha256": "b661f8d9677b09fc4ed3e50ff60c08b40da2243ebebebff442c8b6af98bbb2e6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\renderer04-ep16-preview\\frames\\000284.jpg",
+      "bytes": 159438,
+      "sha256": "01de76fccc5deac1fb8d10012b6f673e0c67e8bf87fbdde462f09aeb2f6dfc83"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\renderer04-ep16-preview\\frames\\000285.jpg",
+      "bytes": 157908,
+      "sha256": "889dd4492abb764c3486bf6594b0d66ed4a2cb4ec353e0087833ae60276e1b68"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\renderer04-ep16-preview\\frames\\000286.jpg",
+      "bytes": 158303,
+      "sha256": "d1b0c7a98fcca96ab3f4aa2c7ffedb602fd050f71a01ba2cd9fbc78da165296e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\renderer04-ep16-preview\\frames\\000287.jpg",
+      "bytes": 156513,
+      "sha256": "2ef6c7f49f8575804bcc3ed511e2c6a83760e6d59ea25caddcfb664cf9a5d0bd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-all30-20261021\\renderer04-ep16-preview\\frames\\000359.jpg",
+      "bytes": 146474,
+      "sha256": "876c6dfbff7f40fc7389b4161ea1590c19d7fe0bc036c5386cc30991cbfec937"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\hand_comparison\\attempt-0003\\frames\\000110.jpg",
+      "bytes": 156096,
+      "sha256": "dc371829b62214b02178abdaf3a0b2c3cd8d11e1a8d6c1f18f779965d82c5417"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\hand_comparison\\attempt-0003\\frames\\000286.jpg",
+      "bytes": 158359,
+      "sha256": "149387402d303b014aca70d6b33e7e6b69a07328e7b708f6b2a21b82cffeb9a1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000001\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 585686,
+      "sha256": "088a2bdf6c82f00e77361873fc497b2e26e729921ec929c155a281f635d05e80"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000002\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 583929,
+      "sha256": "14519b3c48fcbabb923f1f34eadfdf4fe7679fa69a8c7833e7a740a3488d838b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000003\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 600746,
+      "sha256": "7367f7a70aa251b5feb6358d3b756de209c3efd55a7a8c8e5798d846d6f0a3a0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000004\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 675966,
+      "sha256": "f1ca1c2ec2b071fbcf613da1ecd67f119b44464b317a00420c49bdbdd02f9582"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000004\\baseline_review\\attempt-0001\\frames\\000373.jpg",
+      "bytes": 179317,
+      "sha256": "1d9e2c3da8124494382601c78963bbcfd8b6324bbb92ae6a1936e4c034226c52"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000005\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 676099,
+      "sha256": "c3456c4cd348e7d07133f31bfea7b5ef0c187c29ab88e677032b3e88453a9458"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000006\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 596333,
+      "sha256": "03c7a4fbc1acb29d76885861f12df68ce18a26b6e469b46556a9a75fd04e0559"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000007\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 597346,
+      "sha256": "537abf683ae6bcaf9122bd115a1d29f573c7995ddb4cc13e92acda5c91c1c63c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000007\\baseline_review\\attempt-0001\\frames\\000388.jpg",
+      "bytes": 156160,
+      "sha256": "bdedd29c03fa22c4e972c0f4fd9aa3e9a70e173aaf3154697bf4d45a0b7a79a7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000008\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 667988,
+      "sha256": "584ac227fb2e3a5881fb32ad7392805f54bfe17d3e3e46493d5345d202fb50ca"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000008\\hand_comparison\\attempt-0001\\frames\\000316.jpg",
+      "bytes": 133400,
+      "sha256": "f4a49aab49e5decef8a8401b3892d6e9a0a77aec037151ab986a81f8d0bcff68"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000009\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 681145,
+      "sha256": "eb9ec1cec58ce6d8e2c8f6dfee3d477e84d4bfb0a3c943039e2a2c2d9d027f30"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000009\\hand_comparison\\attempt-0001\\frames\\000207.jpg",
+      "bytes": 143040,
+      "sha256": "796829e12ef60299b2a33a262f35743943babc6fb3e10396eacaea34aea81d74"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000010\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 587932,
+      "sha256": "52a6f85c1cd773114e20aabd804be9fe52d8a69849dc9524d493ad2933360522"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000010\\hand_comparison\\attempt-0001\\frames\\000240.jpg",
+      "bytes": 143733,
+      "sha256": "d43961c91af9356890bb66850b99030891a1182ec652742f31124a90b3f5b2b0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000012\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 669211,
+      "sha256": "e4e62cdb0d4f4bcece6aa9ee3e0cec84deb7d8127f2442ac4b3cf57ae54a8d2b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000012\\hand_comparison\\attempt-0001\\frames\\000202.jpg",
+      "bytes": 156791,
+      "sha256": "a94e099a946e8879ba0ffce38de7bd85b2bbdcce4ca42715d68120eb53382c35"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000013\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 595739,
+      "sha256": "cf07865820cd70d37ad7411ceb6cfcf8ab2d057e417d7797bd95ef7f007027a8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000013\\hand_comparison\\attempt-0001\\frames\\000212.jpg",
+      "bytes": 124116,
+      "sha256": "915ed55e221295e80499130c485a67e99a227b39fe18fb0e04a508c4487e1d32"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000014\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 677772,
+      "sha256": "0dd9d07c36bff8188c61a04641357eb242397c1d016b5503d115b23d48845670"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000014\\hand_comparison\\attempt-0001\\frames\\000220.jpg",
+      "bytes": 133773,
+      "sha256": "daee6c308b92e9eeb2eec8e4a2760a3ff4152a75cb563ff4b2f3aa6d3a6bc7ba"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000015\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 667815,
+      "sha256": "869a9f8448b635ec38c80dbfe8f0e01167669a560b49e534909962d30503e2d8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000015\\hand_comparison\\attempt-0001\\frames\\000250.jpg",
+      "bytes": 140290,
+      "sha256": "e09e7fa7cd91ccd4abeda04fa64774b8193c5ade529183c01d65fb1191c8865a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000017\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 596837,
+      "sha256": "4359a8391dc0cdc16085d3ca041a2c61e39b60faf045dd4e285b11f381f7724c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000017\\hand_comparison\\attempt-0001\\frames\\000209.jpg",
+      "bytes": 141607,
+      "sha256": "ae36914ae94c3293aa1246bbeaf84b5b84b316c0779c37a50fe359daa5e6553f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000018\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 592347,
+      "sha256": "c135414e357903af2891ffe5882ec8aadaa07f8c34dc69b41b6ccb8d65cd05d0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000018\\hand_comparison\\attempt-0001\\frames\\000267.jpg",
+      "bytes": 154770,
+      "sha256": "d32fc8bd5f904c9b2be374bd9618e249371f6382ac02fc7450e8c38330fbdd8e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000019\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 606322,
+      "sha256": "cc3be1991e15340fb21376781af0ca5bdda714fe478b9743e43d85fce48bf582"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000019\\hand_comparison\\attempt-0001\\frames\\000221.jpg",
+      "bytes": 146390,
+      "sha256": "1ede340ec6e6d470d3503cc9ab99cbe04497545185af54ca45fc76982e76435e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 602588,
+      "sha256": "52158cffbd60ad5100e53775a942cd9883a1961d16fe5f1edcde399dac929429"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000020\\hand_comparison\\attempt-0001\\frames\\000183.jpg",
+      "bytes": 144882,
+      "sha256": "fc4e0dcd8afce0751585d0f60f4573b6c4cd20e3a3ddefa4e30715ea440c9d70"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 602559,
+      "sha256": "493be1218fec638cd94faf5c4a0ababef99a7f2c7477e7104fb389ade2dc860b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000021\\hand_comparison\\attempt-0001\\frames\\000234.jpg",
+      "bytes": 142247,
+      "sha256": "ed4348efc15d7994449d525a39caf6c38166bd617be2e45491e38c80c376122a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 695738,
+      "sha256": "8afb7390ec09f8e6e8f25bee64cafde00cd7cee00282096bf897110edc04ce91"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000022\\hand_comparison\\attempt-0001\\frames\\000266.jpg",
+      "bytes": 159978,
+      "sha256": "dc3acef1bc558abada236eec0a60a6ad40281713391a853996c7d7b68410c36f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 668808,
+      "sha256": "085edd5596f04b96eac644ad1f1ff2a8778b4705506077d7d259453643874562"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000023\\hand_comparison\\attempt-0001\\frames\\000230.jpg",
+      "bytes": 135998,
+      "sha256": "b2bd42f4f4991ef94fa42ed521c6e6a0fbe71ec574e9c46969d41ac380f4f328"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000024\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 692013,
+      "sha256": "eccac513b4c1e21ce483d66250c4b2f35029446d3d7178afbe31117bc0046b2c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000024\\hand_comparison\\attempt-0001\\frames\\000210.jpg",
+      "bytes": 131762,
+      "sha256": "a35d3a027f42c7af2837e031752a2c89e1295680d54dfb440991e7da97d56b9b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000025\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 669649,
+      "sha256": "8c725e25c3ae24fc5903aaf383a4b3dbe090c392b26e688cab34b416235a9279"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000025\\hand_comparison\\attempt-0001\\frames\\000152.jpg",
+      "bytes": 151780,
+      "sha256": "1a3e71cfbbd1f94abfb8b56e68df2953252892fff953dd1c15901ddd7ce96c33"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000026\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 647354,
+      "sha256": "caab44de98ad4771b0b5169ba51fdacbdaab907a418a6d2bb5eee57e77424b92"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000026\\hand_comparison\\attempt-0001\\frames\\000199.jpg",
+      "bytes": 137837,
+      "sha256": "78719ae774d26bdb2f20d5f139661b5b13cfd24ddbe42a679fc00f20eb4e4910"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000027\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 657741,
+      "sha256": "50329f946f4d2ff37349959a3ccf0c3f96b4cb74f687dda794045c9173a25f67"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000027\\hand_comparison\\attempt-0001\\frames\\000220.jpg",
+      "bytes": 161051,
+      "sha256": "841ca4db0e80f4ee19bbc158af6bc98d0a2b6a7ec8a3888f47a10c0fb7fe66ee"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000028\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 586360,
+      "sha256": "3a156f982819e6fda6cfe1b762b45f901429970c74d892bfe82957621c1705f7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000028\\hand_comparison\\attempt-0001\\frames\\000213.jpg",
+      "bytes": 146095,
+      "sha256": "a70ed1a15f13bdb9d825d3d68f07804b18f79abf91bcae2ef948109a441b0a68"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000029\\baseline_review\\attempt-0001\\contact-sheet.jpg",
+      "bytes": 601699,
+      "sha256": "3e710754184d399af778172cb219043924393ba17a7590fb09dd0c66ec0dc2c8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000029\\hand_comparison\\attempt-0001\\frames\\000104.jpg",
+      "bytes": 140918,
+      "sha256": "b2dca89d78b79f1ac481df513baba4464e24d4ef5214d9e78e062dbaa58d6b4c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000029\\hand_comparison\\attempt-0001\\frames\\000209.jpg",
+      "bytes": 144582,
+      "sha256": "3d969a7f6dc788cfe4a2a4c6d310e28a086fc0234fc095ae8acbfceceace07e5"
+    }
+  ],
+  "selected_candidate_counts": {
+    "baseline": 30
+  },
+  "operational_result": "All 30 videos have sampled visual review and bound complete native baseline outputs; no actionable gross target, axis, camera or render failure was found in inspected samples.",
+  "quality_acceptance": false,
+  "hand_quality_accepted": false,
+  "contact_quality_accepted": false,
+  "shared_scene_scale_verified": false,
+  "official_export_accepted": false,
+  "official_score_available": false,
+  "interpretation": [
+    "A sample is an (episode, original frame ID) pair, not each panel or pose variant. Repeated source IDs and supplementary pilot reviews are deduplicated.",
+    "The 270 baseline body samples comprise nine original-frame samples per episode. EP16 has two additional body views of the earlier refined candidate at frames 110 and 285; these are extra views, not newly accepted final baseline frames.",
+    "The large views at EP4:373, EP7:388 and EP11 repeat already counted body frame IDs.",
+    "EP11 final movie sampling saved 14 decoded sample frames, but only the 12 explicitly recorded as directly viewed count as hand visual samples. Decoding is not manual viewing.",
+    "EP16 initial hand samples are historical renderer04 and initial-candidate evidence. The final EP16 receipt separately records final frames 110 and 286, counted as review events but deduplicated for unique source-frame counts.",
+    "Current selected native hashes match reviewed source bindings and current checks; no model or scorer was rerun."
+  ],
+  "limits": [
+    "No continuous manual viewing of all source/rendered frames is claimed. Coverage derives from frame arrays, stored-file counts and pipeline receipts; visual review is sparse.",
+    "Native finger/grip mismatch, missing evidence and support-boundary jumps persist. Baseline selection preserves operational coverage without solving hands.",
+    "Occluded geometry, native heading, foot sliding, object contact, penetration, release timing and shared physical scale remain unaccepted.",
+    "Only known Track1 paths and listed receipts were read. No source, immutable output/snapshot, job, registry or package was modified."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "human_final_browser_review.v1",
+  "episode": 24,
+  "record_id": "sam-mediapipe-20261021-ep24",
+  "url": "http://127.0.0.1:8769/#episode=episode_000024&stage=human&record=sam-mediapipe-20261021-ep24",
+  "checked_at": "2026-10-21T15:48:50.637Z",
+  "completion_commit": "09dc691131bc1c3349d52fc01833c3a4362c0664",
+  "human_catalog_sha256": "6466b2ff95080ac203c9824bab10a98160049076b027e57d232b5ecf4f890b49",
+  "videos": [
+    {
+      "role": "baseline_full_body",
+      "asset_sha256": "f559873ebc08506c1a50aaf5ceed169323d7d15c93c146f711add33653b32c9e",
+      "src": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24-baseline-comparison.mp4",
+      "duration": 14,
+      "width": 1440,
+      "height": 588,
+      "readyState": 4,
+      "seekTarget": 4,
+      "playbackStart": 4,
+      "currentTime": 4.325224,
+      "error": null
+    },
+    {
+      "role": "refined_full_body",
+      "asset_sha256": "08a8cec7f817f2e9ee12817bfb5cc91eb3c3fd334d919594ee439e7a1dc4f8f5",
+      "src": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24-refined-comparison.mp4",
+      "duration": 14,
+      "width": 1440,
+      "height": 588,
+      "readyState": 4,
+      "seekTarget": 4,
+      "playbackStart": 4,
+      "currentTime": 4.320171,
+      "error": null
+    },
+    {
+      "role": "hands_comparison",
+      "asset_sha256": "2baed4cf446530cb66283d9b02b849ca2a5871e8834ff944efaca446d08bfcb9",
+      "src": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/sam-mediapipe-20261021/sam-mediapipe-20261021-ep24-hands-comparison.mp4",
+      "duration": 14,
+      "width": 1024,
+      "height": 636,
+      "readyState": 4,
+      "seekTarget": 4,
+      "playbackStart": 4,
+      "currentTime": 4.327515,
+      "error": null
+    }
+  ],
+  "page_errors": [],
+  "failure": null,
+  "passed": true,
+  "quality_acceptance": false,
+  "shared_scene_scale_verified": false,
+  "official_export_accepted": false,
+  "main_deployed": false,
+  "scope": "Actual Edge load, seek and playback of three exact Release MP4s; interface QA, not reconstruction-quality acceptance."
+}

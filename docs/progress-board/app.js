@@ -6,6 +6,7 @@
   const raw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/board.json';
   const catalogRaw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/delivery-catalog.json';
   const humanCatalogRaw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/human-catalog.json';
+  const inputEvidenceRaw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/input-evidence.json';
   const draftKey = 'hoi-progress-drafts-v1';
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const link = (url, label) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`;
@@ -64,7 +65,7 @@
   let remote = false, attention = false, view = matchMedia('(max-width:760px)').matches ? 'cards' : 'matrix';
   let selectedEpisode = null, selectedStage = null, selectedRecordId = null, editing = false, recovery = null;
   let catalog = null, catalogMatches = new WeakMap(), preparationCategory = null, selectedComponent = '';
-  let humanCatalog = null;
+  let humanCatalog = null, inputEvidence = null;
   const preparationItems = [
     {id:'raw',title:'rawPrepared',note:'rawNote',stage:'inputs'},
     {id:'body',title:'bodyPrepared',note:'bodyNote',stage:'inputs'},
@@ -131,12 +132,33 @@
   function setHumanCatalog(value) {
     humanCatalog = value && !HOIDelivery.validateHumanCatalog(value).length ? value : null;
   }
+  function validEvidenceAsset(asset, frames) {
+    return !!asset && typeof asset.url === 'string' && /^https:\/\/github\.com\/Seanwilliam2077\/video-to-hoi\/releases\/download\/[A-Za-z0-9][A-Za-z0-9._-]*\/[A-Za-z0-9][A-Za-z0-9._-]*$/.test(asset.url)
+      && /^[a-f0-9]{64}$/.test(asset.sha256) && Number.isSafeInteger(asset.bytes) && asset.bytes > 0
+      && Number.isSafeInteger(asset.frames) && asset.frames === frames;
+  }
+  function setInputEvidence(value) {
+    const episode = /^episode_0000(?:[01][0-9]|2[0-9])$/;
+    const entries = value && value.schema_version === 'hoi_input_evidence.v1' && Array.isArray(value.entries) ? value.entries : null;
+    const ids = new Set();
+    inputEvidence = entries && entries.every(entry => episode.test(entry.episode_id) && !ids.has(entry.episode_id) && ids.add(entry.episode_id)
+      && Number.isSafeInteger(entry.frame_count) && entry.frame_count > 0
+      && (!entry.object_masks || validEvidenceAsset(entry.object_masks, entry.frame_count))
+      && (!entry.depth || validEvidenceAsset(entry.depth, entry.frame_count))
+      && (entry.object_masks || entry.depth)) ? value : null;
+  }
+  function evidenceFor(ep) {
+    return inputEvidence ? inputEvidence.entries.find(entry => entry.episode_id === ep.id && entry.frame_count === ep.frames) : null;
+  }
   function deliveryEntry(record) {
     if (!record || !catalog) return null;
     if (!catalogMatches.has(record)) catalogMatches.set(record,HOIDelivery.entryFor(catalog,record));
     return catalogMatches.get(record);
   }
   function preparationReady(ep, item) {
+    const evidence = evidenceFor(ep);
+    if (item.id === 'object' && evidence?.object_masks) return true;
+    if (item.id === 'depth' && evidence?.depth) return true;
     const r = latest.get(`${ep.id}:${item.stage}`);
     if (!r || r.kind !== 'real_track1' || stale.has(r.id)) return false;
     if (item.id === 'raw') return deliveryEntry(r)?.raw_verified === true;
@@ -234,7 +256,7 @@
     return '#'+params.toString();
   }
   function focusComponent() {
-    const target=$(`delivery-${selectedComponent}`);
+    const target=$(`delivery-evidence-${selectedComponent}`) || $(`delivery-${selectedComponent}`);
     if(target && $('detail').open) {
       if(target.tagName==='DETAILS')target.open=true;
       target.scrollIntoView({block:'start'});
@@ -258,6 +280,17 @@
     if(!params.has('episode')) {if($('detail').open)$('detail').close();return;}
     openDetail(params.get('episode'),params.get('stage'),params.get('record'),params.get('component')||'',false);
   }
+  function renderInputEvidence(ep, component) {
+    const evidence = evidenceFor(ep);
+    if (!evidence) return '';
+    const cards = [['object_masks','object', language==='zh'?'物体掩码':'Object masks'], ['depth','depth', language==='zh'?'深度证据':'Depth evidence']]
+      .filter(([key,id]) => evidence[key] && (!component || component===id))
+      .map(([key,id,label]) => {
+        const asset = evidence[key];
+        return `<section class="delivery-view" id="delivery-evidence-${id}"><div class="delivery-section-heading"><h3>${esc(label)}</h3><span class="delivery-muted">${esc(String(asset.frames))} ${esc(t('frames'))}</span></div><p>${link(asset.url, language==='zh'?'下载这一段的交付包':'Download this episode package')}</p><p class="delivery-muted">SHA256 ${esc(asset.sha256)} · ${asset.bytes.toLocaleString(language==='zh'?'zh-CN':'en-US')} bytes</p><p class="small-note">${esc(language==='zh'?'这是单独登记的输入证据，不替换已验证的人体输入包，也不是米制尺度或质量验收。':'This is a separate input delivery. It does not replace the verified Body inputs or accept metric scale or reconstruction quality.')}</p></section>`;
+      });
+    return cards.join('');
+  }
   function renderDetail() {
     const ep = selectedEpisode, stage = selectedStage;
     const r = selectedRecordId ? records.find(r => r.id === selectedRecordId) : latest.get(`${ep.id}:${stage.id}`);
@@ -270,6 +303,7 @@
       ${selectedRecordId && selectedRecordId !== latest.get(`${ep.id}:${stage.id}`)?.id ? `<p class="muted">${esc(t('historical'))} · ${esc(r.id)} <button class="text-button" id="view-latest">${esc(t('viewLatest'))}</button></p>`:''}
       <p class="detail-summary">${esc(r?.summary || t('noRecord'))}</p>${r && stale.has(r.id) ? `<div class="notice error">${esc(t('staleNotice'))}</div>` : ''}
       <p class="record-permalink">${link(detailHash(ep.id,stage.id,r?.id,selectedComponent),t(r?'exactLink':'stageLink'))}</p>
+      ${renderInputEvidence(ep, selectedComponent)}
       ${stage.id==='inputs' ? (entry ? HOIDelivery.renderInputs(entry,language) : `<p class="notice">${esc(t('inputsUnmatched'))}</p>`) : ''}
       ${stage.id==='human' && r && !stale.has(r.id) ? HOIDelivery.renderHuman(HOIDelivery.humanEntryFor(humanCatalog,r),language) : ''}
       ${HOIDelivery.renderArtifacts(r,stage,language)}
@@ -359,6 +393,7 @@ http://localhost:8765/docs/progress-board/</pre>`;
       if(registry.status!=='fulfilled')throw registry.reason;
       setCatalog(contents.status==='fulfilled'?contents.value:null);
       setHumanCatalog(humanContents.status==='fulfilled'?humanContents.value:null);
+      try { setInputEvidence(await fetchJson(inputEvidenceRaw)); } catch { setInputEvidence(null); }
       setBoard(registry.value,true);error(recovery?t('invalidStorage'):'');toast(t('refreshed'));
     }catch(e){error(`${t('loadError')} ${e.message}`);}finally{$('refresh').disabled=false;$('refresh').textContent=t('refresh');}
   });
@@ -372,6 +407,8 @@ http://localhost:8765/docs/progress-board/</pre>`;
     try{setCatalog(await fetchJson(catalogPath));}catch{setCatalog(null);}
     const humanCatalogPath=location.pathname.includes('/docs/progress-board/')?'../../tracking/human-catalog.json':'./human-catalog.json';
     try{setHumanCatalog(await fetchJson(humanCatalogPath));}catch{setHumanCatalog(null);}
+    const inputEvidencePath=location.pathname.includes('/docs/progress-board/')?'../../tracking/input-evidence.json':'./input-evidence.json';
+    try{setInputEvidence(await fetchJson(inputEvidencePath));}catch{setInputEvidence(null);}
     setBoard(snapshot,false);restoreRoute();
   }
   start().catch(e=>error(`${t('loadError')} ${e.message}`));

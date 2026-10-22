@@ -90,7 +90,7 @@ class Element {
   focus() {}
 }
 
-async function app({registry = board(), contents = catalog(), humanContents = {schema_version: "hoi_human_catalog.v1", entries: []}, hash = ""} = {}) {
+async function app({registry = board(), contents = catalog(), humanContents = {schema_version: "hoi_human_catalog.v1", entries: []}, inputEvidence = null, hash = ""} = {}) {
   assert.deepEqual(HOI.validateBoard(registry), []);
   const elements = new Map(), stored = new Map(), events = new Map();
   const get = id => {
@@ -98,7 +98,7 @@ async function app({registry = board(), contents = catalog(), humanContents = {s
     return elements.get(id);
   };
   const location = new URL(`https://example.test/progress/${hash}`);
-  const network = {registry: clone(registry), contents: clone(contents), humanContents: clone(humanContents), catalogFailure: false, humanCatalogFailure: false};
+  const network = {registry: clone(registry), contents: clone(contents), humanContents: clone(humanContents), inputEvidence: inputEvidence ? clone(inputEvidence) : null, catalogFailure: false, humanCatalogFailure: false};
   const history = {
     pushState(_state, _title, url) { location.href = new URL(url, location.href).href; },
     replaceState(_state, _title, url) { location.href = new URL(url, location.href).href; }
@@ -122,9 +122,11 @@ async function app({registry = board(), contents = catalog(), humanContents = {s
     fetch: async url => {
       const isHuman = String(url).includes("human-catalog");
       const isCatalog = String(url).includes("delivery-catalog");
+      const isEvidence = String(url).includes("input-evidence");
       if (isHuman && network.humanCatalogFailure) throw new Error("Independent simulated Human preview outage");
       if (isCatalog && network.catalogFailure) throw new Error("Independent simulated catalog outage");
-      return {ok: true, json: async () => clone(isHuman ? network.humanContents : isCatalog ? network.contents : network.registry)};
+      if (isEvidence && !network.inputEvidence) return {ok: false, json: async () => ({})};
+      return {ok: true, json: async () => clone(isEvidence ? network.inputEvidence : isHuman ? network.humanContents : isCatalog ? network.contents : network.registry)};
     }
   };
   vm.runInNewContext(APP, sandbox, {filename: "app.js"});
@@ -257,6 +259,24 @@ test("Human previews load beside generic artifacts without changing submitted pr
   await value.click("refresh");
   assert.doesNotMatch(value.get("detail-content").innerHTML, /delivery-human-grid/);
   assert.match(value.get("detail-content").innerHTML, /Open submitted content|打开递交内容/);
+});
+
+test("object masks and depth evidence register without replacing Body input verification", async () => {
+  const evidence = {
+    schema_version: "hoi_input_evidence.v1",
+    entries: [{
+      episode_id: EP, frame_count: 5, object_id: "test_cube",
+      object_masks: {url: "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep00-object-masks.zip", sha256: SHA, bytes: 100, frames: 5},
+      depth: {url: "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep00-depth.zip", sha256: SHA, bytes: 200, frames: 5}
+    }]
+  };
+  const value = await app({inputEvidence: evidence});
+  assert.equal(preparationCount(value, "body"), 1);
+  assert.equal(preparationCount(value, "object"), 1);
+  assert.equal(preparationCount(value, "depth"), 1);
+  await value.click("preparation", {episode: EP, stage: "inputs", component: "object"});
+  assert.match(value.get("detail-content").innerHTML, /delivery-evidence-object/);
+  assert.match(value.get("detail-content").innerHTML, /delivery-ready/);
 });
 
 test("Human previews never migrate to newer records or stale upstream chains", async () => {

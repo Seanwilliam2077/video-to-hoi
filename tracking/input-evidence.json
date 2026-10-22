@@ -1,0 +1,91 @@
+{
+  "schema_version": "hoi_input_evidence.v1",
+  "delivery_id": "input-evidence-20261022",
+  "entries": [
+    {
+      "episode_id": "episode_000000",
+      "frame_count": 790,
+      "object_id": "hula_hoop",
+      "object_masks": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep00-object-masks.zip",
+        "sha256": "5b9b70fd0cbb6f3363bf84fe285301920fdb172d99389df12c02167fd275d170",
+        "bytes": 1174315,
+        "frames": 790
+      },
+      "depth": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep00-depth.zip",
+        "sha256": "8d589470cdf6e23f5e8a5a6623464e020da4cf4400aa523cf2f065fc3a6aad85",
+        "bytes": 627044953,
+        "frames": 790
+      }
+    },
+    {
+      "episode_id": "episode_000001",
+      "frame_count": 668,
+      "object_id": "hula_hoop",
+      "object_masks": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep01-object-masks.zip",
+        "sha256": "0077c0f10b45eeafac58fdee1d01abd5c9b1a9103ed0e02065d88a688f3225e9",
+        "bytes": 10470426,
+        "frames": 668
+      },
+      "depth": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep01-depth.zip",
+        "sha256": "447a237e1dc1746677a1958cd2b11c6f911819b519a46c8495f1b0eed3fbdb07",
+        "bytes": 531459925,
+        "frames": 668
+      }
+    },
+    {
+      "episode_id": "episode_000002",
+      "frame_count": 866,
+      "object_id": "hula_hoop",
+      "object_masks": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep02-object-masks.zip",
+        "sha256": "f4ca0e4563c68ae4737a081fc5982e9b0aee48cef811074e26102821c422f787",
+        "bytes": 4042371,
+        "frames": 866
+      },
+      "depth": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep02-depth.zip",
+        "sha256": "f63a9cc391c6c0fb61a0159731e40398ee822cd261bcd1dedc6598d9994c6b64",
+        "bytes": 702516838,
+        "frames": 866
+      }
+    },
+    {
+      "episode_id": "episode_000003",
+      "frame_count": 592,
+      "object_id": "big_red_bowl",
+      "object_masks": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep03-object-masks.zip",
+        "sha256": "542ddb455d27207c2d4031bbf10341819d9b76ddc50c833bc598227911fa08c2",
+        "bytes": 745851,
+        "frames": 592
+      },
+      "depth": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep03-depth.zip",
+        "sha256": "86c1986b80920ecad4a5fdc2b4a2f626fe22936c9e180f6574456fbbf4803acd",
+        "bytes": 470119250,
+        "frames": 592
+      }
+    },
+    {
+      "episode_id": "episode_000004",
+      "frame_count": 747,
+      "object_id": "big_red_bowl",
+      "object_masks": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep04-object-masks.zip",
+        "sha256": "d3e81d5d99a4f62b9f4ec93cdc6a3e2526660ed1630416f9d443b2479d831e8d",
+        "bytes": 1384266,
+        "frames": 747
+      },
+      "depth": {
+        "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/input-evidence-20261022/input-evidence-20261022-ep04-depth.zip",
+        "sha256": "d6df4a0651c8dce289b23a9c94f6c2fa6a842561c3d6f3300b5150d31bd111b6",
+        "bytes": 657080400,
+        "frames": 747
+      }
+    }
+  ]
+}

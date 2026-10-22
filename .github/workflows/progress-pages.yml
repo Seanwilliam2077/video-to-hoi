@@ -50,6 +50,7 @@ jobs:
           cp tracking/board.json _site/board.json
           cp tracking/delivery-catalog.json _site/delivery-catalog.json
           cp tracking/human-catalog.json _site/human-catalog.json
+          cp tracking/input-evidence.json _site/input-evidence.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

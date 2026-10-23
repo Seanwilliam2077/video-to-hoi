@@ -1,0 +1,155 @@
+{
+  "created_utc": "2026-10-23T12:40:28.699531+00:00",
+  "status": "passed_temporal_only_not_full_inference",
+  "scope": "Independent synthetic 16-frame CPU temporal-branch import/checkpoint/forward compatibility smoke only",
+  "real_video_loaded": false,
+  "mano_instantiated": false,
+  "hamer_checkpoint_loaded": false,
+  "mano_checkpoint_buffers_loaded_or_used": false,
+  "full_video_inference_allowed": false,
+  "quality_evidence": false,
+  "device": "cpu",
+  "torch_version": "2.5.1+cu124",
+  "threads": 4,
+  "seed": 20261023,
+  "uninitialized_hamer_backbone": "Constructed by upstream HandPoseDenoiser; unused because batch supplies synthetic compressed image_tokens. Backbone forward is guarded to fail if called.",
+  "inputs": {
+    "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\weights\\handflow\\handflow_denoiser.pt": {
+      "bytes": 667907131,
+      "sha256": "2fbc4e1fa7a60f469a6ac94933a6e6dc8a86a0e1fc13bd7cd81c430c79acfcda"
+    },
+    "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\weights\\handflow\\normalization_stats.npz": {
+      "bytes": 2008,
+      "sha256": "7313334e6b9537fa57ec9763e83f36dfd4998e7d1de09aa3fb21c5bfca8e92c4"
+    }
+  },
+  "config": {
+    "model": {
+      "fm": {
+        "beta_dim": 10,
+        "pose_dim": 48,
+        "trans_dim": 3,
+        "normalization_stats": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\weights\\handflow\\normalization_stats.npz",
+        "condition": {
+          "hamer_embed_dim": 1280,
+          "hamer_n_tokens": 192,
+          "n_joints": 21,
+          "skeleton_pe_freqs": 6,
+          "cmask_ratio": 0.2
+        },
+        "frame_compressor": {
+          "num_layers": 8
+        },
+        "transformer": {
+          "hidden_size": 512,
+          "num_heads": 16,
+          "depth": 8,
+          "depth_single_blocks": 16,
+          "mlp_ratio": 4.0,
+          "qkv_bias": true,
+          "dropout": 0.1
+        }
+      },
+      "hamer": {
+        "checkpoint": null,
+        "frozen": true
+      }
+    },
+    "dataset": {
+      "window_size": 16
+    }
+  },
+  "construction_seconds": 7.281478999997489,
+  "checkpoint_load": {
+    "seconds": 0.2024139000568539,
+    "state_keys": 504,
+    "missing_nonbackbone_keys": [],
+    "unexpected_keys": [],
+    "expected_missing_uninitialized_backbone_keys": 391,
+    "all_nonbackbone_keys_strictly_matched": true
+  },
+  "synthetic_inputs": {
+    "image_tokens": [
+      1,
+      16,
+      512
+    ],
+    "hamer_landmarks": [
+      1,
+      16,
+      21,
+      2
+    ],
+    "crop_intrinsics": [
+      1,
+      16,
+      4
+    ],
+    "hamer_confidence": [
+      1,
+      16
+    ]
+  },
+  "cases": [
+    {
+      "name": "all_observed",
+      "seconds": 0.12907819997053593,
+      "output_shape": [
+        1,
+        826
+      ],
+      "finite": true,
+      "velocity_rms": 1.843859314918518,
+      "difference_rms_from_all_observed": null,
+      "decoded_parameter_shape": [
+        1,
+        16,
+        51
+      ],
+      "decoded_betas_shape": [
+        1,
+        10
+      ]
+    },
+    {
+      "name": "middle_unobserved",
+      "seconds": 0.121535399928689,
+      "output_shape": [
+        1,
+        826
+      ],
+      "finite": true,
+      "velocity_rms": 1.8266985416412354,
+      "difference_rms_from_all_observed": 0.16864480078220367,
+      "decoded_parameter_shape": [
+        1,
+        16,
+        51
+      ],
+      "decoded_betas_shape": [
+        1,
+        10
+      ]
+    },
+    {
+      "name": "all_unobserved",
+      "seconds": 0.1259184000082314,
+      "output_shape": [
+        1,
+        826
+      ],
+      "finite": true,
+      "velocity_rms": 1.8293588161468506,
+      "difference_rms_from_all_observed": 0.4838601350784302,
+      "decoded_parameter_shape": [
+        1,
+        16,
+        51
+      ],
+      "decoded_betas_shape": [
+        1,
+        10
+      ]
+    }
+  ]
+}

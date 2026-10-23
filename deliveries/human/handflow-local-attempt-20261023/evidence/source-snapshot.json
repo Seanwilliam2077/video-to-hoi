@@ -1,0 +1,580 @@
+{
+  "recorded_at": "2026-10-23T12:42:02.985011+00:00",
+  "repositories": [
+    {
+      "directory": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\upstream-git",
+      "commit": "d0f429b6355058fcd4366fbde18ccbfd7c871628",
+      "materialized_file_count": 38,
+      "files": [
+        {
+          "path": ".gitignore",
+          "bytes": 710,
+          "sha256": "72b2ec1820dc595dd74c28878d6e84ad5c3343399de64ef044cb2a6319a053ae"
+        },
+        {
+          "path": ".gitmodules",
+          "bytes": 212,
+          "sha256": "0fc8ba9cd8af94bdcae81fdd47952fe46a2bcf8800d3e206d55dcf1677fd5a58"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1140,
+          "sha256": "3fe24a4b5274824f40cccb9bebcb254afe391422a83c5819b76fb1f186fcdb84"
+        },
+        {
+          "path": "README.md",
+          "bytes": 9017,
+          "sha256": "b23314225f846acb22f2ab0894ec399f4fdf135ccb4db79f9d67c04c5440e270"
+        },
+        {
+          "path": "configs/inference.yaml",
+          "bytes": 633,
+          "sha256": "f494246fa8a8a327619e01cd6f86efb16a8ea0c2df4045a009e2d86bfe0d397b"
+        },
+        {
+          "path": "configs/model.yaml",
+          "bytes": 846,
+          "sha256": "ea0910cad2d8008427a1af5522bda6b08638484c3129bcd57a7223f34b280b05"
+        },
+        {
+          "path": "model/__init__.py",
+          "bytes": 895,
+          "sha256": "caaf79870a4b1bb6d09926da31ba898c2f3d1830bebd15f3664c8c08eccd61ba"
+        },
+        {
+          "path": "model/feature_extractors/__init__.py",
+          "bytes": 44,
+          "sha256": "2d79f4833cee632156d4c05e410c2da00bb8dd12c9b67da994b8d8c6eec088f7"
+        },
+        {
+          "path": "model/feature_extractors/condition_builder.py",
+          "bytes": 2489,
+          "sha256": "f74a1033539a8c3297ba6e995fc9b03f4c1a24c5df7fed05b9486cf9fd0b5bdd"
+        },
+        {
+          "path": "model/feature_extractors/hamer_extractor.py",
+          "bytes": 3686,
+          "sha256": "d62d4601ab9630162be69ee2f37a1f9f448ec35c03d4b6769887fccd7f2a19cd"
+        },
+        {
+          "path": "model/feature_extractors/image_refiner.py",
+          "bytes": 12327,
+          "sha256": "637a874470a9f0a834c13b981ebf4885740c8300d2d5a222eb3417e1316bf726"
+        },
+        {
+          "path": "model/feature_extractors/skeleton_encoder.py",
+          "bytes": 3149,
+          "sha256": "7f00d6842f92b71b00f7743db2b0b8811266193de51ee16fcb61fcf7a32bed43"
+        },
+        {
+          "path": "model/flow_matching/__init__.py",
+          "bytes": 39,
+          "sha256": "8df86b8549efa52666326d6d020078bed4d2ce560982efee0cf253998ed51066"
+        },
+        {
+          "path": "model/flow_matching/denoiser.py",
+          "bytes": 14226,
+          "sha256": "8c4257d3f5165ac6e45164050c4aab044851c4319f193fa83e7ba5186402661f"
+        },
+        {
+          "path": "model/flow_matching/dualstream_transformer.py",
+          "bytes": 17149,
+          "sha256": "495cc1d5e191b57b819f80cbcab3df57614d53fa33ac4a06ee880b4576d958d1"
+        },
+        {
+          "path": "model/flow_matching/helpers/__init__.py",
+          "bytes": 553,
+          "sha256": "76183667090c43c7942ab0ddc2c6a18942dbe610cb812b000a3bfa4052401097"
+        },
+        {
+          "path": "model/flow_matching/helpers/model_wrapper.py",
+          "bytes": 1644,
+          "sha256": "d9216df3b14bf1ac815de95101297352a3d5219bfa8d715f48798d9e08778ded"
+        },
+        {
+          "path": "model/flow_matching/helpers/path.py",
+          "bytes": 5373,
+          "sha256": "b99b309d5e0606b758e78c38bd1b654650b390863ac7ed9fab70f92fb97ba666"
+        },
+        {
+          "path": "model/flow_matching/helpers/scheduler.py",
+          "bytes": 4924,
+          "sha256": "aaaa39466aa8d7457cf94e8354f9e1d6fb62fb23be839ebbdf55b0644ec5a8e8"
+        },
+        {
+          "path": "model/flow_matching/helpers/solver.py",
+          "bytes": 3379,
+          "sha256": "d48c90a27427acae9ff9eff173d72a3600fac7f1bcc5675b6269fa09c3bf49c3"
+        },
+        {
+          "path": "model/pose_embedding.py",
+          "bytes": 2041,
+          "sha256": "5dc278be580803343e929762c9fb9825e5476926b8d8c0b1d44c48bde251c80e"
+        },
+        {
+          "path": "preprocessing/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "preprocessing/hamer_crop_and_skeleton.py",
+          "bytes": 26363,
+          "sha256": "ad03a4357fb67cffdc7fb98c07b5f15cb0f834dec02714c9745fe60936f8ae01"
+        },
+        {
+          "path": "requirements.txt",
+          "bytes": 1081,
+          "sha256": "5b80b2e4cab24889db5b88a1390103ad73fd877abcc18730e3d21166a30a99e5"
+        },
+        {
+          "path": "scripts/demo.py",
+          "bytes": 13588,
+          "sha256": "798f071c37f90dea60a1870a5895f34e00969fc71f4e1aa021e2383572af643e"
+        },
+        {
+          "path": "setup_env.sh",
+          "bytes": 1951,
+          "sha256": "71f4fdf567aac281bf2dfd81792f40f714cb9f227e5d82029e87d683f5c2de49"
+        },
+        {
+          "path": "setup_vipe_env.sh",
+          "bytes": 1691,
+          "sha256": "cf4fa65ffbb8de38428c180d87f4627afa398e91f0fab974c7266a9538b51e96"
+        },
+        {
+          "path": "utils/__init__.py",
+          "bytes": 37,
+          "sha256": "c25d0be03716eba4484437ae347951d70ae638acbfc9066dd4879bccf7bf96c7"
+        },
+        {
+          "path": "utils/checkpoint_utils.py",
+          "bytes": 2563,
+          "sha256": "491e7307cefc9ca7ec468f8a2d91fcb78893adba30567139c721acb785c15160"
+        },
+        {
+          "path": "utils/dual_conf.py",
+          "bytes": 2820,
+          "sha256": "a696901552c2bc7a608c30d602551ab629dffd9c83644d09336a5bd93ae54a18"
+        },
+        {
+          "path": "utils/eval_utils.py",
+          "bytes": 20880,
+          "sha256": "9a4241c5f95c27c130f7774f6d319271dca159bd2b8b17160c45a6440d8192ce"
+        },
+        {
+          "path": "utils/inference_utils.py",
+          "bytes": 19518,
+          "sha256": "35c67b544574d06269e6c65b0bdea03e22bf7d72f509e172cd5b1ee63fc2b7ee"
+        },
+        {
+          "path": "utils/mano_utils.py",
+          "bytes": 5529,
+          "sha256": "3e67a6d5a46ba2b5503e9618b877c89c3b769067e1bca2c5fc060211058b4602"
+        },
+        {
+          "path": "utils/online_hamer.py",
+          "bytes": 18780,
+          "sha256": "27eb012f6c660a42dbdfa03ca5101faf3fa579dd7fe44b45fb63c731fbd076b4"
+        },
+        {
+          "path": "utils/vipe_worker.py",
+          "bytes": 7162,
+          "sha256": "2c9bd746255153a5396c450c22f24aa0df97704c724885133a854c7cfaa4fc48"
+        },
+        {
+          "path": "visualization/__init__.py",
+          "bytes": 328,
+          "sha256": "7549c773ff1832f09880e9bc164ac667f3dcc363a01101160b27e7766a7886cf"
+        },
+        {
+          "path": "visualization/renderer_p3d.py",
+          "bytes": 17437,
+          "sha256": "7867191edce9c09154f04213d9a752ade9969521c87e4a4032ae4b5c28dac7b6"
+        },
+        {
+          "path": "visualization/video_io.py",
+          "bytes": 1694,
+          "sha256": "836a46236c6114343474277af2ad1c30afd264d632ad0ffe03d11c6d669f596d"
+        }
+      ],
+      "bundled_demo_and_dataset_blobs_excluded_from_working_tree": true
+    },
+    {
+      "directory": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\hamer-source",
+      "commit": "3a01849f4148352e9260b69bf28b65d1671a4905",
+      "materialized_file_count": 54,
+      "files": [
+        {
+          "path": "README.md",
+          "bytes": 5862,
+          "sha256": "2259cd50c169f530142eef97b6fd2bf4b5a04d0115f91cf2ab775debc5615892"
+        },
+        {
+          "path": "hamer/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "hamer/configs/__init__.py",
+          "bytes": 3334,
+          "sha256": "c5f31900b8a577234afbbde38eb86d15940276219d494498a37685f110709455"
+        },
+        {
+          "path": "hamer/configs/cascade_mask_rcnn_vitdet_h_75ep.py",
+          "bytes": 4380,
+          "sha256": "14377e23242b4edb4903f73d24dd20c97478436b3720c28232c5a32a47de550b"
+        },
+        {
+          "path": "hamer/configs/datasets_eval.yaml",
+          "bytes": 2312,
+          "sha256": "c8f46369919fb5dcda8fee58638d45e6bfa9bb76ec50b09b9c015436351912b7"
+        },
+        {
+          "path": "hamer/configs/datasets_tar.yaml",
+          "bytes": 1484,
+          "sha256": "55c8c45ab119b10477848a60a030015400cb20104d2b565ab31954ac64ede98b"
+        },
+        {
+          "path": "hamer/configs_hydra/data/mix_all.yaml",
+          "bytes": 542,
+          "sha256": "164e5a38f5297200de69dfbdd4043021339b4d01133be502b6a5064084783dce"
+        },
+        {
+          "path": "hamer/configs_hydra/data_filtering/low1.yaml",
+          "bytes": 351,
+          "sha256": "d198e5bc96233d87a419a632665a3cbb3f3b9f6a1c9f3262c5b6f92e29ed8143"
+        },
+        {
+          "path": "hamer/configs_hydra/experiment/default.yaml",
+          "bytes": 604,
+          "sha256": "9f6f0edccc21cf187452c30f93512fed1a898f03a29bfa273ab25126a46f9f46"
+        },
+        {
+          "path": "hamer/configs_hydra/experiment/hamer_vit_transformer.yaml",
+          "bytes": 1030,
+          "sha256": "a3eda5dd1523eaf708dfaec09940c782a42fe8eb24596a202dcbd68a992e2fe6"
+        },
+        {
+          "path": "hamer/configs_hydra/extras/default.yaml",
+          "bytes": 240,
+          "sha256": "a24b213091633aa52cc9e5eab77a51c9f2b99cad10becc939396cb3c3c028ca3"
+        },
+        {
+          "path": "hamer/configs_hydra/hydra/default.yaml",
+          "bytes": 656,
+          "sha256": "b742cb8097f6de487a3c08f140bc5164282382f3d11ca0f6c770ea7ad094fc3a"
+        },
+        {
+          "path": "hamer/configs_hydra/launcher/local.yaml",
+          "bytes": 271,
+          "sha256": "9264c00f781d7f80cc43d6250ae56b50bd8fedcc12ffbb0669b48d031dec5e77"
+        },
+        {
+          "path": "hamer/configs_hydra/launcher/slurm.yaml",
+          "bytes": 513,
+          "sha256": "c89db3159b34bd8bf2e48239c0b11e6380f12efd366097fdf6ff2705690798cc"
+        },
+        {
+          "path": "hamer/configs_hydra/paths/default.yaml",
+          "bytes": 631,
+          "sha256": "44d5d9caea95148cd92379835a52763c379f77fff73e2fb297dfa9a6382cde4b"
+        },
+        {
+          "path": "hamer/configs_hydra/train.yaml",
+          "bytes": 1580,
+          "sha256": "a938a1f69debd24987e46de588ae307e8bb3794fe884702271f9536e3f977d6e"
+        },
+        {
+          "path": "hamer/configs_hydra/trainer/cpu.yaml",
+          "bytes": 85,
+          "sha256": "bc07c4623405252a4d70b59a6dfb17a2a5a6ace6095b0ae71040a0830f96ba32"
+        },
+        {
+          "path": "hamer/configs_hydra/trainer/ddp.yaml",
+          "bytes": 427,
+          "sha256": "6ed95a164010fe9422e53534ce3f4be0235874155f4ce19f9924f83dd879675c"
+        },
+        {
+          "path": "hamer/configs_hydra/trainer/default.yaml",
+          "bytes": 261,
+          "sha256": "fac3ffc1a4730f6bca63b4ddb9dd4447d98f1225beeef9aae0ad14b8ae08c7c1"
+        },
+        {
+          "path": "hamer/configs_hydra/trainer/default_hamer.yaml",
+          "bytes": 232,
+          "sha256": "23879c8e41d092689e29cc278590e07dedb1b4135e6a6e994f899a9ab06abf01"
+        },
+        {
+          "path": "hamer/configs_hydra/trainer/gpu.yaml",
+          "bytes": 85,
+          "sha256": "cdf36a27da89ed218c6e2fe71cba6db739dd4e2dd4fe99afdd5dbab19f9c34ad"
+        },
+        {
+          "path": "hamer/configs_hydra/trainer/mps.yaml",
+          "bytes": 85,
+          "sha256": "4a86edb0a8fd30a077f527cc985648ec5484b54468dba9f621b2c584dbca8457"
+        },
+        {
+          "path": "hamer/datasets/__init__.py",
+          "bytes": 3948,
+          "sha256": "7ab6e520971c5fd76d30fb636503c5585b44d131ccf70bfcb5386c9f3f27f928"
+        },
+        {
+          "path": "hamer/datasets/dataset.py",
+          "bytes": 685,
+          "sha256": "7c1db71ebe976ef88c0c7bc463406092880b94b94ca6324f2019991d7bccdf47"
+        },
+        {
+          "path": "hamer/datasets/image_dataset.py",
+          "bytes": 20322,
+          "sha256": "0b6c5ae532507a6f7d5f96890073cf965c0197d8f16bf3610cee695b09fcf3ae"
+        },
+        {
+          "path": "hamer/datasets/json_dataset.py",
+          "bytes": 9237,
+          "sha256": "c57cc64651db33170c26bdb2be0a6baab0a745ec301cc6a8c72b263f2735b7b4"
+        },
+        {
+          "path": "hamer/datasets/mocap_dataset.py",
+          "bytes": 822,
+          "sha256": "ca5ce5475a0199913070f66d0de80ceb9c06614ac31214038d632f8ef77bd60f"
+        },
+        {
+          "path": "hamer/datasets/utils.py",
+          "bytes": 44802,
+          "sha256": "b52e83a1ee08a65ebd52c0981b2615a64d87d78b9c1564579aa069bb087cf2fb"
+        },
+        {
+          "path": "hamer/datasets/vitdet_dataset.py",
+          "bytes": 3578,
+          "sha256": "4df039ddff9d8673356332091da642db669840544cd210e86203347d6c54e7d4"
+        },
+        {
+          "path": "hamer/models/__init__.py",
+          "bytes": 2209,
+          "sha256": "abfa8ffb8f8e50fdd29b06a331f7ebf6a8a4588fa6522f79d1551bfc9ab15d8b"
+        },
+        {
+          "path": "hamer/models/backbones/__init__.py",
+          "bytes": 200,
+          "sha256": "63e90f18063e27af8219a0b15e569db8fe303130546292da9c1635736383efc0"
+        },
+        {
+          "path": "hamer/models/backbones/vit.py",
+          "bytes": 12798,
+          "sha256": "cbb08aad4f46b0166eca54f4842f4b0d53db1fe155378b4c1feb59a15d4943c6"
+        },
+        {
+          "path": "hamer/models/components/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "hamer/models/components/pose_transformer.py",
+          "bytes": 11657,
+          "sha256": "e7c0711ec66fdaf4b0b21cf00860d03a6803823ed8968e171ecb0b001a39afd5"
+        },
+        {
+          "path": "hamer/models/components/t_cond_mlp.py",
+          "bytes": 6990,
+          "sha256": "a1e390ed7868596cf75fe04527e2ad6495e715464521db371d354399c25c1e36"
+        },
+        {
+          "path": "hamer/models/discriminator.py",
+          "bytes": 3747,
+          "sha256": "3b78591e52d4bb6eba8338b5042df4bf575ea2536710eeca65cb3ed3420fd781"
+        },
+        {
+          "path": "hamer/models/hamer.py",
+          "bytes": 16832,
+          "sha256": "01888ff92f5b91631f82edad26ebe8aac89d9e83d312ecc99d566b5593a3245f"
+        },
+        {
+          "path": "hamer/models/heads/__init__.py",
+          "bytes": 40,
+          "sha256": "ddd40e556e155267e1f29b94db408de322d1dfce7cd737e4aff9e1385ee70f6a"
+        },
+        {
+          "path": "hamer/models/heads/mano_head.py",
+          "bytes": 4990,
+          "sha256": "12e6a1a32fae78844b300544aa760bdf1d1bef47d58d0a1da4472aa0b6a7090b"
+        },
+        {
+          "path": "hamer/models/losses.py",
+          "bytes": 4040,
+          "sha256": "58dc6a313eb366b20430c26cad9f1bad8f03dfac6cdd3300241cd5d95d10065f"
+        },
+        {
+          "path": "hamer/models/mano_wrapper.py",
+          "bytes": 1914,
+          "sha256": "01351e1e39b6307c0ddcf948c6e16eb255746c621a2fcf821dbb3c1f1bf05381"
+        },
+        {
+          "path": "hamer/utils/__init__.py",
+          "bytes": 800,
+          "sha256": "13e89657027b352c01df9fc1b8241d8ca847dd7ac59e8fba15596b8e7483a1b6"
+        },
+        {
+          "path": "hamer/utils/download.py",
+          "bytes": 2356,
+          "sha256": "51dd39a83ef0303552d56539ebd8aec4e79f8002fa398bd6aa603182f40adf90"
+        },
+        {
+          "path": "hamer/utils/geometry.py",
+          "bytes": 4290,
+          "sha256": "eec1cafd6e6ecdb62710aafe6344c3887ca4c2336f705473bf9899fd33cc0e5b"
+        },
+        {
+          "path": "hamer/utils/mesh_renderer.py",
+          "bytes": 6976,
+          "sha256": "002dae82619961d8e39fe980a127d651c8a8572575ac9c33dd4c81ba390a7513"
+        },
+        {
+          "path": "hamer/utils/misc.py",
+          "bytes": 6543,
+          "sha256": "c4d672eb5a7842d413faa301ee906bda63cc4ff4c9bc3664ff3499d12cd27f10"
+        },
+        {
+          "path": "hamer/utils/pose_utils.py",
+          "bytes": 14766,
+          "sha256": "2ba41175f35d4fcbc251bfdc1b2c711c9ff12282acd11b7bb5d9f264ca115f99"
+        },
+        {
+          "path": "hamer/utils/pylogger.py",
+          "bytes": 625,
+          "sha256": "2ecd8a75f958bdf4bb6924f042de83aee3b8bb88086f087c186e0b8b3b403ae6"
+        },
+        {
+          "path": "hamer/utils/render_openpose.py",
+          "bytes": 9052,
+          "sha256": "ae448a984177f8364d76e02803011026b0db30042a046e970917215981fa574b"
+        },
+        {
+          "path": "hamer/utils/renderer.py",
+          "bytes": 16020,
+          "sha256": "5d9ac04fd8ebe2414fa79519d30ac6cbf4b0f68a0d453b6e78047e18f05edb27"
+        },
+        {
+          "path": "hamer/utils/rich_utils.py",
+          "bytes": 3425,
+          "sha256": "21d0eb4f214dba2789acb2741233318c7bb87042ffee3d6a5fd7e0e5f21c30c5"
+        },
+        {
+          "path": "hamer/utils/skeleton_renderer.py",
+          "bytes": 9233,
+          "sha256": "7afcd6cdee73e9266f17b44781c7494f8a69228ca2d152c1693ab39810811313"
+        },
+        {
+          "path": "hamer/utils/utils_detectron2.py",
+          "bytes": 3828,
+          "sha256": "91942078e33b14df4f362fadba92337624b4c3c4c7659d6bd4bf5936fca27dae"
+        },
+        {
+          "path": "setup.py",
+          "bytes": 919,
+          "sha256": "c14e8a14eb11b71a0dd1e0674c466cb396ab6b56eb66af3b4479178028089dbb"
+        }
+      ],
+      "bundled_demo_and_dataset_blobs_excluded_from_working_tree": true
+    },
+    {
+      "directory": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\manopth-source",
+      "commit": "4f1dcad1201ff1bfca6e065a85f0e3456e1aa32b",
+      "materialized_file_count": 18,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 35823,
+          "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+        },
+        {
+          "path": "README.md",
+          "bytes": 5497,
+          "sha256": "3e27b2c258bb8f52652d49f28ca5fac73a3038c513ad18c84415dbabb7604696"
+        },
+        {
+          "path": "mano/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "mano/webuser/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "mano/webuser/lbs.py",
+          "bytes": 2845,
+          "sha256": "2d0b736b525e1b3c09fc4b91a3931d826e21899eff5d18249f55215864bac94e"
+        },
+        {
+          "path": "mano/webuser/posemapper.py",
+          "bytes": 1583,
+          "sha256": "d89a16128ce7db1dd57aca2460f92a7b864f4c281a0917dfa9f6005de97a2609"
+        },
+        {
+          "path": "mano/webuser/serialization.py",
+          "bytes": 2954,
+          "sha256": "942762315d06bad3e4b57afd668f648163e3496c05edc27764c55375833b7912"
+        },
+        {
+          "path": "mano/webuser/smpl_handpca_wrapper_HAND_only.py",
+          "bytes": 5253,
+          "sha256": "602da3fe9a9edaf41f0c03bceff25e37f79888ca95694d34428c9cd8dfffa4b3"
+        },
+        {
+          "path": "mano/webuser/verts.py",
+          "bytes": 3547,
+          "sha256": "ae5658d8af884a0940ee136217d1fe0276d273460de58571dcca4796c2218c19"
+        },
+        {
+          "path": "manopth/__init__.py",
+          "bytes": 18,
+          "sha256": "b53f8ecfd2ae0451b7ea24fb6257964048f579da24feb8b2a9c39742f00fc15b"
+        },
+        {
+          "path": "manopth/argutils.py",
+          "bytes": 1857,
+          "sha256": "430f14ac8e7ddb3d6a73b7dc65c5dea5d168d5f1034cc4a1de8b4fbbdc061b35"
+        },
+        {
+          "path": "manopth/demo.py",
+          "bytes": 2159,
+          "sha256": "e7bb7beadb859f3433d428f839c209733cd6087dd70ffb68317760c125a28a3c"
+        },
+        {
+          "path": "manopth/manolayer.py",
+          "bytes": 12467,
+          "sha256": "09ef72065453eefa8c2ac6d71bf628c0c7aa6a59744e897ae1c7fafe19c159fb"
+        },
+        {
+          "path": "manopth/rodrigues_layer.py",
+          "bytes": 3009,
+          "sha256": "19d8b4bc32126d9e79ef3b77bc41543b5d5a816c1ff6772ebf1495e2bc5cfcfe"
+        },
+        {
+          "path": "manopth/rot6d.py",
+          "bytes": 2283,
+          "sha256": "38f1298b683094dac28407428e817700fb9a2b2dd2afba1b315274faae31245e"
+        },
+        {
+          "path": "manopth/rotproj.py",
+          "bytes": 774,
+          "sha256": "c085731f81e0186a3bfb96d8449d18a8fd53e40e278a5ec50fb2060426492146"
+        },
+        {
+          "path": "manopth/tensutils.py",
+          "bytes": 1388,
+          "sha256": "87297fb5695c4472e3760ab1ec91df40a4f94254de4d3a7ed81f2a585cbafae5"
+        },
+        {
+          "path": "setup.py",
+          "bytes": 1389,
+          "sha256": "0ea95aff418893a62fab9343db672193feb4f090281af52ff70c56bb1b0f1181"
+        }
+      ],
+      "standalone_mano_pkl_included": false
+    }
+  ],
+  "note": "Source-only sparse checkouts; submodules not recursively initialized. HandFlow third_party/hamer junction targets pinned hamer-source."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "blocked_missing_owner_authorized_MANO",
+  "full_video_inference_allowed": false,
+  "owner_confirmed_licensed_MANO_available": false,
+  "mano_files_loaded": false,
+  "checkpoint_embedded_MANO_buffers_used": false,
+  "next_step": "Owner obtains MANO authorization and supplies the permitted original MANO_LEFT.pkl and MANO_RIGHT.pkl files; review that authorization before enabling full geometry/inference."
+}

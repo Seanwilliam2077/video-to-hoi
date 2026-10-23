@@ -1,0 +1,488 @@
+{
+  "created_utc": "2026-10-23T12:38:50.871842+00:00",
+  "python": "3.11.16 (main, Sep 29 2026, 14:58:48) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Scripts\\python.exe",
+  "base_prefix": "J:\\video-to-hoi\\work\\human-runtime\\python\\cpython-3.11-windows-x86_64-none",
+  "isolated_site": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages",
+  "readonly_shared_site": "J:/video-to-hoi/work/human-runtime/venv/Lib/site-packages",
+  "upstream_source_unmodified": true,
+  "mano_instantiated": false,
+  "real_video_loaded": false,
+  "checks": [
+    {
+      "module": "torch",
+      "ok": true,
+      "seconds": 23.141841300064698,
+      "path": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages\\torch\\__init__.py"
+    },
+    {
+      "module": "torchvision",
+      "ok": true,
+      "seconds": 1.4417231999104843,
+      "path": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages\\torchvision\\__init__.py"
+    },
+    {
+      "module": "pytorch_lightning",
+      "ok": true,
+      "seconds": 1.5403080000542104,
+      "path": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages\\pytorch_lightning\\__init__.py"
+    },
+    {
+      "module": "timm",
+      "ok": true,
+      "seconds": 0.5143351999577135,
+      "path": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages\\timm\\__init__.py"
+    },
+    {
+      "module": "omegaconf",
+      "ok": true,
+      "seconds": 0.07755919999908656,
+      "path": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages\\omegaconf\\__init__.py"
+    },
+    {
+      "module": "smplx",
+      "ok": true,
+      "seconds": 0.008758699987083673,
+      "path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages\\smplx\\__init__.py"
+    },
+    {
+      "module": "pyrender",
+      "ok": true,
+      "seconds": 0.8594900999451056,
+      "path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages\\pyrender\\__init__.py"
+    },
+    {
+      "module": "skimage",
+      "ok": true,
+      "seconds": 0.0034332999493926764,
+      "path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages\\skimage\\__init__.py"
+    },
+    {
+      "module": "chumpy",
+      "ok": true,
+      "seconds": 0.014180300058797002,
+      "path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages\\chumpy\\__init__.py"
+    },
+    {
+      "module": "manopth.manolayer",
+      "ok": true,
+      "seconds": 0.006394599913619459,
+      "path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages\\manopth\\manolayer.py"
+    },
+    {
+      "module": "model.flow_matching.denoiser",
+      "ok": true,
+      "seconds": 0.039598100003786385,
+      "path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\upstream-git\\model\\flow_matching\\denoiser.py"
+    },
+    {
+      "module": "hamer.models",
+      "ok": true,
+      "seconds": 0.5327331000007689,
+      "path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\upstream-git\\third_party\\hamer\\hamer\\models\\__init__.py"
+    },
+    {
+      "module": "utils.online_hamer",
+      "ok": true,
+      "seconds": 0.003644699929282069,
+      "path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\upstream-git\\utils\\online_hamer.py"
+    }
+  ],
+  "torch": {
+    "version": "2.5.1+cu124",
+    "cuda_build": "12.4",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "gpu_free_total_bytes": [
+      9538895872,
+      10736893952
+    ],
+    "small_cuda_matmul_finite": true,
+    "shared_site_origin_verified": true
+  },
+  "packages": [
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.14.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "antlr4-python3-runtime",
+      "version": "4.9.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "braceexpand",
+      "version": "0.1.7",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "chumpy",
+      "version": "0.70",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "einops",
+      "version": "0.8.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "filelock",
+      "version": "4.0.7",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "freetype-py",
+      "version": "2.5.1",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.6.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.13.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httpx2",
+      "version": "2.13.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "huggingface_hub",
+      "version": "2.0.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "imageio",
+      "version": "2.37.0",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "imageio-ffmpeg",
+      "version": "0.6.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "lazy_loader",
+      "version": "0.4",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "lightning-utilities",
+      "version": "0.15.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "manopth",
+      "version": "0.0.1",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "multidict",
+      "version": "6.9.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "networkx",
+      "version": "3.6.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "opencv-python-headless",
+      "version": "4.11.0.86",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pillow",
+      "version": "11.1.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pip",
+      "version": "24.0",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.4",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "psutil",
+      "version": "7.0.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pyglet",
+      "version": "1.5.31",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "PyOpenGL",
+      "version": "3.1.0",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pyrender",
+      "version": "0.1.45",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pytorch-lightning",
+      "version": "2.5.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "roma",
+      "version": "1.5.4",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "scikit-image",
+      "version": "0.25.2",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "setuptools",
+      "version": "75.8.0",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "smplx",
+      "version": "0.1.28",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "sympy",
+      "version": "1.13.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "tifffile",
+      "version": "2025.3.30",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "timm",
+      "version": "1.0.20",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "torch",
+      "version": "2.5.1+cu124",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "torchdiffeq",
+      "version": "0.2.5",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "torchmetrics",
+      "version": "1.7.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.20.1+cu124",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "trimesh",
+      "version": "4.6.8",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.4",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "wheel",
+      "version": "0.45.1",
+      "location": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "yacs",
+      "version": "0.1.8",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "yarl",
+      "version": "1.25.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    }
+  ],
+  "license_preflight": {
+    "status": "blocked_missing_owner_authorized_MANO",
+    "full_video_inference_allowed": false,
+    "licensed_mano_models_found": false,
+    "reason": "Owner confirms no licensed MANO. No download, extraction, initialization, or use of MANO pkl or checkpoint-embedded MANO buffers is permitted."
+  },
+  "deviations": [
+    "Use existing Torch2.5.1+cu124 and torchvision0.20.1+cu124 instead of upstream2.7cu128; inference compatibility requires checkpoint/forward smoke.",
+    "No PyTorch3D, detectron2, ViPE, ultralytics demo stack, demo archives or model/data assets installed here.",
+    "Read-only base site-packages shared via .pth; added packages installed only into task-local venv.",
+    "Process-local inspect.getargspec alias and legacy NumPy scalar aliases support chumpy on Python3.11/NumPy1.26; PYOPENGL_PLATFORM=win32 avoids Linux EGL selection on Windows.",
+    "MANO class import is permitted; geometry/model construction remains blocked pending authorized model files."
+  ],
+  "import_success": true,
+  "source_pins": {
+    "upstream-git": {
+      "commit": "d0f429b6355058fcd4366fbde18ccbfd7c871628",
+      "tracked_files_unchanged": true
+    },
+    "hamer-source": {
+      "commit": "3a01849f4148352e9260b69bf28b65d1671a4905",
+      "tracked_files_unchanged": true
+    },
+    "manopth-source": {
+      "commit": "4f1dcad1201ff1bfca6e065a85f0e3456e1aa32b",
+      "tracked_files_unchanged": true
+    }
+  },
+  "pip_check": {
+    "passed": true,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\pip-check.log"
+  },
+  "source_shared_readonly_note": "Base environment package directory is referenced via .pth. No install/upgrade command targeted it; task-local pip installs used --no-deps. The OS directory was not chmod/write-protected.",
+  "command_receipt": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-commands.json",
+  "supplemental_install_command": {
+    "args": [
+      "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--disable-pip-version-check",
+      "--no-deps",
+      "torchdiffeq==0.2.5"
+    ],
+    "exit_code": 0,
+    "reason": "Upstream denoiser helper imports undeclared torchdiffeq dependency; preserved failed import receipt then rechecked all imports."
+  },
+  "full_inference_preflight": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\full-inference-preflight.json",
+  "temporal_smoke": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\temporal-smoke-receipt.json",
+  "files_sha256": {
+    "runtime_compat.py": "6c6b6e7017bb1946ca21c87f7692b6ea126e6b6b705cafbbf81d7cb7f3654e90",
+    "setup_environment.py": "7811c3a4ec0a6907899b70ffcdb6d955eb5d818230c7d6ee5c39b2620987d9e6",
+    "environment_stage2.py": "b9800e2cd124af4881f6927e0b8df66f2aa9ac0914703f5c9fbd796641550020",
+    "check_environment.py": "4d0eb102d61379f8f4a5f2d143cca21434b9c8d62c224c668791b95e312f741c",
+    "preflight_full_inference.py": "2118d55e33ac17006cb1c85a32db4c22241ec373fedc59a2a113f2dbb66bd2d4",
+    "smoke_temporal_denoiser.py": "26d9636914ed0436a3591450e1c86ebb807600665b9f110bb7215bf7d094fda9",
+    "temporal-smoke-receipt.json": "c4a41f18fdf86fe87f9718f5ba82eeb222b72b233578139cd544df2aeb2d8948"
+  }
+}

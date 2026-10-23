@@ -1,0 +1,69 @@
+{
+  "recorded_at": "2026-10-23T12:42:09.179677+00:00",
+  "assets": [
+    {
+      "repository": "mxxu00/HandFlow",
+      "revision": "3ca50e4afececc8a7bc361b74954c77307bd0a5f",
+      "path": "normalization_stats.npz",
+      "url": "https://huggingface.co/mxxu00/HandFlow/resolve/3ca50e4afececc8a7bc361b74954c77307bd0a5f/normalization_stats.npz",
+      "bytes": 2008,
+      "upstream_lfs_sha256": "7313334e6b9537fa57ec9763e83f36dfd4998e7d1de09aa3fb21c5bfca8e92c4",
+      "local_path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\weights\\handflow\\normalization_stats.npz",
+      "sha256": "7313334e6b9537fa57ec9763e83f36dfd4998e7d1de09aa3fb21c5bfca8e92c4",
+      "wall_seconds": 1.140999999945052,
+      "verified": true
+    },
+    {
+      "repository": "geopavlakos/HaMeR",
+      "revision": "aabc78ee4fd1f1ccf1a55fdd4225bf84df0e680a",
+      "path": "_DATA/hamer_ckpts/model_config.yaml",
+      "url": "https://huggingface.co/spaces/geopavlakos/HaMeR/resolve/aabc78ee4fd1f1ccf1a55fdd4225bf84df0e680a/_DATA/hamer_ckpts/model_config.yaml",
+      "bytes": 2084,
+      "upstream_lfs_sha256": null,
+      "local_path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\weights\\hamer\\_DATA\\hamer_ckpts\\model_config.yaml",
+      "sha256": "2217f6bcf27ae4c074e2a33a3409d822bbfd02931373deedb9f71287adeabe16",
+      "wall_seconds": 1.9679999999934807,
+      "verified": true
+    },
+    {
+      "repository": "geopavlakos/HaMeR",
+      "revision": "aabc78ee4fd1f1ccf1a55fdd4225bf84df0e680a",
+      "path": "_DATA/data/mano_mean_params.npz",
+      "url": "https://huggingface.co/spaces/geopavlakos/HaMeR/resolve/aabc78ee4fd1f1ccf1a55fdd4225bf84df0e680a/_DATA/data/mano_mean_params.npz",
+      "bytes": 1178,
+      "upstream_lfs_sha256": "efc0ec58e4a5cef78f3abfb4e8f91623b8950be9eff8b8e0dbb0d036ebc63988",
+      "local_path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\weights\\hamer\\_DATA\\data\\mano_mean_params.npz",
+      "sha256": "efc0ec58e4a5cef78f3abfb4e8f91623b8950be9eff8b8e0dbb0d036ebc63988",
+      "wall_seconds": 4.812999999965541,
+      "verified": true
+    },
+    {
+      "repository": "mxxu00/HandFlow",
+      "revision": "3ca50e4afececc8a7bc361b74954c77307bd0a5f",
+      "path": "handflow_denoiser.pt",
+      "url": "https://huggingface.co/mxxu00/HandFlow/resolve/3ca50e4afececc8a7bc361b74954c77307bd0a5f/handflow_denoiser.pt",
+      "bytes": 667907131,
+      "upstream_lfs_sha256": "2fbc4e1fa7a60f469a6ac94933a6e6dc8a86a0e1fc13bd7cd81c430c79acfcda",
+      "local_path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\weights\\handflow\\handflow_denoiser.pt",
+      "sha256": "2fbc4e1fa7a60f469a6ac94933a6e6dc8a86a0e1fc13bd7cd81c430c79acfcda",
+      "wall_seconds": 127.51599999994505,
+      "verified": true
+    },
+    {
+      "repository": "geopavlakos/HaMeR",
+      "revision": "aabc78ee4fd1f1ccf1a55fdd4225bf84df0e680a",
+      "path": "_DATA/hamer_ckpts/checkpoints/hamer.ckpt",
+      "url": "https://huggingface.co/spaces/geopavlakos/HaMeR/resolve/aabc78ee4fd1f1ccf1a55fdd4225bf84df0e680a/_DATA/hamer_ckpts/checkpoints/hamer.ckpt",
+      "bytes": 2689536166,
+      "upstream_lfs_sha256": "e5cc06f294d88a92dee24e603480aab04de532b49f0e08200804ee7d90e16f53",
+      "local_path": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\weights\\hamer\\_DATA\\hamer_ckpts\\checkpoints\\hamer.ckpt",
+      "sha256": "e5cc06f294d88a92dee24e603480aab04de532b49f0e08200804ee7d90e16f53",
+      "wall_seconds": 340.4530000000959,
+      "verified": true
+    }
+  ],
+  "failures": [],
+  "mano_models_downloaded": false,
+  "bundled_demo_or_dataset_downloaded": false,
+  "all30_execution_authorized": false
+}

@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-10-23T12:43:42.175726+00:00",
+  "status": "partial_deployment_complete_real_comparison_blocked",
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "track": 1,
+  "total_original_frames_for_future_comparison": 1237,
+  "import_checks_passed": 13,
+  "pip_check_passed": true,
+  "public_weight_assets_downloaded_verified": 5,
+  "public_weight_bytes": 3357448567,
+  "model_config_upstream_git_blob_verified": true,
+  "trained_temporal_nonbackbone_keys_matched": 504,
+  "synthetic_temporal_forward_passed": true,
+  "synthetic_inputs_only": true,
+  "real_video_inference_started": false,
+  "full_hamer_checkpoint_loaded": false,
+  "licensed_mano_models_available": false,
+  "standalone_mano_pkl_downloaded": false,
+  "checkpoint_embedded_mano_buffers_used": false,
+  "native_MHR_adapter_implemented": false,
+  "same_crop_adapter_implemented": false,
+  "comparison_videos_generated": false,
+  "quality_conclusion_available": false,
+  "all30_execution_authorized": false,
+  "all30_execution_started": false,
+  "previous_results_unchanged": true,
+  "next_required_input": "Owner obtains MANO authorization and supplies the official model directory. Existing authorization covers continuing local EP16/EP11 deployment and comparison after that input arrives."
+}

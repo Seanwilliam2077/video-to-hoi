@@ -1,0 +1,170 @@
+[
+  {
+    "label": "hamer-junction",
+    "args": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "New-Item -ItemType Junction -Path 'J:\\video-to-hoi\\work\\handflow-pilots-20261023\\upstream-git\\third_party\\hamer' -Target 'J:\\video-to-hoi\\work\\handflow-pilots-20261023\\hamer-source' | Out-Null"
+    ],
+    "cwd": null,
+    "start_utc": "2026-10-23T12:35:52.156003+00:00",
+    "exit_code": 0,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\hamer-junction.log"
+  },
+  {
+    "label": "manopth-clone",
+    "args": [
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "--no-checkout",
+      "https://github.com/hassony2/manopth.git",
+      "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\manopth-source"
+    ],
+    "cwd": null,
+    "start_utc": "2026-10-23T12:35:53.206525+00:00",
+    "exit_code": 0,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\manopth-clone.log"
+  },
+  {
+    "label": "manopth-sparse",
+    "args": [
+      "git",
+      "sparse-checkout",
+      "set",
+      "--no-cone",
+      "/manopth/",
+      "/setup.py",
+      "/requirements.txt",
+      "/LICENSE"
+    ],
+    "cwd": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\manopth-source",
+    "start_utc": "2026-10-23T12:35:54.835912+00:00",
+    "exit_code": 0,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\manopth-sparse.log"
+  },
+  {
+    "label": "manopth-pinned-checkout",
+    "args": [
+      "git",
+      "checkout",
+      "4f1dcad1201ff1bfca6e065a85f0e3456e1aa32b"
+    ],
+    "cwd": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\manopth-source",
+    "start_utc": "2026-10-23T12:35:54.926922+00:00",
+    "exit_code": 0,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\manopth-pinned-checkout.log"
+  },
+  {
+    "label": "pip-core",
+    "args": [
+      "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--disable-pip-version-check",
+      "--no-deps",
+      "smplx==0.1.28",
+      "pyrender==0.1.45",
+      "trimesh==4.6.8",
+      "scikit-image==0.25.2",
+      "imageio==2.37.0",
+      "pyglet==1.5.31",
+      "freetype-py==2.5.1",
+      "PyOpenGL==3.1.0",
+      "lazy-loader==0.4",
+      "tifffile==2025.3.30",
+      "six==1.17.0",
+      "setuptools==75.8.0",
+      "wheel==0.45.1"
+    ],
+    "cwd": null,
+    "start_utc": "2026-10-23T12:35:56.211713+00:00",
+    "exit_code": 0,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\pip-core.log"
+  },
+  {
+    "label": "pip-manopth",
+    "args": [
+      "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--disable-pip-version-check",
+      "--no-deps",
+      "--no-build-isolation",
+      "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\manopth-source"
+    ],
+    "cwd": null,
+    "start_utc": "2026-10-23T12:36:36.469093+00:00",
+    "exit_code": 1,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\pip-manopth.log"
+  },
+  {
+    "label": "manopth-sparse-code-readme",
+    "args": [
+      "git",
+      "sparse-checkout",
+      "set",
+      "--no-cone",
+      "/manopth/",
+      "/mano/",
+      "/setup.py",
+      "/README.md",
+      "/LICENSE"
+    ],
+    "cwd": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\manopth-source",
+    "time_utc": "2026-10-23T12:37:13.101798+00:00",
+    "exit_code": 0,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\manopth-sparse-code-readme.log"
+  },
+  {
+    "label": "pip-manopth-attempt02",
+    "args": [
+      "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--disable-pip-version-check",
+      "--no-deps",
+      "--no-build-isolation",
+      "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\manopth-source"
+    ],
+    "cwd": null,
+    "time_utc": "2026-10-23T12:38:01.224876+00:00",
+    "exit_code": 0,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\pip-manopth-attempt02.log"
+  },
+  {
+    "label": "pip-chumpy-attempt01",
+    "args": [
+      "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--disable-pip-version-check",
+      "--no-deps",
+      "--no-build-isolation",
+      "chumpy==0.70"
+    ],
+    "cwd": null,
+    "time_utc": "2026-10-23T12:38:05.448516+00:00",
+    "exit_code": 0,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\pip-chumpy-attempt01.log"
+  },
+  {
+    "label": "package-list",
+    "args": [
+      "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "list",
+      "--format=json"
+    ],
+    "cwd": null,
+    "time_utc": "2026-10-23T12:38:06.696279+00:00",
+    "exit_code": 0,
+    "log": "J:\\video-to-hoi\\work\\handflow-pilots-20261023\\environment-logs\\package-list.log"
+  }
+]

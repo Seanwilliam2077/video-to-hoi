@@ -1,0 +1,85 @@
+{
+  "episode": 11,
+  "checked_at": "2026-10-23T12:06:16.714769+00:00",
+  "videos": [
+    {
+      "file": "body/comparison.mp4",
+      "decoded_frames": 877,
+      "fps": 30.0,
+      "size": [
+        1440,
+        588
+      ],
+      "bytes": 2172224,
+      "sha256": "2a0aa0e7bda53c6802ac0947629f8fece962883754ddd800abfa711e5f4f70c7"
+    },
+    {
+      "file": "critical/slow-000140-000170.mp4",
+      "decoded_frames": 31,
+      "fps": 10.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 422404,
+      "sha256": "39cecf6b0f8775abcca80dc2a665d59ccc2ade2920b7e507ce938876eb2e76ab"
+    },
+    {
+      "file": "critical/slow-000390-000420.mp4",
+      "decoded_frames": 31,
+      "fps": 10.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 313697,
+      "sha256": "b4db418d9c3f40de3695acb2b12d83677d3e4784c3614f79f1e43b4fb244db1b"
+    },
+    {
+      "file": "critical/slow-000500-000535.mp4",
+      "decoded_frames": 36,
+      "fps": 10.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 560218,
+      "sha256": "a600f8d80dd8ef2eb83ad65d0c4d703272c1e98a4426b401ec90bb059d7bbc83"
+    },
+    {
+      "file": "critical/slow-000680-000850.mp4",
+      "decoded_frames": 171,
+      "fps": 10.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 2149392,
+      "sha256": "0f830ee3caf0d805d3c90d97339cfabac109ffbb129a2660036650aebd379e0b"
+    },
+    {
+      "file": "hands/hands-comparison.mp4",
+      "decoded_frames": 877,
+      "fps": 30.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 8136752,
+      "sha256": "2b4384e63e758795a9f135bba76c172f05f600c799b99803ecad69462bf4a599"
+    }
+  ],
+  "all_video_frame_counts_and_fps_match": true,
+  "all_local_html_links_exist": true,
+  "critical_png_count": 249,
+  "manually_inspected_original_frames": [
+    400,
+    511,
+    512,
+    800,
+    803
+  ],
+  "quality_accepted": false,
+  "scope": "Video integrity and review presentation, not reconstruction/contact accuracy",
+  "verification_helper_sha256": "65453256e82bf619875b885a56681113ab7153194c4afc7c87ca3d5f07491cc4"
+}

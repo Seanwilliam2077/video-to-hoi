@@ -1,0 +1,69 @@
+{
+  "status": "rendered_not_quality_accepted",
+  "episode": 11,
+  "started_at": "2026-10-23T11:53:28.905918+00:00",
+  "finished_at": "2026-10-23T12:05:36.269096+00:00",
+  "seconds": 727.329000000027,
+  "stages": [
+    {
+      "command": [
+        "J:\\video-to-hoi\\work\\human-runtime\\venv\\Scripts\\python.exe",
+        "-B",
+        "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\runtime03\\tools\\compare_human_hands.py",
+        "--video",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000011.mp4",
+        "--observations",
+        "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\observations\\attempt-0001\\observations.npz",
+        "--episode",
+        "11",
+        "--expected-frames",
+        "877",
+        "--size",
+        "256",
+        "--mesh-only",
+        "--output",
+        "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\review-attempt01\\hands",
+        "--variant",
+        "Delivered baseline=J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\baseline\\attempt-0001\\review_arrays",
+        "--variant",
+        "Previous rejected=J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\refined\\attempt-0002\\review_arrays",
+        "--variant",
+        "New candidate=J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\candidate01\\review_arrays"
+      ],
+      "started_at": "2026-10-23T11:53:28.905918+00:00",
+      "launcher_pid": 35088,
+      "pid": 68216,
+      "returncode": 0,
+      "finished_at": "2026-10-23T12:02:20.848122+00:00",
+      "seconds": 531.9220000000205
+    },
+    {
+      "command": [
+        "J:\\video-to-hoi\\work\\human-runtime\\venv\\Scripts\\python.exe",
+        "-B",
+        "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\runtime03\\tools\\review_human.py",
+        "--video",
+        "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000011.mp4",
+        "--predictions",
+        "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\candidate01\\review_arrays",
+        "--episode",
+        "11",
+        "--output",
+        "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\review-attempt01\\body",
+        "--panel-width",
+        "720",
+        "--title",
+        "Track 1 episode 11: new hand candidate, all original frames"
+      ],
+      "started_at": "2026-10-23T12:02:20.851137+00:00",
+      "launcher_pid": 35088,
+      "pid": 34424,
+      "returncode": 0,
+      "finished_at": "2026-10-23T12:05:21.111272+00:00",
+      "seconds": 180.25
+    }
+  ],
+  "frames": 877,
+  "report": "index.html",
+  "batch_approval_required": true
+}

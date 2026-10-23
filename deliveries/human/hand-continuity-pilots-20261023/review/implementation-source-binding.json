@@ -1,0 +1,23 @@
+{
+  "implementation_commit": "b8768fea0731c84a7dc21c8576481ba2899d49bf",
+  "critical_executed_sources": [
+    {
+      "path": "src/v2hoi/hand_refinement.py",
+      "git_blob_sha256": "eb0c2560f8ebbbbc6d2065f1d482b0c14c2b730d61bf97bb754d1ff326baa56f",
+      "runtime_sha256": "eb0c2560f8ebbbbc6d2065f1d482b0c14c2b730d61bf97bb754d1ff326baa56f",
+      "bytes_identical": true
+    },
+    {
+      "path": "tools/refine_human_hands.py",
+      "git_blob_sha256": "ed5daabe7b3448a5405590865f64ccfe9aee2410bc420b4063fc4f16dc9a8ff7",
+      "runtime_sha256": "ed5daabe7b3448a5405590865f64ccfe9aee2410bc420b4063fc4f16dc9a8ff7",
+      "bytes_identical": true
+    },
+    {
+      "path": "tools/evaluate_human_hand_pilots.py",
+      "git_blob_sha256": "11f77eb336c4be64b37ae8be3e572e59efb6f6561c957e99216214457781ef8d",
+      "runtime_sha256": "11f77eb336c4be64b37ae8be3e572e59efb6f6561c957e99216214457781ef8d",
+      "bytes_identical": true
+    }
+  ]
+}

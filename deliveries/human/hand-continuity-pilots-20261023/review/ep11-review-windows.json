@@ -1,0 +1,26 @@
+{
+  "track": 1,
+  "episode": 11,
+  "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+  "interpretation": "Manual review intervals only; never used to create fit targets or phase constraints",
+  "windows": [
+    {
+      "first_original_frame_id": 280,
+      "last_original_frame_id": 340,
+      "side": "both",
+      "label": "Manual source review: table interaction; broad interval, not ground-truth phase"
+    },
+    {
+      "first_original_frame_id": 480,
+      "last_original_frame_id": 620,
+      "side": "both",
+      "label": "Manual source review: hand/table overlap and detector dropouts; broad interval, not ground-truth occlusion labels"
+    },
+    {
+      "first_original_frame_id": 680,
+      "last_original_frame_id": 850,
+      "side": "both",
+      "label": "Manual source review: grasp and table tipping; broad interval, not ground-truth phase"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "started_at_utc": "2026-10-23T11:41:36.788925+00:00",
+  "completed_at_utc": "2026-10-23T11:41:56.736481+00:00",
+  "command": "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe -B J:/video-to-hoi/work/human-hand-pilots-20261023/verify-focused-runtime03.py",
+  "environment": {
+    "python_executable": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Scripts\\python.exe",
+    "python_version": "3.11.16 (main, Sep 29 2026, 14:58:48) [MSC v.1944 64 bit (AMD64)]",
+    "torch_version": "2.5.1+cu124",
+    "torch_threads": 1,
+    "pytest_version": "9.1.1",
+    "pytest_module": "J:\\video-to-hoi/.venv/Lib/site-packages\\pytest\\__init__.py",
+    "pytest_existing_site": "J:/video-to-hoi/.venv/Lib/site-packages",
+    "no_install": true,
+    "note": "Existing runtime Python/Torch and existing development pytest are reused read-only. No package installation, model/data loading, or environment changes."
+  },
+  "explicit_workflow_test_files": [
+    "tests/test_hand_refinement.py",
+    "tests/test_hand_contact.py",
+    "tests/test_human_result.py"
+  ],
+  "pytest_arguments": [
+    "-q",
+    "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi\\tests\\test_hand_refinement.py",
+    "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi\\tests\\test_hand_contact.py",
+    "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi\\tests\\test_human_result.py"
+  ],
+  "exit_code": 0,
+  "passed_tests": 97,
+  "source_sha256_before": {
+    "src/v2hoi/hand_refinement.py": "eb0c2560f8ebbbbc6d2065f1d482b0c14c2b730d61bf97bb754d1ff326baa56f",
+    "tools/refine_human_hands.py": "ed5daabe7b3448a5405590865f64ccfe9aee2410bc420b4063fc4f16dc9a8ff7",
+    "tests/test_hand_refinement.py": "3e55b8c3f8ac3a89327bc3cd72e629f08b255e17d2c1186d6ad429c7e387ae12",
+    "tests/test_hand_contact.py": "d231387f020f0204cbe18aff511f87ea9e8fac7095de48c901581d53093a9464",
+    "tests/test_human_result.py": "2b701d2964bb2a6105de018f476483ba2197f64ca462a6e1f2202a95e7161f99"
+  },
+  "source_sha256_after": {
+    "src/v2hoi/hand_refinement.py": "eb0c2560f8ebbbbc6d2065f1d482b0c14c2b730d61bf97bb754d1ff326baa56f",
+    "tools/refine_human_hands.py": "ed5daabe7b3448a5405590865f64ccfe9aee2410bc420b4063fc4f16dc9a8ff7",
+    "tests/test_hand_refinement.py": "3e55b8c3f8ac3a89327bc3cd72e629f08b255e17d2c1186d6ad429c7e387ae12",
+    "tests/test_hand_contact.py": "d231387f020f0204cbe18aff511f87ea9e8fac7095de48c901581d53093a9464",
+    "tests/test_human_result.py": "2b701d2964bb2a6105de018f476483ba2197f64ca462a6e1f2202a95e7161f99"
+  },
+  "source_files_unchanged_during_tests": true,
+  "frozen_runtime03_core_sha256": {
+    "src/v2hoi/hand_refinement.py": "eb0c2560f8ebbbbc6d2065f1d482b0c14c2b730d61bf97bb754d1ff326baa56f",
+    "tools/refine_human_hands.py": "ed5daabe7b3448a5405590865f64ccfe9aee2410bc420b4063fc4f16dc9a8ff7"
+  },
+  "runtime03_core_matches_worktree": true,
+  "log": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\focused-hand-tests-runtime03.log",
+  "log_sha256": "c9f8ede7bb072047b5a49d28cab4655626373696c3552fd33f78b52f031c3ed2",
+  "scope": "Independent synthetic fixtures only, no Track 1 or Track 2 challenge assets or reference scores. Tests establish software behavior, not reconstruction quality.",
+  "new_behavior_checked": [
+    "Bounded missing-frame correction collar with exact distant baseline preservation",
+    "Original image positive-weight support unchanged",
+    "Independent heldout targets excluded, including safety fraction 0.2",
+    "Observed fast articulation retained with safety fraction 0.2",
+    "Fast initializer motion during missing evidence remains present",
+    "Zero retained updates explicitly reported as stall/abstention"
+  ]
+}

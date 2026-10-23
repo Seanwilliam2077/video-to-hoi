@@ -1,0 +1,103 @@
+{
+  "all_verified_bindings_unchanged": true,
+  "bindings": [
+    {
+      "episode": 16,
+      "role": "current_result",
+      "sha256": "51bff72812bf098a717a49495964998ece20262aeea2d13f2edc32cdf6e5a61c",
+      "unchanged": true
+    },
+    {
+      "episode": 16,
+      "role": "baseline",
+      "sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777",
+      "unchanged": true
+    },
+    {
+      "episode": 16,
+      "role": "old_candidate",
+      "sha256": "46e94b8aa05e88fd85cc175d00ecd67af77b52c1ec4ee0cee686faa557309aa0",
+      "unchanged": true
+    },
+    {
+      "episode": 16,
+      "role": "observations",
+      "sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7",
+      "unchanged": true
+    },
+    {
+      "episode": 16,
+      "role": "manifest",
+      "sha256": "115ba62f458f632f037ef9347fad2c0181d92f5f27b70a2970c30a92b465c66d",
+      "unchanged": true
+    },
+    {
+      "episode": 16,
+      "role": "old_checks",
+      "sha256": "8bb595f7f09e7fc67d3ced9893ee686dbd58667330fcce5f84faaedbfe598fb8",
+      "unchanged": true
+    },
+    {
+      "episode": 16,
+      "role": "old_active_hands",
+      "sha256": "bac9ea06e1d296ec6403fa9d10e9d9073e717161abc09e2a6e3986fa5ca397cb",
+      "unchanged": true
+    },
+    {
+      "episode": 16,
+      "role": "old_report",
+      "sha256": "54ee534e8ec1e87e346bbba0bbe49b99877040fbb64df76092c49d00ac7e8337",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "current_result",
+      "sha256": "ee3592982bc873fbeb7b52d9be074cfab9a40c4d8c6ad82b01e6533b6afed5b9",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "baseline",
+      "sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "old_candidate",
+      "sha256": "76ce0f840c4f354fd2d2fadc67c0d5af892e8b8e28e6d9099d7c3aec8503e49c",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "observations",
+      "sha256": "9445a68b84436caaf6fef82f3aa1c1a9e60d0809717ccfeb395461bce63857e3",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "manifest",
+      "sha256": "42f53498d1d84f8288a7e2a14ec6fa9b4458d788a9eaaf0493cbc40ffb0642dd",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "old_checks",
+      "sha256": "a11f8ad7a4719f669934b089524d24be0d36186cc1d87497f531a8f281e97401",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "old_active_hands",
+      "sha256": "ce926878282d7526b3707b21a9533cc3c50557c4df9272c2f0f0fdc07f090137",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "old_report",
+      "sha256": "840971e0ae214414059d5f05074e10553af3d1ff726d195de0c129b5b1025454",
+      "unchanged": true
+    }
+  ],
+  "previous_release_mutation_performed": false,
+  "catalog_or_selected_result_changed": false
+}

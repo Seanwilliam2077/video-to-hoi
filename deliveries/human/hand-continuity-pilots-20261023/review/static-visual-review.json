@@ -1,0 +1,82 @@
+{
+  "schema_version": "human_hand_pilot_static_visual_review.v1",
+  "recorded_at": "2026-10-23T12:09:02.349460+00:00",
+  "reviewer": "Codex root and independent pilot runtime audit agent",
+  "review_kind": "Sampled static comparison frames plus manual source contact sheets; not continuous manual video playback",
+  "comparison_samples": [
+    {
+      "episode": 16,
+      "original_frame_id": 110,
+      "image_path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000016\\review-attempt01\\hands\\frames\\000110.jpg",
+      "sha256": "4e6ddd7937a5a4704f1acf3c67f3aebc9e77f41cff6a6572c6d5f04728537179"
+    },
+    {
+      "episode": 16,
+      "original_frame_id": 120,
+      "image_path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000016\\review-attempt01\\critical\\frame-000120.png",
+      "sha256": "91358d52afbed327d40ec4e6bd512be77ba040e2062a19e04900237628e7ad0c"
+    },
+    {
+      "episode": 16,
+      "original_frame_id": 285,
+      "image_path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000016\\review-attempt01\\critical\\frame-000285.png",
+      "sha256": "715050d50b04dbca8f8575565b9cfa93512f600de9461e81c8128fc5cdb35d6b"
+    },
+    {
+      "episode": 16,
+      "original_frame_id": 286,
+      "image_path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000016\\review-attempt01\\hands\\frames\\000286.jpg",
+      "sha256": "158b64b0bd0e2066be156ffbcc78693875684c3ac0be82d18ebddf16d93ffd6c"
+    },
+    {
+      "episode": 11,
+      "original_frame_id": 400,
+      "image_path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\review-attempt01\\critical\\frame-000400.png",
+      "sha256": "ff47ea673ca54d5e208a0d559dc35247fc56700616ac00da9f8ffadf783b323a"
+    },
+    {
+      "episode": 11,
+      "original_frame_id": 511,
+      "image_path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\review-attempt01\\hands\\frames\\000511.jpg",
+      "sha256": "fb50db30266824d33e291fdb131e24225094522cb20b9225a3d3531894881e4f"
+    },
+    {
+      "episode": 11,
+      "original_frame_id": 512,
+      "image_path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\review-attempt01\\critical\\frame-000512.png",
+      "sha256": "72ae5f5127a4f5df8939acb1f27b90de35e0ef21bef5c3284f2c8d1c606fb175"
+    },
+    {
+      "episode": 11,
+      "original_frame_id": 800,
+      "image_path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\review-attempt01\\critical\\frame-000800.png",
+      "sha256": "74817acba29d0dd154995a5a2a7a73dc87fea6d09265a3b8533f65b197590259"
+    },
+    {
+      "episode": 11,
+      "original_frame_id": 803,
+      "image_path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\review-attempt01\\hands\\frames\\000803.jpg",
+      "sha256": "458d5a10752ce7dadefa425a63488759df0de2b9ee89ae7719ecc8391d30aeea"
+    }
+  ],
+  "source_review_contact_sheets": [
+    "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\ep16-source-review.jpg",
+    "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\ep11-source-review.jpg"
+  ],
+  "findings": [
+    "Five synchronized columns and anatomical hand rows are correctly labelled in inspected samples.",
+    "Missing independent observations are explicitly displayed, including EP16 left110 andEP11 right511/left803.",
+    "EP11 frame803 retains a visible hand-pose mismatch; reduced transition correction does not recover a verified hidden grasp.",
+    "Meshes overdraw objects without object-depth compositing; physical penetration/contact cannot be inferred from this rendering."
+  ],
+  "automated_browser_playback": {
+    "status": "not_completed",
+    "reason": "Browser security policy rejected automatic local-file page opening; allowed browser protocols are HTTP and HTTPS. No alternate local browser surface was used."
+  },
+  "complete_video_decode_evidence": [
+    "ep16-video-qa.json",
+    "ep11-video-qa.json"
+  ],
+  "reconstruction_quality_accepted": false,
+  "all30_execution_authorized": false
+}

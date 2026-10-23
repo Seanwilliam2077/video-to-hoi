@@ -1,0 +1,73 @@
+{
+  "episode": 16,
+  "command": [
+    "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+    "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\runtime03\\tools\\evaluate_human_hand_pilots.py",
+    "--baseline",
+    "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001",
+    "--old-candidate",
+    "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined\\attempt-0003",
+    "--candidate",
+    "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000016\\candidate01",
+    "--observations",
+    "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\observations\\attempt-0001\\observations.npz",
+    "--manifest",
+    "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\manifest.json",
+    "--model",
+    "J:/video-to-hoi/weights/human/mhr_model.pt",
+    "--output",
+    "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000016\\evaluation01.json",
+    "--device",
+    "cpu",
+    "--threads",
+    "1",
+    "--model-batch",
+    "8",
+    "--review-windows",
+    "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\ep16-review-windows.json"
+  ],
+  "cwd": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\runtime03",
+  "log": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\ep16-evaluation01.log",
+  "input_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\current-result.json",
+      "sha256": "51bff72812bf098a717a49495964998ece20262aeea2d13f2edc32cdf6e5a61c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz",
+      "sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined\\attempt-0003\\episode_000016_human.npz",
+      "sha256": "46e94b8aa05e88fd85cc175d00ecd67af77b52c1ec4ee0cee686faa557309aa0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\observations\\attempt-0001\\observations.npz",
+      "sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\manifest.json",
+      "sha256": "115ba62f458f632f037ef9347fad2c0181d92f5f27b70a2970c30a92b465c66d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\checks\\attempt-0003\\checks.json",
+      "sha256": "8bb595f7f09e7fc67d3ced9893ee686dbd58667330fcce5f84faaedbfe598fb8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined\\attempt-0003\\active_hands.npy",
+      "sha256": "bac9ea06e1d296ec6403fa9d10e9d9073e717161abc09e2a6e3986fa5ca397cb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined\\attempt-0003\\report.json",
+      "sha256": "54ee534e8ec1e87e346bbba0bbe49b99877040fbb64df76092c49d00ac7e8337"
+    }
+  ],
+  "automatic_promotion": false,
+  "all30_execution_authorized": false,
+  "pid": 82632,
+  "launcher_pid": 109620,
+  "started_at": "2026-10-23T11:47:14.140450+00:00",
+  "returncode": 0,
+  "wall_seconds": 69.96900000004098,
+  "finished_at": "2026-10-23T11:48:24.101152+00:00"
+}

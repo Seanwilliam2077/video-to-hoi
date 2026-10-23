@@ -1,0 +1,19 @@
+{
+  "archives": [
+    {
+      "episode": 11,
+      "members_verified": 38,
+      "archive_sha256": "96822a49b2ff298684b1308a4cebb6073d08ea4d98617fbf0e7ee48acf1c347b",
+      "model_weights_or_source_videos_included": false,
+      "manifest_valid": true
+    },
+    {
+      "episode": 16,
+      "members_verified": 36,
+      "archive_sha256": "da9de7c8b0b7b11e03b89bd050a7fa2ee47167035f3585fd6de99245c6d5bf39",
+      "model_weights_or_source_videos_included": false,
+      "manifest_valid": true
+    }
+  ],
+  "passed": true
+}

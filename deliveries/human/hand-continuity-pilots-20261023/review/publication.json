@@ -1,0 +1,306 @@
+{
+  "schema_version": "human_hand_pilot_publication.v1",
+  "passed": true,
+  "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/human-hand-pilots-20261023",
+  "tag": "human-hand-pilots-20261023",
+  "implementation_commit": "b8768fea0731c84a7dc21c8576481ba2899d49bf",
+  "manifest_sha256": "2f5c68eaa251be98890b1328c7dac5daf206cfb87ba697d4cc8f96a522e4b73d",
+  "assets": [
+    {
+      "name": "human-hand-pilots-20261023-ep11-body-comparison.mp4",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-body-comparison.mp4",
+      "bytes": 2172224,
+      "sha256": "2a0aa0e7bda53c6802ac0947629f8fece962883754ddd800abfa711e5f4f70c7",
+      "content_type": "video/mp4",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-body-comparison.mp4",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-body-comparison.mp4.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-body-comparison.mp4.sha256",
+      "bytes": 119,
+      "sha256": "6fe5dd4e4aa1c2eb531466be1b0241c72f987f6eee9038d8222291076ec54bf2",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-body-comparison.mp4.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-candidate.npz",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-candidate.npz",
+      "bytes": 475584,
+      "sha256": "b4636fcf9170789d047379266b6e68c237aa28667e5ca843acba8605c6b6bfa4",
+      "content_type": "application/octet-stream",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-candidate.npz",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-candidate.npz.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-candidate.npz.sha256",
+      "bytes": 113,
+      "sha256": "7dbcc87e92ddaa7059398168b076dc9f7c9dd47fe626f752b0383cc02fd5cf42",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-candidate.npz.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-evaluation.json",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-evaluation.json",
+      "bytes": 7466807,
+      "sha256": "93aacc5b971d1c83e2d883dcf3b68550c18114ed2c138b37f5cd12afde319bc4",
+      "content_type": "application/json",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-evaluation.json",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-evaluation.json.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-evaluation.json.sha256",
+      "bytes": 115,
+      "sha256": "5c577962beb90a6811bacc7abe9ea074e08e19fc3734951fb36c5b0e46f14cf3",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-evaluation.json.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-hands-comparison.mp4",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-hands-comparison.mp4",
+      "bytes": 8136752,
+      "sha256": "2b4384e63e758795a9f135bba76c172f05f600c799b99803ecad69462bf4a599",
+      "content_type": "video/mp4",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-hands-comparison.mp4",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-hands-comparison.mp4.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-hands-comparison.mp4.sha256",
+      "bytes": 120,
+      "sha256": "6019fd53aecbc8f7de0c0d2d74e4dfc467c407486dc4ac71db1bc4c49ca31202",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-hands-comparison.mp4.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-review-summary.json",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-review-summary.json",
+      "bytes": 735467,
+      "sha256": "0a3d0404de77ce53cd7806de8cfd4ce4f9837d5b4e49c7cd8fc6c20384ca6d30",
+      "content_type": "application/json",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-review-summary.json",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-review-summary.json.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-review-summary.json.sha256",
+      "bytes": 119,
+      "sha256": "f2e22fbbf5f4d29c9befc26fb3972beeaf99c27c664febbcebee63c10505ddeb",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-review-summary.json.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-review.zip",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-review.zip",
+      "bytes": 28444067,
+      "sha256": "96822a49b2ff298684b1308a4cebb6073d08ea4d98617fbf0e7ee48acf1c347b",
+      "content_type": "application/zip",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-review.zip",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-review.zip.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-review.zip.sha256",
+      "bytes": 110,
+      "sha256": "7b8b73eb5cf1808392c658753d4a4e56ef9f704e48376def8736e5a18d8101b0",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-review.zip.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-sample.png",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-sample.png",
+      "bytes": 747068,
+      "sha256": "d24f432d3ff4fa5296ddb34298c7f9474b1ceaaa0727a9e46efb0f9335c2548d",
+      "content_type": "image/png",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-sample.png",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-sample.png.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-sample.png.sha256",
+      "bytes": 110,
+      "sha256": "d08bc37586d2d467a91e1a3cac9d19099af71b25ad2241ce8b7bcb018a1d01a2",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-sample.png.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-transition-slow.mp4",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-transition-slow.mp4",
+      "bytes": 2149392,
+      "sha256": "0f830ee3caf0d805d3c90d97339cfabac109ffbb129a2660036650aebd379e0b",
+      "content_type": "video/mp4",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-transition-slow.mp4",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep11-transition-slow.mp4.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep11-transition-slow.mp4.sha256",
+      "bytes": 119,
+      "sha256": "d1f7d20acfeb8b1673d605e36f4fede64ada15add52d461a659940c829db2733",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep11-transition-slow.mp4.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-body-comparison.mp4",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-body-comparison.mp4",
+      "bytes": 601417,
+      "sha256": "8d082af1ccb16aebf9d528e33304dc292a00707d23289e6c3950aa58937ba337",
+      "content_type": "video/mp4",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-body-comparison.mp4",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-body-comparison.mp4.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-body-comparison.mp4.sha256",
+      "bytes": 119,
+      "sha256": "3a7f0caf51e768b03fe735264991089a301225e51a3fe48c0c7d9f1d83fe5754",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-body-comparison.mp4.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-candidate.npz",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-candidate.npz",
+      "bytes": 203170,
+      "sha256": "1d2ddb221b673285ff5ca6eadab66cce174a318f4b329bb990d45f37df3281b8",
+      "content_type": "application/octet-stream",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-candidate.npz",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-candidate.npz.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-candidate.npz.sha256",
+      "bytes": 113,
+      "sha256": "137562743f67ff53352ba3986ee7952da4cd49b3f15936e1a939d5b75f5eb236",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-candidate.npz.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-evaluation.json",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-evaluation.json",
+      "bytes": 3038565,
+      "sha256": "205eee07345f4f798d5509e54af0ec1cb75d6f4d6f4aa080fb693b9b3be130ae",
+      "content_type": "application/json",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-evaluation.json",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-evaluation.json.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-evaluation.json.sha256",
+      "bytes": 115,
+      "sha256": "5a1dc21fb2538273979f73ec4da0100da6b7fd5d680e361b7a3147de5d10da29",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-evaluation.json.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-hands-comparison.mp4",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-hands-comparison.mp4",
+      "bytes": 3008660,
+      "sha256": "a2f5a856dc438bd0f06e5dec910d9669d299bb967491425953991a8cc8662cfa",
+      "content_type": "video/mp4",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-hands-comparison.mp4",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-hands-comparison.mp4.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-hands-comparison.mp4.sha256",
+      "bytes": 120,
+      "sha256": "fc4ac6afc4d81544800125c45d84c0631076cc5cfad65f6cdc65f4edf6899385",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-hands-comparison.mp4.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-review-summary.json",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-review-summary.json",
+      "bytes": 269395,
+      "sha256": "82427bf75d150073443f6b0870a966a571aba215137dd44ae47746804b72cd7c",
+      "content_type": "application/json",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-review-summary.json",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-review-summary.json.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-review-summary.json.sha256",
+      "bytes": 119,
+      "sha256": "9eed9030a43dfc7b5e067132c91883a7337d710670f533dbc79eca732d84baf5",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-review-summary.json.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-review.zip",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-review.zip",
+      "bytes": 21296192,
+      "sha256": "da9de7c8b0b7b11e03b89bd050a7fa2ee47167035f3585fd6de99245c6d5bf39",
+      "content_type": "application/zip",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-review.zip",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-review.zip.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-review.zip.sha256",
+      "bytes": 110,
+      "sha256": "116e2710bcc737f26b45a03e4251cf014d5b4edde8119b3474359d6e6bedc30d",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-review.zip.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-sample.png",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-sample.png",
+      "bytes": 900139,
+      "sha256": "51b5884c354cd7e253e188147a3cebdf9c7e3e19e4cec41a8b40b7ea4c2bbbfb",
+      "content_type": "image/png",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-sample.png",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-sample.png.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-sample.png.sha256",
+      "bytes": 110,
+      "sha256": "2c9c24a5c9c5892580baa18e396636c6c9c8853c78517d1a8b6a26478b192f8e",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-sample.png.sha256",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-transition-slow.mp4",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-transition-slow.mp4",
+      "bytes": 424255,
+      "sha256": "d79e0772eb46773baa59ed2c5f32ddec71768638a126780062e12175dd012f9f",
+      "content_type": "video/mp4",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-transition-slow.mp4",
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "human-hand-pilots-20261023-ep16-transition-slow.mp4.sha256",
+      "path": "J:\\video-to-hoi\\work\\human-hand-pilots-20261023\\publication\\human-hand-pilots-20261023-ep16-transition-slow.mp4.sha256",
+      "bytes": 119,
+      "sha256": "23814618474ff36d61b9f8bfeec3dd9abd042916edf484936e264ae8088fe0af",
+      "content_type": "text/plain",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/human-hand-pilots-20261023/human-hand-pilots-20261023-ep16-transition-slow.mp4.sha256",
+      "anonymous_download_verified": true
+    }
+  ],
+  "authorized_episodes": [
+    11,
+    16
+  ],
+  "all30_execution_authorized": false,
+  "automatic_candidate_promotion": false,
+  "reconstruction_quality_accepted": false,
+  "original_release_untouched": "sam-mediapipe-20261021"
+}

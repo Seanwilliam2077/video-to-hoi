@@ -1,0 +1,80 @@
+{
+  "episode": 16,
+  "checked_at": "2026-10-23T11:53:23.570565+00:00",
+  "videos": [
+    {
+      "file": "body/comparison.mp4",
+      "decoded_frames": 360,
+      "fps": 30.0,
+      "size": [
+        1440,
+        588
+      ],
+      "bytes": 601417,
+      "sha256": "8d082af1ccb16aebf9d528e33304dc292a00707d23289e6c3950aa58937ba337"
+    },
+    {
+      "file": "critical/slow-000035-000105.mp4",
+      "decoded_frames": 71,
+      "fps": 10.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 910751,
+      "sha256": "ac29e29e60d6c55f7da2cb71b509f037a5955b44503b95f541a68ea6963a127e"
+    },
+    {
+      "file": "critical/slow-000175-000218.mp4",
+      "decoded_frames": 44,
+      "fps": 10.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 640206,
+      "sha256": "45e572c9cb1b307a5e62658c4b7ea96a29b6f1b9026b1b0abe028cdae421fca3"
+    },
+    {
+      "file": "critical/slow-000270-000305.mp4",
+      "decoded_frames": 36,
+      "fps": 10.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 424255,
+      "sha256": "d79e0772eb46773baa59ed2c5f32ddec71768638a126780062e12175dd012f9f"
+    },
+    {
+      "file": "critical/slow-000300-000330.mp4",
+      "decoded_frames": 31,
+      "fps": 10.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 306712,
+      "sha256": "e93ac723d475194fd30e42eb782dba9fb004a9f711cec9917c91ec86328a126f"
+    },
+    {
+      "file": "hands/hands-comparison.mp4",
+      "decoded_frames": 360,
+      "fps": 30.0,
+      "size": [
+        1280,
+        636
+      ],
+      "bytes": 3008660,
+      "sha256": "a2f5a856dc438bd0f06e5dec910d9669d299bb967491425953991a8cc8662cfa"
+    }
+  ],
+  "all_video_frame_counts_and_fps_match": true,
+  "critical_png_count": 65,
+  "manually_inspected_original_frames": [
+    120,
+    285
+  ],
+  "manual_layout_review": "Readable five source/evidence/baseline/old/new columns, same anatomical rows and source images; missing left-hand evidence explicitly shown at frame 120. This review verifies comparison presentation, not reconstruction accuracy or contact.",
+  "quality_accepted": false
+}

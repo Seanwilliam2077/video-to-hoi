@@ -6,7 +6,7 @@ import pytest
 
 from v2hoi.hand_refinement import (
     HAND_JOINTS, HandFitConfig, hand_diagnostics, observation_motion_gate,
-    refine_hands, supported_frames, validate_observations,
+    refine_hands, supported_frames, support_transition_envelope, validate_observations,
 )
 
 
@@ -24,6 +24,10 @@ def observations(frames=12):
     {"optimize_wrist_chain": "yes"}, {"arm_delta_limit_radians": 0},
     {"wrist_max_displacement_metres": float("nan")},
     {"finger_update_temporal_weight": -1},
+    {"support_transition_frames": -1}, {"support_transition_frames": True},
+    {"support_transition_frames": 2.5}, {"correction_velocity_budget_weight": -1},
+    {"correction_budget_safety_fraction": 0}, {"correction_budget_safety_fraction": 1.1},
+    {"correction_budget_safety_fraction": float("nan")},
 ])
 def test_invalid_configuration_rejected(change):
     with pytest.raises(ValueError):
@@ -73,6 +77,17 @@ def test_partial_or_wristless_observations_do_not_activate_a_hand():
     obs["confidence"][0, :, 0] = 0
     obs["confidence"][1, :, 5:] = 0
     assert not supported_frames(obs["confidence"], HandFitConfig()).any()
+
+
+def test_transition_collar_is_bounded_side_specific_and_adds_no_observations():
+    support = np.zeros((9, 2), dtype=bool)
+    support[4, 0] = True
+    before = support.copy()
+    envelope = support_transition_envelope(support, 2)
+    np.testing.assert_allclose(envelope[:, 0], [0, 0, .25, .75, 1, .75, .25, 0, 0])
+    assert not envelope[:, 1].any()
+    np.testing.assert_array_equal(support, before)
+    np.testing.assert_array_equal(support_transition_envelope(support, 0), support)
 
 
 def test_motion_gate_ignores_translation_but_retains_observed_articulation():
@@ -192,7 +207,10 @@ def test_added_finger_correction_is_continuous_at_sparse_support_boundary_withou
     assert boundaries[0]["observed_mean_wrist_relative_step_px"] is None
 
 
-def test_independently_observed_fast_articulation_is_retained_by_correction_gate():
+@pytest.mark.parametrize("extra", [{}, {"support_transition_frames": 3, "correction_velocity_budget_weight": 1},
+                                   {"support_transition_frames": 3, "correction_velocity_budget_weight": 1,
+                                    "correction_budget_safety_fraction": .2}])
+def test_independently_observed_fast_articulation_is_retained_by_correction_gate(extra):
     torch, baseline, obs, k, _ = _synthetic_problem()
 
     def forward(pose, scales):
@@ -208,8 +226,8 @@ def test_independently_observed_fast_articulation_is_retained_by_correction_gate
     with torch.no_grad():
         xyz = forward(target, None).numpy()
     obs["joints2d"] = (xyz @ k.T)[..., :2] / xyz[..., 2:]
-    config = HandFitConfig(iterations=130, holdout_stride=0, pose_prior_weight=0,
-                           acceleration_weight=0, velocity_weight=0, finger_update_temporal_weight=.08)
+    config = HandFitConfig(iterations=600, learning_rate=.003, holdout_stride=0, pose_prior_weight=0,
+                           acceleration_weight=0, velocity_weight=0, finger_update_temporal_weight=.08, **extra)
     fitted = refine_hands(baseline, obs, k, forward, config=config, log=lambda _: None)
     step = (fitted["pose"][6, 68:88] - fitted["pose"][5, 68:88]).mean()
     assert step > .5
@@ -230,6 +248,106 @@ def test_boundary_report_uses_full_observations_only_for_postfit_velocity_eviden
     assert first["baseline_mean_velocity_vector_discrepancy_px"] == pytest.approx(0)
     assert first["candidate_mean_velocity_vector_discrepancy_px"] > 0
     assert not fitted["optimization_weights"][0].any()
+
+
+def test_collar_connects_missing_frames_but_preserves_distant_baseline_and_original_checks():
+    _, baseline, obs, k, forward = _synthetic_problem()
+    obs["confidence"][:] = 0
+    obs["confidence"][4:8, 1] = 1
+    config = HandFitConfig(iterations=100, holdout_stride=0, max_gap_frames=0,
+                           support_transition_frames=2, acceleration_weight=0,
+                           pose_prior_weight=0, velocity_weight=0)
+    fitted = refine_hands(baseline, obs, k, forward, config=config, log=lambda _: None)
+    assert fitted["pose"][3, 68:88].mean() > .01
+    assert not fitted["optimization_weights"][:4].any()
+    assert not fitted["optimization_weights"][8:].any()
+    np.testing.assert_array_equal(fitted["pose"][:2], baseline["pose"][:2])
+    np.testing.assert_array_equal(fitted["pose"][10:], baseline["pose"][10:])
+    np.testing.assert_array_equal(fitted["pose"][:, 95:122], baseline["pose"][:, 95:122])
+    original = fitted["report"]["original_support_boundary_motion"]["boundaries"]
+    expanded = fitted["report"]["support_boundary_motion"]["boundaries"]
+    assert [row["from_original_frame_id"] for row in original] == [3, 7]
+    assert [row["from_original_frame_id"] for row in expanded] == [1, 9]
+    assert fitted["report"]["after"]["right"]["weighted_wrist_relative_reprojection_pixels"] < fitted["report"]["before"]["right"]["weighted_wrist_relative_reprojection_pixels"]
+
+
+def test_correction_budget_reduces_unknown_boundary_jump_without_freezing_evidence():
+    _, baseline, obs, k, forward = _synthetic_problem()
+    obs["confidence"][:] = 0
+    obs["confidence"][4:9, 1] = 1
+    config = HandFitConfig(iterations=150, holdout_stride=0, max_gap_frames=0,
+                           acceleration_weight=0, pose_prior_weight=0, velocity_weight=0,
+                           finger_update_temporal_weight=0)
+    uncontrolled = refine_hands(baseline, obs, k, forward, config=config, log=lambda _: None)
+    controlled = refine_hands(baseline, obs, k, forward,
+                             config=replace(config, correction_velocity_budget_weight=2), log=lambda _: None)
+    first = uncontrolled["report"]["support_boundary_motion"]["boundaries"][0]
+    second = controlled["report"]["support_boundary_motion"]["boundaries"][0]
+    assert second["correction_only_mean_wrist_relative_step_px"] < first["correction_only_mean_wrist_relative_step_px"] * .5
+    assert controlled["report"]["after"]["right"]["weighted_wrist_relative_reprojection_pixels"] < controlled["report"]["before"]["right"]["weighted_wrist_relative_reprojection_pixels"]
+
+
+def test_collar_and_budget_never_fit_heldout_image_targets():
+    _, baseline, obs, k, forward = _synthetic_problem()
+    obs["confidence"][3:7, 0] = 0
+    config = HandFitConfig(iterations=15, holdout_stride=3, support_transition_frames=3,
+                           correction_velocity_budget_weight=1, correction_budget_safety_fraction=.2)
+    first = refine_hands(baseline, obs, k, forward, config=config, log=lambda _: None)
+    obs["joints2d"][::3] += 10000
+    obs["confidence"][::3] *= .5
+    second = refine_hands(baseline, obs, k, forward, config=config, log=lambda _: None)
+    np.testing.assert_array_equal(first["pose"], second["pose"])
+    np.testing.assert_array_equal(first["support_transition_envelope"], second["support_transition_envelope"])
+
+
+def test_hidden_fast_initializer_motion_survives_correction_only_transition_prior():
+    torch, baseline, obs, k, forward = _synthetic_problem()
+    baseline["pose"][6:, 68:95] = .6
+    target = torch.tensor(baseline["pose"])
+    target[:, 68:95] += .2
+    with torch.no_grad():
+        xyz = forward(target, None).numpy()
+    obs["joints2d"] = (xyz @ k.T)[..., :2] / xyz[..., 2:]
+    obs["confidence"][:] = 0
+    obs["confidence"][[2, 3, 4, 8, 9], 1] = 1
+    config = HandFitConfig(iterations=400, learning_rate=.003, holdout_stride=0,
+                           max_gap_frames=0, support_transition_frames=3,
+                           correction_velocity_budget_weight=1, correction_budget_safety_fraction=.2)
+    fitted = refine_hands(baseline, obs, k, forward, config=config, log=lambda _: None)
+    assert not fitted["optimization_weights"][5:8].any()
+    # The new regularizer limits added correction motion, rather than falsely
+    # inferring a stationary hand during the gap and flattening the fast motion.
+    step = (fitted["pose"][6, 68:88] - fitted["pose"][5, 68:88]).mean()
+    assert step > .55
+    assert fitted["report"]["after"]["right"]["weighted_wrist_relative_reprojection_pixels"] < fitted["report"]["before"]["right"]["weighted_wrist_relative_reprojection_pixels"]
+
+
+def test_collar_does_not_admit_partial_image_observations_outside_original_support():
+    _, baseline, obs, k, forward = _synthetic_problem()
+    obs["confidence"][:] = 0
+    obs["confidence"][4:8, 1] = 1
+    obs["confidence"][3, 1, :4] = 1  # Too few fingers for the original support.
+    config = HandFitConfig(iterations=5, holdout_stride=0, max_gap_frames=0)
+    original = refine_hands(baseline, obs, k, forward, config=config, log=lambda _: None)
+    collar = refine_hands(baseline, obs, k, forward,
+                         config=replace(config, support_transition_frames=2), log=lambda _: None)
+    assert collar["active_hands"][3, 1]
+    assert not collar["original_active_hands"][3, 1]
+    np.testing.assert_array_equal(collar["optimization_weights"], original["optimization_weights"])
+    assert not collar["optimization_weights"][3].any()
+
+
+def test_retaining_zero_update_is_explicitly_reported_as_stall_not_refinement_success():
+    _, baseline, obs, k, forward = _synthetic_problem()
+    obs["confidence"][:] = 0
+    obs["confidence"][4:9, 1] = 1
+    config = HandFitConfig(iterations=1, holdout_stride=0, max_gap_frames=0,
+                           learning_rate=.65, correction_velocity_budget_weight=100)
+    fitted = refine_hands(baseline, obs, k, forward, config=config, log=lambda _: None)
+    progress = fitted["report"]["optimization_progress"]
+    assert progress["retained_zero_update"] is True
+    assert progress["objective_improvement"] == 0
+    assert "not successful" in progress["interpretation"]
 
 
 def test_coupled_arm_updates_obey_control_and_wrist_trust_region_bounds():

@@ -34,6 +34,8 @@ def main() -> None:
     parser.add_argument("--model", type=Path, default=ROOT / "weights/human/mhr_model.pt")
     parser.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
     parser.add_argument("--iterations", type=int, default=180)
+    parser.add_argument("--learning-rate", type=float, default=0.025,
+                        help="Adam learning rate; small native-geometry budget probes may require a lower value")
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument("--model-batch", type=int, default=8)
     parser.add_argument("--holdout-stride", type=int, default=5)
@@ -47,6 +49,12 @@ def main() -> None:
     parser.add_argument("--wrist-max-displacement-metres", type=float, default=0.04)
     parser.add_argument("--arm-update-temporal-weight", type=float, default=0.08)
     parser.add_argument("--finger-update-temporal-weight", type=float, default=0.08)
+    parser.add_argument("--support-transition-frames", type=int, default=0,
+                        help="Opt-in bounded correction collar around image support; adds no image targets")
+    parser.add_argument("--correction-velocity-budget-weight", type=float, default=0.0,
+                        help="Opt-in existing-budget loss on additional correction motion; independent checks still required")
+    parser.add_argument("--correction-budget-safety-fraction", type=float, default=1.0,
+                        help="Internal training-budget fraction in (0,1]; tightens priors without changing independent checks")
     parser.add_argument("--spatial-acceleration-weight", type=float, default=0.0)
     parser.add_argument("--motion-phases", type=Path)
     parser.add_argument("--contact-object", type=Path)
@@ -94,7 +102,7 @@ def main() -> None:
     if args.contact_object or args.motion_phases:
         source_paths.append(ROOT / "src/v2hoi/hand_contact.py")
     source_files = {str(path.relative_to(ROOT)).replace("\\", "/"): path.read_bytes() for path in source_paths}
-    config = HandFitConfig(iterations=args.iterations, holdout_stride=args.holdout_stride,
+    config = HandFitConfig(iterations=args.iterations, learning_rate=args.learning_rate, holdout_stride=args.holdout_stride,
                            unobserved_policy=args.unobserved_policy, acceleration_weight=args.acceleration_weight,
                            pose_prior_weight=args.pose_prior_weight, max_delta_radians=args.max_delta_radians,
                            relative_weight=args.relative_weight, optimize_wrist_chain=args.optimize_wrist_chain,
@@ -102,6 +110,9 @@ def main() -> None:
                            wrist_max_displacement_metres=args.wrist_max_displacement_metres,
                            arm_update_temporal_weight=args.arm_update_temporal_weight,
                            finger_update_temporal_weight=args.finger_update_temporal_weight,
+                           support_transition_frames=args.support_transition_frames,
+                           correction_velocity_budget_weight=args.correction_velocity_budget_weight,
+                           correction_budget_safety_fraction=args.correction_budget_safety_fraction,
                            spatial_acceleration_weight=args.spatial_acceleration_weight)
     config.validate()
     hands = NativeMHRHands(str(args.model), device=args.device)
@@ -192,6 +203,8 @@ def main() -> None:
     np.save(args.output / "hand_projected.npy", fitted["hand_projected"])
     np.save(args.output / "hand_joints_m.npy", fitted["hand_joints_m"])
     np.save(args.output / "active_hands.npy", fitted["active_hands"])
+    np.save(args.output / "original_active_hands.npy", fitted["original_active_hands"])
+    np.save(args.output / "support_transition_envelope.npy", fitted["support_transition_envelope"])
     np.save(args.output / "optimization_weights.npy", fitted["optimization_weights"])
     if contact is not None:
         np.save(args.output / "contact_phase_weights.npy", contact.weights)

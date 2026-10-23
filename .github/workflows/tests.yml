@@ -37,6 +37,7 @@ jobs:
           tests/test_run.py
           tests/test_human_result.py
           tests/test_hand_refinement.py
+          tests/test_human_hand_pilots.py
           tests/test_hand_contact.py
           tests/test_review_human.py
           tests/test_human_runtime_assets.py

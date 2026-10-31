@@ -1,0 +1,52 @@
+{
+  "recorded_at": "2026-10-31T08:28:18.367104+00:00",
+  "actual_original_frame_ids": [
+    "000000",
+    "000108",
+    "000109",
+    "000110",
+    "000111",
+    "000112",
+    "000283",
+    "000284",
+    "000285",
+    "000286",
+    "000287"
+  ],
+  "checks": [
+    {
+      "side": "left",
+      "projection_roundtrip_max_pixels": 4.396472879537131e-05,
+      "positive_depth_all": true,
+      "orthogonality_max_abs": 3.5762786865234375e-07,
+      "determinant_min": 0.9999996423721313,
+      "presence_range": [
+        0.9806709289550781,
+        0.9997170567512512
+      ],
+      "sigma_range": [
+        0.24239513278007507,
+        0.9950813055038452
+      ]
+    },
+    {
+      "side": "right",
+      "projection_roundtrip_max_pixels": 4.329682293893638e-05,
+      "positive_depth_all": true,
+      "orthogonality_max_abs": 3.874301910400391e-06,
+      "determinant_min": 0.9999954700469971,
+      "presence_range": [
+        0.9478999972343445,
+        0.9996920824050903
+      ],
+      "sigma_range": [
+        0.40153202414512634,
+        0.9973604083061218
+      ]
+    }
+  ],
+  "same_estimated_camera": true,
+  "mirroring_inverse_projection_verified": true,
+  "geometry_accuracy_or_occlusion_labels_verified": false,
+  "full_sequence_coverage": false
+}

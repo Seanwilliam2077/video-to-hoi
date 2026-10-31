@@ -1,0 +1,7318 @@
+{
+  "started_at": "2026-10-31T08:26:39.682355+00:00",
+  "episode": 16,
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "source_frames": 360,
+  "frames": 360,
+  "complete_source_coverage": true,
+  "selected_original_frame_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241,
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251,
+    252,
+    253,
+    254,
+    255,
+    256,
+    257,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267,
+    268,
+    269,
+    270,
+    271,
+    272,
+    273,
+    274,
+    275,
+    276,
+    277,
+    278,
+    279,
+    280,
+    281,
+    282,
+    283,
+    284,
+    285,
+    286,
+    287,
+    288,
+    289,
+    290,
+    291,
+    292,
+    293,
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    335,
+    336,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343,
+    344,
+    345,
+    346,
+    347,
+    348,
+    349,
+    350,
+    351,
+    352,
+    353,
+    354,
+    355,
+    356,
+    357,
+    358,
+    359
+  ],
+  "same_original_camera": true,
+  "camera_estimated_not_calibrated": true,
+  "same_crop_bounds": true,
+  "perspective_cropping": false,
+  "pixel_aspect_rectification": false,
+  "box_expansion": false,
+  "upstream_commit": "9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9",
+  "runner_sha256": "9cbfdd91c492da8d54f661d02f3cfba567e09ec6206ff477b4f2a36eac75770b",
+  "checkpoint_sha256": "f940ecb6e3b73d5bd9e562cff232550e1c072f6c063eb4f705951122b15d8a75",
+  "device": "cpu",
+  "dtype": "float32",
+  "threads": 12,
+  "batch_size": 8,
+  "frame_chunk_size": 8,
+  "all30_execution_started": false,
+  "status": "completed",
+  "input_bindings": {
+    "track": 1,
+    "episode": 16,
+    "frames": 360,
+    "fps": 30.0,
+    "video": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+    "video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+    "manifest": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\manifest.json",
+    "manifest_sha256": "115ba62f458f632f037ef9347fad2c0181d92f5f27b70a2970c30a92b465c66d",
+    "camera": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\inputs\\cameras\\episode_000016.json",
+    "camera_sha256": "4c50ff6e28dd2b9fd1c2d1b536470c6b5395521825376cf35151c8a6c16bf0df",
+    "camera_estimated_not_calibrated": true,
+    "original_observations": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\observations\\attempt-0001\\observations.npz",
+    "original_observations_sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7",
+    "saved_boxes": [
+      {
+        "side": "left",
+        "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\inputs\\bboxes\\episode_000016\\episode_000016_left_bbox.json",
+        "sha256": "d8d0a034e11ac6267ceefdbcdcd4945c4df89f9cfe6f7eac09b32a25dc970e7a"
+      },
+      {
+        "side": "right",
+        "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\inputs\\bboxes\\episode_000016\\episode_000016_right_bbox.json",
+        "sha256": "8cb678ee344e98cdbb72aec76394cd3a2facba27e59c3a566a57f8178afeba57"
+      }
+    ],
+    "crop_policy": "Every original MediaPipe input box, including zero-accepted-landmark frames; not hand-visibility labels",
+    "mediapipe_candidate": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000016\\candidate01\\episode_000016_human.npz",
+    "mediapipe_candidate_sha256": "1d2ddb221b673285ff5ca6eadab66cce174a318f4b329bb990d45f37df3281b8",
+    "baseline": {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz",
+      "sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777"
+    },
+    "original_bindings": {
+      "current_result": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\current-result.json",
+        "sha256": "51bff72812bf098a717a49495964998ece20262aeea2d13f2edc32cdf6e5a61c"
+      },
+      "baseline": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz",
+        "sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777"
+      },
+      "old_candidate": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined\\attempt-0003\\episode_000016_human.npz",
+        "sha256": "46e94b8aa05e88fd85cc175d00ecd67af77b52c1ec4ee0cee686faa557309aa0"
+      },
+      "observations": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\observations\\attempt-0001\\observations.npz",
+        "sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7"
+      },
+      "manifest": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\manifest.json",
+        "sha256": "115ba62f458f632f037ef9347fad2c0181d92f5f27b70a2970c30a92b465c66d"
+      },
+      "old_checks": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\checks\\attempt-0003\\checks.json",
+        "sha256": "8bb595f7f09e7fc67d3ced9893ee686dbd58667330fcce5f84faaedbfe598fb8"
+      },
+      "old_active_hands": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined\\attempt-0003\\active_hands.npy",
+        "sha256": "bac9ea06e1d296ec6403fa9d10e9d9073e717161abc09e2a6e3986fa5ca397cb"
+      },
+      "old_report": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined\\attempt-0003\\report.json",
+        "sha256": "54ee534e8ec1e87e346bbba0bbe49b99877040fbb64df76092c49d00ac7e8337"
+      }
+    }
+  },
+  "model_load": {
+    "state_keys": 817,
+    "missing_geometry_keys": [
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.face_expressions_model.shape_vectors",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.0.sparse_indices",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.0.sparse_weight",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.2.weight",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.skeleton.joint_translation_offsets",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.skeleton.joint_prerotations",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.skeleton.pmi",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.skeleton.joint_parents",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.mesh.rest_vertices",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.mesh.faces",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.mesh.texcoords",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.mesh.texcoord_faces",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_transform.parameter_transform",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_transform.pose_parameters",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_transform.rigid_parameters",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_transform.scaling_parameters",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.linear_blend_skinning.inverse_bind_pose",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.linear_blend_skinning.skin_indices_flattened",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.linear_blend_skinning.skin_weights_flattened",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.linear_blend_skinning.vert_indices_flattened",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_min",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_max",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_weight",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_parameter_index",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_index",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_min",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_max",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_weight",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_refidx",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_targetidx",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_scale",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_offset",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_weight",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_range_min",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_range_max",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_refidx",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_targetidx",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_scale",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_offset",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_weight",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_range_min",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_range_max",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_param1_idx",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_param2_idx",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_normal",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_offset",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_weight",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_parent",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid_parent",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_offset",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid_inv",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_weight",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.blend_shape.shape_vectors",
+      "soma_hand.hand_left.module.identity_model._mhr_model.module.character_torch.blend_shape.base_shape",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.face_expressions_model.shape_vectors",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.0.sparse_indices",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.0.sparse_weight",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.2.weight",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.skeleton.joint_translation_offsets",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.skeleton.joint_prerotations",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.skeleton.pmi",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.skeleton.joint_parents",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.mesh.rest_vertices",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.mesh.faces",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.mesh.texcoords",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.mesh.texcoord_faces",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_transform.parameter_transform",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_transform.pose_parameters",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_transform.rigid_parameters",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_transform.scaling_parameters",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.linear_blend_skinning.inverse_bind_pose",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.linear_blend_skinning.skin_indices_flattened",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.linear_blend_skinning.skin_weights_flattened",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.linear_blend_skinning.vert_indices_flattened",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_min",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_max",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_weight",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_parameter_index",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_index",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_min",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_max",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_weight",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_refidx",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_targetidx",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_scale",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_offset",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_weight",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_range_min",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_range_max",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_refidx",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_targetidx",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_scale",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_offset",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_weight",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_range_min",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_range_max",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_param1_idx",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_param2_idx",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_normal",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_offset",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_weight",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_parent",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid_parent",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_offset",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid_inv",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_weight",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.blend_shape.shape_vectors",
+      "soma_hand.hand_right.module.identity_model._mhr_model.module.character_torch.blend_shape.base_shape",
+      "soma_hand.left.identity_model._mhr_model.module.face_expressions_model.shape_vectors",
+      "soma_hand.left.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.0.sparse_indices",
+      "soma_hand.left.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.0.sparse_weight",
+      "soma_hand.left.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.2.weight",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.skeleton.joint_translation_offsets",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.skeleton.joint_prerotations",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.skeleton.pmi",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.skeleton.joint_parents",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.mesh.rest_vertices",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.mesh.faces",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.mesh.texcoords",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.mesh.texcoord_faces",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_transform.parameter_transform",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_transform.pose_parameters",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_transform.rigid_parameters",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_transform.scaling_parameters",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.linear_blend_skinning.inverse_bind_pose",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.linear_blend_skinning.skin_indices_flattened",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.linear_blend_skinning.skin_weights_flattened",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.linear_blend_skinning.vert_indices_flattened",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_min",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_max",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_weight",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_parameter_index",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_index",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_min",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_max",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_weight",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_refidx",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_targetidx",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_scale",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_offset",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_weight",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_range_min",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_range_max",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_refidx",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_targetidx",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_scale",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_offset",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_weight",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_range_min",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_range_max",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_param1_idx",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_param2_idx",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_normal",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_offset",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_weight",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_parent",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid_parent",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_offset",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid_inv",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_weight",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.blend_shape.shape_vectors",
+      "soma_hand.left.identity_model._mhr_model.module.character_torch.blend_shape.base_shape",
+      "soma_hand.right.identity_model._mhr_model.module.face_expressions_model.shape_vectors",
+      "soma_hand.right.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.0.sparse_indices",
+      "soma_hand.right.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.0.sparse_weight",
+      "soma_hand.right.identity_model._mhr_model.module.pose_correctives_model.pose_dirs_predictor.2.weight",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.skeleton.joint_translation_offsets",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.skeleton.joint_prerotations",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.skeleton.pmi",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.skeleton.joint_parents",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.mesh.rest_vertices",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.mesh.faces",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.mesh.texcoords",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.mesh.texcoord_faces",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_transform.parameter_transform",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_transform.pose_parameters",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_transform.rigid_parameters",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_transform.scaling_parameters",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.linear_blend_skinning.inverse_bind_pose",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.linear_blend_skinning.skin_indices_flattened",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.linear_blend_skinning.skin_weights_flattened",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.linear_blend_skinning.vert_indices_flattened",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_min",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_max",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_weight",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.minmax_parameter_index",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_index",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_min",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_max",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.minmaxjoint_weight",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_refidx",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_targetidx",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_scale",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_offset",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_weight",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_range_min",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_range_max",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_refidx",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_targetidx",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_scale",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_offset",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_weight",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_range_min",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.linear_joint_range_max",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_param1_idx",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_param2_idx",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_normal",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_offset",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.halfplane_weight",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_parent",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid_parent",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_offset",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_ellipsoid_inv",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.parameter_limits.ellipsoid_weight",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.blend_shape.shape_vectors",
+      "soma_hand.right.identity_model._mhr_model.module.character_torch.blend_shape.base_shape"
+    ],
+    "missing_learned_keys": [],
+    "unexpected_keys": [],
+    "camera_mode": "sam3db_perspective",
+    "soma_hand_identity": "mhr",
+    "checkpoint_cfg": {
+      "_target_": "egohand.models.egohand.EgoHand",
+      "backbone_weights": null,
+      "backbone": {
+        "_target_": "egohand.models.backbones.dinov3.DinoV3Backbone",
+        "name": "dinov3_vith16plus",
+        "drop_path_rate": 0.1
+      },
+      "backbone_input_crop_w": null,
+      "soma_hand_head": {
+        "_target_": "egohand.models.heads.soma_hand_head_v2.SOMAHandTransformerDecoderHeadV2",
+        "num_finger_joints": 24,
+        "num_identity_coeffs": 5,
+        "num_scale_params": 27,
+        "transformer_dim": 1024,
+        "transformer_depth": 6,
+        "transformer_heads": 8,
+        "transformer_dim_head": 64,
+        "transformer_mlp_dim": 1024,
+        "transformer_dropout": 0.0,
+        "transformer_emb_dropout": 0.0,
+        "transformer_context_dim": 1280,
+        "ief_iters": 1,
+        "init_xavier": true,
+        "learnable_init": true,
+        "use_init_to_token": true,
+        "two_layer_heads": true,
+        "per_layer_predictions": true,
+        "init_global_scale": 1.0,
+        "init_cam_s": 1.0,
+        "camera_scale_mode": "ste_clamp",
+        "num_kp2d_queries": 0,
+        "camera_depth_mode": "log_lambda",
+        "init_camera_scalar": -1.8199350824986398,
+        "camera_scalar_std": 0.3735116511306386
+      },
+      "soma_hand": {
+        "data_root": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\soma",
+        "identity_model_type": "mhr"
+      },
+      "focal_length": 5000.0,
+      "image_size": 256,
+      "camera_mode": "sam3db_perspective",
+      "cliff_condition": true,
+      "focal_length_mode": "fixed",
+      "root_joint_ids": [
+        0
+      ],
+      "loss_reduction": "sum",
+      "loss_weights": {
+        "keypoints_2d": 0.01,
+        "keypoints_3d": 0.05,
+        "hand_pose": 0.001,
+        "wrist_orient": 0.001,
+        "identity_coeffs": 0.0005,
+        "scale_params": 0.0005,
+        "camera": 0.001,
+        "aux_layers": 0.0,
+        "kp2d_rle": 1.0,
+        "kp2d_presence": 1.0,
+        "kp2d_evidence": 0.1,
+        "translation": 0.05
+      },
+      "grad_clip_val": 1.0,
+      "scheduler": null,
+      "optimizer": {
+        "lr": 1e-05,
+        "weight_decay": 0.0001,
+        "backbone_lr": 5e-06
+      },
+      "ray_condition": true,
+      "ray_inject": "head",
+      "ray_pe_num_bands": 8,
+      "joint_cond_drop_prob": 0.5,
+      "kp2d_translation": {
+        "enabled": true,
+        "topology": "separate",
+        "num_joints": 25,
+        "d_model": 256,
+        "feat_hw": [
+          16,
+          16
+        ],
+        "decoder_depth": 3,
+        "num_heads": 8,
+        "presence_threshold": 0.5,
+        "negative_presence_weight": 1.0,
+        "min_points": 4,
+        "min_depth": 0.0001,
+        "damping": 1e-06,
+        "max_condition_number": 1000000.0
+      },
+      "camera_depth_mode": "log_lambda",
+      "camera_depth_std": 0.3735116511306386,
+      "camera_depth_loss_type": "smooth_l1",
+      "camera_log_value_bounds": [
+        -3.5,
+        3.0
+      ]
+    },
+    "construction_device": "cpu",
+    "CPU_compatibility_factory_override": true,
+    "torch_load_mmap": true
+  },
+  "model_load_seconds": 27.280999999959022,
+  "raw_outputs": [
+    {
+      "side": "left",
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\raw\\left_results.npz",
+      "sha256": "0c284f8e0bf585f2bf84f4a36d21b9d7d2b9796c4bd45a200cde56db8fe90da0",
+      "frames": 360,
+      "fields": {
+        "num_frames": [],
+        "frame_names": [
+          360
+        ],
+        "hand_poses": [
+          360,
+          25,
+          3,
+          3
+        ],
+        "identity_coeffs": [
+          360,
+          5
+        ],
+        "global_scale": [
+          360
+        ],
+        "vertices": [
+          360,
+          2859,
+          3
+        ],
+        "joints": [
+          360,
+          25,
+          3
+        ],
+        "cam_t": [
+          360,
+          3
+        ],
+        "scale_params": [
+          360,
+          26
+        ],
+        "pred_kp2d_crop_presence": [
+          360,
+          25
+        ],
+        "pred_kp2d_sigma": [
+          360,
+          25,
+          2
+        ],
+        "pred_keypoints_2d": [
+          360,
+          25,
+          2
+        ],
+        "pred_projection_valid": [
+          360,
+          25
+        ]
+      },
+      "finite_camera_geometry": true,
+      "variant": "raw",
+      "complete_source_coverage": true
+    },
+    {
+      "side": "right",
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\raw\\right_results.npz",
+      "sha256": "73c6d96bb7882214b26690e185a0cb2dfda437d7327bc4430fc9ee088137a8d1",
+      "frames": 360,
+      "fields": {
+        "num_frames": [],
+        "frame_names": [
+          360
+        ],
+        "hand_poses": [
+          360,
+          25,
+          3,
+          3
+        ],
+        "identity_coeffs": [
+          360,
+          5
+        ],
+        "global_scale": [
+          360
+        ],
+        "vertices": [
+          360,
+          2859,
+          3
+        ],
+        "joints": [
+          360,
+          25,
+          3
+        ],
+        "cam_t": [
+          360,
+          3
+        ],
+        "scale_params": [
+          360,
+          26
+        ],
+        "pred_kp2d_crop_presence": [
+          360,
+          25
+        ],
+        "pred_kp2d_sigma": [
+          360,
+          25,
+          2
+        ],
+        "pred_keypoints_2d": [
+          360,
+          25,
+          2
+        ],
+        "pred_projection_valid": [
+          360,
+          25
+        ]
+      },
+      "finite_camera_geometry": true,
+      "variant": "raw",
+      "complete_source_coverage": true
+    }
+  ],
+  "inference_seconds": 802.3110000004526,
+  "decoded_source_frames": 360,
+  "chunks": [
+    {
+      "original_frame_ids": [
+        "000000",
+        "000001",
+        "000002",
+        "000003",
+        "000004",
+        "000005",
+        "000006",
+        "000007"
+      ],
+      "inference_seconds": 18.969000000040978,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0000\\left_results.npz",
+          "sha256": "d93d8e7ac91d38fa2a3212c7ccb2bf9753886d9ace5ee1afee1f96cfd1748bcc",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0000\\right_results.npz",
+          "sha256": "b13d4314ba5ee0f687f0fd651e579844d2a4c010310b1ae64f253b8f15a875d3",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000008",
+        "000009",
+        "000010",
+        "000011",
+        "000012",
+        "000013",
+        "000014",
+        "000015"
+      ],
+      "inference_seconds": 18.75,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0001\\left_results.npz",
+          "sha256": "70466dfb8d61f9509b8d555abceffa4266bb2cd812871c7d0a2b5c91815ed057",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0001\\right_results.npz",
+          "sha256": "1ea71eabd6f178433aa4f69d51189e4143ae4c2c90f1addc5170e3b00b267348",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000016",
+        "000017",
+        "000018",
+        "000019",
+        "000020",
+        "000021",
+        "000022",
+        "000023"
+      ],
+      "inference_seconds": 18.25,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0002\\left_results.npz",
+          "sha256": "bacc8777b5fd3c3891e1fb811ae3ff9dd38ef889018a00feeac95b676d7280a4",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0002\\right_results.npz",
+          "sha256": "0270cf53e0eefa8219e03fcb7ddb4a73cca6b6796a92e1ef565b43fec6a08292",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000024",
+        "000025",
+        "000026",
+        "000027",
+        "000028",
+        "000029",
+        "000030",
+        "000031"
+      ],
+      "inference_seconds": 18.530999999959022,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0003\\left_results.npz",
+          "sha256": "a9f1024b267e4acdbe1b0724e80ecb4f557e7dca48a4a27a15ea69a84ad3e627",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0003\\right_results.npz",
+          "sha256": "4e25ffb74fae4a34e0082b57891c5300a67bd50e6415a4f03f7a55572d396a03",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000032",
+        "000033",
+        "000034",
+        "000035",
+        "000036",
+        "000037",
+        "000038",
+        "000039"
+      ],
+      "inference_seconds": 18.265000000130385,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0004\\left_results.npz",
+          "sha256": "a98aaf333f92606b4f83974bbbe59378d4a36dc76d3080bce2756937db347c77",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0004\\right_results.npz",
+          "sha256": "2a7a4ec3250b126bde0b4abe1001a6f888c810f2f05b654088230e9c6ab84747",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000040",
+        "000041",
+        "000042",
+        "000043",
+        "000044",
+        "000045",
+        "000046",
+        "000047"
+      ],
+      "inference_seconds": 18.514999999897555,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0005\\left_results.npz",
+          "sha256": "1b5ca49201b73b02c72f70ad8c60021d3441abd400e59d198931a63f8eab9cfd",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0005\\right_results.npz",
+          "sha256": "9da9ebb558b79453a6eaeee8bc755bdcc72995be7caeced7807537ea163ce533",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000048",
+        "000049",
+        "000050",
+        "000051",
+        "000052",
+        "000053",
+        "000054",
+        "000055"
+      ],
+      "inference_seconds": 18.188000000081956,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0006\\left_results.npz",
+          "sha256": "2ac5d890ca9b5d76c32ef4f8368aab93d70ba5c31e0e4cfd0ba99ae5e218604b",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0006\\right_results.npz",
+          "sha256": "685f382453ec532d0828ac0508072c4eefe01d8553d36b08795a3b3dc3be0bdd",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000056",
+        "000057",
+        "000058",
+        "000059",
+        "000060",
+        "000061",
+        "000062",
+        "000063"
+      ],
+      "inference_seconds": 18.719000000040978,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0007\\left_results.npz",
+          "sha256": "09bfd7ee3ef7a2ff87c28fc5581f6e5d3ff327285469a8ad648f1f15a9be1238",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0007\\right_results.npz",
+          "sha256": "d7416b91275a858d4a14f480774394680f5d3ba45478447a42d2a6d7f31ffd8f",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000064",
+        "000065",
+        "000066",
+        "000067",
+        "000068",
+        "000069",
+        "000070",
+        "000071"
+      ],
+      "inference_seconds": 17.812999999849126,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0008\\left_results.npz",
+          "sha256": "14da3e67396553cb2ee3298b09072c5c939330e56ba8f9570c3f982895b5f720",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0008\\right_results.npz",
+          "sha256": "36d156003b53a324a2aa223dfc9aaa53c47f812507405c8936c6f92a90dd933a",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000072",
+        "000073",
+        "000074",
+        "000075",
+        "000076",
+        "000077",
+        "000078",
+        "000079"
+      ],
+      "inference_seconds": 17.843000000109896,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0009\\left_results.npz",
+          "sha256": "6771b6b6dc38fe5de1f9497e687efc17ced55f330c40bb74f78d135b27fb0a18",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0009\\right_results.npz",
+          "sha256": "e1d8339ff220e056f9c095b445a67a71732c0ff9a1c0fa3c68d5ce716012ee6a",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000080",
+        "000081",
+        "000082",
+        "000083",
+        "000084",
+        "000085",
+        "000086",
+        "000087"
+      ],
+      "inference_seconds": 17.92199999978766,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0010\\left_results.npz",
+          "sha256": "0795646c61a3377c5178406b432c27f5cc9a375f01f012e2d2a7d55068298856",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0010\\right_results.npz",
+          "sha256": "67891be72bac9f1ea1c77f5086c1b4d9ce9527f755a5b82f8a5f55e5d6c2cdf4",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000088",
+        "000089",
+        "000090",
+        "000091",
+        "000092",
+        "000093",
+        "000094",
+        "000095"
+      ],
+      "inference_seconds": 18.07799999997951,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0011\\left_results.npz",
+          "sha256": "d58190ea480fe12d8ad15b4f63ea526b673636ec576c353dbfe9ad9479c2f326",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0011\\right_results.npz",
+          "sha256": "a5b34f3a9372c1871428c4891f4a2cb36c6687a2d4be770159c027f9b05400a9",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000096",
+        "000097",
+        "000098",
+        "000099",
+        "000100",
+        "000101",
+        "000102",
+        "000103"
+      ],
+      "inference_seconds": 17.79700000002049,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0012\\left_results.npz",
+          "sha256": "9afe0c87f038e8ed74273614bd8e5f1bfceea965b5a29edf87a830510f95768c",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0012\\right_results.npz",
+          "sha256": "8599879fb069626a3020caff38525f0a116cf0ea24c5f13abfe481ba1e672804",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000104",
+        "000105",
+        "000106",
+        "000107",
+        "000108",
+        "000109",
+        "000110",
+        "000111"
+      ],
+      "inference_seconds": 17.781999999890104,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0013\\left_results.npz",
+          "sha256": "188bc4f36431b654af5347be396cebfbb4181445cda7fbf7fa499c091694e4f0",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0013\\right_results.npz",
+          "sha256": "53e6e2cc7fe05d70ceffd338c71e194cebc6df7ca34e66adc2b131caf5a79fe7",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000112",
+        "000113",
+        "000114",
+        "000115",
+        "000116",
+        "000117",
+        "000118",
+        "000119"
+      ],
+      "inference_seconds": 17.781000000191852,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0014\\left_results.npz",
+          "sha256": "3ac385c4b2f80ea5e70a0aac5e71a8f25e89203e49f9270a75d2ca230941d4d1",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0014\\right_results.npz",
+          "sha256": "38d7f29c7424094ea917d3e70b6782dd311f4e5cae045ff6d8b934b7445ed779",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000120",
+        "000121",
+        "000122",
+        "000123",
+        "000124",
+        "000125",
+        "000126",
+        "000127"
+      ],
+      "inference_seconds": 18.17199999978766,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0015\\left_results.npz",
+          "sha256": "409f7a583293ad3be4f71de99d3b7f2d10fafe211160e5cc544bcee825112946",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0015\\right_results.npz",
+          "sha256": "3e3594da82ff7254bd1b6ecce503da3c827aa8e8d28bb85a1c45db14841a8bb5",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000128",
+        "000129",
+        "000130",
+        "000131",
+        "000132",
+        "000133",
+        "000134",
+        "000135"
+      ],
+      "inference_seconds": 18.905999999959022,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0016\\left_results.npz",
+          "sha256": "54d1ec0af5c92c4a0a0965604acd554390ab980363c70a3fa6358dae8d0d7d3a",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0016\\right_results.npz",
+          "sha256": "0d7d7afa9b5a52b330cbd8da7a59bb868abe35d1f7efadc6aaab6b358b83cfe1",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000136",
+        "000137",
+        "000138",
+        "000139",
+        "000140",
+        "000141",
+        "000142",
+        "000143"
+      ],
+      "inference_seconds": 17.968999999808148,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0017\\left_results.npz",
+          "sha256": "faeca5a386209eb3f81e16c93303abcbefbd1622a1f46aa295b48dc5aa97c7c0",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0017\\right_results.npz",
+          "sha256": "a047f8c20c9edfc50ab277b622d5428b4eccf5b8fff189e692cb14d5a91c6652",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000144",
+        "000145",
+        "000146",
+        "000147",
+        "000148",
+        "000149",
+        "000150",
+        "000151"
+      ],
+      "inference_seconds": 17.266000000061467,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0018\\left_results.npz",
+          "sha256": "b47d478e1138eec95e449447836b61c08b54f6395af896ba7c0a576bd663f777",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0018\\right_results.npz",
+          "sha256": "0c569f2ce4f17400b6477141110f0c98578a5fda0824316981f252c76d0acee8",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000152",
+        "000153",
+        "000154",
+        "000155",
+        "000156",
+        "000157",
+        "000158",
+        "000159"
+      ],
+      "inference_seconds": 17.610000000102445,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0019\\left_results.npz",
+          "sha256": "0e1303bc5556a1b6b02921fc42f718afd76b746976e4fdf18056a6a5377e23a5",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0019\\right_results.npz",
+          "sha256": "f80e821e8a2f084a00211278c55648b6077431ce225295f0001c22eb8919e70d",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000160",
+        "000161",
+        "000162",
+        "000163",
+        "000164",
+        "000165",
+        "000166",
+        "000167"
+      ],
+      "inference_seconds": 17.70299999997951,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0020\\left_results.npz",
+          "sha256": "37ffdc567c6aaf3cc20e45d56081980c83474d3336101b77af8fc17f95753a71",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0020\\right_results.npz",
+          "sha256": "e6baed11c5c7d806268dc05e53970a5df507504c6934d612fec24b1bbcb534d0",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000168",
+        "000169",
+        "000170",
+        "000171",
+        "000172",
+        "000173",
+        "000174",
+        "000175"
+      ],
+      "inference_seconds": 17.843000000109896,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0021\\left_results.npz",
+          "sha256": "757913426e3f71b3d3cf9ebac8d2bea86e1d360f4c4a773a327d57f80e160deb",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0021\\right_results.npz",
+          "sha256": "90a1e51737b005e4eec44b3c09495c1abc6bbc2868bb70beb44280fe3feb8c65",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000176",
+        "000177",
+        "000178",
+        "000179",
+        "000180",
+        "000181",
+        "000182",
+        "000183"
+      ],
+      "inference_seconds": 17.25,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0022\\left_results.npz",
+          "sha256": "fee9ea1eab67d2a2a567c99869c509217dfa0b5ac9397b38051d79362bf3edb1",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0022\\right_results.npz",
+          "sha256": "eef61228bdce6cc1dbb6d3dff679edfb34cb9ec9605d24dd6ceb7876bc74f205",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000184",
+        "000185",
+        "000186",
+        "000187",
+        "000188",
+        "000189",
+        "000190",
+        "000191"
+      ],
+      "inference_seconds": 18.04700000002049,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0023\\left_results.npz",
+          "sha256": "0e0391eacccf2acd03c6c36755e9473a1b4c28dbdba6db4d5dd5ed7d0ee4f1e2",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0023\\right_results.npz",
+          "sha256": "600937fa47f05b5da9e496617f809dda47311bd68453ed5f1e48229257f59c79",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000192",
+        "000193",
+        "000194",
+        "000195",
+        "000196",
+        "000197",
+        "000198",
+        "000199"
+      ],
+      "inference_seconds": 18.155999999959022,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0024\\left_results.npz",
+          "sha256": "2b6cf56ef993f2a51a5c219d33fb6a0df187083bbc9497493e19c3fdb07c1582",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0024\\right_results.npz",
+          "sha256": "273aa5c135f8b89d3944feab21f15a06659ae95aae94b5eca3a1459330d9ff41",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000200",
+        "000201",
+        "000202",
+        "000203",
+        "000204",
+        "000205",
+        "000206",
+        "000207"
+      ],
+      "inference_seconds": 17.70300000021234,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0025\\left_results.npz",
+          "sha256": "2c6c35a7a54256a03c86327d024fe8e348b29493b20b0e6ec8efae9a7aabc20a",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0025\\right_results.npz",
+          "sha256": "3405f8f42829a6d4fe8678c498675376e5a1609403f50539225922e42913dbd4",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000208",
+        "000209",
+        "000210",
+        "000211",
+        "000212",
+        "000213",
+        "000214",
+        "000215"
+      ],
+      "inference_seconds": 17.75,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0026\\left_results.npz",
+          "sha256": "584c9e3118dc26fa76ed669a60f11bb31eb5eb93bd6350e6b1ce6d462df702b8",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0026\\right_results.npz",
+          "sha256": "6286153dcecfac74be23da66e72528ad58fb728b9b256a36093410d01f37dad6",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000216",
+        "000217",
+        "000218",
+        "000219",
+        "000220",
+        "000221",
+        "000222",
+        "000223"
+      ],
+      "inference_seconds": 17.359999999869615,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0027\\left_results.npz",
+          "sha256": "7a3ca73328925fff5e85a1f0102d8cec41d7db8eaa7c1f04be8fe94e55266bb7",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0027\\right_results.npz",
+          "sha256": "395bcc8cdfe81a275ca63bece8f79477116a193bb2c88a753fd782826d81d985",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000224",
+        "000225",
+        "000226",
+        "000227",
+        "000228",
+        "000229",
+        "000230",
+        "000231"
+      ],
+      "inference_seconds": 17.641000000061467,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0028\\left_results.npz",
+          "sha256": "3a83c7d9c4fd61037a8a45c68dd65816e1ac264ab29bbd480ae66581a65039f8",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0028\\right_results.npz",
+          "sha256": "7d17e9a4737d7c13f05745f2914f0c3a7c54198694f7fd69380d906c6a830d96",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000232",
+        "000233",
+        "000234",
+        "000235",
+        "000236",
+        "000237",
+        "000238",
+        "000239"
+      ],
+      "inference_seconds": 17.25,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0029\\left_results.npz",
+          "sha256": "f2f286813d3052b116d140d23986fa9fa5cbe4a92232ebc251b35e1647222621",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0029\\right_results.npz",
+          "sha256": "4c95bf1a03407d26552f44efeee546390cb363176a3dbb410dff351a8dc03181",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000240",
+        "000241",
+        "000242",
+        "000243",
+        "000244",
+        "000245",
+        "000246",
+        "000247"
+      ],
+      "inference_seconds": 17.265999999828637,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0030\\left_results.npz",
+          "sha256": "f8fba5cf5e10ad52876053ccefd8ac2b03d2cef074f62a0def8a572aa0d828bd",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0030\\right_results.npz",
+          "sha256": "16fbf052f574b6972a293c3ffc23bfa5214b1e207a7d19697e4a5010c49fa220",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000248",
+        "000249",
+        "000250",
+        "000251",
+        "000252",
+        "000253",
+        "000254",
+        "000255"
+      ],
+      "inference_seconds": 18.625,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0031\\left_results.npz",
+          "sha256": "331fdaa80c5319e42447f7381386297421356a4478550f295ee31f530ffe01d7",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0031\\right_results.npz",
+          "sha256": "f6d898909f71d1bf09fc6d5cd2cb8c36a34fbda5796e073098980a1d7d4099c7",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000256",
+        "000257",
+        "000258",
+        "000259",
+        "000260",
+        "000261",
+        "000262",
+        "000263"
+      ],
+      "inference_seconds": 17.343000000109896,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0032\\left_results.npz",
+          "sha256": "11c59400dc3e9678d71bf661001ad3a52d8ce90a4ae5524c95f972790fdc27fd",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0032\\right_results.npz",
+          "sha256": "244c92ad52ba89ef38f48619c3517d525f1524b42d6be02a15a8b732b12a12ee",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000264",
+        "000265",
+        "000266",
+        "000267",
+        "000268",
+        "000269",
+        "000270",
+        "000271"
+      ],
+      "inference_seconds": 17.437000000150874,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0033\\left_results.npz",
+          "sha256": "17ae0d7fe303eda5d4454ffc025ec892baa72f238317a346eb637b3a1714d2f0",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0033\\right_results.npz",
+          "sha256": "a3b398911289c6550be16336d725d82daea576765d86cf65a741a71b58603ef4",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000272",
+        "000273",
+        "000274",
+        "000275",
+        "000276",
+        "000277",
+        "000278",
+        "000279"
+      ],
+      "inference_seconds": 17.359000000171363,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0034\\left_results.npz",
+          "sha256": "6a39c5139cd2e8ecf8a41d8bea7713920854b68e9781b46c14ff4f8c4babcfed",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0034\\right_results.npz",
+          "sha256": "6979c33dfc0b61098212c47f9fc12413b976f18248ee3c3f6662eb6977009774",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000280",
+        "000281",
+        "000282",
+        "000283",
+        "000284",
+        "000285",
+        "000286",
+        "000287"
+      ],
+      "inference_seconds": 17.156000000191852,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0035\\left_results.npz",
+          "sha256": "372982c2e07f7793fb05f4e965770da2dc42393afa4a51fc9952151e179ce498",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0035\\right_results.npz",
+          "sha256": "f349d57c55ef1a5d8286994bc96aed5fa9f46c650b0a0550c9aa487a6f828dbd",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000288",
+        "000289",
+        "000290",
+        "000291",
+        "000292",
+        "000293",
+        "000294",
+        "000295"
+      ],
+      "inference_seconds": 17.562999999849126,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0036\\left_results.npz",
+          "sha256": "bd8f5c6e9eabbd6cd6656064776af4bd3f4ef6e56691fd6908f5fe886f36d07d",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0036\\right_results.npz",
+          "sha256": "b1763fb07757c1971aa06a79c11ee06676166f9a85a575d49ec56651528976c4",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000296",
+        "000297",
+        "000298",
+        "000299",
+        "000300",
+        "000301",
+        "000302",
+        "000303"
+      ],
+      "inference_seconds": 17.734000000171363,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0037\\left_results.npz",
+          "sha256": "925be725c34521369c8f0788dc58409179b7fcec4f72b6f30214e31072b525a3",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0037\\right_results.npz",
+          "sha256": "6a793e594b32b122e3b276784b88d10ecc1e18985c6d3316b5f15c6105f4337a",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000304",
+        "000305",
+        "000306",
+        "000307",
+        "000308",
+        "000309",
+        "000310",
+        "000311"
+      ],
+      "inference_seconds": 17.436999999918044,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0038\\left_results.npz",
+          "sha256": "0fd6b8096a5354c4cfd1b173c04cc0a7ec50086e4274ac0090003f9083e5d53e",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0038\\right_results.npz",
+          "sha256": "577184c7a57ba27c5477b8da2341263e65b40061b3f3de3449b54ea77cd0e3bf",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000312",
+        "000313",
+        "000314",
+        "000315",
+        "000316",
+        "000317",
+        "000318",
+        "000319"
+      ],
+      "inference_seconds": 17.45299999997951,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0039\\left_results.npz",
+          "sha256": "6d5e667cc915d3e7f3a886ab3583cb78bb460fea126940905e09f7706a0b3509",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0039\\right_results.npz",
+          "sha256": "be99f7daabc932da2c20ff33f6151452fd66a036f0bcc4d6a40bc8e928ac83b7",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000320",
+        "000321",
+        "000322",
+        "000323",
+        "000324",
+        "000325",
+        "000326",
+        "000327"
+      ],
+      "inference_seconds": 17.390000000130385,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0040\\left_results.npz",
+          "sha256": "f7557abf5055f9211b1ce9bf79fbd16916ee32d1a056377515d01a8243d69b50",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0040\\right_results.npz",
+          "sha256": "f1102fc0d9d5a825edf8b30ff9c6759670ffeaabfeaea841d266aeb594498c6d",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000328",
+        "000329",
+        "000330",
+        "000331",
+        "000332",
+        "000333",
+        "000334",
+        "000335"
+      ],
+      "inference_seconds": 17.516000000061467,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0041\\left_results.npz",
+          "sha256": "9839c73bcb72499ef2f45b61d4e2277557cfb01f95ca1ec75c57d15914b41519",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0041\\right_results.npz",
+          "sha256": "68468366c02305b7886ba3e7011f08d5a4b90eec34219b12758e81f88c3d819a",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000336",
+        "000337",
+        "000338",
+        "000339",
+        "000340",
+        "000341",
+        "000342",
+        "000343"
+      ],
+      "inference_seconds": 17.32799999997951,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0042\\left_results.npz",
+          "sha256": "01a12bfe9a4416584af28be24334aac7d626f88e73a186410932b7ebb01a0804",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0042\\right_results.npz",
+          "sha256": "ad68c18d1670d2b312ee4235fd802a0c99c8387bc1b589a2519c19f03870279e",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000344",
+        "000345",
+        "000346",
+        "000347",
+        "000348",
+        "000349",
+        "000350",
+        "000351"
+      ],
+      "inference_seconds": 17.375,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0043\\left_results.npz",
+          "sha256": "b5c1af07c22c26e968617cee55046c24b68e5840da4441bc6ccec872f73881bc",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0043\\right_results.npz",
+          "sha256": "7d98efac748a04f4a3c90856e27a299f80f0524663e60f75d8b77338da749876",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    },
+    {
+      "original_frame_ids": [
+        "000352",
+        "000353",
+        "000354",
+        "000355",
+        "000356",
+        "000357",
+        "000358",
+        "000359"
+      ],
+      "inference_seconds": 17.5,
+      "outputs": [
+        {
+          "side": "left",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0044\\left_results.npz",
+          "sha256": "00cd87d54f45f0b8990d904c05b741d331203230ff0d63c6745484504ec85db6",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        },
+        {
+          "side": "right",
+          "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\chunks\\chunk-0044\\right_results.npz",
+          "sha256": "5263855bea78bba4b48a53b0d680b56550145411fcf041a0a1a1eb3565424a5b",
+          "frames": 8,
+          "fields": {
+            "num_frames": [],
+            "frame_names": [
+              8
+            ],
+            "hand_poses": [
+              8,
+              25,
+              3,
+              3
+            ],
+            "identity_coeffs": [
+              8,
+              5
+            ],
+            "global_scale": [
+              8
+            ],
+            "vertices": [
+              8,
+              2859,
+              3
+            ],
+            "joints": [
+              8,
+              25,
+              3
+            ],
+            "cam_t": [
+              8,
+              3
+            ],
+            "scale_params": [
+              8,
+              26
+            ],
+            "pred_kp2d_crop_presence": [
+              8,
+              25
+            ],
+            "pred_kp2d_sigma": [
+              8,
+              25,
+              2
+            ],
+            "pred_keypoints_2d": [
+              8,
+              25,
+              2
+            ],
+            "pred_projection_valid": [
+              8,
+              25
+            ]
+          },
+          "finite_camera_geometry": true
+        }
+      ]
+    }
+  ],
+  "wrist_relative_joint0_max_norm_metres": {
+    "left": 0.0,
+    "right": 0.0
+  },
+  "smoothing_seconds": 26.375,
+  "smoothed_outputs": [
+    {
+      "side": "left",
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\smoothed\\left_results.npz",
+      "sha256": "6492c3eb8bcd5608deb1db08017ae2832dd9e01a6589ddaecc76b345b190bfef",
+      "frames": 360,
+      "fields": {
+        "num_frames": [],
+        "frame_names": [
+          360
+        ],
+        "hand_poses": [
+          360,
+          25,
+          3,
+          3
+        ],
+        "identity_coeffs": [
+          360,
+          5
+        ],
+        "global_scale": [
+          360
+        ],
+        "vertices": [
+          360,
+          2859,
+          3
+        ],
+        "joints": [
+          360,
+          25,
+          3
+        ],
+        "cam_t": [
+          360,
+          3
+        ],
+        "scale_params": [
+          360,
+          26
+        ],
+        "pred_kp2d_crop_presence": [
+          360,
+          25
+        ],
+        "pred_kp2d_sigma": [
+          360,
+          25,
+          2
+        ],
+        "pred_keypoints_2d": [
+          360,
+          25,
+          2
+        ],
+        "pred_projection_valid": [
+          360,
+          25
+        ]
+      },
+      "finite_camera_geometry": true,
+      "variant": "upstream_adaptive_smoothed",
+      "complete_source_coverage": true
+    },
+    {
+      "side": "right",
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\smoothed\\right_results.npz",
+      "sha256": "84de03d4a7c7e79dcc915feb7475c6a6c99c34d80b7c15363d54ae4322a6d476",
+      "frames": 360,
+      "fields": {
+        "num_frames": [],
+        "frame_names": [
+          360
+        ],
+        "hand_poses": [
+          360,
+          25,
+          3,
+          3
+        ],
+        "identity_coeffs": [
+          360,
+          5
+        ],
+        "global_scale": [
+          360
+        ],
+        "vertices": [
+          360,
+          2859,
+          3
+        ],
+        "joints": [
+          360,
+          25,
+          3
+        ],
+        "cam_t": [
+          360,
+          3
+        ],
+        "scale_params": [
+          360,
+          26
+        ],
+        "pred_kp2d_crop_presence": [
+          360,
+          25
+        ],
+        "pred_kp2d_sigma": [
+          360,
+          25,
+          2
+        ],
+        "pred_keypoints_2d": [
+          360,
+          25,
+          2
+        ],
+        "pred_projection_valid": [
+          360,
+          25
+        ]
+      },
+      "finite_camera_geometry": true,
+      "variant": "upstream_adaptive_smoothed",
+      "complete_source_coverage": true
+    }
+  ],
+  "process_memory": {
+    "rss": 6209978368,
+    "vms": 8660295680,
+    "peak_wset": 9304133632
+  },
+  "finished_at": "2026-10-31T08:41:08.132308+00:00",
+  "wall_seconds": 859.625
+}

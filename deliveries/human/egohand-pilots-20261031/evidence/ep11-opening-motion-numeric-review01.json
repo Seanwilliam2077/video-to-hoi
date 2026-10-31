@@ -1,0 +1,899 @@
+{
+  "recorded_at": "2026-10-31T09:22:58.949329+00:00",
+  "track": 1,
+  "episode": 11,
+  "phase": "Completed numerical audit; critical candidate render images not yet available at audit time",
+  "grasp_summary_sha256": "a1c21505f9a72e65b88085d5d5cee15ff62eff6f7e11f8d752b10322593ecd6b",
+  "fresh_evaluation_sha256": {
+    "raw": "19d00667dec19c72ef630462c0a5937ddc3e60e5d7935904966d75b15270c63a",
+    "smoothed": "6ee60ceff92213e2c23cdbe49bd528cd2bbc7bad0f5830d69fb734dd59fc11b7"
+  },
+  "statistics": {
+    "raw": {
+      "mediapipe": {
+        "finger_guards": {
+          "all_engineering_guards_passed": false,
+          "observed_motion_edges": 655,
+          "observed_motion_failed": 147,
+          "unknown_motion_edges": 1097,
+          "unknown_motion_budget_failed": 468
+        },
+        "wrist_guards": {
+          "all_engineering_guards_passed": false,
+          "observed_wrist_edges": 656,
+          "observed_wrist_failed": 149,
+          "unknown_wrist_edges": 1096,
+          "unknown_wrist_budget_failed": 371
+        },
+        "original_MP_boundary_guards": {
+          "all_engineering_guards_passed": false,
+          "observed_motion_edges": 2,
+          "observed_motion_failed": 0,
+          "unknown_motion_edges": 33,
+          "unknown_motion_budget_failed": 21
+        }
+      },
+      "egohand": {
+        "finger_guards": {
+          "all_engineering_guards_passed": true,
+          "target_motion_edges": 1750,
+          "target_motion_failed": 0,
+          "unknown_motion_edges": 2,
+          "unknown_motion_budget_failed": 0
+        },
+        "wrist_guards": {
+          "all_engineering_guards_passed": true,
+          "target_wrist_edges": 1750,
+          "target_wrist_failed": 0,
+          "unknown_wrist_edges": 2,
+          "unknown_wrist_budget_failed": 0
+        },
+        "original_MP_boundary_guards": {
+          "all_engineering_guards_passed": true,
+          "target_motion_edges": 35,
+          "target_motion_failed": 0,
+          "unknown_motion_edges": 0,
+          "unknown_motion_budget_failed": 0
+        }
+      },
+      "MP_holdout_image_discrepancy": {
+        "left": {
+          "accepted_frames": 71,
+          "accepted_landmarks": 1454,
+          "source_pixel_discrepancy": {
+            "baseline": 7.360947238270355,
+            "mediapipe": 6.221432571994957,
+            "egohand": 8.083127017518288
+          }
+        },
+        "right": {
+          "accepted_frames": 78,
+          "accepted_landmarks": 1601,
+          "source_pixel_discrepancy": {
+            "baseline": 7.483899124110844,
+            "mediapipe": 5.7240896059878414,
+            "egohand": 8.30738535905649
+          }
+        }
+      },
+      "preservation": {
+        "mediapipe": {
+          "fixed_identity_unchanged": true,
+          "fixed_skeleton_scales_unchanged": true,
+          "root_controls_unchanged": true,
+          "all_unselected_controls_unchanged": true,
+          "maximum_allowed_control_change_radians": 0.12048986554145813,
+          "finite_parameters": true
+        },
+        "egohand": {
+          "fixed_identity_unchanged": true,
+          "fixed_skeleton_scales_unchanged": true,
+          "root_controls_unchanged": true,
+          "all_unselected_controls_unchanged": true,
+          "maximum_allowed_control_change_radians": 0.6499999761581421,
+          "finite_parameters": true
+        }
+      }
+    },
+    "smoothed": {
+      "mediapipe": {
+        "finger_guards": {
+          "all_engineering_guards_passed": false,
+          "observed_motion_edges": 655,
+          "observed_motion_failed": 104,
+          "unknown_motion_edges": 1097,
+          "unknown_motion_budget_failed": 357
+        },
+        "wrist_guards": {
+          "all_engineering_guards_passed": false,
+          "observed_wrist_edges": 656,
+          "observed_wrist_failed": 137,
+          "unknown_wrist_edges": 1096,
+          "unknown_wrist_budget_failed": 335
+        },
+        "original_MP_boundary_guards": {
+          "all_engineering_guards_passed": false,
+          "observed_motion_edges": 2,
+          "observed_motion_failed": 0,
+          "unknown_motion_edges": 33,
+          "unknown_motion_budget_failed": 14
+        }
+      },
+      "egohand": {
+        "finger_guards": {
+          "all_engineering_guards_passed": true,
+          "target_motion_edges": 1752,
+          "target_motion_failed": 0,
+          "unknown_motion_edges": 0,
+          "unknown_motion_budget_failed": 0
+        },
+        "wrist_guards": {
+          "all_engineering_guards_passed": false,
+          "target_wrist_edges": 1752,
+          "target_wrist_failed": 4,
+          "unknown_wrist_edges": 0,
+          "unknown_wrist_budget_failed": 0
+        },
+        "original_MP_boundary_guards": {
+          "all_engineering_guards_passed": true,
+          "target_motion_edges": 35,
+          "target_motion_failed": 0,
+          "unknown_motion_edges": 0,
+          "unknown_motion_budget_failed": 0
+        }
+      },
+      "MP_holdout_image_discrepancy": {
+        "left": {
+          "accepted_frames": 71,
+          "accepted_landmarks": 1454,
+          "source_pixel_discrepancy": {
+            "baseline": 7.360947238270355,
+            "mediapipe": 6.221432571994957,
+            "egohand": 7.946136895947837
+          }
+        },
+        "right": {
+          "accepted_frames": 78,
+          "accepted_landmarks": 1601,
+          "source_pixel_discrepancy": {
+            "baseline": 7.483899124110844,
+            "mediapipe": 5.7240896059878414,
+            "egohand": 8.156984527838121
+          }
+        }
+      },
+      "preservation": {
+        "mediapipe": {
+          "fixed_identity_unchanged": true,
+          "fixed_skeleton_scales_unchanged": true,
+          "root_controls_unchanged": true,
+          "all_unselected_controls_unchanged": true,
+          "maximum_allowed_control_change_radians": 0.12048986554145813,
+          "finite_parameters": true
+        },
+        "egohand": {
+          "fixed_identity_unchanged": true,
+          "fixed_skeleton_scales_unchanged": true,
+          "root_controls_unchanged": true,
+          "all_unselected_controls_unchanged": true,
+          "maximum_allowed_control_change_radians": 0.6251232028007507,
+          "finite_parameters": true
+        }
+      }
+    }
+  },
+  "native3D_opening_and_distinct_motion_reductions": [
+    {
+      "variant": "baseline",
+      "side": "left",
+      "window": [
+        0,
+        876
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.47451193809164105,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 29.564523050655126,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 28.3645242998118
+    },
+    {
+      "variant": "baseline",
+      "side": "right",
+      "window": [
+        0,
+        876
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.34461452949542215,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 27.952097749723,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 25.499444246110677
+    },
+    {
+      "variant": "baseline",
+      "side": "left",
+      "window": [
+        280,
+        340
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.0879917188596766,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 37.66353063579191,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 33.24706849459376
+    },
+    {
+      "variant": "baseline",
+      "side": "right",
+      "window": [
+        280,
+        340
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.26152402109187944,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 25.619173601909672,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 22.875176722718486
+    },
+    {
+      "variant": "baseline",
+      "side": "left",
+      "window": [
+        480,
+        620
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.3694981914391646,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 25.06630041311862,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 23.508196320430645
+    },
+    {
+      "variant": "baseline",
+      "side": "right",
+      "window": [
+        480,
+        620
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.2389139471315721,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 30.438912481285552,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 26.00120894677657
+    },
+    {
+      "variant": "baseline",
+      "side": "left",
+      "window": [
+        680,
+        850
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.4768382998331855,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 26.10884968473127,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 23.01708750355622
+    },
+    {
+      "variant": "baseline",
+      "side": "right",
+      "window": [
+        680,
+        850
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.46028864819452897,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 26.99541926363083,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 25.1066891334127
+    },
+    {
+      "variant": "mediapipe_mhr",
+      "side": "left",
+      "window": [
+        0,
+        876
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.5366523948288981,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 29.121833989326372,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 27.06996117748624
+    },
+    {
+      "variant": "mediapipe_mhr",
+      "side": "right",
+      "window": [
+        0,
+        876
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.42134716852817766,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 26.741376301126696,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 23.778051180534547
+    },
+    {
+      "variant": "mediapipe_mhr",
+      "side": "left",
+      "window": [
+        280,
+        340
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.20460485917198523,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 35.771128088377004,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 32.380840385042696
+    },
+    {
+      "variant": "mediapipe_mhr",
+      "side": "right",
+      "window": [
+        280,
+        340
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.2452560080856535,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 25.54823065095648,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 22.854451145706175
+    },
+    {
+      "variant": "mediapipe_mhr",
+      "side": "left",
+      "window": [
+        480,
+        620
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.39080678149798076,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 26.235883780767598,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 22.880319501312908
+    },
+    {
+      "variant": "mediapipe_mhr",
+      "side": "right",
+      "window": [
+        480,
+        620
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.32142440254855953,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 30.03028671894053,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 26.002261032145547
+    },
+    {
+      "variant": "mediapipe_mhr",
+      "side": "left",
+      "window": [
+        680,
+        850
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.5207948414352578,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 25.64717050915383,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 23.03642212940975
+    },
+    {
+      "variant": "mediapipe_mhr",
+      "side": "right",
+      "window": [
+        680,
+        850
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.6694175452923465,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 24.640997499012947,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 21.2047494895991
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "left",
+      "window": [
+        0,
+        876
+      ],
+      "thumb_index_ratio_p95_minus_p05": 1.0697107535760826,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 48.74220344069886,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 41.204782411406015
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "right",
+      "window": [
+        0,
+        876
+      ],
+      "thumb_index_ratio_p95_minus_p05": 1.1003367853355155,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 43.62988567209236,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 38.341082181089796
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "left",
+      "window": [
+        280,
+        340
+      ],
+      "thumb_index_ratio_p95_minus_p05": 1.000864989809512,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 69.58468360093526,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 54.14176531656979
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "right",
+      "window": [
+        280,
+        340
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.5663034535064437,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 43.63231755227017,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 33.878456494527754
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "left",
+      "window": [
+        480,
+        620
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.8309018357923327,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 52.2979305920698,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 42.056573180880704
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "right",
+      "window": [
+        480,
+        620
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.9714435974263989,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 52.08364681142978,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 42.088870114739834
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "left",
+      "window": [
+        680,
+        850
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.47319805551523975,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 29.998499871405983,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 26.72921092404687
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "right",
+      "window": [
+        680,
+        850
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.8943316350901019,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 27.284748991262678,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 21.55404214067437
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "left",
+      "window": [
+        0,
+        876
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.9661911098710664,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 37.0530559459928,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 34.35981612622728
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "right",
+      "window": [
+        0,
+        876
+      ],
+      "thumb_index_ratio_p95_minus_p05": 1.0053348386436052,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 30.95620180981691,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 27.95114479790682
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "left",
+      "window": [
+        280,
+        340
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.9393397747326939,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 44.73462435380377,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 35.75148726522211
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "right",
+      "window": [
+        280,
+        340
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.7688496643046371,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 28.18120887194914,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 23.132446550041532
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "left",
+      "window": [
+        480,
+        620
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.7376326329562518,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 40.592876540640304,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 37.98972798675355
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "right",
+      "window": [
+        480,
+        620
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.9477118182057627,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 36.04535830852021,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 31.342883486705773
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "left",
+      "window": [
+        680,
+        850
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.45222403195488614,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 25.28593731545369,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 24.50621342315316
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "right",
+      "window": [
+        680,
+        850
+      ],
+      "thumb_index_ratio_p95_minus_p05": 0.7786572018932234,
+      "pooled20joint_D2_p95_native_mm_per_frame_squared": 24.29154310449286,
+      "per_frame_mean20joint_D2_then_p95_native_mm_per_frame_squared": 20.754447139647674
+    }
+  ],
+  "critical_frame_curves": [
+    {
+      "original_frame_id": 511,
+      "accepted_MP_landmarks_left_right": [
+        20,
+        0
+      ],
+      "native_variants": {
+        "baseline": {
+          "thumb_index_ratio_left_right": [
+            0.7523140033379639,
+            0.7531779494714046
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            1.9135413202531506,
+            4.148355254528438
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            3.6430901114261296,
+            3.755490057023419
+          ]
+        },
+        "mediapipe_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.831217769223454,
+            0.8419654241627424
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            2.3743292497958044,
+            3.3484760761284167
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            3.0433443619024048,
+            3.7105495055714663
+          ]
+        },
+        "egohand_raw_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.8253084403402773,
+            0.7680082289241151
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            2.5206465143191936,
+            3.4296013496565365
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            2.9246928084526855,
+            9.310419568236316
+          ]
+        },
+        "egohand_smoothed_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.7961843991437457,
+            0.7035676095299987
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            2.269813859703205,
+            3.3921793945189016
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            11.019670281711171,
+            4.938308446573905
+          ]
+        }
+      }
+    },
+    {
+      "original_frame_id": 512,
+      "accepted_MP_landmarks_left_right": [
+        0,
+        21
+      ],
+      "native_variants": {
+        "baseline": {
+          "thumb_index_ratio_left_right": [
+            0.7363928522330797,
+            0.7525898204456822
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            5.228603860310673,
+            3.5032917274871145
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            3.5969770229806057,
+            2.335747024132625
+          ]
+        },
+        "mediapipe_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.8078951292811279,
+            0.8381240283621662
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            4.725439057025155,
+            3.3745824266650817
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            3.217218343874009,
+            13.533696231173723
+          ]
+        },
+        "egohand_raw_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.6812443601409022,
+            0.868857060909145
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            5.087558030055016,
+            6.854911645858069
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            8.353051459866444,
+            21.43833853658531
+          ]
+        },
+        "egohand_smoothed_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.6757927013630679,
+            0.761847426579073
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            13.22991953045131,
+            4.961452975513767
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            8.577585848697622,
+            7.3059170042549555
+          ]
+        }
+      }
+    },
+    {
+      "original_frame_id": 559,
+      "accepted_MP_landmarks_left_right": [
+        0,
+        20
+      ],
+      "native_variants": {
+        "baseline": {
+          "thumb_index_ratio_left_right": [
+            0.5757708158945651,
+            0.7809864713173482
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            6.407962741704083,
+            4.067292395581241
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            6.5497573978648305,
+            3.7678709265108203
+          ]
+        },
+        "mediapipe_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.5757708158945651,
+            0.5653200154047496
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            6.408004361494683,
+            4.123665292786525
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            6.549764082066108,
+            2.4821624947222825
+          ]
+        },
+        "egohand_raw_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.9530177512575854,
+            0.9023289389576516
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            8.409513654960234,
+            6.758106715519111
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            6.799755522573765,
+            4.332368106541777
+          ]
+        },
+        "egohand_smoothed_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.8991325360503208,
+            0.8323705615619647
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            6.846472856686636,
+            12.994366123760745
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            6.20587530142591,
+            9.647639042855257
+          ]
+        }
+      }
+    },
+    {
+      "original_frame_id": 560,
+      "accepted_MP_landmarks_left_right": [
+        0,
+        17
+      ],
+      "native_variants": {
+        "baseline": {
+          "thumb_index_ratio_left_right": [
+            0.5783805473812776,
+            0.7037509013187406
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            7.547955129700655,
+            5.482949759487604
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            3.6291877967563138,
+            29.714699354836124
+          ]
+        },
+        "mediapipe_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.5783812827267344,
+            0.5479521151119128
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            7.547954173514948,
+            4.764644907252645
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            3.6292299739056086,
+            29.24137903929174
+          ]
+        },
+        "egohand_raw_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.9189587677851677,
+            0.8631867723205459
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            7.746145642377049,
+            5.221698085575955
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            3.7016032703525186,
+            29.158112320561518
+          ]
+        },
+        "egohand_smoothed_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.8768696772256913,
+            0.7701373287960933
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            7.69407474519278,
+            5.434281973609834
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            3.7441066478833633,
+            28.93468782400884
+          ]
+        }
+      }
+    },
+    {
+      "original_frame_id": 803,
+      "accepted_MP_landmarks_left_right": [
+        0,
+        21
+      ],
+      "native_variants": {
+        "baseline": {
+          "thumb_index_ratio_left_right": [
+            0.6395121762242425,
+            0.9828948786584614
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            11.512785574740834,
+            7.722828535319163
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            7.959721127513938,
+            7.445425397606761
+          ]
+        },
+        "mediapipe_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.694022074166868,
+            1.040332843149537
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            11.466740956327968,
+            8.776285223311836
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            7.936984310836903,
+            8.424806297220629
+          ]
+        },
+        "egohand_raw_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.6535483710079414,
+            0.8977119565126127
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            10.662659339500618,
+            6.018898113442384
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            10.055473390391306,
+            7.327325426451042
+          ]
+        },
+        "egohand_smoothed_mhr": {
+          "thumb_index_ratio_left_right": [
+            0.6989656235626563,
+            0.9335088024699966
+          ],
+          "per_frame_mean20joint_step_from_previous_native_mm": [
+            10.8339903075997,
+            8.479223323083843
+          ],
+          "per_frame_mean20joint_D2_center_native_mm": [
+            11.730280757996162,
+            9.113815110946739
+          ]
+        }
+      }
+    }
+  ],
+  "images_actually_viewed": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\ep11-source-crops.jpg",
+      "sha256": "8a6441c919c57210e6e91af3e37e135bf21f8f04d5e8038ccb7ccbc625820a30",
+      "kind": "Preexisting source-only montage; no candidate overlays",
+      "original_frame_ids": [
+        300,
+        511,
+        560,
+        803
+      ],
+      "viewed_with": "view_image"
+    }
+  ],
+  "important_findings": [
+    "Full-sequence pooled20-finger prediction-only D2 p95 is MP29.122/26.741, raw48.742/43.630, smoothed37.053/30.956 native estimated mm/frame^2(left/right). Smoothing improves its own raw result but remains above currentMP globally. This is not reference-relative acceleration error.",
+    "Late frozen window680-850 has smoothed pooledD2 p95 25.286/24.292 versus MP25.647/24.641 native mm/frame^2. Do not claim every local interval is worse; this small descriptive crossover is not independent accuracy or grasp acceptance.",
+    "All native opening curves have variation. Raw/smoothed full3D opening ranges exceed currentMP, but greater or smaller range alone cannot identify true grasp motion.",
+    "The2D normalized opening proxy becomes unstable under nearly edge-on or noisy palm endpoints: accepted right palm width0.120178px at356 yields thumb/indexratio79.048; accepted left width0.501417px at763 yields15.096. Keep these diagnostics but do not interpret them as true angles or rank hand accuracy from their mean alone. No ad-hoc cutoff was applied.",
+    "Raw generated-target finger and wrist guards have0/1750 failures with2 unknown edges. Smoothed generated fingers have0/1752 failures but generated wrist guards have4 failures. This differs from EP16 and prevents a blanket zero-failure claim.",
+    "At left511-to512, the smoothed-driven nativeMHR per-frame mean finger step is13.230mm versus raw5.088 and currentMP4.725. At right558-to559 it is12.994mm versus raw6.758/currentMP4.124. Whole-sequence smoothing does not guarantee each downstream fitted edge improves; these remain prediction-only changes without true motion labels.",
+    "Source montage shows visible but blurred left hand at803 despite zero acceptedMP landmarks. Missing detector evidence is not a reliable true-occlusion label; the511-to512 support swap also must not be called an occlusion transition without image review."
+  ],
+  "unchanged_limits": [
+    "Generated EgoHand projections are inferred targets, not independent image observations or hidden-hand truth. Geometric confidence does not establish visibility.",
+    "The same original holdout IDs have zero image fitting weights, but upstream whole-clip smoothing mixes raw estimates at these times into neighboring filtered targets. Generated smoothed holdout is development consistency, not independent held-out accuracy.",
+    "Native identity, scales, root and unselected controls are preserved; selected finger/arm/wrist controls change. Decoder consistency and baseline-relative engineering passes do not establish reconstruction correctness.",
+    "The mesh overlay has no object depth/occlusion test. Human triangles drawn over the table are not evidence of penetration.",
+    "Critical candidate JPEGs511/512/559/560/803 still need static QA; no continuous playback or true phase/timing/contact assessment has been performed by this reviewer."
+  ],
+  "quality_accepted": false,
+  "official_scores_computed": false,
+  "all30_execution_started": false
+}

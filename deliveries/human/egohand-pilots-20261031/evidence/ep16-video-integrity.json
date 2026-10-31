@@ -1,0 +1,510 @@
+{
+  "episode": 16,
+  "track": 1,
+  "frames": 360,
+  "fps": 30.0,
+  "created_at": "2026-10-31T08:52:06.613915+00:00",
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "helper_sha256": "dc707d88f1c56254961c21c63ec9a8e3aefa4caa3e2dd92d01e3f00383fadfae",
+  "renderer_source_sha256": {
+    "compare_human_hands.py": "54f4980bdc7514562dbff1f9d6c3341fb1e0ffbdc70ba0a114d9aa18fddf00c1",
+    "review_human.py": "856f5c8231900fba1ba1a15f0b33031c76719ca1ea395e8db04cc58080bf3932"
+  },
+  "input_manifest_sha256": "b7b4a6ca24689cf15b408ec4548ef3dad1b74147c09d20afb6215a21c823e6b1",
+  "native_variant_bindings": {
+    "SAM baseline": {
+      "directory": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001",
+      "files": {
+        "review_arrays/camera_intrinsics.npy": {
+          "sha256": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919",
+          "bytes": 164
+        },
+        "review_arrays/faces.npy": {
+          "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+          "bytes": 885104
+        },
+        "review_arrays/fps.npy": {
+          "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994",
+          "bytes": 136
+        },
+        "review_arrays/frame_indices.npy": {
+          "sha256": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7",
+          "bytes": 3008
+        },
+        "review_arrays/joints_3d.npy": {
+          "sha256": "64a57fc42b5c58b3520020c1ba3075f696c54abd7452a6114b3173fe2671f459",
+          "bytes": 548768
+        },
+        "review_arrays/vertices_m.npy": {
+          "sha256": "2e7f240bf30e5caf79f240de157e1761a47215bf955b9898604b5e3bb5702c98",
+          "bytes": 79656608
+        },
+        "report.json": {
+          "sha256": "ed8b9e52f21631ddf50885a396580fdac1b981220d851f16100df4038d56fc1f",
+          "bytes": 5894
+        },
+        "episode_000016_human.npz": {
+          "sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777",
+          "bytes": 191669
+        }
+      }
+    },
+    "Bounded MediaPipe MHR": {
+      "directory": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000016\\candidate01",
+      "files": {
+        "review_arrays/camera_intrinsics.npy": {
+          "sha256": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919",
+          "bytes": 164
+        },
+        "review_arrays/faces.npy": {
+          "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+          "bytes": 885104
+        },
+        "review_arrays/fps.npy": {
+          "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994",
+          "bytes": 136
+        },
+        "review_arrays/frame_indices.npy": {
+          "sha256": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7",
+          "bytes": 3008
+        },
+        "review_arrays/joints_3d.npy": {
+          "sha256": "248c7e3d46ae4a6b13bbe2f4e976c7063f7e2d348216d22ff213a6a8fb2a5571",
+          "bytes": 548768
+        },
+        "review_arrays/vertices_m.npy": {
+          "sha256": "f3ec86ff38c7b6efdb9b8ac636d3d228183b2c84a6fb632b2a49c6c1346b351b",
+          "bytes": 79656608
+        },
+        "report.json": {
+          "sha256": "1ad49b042cf106806d23e0b9614fd844a549464cf1df7dcea8d98df6b0b3d1d0",
+          "bytes": 53573
+        },
+        "episode_000016_human.npz": {
+          "sha256": "1d2ddb221b673285ff5ca6eadab66cce174a318f4b329bb990d45f37df3281b8",
+          "bytes": 203170
+        }
+      }
+    },
+    "EgoHand raw-driven MHR": {
+      "directory": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\candidate-raw01",
+      "files": {
+        "review_arrays/camera_intrinsics.npy": {
+          "sha256": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919",
+          "bytes": 164
+        },
+        "review_arrays/faces.npy": {
+          "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+          "bytes": 885104
+        },
+        "review_arrays/fps.npy": {
+          "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994",
+          "bytes": 136
+        },
+        "review_arrays/frame_indices.npy": {
+          "sha256": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7",
+          "bytes": 3008
+        },
+        "review_arrays/joints_3d.npy": {
+          "sha256": "c191be07f3096c5a66b880446b45a03bc8229f92ae184f0d60dd038b8c4c15a1",
+          "bytes": 548768
+        },
+        "review_arrays/vertices_m.npy": {
+          "sha256": "2a16c4f7765be4202216eb4dc775e3b9165d446cfe247317930d5ae60ae815bb",
+          "bytes": 79656608
+        },
+        "report.json": {
+          "sha256": "ecc5f9c029bddf47a5bf4ec18e82f5d33577579173b42d9d2fcec38206d3975a",
+          "bytes": 262098
+        },
+        "episode_000016_human.npz": {
+          "sha256": "4e2b98088174c550f8afb92a8511d3cc66f656162bfc66efd0e97dfdf8b453de",
+          "bytes": 219192
+        }
+      }
+    },
+    "EgoHand smoothed-driven MHR": {
+      "directory": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\candidate-smoothed01",
+      "files": {
+        "review_arrays/camera_intrinsics.npy": {
+          "sha256": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919",
+          "bytes": 164
+        },
+        "review_arrays/faces.npy": {
+          "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+          "bytes": 885104
+        },
+        "review_arrays/fps.npy": {
+          "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994",
+          "bytes": 136
+        },
+        "review_arrays/frame_indices.npy": {
+          "sha256": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7",
+          "bytes": 3008
+        },
+        "review_arrays/joints_3d.npy": {
+          "sha256": "1502260264150d42938ca08f25ca761e7bddfe69dd7da94f7d8b52310880adbd",
+          "bytes": 548768
+        },
+        "review_arrays/vertices_m.npy": {
+          "sha256": "da3bccb5e20e538653eebfc7190cdac3dc2c8d70e2be096a5044e2ff81f78f85",
+          "bytes": 79656608
+        },
+        "report.json": {
+          "sha256": "d9488d4e30a681a393c36a26fc99f8d5a73785bf2fdcf3e70f01744df28d2f76",
+          "bytes": 262102
+        },
+        "episode_000016_human.npz": {
+          "sha256": "990fa8d4c6fc060f762c4892db3d24764b909938e18697c2b13aff7f77124a9d",
+          "bytes": 219099
+        }
+      }
+    }
+  },
+  "proposal_bindings": {
+    "raw": {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\observations-raw01\\observations.npz",
+      "sha256": "6e35d116a7497ab4364aa5fdd6f3c65a3f4b5bdaded7e4b4306f2b1a399276dd"
+    },
+    "smoothed": {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\observations-smoothed01\\observations.npz",
+      "sha256": "f05980c2df1a81ed1c3d1f64305a8d2d83767bdf7336b254f3d434d2e8180be9"
+    }
+  },
+  "primary_columns": [
+    "Source RGB",
+    "SAM baseline",
+    "Bounded MediaPipe MHR",
+    "EgoHand raw-driven MHR"
+  ],
+  "raw_smoothed_native_columns": [
+    "Source RGB",
+    "Bounded MediaPipe MHR",
+    "EgoHand raw-driven MHR",
+    "EgoHand smoothed-driven MHR"
+  ],
+  "smoothed_native_candidate": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\candidate-smoothed01",
+  "smoothed_candidate_resolution": "completed_authorized_sibling_candidate_smoothed01",
+  "diagnostic_columns": [
+    "Source RGB",
+    "MediaPipe accepted image evidence",
+    "EgoHand raw generated proposal",
+    "EgoHand upstream-smoothed proposal"
+  ],
+  "all_frames_and_shared_crops": true,
+  "camera_estimated_not_calibrated": true,
+  "videos": [
+    {
+      "file": "hands-comparison.mp4",
+      "decoded_frames": 360,
+      "fps": 30.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 2447596,
+      "sha256": "bd1e36a3aa7dd47903cd05e5ba89c4d26b8d45d5b29b545e8fdfe6f79d1ce6bd"
+    },
+    {
+      "file": "proposal-comparison.mp4",
+      "decoded_frames": 360,
+      "fps": 30.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 3281929,
+      "sha256": "8d92a3f627e6e0d8a4484ed797ce85940bf1b9fd49d563a861a60be9ffe7ca0d"
+    },
+    {
+      "file": "critical/slow-000040-000110.mp4",
+      "decoded_frames": 71,
+      "fps": 10.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 883725,
+      "sha256": "43031ceb5bc5deca8619e737e4ed3417e590dcc29f87f28d82e9be3169207c0e"
+    },
+    {
+      "file": "critical/slow-000240-000308.mp4",
+      "decoded_frames": 69,
+      "fps": 10.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 796175,
+      "sha256": "a9382f3278ed6ad0ab072e56cc0134d248bade235cdbb5c700447f4f4eae8e4e"
+    },
+    {
+      "file": "raw-smoothed-mhr-comparison.mp4",
+      "decoded_frames": 360,
+      "fps": 30.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 2490510,
+      "sha256": "57cc1e6e7cc4db1e188227e8959b90b1162965624f544db0e19efebfe8f858fc"
+    },
+    {
+      "file": "critical/raw-smoothed-slow-000040-000110.mp4",
+      "decoded_frames": 71,
+      "fps": 10.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 894643,
+      "sha256": "dba69809e46b8151a014b3187b470d6e79072d877fb9268b15102e1cacd5f16d"
+    },
+    {
+      "file": "critical/raw-smoothed-slow-000240-000308.mp4",
+      "decoded_frames": 69,
+      "fps": 10.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 810458,
+      "sha256": "d86fc9255dd9be0e2a41b28056889ce7e82ae7d01219065730a100d80bab74ee"
+    }
+  ],
+  "snapshots": [
+    {
+      "original_frame_id": 0,
+      "primary": "frames/000000.jpg",
+      "primary_sha256": "2a5a2ac08dd0c2f1008f6f681b2bdaf91667cb68bd9e4b0797d53efed1f805e6",
+      "proposal": "frames/proposal-000000.jpg",
+      "proposal_sha256": "405c896c901b3086670af03bf9b6c27ef04a82d2f250e0d44e05676d5043cab3",
+      "smoothed_native": "frames/raw-smoothed-000000.jpg",
+      "smoothed_native_sha256": "7b8ae618581ab5dc802d78d7f33d08f25f3f43379841a7427b216ec2c44ea907"
+    },
+    {
+      "original_frame_id": 39,
+      "primary": "frames/000039.jpg",
+      "primary_sha256": "228aa65049a76617582137666e49d84967238b3fe17a501b6465be39e0cef54a",
+      "proposal": "frames/proposal-000039.jpg",
+      "proposal_sha256": "20c204feecae9dcc95e776dba96304f9d8026fa919e4aa6075e2888f2d8ebc85",
+      "smoothed_native": "frames/raw-smoothed-000039.jpg",
+      "smoothed_native_sha256": "b95788ed4ff83445f08c034338f5765cf8ac57e089e1aac117a83bc61c7c7eba"
+    },
+    {
+      "original_frame_id": 40,
+      "primary": "frames/000040.jpg",
+      "primary_sha256": "0fdc3ec033de87dd8ef3319623fa4b79efb80d4874d8c053a275439c96784161",
+      "proposal": "frames/proposal-000040.jpg",
+      "proposal_sha256": "a6c22a33df8481ed6e475849ee61cc109f9b898bcc3df93ece2c762f9292afdd",
+      "smoothed_native": "frames/raw-smoothed-000040.jpg",
+      "smoothed_native_sha256": "2dd2c70d96fa50dee4d953d52e83ed04f55048e76cbf4d281e004ac322477754"
+    },
+    {
+      "original_frame_id": 41,
+      "primary": "frames/000041.jpg",
+      "primary_sha256": "538cbcd93650e0d7692a63cec5644a2a24e4acba265efd27b0d5eccb4b7e58ea",
+      "proposal": "frames/proposal-000041.jpg",
+      "proposal_sha256": "2e7aa24881a655b37de0fcaca37a935d329ff7e6d6acb6c7dff2410d82a4a6fd",
+      "smoothed_native": "frames/raw-smoothed-000041.jpg",
+      "smoothed_native_sha256": "0342026d252a10cef8e7faaf40177a0ed815d045a8528730201dbc405f01caf6"
+    },
+    {
+      "original_frame_id": 42,
+      "primary": "frames/000042.jpg",
+      "primary_sha256": "5864283ac8863c0294b1221e3e084d712ed9927abd5b905be166141b12efe400",
+      "proposal": "frames/proposal-000042.jpg",
+      "proposal_sha256": "d054f0682407977edb1acbb28ffaef0d205b0d420e84022dcdb786d137f61313",
+      "smoothed_native": "frames/raw-smoothed-000042.jpg",
+      "smoothed_native_sha256": "63322846721069f722e108a880a97527cdc77145eeb078837376feb8dc3be149"
+    },
+    {
+      "original_frame_id": 60,
+      "primary": "frames/000060.jpg",
+      "primary_sha256": "144541f8a919c843d280bb854e208d60d6381b69c8922edad306d999aba87896",
+      "proposal": "frames/proposal-000060.jpg",
+      "proposal_sha256": "ad0f543c78bc4b47ef33989f6e8bf6c2932d0f579e105245b68951adabaa2f77",
+      "smoothed_native": "frames/raw-smoothed-000060.jpg",
+      "smoothed_native_sha256": "edf09abb605f863894df14d589abe3d1e8d7b8525dd96486621542847b2906ab"
+    },
+    {
+      "original_frame_id": 110,
+      "primary": "frames/000110.jpg",
+      "primary_sha256": "a26cb9dfadfce43895c5ab769cdbf8ed3a3457de0ac6e689ca35b433f67ae94b",
+      "proposal": "frames/proposal-000110.jpg",
+      "proposal_sha256": "31c15bb9b8502086de75f0b5b2f551be52aff918dc2b6821caae6030ae4b3b47",
+      "smoothed_native": "frames/raw-smoothed-000110.jpg",
+      "smoothed_native_sha256": "af359f6c6f115824d61fca2ef76d7b823a282cfa47d059b0bbc4f8b9b1a7bbf7"
+    },
+    {
+      "original_frame_id": 120,
+      "primary": "frames/000120.jpg",
+      "primary_sha256": "18a5504a2b17c04ca4945f394bac063a883db08a88efa25b0e4c2c00d1f54aa0",
+      "proposal": "frames/proposal-000120.jpg",
+      "proposal_sha256": "782b69c0b30c1f18bf5419b2209d764a9bc12a9a7111c31bd464e5a83ca361bb",
+      "smoothed_native": "frames/raw-smoothed-000120.jpg",
+      "smoothed_native_sha256": "a9529b0473dacedfd5faf787487f764a53bada9944c4ac74a1bc61b1a8ac4170"
+    },
+    {
+      "original_frame_id": 240,
+      "primary": "frames/000240.jpg",
+      "primary_sha256": "ae5cc63b55623522708c57def279c7694019ecfc66afe42a409655b3325e1cb3",
+      "proposal": "frames/proposal-000240.jpg",
+      "proposal_sha256": "ad7324eae9bf4f7d7e2c66751bc7a77a7c02c279a8b62542a7fdbf9832488478",
+      "smoothed_native": "frames/raw-smoothed-000240.jpg",
+      "smoothed_native_sha256": "5d1fdcb81f9a90605099508efc5c365eda343cfe22d30d8bf06662616fe3dd83"
+    },
+    {
+      "original_frame_id": 276,
+      "primary": "frames/000276.jpg",
+      "primary_sha256": "6b9fae0053dee49af5df83626b235cde8c83b6d2fa3d3ae1f48035eb3ede6b8f",
+      "proposal": "frames/proposal-000276.jpg",
+      "proposal_sha256": "907edb421876f1e7a466b5bfd6e7390b07000481f316dc8322e67f50c808891b",
+      "smoothed_native": "frames/raw-smoothed-000276.jpg",
+      "smoothed_native_sha256": "660aea239f9d6a24f85016c108bb0f5a820488f90603daaef26e97d960f91f9f"
+    },
+    {
+      "original_frame_id": 277,
+      "primary": "frames/000277.jpg",
+      "primary_sha256": "488c46979b2b96ae052b5f84c8d2be041047685f754f2fd57b3edf473b6f5063",
+      "proposal": "frames/proposal-000277.jpg",
+      "proposal_sha256": "68bdfc460099de75f26da07e46bf3d78a49c968180b1ff3e2660e0b1511a1f0e",
+      "smoothed_native": "frames/raw-smoothed-000277.jpg",
+      "smoothed_native_sha256": "14018628b2f0fd3b103e175976c56edb1e6cc025e5800b34f7558362ee2f4c6e"
+    },
+    {
+      "original_frame_id": 278,
+      "primary": "frames/000278.jpg",
+      "primary_sha256": "7a388a3e57cd81104f5f230c0c374a4de1f13ede93465ef3588b6eb208678a14",
+      "proposal": "frames/proposal-000278.jpg",
+      "proposal_sha256": "38cae12fc62e348f976dd9b8601cb3c7647d718ff2409cf7a43995b7d7d09f7a",
+      "smoothed_native": "frames/raw-smoothed-000278.jpg",
+      "smoothed_native_sha256": "72f5abd1a24b8626267933a9b9e48a172b0e73b3552040a4a11aca5e28472ffd"
+    },
+    {
+      "original_frame_id": 279,
+      "primary": "frames/000279.jpg",
+      "primary_sha256": "9bf23b2083e14d8376d7b44d92868496342594162180cc791a4e04e91da90d14",
+      "proposal": "frames/proposal-000279.jpg",
+      "proposal_sha256": "f5eb7c395b523689180d6fab036878a5a5cb34ad845332f8100a8e123d020fef",
+      "smoothed_native": "frames/raw-smoothed-000279.jpg",
+      "smoothed_native_sha256": "241f62f31c40c5b976ace9bc708098bf8a9444942a0271d78e5869da2af6a808"
+    },
+    {
+      "original_frame_id": 284,
+      "primary": "frames/000284.jpg",
+      "primary_sha256": "c30511aeab7dd30c79766186fe32a0cc637ba8f15d5e4bea1240490181168178",
+      "proposal": "frames/proposal-000284.jpg",
+      "proposal_sha256": "ee3533c3e8abba0241684ed992b83d43fbbfe15b1cdac685f74f550eee520def",
+      "smoothed_native": "frames/raw-smoothed-000284.jpg",
+      "smoothed_native_sha256": "6666591626d9629d26c349863520694f596d4fe8639f9efaaa4b7afb2a17005f"
+    },
+    {
+      "original_frame_id": 285,
+      "primary": "frames/000285.jpg",
+      "primary_sha256": "3d57a7c7dfa67d18fbc292ddb9f446af18e10632861020c0baa958e1eef2fd3e",
+      "proposal": "frames/proposal-000285.jpg",
+      "proposal_sha256": "c46b7f72ac47fd65de10550885772b3ff1c3a996bb2fc3234986002139aac0c2",
+      "smoothed_native": "frames/raw-smoothed-000285.jpg",
+      "smoothed_native_sha256": "7e8a1d3b25688658a1991837f9db917973b592700e133cc3a210e6c4c1644a9f"
+    },
+    {
+      "original_frame_id": 286,
+      "primary": "frames/000286.jpg",
+      "primary_sha256": "03a169646ab9b245a8fc1e7e1f835854268b7d3ef39d66dfa54a0b8d1377de5a",
+      "proposal": "frames/proposal-000286.jpg",
+      "proposal_sha256": "288ef01d0d569c3da9cb35c0d9484eaeb4f5d26bd252d5ddac620f4270bdc2ff",
+      "smoothed_native": "frames/raw-smoothed-000286.jpg",
+      "smoothed_native_sha256": "48a1c5a195c145d7bc955effd8f4c6721ca929237513e98421793da7cf0a0753"
+    },
+    {
+      "original_frame_id": 287,
+      "primary": "frames/000287.jpg",
+      "primary_sha256": "c2406c70f6f3e9bba8efe1047ffbc2f117c2b3ac6d698acdba6b991562ead3b1",
+      "proposal": "frames/proposal-000287.jpg",
+      "proposal_sha256": "10d00cafb7dded2f5f30f70ecf00ee01b0a90297b8a7f7f1df9bbbe540cc95d9",
+      "smoothed_native": "frames/raw-smoothed-000287.jpg",
+      "smoothed_native_sha256": "cbdb26ef04f957feab972807f1f4417185f71701d7448318a93ec30e1f608b98"
+    },
+    {
+      "original_frame_id": 301,
+      "primary": "frames/000301.jpg",
+      "primary_sha256": "00717c6dae65ae3ab5b08589805138f415b4300e3076403d0c986ee6fbccd22f",
+      "proposal": "frames/proposal-000301.jpg",
+      "proposal_sha256": "4e79134d8b4341ba318001a0e54dcd805cacd100b82948c0e959a1079f62456f",
+      "smoothed_native": "frames/raw-smoothed-000301.jpg",
+      "smoothed_native_sha256": "246ed4a036b276a099bf3e9ebf4251697acb3bdad1014ff621d7663542c6a611"
+    },
+    {
+      "original_frame_id": 302,
+      "primary": "frames/000302.jpg",
+      "primary_sha256": "0a3f6432c8c2e859eebf56c5d6a0ac45b786856e179cb1ab31c2ce74e7819775",
+      "proposal": "frames/proposal-000302.jpg",
+      "proposal_sha256": "2b5c1f36438c883652a0559d6c578674419f4e47b0d53135f30749c08537a566",
+      "smoothed_native": "frames/raw-smoothed-000302.jpg",
+      "smoothed_native_sha256": "a94e4a2ed54c43ecb56c3db6b6f497784b7becdd1500832d8c8eb608a2725547"
+    },
+    {
+      "original_frame_id": 303,
+      "primary": "frames/000303.jpg",
+      "primary_sha256": "daf531d8f52619040be1ae62be10d8f49d68ac38b139635ef2c01dbf489413be",
+      "proposal": "frames/proposal-000303.jpg",
+      "proposal_sha256": "e6d3ec80f806e3b9fc0246ce89ca22cb206e6c09132d4198fea702fee8caf026",
+      "smoothed_native": "frames/raw-smoothed-000303.jpg",
+      "smoothed_native_sha256": "3a8ba517d70f43237385c53bd0b601cee4c13f3f0c0d1fe57e45aec22087b2d7"
+    },
+    {
+      "original_frame_id": 304,
+      "primary": "frames/000304.jpg",
+      "primary_sha256": "f2b2448204938e690ad174fef456f10338503db0ef2ef97719e5ceea0384b44a",
+      "proposal": "frames/proposal-000304.jpg",
+      "proposal_sha256": "28067e45452a17ae7ed176fce0b9dcbe0c49ccee3b500b51afbf41a4e336a10c",
+      "smoothed_native": "frames/raw-smoothed-000304.jpg",
+      "smoothed_native_sha256": "85520a99055aebb250a13a74d4afba4caeed64ed1afbba724ebaf4ae3360b58a"
+    },
+    {
+      "original_frame_id": 308,
+      "primary": "frames/000308.jpg",
+      "primary_sha256": "4242476211a7dff22e6fbe15e73ff1e2747f25187e8e602c8c2ab80cc3e44dc2",
+      "proposal": "frames/proposal-000308.jpg",
+      "proposal_sha256": "b77fc4354230c6c1bd5befacfd78a2210c389432b392b448b415102686032960",
+      "smoothed_native": "frames/raw-smoothed-000308.jpg",
+      "smoothed_native_sha256": "417f1640103dfe72aeaf15eb5efa5fd82449755d3a11e01e287d70f6a627eebf"
+    },
+    {
+      "original_frame_id": 359,
+      "primary": "frames/000359.jpg",
+      "primary_sha256": "d425e90c67eba48ee56b41a539710d3fc26f7ddfdf4485997a78ff5dee3a8c67",
+      "proposal": "frames/proposal-000359.jpg",
+      "proposal_sha256": "3425a7a703d908ae313f3843053d9f86d7c4719b8b27aadb9c4a433e3bb02367",
+      "smoothed_native": "frames/raw-smoothed-000359.jpg",
+      "smoothed_native_sha256": "4749f19a539c264626db55491e947901c7a30d8128570f4c5d4e7f585d732453"
+    }
+  ],
+  "slow_windows": [
+    {
+      "first_original_frame_id": 40,
+      "last_original_frame_id": 110,
+      "speed_fraction": 0.3333333333333333,
+      "file": "critical/slow-000040-000110.mp4"
+    },
+    {
+      "first_original_frame_id": 240,
+      "last_original_frame_id": 308,
+      "speed_fraction": 0.3333333333333333,
+      "file": "critical/slow-000240-000308.mp4"
+    }
+  ],
+  "browser_playback_checked": false,
+  "static_frames_manually_reviewed": false,
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "official_score_available": false,
+  "all30_execution_authorized": false,
+  "limitations": [
+    "Full decode is video integrity, not visual quality acceptance.",
+    "EgoHand panels show generated geometry projections; admission weights are not calibrated visibility.",
+    "Mesh overlay does not composite object depth and cannot verify physical contact or penetration.",
+    "Source windows are inspection aids, not ground-truth grasp-phase labels."
+  ]
+}

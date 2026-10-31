@@ -1,0 +1,64 @@
+{
+  "episode": 11,
+  "command": [
+    "J:\\video-to-hoi\\work\\human-runtime\\venv\\Scripts\\python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\runtime01\\tools\\evaluate_egohand_pilots.py",
+    "--episode",
+    "11",
+    "--candidate",
+    "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\candidate-smoothed01",
+    "--egohand-observations",
+    "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\observations-smoothed01\\observations.npz",
+    "--output",
+    "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\evaluation-smoothed01.json",
+    "--input-manifest",
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\inputs\\manifest.json",
+    "--review-windows",
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\ep11-review-windows.json",
+    "--tool-root",
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\runtime01",
+    "--device",
+    "cpu",
+    "--threads",
+    "1",
+    "--model-batch",
+    "8"
+  ],
+  "cwd": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\runtime01",
+  "log": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\ep11-evaluation-smoothed01.log",
+  "input_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\candidate-smoothed01\\report.json",
+      "sha256": "a8b1ef0f2059a587dfd74987bcfe41a3fabdb34fe545bac089f295e2c22c5c23"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\candidate-smoothed01\\episode_000011_human.npz",
+      "sha256": "f2bc391111a3e67538da38911cda0bcff0bb0e5759e2e9621413cabccd86ba9d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\observations-smoothed01\\observations.npz",
+      "sha256": "aa6b61d706b0cf56ad4b3bfa0764a513e06d01ca442967d5289d838ba98a2c50"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\inputs\\manifest.json",
+      "sha256": "b7b4a6ca24689cf15b408ec4548ef3dad1b74147c09d20afb6215a21c823e6b1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\runtime01\\tools\\evaluate_egohand_pilots.py",
+      "sha256": "f49c1a29398db4d699b422bbb6bb380dd445f5a32e57e87b6b3e2d7513daf9aa"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\runtime01\\tools\\evaluate_human_hand_pilots.py",
+      "sha256": "11f77eb336c4be64b37ae8be3e572e59efb6f6561c957e99216214457781ef8d"
+    }
+  ],
+  "all30_execution_authorized": false,
+  "automatic_promotion": false,
+  "pid": 11196,
+  "launcher_pid": 50804,
+  "started_at": "2026-10-31T09:19:03.838598+00:00",
+  "returncode": 0,
+  "wall_seconds": 120.78100000019185,
+  "finished_at": "2026-10-31T09:21:04.614191+00:00"
+}

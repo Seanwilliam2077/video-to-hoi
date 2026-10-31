@@ -1,0 +1,86 @@
+{
+  "recorded_at": "2026-10-31T09:29:05.327226+00:00",
+  "episode": 11,
+  "track": 1,
+  "reviewer": "Codex root",
+  "method": "Actual static tool inspection of saved synchronized native and proposal images. No claim of continuous human video playback or hidden ground truth.",
+  "reviewed_images": [
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000280.jpg",
+      "sha256": "c966fa754e6085d8cc069800afecd4951f76531674d6ce7b902220350a610e2d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000340.jpg",
+      "sha256": "ff3cdf20a780f1193936d87d486b6d634124d36bb8d42c7aae9a38645e788a6b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000511.jpg",
+      "sha256": "9c795a2cb95b27deeadf26e570b3e2c22884219ffcc6a88ea9132ae76850ee94"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000512.jpg",
+      "sha256": "a667b9c7343f44844eeae53d417f062287cd8675c0255717eca012572b5de9dd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000559.jpg",
+      "sha256": "3250bfec3962bd571f2e5783779df1698ede263dc13a7d6171c5840b8d0370a1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000560.jpg",
+      "sha256": "299020e0c849feb5040259373569d474cd3649fbd34dc97f80dce435e8abe2c8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000803.jpg",
+      "sha256": "8b2737762f14aebf579233df2e9b67799e06c95f7a1c13ef2675d415cdb8f775"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\proposal-000511.jpg",
+      "sha256": "834a3551cc536c7c1c3783c0c866f6b20d2c947b6ed861825d1aca234e29d143"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\proposal-000512.jpg",
+      "sha256": "9b345298edf60a75361686011b453517b5dfd8fccc57a755e5a7355661e95267"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\proposal-000803.jpg",
+      "sha256": "9cfa130ad0624cb71e64b0b0b3daca0afbefcb02a1707af68e6f2dcf22856822"
+    }
+  ],
+  "findings": [
+    {
+      "original_frame_ids": [
+        280,
+        340
+      ],
+      "finding": "Object/table interaction remains ambiguous under object-depth-free overlay. Finger configurations vary across methods; no consistent specialist advantage is established from these samples."
+    },
+    {
+      "original_frame_ids": [
+        511,
+        512
+      ],
+      "finding": "An RGB-visible hanging hand remains present while MP admission changes. Generated EgoHand wrist/finger projections are displaced and enlarged relative to visible image detail. Native bounded fits reduce the extreme proposal displacement; target admission does not establish correctness."
+    },
+    {
+      "original_frame_ids": [
+        559,
+        560
+      ],
+      "finding": "Left crop contains no clearly visible fingers. Complete generated proposals cannot validate true hidden articulation. Right-hand candidate shape differs, without verified contact or calibrated physical truth."
+    },
+    {
+      "original_frame_ids": [
+        803
+      ],
+      "finding": "Left hand is visible but blurred despite missing admitted MP targets. EgoHand continues to predict; neither complete output nor these samples proves correct grip. No uniform improvement in both hands is established."
+    }
+  ],
+  "limitations": [
+    "Static samples do not establish exact grasp/release timing or temporal lag.",
+    "Wrist-relative second differences also include true motion and palm rotation.",
+    "Transparent mesh has no object-depth compositing; overlap is not measured penetration."
+  ],
+  "quality_accepted": false,
+  "automatic_promotion": false,
+  "all30_execution_authorized": false
+}

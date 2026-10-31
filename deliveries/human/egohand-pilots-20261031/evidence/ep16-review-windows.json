@@ -1,0 +1,20 @@
+{
+  "track": 1,
+  "episode": 16,
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "interpretation": "Manual review intervals only; never used to create fit targets or phase constraints",
+  "windows": [
+    {
+      "first_original_frame_id": 40,
+      "last_original_frame_id": 110,
+      "side": "both",
+      "label": "Manual source review: approach, touch, lift and tilt; broad interval, not ground-truth phase"
+    },
+    {
+      "first_original_frame_id": 240,
+      "last_original_frame_id": 308,
+      "side": "both",
+      "label": "Manual source review: lower and release; broad interval, not ground-truth phase"
+    }
+  ]
+}

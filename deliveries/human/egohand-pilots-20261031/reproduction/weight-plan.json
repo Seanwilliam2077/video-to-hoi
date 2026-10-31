@@ -1,0 +1,92 @@
+[
+  {
+    "repo": "nvidia/EgoHand-v1",
+    "revision": "a153616c5192e6a8b09dbd302f682093080c5b83",
+    "file": "egohand_s060000.ckpt",
+    "bytes": 10657169753,
+    "lfs_sha256": "f940ecb6e3b73d5bd9e562cff232550e1c072f6c063eb4f705951122b15d8a75",
+    "url": "https://huggingface.co/nvidia/EgoHand-v1/resolve/a153616c5192e6a8b09dbd302f682093080c5b83/egohand_s060000.ckpt",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\egohand\\egohand_s060000.ckpt"
+  },
+  {
+    "repo": "nvidia/EgoHand-v1",
+    "revision": "a153616c5192e6a8b09dbd302f682093080c5b83",
+    "file": "README.md",
+    "bytes": 8623,
+    "lfs_sha256": null,
+    "url": "https://huggingface.co/nvidia/EgoHand-v1/resolve/a153616c5192e6a8b09dbd302f682093080c5b83/README.md",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\egohand\\README.md"
+  },
+  {
+    "repo": "nvidia/SOMA-X",
+    "revision": "f81a01796f652260ff930d5318d6c6b845a505ed",
+    "file": "SOMAHand.npz",
+    "bytes": 993833,
+    "lfs_sha256": "233e9225c1da05c6a3dd98107b9f027f2366e3b972bbe67e0d164e5d28619fff",
+    "url": "https://huggingface.co/nvidia/SOMA-X/resolve/f81a01796f652260ff930d5318d6c6b845a505ed/SOMAHand.npz",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\soma\\SOMAHand.npz"
+  },
+  {
+    "repo": "nvidia/SOMA-X",
+    "revision": "f81a01796f652260ff930d5318d6c6b845a505ed",
+    "file": "SOMA_neutral.npz",
+    "bytes": 26608121,
+    "lfs_sha256": "5829af4a5333abdba5ad449360b868faacee99d395971e62f35c0e7169432b63",
+    "url": "https://huggingface.co/nvidia/SOMA-X/resolve/f81a01796f652260ff930d5318d6c6b845a505ed/SOMA_neutral.npz",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\soma\\SOMA_neutral.npz"
+  },
+  {
+    "repo": "nvidia/SOMA-X",
+    "revision": "f81a01796f652260ff930d5318d6c6b845a505ed",
+    "file": "SOMA_template_rig.usda",
+    "bytes": 28306038,
+    "lfs_sha256": "a952cb7bdf4ccd801e355d53122d395b985b69d0d9181439edad5081bb171856",
+    "url": "https://huggingface.co/nvidia/SOMA-X/resolve/f81a01796f652260ff930d5318d6c6b845a505ed/SOMA_template_rig.usda",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\soma\\SOMA_template_rig.usda"
+  },
+  {
+    "repo": "nvidia/SOMA-X",
+    "revision": "f81a01796f652260ff930d5318d6c6b845a505ed",
+    "file": "SOMA_procedural_transforms.json",
+    "bytes": 20045,
+    "lfs_sha256": null,
+    "url": "https://huggingface.co/nvidia/SOMA-X/resolve/f81a01796f652260ff930d5318d6c6b845a505ed/SOMA_procedural_transforms.json",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\soma\\SOMA_procedural_transforms.json"
+  },
+  {
+    "repo": "nvidia/SOMA-X",
+    "revision": "f81a01796f652260ff930d5318d6c6b845a505ed",
+    "file": "MHR/mhr_model_lod6.pt",
+    "bytes": 2080751,
+    "lfs_sha256": "28839b7ee0eb38eb3943cf26cff61a306de78f86227a0f17bb044252c7bc06ac",
+    "url": "https://huggingface.co/nvidia/SOMA-X/resolve/f81a01796f652260ff930d5318d6c6b845a505ed/MHR/mhr_model_lod6.pt",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\soma\\MHR\\mhr_model_lod6.pt"
+  },
+  {
+    "repo": "nvidia/SOMA-X",
+    "revision": "f81a01796f652260ff930d5318d6c6b845a505ed",
+    "file": "LICENSE",
+    "bytes": 11387,
+    "lfs_sha256": null,
+    "url": "https://huggingface.co/nvidia/SOMA-X/resolve/f81a01796f652260ff930d5318d6c6b845a505ed/LICENSE",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\soma\\LICENSE"
+  },
+  {
+    "repo": "nvidia/SOMA-X",
+    "revision": "f81a01796f652260ff930d5318d6c6b845a505ed",
+    "file": "SOMA-X-HF-MANIFEST.json",
+    "bytes": 6472,
+    "lfs_sha256": null,
+    "url": "https://huggingface.co/nvidia/SOMA-X/resolve/f81a01796f652260ff930d5318d6c6b845a505ed/SOMA-X-HF-MANIFEST.json",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\soma\\SOMA-X-HF-MANIFEST.json"
+  },
+  {
+    "repo": "nvidia/SOMA-X",
+    "revision": "f81a01796f652260ff930d5318d6c6b845a505ed",
+    "file": "README.md",
+    "bytes": 11019,
+    "lfs_sha256": null,
+    "url": "https://huggingface.co/nvidia/SOMA-X/resolve/f81a01796f652260ff930d5318d6c6b845a505ed/README.md",
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\weights\\soma\\README.md"
+  }
+]

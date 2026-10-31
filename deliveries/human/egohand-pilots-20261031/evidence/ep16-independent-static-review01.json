@@ -1,0 +1,585 @@
+{
+  "recorded_at": "2026-10-31T08:54:00.294649+00:00",
+  "reviewer": "Codex egohand_adapter independent sampled QA",
+  "track": 1,
+  "episode": 16,
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "evaluation_bindings": {
+    "raw": {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\evaluation-raw01.json",
+      "sha256": "9fd10c0534a3dcc885ed0d5edb0c437518fa2d8b28c8797f511c727e0e027b15"
+    },
+    "smoothed": {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\evaluation-smoothed01.json",
+      "sha256": "776329e085a947f5766b640e4a0ec27879e84444b357e2b786493aac0f860f25"
+    }
+  },
+  "statistics": {
+    "raw": {
+      "mediapipe": {
+        "all_adjacent_finger_guard": {
+          "all_engineering_guards_passed": false,
+          "observed_motion_edges": 312,
+          "observed_motion_failed": 93,
+          "unknown_motion_edges": 406,
+          "unknown_motion_budget_failed": 169
+        },
+        "all_adjacent_wrist_guard": {
+          "all_engineering_guards_passed": false,
+          "observed_wrist_edges": 321,
+          "observed_wrist_failed": 105,
+          "unknown_wrist_edges": 397,
+          "unknown_wrist_budget_failed": 143
+        },
+        "original_mediapipe_boundary_guard": {
+          "all_engineering_guards_passed": false,
+          "observed_motion_edges": 2,
+          "observed_motion_failed": 0,
+          "unknown_motion_edges": 9,
+          "unknown_motion_budget_failed": 5
+        },
+        "generated_support_boundary_edges": 0
+      },
+      "egohand": {
+        "all_adjacent_finger_guard": {
+          "all_engineering_guards_passed": true,
+          "target_motion_edges": 718,
+          "target_motion_failed": 0,
+          "unknown_motion_edges": 0,
+          "unknown_motion_budget_failed": 0
+        },
+        "all_adjacent_wrist_guard": {
+          "all_engineering_guards_passed": true,
+          "target_wrist_edges": 718,
+          "target_wrist_failed": 0,
+          "unknown_wrist_edges": 0,
+          "unknown_wrist_budget_failed": 0
+        },
+        "original_mediapipe_boundary_guard": {
+          "all_engineering_guards_passed": true,
+          "target_motion_edges": 11,
+          "target_motion_failed": 0,
+          "unknown_motion_edges": 0,
+          "unknown_motion_budget_failed": 0
+        },
+        "generated_support_boundary_edges": 0
+      },
+      "heldout_mediapipe_image_agreement": {
+        "left": {
+          "accepted_original_frames": 5,
+          "accepted_landmarks": 101,
+          "weighted_source_pixel_discrepancy_by_method": {
+            "baseline": 5.760564339203896,
+            "mediapipe": 5.256485957960073,
+            "egohand": 5.5011895375596005
+          }
+        },
+        "right": {
+          "accepted_original_frames": 64,
+          "accepted_landmarks": 1155,
+          "weighted_source_pixel_discrepancy_by_method": {
+            "baseline": 6.794566991232023,
+            "mediapipe": 4.302118442166701,
+            "egohand": 9.297670287987163
+          }
+        }
+      },
+      "native_parameter_preservation": {
+        "mediapipe": {
+          "fixed_identity_unchanged": true,
+          "fixed_skeleton_scales_unchanged": true,
+          "root_controls_unchanged": true,
+          "all_unselected_controls_unchanged": true,
+          "maximum_allowed_control_change_radians": 0.19383741915225983,
+          "finite_parameters": true
+        },
+        "egohand": {
+          "fixed_identity_unchanged": true,
+          "fixed_skeleton_scales_unchanged": true,
+          "root_controls_unchanged": true,
+          "all_unselected_controls_unchanged": true,
+          "maximum_allowed_control_change_radians": 0.5843751430511475,
+          "finite_parameters": true
+        }
+      },
+      "fresh_native_decoder": {
+        "baseline": {
+          "frames_freshly_decoded": 360,
+          "native_mesh_max_abs_metres": 1.430511474609375e-06,
+          "native_joint_max_abs_metres": 4.76837158203125e-07,
+          "identity_and_scales_shared": true,
+          "passed": true
+        },
+        "mediapipe": {
+          "frames_freshly_decoded": 360,
+          "native_mesh_max_abs_metres": 0.0,
+          "native_joint_max_abs_metres": 0.0,
+          "identity_and_scales_shared": true,
+          "passed": true
+        },
+        "egohand": {
+          "frames_freshly_decoded": 360,
+          "native_mesh_max_abs_metres": 0.0,
+          "native_joint_max_abs_metres": 0.0,
+          "identity_and_scales_shared": true,
+          "passed": true
+        }
+      },
+      "heldout_mask_check": {
+        "same_original_holdout_ids": [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90,
+          95,
+          100,
+          105,
+          110,
+          115,
+          120,
+          125,
+          130,
+          135,
+          140,
+          145,
+          150,
+          155,
+          160,
+          165,
+          170,
+          175,
+          180,
+          185,
+          190,
+          195,
+          200,
+          205,
+          210,
+          215,
+          220,
+          225,
+          230,
+          235,
+          240,
+          245,
+          250,
+          255,
+          260,
+          265,
+          270,
+          275,
+          280,
+          285,
+          290,
+          295,
+          300,
+          305,
+          310,
+          315,
+          320,
+          325,
+          330,
+          335,
+          340,
+          345,
+          350,
+          355
+        ],
+        "both_holdout_targets_excluded": true,
+        "positive_target_masks_identical": false,
+        "development_validation_not_untouched_test": true
+      }
+    },
+    "smoothed": {
+      "mediapipe": {
+        "all_adjacent_finger_guard": {
+          "all_engineering_guards_passed": false,
+          "observed_motion_edges": 312,
+          "observed_motion_failed": 59,
+          "unknown_motion_edges": 406,
+          "unknown_motion_budget_failed": 121
+        },
+        "all_adjacent_wrist_guard": {
+          "all_engineering_guards_passed": false,
+          "observed_wrist_edges": 321,
+          "observed_wrist_failed": 87,
+          "unknown_wrist_edges": 397,
+          "unknown_wrist_budget_failed": 133
+        },
+        "original_mediapipe_boundary_guard": {
+          "all_engineering_guards_passed": false,
+          "observed_motion_edges": 2,
+          "observed_motion_failed": 0,
+          "unknown_motion_edges": 9,
+          "unknown_motion_budget_failed": 5
+        },
+        "generated_support_boundary_edges": 0
+      },
+      "egohand": {
+        "all_adjacent_finger_guard": {
+          "all_engineering_guards_passed": true,
+          "target_motion_edges": 718,
+          "target_motion_failed": 0,
+          "unknown_motion_edges": 0,
+          "unknown_motion_budget_failed": 0
+        },
+        "all_adjacent_wrist_guard": {
+          "all_engineering_guards_passed": true,
+          "target_wrist_edges": 718,
+          "target_wrist_failed": 0,
+          "unknown_wrist_edges": 0,
+          "unknown_wrist_budget_failed": 0
+        },
+        "original_mediapipe_boundary_guard": {
+          "all_engineering_guards_passed": true,
+          "target_motion_edges": 11,
+          "target_motion_failed": 0,
+          "unknown_motion_edges": 0,
+          "unknown_motion_budget_failed": 0
+        },
+        "generated_support_boundary_edges": 0
+      },
+      "heldout_mediapipe_image_agreement": {
+        "left": {
+          "accepted_original_frames": 5,
+          "accepted_landmarks": 101,
+          "weighted_source_pixel_discrepancy_by_method": {
+            "baseline": 5.760564339203896,
+            "mediapipe": 5.256485957960073,
+            "egohand": 6.168049942111543
+          }
+        },
+        "right": {
+          "accepted_original_frames": 64,
+          "accepted_landmarks": 1155,
+          "weighted_source_pixel_discrepancy_by_method": {
+            "baseline": 6.794566991232023,
+            "mediapipe": 4.302118442166701,
+            "egohand": 9.177218541526997
+          }
+        }
+      },
+      "native_parameter_preservation": {
+        "mediapipe": {
+          "fixed_identity_unchanged": true,
+          "fixed_skeleton_scales_unchanged": true,
+          "root_controls_unchanged": true,
+          "all_unselected_controls_unchanged": true,
+          "maximum_allowed_control_change_radians": 0.19383741915225983,
+          "finite_parameters": true
+        },
+        "egohand": {
+          "fixed_identity_unchanged": true,
+          "fixed_skeleton_scales_unchanged": true,
+          "root_controls_unchanged": true,
+          "all_unselected_controls_unchanged": true,
+          "maximum_allowed_control_change_radians": 0.52666836977005,
+          "finite_parameters": true
+        }
+      },
+      "fresh_native_decoder": {
+        "baseline": {
+          "frames_freshly_decoded": 360,
+          "native_mesh_max_abs_metres": 1.430511474609375e-06,
+          "native_joint_max_abs_metres": 4.76837158203125e-07,
+          "identity_and_scales_shared": true,
+          "passed": true
+        },
+        "mediapipe": {
+          "frames_freshly_decoded": 360,
+          "native_mesh_max_abs_metres": 0.0,
+          "native_joint_max_abs_metres": 0.0,
+          "identity_and_scales_shared": true,
+          "passed": true
+        },
+        "egohand": {
+          "frames_freshly_decoded": 360,
+          "native_mesh_max_abs_metres": 0.0,
+          "native_joint_max_abs_metres": 0.0,
+          "identity_and_scales_shared": true,
+          "passed": true
+        }
+      },
+      "heldout_mask_check": {
+        "same_original_holdout_ids": [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75,
+          80,
+          85,
+          90,
+          95,
+          100,
+          105,
+          110,
+          115,
+          120,
+          125,
+          130,
+          135,
+          140,
+          145,
+          150,
+          155,
+          160,
+          165,
+          170,
+          175,
+          180,
+          185,
+          190,
+          195,
+          200,
+          205,
+          210,
+          215,
+          220,
+          225,
+          230,
+          235,
+          240,
+          245,
+          250,
+          255,
+          260,
+          265,
+          270,
+          275,
+          280,
+          285,
+          290,
+          295,
+          300,
+          305,
+          310,
+          315,
+          320,
+          325,
+          330,
+          335,
+          340,
+          345,
+          350,
+          355
+        ],
+        "both_holdout_targets_excluded": true,
+        "positive_target_masks_identical": false,
+        "development_validation_not_untouched_test": true
+      }
+    }
+  },
+  "images_actually_viewed": [
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\000040.jpg",
+      "sha256": "0fdc3ec033de87dd8ef3319623fa4b79efb80d4874d8c053a275439c96784161",
+      "original_frame_id": 40,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\000060.jpg",
+      "sha256": "144541f8a919c843d280bb854e208d60d6381b69c8922edad306d999aba87896",
+      "original_frame_id": 60,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\000110.jpg",
+      "sha256": "a26cb9dfadfce43895c5ab769cdbf8ed3a3457de0ac6e689ca35b433f67ae94b",
+      "original_frame_id": 110,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\000240.jpg",
+      "sha256": "ae5cc63b55623522708c57def279c7694019ecfc66afe42a409655b3325e1cb3",
+      "original_frame_id": 240,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\000285.jpg",
+      "sha256": "3d57a7c7dfa67d18fbc292ddb9f446af18e10632861020c0baa958e1eef2fd3e",
+      "original_frame_id": 285,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\000308.jpg",
+      "sha256": "4242476211a7dff22e6fbe15e73ff1e2747f25187e8e602c8c2ab80cc3e44dc2",
+      "original_frame_id": 308,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\raw-smoothed-000040.jpg",
+      "sha256": "2dd2c70d96fa50dee4d953d52e83ed04f55048e76cbf4d281e004ac322477754",
+      "original_frame_id": 40,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\raw-smoothed-000060.jpg",
+      "sha256": "edf09abb605f863894df14d589abe3d1e8d7b8525dd96486621542847b2906ab",
+      "original_frame_id": 60,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\raw-smoothed-000110.jpg",
+      "sha256": "af359f6c6f115824d61fca2ef76d7b823a282cfa47d059b0bbc4f8b9b1a7bbf7",
+      "original_frame_id": 110,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\raw-smoothed-000240.jpg",
+      "sha256": "5d1fdcb81f9a90605099508efc5c365eda343cfe22d30d8bf06662616fe3dd83",
+      "original_frame_id": 240,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\raw-smoothed-000285.jpg",
+      "sha256": "7e8a1d3b25688658a1991837f9db917973b592700e133cc3a210e6c4c1644a9f",
+      "original_frame_id": 285,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\raw-smoothed-000308.jpg",
+      "sha256": "417f1640103dfe72aeaf15eb5efa5fd82449755d3a11e01e287d70f6a627eebf",
+      "original_frame_id": 308,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\proposal-000110.jpg",
+      "sha256": "31c15bb9b8502086de75f0b5b2f551be52aff918dc2b6821caae6030ae4b3b47",
+      "original_frame_id": 110,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\proposal-000285.jpg",
+      "sha256": "c46b7f72ac47fd65de10550885772b3ff1c3a996bb2fc3234986002139aac0c2",
+      "original_frame_id": 285,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\frames\\proposal-000308.jpg",
+      "sha256": "b77fc4354230c6c1bd5befacfd78a2210c389432b392b448b415102686032960",
+      "original_frame_id": 308,
+      "viewed_with": "view_image",
+      "qa_type": "sampled_static_image_only"
+    }
+  ],
+  "sampled_static_findings": [
+    {
+      "original_frame_id": 40,
+      "note": "Right hand is visibly at rest beside the body before approach. Left hand detail is substantially obscured by the box. Raw/smoothed MHR left finger shapes differ from baseline, but hidden finger correctness cannot be checked."
+    },
+    {
+      "original_frame_id": 60,
+      "note": "Visible right hand reaches the box side. Much of the anatomical left fingers remain hidden behind the box. All hand overlays retain gross placement/shape uncertainty; static appearance alone does not prove contact."
+    },
+    {
+      "original_frame_id": 110,
+      "note": "The box is lifted/tilted. Left fingers are substantially hidden. Visible right-hand raw/smoothed generated projections have a wrist/landmark placement mismatch relative to RGB and accepted MediaPipe. The coordinate audit already ruled out a projection/double-translation adapter bug."
+    },
+    {
+      "original_frame_id": 240,
+      "note": "Box lowering interval: visible right hand remains at the object side. EgoHand changes left articulation but that side is still obscured. A pose difference is not evidence of recovered hidden grasp."
+    },
+    {
+      "original_frame_id": 285,
+      "note": "Hands are visible around the release interval. Raw/smoothed proposal wrists are displaced toward the forearm and several fingers span beyond their RGB counterparts. The MHR fits are bounded and therefore do not exactly reproduce the proposal skeleton. Raw/smoothed native articulation differs; static samples cannot establish onset/lag or true release timing."
+    },
+    {
+      "original_frame_id": 308,
+      "note": "Right hand is down beside the body; left hand is mostly hidden by the box. MediaPipe admits0 left and9 right landmarks versus21/21 geometric EgoHand proposals. Extra proposal coverage is not extra independent evidence. Predicted left finger shape cannot be validated from this frame."
+    }
+  ],
+  "interpretation_traps": [
+    {
+      "trap": "Zero generated-target failures implies independent hand stability.",
+      "correction": "Both raw and smoothed have0/718 generated-target finger failures and0 unknown-target edges because every geometric proposal is admitted. These are self-consistency/nonregression tests against the model targets. Under the independent-of-EgoHand but method-dependent MediaPipe target, raw has93/312 visible-motion and169/406 unknown-correction failures; smoothed59/312 and121/406. The different target changes the question, and zero unknown edges is vacuous evidence about unseen hands."
+    },
+    {
+      "trap": "Zero EgoHand support-boundary failures proves continuity through occlusion.",
+      "correction": "Both generated supports are continuous and have0 support-boundary edges. The original MediaPipe boundaries still include9 unknown-motion edges, of which5 exceed the added-correction budget for both EgoHand fits. These support boundaries are not true visibility or grasp labels."
+    },
+    {
+      "trap": "The holdout is an untouched independent accuracy test.",
+      "correction": "Fresh evaluator verifies both fit weight arrays are zero on the same72 original holdout IDs. However this is development validation on the same videos, masks and shared all-frame SAM baseline. Upstream whole-clip smoothing uses raw estimates at heldout times to construct neighboring filtered targets; generated smoothed holdout residuals therefore are not independent of the filtered training targets. This does not mean the MHR fitter directly used heldout image weights. MediaPipe holdout evidence remains fallible and method-dependent; only5 left frames support that side."
+    },
+    {
+      "trap": "A passing baseline or MP guard certifies reconstruction accuracy.",
+      "correction": "Baseline added correction is identically zero and the observed nonregression guard is defined relative to baseline, so baseline passes by construction. Current MP is explicitly bounded to the engineering guard. Neither pass validates true finger motion, contact, occlusion, object-relative scale or the official reference-relative ACC."
+    },
+    {
+      "trap": "Seeing mesh in front of the box proves penetration or wrong depth ordering.",
+      "correction": "The preview paints a transparent whole-human mesh over RGB without an object depth/occlusion test. Hidden human triangles remain visible across the box. No penetration/contact conclusion follows from that overlay."
+    },
+    {
+      "trap": "Preserved baseline means the entire pose or the gesture was unchanged.",
+      "correction": "Fixed identity, skeletal scales, root and unselected controls are unchanged, while selected finger and arm/wrist-chain controls may change. Maximum native selected-control delta is MP0.193837419rad, raw0.584375143rad, smoothed0.526668370rad. Native decoder parity establishes export consistency, not image accuracy."
+    },
+    {
+      "trap": "Reduced self-motion or nonzero opening variation proves preserved true grasp timing.",
+      "correction": "Smoothed EgoHand has lower pooled native prediction-only D2 than raw, yet remains above MP. All opening curves vary, but that alone cannot establish true open/close events or timing. Static samples and descriptive extrema do not constitute continuous playback, phase labels or ground truth. No lag alignment or threshold retuning was done."
+    },
+    {
+      "trap": "This directly benchmarks the native standalone SOMA-Hand model quality end to end.",
+      "correction": "The experiment uses EgoHand geometric projections as2D fitting targets for the existing fixed-identity native full-body MHR, with approximate anatomical joint correspondence and the same bounded fit settings. Proposal quality and MHR adaptation both affect the outcome."
+    }
+  ],
+  "fresh_geometry_pooled20joint_second_difference_native_mm_per_frame_squared": {
+    "mediapipe": {
+      "left": 17.086157955559006,
+      "right": 27.71723579190934
+    },
+    "egohand_raw": {
+      "left": 31.488030267898356,
+      "right": 48.0365116046893
+    },
+    "egohand_smoothed": {
+      "left": 24.44458476036218,
+      "right": 40.05787670164022
+    }
+  },
+  "continuous_video_playback_performed": false,
+  "ground_truth_pose_or_contact_used": false,
+  "quality_accepted": false,
+  "official_scores_computed": false,
+  "all30_execution_started": false
+}

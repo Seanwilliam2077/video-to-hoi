@@ -1,0 +1,62 @@
+[
+  {
+    "name": "torch",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages\\torch\\__init__.py",
+    "seconds": 29.016000000061467
+  },
+  {
+    "name": "torchvision",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages\\torchvision\\__init__.py",
+    "seconds": 3.125
+  },
+  {
+    "name": "hydra",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\hydra\\__init__.py",
+    "seconds": 0.3279999999795109
+  },
+  {
+    "name": "rich",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\rich\\__init__.py",
+    "seconds": 0.0
+  },
+  {
+    "name": "warp",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\warp\\__init__.py",
+    "seconds": 0.4220000000204891
+  },
+  {
+    "name": "pxr",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\pxr\\__init__.py",
+    "seconds": 0.0
+  },
+  {
+    "name": "soma",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\soma\\__init__.py",
+    "seconds": 3.155999999959022
+  },
+  {
+    "name": "dinov3.models.vision_transformer",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\dinov3-source\\dinov3\\models\\vision_transformer.py",
+    "seconds": 0.06200000015087426
+  },
+  {
+    "name": "egohand.models.egohand",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\egohand\\models\\egohand.py",
+    "seconds": 0.10999999986961484
+  },
+  {
+    "name": "inference.pipeline.predictor",
+    "ok": true,
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\inference\\pipeline\\predictor.py",
+    "seconds": 0.8900000001303852
+  }
+]

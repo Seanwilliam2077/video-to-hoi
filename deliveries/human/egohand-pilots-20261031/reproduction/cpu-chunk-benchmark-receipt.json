@@ -1,0 +1,78 @@
+{
+  "recorded_at": "2026-10-31T08:25:31.317011+00:00",
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "frame_ids": [
+    "000000",
+    "000108",
+    "000109",
+    "000110",
+    "000111",
+    "000112",
+    "000285",
+    "000286"
+  ],
+  "model_load_seconds": 24.641000000061467,
+  "configurations": [
+    {
+      "threads": 12,
+      "batch_size": 4,
+      "source_chunk_frames": 8,
+      "source_frames": 8,
+      "hand_crops": 16,
+      "seconds": 18.983999999938533,
+      "seconds_per_source_frame": 2.3729999999923166,
+      "finite": true,
+      "max_absolute_difference_vs_frozen_8threads_batch1_smoke": {
+        "pred_keypoints_3d": 2.5331974029541016e-07,
+        "transl": 4.76837158203125e-07,
+        "pred_keypoints_2d": 1.9073486328125e-06
+      }
+    },
+    {
+      "threads": 12,
+      "batch_size": 8,
+      "source_chunk_frames": 8,
+      "source_frames": 8,
+      "hand_crops": 16,
+      "seconds": 17.562000000150874,
+      "seconds_per_source_frame": 2.1952500000188593,
+      "finite": true,
+      "max_absolute_difference_vs_frozen_8threads_batch1_smoke": {
+        "pred_keypoints_3d": 2.5331974029541016e-07,
+        "transl": 4.76837158203125e-07,
+        "pred_keypoints_2d": 1.9073486328125e-06
+      }
+    },
+    {
+      "threads": 12,
+      "batch_size": 16,
+      "source_chunk_frames": 8,
+      "source_frames": 8,
+      "hand_crops": 16,
+      "seconds": 18.109999999869615,
+      "seconds_per_source_frame": 2.263749999983702,
+      "finite": true,
+      "max_absolute_difference_vs_frozen_8threads_batch1_smoke": {
+        "pred_keypoints_3d": 2.2724270820617676e-07,
+        "transl": 4.76837158203125e-07,
+        "pred_keypoints_2d": 1.3615936040878296e-06
+      }
+    }
+  ],
+  "selection_rule": "Fastest finite configuration with max3D/translationdifference <0.0001m and normalizedcrop2Ddifference <0.0001. No quality-driven selection.",
+  "selected": {
+    "threads": 12,
+    "batch_size": 8,
+    "source_chunk_frames": 8,
+    "source_frames": 8,
+    "hand_crops": 16,
+    "seconds": 17.562000000150874,
+    "seconds_per_source_frame": 2.1952500000188593,
+    "finite": true,
+    "max_absolute_difference_vs_frozen_8threads_batch1_smoke": {
+      "pred_keypoints_3d": 2.5331974029541016e-07,
+      "transl": 4.76837158203125e-07,
+      "pred_keypoints_2d": 1.9073486328125e-06
+    }
+  }
+}

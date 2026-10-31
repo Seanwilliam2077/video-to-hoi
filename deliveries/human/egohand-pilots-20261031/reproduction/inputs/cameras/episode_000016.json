@@ -1,0 +1,25 @@
+{
+  "model": "PINHOLE",
+  "image_width": 1536,
+  "image_height": 1152,
+  "camera_matrix": {
+    "matrix_3x3": [
+      [
+        818.745849609375,
+        0.0,
+        767.5
+      ],
+      [
+        0.0,
+        818.745849609375,
+        575.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "distortion_coefficients": []
+}

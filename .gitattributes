@@ -5,3 +5,7 @@ deployment/model-redistribution.json text eol=lf
 docs/evidence/reference-answers-20261003.txt -text
 # Keep published Body delivery evidence byte-identical to its immutable archive.
 deliveries/platform/body-inputs-track1-20261016/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Keep executed pilot recipes and hashed evidence byte-identical to local receipts.
+deliveries/human/egohand-pilots-20261031/reproduction/** -text -whitespace
+deliveries/human/egohand-pilots-20261031/evidence/** -text -whitespace
+deliveries/human/egohand-pilots-20261031/*.json -text -whitespace

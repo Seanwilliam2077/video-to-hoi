@@ -1,0 +1,49 @@
+{
+  "recorded_at": "2026-10-31T08:50:25.214984+00:00",
+  "track": 1,
+  "episode": 16,
+  "summary_sha256": "c023d8b99b3392853425a35cf4449c223b1d94ef000d9f4b57b8884bc5f38fd1",
+  "same_20_joints_and_wrist_relative_coordinates": true,
+  "exact_cause": "Reduction order differs: p95 over per-triplet mean-of20 joint norms versus p95 over all20joint-by-triplet norms pooled. Both are already separately stored in the helper summary.",
+  "primary_final_table": "Use fresh native evaluator pooled20-joint-by-triplet statistic for jitter; retain per-frame mean curve for original-time inspection.",
+  "rows": [
+    {
+      "variant": "mediapipe_mhr",
+      "side": "left",
+      "p95_of_per_triplet_20joint_mean_mm": 15.854564298026684,
+      "p95_of_pooled_joint_triplet_norms_mm": 17.086157955559006
+    },
+    {
+      "variant": "mediapipe_mhr",
+      "side": "right",
+      "p95_of_per_triplet_20joint_mean_mm": 26.594018571023764,
+      "p95_of_pooled_joint_triplet_norms_mm": 27.71723579190934
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "left",
+      "p95_of_per_triplet_20joint_mean_mm": 23.09786260613217,
+      "p95_of_pooled_joint_triplet_norms_mm": 31.488030267898356
+    },
+    {
+      "variant": "egohand_raw_mhr",
+      "side": "right",
+      "p95_of_per_triplet_20joint_mean_mm": 38.82020607284872,
+      "p95_of_pooled_joint_triplet_norms_mm": 48.0365116046893
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "left",
+      "p95_of_per_triplet_20joint_mean_mm": 19.556138668165175,
+      "p95_of_pooled_joint_triplet_norms_mm": 24.44458476036218
+    },
+    {
+      "variant": "egohand_smoothed_mhr",
+      "side": "right",
+      "p95_of_per_triplet_20joint_mean_mm": 37.549998694286614,
+      "p95_of_pooled_joint_triplet_norms_mm": 40.05787670164022
+    }
+  ],
+  "quality_accepted": false,
+  "official_scores_computed": false
+}

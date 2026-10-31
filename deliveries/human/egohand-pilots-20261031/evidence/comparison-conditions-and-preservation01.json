@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-31T08:48:16.363009+00:00",
+  "track": 1,
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "all30_execution_authorized": false,
+  "conditions": {
+    "same_source_frames_camera_and_original_crop_bounds": true,
+    "pixel_identical_model_rasters": false,
+    "mediapipe_sampling": "Existing MediaPipe pipeline used its native crop/resize and 384-pixel detector input; these original observations are reused without rerunning the detector.",
+    "egohand_sampling": "EgoHand uses its trained affine crop to 256 pixels, ImageNet normalization and its own anatomical hand canonicalization. Perspective cropping, pixel-aspect rectification and extra box expansion are disabled.",
+    "downstream_native_fit_configuration_and_original_stride5_mask_identical": true,
+    "holdout_scope": "The stride-5 mask excludes targets from native MHR image/velocity/motion-gate fitting only. It does not withhold RGB from either neural observer.",
+    "upstream_smoothing_scope": "EgoHand adaptive smoothing is a full-clip transductive postprocess using all raw frame predictions, including future and downstream-development-holdout frames. Its result is not an end-to-end unseen-frame test.",
+    "development_validation_not_untouched_test": true
+  },
+  "preserved_originals": [
+    {
+      "episode": 16,
+      "role": "sam_baseline",
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz",
+      "expected_sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777",
+      "actual_sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777",
+      "unchanged": true
+    },
+    {
+      "episode": 16,
+      "role": "current_bounded_mediapipe",
+      "path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000016\\candidate01\\episode_000016_human.npz",
+      "expected_sha256": "1d2ddb221b673285ff5ca6eadab66cce174a318f4b329bb990d45f37df3281b8",
+      "actual_sha256": "1d2ddb221b673285ff5ca6eadab66cce174a318f4b329bb990d45f37df3281b8",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "sam_baseline",
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\baseline\\attempt-0001\\episode_000011_human.npz",
+      "expected_sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+      "actual_sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+      "unchanged": true
+    },
+    {
+      "episode": 11,
+      "role": "current_bounded_mediapipe",
+      "path": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\candidate01\\episode_000011_human.npz",
+      "expected_sha256": "b4636fcf9170789d047379266b6e68c237aa28667e5ca843acba8605c6b6bfa4",
+      "actual_sha256": "b4636fcf9170789d047379266b6e68c237aa28667e5ca843acba8605c6b6bfa4",
+      "unchanged": true
+    }
+  ]
+}

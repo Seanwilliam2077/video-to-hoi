@@ -1,0 +1,260 @@
+{
+  "schema_version": "egohand_input_preprocessing_audit.v1",
+  "recorded_at": "2026-10-31T09:30:42.676494+00:00",
+  "track": 1,
+  "scope": "Read-only source/input convention audit; no inference rerun or source/model/input/output mutation",
+  "upstream_commit": "9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9",
+  "dinov3_commit": "5aa7e93ab42ae3526291f6b4e3fcd22637e03326",
+  "completed_prediction_receipt": {
+    "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\egohand-raw-attempt01\\prediction-receipt.json",
+    "sha256": "d7a7c132c99c7ba8a72f65eaabba29ea2077266201d0226ea123ca63c91b2faa"
+  },
+  "checkpoint_sha256_from_completed_verified_run": "f940ecb6e3b73d5bd9e562cff232550e1c072f6c063eb4f705951122b15d8a75",
+  "checked_source_files": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\run_controlled_egohand.py",
+      "sha256": "9cbfdd91c492da8d54f661d02f3cfba567e09ec6206ff477b4f2a36eac75770b",
+      "symbol": "main / flush_chunk",
+      "line_excerpts": [
+        {
+          "first_line": 70,
+          "last_line": 76,
+          "text": " predictor=EgoHandPredictor(model,args.batch_size,device=args.device,dtype=getattr(torch,args.dtype),smooth=False,use_perspective_cropping=False)\n cap=cv2.VideoCapture(ep['video']);assert cap.isOpened();results={'left':{},'right':{}};row=0;inference=0.0;chunk_frames=[];chunk_ids=[];chunks=[]\n def flush_chunk():\n  nonlocal inference\n  if not chunk_ids:return\n  bboxes={i:{s:boxes[s][i] for s in ['left','right']} for i in chunk_ids}\n  start=time.monotonic();r=predictor.run(chunk_frames,chunk_ids,bboxes,['left','right'],intrinsics_per_image={i:K for i in chunk_ids});elapsed=time.monotonic()-start;inference+=elapsed"
+        },
+        {
+          "first_line": 84,
+          "last_line": 88,
+          "text": " while True:\n  ok,frame=cap.read()\n  if not ok:break\n  if row in selected:\n   chunk_frames.append(frame);chunk_ids.append(f'{row:06d}')"
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\inference\\pipeline\\predictor.py",
+      "sha256": "4d11e1fced6a517a434f771cec565c9b1176b9e1e4e8f07cab055228769031a5",
+      "symbol": "EgoHandPredictor.run / _build_input / _run_imagebased_predictions",
+      "line_excerpts": [
+        {
+          "first_line": 243,
+          "last_line": 252,
+          "text": "        Args:\n            images_bgr: Input images loaded by OpenCV in BGR channel order.\n            image_ids: Image IDs aligned with ``images_bgr``.\n            bboxes_per_image: Padded bbox mapping shaped as\n                ``{image_id: {hand: [center_x, center_y, size]}}``.\n            hands: Hands requested for this run.\n            intrinsics_per_image: Per-image full-image pinhole camera\n                intrinsics keyed by image ID, in decoded-image pixel\n                coordinates, or source camera objects exposing ``project`` and\n                ``unproject`` for perspective cropping."
+        },
+        {
+          "first_line": 344,
+          "last_line": 383,
+          "text": "            K_fullimg = np.asarray(source_camera, dtype=np.float32)\n            image_width = image_bgr.shape[1]\n            image_height = image_bgr.shape[0]\n            model_bbx_xys = bbx_array.copy()\n            model_K = K_fullimg.copy()\n            if hand == \"right\":\n                # Training canonicalizes right hands by flipping them into the left-hand frame.\n                calibrated_full_image = (\n                    getattr(\n                        self.model,\n                        \"camera_mode\",\n                        \"weak_perspective\",\n                    )\n                    == \"sam3db_perspective\"\n                )\n                crop_tensor, model_bbx_xys, model_K = prepare_right_hand_model_input(\n                    image_bgr,\n                    model_bbx_xys,\n                    model_K,\n                    calibrated_full_image=calibrated_full_image,\n                )\n            else:\n                crop_tensor, _ = crop_and_preprocess(\n                    image_bgr,\n                    bbx_array,\n                )\n            return (\n                image_id,\n                hand,\n                {\n                    \"image_id\": image_id,\n                    \"real_hand_side\": hand,\n                    \"crop_tensor\": crop_tensor,\n                    \"model_bbx_xys\": model_bbx_xys,\n                    \"model_K\": model_K,\n                    \"model_img_size\": np.array(\n                        [image_width, image_height], dtype=np.float32\n                    ),\n                    \"output_bbx_xys\": bbx_array,\n                    \"output_K\": K_fullimg,"
+        },
+        {
+          "first_line": 677,
+          "last_line": 708,
+          "text": "            batch = {\n                \"img\": torch.stack([d[\"crop_tensor\"] for d in batch_hand_data]).to(\n                    self.device\n                ),\n                \"bbx_xys\": torch.from_numpy(\n                    np.stack([d[\"model_bbx_xys\"] for d in batch_hand_data])\n                )\n                .float()\n                .to(self.device),\n                \"K_fullimg\": torch.from_numpy(\n                    np.stack([d[\"model_K\"] for d in batch_hand_data])\n                )\n                .float()\n                .to(self.device),\n                \"img_size\": torch.from_numpy(\n                    np.stack([d[\"model_img_size\"] for d in batch_hand_data])\n                )\n                .float()\n                .to(self.device),\n                # Right-hand crops were flipped into the left-hand canonical frame\n                # during preprocessing; the model always sees left-hand inputs.\n                \"hand_type\": [\"left\"] * (end - start),\n            }\n            if perf_reporter is not None and self.device != \"cpu\":\n                # Counted in batch assembly: waits for the host-to-device copies.\n                torch.cuda.synchronize(self.device)\n            forward_start = time.perf_counter()\n            batch_assembly_ms_total += (forward_start - batch_assembly_start) * 1000\n            with torch.autocast(\n                \"cuda\", dtype=self.dtype, enabled=(self.dtype != torch.float32)\n            ):\n                output = self.model.forward_step(batch, train=False)"
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\inference\\preprocessing\\crop.py",
+      "sha256": "c68f19eec92f0002607834c9b0b49cf94afbf024b59a26c8e026ad0587529907",
+      "symbol": "crop_and_preprocess / project_camera_points_to_crop_with_validity",
+      "line_excerpts": [
+        {
+          "first_line": 13,
+          "last_line": 39,
+          "text": "IMAGENET_MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32)\nIMAGENET_STD = np.array([0.229, 0.224, 0.225], dtype=np.float32)\nIMG_SIZE = 256\n\n\ndef crop_and_preprocess(img_bgr, bbx_xys):\n    \"\"\"Crop a hand bbox and normalize it for EgoHand inference.\n\n    Args:\n        img_bgr: Full image loaded by OpenCV in BGR channel order.\n        bbx_xys: Bbox as ``[center_x, center_y, size]`` in full-image pixels.\n\n    Returns:\n        Normalized ``CHW`` tensor and the unnormalized RGB crop.\n    \"\"\"\n    img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)\n    cx, cy, size = float(bbx_xys[0]), float(bbx_xys[1]), float(bbx_xys[2])\n    trans = get_transform(\n        center=np.array([cx, cy]), scale=size, res=(IMG_SIZE, IMG_SIZE), rot=0\n    )\n    img_crop = cv2.warpAffine(\n        img_rgb, trans, (IMG_SIZE, IMG_SIZE), flags=cv2.INTER_LINEAR\n    )\n    img_f = img_crop.astype(np.float32) / 255.0\n    img_f = (img_f - IMAGENET_MEAN) / IMAGENET_STD\n    img_tensor = torch.from_numpy(img_f.transpose(2, 0, 1))\n    return img_tensor, img_crop"
+        },
+        {
+          "first_line": 71,
+          "last_line": 77,
+          "text": "        pixels = perspective_projection(\n            safe_camera_points,\n            K_fullimg.float(),\n        )\n        keypoints_2d = (pixels - bbx_xys[:, None, :2].float()) / bbx_xys[\n            :, None, 2:3\n        ].float()"
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\inference\\preprocessing\\mirroring.py",
+      "sha256": "8b456e9c6384692c13bbb095eb677aa9b624c7aec6ae480f147d2bf587425254",
+      "symbol": "mirror_full_image_camera_horizontal / prepare_right_hand_model_input",
+      "line_excerpts": [
+        {
+          "first_line": 20,
+          "last_line": 26,
+          "text": "    \"\"\"Mirror a bbox and calibrated pinhole camera about pixel centers.\n\n    A horizontal image flip maps full-image pixels as\n    ``u' = (W - 1) - u``.  Canonicalizing a right hand for the left-hand\n    model also mirrors camera-frame X, so the complete intrinsic transform is\n    ``K' = F K M`` rather than only replacing the principal point.  The full\n    matrix form remains exact for off-center cameras and nonzero skew."
+        },
+        {
+          "first_line": 47,
+          "last_line": 60,
+          "text": "    flip_limit = float(width - 1)\n    mirrored_bbox = bbox.copy()\n    mirrored_bbox[0] = flip_limit - mirrored_bbox[0]\n    pixel_flip = np.array(\n        [\n            [-1.0, 0.0, flip_limit],\n            [0.0, 1.0, 0.0],\n            [0.0, 0.0, 1.0],\n        ],\n        dtype=np.float32,\n    )\n    camera_mirror = np.diag(np.array([-1.0, 1.0, 1.0], dtype=np.float32))\n    mirrored_intrinsics = pixel_flip @ intrinsics @ camera_mirror\n    return mirrored_bbox, mirrored_intrinsics"
+        },
+        {
+          "first_line": 100,
+          "last_line": 107,
+          "text": "    \"\"\"Canonicalize a right-hand raster and camera for the left-hand model.\n\n    The calibrated camera contract mirrors the full raster about pixel\n    centers, transforms the complete camera, and only then crops at the\n    mirrored bbox.  Cropping first and flipping the resized crop differs by\n    one output pixel under the affine sampling convention and would not match\n    training.  Legacy checkpoints intentionally retain their historical\n    crop-then-flip raster and ``W - x`` metadata contract."
+        },
+        {
+          "first_line": 114,
+          "last_line": 137,
+          "text": "    image = np.asarray(img_bgr)\n    if image.ndim != 3:\n        raise ValueError(f\"img_bgr must have shape (H, W, C), got {image.shape}\")\n    image_width = int(image.shape[1])\n    if calibrated_full_image:\n        model_bbox, model_K = mirror_full_image_camera_horizontal(\n            bbx_xys,\n            K_fullimg,\n            image_width,\n        )\n        flipped_full_image = np.ascontiguousarray(image[:, ::-1])\n        crop_tensor, _ = crop_and_preprocess(\n            flipped_full_image,\n            model_bbox,\n        )\n    else:\n        model_bbox, model_K = mirror_legacy_crop_camera_horizontal(\n            bbx_xys,\n            K_fullimg,\n            image_width,\n        )\n        crop_tensor, _ = crop_and_preprocess(image, bbx_xys)\n        crop_tensor = crop_tensor.flip(-1)\n    return crop_tensor, model_bbox, model_K"
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\egohand\\utils\\crop_transform.py",
+      "sha256": "d65d7b671f0cc130f900980aedf0bb22b14fd3dea576ecd29f9ba9b0487e3cbb",
+      "symbol": "get_transform",
+      "line_excerpts": [
+        {
+          "first_line": 9,
+          "last_line": 29,
+          "text": "def get_transform(center, scale, res, rot=0):\n    \"\"\"Generate affine transformation matrix.\n\n    Args:\n        center: (2,) crop center\n        scale: crop scale (pixels)\n        res: (h, w) output resolution\n        rot: rotation angle in degrees\n    Returns:\n        t: (2, 3) affine transform\n    \"\"\"\n    h, w = res\n    t = np.zeros((2, 3), dtype=np.float32)\n\n    # Scale\n    t[0, 0] = w / scale\n    t[1, 1] = h / scale\n\n    # Translation (center to origin then to output center)\n    t[0, 2] = w / 2.0 - center[0] * w / scale\n    t[1, 2] = h / 2.0 - center[1] * h / scale"
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\egohand\\models\\egohand.py",
+      "sha256": "28e6c9ceb2028cba71f2c534f0a8aa82415e24db859473b5f18f78e63b0504ff",
+      "symbol": "EgoHand.__init__ / forward_step",
+      "line_excerpts": [
+        {
+          "first_line": 170,
+          "last_line": 178,
+          "text": "        crop_w = cfg.get(\"backbone_input_crop_w\", [32, -32])\n        if crop_w is None:\n            self._backbone_crop_w = None\n        else:\n            self._backbone_crop_w = (int(crop_w[0]), int(crop_w[1]))\n\n        self.focal_length = float(cfg.get(\"focal_length\", 5000.0))\n        self.image_size = int(cfg.get(\"image_size\", 256))\n        self.camera_mode = cfg.get(\"camera_mode\", \"weak_perspective\")"
+        },
+        {
+          "first_line": 986,
+          "last_line": 1000,
+          "text": "    def forward_step(\n        self, batch: Dict, train: bool = False, un_rotate: bool = False\n    ) -> Dict:\n        x = batch[\"img\"]\n        batch_size = x.shape[0]\n        device = x.device\n        dtype = x.dtype\n\n        if self._backbone_crop_w is not None:\n            backbone_in = x[\n                :, :, :, self._backbone_crop_w[0] : self._backbone_crop_w[1]\n            ]\n        else:\n            backbone_in = x\n        conditioning_feats = self.backbone(backbone_in)"
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\egohand\\models\\backbones\\dinov3.py",
+      "sha256": "d5b5b883dcdc04267a794f922c7d8ce2c6769d2886d74c1775d72b802f3f7601",
+      "symbol": "DinoV3Backbone.forward",
+      "line_excerpts": [
+        {
+          "first_line": 136,
+          "last_line": 157,
+          "text": "    def forward(self, x: torch.Tensor) -> torch.Tensor:\n        \"\"\"Args:\n            x: (B, 3, H, W) \u2014 H, W must be multiples of patch_size (16).\n        Returns:\n            (B, embed_dim, H/16, W/16) feature map (CLS + storage tokens dropped).\n        \"\"\"\n        use_compiled = (\n            self._compiled_full_batch_size is not None\n            and x.shape[0] == self._compiled_full_batch_size\n            and not self.training\n            and not torch.is_grad_enabled()\n        )\n        if use_compiled:\n            return self._forward_compiled_spatial_features(x)\n        # Training, grad-enabled validation, and every non-full/tail batch retain\n        # the unmodified eager ModuleList path and therefore cannot recompile.\n        return self.encoder.get_intermediate_layers(\n            x,\n            n=1,\n            reshape=True,\n            norm=True,\n        )[-1]"
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\dinov3-source\\dinov3\\models\\vision_transformer.py",
+      "sha256": "1395c5a6297861101db35af44a04613a0c60a502c947fd3b54092852ddd682b5",
+      "symbol": "DinoVisionTransformer.prepare_tokens_with_masks",
+      "line_excerpts": [
+        {
+          "first_line": 190,
+          "last_line": 193,
+          "text": "    def prepare_tokens_with_masks(self, x: Tensor, masks=None) -> Tuple[Tensor, Tuple[int]]:\n        x = self.patch_embed(x)\n        B, H, W, _ = x.shape\n        x = x.flatten(1, 2)"
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\inference\\camera\\types.py",
+      "sha256": "482f79b9023c1f850ea0870c52bc96dc409e5bc20ca770a9286db313e6175d74",
+      "symbol": "ImageData",
+      "line_excerpts": [
+        {
+          "first_line": 14,
+          "last_line": 23,
+          "text": "@dataclass(frozen=True)\nclass ImageData:\n    \"\"\"Data that a dataset provider can load for one image identifier.\n\n    Attributes:\n        bgr: Image decoded by OpenCV in BGR channel order, or ``None``\n            when the corresponding RGB file is missing or unreadable.\n        intrinsics: Full-image 3-by-3 pinhole camera intrinsic matrix, a\n            CameraModel for perspective cropping, or ``None``\n            when unavailable."
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\inference\\pipeline\\pipeline.py",
+      "sha256": "66dbbd538dc4ae54528109129db8dc2c8636560a4f8199e1522986140fffcde1",
+      "symbol": "EgoHandInferencePipeline.run",
+      "line_excerpts": [
+        {
+          "first_line": 129,
+          "last_line": 140,
+          "text": "        inference_inputs = []\n        for image_id, image_data in image_data_per_image.items():\n            if image_data.bgr is None or image_data.intrinsics is None:\n                continue\n            inference_inputs.append((image_id, image_data.bgr, image_data.intrinsics))\n        if not inference_inputs:\n            raise RuntimeError(\"No image has all inputs required for EgoHand inference\")\n        image_ids = [image_id for image_id, _, _ in inference_inputs]\n        inference_images_bgr = [image_bgr for _, image_bgr, _ in inference_inputs]\n        intrinsics_per_image = {\n            image_id: intrinsics for image_id, _, intrinsics in inference_inputs\n        }"
+        }
+      ]
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\inference\\scripts\\run_egohand_inference_pipeline.py",
+      "sha256": "7141b68c614e5d87d7997fe1d32479d857de62b47d9511d0110347874bbd0492",
+      "symbol": "infer_video",
+      "line_excerpts": [
+        {
+          "first_line": 493,
+          "last_line": 519,
+          "text": "    for batch in read_video_frames_batched(str(video_path), batch_size, max_frames):\n        print(f\"[infer_video] running batch with size {len(batch)}\")\n        if perf_reporter is not None:\n            perf_reporter.record_frames(len(batch))\n\n        if source_camera is not None and render_overlays:\n            source_images.update((f\"{idx:06d}\", frame) for idx, frame in batch)\n        if undistort_maps is not None or resize_params is not None:\n            # Replace each frame in place so peak memory does not double.\n            for i in range(len(batch)):\n                idx, frame = batch[i]\n                if undistort_maps is not None:\n                    frame = cv2.remap(\n                        frame, *undistort_maps, interpolation=cv2.INTER_LINEAR\n                    )\n                if resize_params is not None:\n                    frame = resize_params.apply_to_frame(frame)\n                batch[i] = (idx, frame)\n\n        image_data_batch = {\n            f\"{idx:06d}\": ImageData(\n                bgr=frame,\n                intrinsics=K_fullimg,\n                camera_to_world_transform=None,\n                gt_2d_bboxes=None,\n            )\n            for idx, frame in batch"
+        }
+      ]
+    }
+  ],
+  "conclusions": {
+    "official_predictor_accepts_opencv_BGR": true,
+    "runner_passes_decoded_BGR_without_prior_color_conversion": true,
+    "left_path_BGR_to_RGB_conversion_count": 1,
+    "right_path_BGR_to_RGB_conversion_count": 1,
+    "right_path": "For sam3db_perspective, official code flips the full BGR raster and mirrors bbox/K before calling the same crop_and_preprocess function once; output mirroring remains upstream.",
+    "crop_bbox_contract": "[center_x, center_y, side_length_pixels], not xyxy or 200-scaled units",
+    "affine": "u_crop=(u_source-center_x)*256/side+128; v_crop=(v_source-center_y)*256/side+128",
+    "resampling": "Official cv2.warpAffine to256x256 with INTER_LINEAR; no extra expansion in runner",
+    "normalization": "Convert BGR toRGB, castfloat32,/255, subtract[0.485,0.456,0.406], divide[0.229,0.224,0.225], then HWCtoCHW exactly once",
+    "later_channel_conversion_or_image_renormalization_in_checked_model_backbone_path": false,
+    "checkpoint_image_size": 256,
+    "checkpoint_backbone_input_crop_w": null,
+    "checkpoint_camera_mode": "sam3db_perspective",
+    "checkpoint_mean_or_std_override_present": false,
+    "full_256_crop_reaches_backbone": true,
+    "simple_color_crop_or_double_normalization_integration_error_found": false
+  },
+  "concrete_EP11_original_frame511_binding": {
+    "original_observations": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\observations\\attempt-0001\\observations.npz",
+    "original_observations_sha256": "9445a68b84436caaf6fef82f3aa1c1a9e60d0809717ccfeb395461bce63857e3",
+    "anatomical_left": {
+      "original_crop_xyxy_exclusive": [
+        896,
+        584,
+        1008,
+        696
+      ],
+      "saved_EgoHand_center_side": [
+        952.0,
+        640.0,
+        112.0
+      ]
+    },
+    "anatomical_right": {
+      "original_crop_xyxy_exclusive": [
+        839,
+        602,
+        951,
+        714
+      ],
+      "saved_EgoHand_center_side": [
+        895.0,
+        658.0,
+        112.0
+      ]
+    },
+    "saved_boxes": [
+      {
+        "side": "left",
+        "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\inputs\\bboxes\\episode_000011\\episode_000011_left_bbox.json",
+        "sha256": "464f8b911e70c201ae2895b4d2b0de89886014dfb6e197377ff12990008297e5"
+      },
+      {
+        "side": "right",
+        "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\inputs\\bboxes\\episode_000011\\episode_000011_right_bbox.json",
+        "sha256": "ca9edca176d0fc8485c7fe561eb912c6bd0a2dacff4b4964d11d61f0c760729b"
+      }
+    ],
+    "original_bounds_to_center_side_exact": true
+  },
+  "limitations": [
+    "This confirms the pinned official inference contract. Independent training-dataset preprocessing code and undisclosed inherited pretraining were not audited.",
+    "Official EgoHand affine256/bilinear tensors differ from MediaPipe integer-ROI384/CUBIC tensors; only original crop bounds and estimated camera are controlled.",
+    "Estimated camera intrinsics are not measured calibration. Coordinate consistency does not prove scale/depth correctness.",
+    "Excluding these simple integration mistakes does not establish the cause of wrist/span mismatch or establish reconstruction/grasp/contact quality."
+  ],
+  "inference_repeated": false,
+  "source_or_model_changed": false,
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "official_scores_computed": false,
+  "all30_execution_started": false
+}

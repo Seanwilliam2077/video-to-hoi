@@ -1,0 +1,52 @@
+{
+  "recorded_at": "2026-10-31T08:41:51.800504+00:00",
+  "episode": 16,
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "passed": true,
+  "all_original_frames_per_hand": 360,
+  "checks": [
+    {
+      "variant": "raw",
+      "side": "left",
+      "frame_count": 360,
+      "sha256": "0c284f8e0bf585f2bf84f4a36d21b9d7d2b9796c4bd45a200cde56db8fe90da0",
+      "geometry_finite": true,
+      "positive_depth": true,
+      "projection_roundtrip_max_pixels": 5.354269088208193e-05,
+      "wrist_relative_zero_max": 0.0
+    },
+    {
+      "variant": "raw",
+      "side": "right",
+      "frame_count": 360,
+      "sha256": "73c6d96bb7882214b26690e185a0cb2dfda437d7327bc4430fc9ee088137a8d1",
+      "geometry_finite": true,
+      "positive_depth": true,
+      "projection_roundtrip_max_pixels": 5.8240521384753024e-05,
+      "wrist_relative_zero_max": 0.0
+    },
+    {
+      "variant": "upstream_adaptive_smoothed",
+      "side": "left",
+      "frame_count": 360,
+      "sha256": "6492c3eb8bcd5608deb1db08017ae2832dd9e01a6589ddaecc76b345b190bfef",
+      "geometry_finite": true,
+      "positive_depth": true,
+      "projection_roundtrip_max_pixels": 1.5294833669809296e-05,
+      "wrist_relative_zero_max": 0.0
+    },
+    {
+      "variant": "upstream_adaptive_smoothed",
+      "side": "right",
+      "frame_count": 360,
+      "sha256": "84de03d4a7c7e79dcc915feb7475c6a6c99c34d80b7c15363d54ae4322a6d476",
+      "geometry_finite": true,
+      "positive_depth": true,
+      "projection_roundtrip_max_pixels": 2.688876483926963e-05,
+      "wrist_relative_zero_max": 0.0
+    }
+  ],
+  "native_fullbody_MHR_output": false,
+  "accuracy_or_contact_accepted": false,
+  "all30_execution_started": false
+}

@@ -1,0 +1,40 @@
+{
+  "started_checkout_rule": "src/python/isaaccapture_egopost/**",
+  "interrupted": true,
+  "reason": "Broad source subtree includes example media/calibration. No asset contents opened or used. All subsequent source operations use narrow code allowlist.",
+  "materialized_excluded_asset_metadata": [
+    {
+      "path": "src\\python\\isaaccapture_egopost\\docs\\egohand_pipeline.svg",
+      "bytes": 6296
+    },
+    {
+      "path": "src\\python\\isaaccapture_egopost\\docs\\nvidia_challenge_public_episode_000045.jpg",
+      "bytes": 267815
+    },
+    {
+      "path": "src\\python\\isaaccapture_egopost\\docs\\nvidia_v2d_ego_cam_a.json",
+      "bytes": 529
+    },
+    {
+      "path": "src\\python\\isaaccapture_egopost\\docs\\showcase\\egohand_showcase.mp4",
+      "bytes": 27471027
+    },
+    {
+      "path": "src\\python\\isaaccapture_egopost\\docs\\showcase\\egohand_showcase_poster.jpg",
+      "bytes": 591074
+    },
+    {
+      "path": "src\\python\\isaaccapture_egopost\\keypoint_2_soma_converter\\sample\\comparison.jpg",
+      "bytes": 297298
+    },
+    {
+      "path": "src\\python\\isaaccapture_egopost\\keypoint_2_soma_converter\\src\\soma_sequence_fit\\assets.json",
+      "bytes": 676
+    }
+  ],
+  "time_utc": "2026-10-31T08:06:05.289104+00:00",
+  "quarantine_path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\excluded-unread-checkout-attempt01",
+  "quarantine_move_targets_verified_within_task_root": true,
+  "asset_contents_opened_deserialized_executed_or_used": false,
+  "source_checkout_now_uses_narrow_code_allowlist": true
+}

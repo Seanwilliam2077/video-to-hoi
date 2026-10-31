@@ -1,0 +1,318 @@
+{
+  "recorded_at": "2026-10-31T09:29:30.719469+00:00",
+  "track": 1,
+  "episode": 11,
+  "reviewer": "Codex egohand_adapter independent sampled QA",
+  "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+  "numeric_review": {
+    "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\ep11-opening-motion-numeric-review01.json",
+    "sha256": "9cff0ee224d7e5bdc52a1d02983936523e7119d7602fdfa0af13e3b99b7250ee"
+  },
+  "evaluation_sha256": {
+    "raw": "19d00667dec19c72ef630462c0a5937ddc3e60e5d7935904966d75b15270c63a",
+    "smoothed": "6ee60ceff92213e2c23cdbe49bd528cd2bbc7bad0f5830d69fb734dd59fc11b7"
+  },
+  "observation_sha256": {
+    "mediapipe": "9445a68b84436caaf6fef82f3aa1c1a9e60d0809717ccfeb395461bce63857e3",
+    "raw": "22e2025e9adade71c4c71bd0d2fedc2a419427ffd736e6cf789c28dff430eebf",
+    "smoothed": "aa6b61d706b0cf56ad4b3bfa0764a513e06d01ca442967d5289d838ba98a2c50"
+  },
+  "images_actually_viewed": [
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\000511.jpg",
+      "sha256": "7b10abde22e5d7e3b07c818dfd1233b51c093d9cef3ad0738ec40c7c24145d53",
+      "original_frame_id": 511,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\000512.jpg",
+      "sha256": "613ac0e6c92802ca4e95c084c57673fced675d552992a4ae002cb8dbf4e91acd",
+      "original_frame_id": 512,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\000559.jpg",
+      "sha256": "84781592820e4e86ad042fc30ef226b4e80bfd90695452dfd787075376260e66",
+      "original_frame_id": 559,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\000560.jpg",
+      "sha256": "8aa9ec4f0cf8bba951ba01d9bf1d48c6d9d7894c01970f309aeb27db7ce1c2e7",
+      "original_frame_id": 560,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\000803.jpg",
+      "sha256": "c6061cba86b94793fdfadeff68ba3f93eb818a7ea0588058f7801df1a8add8c6",
+      "original_frame_id": 803,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000511.jpg",
+      "sha256": "9c795a2cb95b27deeadf26e570b3e2c22884219ffcc6a88ea9132ae76850ee94",
+      "original_frame_id": 511,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000512.jpg",
+      "sha256": "a667b9c7343f44844eeae53d417f062287cd8675c0255717eca012572b5de9dd",
+      "original_frame_id": 512,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000559.jpg",
+      "sha256": "3250bfec3962bd571f2e5783779df1698ede263dc13a7d6171c5840b8d0370a1",
+      "original_frame_id": 559,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000560.jpg",
+      "sha256": "299020e0c849feb5040259373569d474cd3649fbd34dc97f80dce435e8abe2c8",
+      "original_frame_id": 560,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\raw-smoothed-000803.jpg",
+      "sha256": "8b2737762f14aebf579233df2e9b67799e06c95f7a1c13ef2675d415cdb8f775",
+      "original_frame_id": 803,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\proposal-000511.jpg",
+      "sha256": "834a3551cc536c7c1c3783c0c866f6b20d2c947b6ed861825d1aca234e29d143",
+      "original_frame_id": 511,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\proposal-000512.jpg",
+      "sha256": "9b345298edf60a75361686011b453517b5dfd8fccc57a755e5a7355661e95267",
+      "original_frame_id": 512,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\proposal-000559.jpg",
+      "sha256": "01a288e4e8dcd5b22c0278934f5b55348827e54199ee14d2f453dc05f9ed5763",
+      "original_frame_id": 559,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\proposal-000560.jpg",
+      "sha256": "ab86bf22ff6680bea16239b09705689d9b61efb55dd3a258def462694661565d",
+      "original_frame_id": 560,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\frames\\proposal-000803.jpg",
+      "sha256": "9cfa130ad0624cb71e64b0b0b3daca0afbefcb02a1707af68e6f2dcf22856822",
+      "original_frame_id": 803,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    }
+  ],
+  "findings": [
+    {
+      "original_frame_ids": [
+        511,
+        512
+      ],
+      "finding": "Both snapshots contain visible hand detail. MP admission changes left20-to0 and right0-to21. This is a detector-support change, not a verified true occlusion transition. EgoHand raw/smoothed projected wrists are displaced up the forearm or toward the table edge, and finger spread/span differs markedly from visible RGB hand detail. The native MHR fit is much less extreme than the raw proposal because it is constrained by the original rig and bounded control updates.",
+      "numerical_context": "At511 accepted left wrist discrepancy is raw25.898/smoothed25.698 sourcepx; at512 accepted right wrist discrepancy is raw49.506/smoothed50.215px. MediaPipe is a fallible reference, and wrist definitions are not geometry-identical."
+    },
+    {
+      "original_frame_ids": [
+        559,
+        560
+      ],
+      "finding": "The left source crops are dominated by torso, jeans and table; clearly visible left fingertips cannot be identified here. EgoHand produces21 geometric points over the jeans region. These cannot be treated as independent hidden-hand observations or successful completion. The visible right-hand model remains imperfectly aligned; raw/smoothed poses differ, but these two static images do not establish a temporal improvement.",
+      "numerical_context": "MP left admission0 at both times; right20/17. Raw right weighted landmark discrepancy is13.484/19.286 sourcepx; smoothed13.586/19.782px."
+    },
+    {
+      "original_frame_ids": [
+        803
+      ],
+      "finding": "Left hand is visible but motion-blurred despite0 accepted MP landmarks. It is incorrect to label this frame fully occluded from the missing detector evidence. Raw/smoothed MHR extends the left fingers differently from the baseline; blur prevents validating exact finger posture. The right hand is visibly extended; native candidates have similar gross placement. No clear sampled advantage is established.",
+      "numerical_context": "Right accepted MP count21. Raw/smoothed proposal wrist discrepancies14.386/13.954sourcepx; weighted landmark discrepancies5.686/5.734px. No independent left2D target is available."
+    }
+  ],
+  "descriptive_proposal_comparison_not_ground_truth": [
+    {
+      "original_frame_id": 511,
+      "anatomical_side": "left",
+      "accepted_MP_points": 20,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 16.562366530416774,
+        "source_pixel_wrist_discrepancy_against_MP": 25.89819482751503
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 15.5518748525489,
+        "source_pixel_wrist_discrepancy_against_MP": 25.697705792195
+      }
+    },
+    {
+      "original_frame_id": 511,
+      "anatomical_side": "right",
+      "accepted_MP_points": 0,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      }
+    },
+    {
+      "original_frame_id": 512,
+      "anatomical_side": "left",
+      "accepted_MP_points": 0,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      }
+    },
+    {
+      "original_frame_id": 512,
+      "anatomical_side": "right",
+      "accepted_MP_points": 21,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 38.27479830918856,
+        "source_pixel_wrist_discrepancy_against_MP": 49.50570912036781
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 36.79965432537253,
+        "source_pixel_wrist_discrepancy_against_MP": 50.21485551739751
+      }
+    },
+    {
+      "original_frame_id": 559,
+      "anatomical_side": "left",
+      "accepted_MP_points": 0,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      }
+    },
+    {
+      "original_frame_id": 559,
+      "anatomical_side": "right",
+      "accepted_MP_points": 20,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 13.483754875646778,
+        "source_pixel_wrist_discrepancy_against_MP": 10.686719406668086
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 13.586418974142697,
+        "source_pixel_wrist_discrepancy_against_MP": 9.947546982095803
+      }
+    },
+    {
+      "original_frame_id": 560,
+      "anatomical_side": "left",
+      "accepted_MP_points": 0,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      }
+    },
+    {
+      "original_frame_id": 560,
+      "anatomical_side": "right",
+      "accepted_MP_points": 17,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 19.285914018785412,
+        "source_pixel_wrist_discrepancy_against_MP": 17.371019396377243
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 19.781637738753094,
+        "source_pixel_wrist_discrepancy_against_MP": 12.208419194166396
+      }
+    },
+    {
+      "original_frame_id": 803,
+      "anatomical_side": "left",
+      "accepted_MP_points": 0,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": null,
+        "source_pixel_wrist_discrepancy_against_MP": null
+      }
+    },
+    {
+      "original_frame_id": 803,
+      "anatomical_side": "right",
+      "accepted_MP_points": 21,
+      "raw": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 5.686222666890204,
+        "source_pixel_wrist_discrepancy_against_MP": 14.385894395731146
+      },
+      "smoothed": {
+        "accepted_geometric_proposals": 21,
+        "weighted_source_pixel_discrepancy_against_accepted_MP": 5.733727236181743,
+        "source_pixel_wrist_discrepancy_against_MP": 13.954237729095043
+      }
+    }
+  ],
+  "conclusion": "These sampled static views do not establish a visual improvement or successful recovery of hidden grasp. Overall numerical self-motion remains above currentMP despite smoothing gains relative to raw. Some local intervals improve, and exact hidden finger pose or grasp timing remains unverified.",
+  "limits": [
+    "No continuous playback was performed by this reviewer. Adjacent snapshots permit a local pose comparison, not a full timing/lag or flicker assessment.",
+    "The preview paints the full transparent human mesh without object-depth occlusion. Mesh shown across the table does not prove penetration.",
+    "Generated geometric proposals are inferred values;21 admitted points do not imply visibility or calibrated confidence. Missing MP targets do not prove occlusion.",
+    "MP comparisons are detector agreement, not ground-truth accuracy. Very small apparent palm width makes normalized2D opening ratios unstable.",
+    "Both pooled20-joint-by-frame p95 and per-frame-mean-then-p95 are stored separately in the numerical receipt and must not be mixed. All motion metrics here are prediction-only, not official reference-relative ACC.",
+    "Smoothing uses raw estimates across original holdout times before MHR fitting. Direct holdout fitting weights are zero, but generated smoothed holdout agreement is not independent.",
+    "True grasp, object-relative contact, penetration, calibrated scale and official scores are not established."
+  ],
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "official_scores_computed": false,
+  "all30_execution_started": false
+}

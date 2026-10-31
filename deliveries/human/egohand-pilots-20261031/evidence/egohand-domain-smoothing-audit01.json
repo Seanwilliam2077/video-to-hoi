@@ -1,0 +1,74 @@
+{
+  "recorded_at": "2026-10-31T08:50:25.208463+00:00",
+  "source_commit": "9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9",
+  "source_file_sha256": {
+    "inference/postprocessing/adaptive_smoothing.py": "e30fc9d82d4ab9d09e64b7caee8d2f522094ca4e241783d5547e5de1cde10432",
+    "inference/pipeline/predictor.py": "4d11e1fced6a517a434f771cec565c9b1176b9e1e4e8f07cab055228769031a5",
+    "egohand/models/egohand.py": "28e6c9ceb2028cba71f2c534f0a8aa82415e24db859473b5f18f78e63b0504ff"
+  },
+  "model_card_revision": "a153616c5192e6a8b09dbd302f682093080c5b83",
+  "model_card_sha256": "9f3f0ee8ec9a6861a5dd353d1a1dea5daa225c34870c7b1e74df018e5a7007f6",
+  "primary_sources": {
+    "model_card": "https://huggingface.co/nvidia/EgoHand-v1/blob/a153616c5192e6a8b09dbd302f682093080c5b83/README.md",
+    "documentation": "https://nvidia.github.io/IsaacCapture/main/ego_post_processing/egohand.html#adaptive-hand-smoothing",
+    "paper_v2": "https://arxiv.org/html/2610.30293v2"
+  },
+  "claims": [
+    {
+      "claim": "The learned model predicts from one 256x256 RGB hand crop with bounding-box and camera conditioning. The deployed forward batch stacks independent crops; temporal batching is an execution strategy, not a sequence model.",
+      "sources": [
+        "https://github.com/NVIDIA/IsaacCapture/blob/9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9/src/python/isaaccapture_egopost/egohand/models/egohand.py#L986-L1100",
+        "https://github.com/NVIDIA/IsaacCapture/blob/9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9/src/python/isaaccapture_egopost/inference/pipeline/predictor.py#L673-L708",
+        "model card Description and Model Versions"
+      ]
+    },
+    {
+      "claim": "Intended use and published quantitative evaluations are egocentric. The training mixture includes synthetic views, real egocentric footage and multiview motion capture, so it is incorrect to call the training exclusively egocentric.",
+      "sources": [
+        "model card Use Case and Training Dataset",
+        "paper sections4.1 and6.1"
+      ]
+    },
+    {
+      "claim": "Third-person Track1 appearance, small effective hand detail in the frozen112px crops, estimated intrinsics, occlusion and model-to-native-rig fitting are plausible confounds. The current comparison does not isolate their causal contributions. Intended-view mismatch is a hypothesis, not a proven reason for these errors or proof the model cannot generalize.",
+      "sources": [
+        "model card and paper intended domain",
+        "task/source-static-review.json",
+        "task/smoke-coordinate-audit.json"
+      ],
+      "inference": true
+    },
+    {
+      "claim": "Official smoothing is an offline numerical filter on existing per-frame SOMA parameters. Translation and SO3 articulation use robust local quadratic fits with adaptive physical-time widths and local noise estimates; fewer than13 predictions fall back to motion-adaptive centered Gaussian filtering. Shape/scale are also filtered. Geometry is decoded again. It is not a learned temporal video network or a contact model.",
+      "sources": [
+        "https://github.com/NVIDIA/IsaacCapture/blob/9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9/src/python/isaaccapture_egopost/inference/postprocessing/adaptive_smoothing.py#L207-L354",
+        "https://github.com/NVIDIA/IsaacCapture/blob/9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9/src/python/isaaccapture_egopost/inference/postprocessing/adaptive_smoothing.py#L386-L410",
+        "https://github.com/NVIDIA/IsaacCapture/blob/9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9/src/python/isaaccapture_egopost/inference/postprocessing/adaptive_smoothing.py#L498-L593"
+      ]
+    },
+    {
+      "claim": "Defaults are experimental: max pose/translation sigma2/30s, shape sigma0.2s, maximum timestamp gap0.15s. Missing/nonfinite predictions and larger gaps split independent segments; this path never creates absent predictions. Finite predictions made from an occluded crop remain proposals and can be filtered without being recognized as truly visible.",
+      "sources": [
+        "https://github.com/NVIDIA/IsaacCapture/blob/9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9/src/python/isaaccapture_egopost/inference/postprocessing/adaptive_smoothing.py#L26-L40",
+        "https://github.com/NVIDIA/IsaacCapture/blob/9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9/src/python/isaaccapture_egopost/inference/postprocessing/adaptive_smoothing.py#L351-L383"
+      ]
+    },
+    {
+      "claim": "The audited released path contains no learned long-occlusion motion-inpainting stage. The paper explicitly excludes missing-trajectory completion from its evaluation and omits the comparator HaWoR infilling module. Smoothing existing guesses does not recover hidden evidence.",
+      "sources": [
+        "https://arxiv.org/html/2610.30293v2#S6.SS1",
+        "https://github.com/NVIDIA/IsaacCapture/blob/9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9/src/python/isaaccapture_egopost/inference/postprocessing/adaptive_smoothing.py#L362-L383"
+      ],
+      "scope": "This released model and deployed inference/filter path; not a universal statement about future EgoHand versions."
+    },
+    {
+      "claim": "The stronger annotation fitting pipeline described in paper4.2 uses supplied3D landmarks, calibrated cameras and SAM3 masks with a fixed hand identity and sequence optimization. It must not be conflated with this single-image pretrained inference path or claimed reproducible here without those observations.",
+      "sources": [
+        "https://arxiv.org/html/2610.30293v2#S4.SS2"
+      ]
+    }
+  ],
+  "assets_loaded": "Source text, model-card text and existing permitted Track1 receipts only; no example video/calibration or external dataset assets were loaded.",
+  "official_scores_computed": false,
+  "quality_accepted": false
+}

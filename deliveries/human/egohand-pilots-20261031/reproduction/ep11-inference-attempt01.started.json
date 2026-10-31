@@ -1,0 +1,30 @@
+{
+  "episode": 11,
+  "source_sha256": "9cbfdd91c492da8d54f661d02f3cfba567e09ec6206ff477b4f2a36eac75770b",
+  "source_snapshot": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\inference-runtime01\\run_controlled_egohand.py",
+  "command": [
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Scripts\\python.exe",
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\run_controlled_egohand.py",
+    "--episode",
+    "11",
+    "--output",
+    "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\egohand-raw-attempt01",
+    "--device",
+    "cpu",
+    "--dtype",
+    "float32",
+    "--threads",
+    "12",
+    "--batch-size",
+    "8",
+    "--frame-chunk-size",
+    "8",
+    "--with-smoothing"
+  ],
+  "log": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\ep11-inference-attempt01.log",
+  "pid": 66068,
+  "launcher_pid": 79384,
+  "started_at": "2026-10-31T08:41:10.033252+00:00",
+  "all30_execution_authorized": false,
+  "configuration_selected_on_runtime_not_quality": true
+}

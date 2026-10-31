@@ -1,0 +1,30 @@
+{
+  "recorded_at": "2026-10-31T09:29:40.253441+00:00",
+  "track": 1,
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "all30_execution_authorized": false,
+  "automatic_promotion": false,
+  "outputs": [
+    {
+      "episode": 16,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\local-delivery01\\egohand-pilots-20261031-ep16-review.zip",
+      "bytes": 72855848,
+      "sha256": "19ba472b0bc88b42b67f11defce933b5d710bfa88b2934f2ba78b9e4d698609d",
+      "payload_files": 110,
+      "all_zip_members_rehashed": true,
+      "published": false
+    },
+    {
+      "episode": 11,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\local-delivery01\\egohand-pilots-20261031-ep11-review.zip",
+      "bytes": 204690579,
+      "sha256": "43742dc12af63bc2993f0078def7a8cf0c556cea8da85a6c96fed75c9d59544a",
+      "payload_files": 424,
+      "all_zip_members_rehashed": true,
+      "published": false
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "command": [
+    "J:\\video-to-hoi\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/progress_board.py",
+    "validate"
+  ],
+  "started_at": "2026-10-31T08:17:36.708259+00:00",
+  "source_sha256_before": {
+    "src/v2hoi/egohand_adapter.py": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+    "tools/adapt_egohand_observations.py": "41c861bdf56a0acaeba3338ba7b45b4422626341d107d71e61d593467ca6e267",
+    "tools/evaluate_egohand_pilots.py": "f49c1a29398db4d699b422bbb6bb380dd445f5a32e57e87b6b3e2d7513daf9aa",
+    "tools/refine_human_hands.py": "cdc92007060568df7c99cda2ef34fa8afa38e3a511f2a5f8cc6cddcba8ad3977",
+    "tests/test_egohand_adapter.py": "7f533f5b28e9393eb2bc759a6cde86296101aa9ec178f768ce2d973aa3ba047c",
+    "tests/test_egohand_evaluation.py": "c78016f4cc1109dd5f72edc974eb835a4351fd3580f905e9d34749adb8b265fc",
+    ".github/workflows/tests.yml": "a1d029d000bd1344af74f1d3ee0910220bb8f7ded9b9d5cd5987b20639a9514c"
+  },
+  "PYTHONPATH": "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi\\src",
+  "returncode": 0,
+  "wall_seconds": 0.48400000017136335,
+  "source_sha256_after": {
+    "src/v2hoi/egohand_adapter.py": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+    "tools/adapt_egohand_observations.py": "41c861bdf56a0acaeba3338ba7b45b4422626341d107d71e61d593467ca6e267",
+    "tools/evaluate_egohand_pilots.py": "f49c1a29398db4d699b422bbb6bb380dd445f5a32e57e87b6b3e2d7513daf9aa",
+    "tools/refine_human_hands.py": "cdc92007060568df7c99cda2ef34fa8afa38e3a511f2a5f8cc6cddcba8ad3977",
+    "tests/test_egohand_adapter.py": "7f533f5b28e9393eb2bc759a6cde86296101aa9ec178f768ce2d973aa3ba047c",
+    "tests/test_egohand_evaluation.py": "c78016f4cc1109dd5f72edc974eb835a4351fd3580f905e9d34749adb8b265fc",
+    ".github/workflows/tests.yml": "a1d029d000bd1344af74f1d3ee0910220bb8f7ded9b9d5cd5987b20639a9514c"
+  }
+}

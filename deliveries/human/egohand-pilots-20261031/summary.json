@@ -1,0 +1,3488 @@
+{
+  "schema_version": "egohand_completed_pilot_summary.v1",
+  "recorded_at": "2026-10-31T09:29:22.441911+00:00",
+  "track": 1,
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "all30_execution_authorized": false,
+  "automatic_promotion": false,
+  "official_scores_available": false,
+  "heldout_interpretation": "Within-video development validation; upstream smoothing sees the full clip.",
+  "jitter_interpretation": "Pooled 20-finger wrist-relative native-coordinate second-difference norms; prediction-only, not reference acceleration error.",
+  "episodes": [
+    {
+      "episode": 16,
+      "frames": 360,
+      "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+      "inference": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\prediction-receipt.json",
+        "sha256": "be89b287b8cf40814bbb11c65d1db7c4e1addc6166cc47c7232554852ccbc8ec",
+        "bytes": 190346
+      },
+      "variants": {
+        "raw": {
+          "evaluation": {
+            "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\evaluation-raw01.json",
+            "sha256": "9fd10c0534a3dcc885ed0d5edb0c437518fa2d8b28c8797f511c727e0e027b15",
+            "bytes": 6384837
+          },
+          "native_decoder": {
+            "baseline": {
+              "frames_freshly_decoded": 360,
+              "native_mesh_max_abs_metres": 1.430511474609375e-06,
+              "native_joint_max_abs_metres": 4.76837158203125e-07,
+              "saved_hand_max_abs_metres": null,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 360,
+              "pose_shape": [
+                360,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777"
+            },
+            "mediapipe": {
+              "frames_freshly_decoded": 360,
+              "native_mesh_max_abs_metres": 0.0,
+              "native_joint_max_abs_metres": 0.0,
+              "saved_hand_max_abs_metres": 4.76837158203125e-07,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 360,
+              "pose_shape": [
+                360,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "1d2ddb221b673285ff5ca6eadab66cce174a318f4b329bb990d45f37df3281b8"
+            },
+            "egohand": {
+              "frames_freshly_decoded": 360,
+              "native_mesh_max_abs_metres": 0.0,
+              "native_joint_max_abs_metres": 0.0,
+              "saved_hand_max_abs_metres": 4.76837158203125e-07,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 360,
+              "pose_shape": [
+                360,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "4e2b98088174c550f8afb92a8511d3cc66f656162bfc66efd0e97dfdf8b453de"
+            }
+          },
+          "parameter_preservation": {
+            "mediapipe": {
+              "fixed_identity_unchanged": true,
+              "fixed_skeleton_scales_unchanged": true,
+              "root_controls_unchanged": true,
+              "all_unselected_controls_unchanged": true,
+              "allowed_control_indices": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121
+              ],
+              "maximum_allowed_control_change_radians": 0.19383741915225983,
+              "finite_parameters": true
+            },
+            "egohand": {
+              "fixed_identity_unchanged": true,
+              "fixed_skeleton_scales_unchanged": true,
+              "root_controls_unchanged": true,
+              "all_unselected_controls_unchanged": true,
+              "allowed_control_indices": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121
+              ],
+              "maximum_allowed_control_change_radians": 0.5843751430511475,
+              "finite_parameters": true
+            }
+          },
+          "prediction_self_motion": {
+            "baseline": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 0.8093442918761828,
+                  "median": 0.49520833016751414,
+                  "p95": 2.634092359836704,
+                  "max": 17.950134012181827
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 1.1017157153792754,
+                  "median": 0.6674401756753575,
+                  "p95": 3.679918119927541,
+                  "max": 16.440562268326993
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.0035952396482303987,
+                  "median": 0.0023230595779181818,
+                  "p95": 0.011497865155498409,
+                  "max": 0.06846147943554413
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.004907678429451412,
+                  "median": 0.003041719826033514,
+                  "p95": 0.015432366889600929,
+                  "max": 0.06065035096760344
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 1.3585188947924332,
+                  "median": 0.86512061814446,
+                  "p95": 4.228791798059707,
+                  "max": 14.003383477816426
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 2.010001904293251,
+                  "median": 1.2521936601616046,
+                  "p95": 6.335182876501526,
+                  "max": 26.0230655081034
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.006595812436212453,
+                  "median": 0.004301218529579251,
+                  "p95": 0.01948478169220636,
+                  "max": 0.07338962363872104
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.009769764226611067,
+                  "median": 0.006258830846144575,
+                  "p95": 0.029446994758046113,
+                  "max": 0.1387564278450423
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            },
+            "mediapipe": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 0.8350985293148139,
+                  "median": 0.5096644404431081,
+                  "p95": 2.724606159257763,
+                  "max": 18.229903363678567
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 1.1396306413651514,
+                  "median": 0.6858213607641043,
+                  "p95": 3.7868903730509085,
+                  "max": 16.822896311960488
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.003762304919871037,
+                  "median": 0.002330077543467238,
+                  "p95": 0.012423008658426701,
+                  "max": 0.06888481132595776
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.0051864706271668795,
+                  "median": 0.003124280928130555,
+                  "p95": 0.017086157955559005,
+                  "max": 0.061743750159250155
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 1.2885734052983444,
+                  "median": 0.8121320286265027,
+                  "p95": 3.9996163722548697,
+                  "max": 12.497405757417134
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 1.807363595982876,
+                  "median": 1.0670121402216368,
+                  "p95": 6.033244657887803,
+                  "max": 24.210585350165328
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.0064507594682444895,
+                  "median": 0.004367045925399368,
+                  "p95": 0.01845233987442652,
+                  "max": 0.06825374891721935
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.009093137069810462,
+                  "median": 0.00584257578015821,
+                  "p95": 0.02771723579190934,
+                  "max": 0.12692952959311662
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            },
+            "egohand": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 1.4486742144484124,
+                  "median": 0.7378410371091337,
+                  "p95": 5.4090307777985895,
+                  "max": 22.21784652635722
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 2.1285274161050594,
+                  "median": 1.14012222377163,
+                  "p95": 7.356595312095509,
+                  "max": 29.387949831098666
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.006594721871350693,
+                  "median": 0.0036067688068919827,
+                  "p95": 0.023186739868665058,
+                  "max": 0.08719676256015375
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.009658004486907176,
+                  "median": 0.005612898448811921,
+                  "p95": 0.031488030267898356,
+                  "max": 0.11239651159883428
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 2.07144862496577,
+                  "median": 1.0520884295148503,
+                  "p95": 7.5398608035957,
+                  "max": 37.34570730119007
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 3.2501309319540335,
+                  "median": 1.55727028828167,
+                  "p95": 11.558205615237538,
+                  "max": 68.40254780771508
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.009373977415287997,
+                  "median": 0.0052742901670952335,
+                  "p95": 0.03203382130799907,
+                  "max": 0.13355952528023912
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.014565488392398494,
+                  "median": 0.007939419743316845,
+                  "p95": 0.0480365116046893,
+                  "max": 0.23898523268916247
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            }
+          },
+          "image_agreement_with_mediapipe": {
+            "all_original_observations": {
+              "left": {
+                "observed_frames": 27,
+                "accepted_landmarks": 556,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 5.831994262965637,
+                    "weighted_wrist_relative_reprojection_pixels": 7.282269784912995
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.269301806495482,
+                    "weighted_wrist_relative_reprojection_pixels": 6.309928786185292
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 5.700375503270491,
+                    "weighted_wrist_relative_reprojection_pixels": 7.829706519383941
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": true
+              },
+              "right": {
+                "observed_frames": 314,
+                "accepted_landmarks": 5592,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 6.877515431060383,
+                    "weighted_wrist_relative_reprojection_pixels": 4.0729284608640945
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 3.9746746594043674,
+                    "weighted_wrist_relative_reprojection_pixels": 2.1381963948680824
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 9.912412628896343,
+                    "weighted_wrist_relative_reprojection_pixels": 5.4711999707813606
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            },
+            "original_holdout": {
+              "left": {
+                "observed_frames": 5,
+                "accepted_landmarks": 101,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 5.760564339203896,
+                    "weighted_wrist_relative_reprojection_pixels": 7.074537464627835
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.256485957960073,
+                    "weighted_wrist_relative_reprojection_pixels": 6.057552884390688
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 5.5011895375596005,
+                    "weighted_wrist_relative_reprojection_pixels": 7.493501661138539
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": true
+              },
+              "right": {
+                "observed_frames": 64,
+                "accepted_landmarks": 1155,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 6.794566991232023,
+                    "weighted_wrist_relative_reprojection_pixels": 3.950986571474907
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 4.302118442166701,
+                    "weighted_wrist_relative_reprojection_pixels": 2.3313282746810144
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 9.297670287987163,
+                    "weighted_wrist_relative_reprojection_pixels": 5.091966663819069
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            },
+            "original_training": {
+              "left": {
+                "observed_frames": 22,
+                "accepted_landmarks": 455,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 5.847850136152308,
+                    "weighted_wrist_relative_reprojection_pixels": 7.328325911350351
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.272146643203342,
+                    "weighted_wrist_relative_reprojection_pixels": 6.365882796744836
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 5.744590409944776,
+                    "weighted_wrist_relative_reprojection_pixels": 7.904246164630036
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": true
+              },
+              "right": {
+                "observed_frames": 250,
+                "accepted_landmarks": 4437,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 6.89910782411915,
+                    "weighted_wrist_relative_reprojection_pixels": 4.104702667055544
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 3.889437434006465,
+                    "weighted_wrist_relative_reprojection_pixels": 2.087872324919215
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 10.072436835285817,
+                    "weighted_wrist_relative_reprojection_pixels": 5.5700161966939135
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            }
+          },
+          "motion_screens": {
+            "mediapipe": {
+              "all_adjacent_original_frames": {
+                "edges": 718,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 93,
+                    "unknown_correction_budget_failures": 169
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 105,
+                    "unknown_correction_budget_failures": 143
+                  }
+                }
+              },
+              "original_mediapipe_boundaries": {
+                "edges": 11,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 5
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 3
+                  }
+                }
+              },
+              "current_mediapipe_boundaries": {
+                "edges": 3,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 1
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "egohand_boundaries": {
+                "edges": 0,
+                "finger": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              }
+            },
+            "egohand": {
+              "all_adjacent_original_frames": {
+                "edges": 718,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 25,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 32,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "original_mediapipe_boundaries": {
+                "edges": 11,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "current_mediapipe_boundaries": {
+                "edges": 3,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "egohand_boundaries": {
+                "edges": 0,
+                "finger": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "smoothed": {
+          "evaluation": {
+            "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\evaluation-smoothed01.json",
+            "sha256": "776329e085a947f5766b640e4a0ec27879e84444b357e2b786493aac0f860f25",
+            "bytes": 6385164
+          },
+          "native_decoder": {
+            "baseline": {
+              "frames_freshly_decoded": 360,
+              "native_mesh_max_abs_metres": 1.430511474609375e-06,
+              "native_joint_max_abs_metres": 4.76837158203125e-07,
+              "saved_hand_max_abs_metres": null,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 360,
+              "pose_shape": [
+                360,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777"
+            },
+            "mediapipe": {
+              "frames_freshly_decoded": 360,
+              "native_mesh_max_abs_metres": 0.0,
+              "native_joint_max_abs_metres": 0.0,
+              "saved_hand_max_abs_metres": 4.76837158203125e-07,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 360,
+              "pose_shape": [
+                360,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "1d2ddb221b673285ff5ca6eadab66cce174a318f4b329bb990d45f37df3281b8"
+            },
+            "egohand": {
+              "frames_freshly_decoded": 360,
+              "native_mesh_max_abs_metres": 0.0,
+              "native_joint_max_abs_metres": 0.0,
+              "saved_hand_max_abs_metres": 4.76837158203125e-07,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 360,
+              "pose_shape": [
+                360,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "990fa8d4c6fc060f762c4892db3d24764b909938e18697c2b13aff7f77124a9d"
+            }
+          },
+          "parameter_preservation": {
+            "mediapipe": {
+              "fixed_identity_unchanged": true,
+              "fixed_skeleton_scales_unchanged": true,
+              "root_controls_unchanged": true,
+              "all_unselected_controls_unchanged": true,
+              "allowed_control_indices": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121
+              ],
+              "maximum_allowed_control_change_radians": 0.19383741915225983,
+              "finite_parameters": true
+            },
+            "egohand": {
+              "fixed_identity_unchanged": true,
+              "fixed_skeleton_scales_unchanged": true,
+              "root_controls_unchanged": true,
+              "all_unselected_controls_unchanged": true,
+              "allowed_control_indices": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121
+              ],
+              "maximum_allowed_control_change_radians": 0.52666836977005,
+              "finite_parameters": true
+            }
+          },
+          "prediction_self_motion": {
+            "baseline": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 0.8093442918761828,
+                  "median": 0.49520833016751414,
+                  "p95": 2.634092359836704,
+                  "max": 17.950134012181827
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 1.1017157153792754,
+                  "median": 0.6674401756753575,
+                  "p95": 3.679918119927541,
+                  "max": 16.440562268326993
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.0035952396482303987,
+                  "median": 0.0023230595779181818,
+                  "p95": 0.011497865155498409,
+                  "max": 0.06846147943554413
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.004907678429451412,
+                  "median": 0.003041719826033514,
+                  "p95": 0.015432366889600929,
+                  "max": 0.06065035096760344
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 1.3585188947924332,
+                  "median": 0.86512061814446,
+                  "p95": 4.228791798059707,
+                  "max": 14.003383477816426
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 2.010001904293251,
+                  "median": 1.2521936601616046,
+                  "p95": 6.335182876501526,
+                  "max": 26.0230655081034
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.006595812436212453,
+                  "median": 0.004301218529579251,
+                  "p95": 0.01948478169220636,
+                  "max": 0.07338962363872104
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.009769764226611067,
+                  "median": 0.006258830846144575,
+                  "p95": 0.029446994758046113,
+                  "max": 0.1387564278450423
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            },
+            "mediapipe": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 0.8350985293148139,
+                  "median": 0.5096644404431081,
+                  "p95": 2.724606159257763,
+                  "max": 18.229903363678567
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 1.1396306413651514,
+                  "median": 0.6858213607641043,
+                  "p95": 3.7868903730509085,
+                  "max": 16.822896311960488
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.003762304919871037,
+                  "median": 0.002330077543467238,
+                  "p95": 0.012423008658426701,
+                  "max": 0.06888481132595776
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.0051864706271668795,
+                  "median": 0.003124280928130555,
+                  "p95": 0.017086157955559005,
+                  "max": 0.061743750159250155
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 1.2885734052983444,
+                  "median": 0.8121320286265027,
+                  "p95": 3.9996163722548697,
+                  "max": 12.497405757417134
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 1.807363595982876,
+                  "median": 1.0670121402216368,
+                  "p95": 6.033244657887803,
+                  "max": 24.210585350165328
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.0064507594682444895,
+                  "median": 0.004367045925399368,
+                  "p95": 0.01845233987442652,
+                  "max": 0.06825374891721935
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.009093137069810462,
+                  "median": 0.00584257578015821,
+                  "p95": 0.02771723579190934,
+                  "max": 0.12692952959311662
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            },
+            "egohand": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 1.2425019231468735,
+                  "median": 0.6496269127068193,
+                  "p95": 4.454681107063444,
+                  "max": 17.521979653186776
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 1.613239157422097,
+                  "median": 0.8388688406823663,
+                  "p95": 5.8639003166382695,
+                  "max": 26.202108551782636
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.005596779406112069,
+                  "median": 0.0032370965151203015,
+                  "p95": 0.019186345514680275,
+                  "max": 0.07263598114563516
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.007362403318908437,
+                  "median": 0.004250964696551712,
+                  "p95": 0.024444584760362178,
+                  "max": 0.10301996334139915
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 7180,
+                  "mean": 1.7094162805395587,
+                  "median": 0.8829646874819791,
+                  "p95": 5.780580389749106,
+                  "max": 35.612840502812126
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 2.465580161026597,
+                  "median": 1.2206196008330048,
+                  "p95": 9.017188267758183,
+                  "max": 70.50672042814732
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 7180,
+                  "mean": 0.00817882493589515,
+                  "median": 0.004755733069662451,
+                  "p95": 0.026561220182741867,
+                  "max": 0.1297427789509872
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 7160,
+                  "mean": 0.011989483770395857,
+                  "median": 0.006663313959503366,
+                  "p95": 0.04005787670164022,
+                  "max": 0.24379391145642418
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            }
+          },
+          "image_agreement_with_mediapipe": {
+            "all_original_observations": {
+              "left": {
+                "observed_frames": 27,
+                "accepted_landmarks": 556,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 5.831994262965637,
+                    "weighted_wrist_relative_reprojection_pixels": 7.282269784912995
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.269301806495482,
+                    "weighted_wrist_relative_reprojection_pixels": 6.309928786185292
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 6.113559462520796,
+                    "weighted_wrist_relative_reprojection_pixels": 6.961215528135387
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": true
+              },
+              "right": {
+                "observed_frames": 314,
+                "accepted_landmarks": 5592,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 6.877515431060383,
+                    "weighted_wrist_relative_reprojection_pixels": 4.0729284608640945
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 3.9746746594043674,
+                    "weighted_wrist_relative_reprojection_pixels": 2.1381963948680824
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 9.649646214810446,
+                    "weighted_wrist_relative_reprojection_pixels": 5.383352308460362
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            },
+            "original_holdout": {
+              "left": {
+                "observed_frames": 5,
+                "accepted_landmarks": 101,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 5.760564339203896,
+                    "weighted_wrist_relative_reprojection_pixels": 7.074537464627835
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.256485957960073,
+                    "weighted_wrist_relative_reprojection_pixels": 6.057552884390688
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 6.168049942111543,
+                    "weighted_wrist_relative_reprojection_pixels": 6.485440336355796
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": true
+              },
+              "right": {
+                "observed_frames": 64,
+                "accepted_landmarks": 1155,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 6.794566991232023,
+                    "weighted_wrist_relative_reprojection_pixels": 3.950986571474907
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 4.302118442166701,
+                    "weighted_wrist_relative_reprojection_pixels": 2.3313282746810144
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 9.177218541526997,
+                    "weighted_wrist_relative_reprojection_pixels": 5.1062126541455575
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            },
+            "original_training": {
+              "left": {
+                "observed_frames": 22,
+                "accepted_landmarks": 455,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 5.847850136152308,
+                    "weighted_wrist_relative_reprojection_pixels": 7.328325911350351
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.272146643203342,
+                    "weighted_wrist_relative_reprojection_pixels": 6.365882796744836
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 6.101463773644609,
+                    "weighted_wrist_relative_reprojection_pixels": 7.066699173426011
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": true
+              },
+              "right": {
+                "observed_frames": 250,
+                "accepted_landmarks": 4437,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 6.89910782411915,
+                    "weighted_wrist_relative_reprojection_pixels": 4.104702667055544
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 3.889437434006465,
+                    "weighted_wrist_relative_reprojection_pixels": 2.087872324919215
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 9.77262434477267,
+                    "weighted_wrist_relative_reprojection_pixels": 5.455566151989727
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            }
+          },
+          "motion_screens": {
+            "mediapipe": {
+              "all_adjacent_original_frames": {
+                "edges": 718,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 59,
+                    "unknown_correction_budget_failures": 121
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 87,
+                    "unknown_correction_budget_failures": 133
+                  }
+                }
+              },
+              "original_mediapipe_boundaries": {
+                "edges": 11,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 5
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 1,
+                    "unknown_correction_budget_failures": 5
+                  }
+                }
+              },
+              "current_mediapipe_boundaries": {
+                "edges": 3,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 2
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 1
+                  }
+                }
+              },
+              "egohand_boundaries": {
+                "edges": 0,
+                "finger": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              }
+            },
+            "egohand": {
+              "all_adjacent_original_frames": {
+                "edges": 718,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 31,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 43,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "original_mediapipe_boundaries": {
+                "edges": 11,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "current_mediapipe_boundaries": {
+                "edges": 3,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "egohand_boundaries": {
+                "edges": 0,
+                "finger": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "review_receipt": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\review-raw01\\summary.json",
+        "sha256": "557fe2af81d1a30c9e5ec934b69a7c9fd747b5729dc5ce3eda053c54476733bf",
+        "bytes": 22064
+      },
+      "grasp_diagnostics": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\grasp-motion01\\summary.json",
+        "sha256": "c023d8b99b3392853425a35cf4449c223b1d94ef000d9f4b57b8884bc5f38fd1",
+        "bytes": 261281
+      }
+    },
+    {
+      "episode": 11,
+      "frames": 877,
+      "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+      "inference": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\egohand-raw-attempt01\\prediction-receipt.json",
+        "sha256": "d7a7c132c99c7ba8a72f65eaabba29ea2077266201d0226ea123ca63c91b2faa",
+        "bytes": 408425
+      },
+      "variants": {
+        "raw": {
+          "evaluation": {
+            "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\evaluation-raw01.json",
+            "sha256": "19d00667dec19c72ef630462c0a5937ddc3e60e5d7935904966d75b15270c63a",
+            "bytes": 15204608
+          },
+          "native_decoder": {
+            "baseline": {
+              "frames_freshly_decoded": 877,
+              "native_mesh_max_abs_metres": 1.6689300537109375e-06,
+              "native_joint_max_abs_metres": 4.76837158203125e-07,
+              "saved_hand_max_abs_metres": null,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 877,
+              "pose_shape": [
+                877,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4"
+            },
+            "mediapipe": {
+              "frames_freshly_decoded": 877,
+              "native_mesh_max_abs_metres": 0.0,
+              "native_joint_max_abs_metres": 0.0,
+              "saved_hand_max_abs_metres": 4.76837158203125e-07,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 877,
+              "pose_shape": [
+                877,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "b4636fcf9170789d047379266b6e68c237aa28667e5ca843acba8605c6b6bfa4"
+            },
+            "egohand": {
+              "frames_freshly_decoded": 877,
+              "native_mesh_max_abs_metres": 0.0,
+              "native_joint_max_abs_metres": 0.0,
+              "saved_hand_max_abs_metres": 4.76837158203125e-07,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 877,
+              "pose_shape": [
+                877,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "1007a67407e7995b680b47d5ca7436ad9c4d376bd9c332e5e2870b8de3b0c4a7"
+            }
+          },
+          "parameter_preservation": {
+            "mediapipe": {
+              "fixed_identity_unchanged": true,
+              "fixed_skeleton_scales_unchanged": true,
+              "root_controls_unchanged": true,
+              "all_unselected_controls_unchanged": true,
+              "allowed_control_indices": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121
+              ],
+              "maximum_allowed_control_change_radians": 0.12048986554145813,
+              "finite_parameters": true
+            },
+            "egohand": {
+              "fixed_identity_unchanged": true,
+              "fixed_skeleton_scales_unchanged": true,
+              "root_controls_unchanged": true,
+              "all_unselected_controls_unchanged": true,
+              "allowed_control_indices": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121
+              ],
+              "maximum_allowed_control_change_radians": 0.6499999761581421,
+              "finite_parameters": true
+            }
+          },
+          "prediction_self_motion": {
+            "baseline": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.1844636045199926,
+                  "median": 0.7290761551781427,
+                  "p95": 3.7939840831117824,
+                  "max": 23.590040725870097
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 1.682676087634029,
+                  "median": 0.9948184129273747,
+                  "p95": 5.587960084274971,
+                  "max": 33.253740118554575
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.00629722150794854,
+                  "median": 0.00400151753223019,
+                  "p95": 0.018823540585141733,
+                  "max": 0.12055056594501909
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.009349115074641394,
+                  "median": 0.005723774023746116,
+                  "p95": 0.029564499589537243,
+                  "max": 0.15751444436540746
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.2350678503253494,
+                  "median": 0.7667419354058695,
+                  "p95": 3.9935247942710475,
+                  "max": 20.88142659275543
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 1.7874407130778656,
+                  "median": 1.004223048571283,
+                  "p95": 6.164742754646762,
+                  "max": 36.82150245554372
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.006258207554156404,
+                  "median": 0.0041427937473367225,
+                  "p95": 0.01869529870192552,
+                  "max": 0.1120967752774067
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.009129016465563146,
+                  "median": 0.005769025489641918,
+                  "p95": 0.02795264409394983,
+                  "max": 0.18551903073685608
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            },
+            "mediapipe": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.2050097519772511,
+                  "median": 0.7582973495740071,
+                  "p95": 3.7040224415985703,
+                  "max": 23.590040725870097
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 1.6742325890523264,
+                  "median": 1.010899864246504,
+                  "p95": 5.48289219421821,
+                  "max": 33.253740118554575
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.0064097660633292254,
+                  "median": 0.004157968871538648,
+                  "p95": 0.018706604598066327,
+                  "max": 0.12055056594501909
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.00933638433966825,
+                  "median": 0.005782625847622094,
+                  "p95": 0.029121833989326374,
+                  "max": 0.15751444436540746
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.2209495337224041,
+                  "median": 0.7827150153135374,
+                  "p95": 3.812287916435943,
+                  "max": 20.863174104478468
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 1.7314957651708138,
+                  "median": 1.0219134906616065,
+                  "p95": 5.677580313183529,
+                  "max": 36.82150245554372
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.006199849100141861,
+                  "median": 0.004176304192724805,
+                  "p95": 0.01827169505274912,
+                  "max": 0.11196781117978576
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.008896953347803637,
+                  "median": 0.005818940854527055,
+                  "p95": 0.026741376301126697,
+                  "max": 0.18551903073685608
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            },
+            "egohand": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.8453680199108118,
+                  "median": 0.9879503968120775,
+                  "p95": 6.4358219135873505,
+                  "max": 39.74327474356517
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 2.7359968847887384,
+                  "median": 1.444369594444414,
+                  "p95": 9.630208989390455,
+                  "max": 66.10413736298037
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.009229528473090129,
+                  "median": 0.005250029763333515,
+                  "p95": 0.03116953338654067,
+                  "max": 0.17161506914564154
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.014105632509430593,
+                  "median": 0.008015141780447363,
+                  "p95": 0.04874220344069886,
+                  "max": 0.2215159825819588
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.8358793952539056,
+                  "median": 0.9862151133270991,
+                  "p95": 6.420094735537944,
+                  "max": 45.1341086537181
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 2.7802988621427676,
+                  "median": 1.4405963800624564,
+                  "p95": 9.998217229884537,
+                  "max": 62.04639736509332
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.008775968479560334,
+                  "median": 0.005256066778204125,
+                  "p95": 0.027909176016138126,
+                  "max": 0.15215921795092494
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.013397128029534737,
+                  "median": 0.008000979507682277,
+                  "p95": 0.043629885672092354,
+                  "max": 0.2308053079393444
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            }
+          },
+          "image_agreement_with_mediapipe": {
+            "all_original_observations": {
+              "left": {
+                "observed_frames": 346,
+                "accepted_landmarks": 7122,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.562792741546708,
+                    "weighted_wrist_relative_reprojection_pixels": 5.357308419168792
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 6.222475047778214,
+                    "weighted_wrist_relative_reprojection_pixels": 4.250553899722824
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.45289765993121,
+                    "weighted_wrist_relative_reprojection_pixels": 7.183823799274407
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              },
+              "right": {
+                "observed_frames": 389,
+                "accepted_landmarks": 7942,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.870318722223556,
+                    "weighted_wrist_relative_reprojection_pixels": 5.231724325021364
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.839016460424669,
+                    "weighted_wrist_relative_reprojection_pixels": 3.80156062219452
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.794009036041452,
+                    "weighted_wrist_relative_reprojection_pixels": 5.928176613267736
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            },
+            "original_holdout": {
+              "left": {
+                "observed_frames": 71,
+                "accepted_landmarks": 1454,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.360947238270355,
+                    "weighted_wrist_relative_reprojection_pixels": 5.4534539867141865
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 6.221432571994957,
+                    "weighted_wrist_relative_reprojection_pixels": 4.553561362336831
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.083127017518288,
+                    "weighted_wrist_relative_reprojection_pixels": 7.057583559008208
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              },
+              "right": {
+                "observed_frames": 78,
+                "accepted_landmarks": 1601,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.483899124110844,
+                    "weighted_wrist_relative_reprojection_pixels": 4.961543975622539
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.7240896059878414,
+                    "weighted_wrist_relative_reprojection_pixels": 3.7764408929206925
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.30738535905649,
+                    "weighted_wrist_relative_reprojection_pixels": 5.811461127941036
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            },
+            "original_training": {
+              "left": {
+                "observed_frames": 275,
+                "accepted_landmarks": 5668,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.6145717397407475,
+                    "weighted_wrist_relative_reprojection_pixels": 5.332486817541896
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 6.222742471876458,
+                    "weighted_wrist_relative_reprojection_pixels": 4.172327407134589
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.547754137360352,
+                    "weighted_wrist_relative_reprojection_pixels": 7.216414848796183
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              },
+              "right": {
+                "observed_frames": 311,
+                "accepted_landmarks": 6341,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.967883424412241,
+                    "weighted_wrist_relative_reprojection_pixels": 5.2997215213894755
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.868033633418416,
+                    "weighted_wrist_relative_reprojection_pixels": 3.8078825888658447
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.91687364838224,
+                    "weighted_wrist_relative_reprojection_pixels": 5.957550791636437
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            }
+          },
+          "motion_screens": {
+            "mediapipe": {
+              "all_adjacent_original_frames": {
+                "edges": 1752,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 147,
+                    "unknown_correction_budget_failures": 468
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 149,
+                    "unknown_correction_budget_failures": 371
+                  }
+                }
+              },
+              "original_mediapipe_boundaries": {
+                "edges": 35,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 21
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 16
+                  }
+                }
+              },
+              "current_mediapipe_boundaries": {
+                "edges": 29,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 10
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 9
+                  }
+                }
+              },
+              "egohand_boundaries": {
+                "edges": 0,
+                "finger": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              }
+            },
+            "egohand": {
+              "all_adjacent_original_frames": {
+                "edges": 1752,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 51,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 87,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "original_mediapipe_boundaries": {
+                "edges": 35,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "current_mediapipe_boundaries": {
+                "edges": 29,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "egohand_boundaries": {
+                "edges": 0,
+                "finger": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "smoothed": {
+          "evaluation": {
+            "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\evaluation-smoothed01.json",
+            "sha256": "6ee60ceff92213e2c23cdbe49bd528cd2bbc7bad0f5830d69fb734dd59fc11b7",
+            "bytes": 15204350
+          },
+          "native_decoder": {
+            "baseline": {
+              "frames_freshly_decoded": 877,
+              "native_mesh_max_abs_metres": 1.6689300537109375e-06,
+              "native_joint_max_abs_metres": 4.76837158203125e-07,
+              "saved_hand_max_abs_metres": null,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 877,
+              "pose_shape": [
+                877,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4"
+            },
+            "mediapipe": {
+              "frames_freshly_decoded": 877,
+              "native_mesh_max_abs_metres": 0.0,
+              "native_joint_max_abs_metres": 0.0,
+              "saved_hand_max_abs_metres": 4.76837158203125e-07,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 877,
+              "pose_shape": [
+                877,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "b4636fcf9170789d047379266b6e68c237aa28667e5ca843acba8605c6b6bfa4"
+            },
+            "egohand": {
+              "frames_freshly_decoded": 877,
+              "native_mesh_max_abs_metres": 0.0,
+              "native_joint_max_abs_metres": 0.0,
+              "saved_hand_max_abs_metres": 4.76837158203125e-07,
+              "passed": true,
+              "interpretation": "Decoder agreement, not accuracy against real geometry",
+              "frames": 877,
+              "pose_shape": [
+                877,
+                136
+              ],
+              "scales_shape": [
+                68
+              ],
+              "shape_shape": [
+                45
+              ],
+              "identity_and_scales_shared": true,
+              "artifact_scope": "human_only_not_complete_submission",
+              "parameters_sha256": "f2bc391111a3e67538da38911cda0bcff0bb0e5759e2e9621413cabccd86ba9d"
+            }
+          },
+          "parameter_preservation": {
+            "mediapipe": {
+              "fixed_identity_unchanged": true,
+              "fixed_skeleton_scales_unchanged": true,
+              "root_controls_unchanged": true,
+              "all_unselected_controls_unchanged": true,
+              "allowed_control_indices": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121
+              ],
+              "maximum_allowed_control_change_radians": 0.12048986554145813,
+              "finite_parameters": true
+            },
+            "egohand": {
+              "fixed_identity_unchanged": true,
+              "fixed_skeleton_scales_unchanged": true,
+              "root_controls_unchanged": true,
+              "all_unselected_controls_unchanged": true,
+              "allowed_control_indices": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121
+              ],
+              "maximum_allowed_control_change_radians": 0.6251232028007507,
+              "finite_parameters": true
+            }
+          },
+          "prediction_self_motion": {
+            "baseline": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.1844636045199926,
+                  "median": 0.7290761551781427,
+                  "p95": 3.7939840831117824,
+                  "max": 23.590040725870097
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 1.682676087634029,
+                  "median": 0.9948184129273747,
+                  "p95": 5.587960084274971,
+                  "max": 33.253740118554575
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.00629722150794854,
+                  "median": 0.00400151753223019,
+                  "p95": 0.018823540585141733,
+                  "max": 0.12055056594501909
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.009349115074641394,
+                  "median": 0.005723774023746116,
+                  "p95": 0.029564499589537243,
+                  "max": 0.15751444436540746
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.2350678503253494,
+                  "median": 0.7667419354058695,
+                  "p95": 3.9935247942710475,
+                  "max": 20.88142659275543
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 1.7874407130778656,
+                  "median": 1.004223048571283,
+                  "p95": 6.164742754646762,
+                  "max": 36.82150245554372
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.006258207554156404,
+                  "median": 0.0041427937473367225,
+                  "p95": 0.01869529870192552,
+                  "max": 0.1120967752774067
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.009129016465563146,
+                  "median": 0.005769025489641918,
+                  "p95": 0.02795264409394983,
+                  "max": 0.18551903073685608
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            },
+            "mediapipe": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.2050097519772511,
+                  "median": 0.7582973495740071,
+                  "p95": 3.7040224415985703,
+                  "max": 23.590040725870097
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 1.6742325890523264,
+                  "median": 1.010899864246504,
+                  "p95": 5.48289219421821,
+                  "max": 33.253740118554575
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.0064097660633292254,
+                  "median": 0.004157968871538648,
+                  "p95": 0.018706604598066327,
+                  "max": 0.12055056594501909
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.00933638433966825,
+                  "median": 0.005782625847622094,
+                  "p95": 0.029121833989326374,
+                  "max": 0.15751444436540746
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.2209495337224041,
+                  "median": 0.7827150153135374,
+                  "p95": 3.812287916435943,
+                  "max": 20.863174104478468
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 1.7314957651708138,
+                  "median": 1.0219134906616065,
+                  "p95": 5.677580313183529,
+                  "max": 36.82150245554372
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.006199849100141861,
+                  "median": 0.004176304192724805,
+                  "p95": 0.01827169505274912,
+                  "max": 0.11196781117978576
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.008896953347803637,
+                  "median": 0.005818940854527055,
+                  "p95": 0.026741376301126697,
+                  "max": 0.18551903073685608
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            },
+            "egohand": {
+              "left": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.5207440196046924,
+                  "median": 0.9019664903378339,
+                  "p95": 5.048390431603024,
+                  "max": 31.0444874160593
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 2.0736731290283346,
+                  "median": 1.198003618290455,
+                  "p95": 7.129422113302937,
+                  "max": 41.967747547824814
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.0078401398712373,
+                  "median": 0.004854931671436037,
+                  "p95": 0.024617901656905576,
+                  "max": 0.15459658740544735
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.01132827868126545,
+                  "median": 0.00695119878038038,
+                  "p95": 0.0370530559459928,
+                  "max": 0.19994884992710416
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              },
+              "right": {
+                "wrist_relative_step_px": {
+                  "count": 17520,
+                  "mean": 1.4836196807017676,
+                  "median": 0.8882730166589593,
+                  "p95": 4.773201265634749,
+                  "max": 34.60959037390214
+                },
+                "wrist_relative_second_difference_px_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 2.037150177108316,
+                  "median": 1.1694157171912527,
+                  "p95": 6.691867983082817,
+                  "max": 51.22228217076831
+                },
+                "wrist_relative_step_native_estimated_metres": {
+                  "count": 17520,
+                  "mean": 0.007351611954594145,
+                  "median": 0.0047859682040664615,
+                  "p95": 0.02138119617073161,
+                  "max": 0.1187749425726474
+                },
+                "wrist_relative_second_difference_native_estimated_metres_per_frame_squared": {
+                  "count": 17500,
+                  "mean": 0.010401891006766797,
+                  "median": 0.006753617888845133,
+                  "p95": 0.03095620180981691,
+                  "max": 0.2219105777225343
+                },
+                "interpretation": "Prediction-only motion, not reference-relative acceleration error; freezing can reduce this quantity"
+              }
+            }
+          },
+          "image_agreement_with_mediapipe": {
+            "all_original_observations": {
+              "left": {
+                "observed_frames": 346,
+                "accepted_landmarks": 7122,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.562792741546708,
+                    "weighted_wrist_relative_reprojection_pixels": 5.357308419168792
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 6.222475047778214,
+                    "weighted_wrist_relative_reprojection_pixels": 4.250553899722824
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.251284887844948,
+                    "weighted_wrist_relative_reprojection_pixels": 6.948717707748702
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              },
+              "right": {
+                "observed_frames": 389,
+                "accepted_landmarks": 7942,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.870318722223556,
+                    "weighted_wrist_relative_reprojection_pixels": 5.231724325021364
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.839016460424669,
+                    "weighted_wrist_relative_reprojection_pixels": 3.80156062219452
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.622212711572576,
+                    "weighted_wrist_relative_reprojection_pixels": 5.8386675716507295
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            },
+            "original_holdout": {
+              "left": {
+                "observed_frames": 71,
+                "accepted_landmarks": 1454,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.360947238270355,
+                    "weighted_wrist_relative_reprojection_pixels": 5.4534539867141865
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 6.221432571994957,
+                    "weighted_wrist_relative_reprojection_pixels": 4.553561362336831
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 7.946136895947837,
+                    "weighted_wrist_relative_reprojection_pixels": 6.920146182323474
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": true
+              },
+              "right": {
+                "observed_frames": 78,
+                "accepted_landmarks": 1601,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.483899124110844,
+                    "weighted_wrist_relative_reprojection_pixels": 4.961543975622539
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.7240896059878414,
+                    "weighted_wrist_relative_reprojection_pixels": 3.7764408929206925
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.156984527838121,
+                    "weighted_wrist_relative_reprojection_pixels": 5.702407115168746
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            },
+            "original_training": {
+              "left": {
+                "observed_frames": 275,
+                "accepted_landmarks": 5668,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.6145717397407475,
+                    "weighted_wrist_relative_reprojection_pixels": 5.332486817541896
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 6.222742471876458,
+                    "weighted_wrist_relative_reprojection_pixels": 4.172327407134589
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.329563854009098,
+                    "weighted_wrist_relative_reprojection_pixels": 6.956093929451725
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              },
+              "right": {
+                "observed_frames": 311,
+                "accepted_landmarks": 6341,
+                "variants": {
+                  "baseline": {
+                    "weighted_reprojection_pixels": 7.967883424412241,
+                    "weighted_wrist_relative_reprojection_pixels": 5.2997215213894755
+                  },
+                  "mediapipe": {
+                    "weighted_reprojection_pixels": 5.868033633418416,
+                    "weighted_wrist_relative_reprojection_pixels": 3.8078825888658447
+                  },
+                  "egohand": {
+                    "weighted_reprojection_pixels": 8.739675307718118,
+                    "weighted_wrist_relative_reprojection_pixels": 5.8729606985832765
+                  }
+                },
+                "original_image_guard_sufficient": true,
+                "candidate_image_nonregression": false
+              }
+            }
+          },
+          "motion_screens": {
+            "mediapipe": {
+              "all_adjacent_original_frames": {
+                "edges": 1752,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 104,
+                    "unknown_correction_budget_failures": 357
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 137,
+                    "unknown_correction_budget_failures": 335
+                  }
+                }
+              },
+              "original_mediapipe_boundaries": {
+                "edges": 35,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 14
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 12
+                  }
+                }
+              },
+              "current_mediapipe_boundaries": {
+                "edges": 29,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 10
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 6
+                  }
+                }
+              },
+              "egohand_boundaries": {
+                "edges": 0,
+                "finger": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              }
+            },
+            "egohand": {
+              "all_adjacent_original_frames": {
+                "edges": 1752,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 58,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 92,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": false,
+                    "observed_or_generated_velocity_failures": 4,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "original_mediapipe_boundaries": {
+                "edges": 35,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "current_mediapipe_boundaries": {
+                "edges": 29,
+                "finger": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": true,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              },
+              "egohand_boundaries": {
+                "edges": 0,
+                "finger": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                },
+                "wrist": {
+                  "baseline": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "mediapipe": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  },
+                  "egohand": {
+                    "passes": null,
+                    "observed_or_generated_velocity_failures": 0,
+                    "unknown_correction_budget_failures": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "review_receipt": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\review-raw01\\summary.json",
+        "sha256": "ad203051e9406882a8fcdbc61629e2d11d01fe93d35efcedf414d4c61e06d1f3",
+        "bytes": 73065
+      },
+      "grasp_diagnostics": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\grasp-motion01\\summary.json",
+        "sha256": "a1c21505f9a72e65b88085d5d5cee15ff62eff6f7e11f8d752b10322593ecd6b",
+        "bytes": 386613
+      }
+    }
+  ]
+}

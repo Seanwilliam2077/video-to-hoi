@@ -1,0 +1,58 @@
+{
+  "recorded_at": "2026-10-31T08:42:49.244423+00:00",
+  "scope": "CPU-only geometry backend parity on actual previously inferred hand parameters; no image/backbone or new sequence inference",
+  "frame_ids": [
+    0,
+    110,
+    285
+  ],
+  "device": "cpu",
+  "threads": 1,
+  "cases": [
+    {
+      "side": "left",
+      "input_path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\smoke-cpu-attempt01\\raw\\left_results.npz",
+      "input_sha256": "16d5986f597046ab0c1050131cff269d88fa1ec5978d5ec7353bd1a3169bb651",
+      "metrics": {
+        "joints": {
+          "max_abs_metres": 0.0,
+          "max_point_norm_metres": 0.0,
+          "mean_point_norm_metres": 0.0
+        },
+        "vertices": {
+          "max_abs_metres": 1.5832483768463135e-07,
+          "max_point_norm_metres": 1.7304815003171825e-07,
+          "mean_point_norm_metres": 5.021335347521472e-09
+        }
+      },
+      "construction_and_forward_seconds": {
+        "torch": 9.172000000020489,
+        "warp": 9.687999999849126
+      },
+      "finite": true
+    },
+    {
+      "side": "right",
+      "input_path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\smoke-cpu-attempt01\\raw\\right_results.npz",
+      "input_sha256": "eba1e32fb6ee36dd11e075d0dc2108743ab432721597ed39627b2c206b182b4a",
+      "metrics": {
+        "joints": {
+          "max_abs_metres": 0.0,
+          "max_point_norm_metres": 0.0,
+          "mean_point_norm_metres": 0.0
+        },
+        "vertices": {
+          "max_abs_metres": 1.6391277313232422e-07,
+          "max_point_norm_metres": 2.0185436255815148e-07,
+          "mean_point_norm_metres": 4.682918941512071e-09
+        }
+      },
+      "construction_and_forward_seconds": {
+        "torch": 5.313000000081956,
+        "warp": 5.265999999828637
+      },
+      "finite": true
+    }
+  ],
+  "passed": true
+}

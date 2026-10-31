@@ -46,6 +46,10 @@ jobs:
           tests/test_refined_egohand_evaluation.py
           tests/test_refined_egohand.py
           tests/test_hand_contact.py
+          tests/test_contact_ab.py
+          tests/test_contact_anchor_reference.py
+          tests/test_contact_ab_evaluation.py
+          tests/test_contact_ab_render.py
           tests/test_review_human.py
           tests/test_human_runtime_assets.py
           tests/test_sam_body_inputs.py

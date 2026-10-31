@@ -13,7 +13,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from v2hoi.hand_refinement import HandFitConfig, NativeMHRHands, refine_hands
-from v2hoi.human_result import load_human_result, native_vertices_to_track1, write_human_result
+from v2hoi.human_result import load_human_result, native_vertices_to_track1, validate_human_result, write_human_result
 
 
 def digest(path: Path) -> str:
@@ -55,6 +55,44 @@ def target_provenance(observation_report: dict, observations: dict) -> dict:
     }
 
 
+def validate_contact_anchor_reference(reference: dict, baseline: dict, manifest: dict,
+                                      model_sha256: str, intrinsics: np.ndarray) -> dict:
+    """Validate a read-only anchor selector without changing optimization input."""
+    count = manifest["video_frames"]
+    validate_human_result(reference, expected_frames=count)
+    validate_human_result(baseline, expected_frames=count)
+    report = reference.get("report", {})
+    if (manifest.get("track") != 1 or report.get("track") != 1 or
+            report.get("episode") != manifest["episode"] or
+            report.get("source_video_sha256", report.get("video_sha256")) != manifest["video_sha256"]):
+        raise ValueError("Contact anchor reference must identify the same Track 1 video/episode")
+    expected = np.arange(count)
+    if not np.array_equal(reference.get("frame_indices"), expected) or not np.array_equal(baseline.get("frame_indices"), expected):
+        raise ValueError("Contact anchor reference requires the same complete original frame IDs")
+    if report.get("parameter_format") != "native_mhr_pose136_scales68_shape45":
+        raise ValueError("Contact anchor reference must be native MHR parameters")
+    if report.get("mhr_model_sha256") != model_sha256:
+        raise ValueError("Contact anchor reference uses a different native decoder")
+    for name in ("shape", "scales"):
+        if not np.array_equal(reference[name], baseline[name]):
+            raise ValueError(f"Contact anchor reference changed fixed {name}")
+    if not np.array_equal(reference["pose"][:, :6], baseline["pose"][:, :6]):
+        raise ValueError("Contact anchor reference changed root controls")
+    reference_k = np.asarray(report.get("camera_intrinsics"), dtype=np.float64)
+    expected_k = np.asarray(intrinsics, dtype=np.float64)
+    if reference_k.shape != (3, 3) or not np.array_equal(reference_k, expected_k):
+        raise ValueError("Contact anchor reference camera differs from the fixed human camera")
+    if (not np.isclose(float(reference.get("fps", 0)), manifest["video_fps"], atol=1e-6, rtol=0) or
+            not np.isclose(float(baseline.get("fps", 0)), manifest["video_fps"], atol=1e-6, rtol=0)):
+        raise ValueError("Contact anchor reference frame rate differs from the source")
+    return {"frames": count, "same_source_video_and_original_ids": True,
+            "same_native_decoder": True, "fixed_identity_unchanged": True,
+            "fixed_skeleton_scales_unchanged": True, "root_controls_unchanged": True,
+            "exact_camera_intrinsics_match": True,
+            "optimization_initialization_changed": False,
+            "interpretation": "Geometry for selecting fixed contact anchors only; not hidden contact truth or new image observations"}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--baseline", type=Path, required=True)
@@ -90,6 +128,8 @@ def main() -> None:
     parser.add_argument("--motion-phases", type=Path)
     parser.add_argument("--contact-object", type=Path)
     parser.add_argument("--contact-phases", type=Path)
+    parser.add_argument("--contact-anchor-reference", type=Path,
+                        help="Optional same-source native MHR geometry for anchor selection only; initialization and priors remain baseline")
     parser.add_argument("--contact-anchor-weight", type=float, default=0.01)
     parser.add_argument("--contact-penetration-weight", type=float, default=0.005)
     parser.add_argument("--contact-scale", type=float, default=1.0)
@@ -102,6 +142,8 @@ def main() -> None:
         parser.error("threads and model-batch must be positive")
     if bool(args.contact_object) != bool(args.contact_phases):
         parser.error("contact-object and contact-phases must be supplied together")
+    if args.contact_anchor_reference and not args.contact_object:
+        parser.error("contact-anchor-reference requires contact-object and contact-phases")
     if args.spatial_acceleration_weight > 0 and not args.motion_phases:
         parser.error("A positive spatial-acceleration-weight requires explicit motion-phases")
     if not np.isfinite(args.contact_scale) or args.contact_scale <= 0:
@@ -186,13 +228,37 @@ def main() -> None:
                                      "Local mesh scaled at fixed pose; geometry stress test changes projected silhouette"),
             "uncertainty": "The sensitivity range is chosen, not a calibrated confidence interval; shape/backside and metric scale remain hypotheses",
         }
+        anchor_reference = None
+        contact_provenance["anchor_reference"] = None
+        if args.contact_anchor_reference:
+            anchor_reference = load_human_result(args.contact_anchor_reference)
+            try:
+                reference_validation = validate_contact_anchor_reference(anchor_reference, baseline, manifest,
+                                                                          digest(args.model), intrinsics)
+            except ValueError as error:
+                parser.error(str(error))
+            contact_provenance["anchor_reference"] = {
+                "path": str(args.contact_anchor_reference.resolve()),
+                "sha256": digest(args.contact_anchor_reference), "validation": reference_validation,
+                "role": "Read-only native-MHR geometry used only to select fixed contact anchors; original SAM initialization and priors unchanged",
+                "same_optimizer_initialization": True,
+                "native_hand_mapping_parity": hands.verify_full_forward(anchor_reference, positions),
+            }
         with torch.no_grad():
             baseline_hands = hands(torch.as_tensor(baseline["pose"], device=args.device),
                                    torch.as_tensor(baseline["scales"], device=args.device)).cpu().numpy()
+            anchor_selection_hands = (baseline_hands if anchor_reference is None else
+                                      hands(torch.as_tensor(anchor_reference["pose"], device=args.device),
+                                            torch.as_tensor(anchor_reference["scales"], device=args.device)).cpu().numpy())
         try:
-            contact = WeakContactConstraint(object_candidate, phase_report, baseline_hands, baseline["frame_indices"],
+            contact = WeakContactConstraint(object_candidate, phase_report, anchor_selection_hands, baseline["frame_indices"],
                                             device=args.device, anchor_weight=args.contact_anchor_weight,
                                             penetration_weight=args.contact_penetration_weight)
+            if anchor_reference is not None:
+                contact_provenance["anchor_reference"]["anchor_selection_geometry_diagnostics"] = contact.before
+                # Preserve before/after diagnostic semantics for the actual optimizer seed.
+                # This does not enter the contact loss or change parameter availability.
+                contact.before = contact.diagnostics(baseline_hands)
         except ValueError as error:
             args.output.mkdir(parents=True)
             snapshot = args.output / "source_snapshot"

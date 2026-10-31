@@ -40,6 +40,10 @@ jobs:
           tests/test_human_hand_pilots.py
           tests/test_egohand_adapter.py
           tests/test_egohand_evaluation.py
+          tests/test_hand_crop_inputs.py
+          tests/test_hand_crop_router.py
+          tests/test_refined_egohand_evaluation.py
+          tests/test_refined_egohand.py
           tests/test_hand_contact.py
           tests/test_review_human.py
           tests/test_human_runtime_assets.py

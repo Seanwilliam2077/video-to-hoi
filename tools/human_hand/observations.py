@@ -12,11 +12,16 @@ import hashlib
 import importlib.metadata
 import json
 from pathlib import Path
+import sys
 import time
 
 import cv2
 import numpy as np
 from scipy.ndimage import median_filter
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "src"))
+from v2hoi.hand_crop_inputs import load_verified_crop_boxes
 
 
 MODEL_URL = (
@@ -114,7 +119,13 @@ def main() -> None:
     parser.add_argument("--frames", nargs="*", type=int, help="Debug exact source frames; default all frames")
     parser.add_argument("--require-handedness", action="store_true", help="Reject classifier/seed-side disagreement; valid for the manually checked nonmirrored source")
     parser.add_argument("--mirror-check", action="store_true", help="Require independent flipped-crop localization consistency, without smoothing targets")
+    parser.add_argument("--crop-boxes", type=Path, help="Optional frozen [T,2,4] source-pixel crops for EP11/EP16")
+    parser.add_argument("--crop-policy-receipt", type=Path, help="Required source/hash/coverage receipt for external crops")
     args = parser.parse_args()
+    if bool(args.crop_boxes) != bool(args.crop_policy_receipt):
+        parser.error("External crops and their receipt must be supplied together")
+    if args.crop_boxes and args.frames:
+        parser.error("The controlled external-crop comparison requires complete source coverage")
     if "track_1" not in str(args.video).replace("\\", "/").split("/"):
         raise ValueError("Explicit Track 1 source path required")
     args.output.mkdir(parents=True, exist_ok=True)
@@ -133,6 +144,13 @@ def main() -> None:
     cap = cv2.VideoCapture(str(args.video))
     fps = cap.get(cv2.CAP_PROP_FPS)
     source_size = [int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))]
+    crop_receipt = None
+    if args.crop_boxes:
+        boxes, crop_receipt = load_verified_crop_boxes(
+            args.crop_boxes, args.crop_policy_receipt,
+            source_video_sha256=sha256(args.video), episode=args.episode,
+            frames=len(seeds), image_size_wh=source_size,
+        )
     n = len(chosen)
     joints = np.full((n, 2, 21, 2), np.nan, dtype=np.float32)
     confidence = np.zeros((n, 2, 21), dtype=np.float32)
@@ -238,6 +256,9 @@ def main() -> None:
             all_candidates.append({"frame": index, "crops": frame_candidates})
             if (row + 1) % 30 == 0 or row + 1 == n:
                 print(f"Independent hand observations: {row + 1}/{n}", flush=True)
+    if args.crop_boxes and cap.read()[0]:
+        cap.release()
+        raise RuntimeError("Source contains frames beyond the complete crop timeline")
     cap.release()
     elapsed = time.perf_counter() - start
     np.savez_compressed(
@@ -269,6 +290,16 @@ def main() -> None:
         "haMeR_handflow_status": "Not run: licensed MANO_RIGHT.pkl absent in verified local inventory; no license-bypassing model-buffer reconstruction attempted.",
         "data_policy": "Only the explicit Track 1 source video and its own SAM crop seeds. Generic public model, no additional challenge data.",
     }
+    if crop_receipt is not None:
+        report.update({
+            "crop_boxes_source": str(args.crop_boxes.resolve()),
+            "crop_boxes_sha256": sha256(args.crop_boxes),
+            "crop_policy_receipt": str(args.crop_policy_receipt.resolve()),
+            "crop_policy_receipt_sha256": sha256(args.crop_policy_receipt),
+            "crop_policy": crop_receipt.get("policy"),
+            "all30_execution_authorized": False,
+            "crop_semantics": "Externally frozen source-pixel crops shared with the specialist observer. Targets remain raw detector pixels; no target interpolation or confidence calibration.",
+        })
     (args.output / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     (args.output / "candidates.json").write_text(json.dumps(all_candidates), encoding="utf-8")
     print(json.dumps(report, indent=2), flush=True)

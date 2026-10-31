@@ -1,4 +1,4 @@
-"""Fit actual MHR finger controls to independently detected Track 1 image hands."""
+"""Fit native MHR finger controls to source-bound Track 1 hand targets."""
 from __future__ import annotations
 
 import argparse
@@ -89,9 +89,9 @@ def main() -> None:
     observation_report_path = args.observations.parent / "report.json"
     observation_report = json.loads(observation_report_path.read_text(encoding="utf-8"))
     if observation_report.get("source_video_sha256") != manifest["video_sha256"]:
-        parser.error("Independent observation report does not identify the same Track 1 video")
+        parser.error("Hand-target report does not identify the same Track 1 video")
     if observation_report.get("frames") != manifest["video_frames"]:
-        parser.error("Independent observation report has different video coverage")
+        parser.error("Hand-target report has different video coverage")
     intrinsics = np.load(args.review_arrays / "camera_intrinsics.npy", allow_pickle=False)
     if not np.allclose(intrinsics, manifest["camera_intrinsics"], atol=1e-5, rtol=0):
         parser.error("Review intrinsics differ from the video manifest")
@@ -184,9 +184,14 @@ def main() -> None:
         "source_video_sha256": manifest["video_sha256"], "baseline_sha256": digest(args.baseline),
         "observations_sha256": digest(args.observations), "mhr_model_sha256": digest(args.model),
         "observation_report_sha256": digest(observation_report_path),
-        "independent_observation_provenance": observation_report,
+        **({"generated_model_proposal_provenance": observation_report}
+           if observation_report.get("schema_version") == "egohand_geometric_proposals.v1"
+           else {"independent_observation_provenance": observation_report}),
         "observation_source": str(args.observations.resolve()),
-        "observation_semantics": "Independent MediaPipe image landmarks on SAM-wrist-seeded crops; reliability weights are not per-joint probabilities or measured visibility",
+        "observation_semantics": (
+            "EgoHand model geometry projected into original pixels; geometric admission is not visibility, independent image evidence or reconstruction truth"
+            if observation_report.get("schema_version") == "egohand_geometric_proposals.v1" else
+            "Independent MediaPipe image landmarks on SAM-wrist-seeded crops; reliability weights are not per-joint probabilities or measured visibility"),
         "native_hand_mapping_parity": parity,
         "camera_intrinsics": intrinsics.tolist(), "intrinsics_status": manifest["intrinsics_status"],
         "source_sha256": {name: hashlib.sha256(content).hexdigest() for name, content in source_files.items()},

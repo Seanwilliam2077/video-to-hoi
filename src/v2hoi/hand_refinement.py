@@ -54,6 +54,10 @@ class HandFitConfig:
     support_transition_frames: int = 0
     correction_velocity_budget_weight: float = 0.0
     correction_budget_safety_fraction: float = 1.0
+    control_prior_arm_delta_limit_radians: float | None = None
+    control_prior_wrist_max_displacement_metres: float | None = None
+    control_prior_wrist_ray_weight: float = 0.0
+    control_prior_wrist_max_projection_pixels: float | None = None
 
     def validate(self) -> None:
         for name in ("iterations", "min_landmarks"):
@@ -76,13 +80,23 @@ class HandFitConfig:
                      "arm_delta_limit_radians", "wrist_max_displacement_metres"):
             if not np.isfinite(getattr(self, name)) or getattr(self, name) <= 0:
                 raise ValueError(f"{name} must be finite and positive")
-        for name in ("velocity_weight", "acceleration_weight", "pose_prior_weight", "arm_prior_weight", "wrist_observation_weight", "wrist_anchor_weight", "arm_update_temporal_weight", "finger_update_temporal_weight", "spatial_acceleration_weight", "correction_velocity_budget_weight"):
+        for name in ("velocity_weight", "acceleration_weight", "pose_prior_weight", "arm_prior_weight", "wrist_observation_weight", "wrist_anchor_weight", "arm_update_temporal_weight", "finger_update_temporal_weight", "spatial_acceleration_weight", "correction_velocity_budget_weight", "control_prior_wrist_ray_weight"):
             if not np.isfinite(getattr(self, name)) or getattr(self, name) < 0:
                 raise ValueError(f"{name} must be finite and nonnegative")
         if not 0 < self.min_confidence <= 1 or not 0 <= self.relative_weight <= 1:
             raise ValueError("confidence and relative weight must lie in [0,1]")
         if not np.isfinite(self.correction_budget_safety_fraction) or not 0 < self.correction_budget_safety_fraction <= 1:
             raise ValueError("correction_budget_safety_fraction must be finite and in (0,1]")
+        for name, base_name in (("control_prior_arm_delta_limit_radians", "arm_delta_limit_radians"),
+                                ("control_prior_wrist_max_displacement_metres", "wrist_max_displacement_metres")):
+            value = getattr(self, name)
+            if value is not None and (isinstance(value, bool) or not np.isfinite(value) or value < getattr(self, base_name)):
+                raise ValueError(f"{name} must be finite and at least its ordinary bound")
+        if self.control_prior_wrist_max_projection_pixels is not None and (
+                isinstance(self.control_prior_wrist_max_projection_pixels, bool) or
+                not np.isfinite(self.control_prior_wrist_max_projection_pixels) or
+                self.control_prior_wrist_max_projection_pixels <= 0):
+            raise ValueError("control_prior_wrist_max_projection_pixels must be finite and positive")
 
 
 def validate_observations(observations: Mapping[str, Any], frame_indices: np.ndarray) -> dict[str, np.ndarray]:
@@ -147,6 +161,112 @@ def support_transition_envelope(support: np.ndarray, transition_frames: int) -> 
         envelope[distance:] = np.maximum(envelope[distance:], support[:-distance] * weight)
         envelope[:-distance] = np.maximum(envelope[:-distance], support[distance:] * weight)
     return envelope
+
+
+def control_prior_support_weights(annotation: Mapping[str, Any], *, track: int,
+                                  episode: int, frame_count: int,
+                                  video_sha256: str) -> np.ndarray:
+    """Build source-bound, prior-only control eligibility, never image evidence.
+
+    An interval permits a bounded correction even when the image observer is
+    unsupported. The cosine ramps are *inside* each inclusive interval; no
+    control eligibility is extrapolated into an unreviewed pickup/release.
+    This is not a visibility label, contact target or hidden pose observation.
+    """
+    if not isinstance(annotation, Mapping):
+        raise ValueError("Control prior annotation must be a mapping")
+    if (annotation.get("schema_version") != "native_hand_control_prior.v1" or
+            annotation.get("role") != "parameter_eligibility_only_no_image_targets"):
+        raise ValueError("Control prior must declare the parameter-eligibility-only schema and role")
+    if (track != 1 or annotation.get("track") != 1 or
+            annotation.get("episode") != episode or
+            annotation.get("frame_count") != frame_count or
+            annotation.get("video_sha256") != video_sha256):
+        raise ValueError("Control prior must identify the same complete Track 1 video")
+    if not isinstance(annotation.get("annotation_method"), str) or not annotation["annotation_method"].strip():
+        raise ValueError("Control prior requires an explicit annotation method")
+    if not annotation.get("source_review_receipt") or not annotation.get("source_review_receipt_sha256"):
+        raise ValueError("Control prior requires a pinned source-review receipt")
+    intervals = annotation.get("eligible_intervals_inclusive")
+    if not isinstance(intervals, list) or not intervals:
+        raise ValueError("Control prior requires explicit inclusive eligibility intervals")
+    weights = np.zeros((frame_count, 2), dtype=np.float32)
+    occupied = np.zeros_like(weights, dtype=bool)
+    for interval in intervals:
+        if not isinstance(interval, Mapping):
+            raise ValueError("Control prior intervals must be mappings")
+        first, last = interval.get("first"), interval.get("last")
+        ramp = interval.get("transition_frames", 0)
+        if any(isinstance(value, bool) or not isinstance(value, int) for value in (first, last, ramp)):
+            raise ValueError("Control prior frame boundaries and transitions must be integers")
+        if first < 0 or last < first or last >= frame_count or ramp < 0:
+            raise ValueError("Control prior interval lies outside the original video or has an invalid ramp")
+        sides = interval.get("eligible_sides")
+        if not isinstance(sides, list) or not sides or any(not isinstance(side, str) or side not in ("left", "right") for side in sides) or len(set(sides)) != len(sides):
+            raise ValueError("Control prior requires unique anatomical eligible sides")
+        value = interval.get("control_weight", 1.0)
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or not np.isfinite(value) or not 0 < value <= 1:
+            raise ValueError("Control prior weights must be finite and in (0,1]")
+        envelope = np.ones(last - first + 1, dtype=np.float32)
+        if ramp:
+            distance = np.minimum(np.arange(len(envelope)) + 1, np.arange(len(envelope), 0, -1))
+            amount = np.minimum(distance / (ramp + 1), 1)
+            envelope = (0.5 * (1 - np.cos(np.pi * amount))).astype(np.float32)
+        for name in sides:
+            side = ("left", "right").index(name)
+            if occupied[first:last + 1, side].any():
+                raise ValueError("Control prior intervals must not overlap on the same hand")
+            weights[first:last + 1, side] = envelope * np.float32(value)
+            occupied[first:last + 1, side] = True
+    return weights
+
+
+def project_wrist_delta_gauss_newton(current, wrist_forward, reference_wrists, intrinsics,
+                                    pixel_limit, eligible, angle_limits, *, iterations=3):
+    """Remove only a violating projected-wrist normal component.
+
+    Hands/frames have independent selected native arm controls. Three vector-
+    Jacobian products give each wrist's3D Jacobian; the homogeneous projection
+    derivative then yields2D. This is a local constraint projection, not an
+    observation or an objective change. The caller retains hard binary fallback.
+    """
+    import torch
+    value=current.detach().clone()
+    reference_h=reference_wrists@intrinsics.T
+    reference_pixels=reference_h[...,:2]/reference_h[...,2:].clamp_min(1e-5)
+    for _ in range(iterations):
+        with torch.enable_grad():
+            variable=value.detach().clone().requires_grad_(True)
+            wrists=wrist_forward(variable)
+            homogeneous=wrists@intrinsics.T
+            depth=homogeneous[...,2:].clamp_min(1e-5)
+            pixels=homogeneous[...,:2]/depth
+            residual=pixels-reference_pixels
+            radius=torch.linalg.vector_norm(residual,dim=-1)
+            active=(radius>pixel_limit)&eligible
+            if not bool(active.any()):
+                break
+            jacobian=[]
+            for axis in range(3):
+                gradient=torch.autograd.grad(wrists[...,axis].sum(),variable,
+                                             retain_graph=axis<2,create_graph=False)[0]
+                jacobian.append(gradient)
+            spatial=torch.stack(jacobian,dim=-2)
+        with torch.no_grad():
+            # General3x3 homogeneous camera derivative, including skew.
+            projection=((intrinsics[:2]*depth[...,None])-
+                        homogeneous[...,:2,None]*intrinsics[2])/depth[...,None].square()
+            jacobian=projection@spatial
+            target_radius=pixel_limit*(1-1e-4)
+            correction=-residual*(1-target_radius/radius.clamp_min(1e-8))[...,None]
+            normal=jacobian@jacobian.transpose(-1,-2)
+            normal=normal+torch.eye(2,device=normal.device,dtype=normal.dtype)*1e-4
+            multiplier=torch.linalg.solve(normal,correction[...,None])
+            update=(jacobian.transpose(-1,-2)@multiplier).squeeze(-1)
+            update=torch.where(active[...,None],update,torch.zeros_like(update))
+            update=torch.nan_to_num(update).clamp(-.1,.1)
+            value=torch.maximum(torch.minimum(value+update,angle_limits),-angle_limits)
+    return value.detach()
 
 
 def observation_edge_motion_gate(points: np.ndarray, confidence: np.ndarray, config: HandFitConfig) -> np.ndarray:
@@ -303,6 +423,8 @@ def refine_hands(
     hand_forward: Callable, *, config: HandFitConfig | None = None, device: str = "cpu",
     log: Callable[[str], None] = print, contact_constraint: Any | None = None,
     motion_prior_weights: np.ndarray | None = None,
+    control_prior_support: np.ndarray | None = None,
+    surface_contact_constraint: Any | None = None,
 ) -> dict[str, Any]:
     """Optimize true finger controls with independent 2D and gated motion terms.
 
@@ -331,6 +453,25 @@ def refine_hands(
         raise ValueError("no sufficiently supported independent hand observations")
     original_active = np.ones_like(observed_support) if config.unobserved_policy == "bounded_temporal_prior" else observed_support
     support_envelope = support_transition_envelope(original_active, config.support_transition_frames)
+    image_support_envelope = np.array(support_envelope, copy=True)
+    control_prior = np.zeros_like(support_envelope) if control_prior_support is None else np.asarray(control_prior_support, dtype=np.float32)
+    if (control_prior.shape != support_envelope.shape or not np.isfinite(control_prior).all() or
+            np.any((control_prior < 0) | (control_prior > 1))):
+        raise ValueError("Control-prior support must have shape [T,2] and finite weights in [0,1]")
+    # This expands only mutable controls, not image weights, image support or
+    # the baseline-pose acceleration mask. Missing coordinates stay missing.
+    support_envelope = np.maximum(support_envelope, control_prior)
+    if (config.control_prior_arm_delta_limit_radians is not None or
+            config.control_prior_wrist_max_displacement_metres is not None or
+            config.control_prior_wrist_max_projection_pixels is not None or
+            config.control_prior_wrist_ray_weight > 0) and not control_prior.any():
+        raise ValueError("Prior-only bounds/ray priors require explicit nonzero control-prior support")
+    arm_limits = np.full((len(indices), 2, 7), config.arm_delta_limit_radians, dtype=np.float32)
+    wrist_limits = np.full((len(indices), 2), config.wrist_max_displacement_metres, dtype=np.float32)
+    if config.control_prior_arm_delta_limit_radians is not None:
+        arm_limits += control_prior[:, :, None] * (config.control_prior_arm_delta_limit_radians - config.arm_delta_limit_radians)
+    if config.control_prior_wrist_max_displacement_metres is not None:
+        wrist_limits += control_prior * (config.control_prior_wrist_max_displacement_metres - config.wrist_max_displacement_metres)
     active = support_envelope > 0
     if config.spatial_acceleration_weight > 0 and motion_prior_weights is None:
         raise ValueError("spatial hand acceleration requires explicit admitted motion-prior phases")
@@ -368,9 +509,13 @@ def refine_hands(
     original_arm_mask = torch.as_tensor(arm_active.reshape(len(base), 14).astype(np.float32), device=device)
     arm_envelope_array = np.stack([support_transition_envelope(arm_active[:, :, control], config.support_transition_frames)
                                    for control in range(7)], axis=-1)
+    arm_envelope_array = np.maximum(arm_envelope_array, control_prior[:, :, None])
     arm_active = arm_envelope_array > 0
     arm_mask = torch.as_tensor(arm_active.reshape(len(base), 14).astype(np.float32), device=device)
     arm_envelope = torch.as_tensor(arm_envelope_array.reshape(len(base), 14), device=device)
+    arm_limits_t = torch.as_tensor(arm_limits.reshape(len(base), 14), device=device)
+    wrist_limits_t = torch.as_tensor(wrist_limits, device=device)
+    control_prior_t = torch.as_tensor(control_prior, device=device)
     arm_indices = torch.as_tensor(ARM_CONTROLS.reshape(-1), device=device)
     arm_selection = base.new_zeros(14, 136)
     arm_selection[torch.arange(14, device=device), arm_indices] = 1
@@ -525,6 +670,15 @@ def refine_hands(
             total = total + contact_terms["contact_total"]
             parts.update(contact_terms)
             parts["total"] = total
+        if surface_contact_constraint is not None:
+            surface_terms = surface_contact_constraint.loss(pose, joints)
+            total = total + surface_terms["surface_contact_total"]
+            parts.update(surface_terms)
+            parts["total"] = total
+        if config.control_prior_wrist_ray_weight > 0:
+            ray_prior = weighted_huber(projected[:, :, 0] - baseline_projected[:, :, 0], control_prior_t)
+            total = total + config.control_prior_wrist_ray_weight * ray_prior
+            parts.update(control_prior_wrist_ray=ray_prior, total=total)
         if config.spatial_acceleration_weight > 0:
             # This sees every articulation that moves the palm/fingers, including
             # upper-arm/forearm twist; smoothing finger Euler controls alone
@@ -567,19 +721,59 @@ def refine_hands(
             delta.clamp_(-config.max_delta_radians, config.max_delta_radians)
             delta.mul_(mask)
             if config.optimize_wrist_chain:
-                arm_delta.clamp_(-config.arm_delta_limit_radians, config.arm_delta_limit_radians)
+                arm_delta.copy_(torch.maximum(torch.minimum(arm_delta, arm_limits_t), -arm_limits_t))
                 arm_delta.mul_(arm_mask)
                 # Project bounded arm updates back into a true 3D wrist trust
                 # region. The native kinematic forward enforces the coupling.
                 for _ in range(4):
                     candidate, _ = assembled_pose()
                     distance = torch.linalg.vector_norm(hand_forward(candidate, scales)[:, :, 0] - baseline_wrists, dim=-1)
-                    if float(distance.max()) <= config.wrist_max_displacement_metres + 1e-6:
+                    if bool(torch.all(distance <= wrist_limits_t + 1e-6)):
                         break
-                    factor = torch.where(distance > config.wrist_max_displacement_metres,
-                                         config.wrist_max_displacement_metres / distance.clamp_min(1e-8) * 0.999,
+                    factor = torch.where(distance > wrist_limits_t,
+                                         wrist_limits_t / distance.clamp_min(1e-8) * 0.999,
                                          torch.ones_like(distance))
                     arm_delta.mul_(factor[:, :, None].expand(-1, -1, 7).reshape(len(base), 14))
+                if config.control_prior_wrist_max_projection_pixels is not None:
+                    # Preserve the arm update's depth direction while removing
+                    # only the normal component outside the projected trust disk.
+                    fixed_fingers = torch.cat([base[:, :68], base[:, 68:122] + delta * envelope, base[:, 122:]], dim=1).detach()
+                    def wrist_from_arm(values):
+                        trial = fixed_fingers + (values.reshape(len(base), 14) * arm_envelope) @ arm_selection
+                        return hand_forward(trial, scales)[:, :, 0]
+                    corrected = project_wrist_delta_gauss_newton(
+                        arm_delta.reshape(len(base), 2, 7), wrist_from_arm, baseline_wrists, k,
+                        config.control_prior_wrist_max_projection_pixels, control_prior_t > 0,
+                        arm_limits_t.reshape(len(base), 2, 7))
+                    arm_delta.copy_(corrected.reshape(len(base), 14))
+                    # Project both hard trust regions through the actual native
+                    # kinematic chain. A per-side binary line search toward the
+                    # initializer is conservative; it adds no image evidence.
+                    current, _ = assembled_pose()
+                    current_wrists = hand_forward(current, scales)[:, :, 0]
+                    image = current_wrists @ k.T
+                    image = image[..., :2] / image[..., 2:].clamp_min(1e-5)
+                    violation = (((torch.linalg.vector_norm(image - baseline_projected[:, :, 0], dim=-1) >
+                                   config.control_prior_wrist_max_projection_pixels + 1e-6) & (control_prior_t > 0)) |
+                                 (torch.linalg.vector_norm(current_wrists - baseline_wrists, dim=-1) > wrist_limits_t + 1e-6))
+                    if bool(violation.any()):
+                        original_arm_delta = arm_delta.clone()
+                        low = base.new_zeros(len(base), 2)
+                        high = base.new_ones(len(base), 2)
+                        for _ in range(12):
+                            fraction = (low + high) * .5
+                            arm_delta.copy_(original_arm_delta * fraction[:, :, None].expand(-1, -1, 7).reshape(len(base), 14))
+                            trial, _ = assembled_pose()
+                            wrists = hand_forward(trial, scales)[:, :, 0]
+                            projected_wrist = wrists @ k.T
+                            projected_wrist = projected_wrist[..., :2] / projected_wrist[..., 2:].clamp_min(1e-5)
+                            pixel_distance = torch.linalg.vector_norm(projected_wrist - baseline_projected[:, :, 0], dim=-1)
+                            valid = ((torch.linalg.vector_norm(wrists - baseline_wrists, dim=-1) <= wrist_limits_t + 1e-6) &
+                                     ((pixel_distance <= config.control_prior_wrist_max_projection_pixels) | (control_prior_t <= 0)))
+                            low = torch.where(valid, fraction, low)
+                            high = torch.where(valid, high, fraction)
+                        chosen = torch.where(violation, low, torch.ones_like(low))
+                        arm_delta.copy_(original_arm_delta * chosen[:, :, None].expand(-1, -1, 7).reshape(len(base), 14))
         if iteration == 0 or (iteration + 1) % 20 == 0 or iteration + 1 == config.iterations:
             record = {"iteration": iteration + 1, **{key: float(value.detach()) for key, value in parts.items()}}
             trace.append(record)
@@ -599,8 +793,12 @@ def refine_hands(
         final_hands = hand_forward(pose, scales)
         final_wrists = final_hands[:, :, 0]
         wrist_displacements = torch.linalg.vector_norm(final_wrists - baseline_wrists, dim=-1).cpu().numpy()
-        if config.optimize_wrist_chain and wrist_displacements.max() > config.wrist_max_displacement_metres + 1e-5:
+        if config.optimize_wrist_chain and np.any(wrist_displacements > wrist_limits + 1e-5):
             raise ValueError("optimized wrists left the configured 3D displacement trust region")
+        wrist_projection_displacements = torch.linalg.vector_norm(projected[:, :, 0] - baseline_projected[:, :, 0], dim=-1).cpu().numpy()
+        if (config.control_prior_wrist_max_projection_pixels is not None and
+                np.any((wrist_projection_displacements > config.control_prior_wrist_max_projection_pixels + 1e-4) & (control_prior > 0))):
+            raise ValueError("optimized prior-only wrists left the configured projective trust region")
     untouched = np.r_[np.arange(68), np.arange(122, 136)]
     if config.optimize_wrist_chain:
         untouched = np.setdiff1d(untouched, ARM_CONTROLS.reshape(-1))
@@ -619,6 +817,11 @@ def refine_hands(
         "frame_indices": indices.copy(), "fps": np.asarray(result.get("fps", 30), dtype=np.float32),
         "hand_projected": projected.cpu().numpy(), "active_hands": active,
         "original_active_hands": original_active, "support_transition_envelope": support_envelope,
+        "image_support_transition_envelope": image_support_envelope,
+        "control_prior_support": np.array(control_prior, copy=True),
+        "arm_control_envelope": np.array(arm_envelope_array, copy=True),
+        "arm_control_delta_limits": arm_limits,
+        "wrist_displacement_limits_m": wrist_limits,
         "hand_joints_m": final_hands.cpu().numpy(),
         "optimization_weights": weights.cpu().numpy(),
         "report": {
@@ -646,6 +849,16 @@ def refine_hands(
             "original_support_boundary_motion": original_boundaries,
             "prior_only_frame_indices": {name: indices[active[:, side] & ~observed_support[:, side]].tolist()
                                          for side, name in enumerate(("left", "right"))},
+            "control_prior_support_semantics": "Explicit source-reviewed prior-only eligibility for bounded finger and all seven selected arm/wrist controls. It supplies no image coordinates, confidence, true contact or hidden pose. Original image support and baseline-motion masks are unchanged.",
+            "explicit_control_prior_frame_indices": {name: indices[control_prior[:, side] > 0].tolist()
+                                                      for side, name in enumerate(("left", "right"))},
+            "control_prior_bounds_semantics": "Per-side angular/wrist limits interpolate ordinary bound to explicit prior bound by the raw manual cosine weight. The actual added arm-control bound also multiplies the effective arm envelope; the wrist-displacement limit is directly in estimated metres. Root, identity/scales and all other controls stay fixed.",
+            "control_prior_wrist_ray_semantics": "Optional projected initializer wrist anchor on manual prior eligibility only; a generated geometric ray prior, not an additional image observation or calibrated depth.",
+            "control_prior_wrist_projective_trust_semantics": "Optional hard projected-wrist displacement limit relative to the initializer on explicit manual eligibility. Native-wrist Jacobian Gauss-Newton normal projection plus hard binary fallback enforces it together with the existing 3D wrist limit; it is a geometric trust region, not observed image evidence.",
+            "prior_wrist_max_projection_displacement_pixels": float(wrist_projection_displacements[control_prior > 0].max()) if control_prior.any() else None,
+            "mutable_selected_arm_control_frames_per_hand": {
+                name: (arm_envelope_array[:, side] > 0).sum(0).tolist() if config.optimize_wrist_chain else [0] * 7
+                for side, name in enumerate(("left", "right"))},
             "admitted_motion_prior_frame_indices": {name: indices[prior_phase[:, side] > 0].tolist()
                                                      for side, name in enumerate(("left", "right"))},
             "finger_controls": {"right": [68, 95], "left": [95, 122], "interval_end_exclusive": True},
@@ -656,14 +869,15 @@ def refine_hands(
             "max_wrist_displacement_metres": float(wrist_displacements.max()),
             "p95_wrist_displacement_metres": float(np.percentile(wrist_displacements, 95)),
             "max_absolute_control_delta_radians": float(np.abs(out_pose[:, 68:122] - np.asarray(result["pose"])[:, 68:122]).max()),
-            "object_contact_constraints": contact_constraint is not None, "official_scores_available": False,
+            "object_contact_constraints": contact_constraint is not None or surface_contact_constraint is not None, "official_scores_available": False,
+            "surface_contact": surface_contact_constraint.diagnostics(out_pose, final_hands.cpu().numpy()) if surface_contact_constraint is not None else None,
             "contact": ({"before": contact_constraint.before, "after": contact_constraint.diagnostics(final_hands.cpu().numpy()),
                           "anchor_weight": contact_constraint.anchor_weight, "penetration_weight": contact_constraint.penetration_weight,
                           "status": "experimental_uncertain_object_hypothesis_not_reference_contact"} if contact_constraint is not None else None),
             "limitations": [("Camera fixed; only bounded selected arm/wrist controls change" if config.optimize_wrist_chain else
                              "Camera and body/wrist initializer remain fixed"), "Monocular depth ambiguity remains",
                             "Reliability weights are not calibrated visibility probabilities",
-                            ("Unsupported long gaps are unchanged" if config.unobserved_policy == "preserve" else
+                            ("Unsupported long gaps outside explicit control-prior eligibility are unchanged" if config.unobserved_policy == "preserve" else
                              "Unobserved hands are regularized by a bounded motion prior, not recovered independent observations"),
                             "Image landmark agreement and smoother motion do not establish hidden-reference accuracy"],
         },

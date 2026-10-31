@@ -12,7 +12,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from v2hoi.hand_refinement import HandFitConfig, NativeMHRHands, refine_hands
+from v2hoi.hand_refinement import HandFitConfig, NativeMHRHands, control_prior_support_weights, refine_hands
 from v2hoi.human_result import load_human_result, native_vertices_to_track1, validate_human_result, write_human_result
 
 
@@ -126,6 +126,14 @@ def main() -> None:
                         help="Internal training-budget fraction in (0,1]; tightens priors without changing independent checks")
     parser.add_argument("--spatial-acceleration-weight", type=float, default=0.0)
     parser.add_argument("--motion-phases", type=Path)
+    parser.add_argument("--control-prior-support", type=Path,
+                        help="Source-reviewed prior-only bounded control eligibility; adds no image targets")
+    parser.add_argument("--control-prior-arm-delta-limit-radians", type=float)
+    parser.add_argument("--control-prior-wrist-max-displacement-metres", type=float)
+    parser.add_argument("--control-prior-wrist-ray-weight", type=float, default=0.0)
+    parser.add_argument("--control-prior-wrist-max-projection-pixels", type=float)
+    parser.add_argument("--surface-contact-config", type=Path,
+                        help="Pinned experimental selected-native-skin and tangential-free surface-prior configuration")
     parser.add_argument("--contact-object", type=Path)
     parser.add_argument("--contact-phases", type=Path)
     parser.add_argument("--contact-anchor-reference", type=Path,
@@ -144,6 +152,8 @@ def main() -> None:
         parser.error("contact-object and contact-phases must be supplied together")
     if args.contact_anchor_reference and not args.contact_object:
         parser.error("contact-anchor-reference requires contact-object and contact-phases")
+    if args.surface_contact_config and args.contact_object:
+        parser.error("Choose either surface contact or the legacy fixed-anchor contact intervention")
     if args.spatial_acceleration_weight > 0 and not args.motion_phases:
         parser.error("A positive spatial-acceleration-weight requires explicit motion-phases")
     if not np.isfinite(args.contact_scale) or args.contact_scale <= 0:
@@ -172,8 +182,10 @@ def main() -> None:
     torch.set_num_threads(args.threads)
     started = time.monotonic()
     source_paths = [Path(__file__), ROOT / "src/v2hoi/hand_refinement.py"]
-    if args.contact_object or args.motion_phases:
+    if args.contact_object or args.motion_phases or args.surface_contact_config:
         source_paths.append(ROOT / "src/v2hoi/hand_contact.py")
+    if args.surface_contact_config:
+        source_paths.append(ROOT / "src/v2hoi/hand_surface_contact.py")
     source_files = {str(path.relative_to(ROOT)).replace("\\", "/"): path.read_bytes() for path in source_paths}
     config = HandFitConfig(iterations=args.iterations, learning_rate=args.learning_rate, holdout_stride=args.holdout_stride,
                            unobserved_policy=args.unobserved_policy, acceleration_weight=args.acceleration_weight,
@@ -186,16 +198,87 @@ def main() -> None:
                            support_transition_frames=args.support_transition_frames,
                            correction_velocity_budget_weight=args.correction_velocity_budget_weight,
                            correction_budget_safety_fraction=args.correction_budget_safety_fraction,
-                           spatial_acceleration_weight=args.spatial_acceleration_weight)
+                           spatial_acceleration_weight=args.spatial_acceleration_weight,
+                           control_prior_arm_delta_limit_radians=args.control_prior_arm_delta_limit_radians,
+                           control_prior_wrist_max_displacement_metres=args.control_prior_wrist_max_displacement_metres,
+                           control_prior_wrist_ray_weight=args.control_prior_wrist_ray_weight,
+                           control_prior_wrist_max_projection_pixels=args.control_prior_wrist_max_projection_pixels)
     config.validate()
+    control_prior_support = None
+    control_prior_provenance = None
+    if args.control_prior_support:
+        annotation = json.loads(args.control_prior_support.read_text(encoding="utf-8-sig"))
+        try:
+            control_prior_support = control_prior_support_weights(
+                annotation, track=manifest["track"], episode=manifest["episode"],
+                frame_count=manifest["video_frames"], video_sha256=manifest["video_sha256"])
+            receipt = Path(annotation["source_review_receipt"])
+            if digest(receipt) != annotation["source_review_receipt_sha256"]:
+                raise ValueError("Control-prior source-review receipt bytes changed")
+        except (ValueError, OSError) as error:
+            parser.error(str(error))
+        control_prior_provenance = {
+            "path": str(args.control_prior_support.resolve()),
+            "sha256": digest(args.control_prior_support), "annotation": annotation,
+            "source_review_receipt_sha256": digest(receipt),
+            "interpretation": "Parameter eligibility only; no image coordinates, contact targets or observed hidden motion"}
     hands = NativeMHRHands(str(args.model), device=args.device)
     positions = sorted(set([0, len(baseline["pose"]) // 3, 2 * len(baseline["pose"]) // 3, len(baseline["pose"]) - 1]))
     parity = hands.verify_full_forward(baseline, positions)
     print(json.dumps({"native_hand_mapping_parity": parity}), flush=True)
     contact = None
     contact_provenance = None
+    surface_contact = None
+    surface_contact_provenance = None
     motion_prior_weights = None
     motion_phase_provenance = None
+    if args.surface_contact_config:
+        from v2hoi.hand_surface_contact import NativeHandSurfaceContact, NativeSelectedHandSurface
+        specification = json.loads(args.surface_contact_config.read_text(encoding="utf-8-sig"))
+        if (specification.get("method") != "native_hand_surface_contact.v1" or
+                specification.get("track") != 1 or specification.get("episode") != manifest["episode"] or
+                specification.get("frame_count") != len(baseline["pose"]) or
+                specification.get("video_sha256") != manifest["video_sha256"] or
+                specification.get("baseline_sha256") != digest(args.baseline) or
+                specification.get("mhr_model_sha256") != digest(args.model)):
+            parser.error("Surface-contact configuration must bind the exact source, initialization and native decoder")
+        object_path = Path(specification["object_path"])
+        phases_path = Path(specification["phases_path"])
+        object_report_path = object_path.parent / "report.json"
+        if (digest(object_path) != specification["object_sha256"] or
+                digest(phases_path) != specification["phases_sha256"] or
+                digest(object_report_path) != specification["object_report_sha256"]):
+            parser.error("Surface-contact object/phase bytes differ from the frozen configuration")
+        object_report = json.loads(object_report_path.read_text(encoding="utf-8-sig"))
+        phases = json.loads(phases_path.read_text(encoding="utf-8-sig"))
+        if (object_report.get("track") != 1 or object_report.get("episode") != manifest["episode"] or
+                object_report.get("source_video_sha256", object_report.get("video_sha256")) != manifest["video_sha256"] or
+                phases.get("track") != 1 or phases.get("episode") != manifest["episode"] or
+                phases.get("video_sha256") != manifest["video_sha256"]):
+            parser.error("Surface-contact object and phases must identify the same Track 1 source")
+        with np.load(object_path, allow_pickle=False) as archive:
+            object_candidate = {name: archive[name] for name in archive.files}
+        if not np.array_equal(np.asarray(object_candidate["camera_intrinsics"], dtype=np.float32), intrinsics):
+            parser.error("Surface-contact object must use the identical fixed human camera")
+        selected_surface = NativeSelectedHandSurface(hands, baseline["shape"], baseline["scales"], count_per_hand=128)
+        surface_parity = selected_surface.verify_full_forward(
+            baseline["pose"], positions=positions, gradient_positions=positions[:3])
+        with torch.no_grad():
+            baseline_hands = hands(torch.as_tensor(baseline["pose"], device=args.device),
+                                   torch.as_tensor(baseline["scales"], device=args.device)).cpu().numpy()
+        surface_contact = NativeHandSurfaceContact(object_candidate, phases, selected_surface,
+                                                   baseline["pose"], baseline_hands,
+                                                   baseline["frame_indices"], specification)
+        surface_contact_provenance = {"configuration_path": str(args.surface_contact_config.resolve()),
+                                      "configuration_sha256": digest(args.surface_contact_config),
+                                      "path": str(args.surface_contact_config.resolve()),
+                                      "sha256": digest(args.surface_contact_config),
+                                      "object_sha256": specification["object_sha256"],
+                                      "phases_sha256": specification["phases_sha256"],
+                                      "baseline_sha256": specification["baseline_sha256"],
+                                      "specification": specification, "native_surface_parity": surface_parity,
+                                      "before": surface_contact.before,
+                                      "interpretation": "Frozen native-skin geometric priors; no network training or hidden-contact truth"}
     if args.motion_phases:
         from v2hoi.hand_contact import phase_weights
         phase_report = json.loads(args.motion_phases.read_text(encoding="utf-8"))
@@ -274,7 +357,8 @@ def main() -> None:
             parser.exit(2, f"Contact abstained: {error}; evidence saved to {args.output}\n")
     fitted = refine_hands(baseline, observations, intrinsics, hands, config=config, device=args.device,
                           log=lambda message: print(message, flush=True), contact_constraint=contact,
-                          motion_prior_weights=motion_prior_weights)
+                          motion_prior_weights=motion_prior_weights, control_prior_support=control_prior_support,
+                          surface_contact_constraint=surface_contact)
     report = fitted["report"]
     report.update({
         "track": 1, "episode": manifest["episode"], "complete_video": True,
@@ -289,6 +373,8 @@ def main() -> None:
         "hand_only_development_probe": bool(args.skip_mesh_export),
         "contact_provenance": contact_provenance,
         "motion_phase_provenance": motion_phase_provenance,
+        "control_prior_provenance": control_prior_provenance,
+        "surface_contact_provenance": surface_contact_provenance,
         "torch_num_threads": torch.get_num_threads(),
     })
     args.output.mkdir(parents=True)
@@ -301,7 +387,21 @@ def main() -> None:
     np.save(args.output / "active_hands.npy", fitted["active_hands"])
     np.save(args.output / "original_active_hands.npy", fitted["original_active_hands"])
     np.save(args.output / "support_transition_envelope.npy", fitted["support_transition_envelope"])
+    np.save(args.output / "image_support_transition_envelope.npy", fitted["image_support_transition_envelope"])
+    np.save(args.output / "control_prior_support.npy", fitted["control_prior_support"])
+    np.save(args.output / "arm_control_envelope.npy", fitted["arm_control_envelope"])
+    np.save(args.output / "arm_control_delta_limits.npy", fitted["arm_control_delta_limits"])
+    np.save(args.output / "wrist_displacement_limits_m.npy", fitted["wrist_displacement_limits_m"])
     np.save(args.output / "optimization_weights.npy", fitted["optimization_weights"])
+    if surface_contact is not None:
+        np.save(args.output / "surface_contact_phase_weights.npy", surface_contact.weights)
+        np.savez(args.output / "surface_contact_selection.npz",
+                 hand_vertex_ids=np.stack(surface_contact.surface.hand_vertex_ids),
+                 patch_vertex_ids=np.stack(surface_contact.patch_native_vertex_ids),
+                 left_native_vertices=surface_contact.surface.hand_vertex_ids[0],
+                 right_native_vertices=surface_contact.surface.hand_vertex_ids[1],
+                 left_patch_vertices=surface_contact.patch_native_vertex_ids[0],
+                 right_patch_vertices=surface_contact.patch_native_vertex_ids[1])
     if contact is not None:
         np.save(args.output / "contact_phase_weights.npy", contact.weights)
         np.save(args.output / "contact_anchor_weights.npy", contact.anchor_weights)

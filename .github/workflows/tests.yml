@@ -50,6 +50,11 @@ jobs:
           tests/test_contact_anchor_reference.py
           tests/test_contact_ab_evaluation.py
           tests/test_contact_ab_render.py
+          tests/test_hand_control_prior.py
+          tests/test_hand_surface_contact.py
+          tests/test_object_depth_gauge.py
+          tests/test_occluded_contact_ab_evaluation.py
+          tests/test_occluded_contact_render.py
           tests/test_review_human.py
           tests/test_human_runtime_assets.py
           tests/test_sam_body_inputs.py

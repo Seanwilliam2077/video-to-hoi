@@ -42,6 +42,7 @@ jobs:
           tests/test_egohand_evaluation.py
           tests/test_hand_crop_inputs.py
           tests/test_hand_crop_router.py
+          tests/test_hand_target_provenance.py
           tests/test_refined_egohand_evaluation.py
           tests/test_refined_egohand.py
           tests/test_hand_contact.py

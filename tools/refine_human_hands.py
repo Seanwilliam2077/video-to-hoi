@@ -24,6 +24,37 @@ def digest(path: Path) -> str:
     return h.hexdigest()
 
 
+def target_provenance(observation_report: dict, observations: dict) -> dict:
+    """Classify metadata without mistaking hybrid model targets for image data."""
+    raw_kind = np.asarray(observations.get("observation_kind", ""))
+    if raw_kind.ndim != 0:
+        raise ValueError("Observation kind must be a scalar provenance tag")
+    kind = str(raw_kind.item())
+    generated = (kind == "egohand_geometric_proposals.v1" or
+                 observation_report.get("schema_version") in {
+                     "egohand_geometric_proposals.v1", "refined_egohand_proposals.v1"})
+    if generated:
+        return {
+            "method": "source_bound_model_target_native_mhr_sequence_fit",
+            "generated_model_proposal_provenance": observation_report,
+            "observation_semantics": (
+                "Generated EgoHand geometry projected into original pixels; retargeting may share "
+                "MediaPipe wrist/support inputs. Admission is not independent image evidence, "
+                "measured visibility or reconstruction truth"),
+        }
+    if observation_report.get("observer") == "MediaPipe HandLandmarker independent 2D observations":
+        return {
+            "independent_observation_provenance": observation_report,
+            "observation_semantics": (
+                "Independent MediaPipe image landmarks on source-bound crops; reliability weights "
+                "are not per-joint probabilities or measured visibility"),
+        }
+    return {
+        "unclassified_target_provenance": observation_report,
+        "observation_semantics": "Source-bound hand targets of unverified observer type; no image-independence or visibility claim",
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--baseline", type=Path, required=True)
@@ -184,14 +215,8 @@ def main() -> None:
         "source_video_sha256": manifest["video_sha256"], "baseline_sha256": digest(args.baseline),
         "observations_sha256": digest(args.observations), "mhr_model_sha256": digest(args.model),
         "observation_report_sha256": digest(observation_report_path),
-        **({"generated_model_proposal_provenance": observation_report}
-           if observation_report.get("schema_version") == "egohand_geometric_proposals.v1"
-           else {"independent_observation_provenance": observation_report}),
+        **target_provenance(observation_report, observations),
         "observation_source": str(args.observations.resolve()),
-        "observation_semantics": (
-            "EgoHand model geometry projected into original pixels; geometric admission is not visibility, independent image evidence or reconstruction truth"
-            if observation_report.get("schema_version") == "egohand_geometric_proposals.v1" else
-            "Independent MediaPipe image landmarks on SAM-wrist-seeded crops; reliability weights are not per-joint probabilities or measured visibility"),
         "native_hand_mapping_parity": parity,
         "camera_intrinsics": intrinsics.tolist(), "intrinsics_status": manifest["intrinsics_status"],
         "source_sha256": {name: hashlib.sha256(content).hexdigest() for name, content in source_files.items()},

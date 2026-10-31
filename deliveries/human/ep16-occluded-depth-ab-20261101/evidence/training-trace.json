@@ -1,0 +1,497 @@
+{
+  "schema_version": "ep16_redacted_public_evidence.v1",
+  "scope": "Public review summary; executor-local paths are aliases. Numeric values are unchanged. This is not a native input or a byte-identical raw receipt.",
+  "source": {
+    "sha256": "af874d4a6cf5bbc50a67776cd3641876690eace6576fffdebba95addd39b50e7",
+    "archive_member": "independent/training-trace-stability-review01.json"
+  },
+  "raw_archive": {
+    "file": "ep16-occluded-depth-ab-20261101.zip",
+    "sha256": "90482f091b43887d6d3c65b35d9d070aae7c20dc243d4ebacc84be18a797cade"
+  },
+  "content": {
+    "schema_version": "ep16_train_trace_stability_review.v1",
+    "recorded_at": "2026-10-31T22:00:50.333511+00:00",
+    "track": 1,
+    "episode": 16,
+    "scope": "TRAIN-only optimization stability, not heldout accuracy, reconstruction/contact quality or official ranking",
+    "source_report_sha256": {
+      "${RESULT_ROOT}\\A-no-contact01\\report.json": "5c659796beec3b6c80205a0a9d9aece42342cae7313d4fa41650efa0320ff7c2",
+      "${RESULT_ROOT}\\B-surface-contact01\\report.json": "08d601f4b417661ae078ba4b8324cf0f11c55f4d53a310cc30ff62d18291eb06",
+      "${RESULT_ROOT}\\A-no-contact02\\report.json": "3ece8860927e865015e862711925d66ed7532cef8654e1e52ea380f52e5680ea",
+      "${RESULT_ROOT}\\B-surface-contact02\\report.json": "faf40e98d22c276a0bd8a9969ca1eaaab639fe444fd8c719e8de09b810ef373f"
+    },
+    "recipe_sha256": "f1cb0b4a98813ff2f01ace7e7501f350bc8f05020b2c340d265908c1f3b4eab9",
+    "all_config_identical_except_declared_learning_rate": true,
+    "trace_sampling_limitation": "The fitter logs iteration1 then every20iterations. Last100 means the five available checkpoints520/540/560/580/600, NOT all100 optimizer steps. Unlogged spikes and iteration-level variance cannot be recovered from these records.",
+    "rows": {
+      "A-no-contact01": {
+        "source_report": "${RESULT_ROOT}\\A-no-contact01\\report.json",
+        "source_report_sha256": "5c659796beec3b6c80205a0a9d9aece42342cae7313d4fa41650efa0320ff7c2",
+        "learning_rate": 0.001,
+        "iterations": 600,
+        "initial_train_objective": 0.12087676674127579,
+        "retained_best_train_objective": 0.11729753017425537,
+        "retained_best_train_budget": 0.020243948325514793,
+        "all_checkpoint_count": 31,
+        "last100_original_iteration_checkpoint_ids": [
+          520,
+          540,
+          560,
+          580,
+          600
+        ],
+        "last100_iteration_sampled_total": {
+          "count": 5,
+          "mean": 0.43303737640380857,
+          "standard_deviation_population": 0.19670022855903269,
+          "min": 0.20189890265464783,
+          "max": 0.690707802772522,
+          "range": 0.48880890011787415
+        },
+        "last100_iteration_sampled_budget": {
+          "count": 5,
+          "mean": 0.33955544233322144,
+          "standard_deviation_population": 0.19662423136055057,
+          "min": 0.1085064709186554,
+          "max": 0.5970392823219299,
+          "range": 0.48853281140327454
+        },
+        "all_checkpoints_total": {
+          "count": 31,
+          "mean": 0.35385294571038217,
+          "standard_deviation_population": 0.27910368044367034,
+          "min": 0.12087676674127579,
+          "max": 1.5628435611724854,
+          "range": 1.4419667944312096
+        },
+        "all_checkpoints_budget": {
+          "count": 31,
+          "mean": 0.2561754454528132,
+          "standard_deviation_population": 0.28124421088505136,
+          "min": 0.0,
+          "max": 1.4692682027816772,
+          "range": 1.4692682027816772
+        },
+        "last100_sampled_total_consecutive_jump": {
+          "count": 4,
+          "mean": 0.3224257305264473,
+          "standard_deviation_population": 0.12429908023543093,
+          "min": 0.1381850242614746,
+          "max": 0.4867216646671295,
+          "range": 0.3485366404056549
+        },
+        "last100_checkpoints": [
+          {
+            "iteration": 520,
+            "total": 0.20398613810539246,
+            "correction_velocity_budget": 0.11054611206054688,
+            "data": 0.037369366735219955
+          },
+          {
+            "iteration": 540,
+            "total": 0.690707802772522,
+            "correction_velocity_budget": 0.5970392823219299,
+            "data": 0.03742440044879913
+          },
+          {
+            "iteration": 560,
+            "total": 0.5525227785110474,
+            "correction_velocity_budget": 0.4590141773223877,
+            "data": 0.03732696920633316
+          },
+          {
+            "iteration": 580,
+            "total": 0.20189890265464783,
+            "correction_velocity_budget": 0.1085064709186554,
+            "data": 0.03728479892015457
+          },
+          {
+            "iteration": 600,
+            "total": 0.5160712599754333,
+            "correction_velocity_budget": 0.4226711690425873,
+            "data": 0.037304770201444626
+          }
+        ],
+        "retained_zero_update": false
+      },
+      "B-surface-contact01": {
+        "source_report": "${RESULT_ROOT}\\B-surface-contact01\\report.json",
+        "source_report_sha256": "08d601f4b417661ae078ba4b8324cf0f11c55f4d53a310cc30ff62d18291eb06",
+        "learning_rate": 0.001,
+        "iterations": 600,
+        "initial_train_objective": 4.700400352478027,
+        "retained_best_train_objective": 4.38510799407959,
+        "retained_best_train_budget": 0.2534615993499756,
+        "all_checkpoint_count": 31,
+        "last100_original_iteration_checkpoint_ids": [
+          520,
+          540,
+          560,
+          580,
+          600
+        ],
+        "last100_iteration_sampled_total": {
+          "count": 5,
+          "mean": 5.142449474334716,
+          "standard_deviation_population": 0.10698494028569738,
+          "min": 5.010951995849609,
+          "max": 5.300212383270264,
+          "range": 0.2892603874206543
+        },
+        "last100_iteration_sampled_budget": {
+          "count": 5,
+          "mean": 1.1550859928131103,
+          "standard_deviation_population": 0.10629198242656174,
+          "min": 1.0276248455047607,
+          "max": 1.3142690658569336,
+          "range": 0.28664422035217285
+        },
+        "all_checkpoints_total": {
+          "count": 31,
+          "mean": 4.95033747150052,
+          "standard_deviation_population": 0.3260673576363846,
+          "min": 4.4710612297058105,
+          "max": 5.89948844909668,
+          "range": 1.4284272193908691
+        },
+        "all_checkpoints_budget": {
+          "count": 31,
+          "mean": 0.8636427137159532,
+          "standard_deviation_population": 0.4130840623759464,
+          "min": 0.0,
+          "max": 1.8890910148620605,
+          "range": 1.8890910148620605
+        },
+        "last100_sampled_total_consecutive_jump": {
+          "count": 4,
+          "mean": 0.21887993812561035,
+          "standard_deviation_population": 0.05918380657125163,
+          "min": 0.1561417579650879,
+          "max": 0.2892603874206543,
+          "range": 0.1331186294555664
+        },
+        "last100_checkpoints": [
+          {
+            "iteration": 520,
+            "total": 5.190836429595947,
+            "correction_velocity_budget": 1.1923516988754272,
+            "data": 0.03502437844872475
+          },
+          {
+            "iteration": 540,
+            "total": 5.034694671630859,
+            "correction_velocity_budget": 1.045973300933838,
+            "data": 0.03490406274795532
+          },
+          {
+            "iteration": 560,
+            "total": 5.300212383270264,
+            "correction_velocity_budget": 1.3142690658569336,
+            "data": 0.0347871370613575
+          },
+          {
+            "iteration": 580,
+            "total": 5.010951995849609,
+            "correction_velocity_budget": 1.0276248455047607,
+            "data": 0.03472887724637985
+          },
+          {
+            "iteration": 600,
+            "total": 5.175551891326904,
+            "correction_velocity_budget": 1.1952110528945923,
+            "data": 0.034546513110399246
+          }
+        ],
+        "retained_zero_update": false
+      },
+      "A-no-contact02": {
+        "source_report": "${RESULT_ROOT}\\A-no-contact02\\report.json",
+        "source_report_sha256": "3ece8860927e865015e862711925d66ed7532cef8654e1e52ea380f52e5680ea",
+        "learning_rate": 0.0005,
+        "iterations": 600,
+        "initial_train_objective": 0.12087676674127579,
+        "retained_best_train_objective": 0.10458226501941681,
+        "retained_best_train_budget": 0.0025477020535618067,
+        "all_checkpoint_count": 31,
+        "last100_original_iteration_checkpoint_ids": [
+          520,
+          540,
+          560,
+          580,
+          600
+        ],
+        "last100_iteration_sampled_total": {
+          "count": 5,
+          "mean": 0.16426058411598204,
+          "standard_deviation_population": 0.038025572413014665,
+          "min": 0.12484987080097198,
+          "max": 0.2280091643333435,
+          "range": 0.10315929353237152
+        },
+        "last100_iteration_sampled_budget": {
+          "count": 5,
+          "mean": 0.0639989223331213,
+          "standard_deviation_population": 0.03797730383790865,
+          "min": 0.024786408990621567,
+          "max": 0.1276390254497528,
+          "range": 0.10285261645913124
+        },
+        "all_checkpoints_total": {
+          "count": 31,
+          "mean": 0.14009812185841222,
+          "standard_deviation_population": 0.030069799782820993,
+          "min": 0.10558690130710602,
+          "max": 0.2280091643333435,
+          "range": 0.12242226302623749
+        },
+        "all_checkpoints_budget": {
+          "count": 31,
+          "mean": 0.03712998216430987,
+          "standard_deviation_population": 0.031392215505442626,
+          "min": 0.0,
+          "max": 0.1276390254497528,
+          "range": 0.1276390254497528
+        },
+        "last100_sampled_total_consecutive_jump": {
+          "count": 4,
+          "mean": 0.06426244229078293,
+          "standard_deviation_population": 0.025319652274572366,
+          "min": 0.027946263551712036,
+          "max": 0.09799794852733612,
+          "range": 0.07005168497562408
+        },
+        "last100_checkpoints": [
+          {
+            "iteration": 520,
+            "total": 0.13001121580600739,
+            "correction_velocity_budget": 0.02963978238403797,
+            "data": 0.04445919394493103
+          },
+          {
+            "iteration": 540,
+            "total": 0.2280091643333435,
+            "correction_velocity_budget": 0.1276390254497528,
+            "data": 0.04442187398672104
+          },
+          {
+            "iteration": 560,
+            "total": 0.15524320304393768,
+            "correction_velocity_budget": 0.0549321323633194,
+            "data": 0.044371042400598526
+          },
+          {
+            "iteration": 580,
+            "total": 0.18318946659564972,
+            "correction_velocity_budget": 0.08299726247787476,
+            "data": 0.04430826008319855
+          },
+          {
+            "iteration": 600,
+            "total": 0.12484987080097198,
+            "correction_velocity_budget": 0.024786408990621567,
+            "data": 0.044203538447618484
+          }
+        ],
+        "retained_zero_update": false
+      },
+      "B-surface-contact02": {
+        "source_report": "${RESULT_ROOT}\\B-surface-contact02\\report.json",
+        "source_report_sha256": "faf40e98d22c276a0bd8a9969ca1eaaab639fe444fd8c719e8de09b810ef373f",
+        "learning_rate": 0.0005,
+        "iterations": 600,
+        "initial_train_objective": 4.700400352478027,
+        "retained_best_train_objective": 4.196231842041016,
+        "retained_best_train_budget": 0.09290212392807007,
+        "all_checkpoint_count": 31,
+        "last100_original_iteration_checkpoint_ids": [
+          520,
+          540,
+          560,
+          580,
+          600
+        ],
+        "last100_iteration_sampled_total": {
+          "count": 5,
+          "mean": 4.343047142028809,
+          "standard_deviation_population": 0.1348930511962773,
+          "min": 4.196231842041016,
+          "max": 4.532272815704346,
+          "range": 0.3360409736633301
+        },
+        "last100_iteration_sampled_budget": {
+          "count": 5,
+          "mean": 0.23652946650981904,
+          "standard_deviation_population": 0.1354431802681781,
+          "min": 0.09290212392807007,
+          "max": 0.43027713894844055,
+          "range": 0.3373750150203705
+        },
+        "all_checkpoints_total": {
+          "count": 31,
+          "mean": 4.382362565686626,
+          "standard_deviation_population": 0.10991631209563724,
+          "min": 4.196231842041016,
+          "max": 4.700400352478027,
+          "range": 0.5041685104370117
+        },
+        "all_checkpoints_budget": {
+          "count": 31,
+          "mean": 0.19306796644964525,
+          "standard_deviation_population": 0.0894276924496992,
+          "min": 0.0,
+          "max": 0.43027713894844055,
+          "range": 0.43027713894844055
+        },
+        "last100_sampled_total_consecutive_jump": {
+          "count": 4,
+          "mean": 0.20273315906524658,
+          "standard_deviation_population": 0.10823247077011938,
+          "min": 0.03685760498046875,
+          "max": 0.3360409736633301,
+          "range": 0.29918336868286133
+        },
+        "last100_checkpoints": [
+          {
+            "iteration": 520,
+            "total": 4.278719902038574,
+            "correction_velocity_budget": 0.16549475491046906,
+            "data": 0.03607945516705513
+          },
+          {
+            "iteration": 540,
+            "total": 4.474921703338623,
+            "correction_velocity_budget": 0.36592501401901245,
+            "data": 0.035912226885557175
+          },
+          {
+            "iteration": 560,
+            "total": 4.233089447021484,
+            "correction_velocity_budget": 0.12804830074310303,
+            "data": 0.03575683385133743
+          },
+          {
+            "iteration": 580,
+            "total": 4.196231842041016,
+            "correction_velocity_budget": 0.09290212392807007,
+            "data": 0.035606976598501205
+          },
+          {
+            "iteration": 600,
+            "total": 4.532272815704346,
+            "correction_velocity_budget": 0.43027713894844055,
+            "data": 0.0355394221842289
+          }
+        ],
+        "retained_zero_update": false
+      }
+    },
+    "comparisons": {
+      "A-no-contact": {
+        "retained_best_train_objective_before": 0.11729753017425537,
+        "retained_best_train_objective_after": 0.10458226501941681,
+        "relative_retained_objective_drop": 0.10840181490564182,
+        "last100_iteration_checkpoint_comparison": {
+          "total": {
+            "mean": {
+              "lr001": 0.43303737640380857,
+              "lr0005": 0.16426058411598204,
+              "half_step_divided_by_original": 0.3793219547931322
+            },
+            "standard_deviation_population": {
+              "lr001": 0.19670022855903269,
+              "lr0005": 0.038025572413014665,
+              "half_step_divided_by_original": 0.19331737787789413
+            },
+            "max": {
+              "lr001": 0.690707802772522,
+              "lr0005": 0.2280091643333435,
+              "half_step_divided_by_original": 0.3301094376205218
+            },
+            "range": {
+              "lr001": 0.48880890011787415,
+              "lr0005": 0.10315929353237152,
+              "half_step_divided_by_original": 0.21104217518849414
+            }
+          },
+          "budget": {
+            "mean": {
+              "lr001": 0.33955544233322144,
+              "lr0005": 0.0639989223331213,
+              "half_step_divided_by_original": 0.18847856448230976
+            },
+            "standard_deviation_population": {
+              "lr001": 0.19662423136055057,
+              "lr0005": 0.03797730383790865,
+              "half_step_divided_by_original": 0.19314661054297794
+            },
+            "max": {
+              "lr001": 0.5970392823219299,
+              "lr0005": 0.1276390254497528,
+              "half_step_divided_by_original": 0.21378664558444999
+            },
+            "range": {
+              "lr001": 0.48853281140327454,
+              "lr0005": 0.10285261645913124,
+              "half_step_divided_by_original": 0.21053369202304892
+            }
+          }
+        }
+      },
+      "B-surface-contact": {
+        "retained_best_train_objective_before": 4.38510799407959,
+        "retained_best_train_objective_after": 4.196231842041016,
+        "relative_retained_objective_drop": 0.04307217799278362,
+        "last100_iteration_checkpoint_comparison": {
+          "total": {
+            "mean": {
+              "lr001": 5.142449474334716,
+              "lr0005": 4.343047142028809,
+              "half_step_divided_by_original": 0.8445483351279154
+            },
+            "standard_deviation_population": {
+              "lr001": 0.10698494028569738,
+              "lr0005": 0.1348930511962773,
+              "half_step_divided_by_original": 1.2608601812185234
+            },
+            "max": {
+              "lr001": 5.300212383270264,
+              "lr0005": 4.532272815704346,
+              "half_step_divided_by_original": 0.8551115479844046
+            },
+            "range": {
+              "lr001": 0.2892603874206543,
+              "lr0005": 0.3360409736633301,
+              "half_step_divided_by_original": 1.1617248274463712
+            }
+          },
+          "budget": {
+            "mean": {
+              "lr001": 1.1550859928131103,
+              "lr0005": 0.23652946650981904,
+              "half_step_divided_by_original": 0.20477217106041806
+            },
+            "standard_deviation_population": {
+              "lr001": 0.10629198242656174,
+              "lr0005": 0.1354431802681781,
+              "half_step_divided_by_original": 1.2742558486173425
+            },
+            "max": {
+              "lr001": 1.3142690658569336,
+              "lr0005": 0.43027713894844055,
+              "half_step_divided_by_original": 0.3273889267627934
+            },
+            "range": {
+              "lr001": 0.28664422035217285,
+              "lr0005": 0.3373750150203705,
+              "half_step_divided_by_original": 1.176981746242326
+            }
+          }
+        }
+      }
+    },
+    "heldout_or_engineering_pass_values_read_for_selection": false,
+    "quality_accepted": false,
+    "official_scores_available": false
+  }
+}

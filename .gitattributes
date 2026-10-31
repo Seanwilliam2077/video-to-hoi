@@ -17,3 +17,6 @@ deliveries/human/egohand-refined-pilots-20261031/*.json -text -whitespace
 deliveries/human/ep16-contact-ab-20261031/reproduction/** -text -whitespace
 deliveries/human/ep16-contact-ab-20261031/evidence/** -text -whitespace
 deliveries/human/ep16-contact-ab-20261031/*.json -text -whitespace
+# Keep the occluded-hand experiment's labelled public summaries byte-identical.
+deliveries/human/ep16-occluded-depth-ab-20261101/evidence/** -text -whitespace
+deliveries/human/ep16-occluded-depth-ab-20261101/*.json -text -whitespace

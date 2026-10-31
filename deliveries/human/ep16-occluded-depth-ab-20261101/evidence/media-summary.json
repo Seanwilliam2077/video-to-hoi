@@ -1,0 +1,508 @@
+{
+  "schema_version": "ep16_redacted_public_evidence.v1",
+  "scope": "Public review summary; executor-local paths are aliases. Numeric values are unchanged. This is not a native input or a byte-identical raw receipt.",
+  "source": {
+    "sha256": "83bae20171df240fc5cf3d119d476edd7390f42bc1388c5fba6f64639df9f45b",
+    "archive_member": "summary.json"
+  },
+  "raw_archive": {
+    "file": "ep16-occluded-depth-ab-20261101.zip",
+    "sha256": "90482f091b43887d6d3c65b35d9d070aae7c20dc243d4ebacc84be18a797cade"
+  },
+  "content": {
+    "schema_version": "ep16_occluded_contact_video.v1",
+    "recorded_at": "2026-10-31T22:17:30.750449+00:00",
+    "track": 1,
+    "episode": 16,
+    "frames": 360,
+    "fps": 30,
+    "columns": [
+      {
+        "role": "old_a",
+        "native": {
+          "path": "${OLD_RESULT_ROOT}\\A-no-contact02\\episode_000016_human.npz",
+          "sha256": "27c9303e12e7381e2a9b88c6dada89a4a233ff76ea47398c65667c6aa3b0ca82"
+        },
+        "object": {
+          "path": "${OLD_RESULT_ROOT}\\object-final01\\contact_ready.npz",
+          "bytes": 90110,
+          "sha256": "95f696082ef636c7860b89ca0e2c3206b5ebebe433f02e270dc39a24954678a9"
+        }
+      },
+      {
+        "role": "a",
+        "native": {
+          "path": "${RESULT_ROOT}\\A-no-contact02\\episode_000016_human.npz",
+          "sha256": "90948f1041779d8263b97009f5eeab49be8b99da9e089fbc2da0827a31c6c33c"
+        },
+        "object": {
+          "path": "${RESULT_ROOT}\\object-ready01\\contact_ready.npz",
+          "sha256": "51576aca6fc1bc00f6ce2ca39f13d8c1796cb185c6c01c8d75a09f0e88002e94",
+          "bytes": 90364
+        }
+      },
+      {
+        "role": "b",
+        "native": {
+          "path": "${RESULT_ROOT}\\B-surface-contact02\\episode_000016_human.npz",
+          "sha256": "96d04e56534f6f86489ed77ce0e41b0ba8d48b32a1ea6f8dc76d949f4852f96e"
+        },
+        "object": {
+          "path": "${RESULT_ROOT}\\object-ready01\\contact_ready.npz",
+          "sha256": "51576aca6fc1bc00f6ce2ca39f13d8c1796cb185c6c01c8d75a09f0e88002e94",
+          "bytes": 90364
+        }
+      }
+    ],
+    "source_bindings": [
+      {
+        "path": "${RESULT_ROOT}\\evaluation02.json",
+        "sha256": "7aa0fca41f25cf8a87b5f356c69a3743ba06513b2a3a7b23ba80bbbc70de6fd8",
+        "bytes": 65127298
+      },
+      {
+        "path": "${TASK_ROOT}\\evaluation-inputs02.json",
+        "sha256": "abc69ef68ad0fdd3764a90e23edcff42b47a69bf7335c647569fe614544aac2e",
+        "bytes": 12633
+      },
+      {
+        "path": "${PRIMARY_ROOT}\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+        "bytes": 11744057,
+        "sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74"
+      },
+      {
+        "path": "${RESULT_ROOT}\\native-hand-skin-indices02.npz",
+        "sha256": "5b1af3e117b888b3b60b71c91463594e652bc5f7b9e2ab53573f6d08595df022"
+      },
+      {
+        "path": "${OLD_RESULT_ROOT}\\A-no-contact02\\episode_000016_human.npz",
+        "sha256": "27c9303e12e7381e2a9b88c6dada89a4a233ff76ea47398c65667c6aa3b0ca82"
+      },
+      {
+        "path": "${OLD_RESULT_ROOT}\\object-final01\\contact_ready.npz",
+        "bytes": 90110,
+        "sha256": "95f696082ef636c7860b89ca0e2c3206b5ebebe433f02e270dc39a24954678a9"
+      },
+      {
+        "path": "${OLD_RESULT_ROOT}\\A-no-contact02\\review_arrays\\vertices_m.npy",
+        "sha256": "9e72c33a0500f068b950e1d851c3b63a741562e388285a54c50fdf2b65327da4"
+      },
+      {
+        "path": "${OLD_RESULT_ROOT}\\A-no-contact02\\review_arrays\\joints_3d.npy",
+        "sha256": "5ea3f005d6a015a01d67c31a09f74212abb27cd3b498305a751b1a0ca1aa6642"
+      },
+      {
+        "path": "${OLD_RESULT_ROOT}\\A-no-contact02\\review_arrays\\faces.npy",
+        "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841"
+      },
+      {
+        "path": "${OLD_RESULT_ROOT}\\A-no-contact02\\review_arrays\\frame_indices.npy",
+        "sha256": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7"
+      },
+      {
+        "path": "${OLD_RESULT_ROOT}\\A-no-contact02\\review_arrays\\camera_intrinsics.npy",
+        "sha256": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919"
+      },
+      {
+        "path": "${RESULT_ROOT}\\A-no-contact02\\episode_000016_human.npz",
+        "sha256": "90948f1041779d8263b97009f5eeab49be8b99da9e089fbc2da0827a31c6c33c"
+      },
+      {
+        "path": "${RESULT_ROOT}\\object-ready01\\contact_ready.npz",
+        "sha256": "51576aca6fc1bc00f6ce2ca39f13d8c1796cb185c6c01c8d75a09f0e88002e94",
+        "bytes": 90364
+      },
+      {
+        "path": "${RESULT_ROOT}\\A-no-contact02\\review_arrays\\vertices_m.npy",
+        "sha256": "5f74c698ce3e9b771023191b1ba4337bdf31615085450cb2cacfc8ba1eb1ae17"
+      },
+      {
+        "path": "${RESULT_ROOT}\\A-no-contact02\\review_arrays\\joints_3d.npy",
+        "sha256": "82667962cd2d61a75270cc68350ed5fe17c12ffe65137908ddf6c50782b0392a"
+      },
+      {
+        "path": "${RESULT_ROOT}\\A-no-contact02\\review_arrays\\faces.npy",
+        "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841"
+      },
+      {
+        "path": "${RESULT_ROOT}\\A-no-contact02\\review_arrays\\frame_indices.npy",
+        "sha256": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7"
+      },
+      {
+        "path": "${RESULT_ROOT}\\A-no-contact02\\review_arrays\\camera_intrinsics.npy",
+        "sha256": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919"
+      },
+      {
+        "path": "${RESULT_ROOT}\\B-surface-contact02\\episode_000016_human.npz",
+        "sha256": "96d04e56534f6f86489ed77ce0e41b0ba8d48b32a1ea6f8dc76d949f4852f96e"
+      },
+      {
+        "path": "${RESULT_ROOT}\\object-ready01\\contact_ready.npz",
+        "sha256": "51576aca6fc1bc00f6ce2ca39f13d8c1796cb185c6c01c8d75a09f0e88002e94",
+        "bytes": 90364
+      },
+      {
+        "path": "${RESULT_ROOT}\\B-surface-contact02\\review_arrays\\vertices_m.npy",
+        "sha256": "d0efa2db3f7fd4cd0f4c5baf7759896c82fdc46f3b5fa06fc83275ceb75d00b4"
+      },
+      {
+        "path": "${RESULT_ROOT}\\B-surface-contact02\\review_arrays\\joints_3d.npy",
+        "sha256": "42034ff17ca7a94b1494b45a6f54adab29ca7b5bc3e64e9523640d1a6afe3b88"
+      },
+      {
+        "path": "${RESULT_ROOT}\\B-surface-contact02\\review_arrays\\faces.npy",
+        "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841"
+      },
+      {
+        "path": "${RESULT_ROOT}\\B-surface-contact02\\review_arrays\\frame_indices.npy",
+        "sha256": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7"
+      },
+      {
+        "path": "${RESULT_ROOT}\\B-surface-contact02\\review_arrays\\camera_intrinsics.npy",
+        "sha256": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919"
+      }
+    ],
+    "input_manifest_sha256": "abc69ef68ad0fdd3764a90e23edcff42b47a69bf7335c647569fe614544aac2e",
+    "evaluation_sha256": "7aa0fca41f25cf8a87b5f356c69a3743ba06513b2a3a7b23ba80bbbc70de6fd8",
+    "sources_before_and_after": {
+      "plan": "95632c10271d89b8ea393be638979bb54b021ee3c4022d872db03a6e03633137",
+      "renderer": "87db6bafe8cde4250845696db000ef782fdc92f9ee422d6ddf22dc26b77589a5",
+      "rasterizer": "dd9fee9a5a6c96803f21e076f4197573e93bad9c5fd808748557eef1d922be16",
+      "video_helpers": "0630727175e26d7f8c177ae89638dee8a12f38affa5c28b3a07e480e2808f580",
+      "video_writer": "856f5c8231900fba1ba1a15f0b33031c76719ca1ea395e8db04cc58080bf3932"
+    },
+    "display_roi_original_pixels": [
+      520,
+      500,
+      850,
+      830
+    ],
+    "videos": [
+      {
+        "file": "rgb-comparison.mp4",
+        "frames_fully_decoded": 360,
+        "fps": 30.0,
+        "size": [
+          1536,
+          462
+        ],
+        "bytes": 1431905,
+        "sha256": "c98d799c906a5c67ef883968d1b03d8766604f0f76e19865b3dc8ee8bdc1545b"
+      },
+      {
+        "file": "rgb-slow-000040-000110.mp4",
+        "frames_fully_decoded": 71,
+        "fps": 10.0,
+        "size": [
+          1536,
+          462
+        ],
+        "bytes": 684082,
+        "sha256": "d14faa8fc7046bdf672c83e878513c21ffe2530e666d7081b2feaccc05ff6c8b"
+      },
+      {
+        "file": "rgb-slow-000230-000300.mp4",
+        "frames_fully_decoded": 71,
+        "fps": 10.0,
+        "size": [
+          1536,
+          462
+        ],
+        "bytes": 665297,
+        "sha256": "63a7b768c41a0096902fbb723b90df3db013bcd91bde9a9e81afe788a3a3bdbe"
+      },
+      {
+        "file": "transparent-comparison.mp4",
+        "frames_fully_decoded": 360,
+        "fps": 30.0,
+        "size": [
+          1152,
+          462
+        ],
+        "bytes": 510966,
+        "sha256": "252258b19bdf958f21376ca4c443ee88f35b9910a24d0604f7597659fe43eb8d"
+      },
+      {
+        "file": "transparent-slow-000040-000110.mp4",
+        "frames_fully_decoded": 71,
+        "fps": 10.0,
+        "size": [
+          1152,
+          462
+        ],
+        "bytes": 175179,
+        "sha256": "9c84794ccdae4c191882d277eb871967727d6765f82886aed93ca5368ebd098f"
+      },
+      {
+        "file": "transparent-slow-000230-000300.mp4",
+        "frames_fully_decoded": 71,
+        "fps": 10.0,
+        "size": [
+          1152,
+          462
+        ],
+        "bytes": 184912,
+        "sha256": "babbb408885d0722ada63f1581d3c90feccb8ecf7cc9a86f1d45f42885244981"
+      }
+    ],
+    "actually_saved_static_samples": [
+      {
+        "kind": "rgb",
+        "original_frame_id": 0,
+        "file": "frames/rgb-000000.jpg",
+        "sha256": "5470e4bdfae004d405f1e47a0d2d7826ffaff015ebcd7cabc5cb93e8f57651d5"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 0,
+        "file": "frames/transparent-000000.jpg",
+        "sha256": "ec8af90d62464bd48ca9132961a376ec98d4651877eade85053892c6b7451427"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 40,
+        "file": "frames/rgb-000040.jpg",
+        "sha256": "4425fb680519f4865f26813e4bc4bb8e26e76da4f26a7e93cc39631576c877ef"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 40,
+        "file": "frames/transparent-000040.jpg",
+        "sha256": "636359f5d9e2dfd100450b78a00575f3233c75d62f93e0a4065511aae5cc2897"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 60,
+        "file": "frames/rgb-000060.jpg",
+        "sha256": "90de579c0312cd5e4fe802351711b0e3c92857d4931d4d4412bb6d26f536faf2"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 60,
+        "file": "frames/transparent-000060.jpg",
+        "sha256": "cd70d45109c4acab916ce1bb8df9ee61434450ea5c9cd2f74bdc54db9e87f93c"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 70,
+        "file": "frames/rgb-000070.jpg",
+        "sha256": "7d9b9f6d46463e53c443074699c204d83598359f01cc65330c79f534372c2f5c"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 70,
+        "file": "frames/transparent-000070.jpg",
+        "sha256": "762c44fa540a320cc33f02e37bc43e21341e5615be07a646b0da885c91356882"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 75,
+        "file": "frames/rgb-000075.jpg",
+        "sha256": "6b3ea1de056ceb370128b96a2b378f4da3032d124722723fa91502ccace81469"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 75,
+        "file": "frames/transparent-000075.jpg",
+        "sha256": "e35d9941a1dccabedfc53267a2d71e3646f718a5845bc5673dffaaf467602736"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 90,
+        "file": "frames/rgb-000090.jpg",
+        "sha256": "490e0319ee1b3e5006bcc124e1c5ae34124c21d82392f8513e8cb541b9dbf3b9"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 90,
+        "file": "frames/transparent-000090.jpg",
+        "sha256": "6544023ad1bcae931bc78a403d1c0b2070b940d4275626c7a1fdea3d42704669"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 110,
+        "file": "frames/rgb-000110.jpg",
+        "sha256": "123b8c7f2d251268228d1096066a180ba251cbed704123e6683fcc2be539d881"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 110,
+        "file": "frames/transparent-000110.jpg",
+        "sha256": "572d773c0e7602279eea1e023ada8ba5d61f128991d0145b75d30f170ff9d0b3"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 120,
+        "file": "frames/rgb-000120.jpg",
+        "sha256": "844869d5b77803fa74e8684f08c86fc23d41a1a6696ca0c03489974bc76cbc0c"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 120,
+        "file": "frames/transparent-000120.jpg",
+        "sha256": "898f916700efa379bcbe87e00a65ba6bc4a431da92124ea138ef58a482433387"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 180,
+        "file": "frames/rgb-000180.jpg",
+        "sha256": "8ddb2caa2492b19d47bfe244c87f52e3fe362facfd5ff39496329e707ed0c834"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 180,
+        "file": "frames/transparent-000180.jpg",
+        "sha256": "ef06a7e5edc6114f8a1163401a63f4ec44d35cafc896379cfc90396fa4f0d781"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 210,
+        "file": "frames/rgb-000210.jpg",
+        "sha256": "47e2d03e1111c92c904a685f366578372cafb5f39a1b7915493658675ad70286"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 210,
+        "file": "frames/transparent-000210.jpg",
+        "sha256": "7ce6fa1c5ab8a2f8235b99f9ce38d15d97799fb9800f3cea585c2017b8de13fd"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 240,
+        "file": "frames/rgb-000240.jpg",
+        "sha256": "478a946d019611a0adbd66d7984dc1a9edfb7cf072367a444c471e4c1491ccdc"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 240,
+        "file": "frames/transparent-000240.jpg",
+        "sha256": "0e37800f28ea061910bab5d1ea47af75f13329e5313bed7951521a2b28dde0e9"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 250,
+        "file": "frames/rgb-000250.jpg",
+        "sha256": "5cdb03417d83dbf0be0366ea6c4e04dca428548a8e257b81b34aa09f50128304"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 250,
+        "file": "frames/transparent-000250.jpg",
+        "sha256": "2ce743068ee7cfa953a036aa54179ab95ad4480ef4a90bb0bb2bef37b959928a"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 251,
+        "file": "frames/rgb-000251.jpg",
+        "sha256": "2ec4d2503bbf906b2a3cb36f9b477821f4922258502839d37a098960263bd92a"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 251,
+        "file": "frames/transparent-000251.jpg",
+        "sha256": "109dce5f145317d5440af3d16cad934ddb2518eb0b1ffd93df62cbe473350893"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 260,
+        "file": "frames/rgb-000260.jpg",
+        "sha256": "179af4f5452e4d200d107c1a60fabf0d43efc72ea376257f464a3fb3ab10d333"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 260,
+        "file": "frames/transparent-000260.jpg",
+        "sha256": "df3e752bf2fce186852dbd4690220c938c6eb4cd75b392cbc1c7a06bf1435614"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 280,
+        "file": "frames/rgb-000280.jpg",
+        "sha256": "3d45a1a47d357e68a63296eda30948685d2e2bb6d6c54dd0d5556a13c2472147"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 280,
+        "file": "frames/transparent-000280.jpg",
+        "sha256": "238bce20a22fa3813eb2dedf1faaefde9b4e15618b0360d4d0fcf7de7f8eb622"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 285,
+        "file": "frames/rgb-000285.jpg",
+        "sha256": "d9b4fe27a6b77c8a7ab754ac26b2bc1fa1e8b35f3acc832e82477d79b7358309"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 285,
+        "file": "frames/transparent-000285.jpg",
+        "sha256": "6ad2b87c8bd29d598ed17e32752467da482f874278fafa240d3f5548180e7cee"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 287,
+        "file": "frames/rgb-000287.jpg",
+        "sha256": "0910e643a56c74d6ed2c68b89f2371afc1afe1b1288c7bca0efcbf81aabb1293"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 287,
+        "file": "frames/transparent-000287.jpg",
+        "sha256": "a891da0eb6649c0c4729a203d8ec713dee7d679e8b7431daea9931247d7ee3fd"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 290,
+        "file": "frames/rgb-000290.jpg",
+        "sha256": "1da2b0655020ba80907d3fa4adefe5e7d668db8827d4d4844291a9669e3cc2c6"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 290,
+        "file": "frames/transparent-000290.jpg",
+        "sha256": "96e9acce5578c8e8a4a7fc85d4ba2b86ca97749dd55b269f6b99774529cab108"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 308,
+        "file": "frames/rgb-000308.jpg",
+        "sha256": "a17fc55ce0029c350072fb99996b0b1f51902abd0c89e622d0e199101a8e91c1"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 308,
+        "file": "frames/transparent-000308.jpg",
+        "sha256": "4358953ac95de137f66b17ded891424ac93e0948b911a3a14dea771af202ab46"
+      },
+      {
+        "kind": "rgb",
+        "original_frame_id": 359,
+        "file": "frames/rgb-000359.jpg",
+        "sha256": "7456fcc17bb75f6ded5c23331c54a329755755bc436c4e128d335a3390cb4d25"
+      },
+      {
+        "kind": "transparent",
+        "original_frame_id": 359,
+        "file": "frames/transparent-000359.jpg",
+        "sha256": "2a9e9079978f56848c8782fdce6c806d257edb64ac47c3b4a60b9c8093fb23c4"
+      }
+    ],
+    "actual_worker_pids": [
+      23380,
+      27104,
+      29212,
+      47076,
+      56652,
+      87476,
+      88336,
+      106920
+    ],
+    "mean_frame_render_seconds": 14.525572222214477,
+    "total_seconds": 661.3289999999106,
+    "transparent_view": "Display-only fixed object-local60degree camera,0.90m display translation, actual selected native hand faces, hands rendered through transparent object; L/R label anatomical sides; no shape/pose edits",
+    "limitations": "Estimated hand and object geometry only; physical depth, hidden pose, real visibility and official scores are not established",
+    "quality_accepted": false,
+    "contact_model_training_started": false,
+    "all30_execution_started": false
+  }
+}

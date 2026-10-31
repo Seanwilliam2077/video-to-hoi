@@ -1,0 +1,1149 @@
+{
+  "schema_version": "ep16_redacted_public_evidence.v1",
+  "scope": "Public review summary; executor-local paths are aliases. Numeric values are unchanged. This is not a native input or a byte-identical raw receipt.",
+  "source": {
+    "sha256": "92a97bde37a979680a9a13104b3f0e98603ac01b7ebe48dafa044228531c4db6",
+    "archive_member": "documentation/interactive/real01-qa-receipt.json"
+  },
+  "raw_archive": {
+    "file": "ep16-occluded-depth-ab-20261101.zip",
+    "sha256": "90482f091b43887d6d3c65b35d9d070aae7c20dc243d4ebacc84be18a797cade"
+  },
+  "content": {
+    "status": "passed",
+    "file": "${USER_PROFILE}\\.codex\\visualizations\\2026\\10\\08\\01a11b62-f85e-77c2-80c3-977be9ce745b\\ep16-left-hand-ab-20261101.html",
+    "checks": 224,
+    "viewports": [
+      1280,
+      768,
+      390,
+      320
+    ],
+    "offline_file_verified": true,
+    "all_six_videos_played_at_each_viewport": true,
+    "all40_images_switched_at_each_viewport": true,
+    "external_requests": 0,
+    "results": [
+      {
+        "width": 1280,
+        "name": "initial-offline",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "video-rgb-full",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "video-rgb-pickup",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "video-rgb-release",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-0",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-40",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-60",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-70",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-75",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-90",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-110",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-120",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-180",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-210",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-240",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-250",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-251",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-260",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-280",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-285",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-287",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-290",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-308",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-rgb-359",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "frame-controls-rgb",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "video-transparent-full",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "video-transparent-pickup",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "video-transparent-release",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-0",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-40",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-60",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-70",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-75",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-90",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-110",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-120",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-180",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-210",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-240",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-250",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-251",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-260",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-280",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-285",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-287",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-290",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-308",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-transparent-359",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "frame-controls-transparent",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "image-dialog",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "metric-left-all",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "metric-left-usable",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "metric-right-all",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "metric-right-usable",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "dark-mode",
+        "passed": true
+      },
+      {
+        "width": 1280,
+        "name": "paired-attempt-details",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "initial-offline",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "video-rgb-full",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "video-rgb-pickup",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "video-rgb-release",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-0",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-40",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-60",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-70",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-75",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-90",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-110",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-120",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-180",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-210",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-240",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-250",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-251",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-260",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-280",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-285",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-287",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-290",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-308",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-rgb-359",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "frame-controls-rgb",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "video-transparent-full",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "video-transparent-pickup",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "video-transparent-release",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-0",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-40",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-60",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-70",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-75",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-90",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-110",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-120",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-180",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-210",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-240",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-250",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-251",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-260",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-280",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-285",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-287",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-290",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-308",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-transparent-359",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "frame-controls-transparent",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "image-dialog",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "metric-left-all",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "metric-left-usable",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "metric-right-all",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "metric-right-usable",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "dark-mode",
+        "passed": true
+      },
+      {
+        "width": 768,
+        "name": "paired-attempt-details",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "initial-offline",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "video-rgb-full",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "video-rgb-pickup",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "video-rgb-release",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-0",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-40",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-60",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-70",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-75",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-90",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-110",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-120",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-180",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-210",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-240",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-250",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-251",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-260",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-280",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-285",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-287",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-290",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-308",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-rgb-359",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "frame-controls-rgb",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "video-transparent-full",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "video-transparent-pickup",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "video-transparent-release",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-0",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-40",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-60",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-70",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-75",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-90",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-110",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-120",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-180",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-210",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-240",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-250",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-251",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-260",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-280",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-285",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-287",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-290",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-308",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-transparent-359",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "frame-controls-transparent",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "image-dialog",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "metric-left-all",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "metric-left-usable",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "metric-right-all",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "metric-right-usable",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "dark-mode",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "name": "paired-attempt-details",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "initial-offline",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "video-rgb-full",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "video-rgb-pickup",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "video-rgb-release",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-0",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-40",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-60",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-70",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-75",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-90",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-110",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-120",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-180",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-210",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-240",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-250",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-251",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-260",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-280",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-285",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-287",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-290",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-308",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-rgb-359",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "frame-controls-rgb",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "video-transparent-full",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "video-transparent-pickup",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "video-transparent-release",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-0",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-40",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-60",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-70",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-75",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-90",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-110",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-120",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-180",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-210",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-240",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-250",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-251",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-260",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-280",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-285",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-287",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-290",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-308",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-transparent-359",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "frame-controls-transparent",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "image-dialog",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "metric-left-all",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "metric-left-usable",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "metric-right-all",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "metric-right-usable",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "dark-mode",
+        "passed": true
+      },
+      {
+        "width": 320,
+        "name": "paired-attempt-details",
+        "passed": true
+      }
+    ]
+  }
+}

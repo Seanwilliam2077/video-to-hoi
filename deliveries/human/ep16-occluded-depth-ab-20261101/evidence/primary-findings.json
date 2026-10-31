@@ -1,0 +1,2433 @@
+{
+  "schema_version": "ep16_redacted_public_evidence.v1",
+  "scope": "Public review summary; executor-local paths are aliases. Numeric values are unchanged. This is not a native input or a byte-identical raw receipt.",
+  "source": {
+    "sha256": "1c0440a478998b50a752666e30749dd462fe6c39239ec4cb9e47641fc6736679",
+    "archive_member": "independent/primary-numerical-findings01.json"
+  },
+  "raw_archive": {
+    "file": "ep16-occluded-depth-ab-20261101.zip",
+    "sha256": "90482f091b43887d6d3c65b35d9d070aae7c20dc243d4ebacc84be18a797cade"
+  },
+  "content": {
+    "schema_version": "ep16_primary_independent_findings.v1",
+    "recorded_at": "2026-10-31T22:06:29.225328+00:00",
+    "track": 1,
+    "episode": 16,
+    "primary_attempt": "02",
+    "primary_selection": {
+      "path": "${TASK_ROOT}\\primary-choice01.json",
+      "sha256": "0ce43fcffa6a3d2a2b545ce411cf95d0f51dc6cf25d50f52ad4ab60930da7c7c"
+    },
+    "primary_evaluation": {
+      "path": "${RESULT_ROOT}\\evaluation02.json",
+      "sha256": "7aa0fca41f25cf8a87b5f356c69a3743ba06513b2a3a7b23ba80bbbc70de6fd8"
+    },
+    "secondary_evaluation": {
+      "path": "${RESULT_ROOT}\\evaluation01.json",
+      "sha256": "e869ed445f5e1e718da666166988784bbf84bf116d7fcbf32f9ffc2321afec8c"
+    },
+    "cumulative_review": {
+      "path": "${TASK_ROOT}\\protocol-review01\\old-a-to-new-b-cumulative-review01.json",
+      "sha256": "8b42ac412267d8f05b91e3159d07996ace669d076edeae3e1eccec37581fc8dd"
+    },
+    "ordering_review": {
+      "path": "${TASK_ROOT}\\protocol-review01\\fixed-current-ordering-review01.json",
+      "sha256": "95cc0e7527712fbf17b4dc6434933b12dde30f64a866b0f114adb7f6eae5af3b"
+    },
+    "primary_carry_geometry_cross_hypotheses": {
+      "new": {
+        "baseline": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 44.03614641137056,
+            "raw_worst_skin_depth_mm": 103.5018339753151,
+            "usable_mean_skin_depth_mm": 43.469058588163634,
+            "usable_worst_skin_depth_mm": 103.5018339753151
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.03882281968910613,
+            "raw_worst_skin_depth_mm": 22.57620543241501,
+            "usable_mean_skin_depth_mm": 0.010383776275667802,
+            "usable_worst_skin_depth_mm": 15.480071306228638
+          }
+        },
+        "old_a": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 44.036153629950384,
+            "raw_worst_skin_depth_mm": 103.50175946950912,
+            "usable_mean_skin_depth_mm": 43.46906202816798,
+            "usable_worst_skin_depth_mm": 103.50175946950912
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.12618428630433565,
+            "raw_worst_skin_depth_mm": 27.05445885658264,
+            "usable_mean_skin_depth_mm": 0.049017211358651495,
+            "usable_worst_skin_depth_mm": 15.916645526885986
+          }
+        },
+        "old_b": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 44.036153629950384,
+            "raw_worst_skin_depth_mm": 103.50175946950912,
+            "usable_mean_skin_depth_mm": 43.46906202816798,
+            "usable_worst_skin_depth_mm": 103.50175946950912
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.14174607951220458,
+            "raw_worst_skin_depth_mm": 26.182174682617188,
+            "usable_mean_skin_depth_mm": 0.06407702754873183,
+            "usable_worst_skin_depth_mm": 18.32527667284012
+          }
+        },
+        "a": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 44.069733837648094,
+            "raw_worst_skin_depth_mm": 103.21198403835297,
+            "usable_mean_skin_depth_mm": 43.509751495296804,
+            "usable_worst_skin_depth_mm": 103.21198403835297
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.37852935608627997,
+            "raw_worst_skin_depth_mm": 32.73431956768036,
+            "usable_mean_skin_depth_mm": 0.2856647060881598,
+            "usable_worst_skin_depth_mm": 27.329102158546448
+          }
+        },
+        "b": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 41.85606574093308,
+            "raw_worst_skin_depth_mm": 102.7856171131134,
+            "usable_mean_skin_depth_mm": 40.57672987937931,
+            "usable_worst_skin_depth_mm": 102.7856171131134
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.20845826296972955,
+            "raw_worst_skin_depth_mm": 28.31190824508667,
+            "usable_mean_skin_depth_mm": 0.055335376765120424,
+            "usable_worst_skin_depth_mm": 12.122593820095062
+          }
+        }
+      },
+      "old": {
+        "baseline": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 41.27014042847324,
+            "raw_worst_skin_depth_mm": 104.11198437213898,
+            "usable_mean_skin_depth_mm": 41.132608520737755,
+            "usable_worst_skin_depth_mm": 104.11198437213898
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.023648560616645883,
+            "raw_worst_skin_depth_mm": 21.330714225769043,
+            "usable_mean_skin_depth_mm": 0.005398805158314551,
+            "usable_worst_skin_depth_mm": 12.125186622142792
+          }
+        },
+        "old_a": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 41.270147833820985,
+            "raw_worst_skin_depth_mm": 104.1119173169136,
+            "usable_mean_skin_depth_mm": 41.132612597779946,
+            "usable_worst_skin_depth_mm": 104.1119173169136
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.05719651462662925,
+            "raw_worst_skin_depth_mm": 24.125084280967712,
+            "usable_mean_skin_depth_mm": 0.016767632103700816,
+            "usable_worst_skin_depth_mm": 14.027200639247894
+          }
+        },
+        "old_b": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 41.270147833820985,
+            "raw_worst_skin_depth_mm": 104.1119173169136,
+            "usable_mean_skin_depth_mm": 41.132612597779946,
+            "usable_worst_skin_depth_mm": 104.1119173169136
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.0690564603745146,
+            "raw_worst_skin_depth_mm": 23.25280010700226,
+            "usable_mean_skin_depth_mm": 0.026737520687876545,
+            "usable_worst_skin_depth_mm": 16.273505985736847
+          }
+        },
+        "a": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 41.306616080446496,
+            "raw_worst_skin_depth_mm": 104.11197692155838,
+            "usable_mean_skin_depth_mm": 41.17736380544959,
+            "usable_worst_skin_depth_mm": 104.11197692155838
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.19041802284361511,
+            "raw_worst_skin_depth_mm": 28.249673545360565,
+            "usable_mean_skin_depth_mm": 0.13281355176122278,
+            "usable_worst_skin_depth_mm": 21.341904997825623
+          }
+        },
+        "b": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 39.890112661548685,
+            "raw_worst_skin_depth_mm": 103.80261391401291,
+            "usable_mean_skin_depth_mm": 39.16643232898383,
+            "usable_worst_skin_depth_mm": 103.80261391401291
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.09559673417639304,
+            "raw_worst_skin_depth_mm": 23.56349676847458,
+            "usable_mean_skin_depth_mm": 0.008228792594350935,
+            "usable_worst_skin_depth_mm": 8.142217993736267
+          }
+        }
+      }
+    },
+    "secondary_carry_geometry_cross_hypotheses": {
+      "new": {
+        "baseline": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 44.03614641137056,
+            "raw_worst_skin_depth_mm": 103.5018339753151,
+            "usable_mean_skin_depth_mm": 43.469058588163634,
+            "usable_worst_skin_depth_mm": 103.5018339753151
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.03882281968910613,
+            "raw_worst_skin_depth_mm": 22.57620543241501,
+            "usable_mean_skin_depth_mm": 0.010383776275667802,
+            "usable_worst_skin_depth_mm": 15.480071306228638
+          }
+        },
+        "old_a": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 44.036153629950384,
+            "raw_worst_skin_depth_mm": 103.50175946950912,
+            "usable_mean_skin_depth_mm": 43.46906202816798,
+            "usable_worst_skin_depth_mm": 103.50175946950912
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.12618428630433565,
+            "raw_worst_skin_depth_mm": 27.05445885658264,
+            "usable_mean_skin_depth_mm": 0.049017211358651495,
+            "usable_worst_skin_depth_mm": 15.916645526885986
+          }
+        },
+        "old_b": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 44.036153629950384,
+            "raw_worst_skin_depth_mm": 103.50175946950912,
+            "usable_mean_skin_depth_mm": 43.46906202816798,
+            "usable_worst_skin_depth_mm": 103.50175946950912
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.14174607951220458,
+            "raw_worst_skin_depth_mm": 26.182174682617188,
+            "usable_mean_skin_depth_mm": 0.06407702754873183,
+            "usable_worst_skin_depth_mm": 18.32527667284012
+          }
+        },
+        "a": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 44.050150362857245,
+            "raw_worst_skin_depth_mm": 103.5018116235733,
+            "usable_mean_skin_depth_mm": 43.48955173880451,
+            "usable_worst_skin_depth_mm": 103.5018116235733
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.4342706761806287,
+            "raw_worst_skin_depth_mm": 36.47585213184357,
+            "usable_mean_skin_depth_mm": 0.3012082912044633,
+            "usable_worst_skin_depth_mm": 27.5309756398201
+          }
+        },
+        "b": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 42.405152525372685,
+            "raw_worst_skin_depth_mm": 103.27128320932388,
+            "usable_mean_skin_depth_mm": 40.885064030546914,
+            "usable_worst_skin_depth_mm": 103.27128320932388
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.23325385644303534,
+            "raw_worst_skin_depth_mm": 32.29732811450958,
+            "usable_mean_skin_depth_mm": 0.07754685571311237,
+            "usable_worst_skin_depth_mm": 14.714635908603668
+          }
+        }
+      },
+      "old": {
+        "baseline": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 41.27014042847324,
+            "raw_worst_skin_depth_mm": 104.11198437213898,
+            "usable_mean_skin_depth_mm": 41.132608520737755,
+            "usable_worst_skin_depth_mm": 104.11198437213898
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.023648560616645883,
+            "raw_worst_skin_depth_mm": 21.330714225769043,
+            "usable_mean_skin_depth_mm": 0.005398805158314551,
+            "usable_worst_skin_depth_mm": 12.125186622142792
+          }
+        },
+        "old_a": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 41.270147833820985,
+            "raw_worst_skin_depth_mm": 104.1119173169136,
+            "usable_mean_skin_depth_mm": 41.132612597779946,
+            "usable_worst_skin_depth_mm": 104.1119173169136
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.05719651462662925,
+            "raw_worst_skin_depth_mm": 24.125084280967712,
+            "usable_mean_skin_depth_mm": 0.016767632103700816,
+            "usable_worst_skin_depth_mm": 14.027200639247894
+          }
+        },
+        "old_b": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 41.270147833820985,
+            "raw_worst_skin_depth_mm": 104.1119173169136,
+            "usable_mean_skin_depth_mm": 41.132612597779946,
+            "usable_worst_skin_depth_mm": 104.1119173169136
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.0690564603745146,
+            "raw_worst_skin_depth_mm": 23.25280010700226,
+            "usable_mean_skin_depth_mm": 0.026737520687876545,
+            "usable_worst_skin_depth_mm": 16.273505985736847
+          }
+        },
+        "a": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 41.28176655828554,
+            "raw_worst_skin_depth_mm": 104.11381721496582,
+            "usable_mean_skin_depth_mm": 41.15026989165156,
+            "usable_worst_skin_depth_mm": 104.11381721496582
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.2230981754505379,
+            "raw_worst_skin_depth_mm": 29.664158821105957,
+            "usable_mean_skin_depth_mm": 0.14118584638647488,
+            "usable_worst_skin_depth_mm": 22.318370640277863
+          }
+        },
+        "b": {
+          "left": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 40.431333649971386,
+            "raw_worst_skin_depth_mm": 103.38549315929413,
+            "usable_mean_skin_depth_mm": 39.48692883211535,
+            "usable_worst_skin_depth_mm": 103.38549315929413
+          },
+          "right": {
+            "raw_frames": 176,
+            "usable_frames": 129,
+            "raw_mean_skin_depth_mm": 0.10689061963033729,
+            "raw_worst_skin_depth_mm": 27.281351387500763,
+            "usable_mean_skin_depth_mm": 0.017107740411438026,
+            "usable_worst_skin_depth_mm": 11.011689901351929
+          }
+        }
+      }
+    },
+    "primary_motion_and_image_comparisons": {
+      "legacy_reference": {
+        "a_to_b": {
+          "motion": {
+            "finger": {
+              "observed_motion_edges": 312,
+              "observed_motion_failed": 2,
+              "unknown_motion_edges": 406,
+              "unknown_motion_budget_failed": 0
+            },
+            "wrist": {
+              "observed_wrist_edges": 321,
+              "observed_wrist_failed": 23,
+              "unknown_wrist_edges": 397,
+              "unknown_wrist_budget_failed": 0
+            }
+          },
+          "holdout_image": {
+            "left": {
+              "supported_frames": 5,
+              "reference_pixels": 5.158211025492249,
+              "candidate_pixels": 4.734995916077716,
+              "image_guard_passed": true
+            },
+            "right": {
+              "supported_frames": 64,
+              "reference_pixels": 3.61892746720945,
+              "candidate_pixels": 3.62457346299707,
+              "image_guard_passed": true
+            }
+          },
+          "phase_and_ramp_windows": [
+            {
+              "annotation": {
+                "label": "approach_pickup_not_admitted",
+                "first": 0,
+                "last": 74,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 81,
+                  "observed_motion_failed": 1,
+                  "unknown_motion_edges": 67,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 87,
+                  "observed_wrist_failed": 2,
+                  "unknown_wrist_edges": 61,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "conservative_bimanual_carry",
+                "first": 75,
+                "last": 250,
+                "anchor_weight": 1.0,
+                "eligible_sides": [
+                  "left",
+                  "right"
+                ]
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 121,
+                  "observed_motion_failed": 1,
+                  "unknown_motion_edges": 229,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 121,
+                  "observed_wrist_failed": 14,
+                  "unknown_wrist_edges": 229,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "placement_and_release_transition_unknown",
+                "first": 251,
+                "last": 289,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 42,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 34,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 42,
+                  "observed_wrist_failed": 2,
+                  "unknown_wrist_edges": 34,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "released_clear",
+                "first": 290,
+                "last": 359,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 64,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 74,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 67,
+                  "observed_wrist_failed": 5,
+                  "unknown_wrist_edges": 71,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_40",
+                "side": "left",
+                "first": 32,
+                "last": 48,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 40
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_290",
+                "side": "left",
+                "first": 282,
+                "last": 298,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 290
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 7,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 9,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 7,
+                  "observed_wrist_failed": 2,
+                  "unknown_wrist_edges": 9,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_80",
+                "side": "left",
+                "first": 72,
+                "last": 88,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 80
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_249",
+                "side": "left",
+                "first": 241,
+                "last": 257,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 249
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            }
+          ]
+        },
+        "old_a_to_a": {
+          "motion": {
+            "finger": {
+              "observed_motion_edges": 312,
+              "observed_motion_failed": 2,
+              "unknown_motion_edges": 406,
+              "unknown_motion_budget_failed": 0
+            },
+            "wrist": {
+              "observed_wrist_edges": 321,
+              "observed_wrist_failed": 2,
+              "unknown_wrist_edges": 397,
+              "unknown_wrist_budget_failed": 0
+            }
+          },
+          "holdout_image": {
+            "left": {
+              "supported_frames": 5,
+              "reference_pixels": 5.4080738451330745,
+              "candidate_pixels": 5.158211025492249,
+              "image_guard_passed": true
+            },
+            "right": {
+              "supported_frames": 64,
+              "reference_pixels": 4.423967980220331,
+              "candidate_pixels": 3.61892746720945,
+              "image_guard_passed": true
+            }
+          },
+          "phase_and_ramp_windows": [
+            {
+              "annotation": {
+                "label": "approach_pickup_not_admitted",
+                "first": 0,
+                "last": 74,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 81,
+                  "observed_motion_failed": 2,
+                  "unknown_motion_edges": 67,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 87,
+                  "observed_wrist_failed": 2,
+                  "unknown_wrist_edges": 61,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "conservative_bimanual_carry",
+                "first": 75,
+                "last": 250,
+                "anchor_weight": 1.0,
+                "eligible_sides": [
+                  "left",
+                  "right"
+                ]
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 121,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 229,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 121,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 229,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "placement_and_release_transition_unknown",
+                "first": 251,
+                "last": 289,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 42,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 34,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 42,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 34,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "released_clear",
+                "first": 290,
+                "last": 359,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 64,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 74,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 67,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 71,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_40",
+                "side": "left",
+                "first": 32,
+                "last": 48,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 40
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_290",
+                "side": "left",
+                "first": 282,
+                "last": 298,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 290
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 7,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 9,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 7,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 9,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_80",
+                "side": "left",
+                "first": 72,
+                "last": 88,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 80
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_249",
+                "side": "left",
+                "first": 241,
+                "last": 257,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 249
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            }
+          ]
+        },
+        "old_b_to_b": {
+          "motion": {
+            "finger": {
+              "observed_motion_edges": 312,
+              "observed_motion_failed": 4,
+              "unknown_motion_edges": 406,
+              "unknown_motion_budget_failed": 0
+            },
+            "wrist": {
+              "observed_wrist_edges": 321,
+              "observed_wrist_failed": 11,
+              "unknown_wrist_edges": 397,
+              "unknown_wrist_budget_failed": 1
+            }
+          },
+          "holdout_image": {
+            "left": {
+              "supported_frames": 5,
+              "reference_pixels": 5.2245826901180195,
+              "candidate_pixels": 4.734995916077716,
+              "image_guard_passed": true
+            },
+            "right": {
+              "supported_frames": 64,
+              "reference_pixels": 4.211674668377292,
+              "candidate_pixels": 3.62457346299707,
+              "image_guard_passed": true
+            }
+          },
+          "phase_and_ramp_windows": [
+            {
+              "annotation": {
+                "label": "approach_pickup_not_admitted",
+                "first": 0,
+                "last": 74,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 81,
+                  "observed_motion_failed": 2,
+                  "unknown_motion_edges": 67,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 87,
+                  "observed_wrist_failed": 2,
+                  "unknown_wrist_edges": 61,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "conservative_bimanual_carry",
+                "first": 75,
+                "last": 250,
+                "anchor_weight": 1.0,
+                "eligible_sides": [
+                  "left",
+                  "right"
+                ]
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 121,
+                  "observed_motion_failed": 2,
+                  "unknown_motion_edges": 229,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 121,
+                  "observed_wrist_failed": 7,
+                  "unknown_wrist_edges": 229,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "placement_and_release_transition_unknown",
+                "first": 251,
+                "last": 289,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 42,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 34,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 42,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 34,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "released_clear",
+                "first": 290,
+                "last": 359,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 64,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 74,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 67,
+                  "observed_wrist_failed": 2,
+                  "unknown_wrist_edges": 71,
+                  "unknown_wrist_budget_failed": 1
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_40",
+                "side": "left",
+                "first": 32,
+                "last": 48,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 40
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_290",
+                "side": "left",
+                "first": 282,
+                "last": 298,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 290
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 7,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 9,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 7,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 9,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_80",
+                "side": "left",
+                "first": 72,
+                "last": 88,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 80
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_249",
+                "side": "left",
+                "first": 241,
+                "last": 257,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 249
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            }
+          ]
+        }
+      },
+      "fresh_reference": {
+        "a_to_b": {
+          "motion": {
+            "finger": {
+              "observed_motion_edges": 314,
+              "observed_motion_failed": 2,
+              "unknown_motion_edges": 404,
+              "unknown_motion_budget_failed": 0
+            },
+            "wrist": {
+              "observed_wrist_edges": 321,
+              "observed_wrist_failed": 21,
+              "unknown_wrist_edges": 397,
+              "unknown_wrist_budget_failed": 0
+            }
+          },
+          "holdout_image": {
+            "left": {
+              "supported_frames": 5,
+              "reference_pixels": 5.158211025492249,
+              "candidate_pixels": 4.734995916077716,
+              "image_guard_passed": true
+            },
+            "right": {
+              "supported_frames": 63,
+              "reference_pixels": 3.5515789497991865,
+              "candidate_pixels": 3.5546383542545024,
+              "image_guard_passed": true
+            }
+          },
+          "phase_and_ramp_windows": [
+            {
+              "annotation": {
+                "label": "approach_pickup_not_admitted",
+                "first": 0,
+                "last": 74,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 81,
+                  "observed_motion_failed": 1,
+                  "unknown_motion_edges": 67,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 87,
+                  "observed_wrist_failed": 2,
+                  "unknown_wrist_edges": 61,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "conservative_bimanual_carry",
+                "first": 75,
+                "last": 250,
+                "anchor_weight": 1.0,
+                "eligible_sides": [
+                  "left",
+                  "right"
+                ]
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 121,
+                  "observed_motion_failed": 1,
+                  "unknown_motion_edges": 229,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 121,
+                  "observed_wrist_failed": 14,
+                  "unknown_wrist_edges": 229,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "placement_and_release_transition_unknown",
+                "first": 251,
+                "last": 289,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 42,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 34,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 42,
+                  "observed_wrist_failed": 2,
+                  "unknown_wrist_edges": 34,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "released_clear",
+                "first": 290,
+                "last": 359,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 66,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 72,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 67,
+                  "observed_wrist_failed": 3,
+                  "unknown_wrist_edges": 71,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_40",
+                "side": "left",
+                "first": 32,
+                "last": 48,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 40
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_290",
+                "side": "left",
+                "first": 282,
+                "last": 298,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 290
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 7,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 9,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 7,
+                  "observed_wrist_failed": 2,
+                  "unknown_wrist_edges": 9,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_80",
+                "side": "left",
+                "first": 72,
+                "last": 88,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 80
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_249",
+                "side": "left",
+                "first": 241,
+                "last": 257,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 249
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            }
+          ]
+        },
+        "old_a_to_a": {
+          "motion": {
+            "finger": {
+              "observed_motion_edges": 314,
+              "observed_motion_failed": 0,
+              "unknown_motion_edges": 404,
+              "unknown_motion_budget_failed": 0
+            },
+            "wrist": {
+              "observed_wrist_edges": 321,
+              "observed_wrist_failed": 0,
+              "unknown_wrist_edges": 397,
+              "unknown_wrist_budget_failed": 0
+            }
+          },
+          "holdout_image": {
+            "left": {
+              "supported_frames": 5,
+              "reference_pixels": 5.4080738451330745,
+              "candidate_pixels": 5.158211025492249,
+              "image_guard_passed": true
+            },
+            "right": {
+              "supported_frames": 63,
+              "reference_pixels": 4.374798107798422,
+              "candidate_pixels": 3.5515789497991865,
+              "image_guard_passed": true
+            }
+          },
+          "phase_and_ramp_windows": [
+            {
+              "annotation": {
+                "label": "approach_pickup_not_admitted",
+                "first": 0,
+                "last": 74,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 81,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 67,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 87,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 61,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "conservative_bimanual_carry",
+                "first": 75,
+                "last": 250,
+                "anchor_weight": 1.0,
+                "eligible_sides": [
+                  "left",
+                  "right"
+                ]
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 121,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 229,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 121,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 229,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "placement_and_release_transition_unknown",
+                "first": 251,
+                "last": 289,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 42,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 34,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 42,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 34,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "released_clear",
+                "first": 290,
+                "last": 359,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 66,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 72,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 67,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 71,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_40",
+                "side": "left",
+                "first": 32,
+                "last": 48,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 40
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_290",
+                "side": "left",
+                "first": 282,
+                "last": 298,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 290
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 7,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 9,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 7,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 9,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_80",
+                "side": "left",
+                "first": 72,
+                "last": 88,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 80
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_249",
+                "side": "left",
+                "first": 241,
+                "last": 257,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 249
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            }
+          ]
+        },
+        "old_b_to_b": {
+          "motion": {
+            "finger": {
+              "observed_motion_edges": 314,
+              "observed_motion_failed": 2,
+              "unknown_motion_edges": 404,
+              "unknown_motion_budget_failed": 0
+            },
+            "wrist": {
+              "observed_wrist_edges": 321,
+              "observed_wrist_failed": 9,
+              "unknown_wrist_edges": 397,
+              "unknown_wrist_budget_failed": 0
+            }
+          },
+          "holdout_image": {
+            "left": {
+              "supported_frames": 5,
+              "reference_pixels": 5.2245826901180195,
+              "candidate_pixels": 4.734995916077716,
+              "image_guard_passed": true
+            },
+            "right": {
+              "supported_frames": 63,
+              "reference_pixels": 4.159336720447096,
+              "candidate_pixels": 3.5546383542545024,
+              "image_guard_passed": true
+            }
+          },
+          "phase_and_ramp_windows": [
+            {
+              "annotation": {
+                "label": "approach_pickup_not_admitted",
+                "first": 0,
+                "last": 74,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 81,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 67,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 87,
+                  "observed_wrist_failed": 1,
+                  "unknown_wrist_edges": 61,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "conservative_bimanual_carry",
+                "first": 75,
+                "last": 250,
+                "anchor_weight": 1.0,
+                "eligible_sides": [
+                  "left",
+                  "right"
+                ]
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 121,
+                  "observed_motion_failed": 2,
+                  "unknown_motion_edges": 229,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 121,
+                  "observed_wrist_failed": 7,
+                  "unknown_wrist_edges": 229,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "placement_and_release_transition_unknown",
+                "first": 251,
+                "last": 289,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 42,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 34,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 42,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 34,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "released_clear",
+                "first": 290,
+                "last": 359,
+                "anchor_weight": 0.0,
+                "eligible_sides": []
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 66,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 72,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 67,
+                  "observed_wrist_failed": 1,
+                  "unknown_wrist_edges": 71,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_40",
+                "side": "left",
+                "first": 32,
+                "last": 48,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 40
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_eligibility_boundary_290",
+                "side": "left",
+                "first": 282,
+                "last": 298,
+                "boundary_kind": "eligibility_entry_or_exit",
+                "eligibility_boundary_original_frame_id": 290
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 7,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 9,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 7,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 9,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_80",
+                "side": "left",
+                "first": 72,
+                "last": 88,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 80
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            },
+            {
+              "annotation": {
+                "label": "left_manual_ramp_plateau_249",
+                "side": "left",
+                "first": 241,
+                "last": 257,
+                "boundary_kind": "ramp_plateau_endpoint",
+                "eligibility_boundary_original_frame_id": 249
+              },
+              "motion": {
+                "finger": {
+                  "observed_motion_edges": 0,
+                  "observed_motion_failed": 0,
+                  "unknown_motion_edges": 16,
+                  "unknown_motion_budget_failed": 0
+                },
+                "wrist": {
+                  "observed_wrist_edges": 0,
+                  "observed_wrist_failed": 0,
+                  "unknown_wrist_edges": 16,
+                  "unknown_wrist_budget_failed": 0
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "primary_cumulative_old_a_to_b": {
+      "legacy_reference": {
+        "motion": {
+          "finger": {
+            "observed_motion_edges": 312,
+            "observed_motion_failed": 2,
+            "unknown_motion_edges": 406,
+            "unknown_motion_budget_failed": 0
+          },
+          "wrist": {
+            "observed_wrist_edges": 321,
+            "observed_wrist_failed": 3,
+            "unknown_wrist_edges": 397,
+            "unknown_wrist_budget_failed": 0
+          }
+        },
+        "holdout_image": {
+          "left": {
+            "supported_frames": 5,
+            "reference_pixels": 5.4080738451330745,
+            "candidate_pixels": 4.734995916077716,
+            "image_guard_passed": true
+          },
+          "right": {
+            "supported_frames": 64,
+            "reference_pixels": 4.423967980220331,
+            "candidate_pixels": 3.62457346299707,
+            "image_guard_passed": true
+          }
+        },
+        "phase_and_ramp_windows": [
+          {
+            "annotation": {
+              "label": "approach_pickup_not_admitted",
+              "first": 0,
+              "last": 74,
+              "anchor_weight": 0.0,
+              "eligible_sides": []
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 81,
+                "observed_motion_failed": 2,
+                "unknown_motion_edges": 67,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 87,
+                "observed_wrist_failed": 1,
+                "unknown_wrist_edges": 61,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "conservative_bimanual_carry",
+              "first": 75,
+              "last": 250,
+              "anchor_weight": 1.0,
+              "eligible_sides": [
+                "left",
+                "right"
+              ]
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 121,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 229,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 121,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 229,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "placement_and_release_transition_unknown",
+              "first": 251,
+              "last": 289,
+              "anchor_weight": 0.0,
+              "eligible_sides": []
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 42,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 34,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 42,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 34,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "released_clear",
+              "first": 290,
+              "last": 359,
+              "anchor_weight": 0.0,
+              "eligible_sides": []
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 64,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 74,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 67,
+                "observed_wrist_failed": 2,
+                "unknown_wrist_edges": 71,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "left_manual_eligibility_boundary_40",
+              "side": "left",
+              "first": 32,
+              "last": 48,
+              "boundary_kind": "eligibility_entry_or_exit",
+              "eligibility_boundary_original_frame_id": 40
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 0,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 16,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 0,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 16,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "left_manual_eligibility_boundary_290",
+              "side": "left",
+              "first": 282,
+              "last": 298,
+              "boundary_kind": "eligibility_entry_or_exit",
+              "eligibility_boundary_original_frame_id": 290
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 7,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 9,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 7,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 9,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "left_manual_ramp_plateau_80",
+              "side": "left",
+              "first": 72,
+              "last": 88,
+              "boundary_kind": "ramp_plateau_endpoint",
+              "eligibility_boundary_original_frame_id": 80
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 0,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 16,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 0,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 16,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "left_manual_ramp_plateau_249",
+              "side": "left",
+              "first": 241,
+              "last": 257,
+              "boundary_kind": "ramp_plateau_endpoint",
+              "eligibility_boundary_original_frame_id": 249
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 0,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 16,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 0,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 16,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          }
+        ]
+      },
+      "fresh_reference": {
+        "motion": {
+          "finger": {
+            "observed_motion_edges": 314,
+            "observed_motion_failed": 0,
+            "unknown_motion_edges": 404,
+            "unknown_motion_budget_failed": 0
+          },
+          "wrist": {
+            "observed_wrist_edges": 321,
+            "observed_wrist_failed": 0,
+            "unknown_wrist_edges": 397,
+            "unknown_wrist_budget_failed": 0
+          }
+        },
+        "holdout_image": {
+          "left": {
+            "supported_frames": 5,
+            "reference_pixels": 5.4080738451330745,
+            "candidate_pixels": 4.734995916077716,
+            "image_guard_passed": true
+          },
+          "right": {
+            "supported_frames": 63,
+            "reference_pixels": 4.374798107798422,
+            "candidate_pixels": 3.5546383542545024,
+            "image_guard_passed": true
+          }
+        },
+        "phase_and_ramp_windows": [
+          {
+            "annotation": {
+              "label": "approach_pickup_not_admitted",
+              "first": 0,
+              "last": 74,
+              "anchor_weight": 0.0,
+              "eligible_sides": []
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 81,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 67,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 87,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 61,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "conservative_bimanual_carry",
+              "first": 75,
+              "last": 250,
+              "anchor_weight": 1.0,
+              "eligible_sides": [
+                "left",
+                "right"
+              ]
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 121,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 229,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 121,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 229,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "placement_and_release_transition_unknown",
+              "first": 251,
+              "last": 289,
+              "anchor_weight": 0.0,
+              "eligible_sides": []
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 42,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 34,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 42,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 34,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "released_clear",
+              "first": 290,
+              "last": 359,
+              "anchor_weight": 0.0,
+              "eligible_sides": []
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 66,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 72,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 67,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 71,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "left_manual_eligibility_boundary_40",
+              "side": "left",
+              "first": 32,
+              "last": 48,
+              "boundary_kind": "eligibility_entry_or_exit",
+              "eligibility_boundary_original_frame_id": 40
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 0,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 16,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 0,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 16,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "left_manual_eligibility_boundary_290",
+              "side": "left",
+              "first": 282,
+              "last": 298,
+              "boundary_kind": "eligibility_entry_or_exit",
+              "eligibility_boundary_original_frame_id": 290
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 7,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 9,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 7,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 9,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "left_manual_ramp_plateau_80",
+              "side": "left",
+              "first": 72,
+              "last": 88,
+              "boundary_kind": "ramp_plateau_endpoint",
+              "eligibility_boundary_original_frame_id": 80
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 0,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 16,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 0,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 16,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          },
+          {
+            "annotation": {
+              "label": "left_manual_ramp_plateau_249",
+              "side": "left",
+              "first": 241,
+              "last": 257,
+              "boundary_kind": "ramp_plateau_endpoint",
+              "eligibility_boundary_original_frame_id": 249
+            },
+            "motion": {
+              "finger": {
+                "observed_motion_edges": 0,
+                "observed_motion_failed": 0,
+                "unknown_motion_edges": 16,
+                "unknown_motion_budget_failed": 0
+              },
+              "wrist": {
+                "observed_wrist_edges": 0,
+                "observed_wrist_failed": 0,
+                "unknown_wrist_edges": 16,
+                "unknown_wrist_budget_failed": 0
+              }
+            }
+          }
+        ]
+      }
+    },
+    "primary_left_native_update_contract": {
+      "a": {
+        "finger_absolute_delta_radians": {
+          "count": 4752,
+          "mean": 7.355510189410308e-08,
+          "median": 5.960464477539063e-08,
+          "p95": 2.086162567138672e-07,
+          "max": 6.556510925292969e-07
+        },
+        "selected_arm_absolute_delta_radians": {
+          "count": 1232,
+          "mean": 7.774238306942075e-05,
+          "median": 7.264316082000732e-08,
+          "p95": 0.0005948722362518314,
+          "max": 0.0018386542797088623
+        },
+        "wrist_displacement_native_estimated_mm": {
+          "count": 176,
+          "mean": 0.12787815999677085,
+          "median": 0.0003583024143912812,
+          "p95": 0.7161055066151932,
+          "max": 1.6664081110238858
+        },
+        "wrist_projected_displacement_pixels": {
+          "count": 176,
+          "mean": 0.0335611064426071,
+          "median": 6.592111610674147e-05,
+          "p95": 0.18574265192792758,
+          "max": 0.4407752420293553
+        },
+        "changed_carry_finger_frames": 76,
+        "changed_carry_arm_frames": 174,
+        "ramped_native_bounds_passed": true,
+        "manual_prior_projective_wrist_trust_passed": true
+      },
+      "b": {
+        "finger_absolute_delta_radians": {
+          "count": 4752,
+          "mean": 0.03904239913338846,
+          "median": 0.027444183826446533,
+          "p95": 0.11135708331421482,
+          "max": 0.23529420420527458
+        },
+        "selected_arm_absolute_delta_radians": {
+          "count": 1232,
+          "mean": 0.02769960366354748,
+          "median": 0.015450902283191681,
+          "p95": 0.09944557044655085,
+          "max": 0.1949085295200348
+        },
+        "wrist_displacement_native_estimated_mm": {
+          "count": 176,
+          "mean": 9.559388197028339,
+          "median": 8.8638977038378,
+          "p95": 16.849628991935354,
+          "max": 18.057255096537308
+        },
+        "wrist_projected_displacement_pixels": {
+          "count": 176,
+          "mean": 1.9936409288091865,
+          "median": 1.9642120340162808,
+          "p95": 2.9997088480178102,
+          "max": 2.9999752430064226
+        },
+        "changed_carry_finger_frames": 176,
+        "changed_carry_arm_frames": 176,
+        "ramped_native_bounds_passed": true,
+        "manual_prior_projective_wrist_trust_passed": true
+      }
+    },
+    "primary_contact_only_skin_guard_failures": [],
+    "primary_surface_term_and_ray_coverage": {
+      "baseline": {
+        "surface_skin_penetration": 21.897754490136435,
+        "surface_sliding_attraction": 1.3529258449708697,
+        "surface_left_wrist_palm_order": 23.66846798136395,
+        "surface_order_ray_intersection_fraction": 0.9573643410852714,
+        "surface_contact_total": 4.583680764049456,
+        "surface_order_reference_ray_intersection_fraction": 0.9573643410852714,
+        "surface_order_current_ray_intersection_fraction": 0.9573643410852714
+      },
+      "old_a": {
+        "surface_skin_penetration": 21.952827779335788,
+        "surface_sliding_attraction": 0.8695328925212749,
+        "surface_left_wrist_palm_order": 23.66846798136395,
+        "surface_order_ray_intersection_fraction": 0.9573643410852714,
+        "surface_contact_total": 4.5795202339204,
+        "surface_order_reference_ray_intersection_fraction": 0.9573643410852714,
+        "surface_order_current_ray_intersection_fraction": 0.9573643410852714
+      },
+      "old_b": {
+        "surface_skin_penetration": 22.040855119206267,
+        "surface_sliding_attraction": 0.8334029858527614,
+        "surface_left_wrist_palm_order": 23.66846798136395,
+        "surface_order_ray_intersection_fraction": 0.9573643410852714,
+        "surface_contact_total": 4.587600369774077,
+        "surface_order_reference_ray_intersection_fraction": 0.9573643410852714,
+        "surface_order_current_ray_intersection_fraction": 0.9573643410852714
+      },
+      "a": {
+        "surface_skin_penetration": 22.33412572076963,
+        "surface_sliding_attraction": 0.7419486502542207,
+        "surface_left_wrist_palm_order": 23.66012164249362,
+        "surface_order_ray_intersection_fraction": 0.9573643410852714,
+        "surface_contact_total": 4.61426370933141,
+        "surface_order_reference_ray_intersection_fraction": 0.9573643410852714,
+        "surface_order_current_ray_intersection_fraction": 0.9573643410852714
+      },
+      "b": {
+        "surface_skin_penetration": 20.299627010190708,
+        "surface_sliding_attraction": 0.6162529690569948,
+        "surface_left_wrist_palm_order": 19.5367681257584,
+        "surface_order_ray_intersection_fraction": 0.9573643410852714,
+        "surface_contact_total": 3.995964572976051,
+        "surface_order_reference_ray_intersection_fraction": 0.9573643410852714,
+        "surface_order_current_ray_intersection_fraction": 0.9612403100775194
+      }
+    },
+    "primary_frame181_fixed_and_current_rays": [
+      {
+        "original_frame_id": 181,
+        "role": "old_a",
+        "query": "left_wrist",
+        "object_pose_usable": true,
+        "source_partition": "training",
+        "camera_depth_estimated_m": 2.927708387374878,
+        "camera_depth_change_from_shared_seed_mm": 0.0,
+        "projected_change_from_shared_seed_px": 0.0,
+        "fixed_seed_ray_valid": true,
+        "current_ray_valid": true,
+        "fixed_seed_far_depth_estimated_m": 2.963981913841372,
+        "current_far_depth_estimated_m": 2.963981913841372,
+        "fixed_seed_far_order_shortfall_mm": 39.27352646649407,
+        "current_ray_far_order_shortfall_mm": 39.27352646649407
+      },
+      {
+        "original_frame_id": 181,
+        "role": "old_a",
+        "query": "left_mean_mcp",
+        "object_pose_usable": true,
+        "source_partition": "training",
+        "camera_depth_estimated_m": 2.8739890456199646,
+        "camera_depth_change_from_shared_seed_mm": 0.0,
+        "projected_change_from_shared_seed_px": 0.0,
+        "fixed_seed_ray_valid": true,
+        "current_ray_valid": true,
+        "fixed_seed_far_depth_estimated_m": 3.0085465015485493,
+        "current_far_depth_estimated_m": 3.0085465015485493,
+        "fixed_seed_far_order_shortfall_mm": 137.55745592858483,
+        "current_ray_far_order_shortfall_mm": 137.55745592858483
+      },
+      {
+        "original_frame_id": 181,
+        "role": "a",
+        "query": "left_wrist",
+        "object_pose_usable": true,
+        "source_partition": "training",
+        "camera_depth_estimated_m": 2.927708625793457,
+        "camera_depth_change_from_shared_seed_mm": 0.0002384185791015625,
+        "projected_change_from_shared_seed_px": 4.7864011234048754e-05,
+        "fixed_seed_ray_valid": true,
+        "current_ray_valid": true,
+        "fixed_seed_far_depth_estimated_m": 2.963981913841372,
+        "current_far_depth_estimated_m": 2.9639820395260745,
+        "fixed_seed_far_order_shortfall_mm": 39.27328804791497,
+        "current_ray_far_order_shortfall_mm": 39.27341373261761
+      },
+      {
+        "original_frame_id": 181,
+        "role": "a",
+        "query": "left_mean_mcp",
+        "object_pose_usable": true,
+        "source_partition": "training",
+        "camera_depth_estimated_m": 2.873989164829254,
+        "camera_depth_change_from_shared_seed_mm": 0.00011920928955078125,
+        "projected_change_from_shared_seed_px": 5.768663653234832e-05,
+        "fixed_seed_ray_valid": true,
+        "current_ray_valid": true,
+        "fixed_seed_far_depth_estimated_m": 3.0085465015485493,
+        "current_far_depth_estimated_m": 3.0085466548857744,
+        "fixed_seed_far_order_shortfall_mm": 137.55733671929528,
+        "current_ray_far_order_shortfall_mm": 137.5574900565204
+      },
+      {
+        "original_frame_id": 181,
+        "role": "b",
+        "query": "left_wrist",
+        "object_pose_usable": true,
+        "source_partition": "training",
+        "camera_depth_estimated_m": 2.933845281600952,
+        "camera_depth_change_from_shared_seed_mm": 6.136894226074219,
+        "projected_change_from_shared_seed_px": 1.4207593930135536,
+        "fixed_seed_ray_valid": true,
+        "current_ray_valid": true,
+        "fixed_seed_far_depth_estimated_m": 2.963981913841372,
+        "current_far_depth_estimated_m": 2.9683216462687176,
+        "fixed_seed_far_order_shortfall_mm": 33.13663224041985,
+        "current_ray_far_order_shortfall_mm": 37.47636466776561
+      },
+      {
+        "original_frame_id": 181,
+        "role": "b",
+        "query": "left_mean_mcp",
+        "object_pose_usable": true,
+        "source_partition": "training",
+        "camera_depth_estimated_m": 2.8819162845611572,
+        "camera_depth_change_from_shared_seed_mm": 7.927238941192627,
+        "projected_change_from_shared_seed_px": 2.107473394241386,
+        "fixed_seed_ray_valid": true,
+        "current_ray_valid": true,
+        "fixed_seed_far_depth_estimated_m": 3.0085465015485493,
+        "current_far_depth_estimated_m": 3.0145229801690556,
+        "fixed_seed_far_order_shortfall_mm": 129.6302169873922,
+        "current_ray_far_order_shortfall_mm": 135.6066956078985
+      }
+    ],
+    "findings": [
+      "Left controls are now eligible and actually change, but carry worst full-hand skin depth remains about103mm under the new uncertain object; hidden-left depth/grasp is not solved.",
+      "Contact-only B versus newA improves mean left depth and right usable worst depth but still regresses some image-supported finger/wrist motion, including release.",
+      "Cumulative oldA to B passes fresh-reference motion guards but retains legacy-reference failures; it must be shown separately from contact-only A/B.",
+      "The fixed reference ray gate cannot be evaded by changing current projection. Frame181 still has large wrist/MCP depth shortfalls despite valid current rays.",
+      "Never compare oldA under the new object with newB and describe it as an end-to-end physical improvement. Both old/new object hypotheses remain explicit."
+    ],
+    "quality_accepted": false,
+    "contact_quality_accepted": false,
+    "scale_accepted": false,
+    "official_score_available": false,
+    "contact_model_training_started": false,
+    "episode11_execution_started": false,
+    "all30_execution_authorized": false
+  }
+}

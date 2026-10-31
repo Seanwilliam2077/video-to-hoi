@@ -1,0 +1,76 @@
+{
+  "schema_version": "ep16_redacted_public_evidence.v1",
+  "scope": "Public review summary; executor-local paths are aliases. Numeric values are unchanged. This is not a native input or a byte-identical raw receipt.",
+  "source": {
+    "sha256": "41ce066bbbcfdc86c19055bc35220d4d5c83b6bd2631b23f91b59512ff597347",
+    "archive_member": "receipts/code-commit01.json"
+  },
+  "raw_archive": {
+    "file": "ep16-occluded-depth-ab-20261101.zip",
+    "sha256": "90482f091b43887d6d3c65b35d9d070aae7c20dc243d4ebacc84be18a797cade"
+  },
+  "content": {
+    "recorded_at": "2026-10-31T21:43:24.527783+00:00",
+    "branch": "human",
+    "commit": "b7f40591544e3868db0f16cdc8e4ce38b925c8cb",
+    "remote_human_verified": "b7f40591544e3868db0f16cdc8e4ce38b925c8cb",
+    "url": "https://github.com/Seanwilliam2077/video-to-hoi/commit/b7f40591544e3868db0f16cdc8e4ce38b925c8cb",
+    "executed_runtime_sources_match_commit_after_line_ending_normalization": [
+      {
+        "repository_path": "tools/refine_human_hands.py",
+        "git_blob_sha256": "7c0f117f01afa05a6ed86ae8a8118c1a062bf9cfe0d34d0f421b0639ad2f94a6",
+        "runtime_sha256": "7c0f117f01afa05a6ed86ae8a8118c1a062bf9cfe0d34d0f421b0639ad2f94a6",
+        "raw_byte_identical": true,
+        "line_ending_normalized_byte_identical": true
+      },
+      {
+        "repository_path": "src/v2hoi/__init__.py",
+        "git_blob_sha256": "b484a9371ef2d977dcc98232aae9ed369fa0acccb0ae87d56efeb09663b197aa",
+        "runtime_sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda",
+        "raw_byte_identical": false,
+        "line_ending_normalized_byte_identical": true
+      },
+      {
+        "repository_path": "src/v2hoi/human_result.py",
+        "git_blob_sha256": "d2074d2c139c996bca9abeb4fbb585d63f76a17bfae59ae456968e2ab8a4e5c2",
+        "runtime_sha256": "d2074d2c139c996bca9abeb4fbb585d63f76a17bfae59ae456968e2ab8a4e5c2",
+        "raw_byte_identical": true,
+        "line_ending_normalized_byte_identical": true
+      },
+      {
+        "repository_path": "src/v2hoi/hand_refinement.py",
+        "git_blob_sha256": "0daaa36446659aeffb652765ae7dd8ece37cfdc3ffebe259c7708338d82b0001",
+        "runtime_sha256": "0daaa36446659aeffb652765ae7dd8ece37cfdc3ffebe259c7708338d82b0001",
+        "raw_byte_identical": true,
+        "line_ending_normalized_byte_identical": true
+      },
+      {
+        "repository_path": "src/v2hoi/hand_contact.py",
+        "git_blob_sha256": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b",
+        "runtime_sha256": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b",
+        "raw_byte_identical": true,
+        "line_ending_normalized_byte_identical": true
+      },
+      {
+        "repository_path": "src/v2hoi/hand_surface_contact.py",
+        "git_blob_sha256": "9398c2bb9edabddb111b678825df723386aa6b9933adf1d9554b801ec73d8dab",
+        "runtime_sha256": "9398c2bb9edabddb111b678825df723386aa6b9933adf1d9554b801ec73d8dab",
+        "raw_byte_identical": true,
+        "line_ending_normalized_byte_identical": true
+      }
+    ],
+    "raw_runtime_source_snapshots_preserved_separately": true,
+    "initial_metadata_check_failure": "Raw Git-blob equality assumed identical line endings; exact CRLF/LF normalization proves code equality, no implementation or scientific output changed",
+    "preserved_failed_recipe": "${TASK_ROOT}\\record_code_commit01-attempt01.py",
+    "workflow": {
+      "attempt": "03",
+      "python_passed": 1148,
+      "python_skipped": 38,
+      "node_passed": 44,
+      "registry_and_catalog_passed": true
+    },
+    "unrelated_status_preserved": true,
+    "main_merged_or_deployed": false,
+    "quality_accepted": false
+  }
+}

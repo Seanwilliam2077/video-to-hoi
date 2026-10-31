@@ -1,0 +1,130 @@
+{
+  "schema_version": "ep16_redacted_public_evidence.v1",
+  "scope": "Public review summary; executor-local paths are aliases. Numeric values are unchanged. This is not a native input or a byte-identical raw receipt.",
+  "source": {
+    "sha256": "0ce43fcffa6a3d2a2b545ce411cf95d0f51dc6cf25d50f52ad4ab60930da7c7c",
+    "archive_member": "independent/primary-choice01.json"
+  },
+  "raw_archive": {
+    "file": "ep16-occluded-depth-ab-20261101.zip",
+    "sha256": "90482f091b43887d6d3c65b35d9d070aae7c20dc243d4ebacc84be18a797cade"
+  },
+  "content": {
+    "schema_version": "ep16_occluded_depth_primary_selection.v1",
+    "recorded_at": "2026-10-31T21:59:28.625923+00:00",
+    "track": 1,
+    "episode": 16,
+    "frames": 360,
+    "selection_rule": "minimum_b_train_total",
+    "primary_attempt": "02",
+    "selected_attempt": "02",
+    "policy": {
+      "path": "${TASK_ROOT}\\optimizer-stability-policy02.json",
+      "sha256": "d4a369897d49af684d528bc0a056cbaf79fa466dd3c9f7950dae79e91c22f82d"
+    },
+    "pairs": [
+      {
+        "attempt": "01",
+        "learning_rate": 0.001,
+        "a_train_total": 0.11729753017425537,
+        "b_train_total": 4.38510799407959,
+        "a_report": {
+          "path": "${RESULT_ROOT}\\A-no-contact01\\report.json",
+          "sha256": "5c659796beec3b6c80205a0a9d9aece42342cae7313d4fa41650efa0320ff7c2"
+        },
+        "b_report": {
+          "path": "${RESULT_ROOT}\\B-surface-contact01\\report.json",
+          "sha256": "08d601f4b417661ae078ba4b8324cf0f11c55f4d53a310cc30ff62d18291eb06"
+        },
+        "outputs": {
+          "A": {
+            "report": {
+              "path": "${RESULT_ROOT}\\A-no-contact01\\report.json",
+              "sha256": "5c659796beec3b6c80205a0a9d9aece42342cae7313d4fa41650efa0320ff7c2"
+            },
+            "native": {
+              "path": "${RESULT_ROOT}\\A-no-contact01\\episode_000016_human.npz",
+              "sha256": "ef2d36db829b748c1b6a556537e2fb64b248c300023b8938557a28f9f6ab4949"
+            },
+            "completion": {
+              "path": "${TASK_ROOT}\\fit01-A.finished.json",
+              "sha256": "a0b0c948636ddf9104ca13a52e15a3ea3a76e5a34637105ac2e3e9d87b23b502"
+            }
+          },
+          "B": {
+            "report": {
+              "path": "${RESULT_ROOT}\\B-surface-contact01\\report.json",
+              "sha256": "08d601f4b417661ae078ba4b8324cf0f11c55f4d53a310cc30ff62d18291eb06"
+            },
+            "native": {
+              "path": "${RESULT_ROOT}\\B-surface-contact01\\episode_000016_human.npz",
+              "sha256": "098e095145a4d77bb014f1558935cdb0b9345172d7265699c1e5c5e65aa6295b"
+            },
+            "completion": {
+              "path": "${TASK_ROOT}\\fit01-B.finished.json",
+              "sha256": "74cb554ea88b271888bf8496cb8ce9015f845aa96422bc88175d66272d8ef400"
+            }
+          }
+        },
+        "plan": {
+          "path": "${TASK_ROOT}\\ab-plan01.json",
+          "sha256": "28909475e37d37e7c67b396876bcc7063139496a81a6afee910aea80236cfd40"
+        }
+      },
+      {
+        "attempt": "02",
+        "learning_rate": 0.0005,
+        "a_train_total": 0.10458226501941681,
+        "b_train_total": 4.196231842041016,
+        "a_report": {
+          "path": "${RESULT_ROOT}\\A-no-contact02\\report.json",
+          "sha256": "3ece8860927e865015e862711925d66ed7532cef8654e1e52ea380f52e5680ea"
+        },
+        "b_report": {
+          "path": "${RESULT_ROOT}\\B-surface-contact02\\report.json",
+          "sha256": "faf40e98d22c276a0bd8a9969ca1eaaab639fe444fd8c719e8de09b810ef373f"
+        },
+        "outputs": {
+          "A": {
+            "report": {
+              "path": "${RESULT_ROOT}\\A-no-contact02\\report.json",
+              "sha256": "3ece8860927e865015e862711925d66ed7532cef8654e1e52ea380f52e5680ea"
+            },
+            "native": {
+              "path": "${RESULT_ROOT}\\A-no-contact02\\episode_000016_human.npz",
+              "sha256": "90948f1041779d8263b97009f5eeab49be8b99da9e089fbc2da0827a31c6c33c"
+            },
+            "completion": {
+              "path": "${TASK_ROOT}\\fit02-A.finished.json",
+              "sha256": "190049f3c44cab4228536a493bdc4c70a36d48cc383e8bbc65a0cfd16233f018"
+            }
+          },
+          "B": {
+            "report": {
+              "path": "${RESULT_ROOT}\\B-surface-contact02\\report.json",
+              "sha256": "faf40e98d22c276a0bd8a9969ca1eaaab639fe444fd8c719e8de09b810ef373f"
+            },
+            "native": {
+              "path": "${RESULT_ROOT}\\B-surface-contact02\\episode_000016_human.npz",
+              "sha256": "96d04e56534f6f86489ed77ce0e41b0ba8d48b32a1ea6f8dc76d949f4852f96e"
+            },
+            "completion": {
+              "path": "${TASK_ROOT}\\fit02-B.finished.json",
+              "sha256": "1aaca92ceef2c4c1cbbe5e43059fcbb560f04eefc03f3f2febef36f370d0cdfa"
+            }
+          }
+        },
+        "plan": {
+          "path": "${TASK_ROOT}\\ab-plan02.json",
+          "sha256": "f493cdc667484cf11cd46fe5193c232284d64f5dd9e2a64d18cd3f633c5f057c"
+        }
+      }
+    ],
+    "heldout_or_geometry_evaluation_read_for_selection": false,
+    "note": "B objective is comparable across these two B runs only; A has no contact terms. Lowest objective is a review presentation choice, not physical quality acceptance.",
+    "both_attempts_preserved_and_independently_evaluated": true,
+    "quality_accepted": false,
+    "new_model_training": false,
+    "episode11_or_all30": false
+  }
+}

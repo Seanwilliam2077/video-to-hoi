@@ -1,0 +1,122 @@
+{
+  "schema_version": "ep16_redacted_public_evidence.v1",
+  "scope": "Public review summary; executor-local paths are aliases. Numeric values are unchanged. This is not a native input or a byte-identical raw receipt.",
+  "source": {
+    "sha256": "f7cd316d17786c482d92f3e1f363c2a87e129b4dee9ef7be6ac7c024c38b2dcd",
+    "archive_member": "independent/static-visual-review-root01.json"
+  },
+  "raw_archive": {
+    "file": "ep16-occluded-depth-ab-20261101.zip",
+    "sha256": "90482f091b43887d6d3c65b35d9d070aae7c20dc243d4ebacc84be18a797cade"
+  },
+  "content": {
+    "recorded_at": "2026-10-31T22:19:18.076085+00:00",
+    "reviewer": "Codex root",
+    "track": 1,
+    "episode": 16,
+    "scope": "Twelve actual final static images, not continuous human video playback",
+    "review_summary_sha256": "83bae20171df240fc5cf3d119d476edd7390f42bc1388c5fba6f64639df9f45b",
+    "viewed": [
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\rgb-000075.jpg",
+        "sha256": "6b3ea1de056ceb370128b96a2b378f4da3032d124722723fa91502ccace81469",
+        "kind": "rgb",
+        "original_frame_id": 75,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\transparent-000075.jpg",
+        "sha256": "e35d9941a1dccabedfc53267a2d71e3646f718a5845bc5673dffaaf467602736",
+        "kind": "transparent",
+        "original_frame_id": 75,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\rgb-000090.jpg",
+        "sha256": "490e0319ee1b3e5006bcc124e1c5ae34124c21d82392f8513e8cb541b9dbf3b9",
+        "kind": "rgb",
+        "original_frame_id": 90,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\transparent-000090.jpg",
+        "sha256": "6544023ad1bcae931bc78a403d1c0b2070b940d4275626c7a1fdea3d42704669",
+        "kind": "transparent",
+        "original_frame_id": 90,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\rgb-000180.jpg",
+        "sha256": "8ddb2caa2492b19d47bfe244c87f52e3fe362facfd5ff39496329e707ed0c834",
+        "kind": "rgb",
+        "original_frame_id": 180,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\transparent-000180.jpg",
+        "sha256": "ef06a7e5edc6114f8a1163401a63f4ec44d35cafc896379cfc90396fa4f0d781",
+        "kind": "transparent",
+        "original_frame_id": 180,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\rgb-000250.jpg",
+        "sha256": "5cdb03417d83dbf0be0366ea6c4e04dca428548a8e257b81b34aa09f50128304",
+        "kind": "rgb",
+        "original_frame_id": 250,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\transparent-000250.jpg",
+        "sha256": "2ce743068ee7cfa953a036aa54179ab95ad4480ef4a90bb0bb2bef37b959928a",
+        "kind": "transparent",
+        "original_frame_id": 250,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\rgb-000285.jpg",
+        "sha256": "d9b4fe27a6b77c8a7ab754ac26b2bc1fa1e8b35f3acc832e82477d79b7358309",
+        "kind": "rgb",
+        "original_frame_id": 285,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\transparent-000285.jpg",
+        "sha256": "6ad2b87c8bd29d598ed17e32752467da482f874278fafa240d3f5548180e7cee",
+        "kind": "transparent",
+        "original_frame_id": 285,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\rgb-000290.jpg",
+        "sha256": "1da2b0655020ba80907d3fa4adefe5e7d668db8827d4d4844291a9669e3cc2c6",
+        "kind": "rgb",
+        "original_frame_id": 290,
+        "actually_viewed_via": "view_image"
+      },
+      {
+        "path": "${RESULT_ROOT}\\review02\\frames\\transparent-000290.jpg",
+        "sha256": "96e9acce5578c8e8a4a7fc85d4ba2b86ca97749dd55b269f6b99774529cab108",
+        "kind": "transparent",
+        "original_frame_id": 290,
+        "actually_viewed_via": "view_image"
+      }
+    ],
+    "observations": [
+      "RGB columns retain source alignment and the same fixed crop; visible differences between new A and B are small.",
+      "The synthetic transparent view reveals changed LEFT articulation in B at 75, 90 and 250, while RGB occlusion can hide that change.",
+      "At 180 the hidden hands remain close/overlapped within the estimated object view; this does not establish a plausible far-side grasp.",
+      "At 285 and 290 the hand configuration changes during release; static samples alone cannot assess velocity, smoothness or exact release timing.",
+      "L/R denotes anatomical side. Transparent skin is intentionally visible through the estimated object; clipped wrists and synthetic viewpoint limit interpretation."
+    ],
+    "not_claimed": [
+      "True hidden pose",
+      "Physical scale",
+      "Continuous human playback",
+      "Stable grasp/release",
+      "Official score",
+      "Reconstruction quality acceptance"
+    ],
+    "quality_accepted": false
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "recorded_at": "2026-10-31T12:15:38.251895+00:00",
+  "scope": "Preflight constraints eligibility only; hypothetical object surface and estimated native scale, not actual contact or geometry quality",
+  "object_sha256": "95f696082ef636c7860b89ca0e2c3206b5ebebe433f02e270dc39a24954678a9",
+  "human_hand_array_sha256": "c4bee83c9230be2726b8d3b2b82ff5f32784f292ba89d4a3f10a01477b764881",
+  "manual_interval_inclusive": [
+    75,
+    250
+  ],
+  "pose_usable_frames_in_interval": 129,
+  "side_order": [
+    "left",
+    "right"
+  ],
+  "tips": [
+    4,
+    8,
+    12,
+    16,
+    20
+  ],
+  "per_side": {
+    "left": {
+      "tip_median_distance_m": [
+        0.020229913294315338,
+        0.03045593947172165,
+        0.02947886474430561,
+        0.04558281973004341,
+        0.0536528006196022
+      ],
+      "near_surface_fraction_le_0p04": [
+        0.8062015503875969,
+        0.5891472868217055,
+        0.5968992248062015,
+        0.4573643410852713,
+        0.3023255813953488
+      ]
+    },
+    "right": {
+      "tip_median_distance_m": [
+        0.03562743961811066,
+        0.040889427065849304,
+        0.03860463947057724,
+        0.040139973163604736,
+        0.04239688441157341
+      ],
+      "near_surface_fraction_le_0p04": [
+        0.5813953488372093,
+        0.4883720930232558,
+        0.5116279069767442,
+        0.49612403100775193,
+        0.4728682170542636
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-10-31T12:22:34.248404+00:00",
+  "input_manifest": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-inputs01.json",
+    "bytes": 6575,
+    "sha256": "6e8e1c8a09cb357e1b224add02eca143edfdb2668de5dfd05f136fdf8a636fc4"
+  },
+  "manifest_preparation_status": "completed_strict_actual_native_bindings",
+  "job01_preparation_status": "aborted_before_job_write_or_model_execution",
+  "reason": "ABfitter runtime01 intentionallycontainsnoindependent evaluator; correct separateevaluation-runtime01 nowfrozenbyroot. Originalmanifest/producerrecipepreserved; no nativefit/eval sourceorarray changed.",
+  "actual_evaluation_execution_by_builder": false,
+  "root_authorized_corrected_job": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\prepared-evaluation-job02.json",
+    "bytes": 1651,
+    "sha256": "49441b5b60999fc65fe54e8ad6547522b0d264ffb83bdbae34cbfcc3e51f294b"
+  }
+}

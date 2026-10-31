@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-31T12:14:46.618650+00:00",
+  "command": [
+    "J:/video-to-hoi/work/human-hand-round2/expert/venv/Scripts/python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-runtime01\\prepare_contact_mesh.py",
+    "--candidate",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01"
+  ],
+  "pid": 58016,
+  "protected_inputs": {
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\object_candidate.npz": "d583b3c15282cf2373e9f95d7c280bf8d76c81c7980859e7d161b61afb0580e9",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\report.json": "49757193a059028366dad033d06c348e490dd8b44186718dd66c66c31174f731",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\validation.json": "101fa93c3e1f73f44b06168378b472b9011a15e84cb18a7a0b05e8b1907ed0c7",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\feature_evidence.npz": "da782dfd0b563143364b89e6d75fc2c0432f8c1a7ea628410d51e0194cef6f55"
+  },
+  "source_pin_sha256": "d0fd087b0137e9ea6bb9f268e61bf2177257ed28c10af930ff371a10c59f0a1a",
+  "reason": "Existing human-runtime lacks optional trimesh; expert environment verified to contain it. No inference/pose numerical solve rerun."
+}

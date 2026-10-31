@@ -1,0 +1,56 @@
+{
+  "recorded_at": "2026-10-31T12:55:09.994204+00:00",
+  "reviewer": "Codex root",
+  "scope": "Actual tool-viewed static comparison JPEGs only; no continuous video playback or true-contact annotation claim",
+  "viewed_images": [
+    {
+      "directory": "review02",
+      "original_frame_id": 120,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000120.jpg",
+      "sha256": "43b9be07ba155aea781f15dd52d53a9c864f3b7d11162c84efa941defc0b0c70"
+    },
+    {
+      "directory": "review-closeup02",
+      "original_frame_id": 120,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000120.jpg",
+      "sha256": "214b94f474565afa4e322e8805a37fe271d899989830618fe1e73d79c951d69e"
+    },
+    {
+      "directory": "review-closeup02",
+      "original_frame_id": 250,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000250.jpg",
+      "sha256": "e31e0cc6b929cf29495ad07fbb7e00c464581a87c528f0c9c5282bf71ca764e7"
+    },
+    {
+      "directory": "review-closeup02",
+      "original_frame_id": 280,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000280.jpg",
+      "sha256": "9713600fb9b42cf632c14f4bbd9bbfe86165d4f383d122c0e631be59686385f0"
+    },
+    {
+      "directory": "review-closeup02",
+      "original_frame_id": 287,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000287.jpg",
+      "sha256": "436de5eb79b0c84379262af845ecf9c15d9c6d12167fd90de63744f93e84ddc3"
+    },
+    {
+      "directory": "review-closeup02",
+      "original_frame_id": 290,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000290.jpg",
+      "sha256": "64dfaed055e079bf54cb3e68f95480852b518774e2e20de0f40d7c34ab8dd625"
+    }
+  ],
+  "findings": [
+    "Shared ROI/projection/colors and estimated mesh-to-mesh depth rendering are coherent.",
+    "No clear overall B grasp-fidelity win is apparent in these sampled views.",
+    "At287/290 both estimates remain imperfect relative to source; zero sampled penetration does not establish correct hand position or exact release timing.",
+    "The occluded left surface may be hidden by rendered object geometry; invisibility cannot establish correct placement. Read the independent left-hand invasion audit.",
+    "At280 attraction is OFF in the conservative unknown placement/release interval although RGB hands remain near the object; OFF also occurs at unreliable object-pose frames."
+  ],
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "scale_accepted": false,
+  "contact_model_training_started": false,
+  "episode11_execution_started": false,
+  "all30_execution_started": false
+}

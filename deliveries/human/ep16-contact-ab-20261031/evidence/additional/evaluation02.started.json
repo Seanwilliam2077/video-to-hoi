@@ -1,0 +1,30 @@
+{
+  "recorded_at": "2026-10-31T12:35:22.281386+00:00",
+  "track": 1,
+  "episode": 16,
+  "job": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\prepared-evaluation-job03.json",
+  "job_sha256": "1e80f9170a9bf96608fc0d65512c9de1b6175788bc2bc03ae5aaa7251b7673db",
+  "command": [
+    "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime02\\tools\\evaluate_contact_ab.py",
+    "--input-manifest",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-inputs02.json",
+    "--output",
+    "J:/video-to-hoi/runs/ep16-contact-ab-20261031/evaluation02.json",
+    "--tool-root",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime02",
+    "--threads",
+    "1",
+    "--model-batch",
+    "8"
+  ],
+  "cwd": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime02",
+  "wrapper_pid": 2128,
+  "source_sha256": "94a60410753c5fd41bbb44e97c26bc2938b3fa67f6e3c3c1022c68f7dd2a92fb",
+  "input_manifest_sha256": "cab278827e3698abe6a6cc24610135850d5ce4481acae87f6bad1c83c455f796",
+  "wrapper_source_sha256": "113c2b46d3f9725d71dfe30d29ed9370809cdd440a41090e92523cea819ce585",
+  "runtime_snapshot_sha256": "ff62b90b3cbc077b06c23aa2e47b2005fc2f778caae5bb027e3b479e6892f9ac",
+  "all30_execution_authorized": false,
+  "quality_accepted": false
+}

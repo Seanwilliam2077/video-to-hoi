@@ -1,0 +1,36 @@
+{
+  "recorded_at": "2026-10-31T12:16:17.611921+00:00",
+  "reviewer": "Codex contact_ab_object",
+  "review_mode": "Actual tool-viewed static source/geometry/native-wrist images only",
+  "viewed_images": [
+    {
+      "original_frame_id": 90,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\sample-review\\object-native-wrists-000090.jpg",
+      "sha256": "cd0f56482a0650d7f40320284ab494f6d63ec9b2b27cd4a5c5e62c5a16dd5ea2"
+    },
+    {
+      "original_frame_id": 120,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\sample-review\\object-native-wrists-000120.jpg",
+      "sha256": "01e3fee4a2fc9c0611986119caf3bf2de0daa5dc19962003fb62a0555eafdf40"
+    },
+    {
+      "original_frame_id": 210,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\sample-review\\object-native-wrists-000210.jpg",
+      "sha256": "9d6e349a01a95b42dc9e70a9e04c0899b67862aff36baa502d1256fcc3537d91"
+    },
+    {
+      "original_frame_id": 250,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\sample-review\\object-native-wrists-000250.jpg",
+      "sha256": "9d2b6616d187c1d723e32d8eb5472a83ae60fd047cfff8e87d0a4118c5dd6d89"
+    }
+  ],
+  "findings": [
+    "Object projected silhouettes visually follow source box at all four fixed reviewed frames.",
+    "Native wrist projections remain imperfect relative to the visible hands. Their gauge is fixed before A/B; object placement was not retuned to reduce hand contact residual.",
+    "Wireframe draws hidden edges and does not resolve object/hand occlusion depth. It cannot measure physical contact or penetration.",
+    "Current-K body/object coherence is an estimated shared monocular gauge; physical object scale, hidden geometry and true 3D contact remain unaccepted."
+  ],
+  "quality_accepted": false,
+  "contact_or_scale_accepted": false,
+  "all30_execution_authorized": false
+}

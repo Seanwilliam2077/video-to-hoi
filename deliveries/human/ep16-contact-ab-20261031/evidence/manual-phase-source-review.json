@@ -1,0 +1,74 @@
+{
+  "recorded_at": "2026-10-31T12:07:11.017731+00:00",
+  "reviewer": "Codex contact_ab_protocol independent source reviewer",
+  "track": 1,
+  "episode": 16,
+  "source_video": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "decoded_original_frame_count": 360,
+  "actual_tool_viewed_images": [
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\protocol-review01\\source-000075.jpg",
+      "bytes": 394857,
+      "sha256": "1959eb7eeba357016462196fd0aff775cdb8907182855ebf8fa32db93c6c7d99"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\protocol-review01\\pickup-contact-sheet.jpg",
+      "bytes": 432836,
+      "sha256": "0cf9f4248c7e4c987a07ced092d4ab12b9061668a3ac4abbb94611e5e12f2df5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\protocol-review01\\release-contact-sheet.jpg",
+      "bytes": 510064,
+      "sha256": "be067c86a2315141938b53c0021231d603c4280619f9c76f8d17c44503932495"
+    }
+  ],
+  "contact_sheet_original_frame_ids": {
+    "pickup": [
+      0,
+      30,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      90,
+      120,
+      180
+    ],
+    "release": [
+      210,
+      240,
+      250,
+      255,
+      260,
+      265,
+      270,
+      275,
+      280,
+      285,
+      290,
+      300,
+      330,
+      359
+    ]
+  },
+  "source_frames_represented_and_actually_inspected": 26,
+  "review_mode": "Three actual image-tool views: full RGB75 and two source-only contact sheets; no generated human/object overlay used for this annotation. Continuous playback and exact hidden contact labels are not claimed.",
+  "display_crop_pixels_xyxy": [
+    520,
+    500,
+    850,
+    830
+  ],
+  "findings": [
+    "The object is visibly airborne and both hands support it at75/90/120/180/210/240/250.",
+    "Both hands are near or touching the object at280. Separation is visible at285 and clear by290. These samples do not identify an exact first/last contact frame.",
+    "Far/anatomical-left fingertip contacts are largely hidden. Bimanual carrying is supported, specific fingertips and tangential no-slip are not independently verified."
+  ],
+  "quality_accepted": false,
+  "official_scores_available": false,
+  "all30_execution_authorized": false
+}

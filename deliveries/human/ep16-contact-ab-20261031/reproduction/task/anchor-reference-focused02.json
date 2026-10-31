@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-10-31T12:30:36.221256+00:00",
+  "command": [
+    "J:/video-to-hoi/.venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_contact_ab.py",
+    "tests/test_contact_anchor_reference.py",
+    "tests/test_hand_target_provenance.py"
+  ],
+  "returncode": 0,
+  "pytest_summary": "41 passed in 13.04s",
+  "capture": "Actual exec tool output, session93095 completed rc0; source hashes measured after the focused check",
+  "source_sha256_after": {
+    "tools/refine_human_hands.py": "4352eaca047ee3358e50d41b80b17091762ae9fa3a41f7324afb79249880125c",
+    "tools/refine_contact_ab.py": "869267152e182de18d2ad258aca3fe4aac01103efb20cb0681d6b864a674f37b",
+    "tests/test_contact_ab.py": "32599bb2e9d565c3f90d39cea7f1e95661b7fae6ec73317c463d3a797a10be9a",
+    "tests/test_contact_anchor_reference.py": "325abe02900e80edcdb743904f8b09da9cafda2ec72b8fa768a7c78f1e753fc4"
+  },
+  "synthetic_only": true,
+  "existing_loss_and_variable_mask_source_edited": false
+}

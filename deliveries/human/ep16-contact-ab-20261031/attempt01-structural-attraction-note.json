@@ -1,0 +1,21 @@
+{
+  "scope": "Preserved initial anchor-selection attempt, not the final meaningful-attraction experiment",
+  "plan_sha256": "82f808435a10cb60f082a562a782e72172d673105e8422e85b81414483aebdfb",
+  "anchor_sides_from_actual_report": [
+    "left"
+  ],
+  "manual_phase_with_mutable_finger_controls": [
+    0,
+    129
+  ],
+  "exact_numeric_npy_member_equality_A_B": {
+    "pose": false,
+    "shape": true,
+    "scales": true,
+    "frame_indices": true,
+    "fps": true
+  },
+  "interpretation": "The initial attraction anchors selected only the unsupported left hand during admitted usable carry. This is a structural limitation of that attraction test. Other tip-penetration terms are not claimed to have zero gradients. Final revision uses an explicitly validated read-only MP anchor reference while preserving original SAM initialization and both variable masks.",
+  "quality_accepted": false,
+  "all30_execution_authorized": false
+}

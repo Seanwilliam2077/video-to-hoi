@@ -1,0 +1,332 @@
+{
+  "schema_version": "ep16_contact_ab_plan.v1",
+  "recorded_at": "2026-10-31T12:30:59.610617+00:00",
+  "track": 1,
+  "episode": 16,
+  "frames": 360,
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "source_root": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime02",
+  "input_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep16-fit-mp02.json",
+      "bytes": 4771,
+      "sha256": "6121e443fe6fe7e938504563b70700837b2577408fb7e0251e9b2126e866f836"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\candidate-mp02\\report.json",
+      "bytes": 54266,
+      "sha256": "582b74179016bd1b0e944fe9af612edbf8927d1150bba36d3fbfd966874b89c6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz",
+      "bytes": 191669,
+      "sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\fresh-mp02\\observations.npz",
+      "bytes": 189822,
+      "sha256": "941012c727c11b2039abce7309b66e5da4bc27b1e2c8944740fe2f93cf5646f3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\fresh-mp02\\report.json",
+      "bytes": 3755,
+      "sha256": "dafaae5087c777aa2fd6bf7af2ec707c4d28194c35cea8386f2e14563475180a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\manifest.json",
+      "bytes": 21841,
+      "sha256": "115ba62f458f632f037ef9347fad2c0181d92f5f27b70a2970c30a92b465c66d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\contact_ready.npz",
+      "bytes": 90110,
+      "sha256": "95f696082ef636c7860b89ca0e2c3206b5ebebe433f02e270dc39a24954678a9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\report.json",
+      "bytes": 222522,
+      "sha256": "49757193a059028366dad033d06c348e490dd8b44186718dd66c66c31174f731"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\manual-contact-phases01.json",
+      "bytes": 4189,
+      "sha256": "63872d905201031408f8ce8fdb0aba844f8d755971be9debc073eb6b26d9fa0c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\protocol-review01\\source-review-receipt01.json",
+      "bytes": 2545,
+      "sha256": "ec84b813cc6bbd4d7b712fff9697cf3541480d63e292d5efe8d94e5ce5561559"
+    },
+    {
+      "path": "J:\\video-to-hoi\\weights\\human\\mhr_model.pt",
+      "bytes": 696110248,
+      "sha256": "352e271a6c42729c68554ceaea0c955e866970160c31e35506d782dc0f7377bc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+      "bytes": 11744057,
+      "sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays\\vertices_m.npy",
+      "bytes": 79656608,
+      "sha256": "2e7f240bf30e5caf79f240de157e1761a47215bf955b9898604b5e3bb5702c98"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays\\joints_3d.npy",
+      "bytes": 548768,
+      "sha256": "64a57fc42b5c58b3520020c1ba3075f696c54abd7452a6114b3173fe2671f459"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays\\faces.npy",
+      "bytes": 885104,
+      "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+      "bytes": 164,
+      "sha256": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays\\frame_indices.npy",
+      "bytes": 3008,
+      "sha256": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays\\fps.npy",
+      "bytes": 136,
+      "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\candidate-mp02\\episode_000016_human.npz",
+      "bytes": 203595,
+      "sha256": "4a58a3af46a19032b16b74c8f06f93fc5a3dc097c6d533a361ad0cd971e1f169"
+    }
+  ],
+  "reference_fit_job": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep16-fit-mp02.json",
+  "prepared_object": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\contact_ready.npz",
+  "manual_phases": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\manual-contact-phases01.json",
+  "contact_anchor_reference": {
+    "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\candidate-mp02\\episode_000016_human.npz",
+    "bytes": 203595,
+    "sha256": "4a58a3af46a19032b16b74c8f06f93fc5a3dc097c6d533a361ad0cd971e1f169"
+  },
+  "contact_anchor_reference_validation": {
+    "frames": 360,
+    "same_source_video_and_original_ids": true,
+    "same_native_decoder": true,
+    "fixed_identity_unchanged": true,
+    "fixed_skeleton_scales_unchanged": true,
+    "root_controls_unchanged": true,
+    "exact_camera_intrinsics_match": true,
+    "optimization_initialization_changed": false,
+    "interpretation": "Geometry for selecting fixed contact anchors only; not hidden contact truth or new image observations"
+  },
+  "contact_anchor_reference_role": "Read-only geometry for B anchor selection only; original SAM initialization, priors and A/B variable masks unchanged",
+  "fitter_source_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime02\\tools\\refine_human_hands.py",
+      "bytes": 27109,
+      "sha256": "4352eaca047ee3358e50d41b80b17091762ae9fa3a41f7324afb79249880125c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime02\\src\\v2hoi\\hand_refinement.py",
+      "bytes": 48522,
+      "sha256": "eb0c2560f8ebbbbc6d2065f1d482b0c14c2b730d61bf97bb754d1ff326baa56f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime02\\src\\v2hoi\\hand_contact.py",
+      "bytes": 20472,
+      "sha256": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime02\\src\\v2hoi\\human_result.py",
+      "bytes": 19808,
+      "sha256": "d2074d2c139c996bca9abeb4fbb585d63f76a17bfae59ae456968e2ab8a4e5c2"
+    }
+  ],
+  "wrapper_source_sha256": "869267152e182de18d2ad258aca3fe4aac01103efb20cb0681d6b864a674f37b",
+  "commands": {
+    "A": [
+      "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+      "-B",
+      "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime02\\tools\\refine_human_hands.py",
+      "--baseline",
+      "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz",
+      "--observations",
+      "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\fresh-mp02\\observations.npz",
+      "--manifest",
+      "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\manifest.json",
+      "--review-arrays",
+      "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays",
+      "--model",
+      "J:\\video-to-hoi\\weights\\human\\mhr_model.pt",
+      "--device",
+      "cpu",
+      "--threads",
+      "1",
+      "--model-batch",
+      "8",
+      "--output",
+      "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\A-no-contact02",
+      "--iterations",
+      "600",
+      "--learning-rate",
+      "0.001",
+      "--holdout-stride",
+      "5",
+      "--unobserved-policy",
+      "preserve",
+      "--acceleration-weight",
+      "0.025",
+      "--pose-prior-weight",
+      "0.03",
+      "--max-delta-radians",
+      "0.65",
+      "--relative-weight",
+      "1.0",
+      "--optimize-wrist-chain",
+      "--arm-delta-limit-radians",
+      "0.1",
+      "--wrist-max-displacement-metres",
+      "0.04",
+      "--arm-update-temporal-weight",
+      "0.08",
+      "--finger-update-temporal-weight",
+      "0.08",
+      "--support-transition-frames",
+      "8",
+      "--correction-velocity-budget-weight",
+      "1.0",
+      "--correction-budget-safety-fraction",
+      "0.2",
+      "--spatial-acceleration-weight",
+      "0.0"
+    ],
+    "B": [
+      "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+      "-B",
+      "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime02\\tools\\refine_human_hands.py",
+      "--baseline",
+      "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz",
+      "--observations",
+      "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\fresh-mp02\\observations.npz",
+      "--manifest",
+      "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\manifest.json",
+      "--review-arrays",
+      "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays",
+      "--model",
+      "J:\\video-to-hoi\\weights\\human\\mhr_model.pt",
+      "--device",
+      "cpu",
+      "--threads",
+      "1",
+      "--model-batch",
+      "8",
+      "--output",
+      "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\B-manual-contact02",
+      "--iterations",
+      "600",
+      "--learning-rate",
+      "0.001",
+      "--holdout-stride",
+      "5",
+      "--unobserved-policy",
+      "preserve",
+      "--acceleration-weight",
+      "0.025",
+      "--pose-prior-weight",
+      "0.03",
+      "--max-delta-radians",
+      "0.65",
+      "--relative-weight",
+      "1.0",
+      "--optimize-wrist-chain",
+      "--arm-delta-limit-radians",
+      "0.1",
+      "--wrist-max-displacement-metres",
+      "0.04",
+      "--arm-update-temporal-weight",
+      "0.08",
+      "--finger-update-temporal-weight",
+      "0.08",
+      "--support-transition-frames",
+      "8",
+      "--correction-velocity-budget-weight",
+      "1.0",
+      "--correction-budget-safety-fraction",
+      "0.2",
+      "--spatial-acceleration-weight",
+      "0.0",
+      "--contact-object",
+      "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\contact_ready.npz",
+      "--contact-phases",
+      "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\manual-contact-phases01.json",
+      "--contact-anchor-weight",
+      "0.01",
+      "--contact-penetration-weight",
+      "0.005",
+      "--contact-scale",
+      "1.0",
+      "--contact-scale-mode",
+      "fixed_pose_geometry",
+      "--contact-anchor-reference",
+      "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\candidate-mp02\\episode_000016_human.npz"
+    ]
+  },
+  "outputs": {
+    "A": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\A-no-contact02",
+    "B": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\B-manual-contact02"
+  },
+  "frozen_config": {
+    "iterations": 600,
+    "learning_rate": 0.001,
+    "max_delta_radians": 0.65,
+    "min_confidence": 0.05,
+    "min_landmarks": 8,
+    "max_gap_frames": 8,
+    "pixel_scale": 10.0,
+    "robust_delta_pixels": 5.0,
+    "relative_weight": 1.0,
+    "velocity_weight": 0.1,
+    "acceleration_weight": 0.025,
+    "pose_prior_weight": 0.03,
+    "motion_gate_pixels": 3.0,
+    "holdout_stride": 5,
+    "unobserved_policy": "preserve",
+    "optimize_wrist_chain": true,
+    "arm_delta_limit_radians": 0.1,
+    "arm_prior_weight": 0.03,
+    "wrist_observation_weight": 0.5,
+    "wrist_anchor_weight": 0.025,
+    "wrist_max_displacement_metres": 0.04,
+    "arm_update_temporal_weight": 0.08,
+    "finger_update_temporal_weight": 0.08,
+    "spatial_acceleration_weight": 0.0,
+    "support_transition_frames": 8,
+    "correction_velocity_budget_weight": 1.0,
+    "correction_budget_safety_fraction": 0.2
+  },
+  "object_scale_factor": 1.0,
+  "manual_phase_frames": [
+    176,
+    176
+  ],
+  "manual_phase_object_usable_frames": [
+    129,
+    129
+  ],
+  "manual_phase_with_mutable_finger_controls": [
+    0,
+    129
+  ],
+  "manual_phase_without_mutable_finger_controls": [
+    129,
+    0
+  ],
+  "variable_support_policy": "Both arms retain identical image-supported plus8-frame-collar masks. Manual contact does not activate hidden-hand controls or add image targets.",
+  "limitations": "Prepared object geometry/relative scale and manual phases are hypotheses, not physical contact truth. Fixed local anchors model stable grasp only. Contact penalties are absent outside admitted intervals; other unchanged temporal terms may still couple neighboring frames.",
+  "quality_accepted": false,
+  "official_scores_available": false,
+  "all30_execution_authorized": false
+}

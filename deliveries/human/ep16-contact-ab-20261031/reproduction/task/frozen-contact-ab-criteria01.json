@@ -1,0 +1,57 @@
+{
+  "schema_version": "ep16_contact_ab_frozen_criteria.v1",
+  "recorded_at": "2026-10-31T12:11:39.876418+00:00",
+  "track": 1,
+  "episode": 16,
+  "scope": "Root-frozen engineering nonregression checks before A/B fitting; not universal reconstruction acceptance or official challenge tolerances.",
+  "image_reference_policy": {
+    "relative_tolerance": 1.05,
+    "absolute_tolerance_pixels": 0.25,
+    "references": [
+      "legacy_reference",
+      "fresh_reference"
+    ],
+    "both_training_and_stride5_holdout_reported": true
+  },
+  "motion_policy": {
+    "observed_velocity_relative_tolerance": 1.05,
+    "observed_velocity_absolute_tolerance_pixels": 0.25,
+    "unknown_motion_max_correction_step_pixels": 1.0,
+    "unknown_motion_max_correction_step_native_estimated_metres": 0.005,
+    "same_all_original_adjacent_frame_ids": true
+  },
+  "skin_b_versus_a": {
+    "maximum_mean_depth_increase_mm": 0.5,
+    "maximum_worst_vertex_depth_increase_mm": 2.0,
+    "scopes": [
+      "whole_clip",
+      "each_manual_phase"
+    ],
+    "sides": [
+      "left",
+      "right"
+    ],
+    "object_pose_scopes": [
+      "all_original_frames",
+      "same_fixed_pose_usable_gate"
+    ],
+    "metric_geometry": "Actual native MHR hand-skin vertices against one frozen uncertain reconstructed convex object; mean depth over selected hand-skin vertices; phase maximum over per-frame maximum vertex depth."
+  },
+  "required_manual_review": [
+    "Original RGB versus A/B contact and release timing, especially251..300",
+    "Source-faithful opening and actual grasp changes, not just low predicted acceleration",
+    "Missing image support versus true occlusion; no new hidden-hand DOFs in B",
+    "No increased penetration or detachment concealed by phase/pose gates"
+  ],
+  "manual_phase_sha256": "63872d905201031408f8ce8fdb0aba844f8d755971be9debc073eb6b26d9fa0c",
+  "limitations": [
+    "Improved frozen-anchor distance, local slip or fitting objective alone cannot confirm beneficial contact or justify contact-model training.",
+    "Current camera, object shape and human/object relative scale remain reconstructed hypotheses.",
+    "Engineering booleans do not automatically accept quality, contact, scale, export or official scores.",
+    "No small-model training, EP11 execution or all30 batch is part of this first A/B run."
+  ],
+  "quality_accepted": false,
+  "automatic_promotion": false,
+  "official_scores_available": false,
+  "all30_execution_authorized": false
+}

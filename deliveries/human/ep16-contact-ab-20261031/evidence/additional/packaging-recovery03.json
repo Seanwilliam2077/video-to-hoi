@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-10-31T13:00:37.189580+00:00",
+  "failed_archive_preserved": "local-delivery02/ep16-contact-ab-20261031-review02.zip",
+  "failure": "Archive inventory retained Windows backslashes for context JPEG member names; ZIP writer normalized actual members to POSIX paths. Full verification correctly rejected the archive.",
+  "old_packager_source_sha256": "6ec76312dd416d04851ed726f72a784327b1f8c723463e057b79b1155d31776a",
+  "preserved_original_source": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\packaging-source-attempt02.py",
+  "new_packager_source_sha256": "452595a396c33047cf3729a5b1d5e7ff92e6c30e5a0ecfe1d85b797117926794",
+  "change": "Normalize archive member names to forward slashes before inventory construction. No model/geometry/video/evaluation bytes changed.",
+  "recovery_destination": "local-delivery03",
+  "quality_accepted": false
+}

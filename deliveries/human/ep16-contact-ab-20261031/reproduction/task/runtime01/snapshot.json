@@ -1,0 +1,42 @@
+{
+  "recorded_at": "2026-10-31T12:14:55.706087+00:00",
+  "source_root": "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi",
+  "source_commit_before_new_interface_files": "262b7b1d3e83787820cca0026af23995d7b08fe2",
+  "track": 1,
+  "authorized_episodes": [
+    16
+  ],
+  "files": [
+    {
+      "path": "src/v2hoi/__init__.py",
+      "bytes": 79,
+      "sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda"
+    },
+    {
+      "path": "src/v2hoi/human_result.py",
+      "bytes": 19808,
+      "sha256": "d2074d2c139c996bca9abeb4fbb585d63f76a17bfae59ae456968e2ab8a4e5c2"
+    },
+    {
+      "path": "src/v2hoi/hand_refinement.py",
+      "bytes": 48522,
+      "sha256": "eb0c2560f8ebbbbc6d2065f1d482b0c14c2b730d61bf97bb754d1ff326baa56f"
+    },
+    {
+      "path": "src/v2hoi/hand_contact.py",
+      "bytes": 20472,
+      "sha256": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b"
+    },
+    {
+      "path": "tools/refine_human_hands.py",
+      "bytes": 22147,
+      "sha256": "30d6647be48e987247a0a9ba66eae460fdb20a0aef50b41dfb7b845cb932368a"
+    },
+    {
+      "path": "tools/refine_contact_ab.py",
+      "bytes": 19266,
+      "sha256": "9ebb4c0b1e7c2dbc8733e2a085f78fca620f405a3d8c4de466ac3008c6844b80"
+    }
+  ],
+  "math_changes": "None: exact preexisting hand fitting/contact mathematics. New strictAB wrapper binds currentinputs."
+}

@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-10-31T12:17:35.814288+00:00",
+  "actually_viewed": [
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\protocol-review01\\pickup-contact-sheet.jpg",
+      "sha256": "0cf9f4248c7e4c987a07ced092d4ab12b9061668a3ac4abbb94611e5e12f2df5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\protocol-review01\\release-contact-sheet.jpg",
+      "sha256": "be067c86a2315141938b53c0021231d603c4280619f9c76f8d17c44503932495"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\sample-review\\object-native-wrists-000090.jpg",
+      "sha256": "cd0f56482a0650d7f40320284ab494f6d63ec9b2b27cd4a5c5e62c5a16dd5ea2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\sample-review\\object-native-wrists-000120.jpg",
+      "sha256": "01e3fee4a2fc9c0611986119caf3bf2de0daa5dc19962003fb62a0555eafdf40"
+    }
+  ],
+  "reviewer": "Codex root",
+  "decision": "Proceed to bounded experimental A/B only; current-K object silhouette plausible, relative scale/depth and per-finger contacts remain uncertain. Manualcarry75-250 is conservative; no attraction251+.",
+  "physical_quality_accepted": false
+}

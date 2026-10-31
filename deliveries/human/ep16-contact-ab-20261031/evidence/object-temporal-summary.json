@@ -1,0 +1,37 @@
+{
+  "source_candidate": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-initial01",
+  "optimization": "Joint 360-frame Lie-rotation/metric-translation least squares with original RGB SIFT training pixels, mask contours, cross-frame rotation/translation priors and weak assumed-depth anchor. No direct pose filtering.",
+  "heldout": "Reference SIFT query IDs divisible by5 excluded from pose objective; homography gate estimated from training matches only. These validate pixel tracking conditional on the hypothesized mesh, not true 3D or scale.",
+  "solver_success": true,
+  "solver_message": "`xtol` termination condition is satisfied.",
+  "nfev": 16,
+  "solve_seconds": 140.61021549999714,
+  "initial_cost": 790.4903888765416,
+  "final_residual_mse": 1.2519222489381716,
+  "initial_motion": {
+    "translation_step_max_m": 0.1487588195462475,
+    "translation_step_p95_m": 0.05340783532205168,
+    "translation_second_difference_max_m": 0.15383843466604444,
+    "rotation_step_max_deg": 25.780528960661265,
+    "depth_range_m": [
+      2.556956200126394,
+      3.0891680235644894
+    ]
+  },
+  "candidate_motion": {
+    "translation_step_max_m": 0.01847535287504295,
+    "translation_step_p95_m": 0.01313084006118841,
+    "translation_second_difference_max_m": 0.008317029355752044,
+    "rotation_step_max_deg": 6.822434204509114,
+    "depth_range_m": [
+      2.85137491967949,
+      2.9857271243771604
+    ]
+  },
+  "mean_initial_mask_iou": 0.9578023000919261,
+  "mean_candidate_mask_iou": 0.951746256115923,
+  "mean_initial_heldout_px": 17.349187479761177,
+  "mean_candidate_heldout_px": 1.8817443695170128,
+  "script_sha256": "ff4f51b3485e59541dff4dca26e9fb73ef44d8878e120dabb1dca31984754ecf",
+  "wall_seconds": 157.34369970019907
+}

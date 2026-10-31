@@ -1,0 +1,337 @@
+{
+  "recorded_at": "2026-10-31T12:57:37.729505+00:00",
+  "schema_version": "ep16_contact_ab_completed_integrity.v1",
+  "scope": "Read-only completed source/artifact/stage/hash consistency; not physical accuracy or automatic quality acceptance",
+  "track": 1,
+  "authorized_episodes": [
+    16
+  ],
+  "frames": 360,
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "source_snapshots": [
+    {
+      "root": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime01",
+      "manifest": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime01\\snapshot.json",
+        "bytes": 1430,
+        "sha256": "a8fbeed46e8fd46965a1ba0bb89d3fde3b5f4b987b4369225002c870329a97ad"
+      },
+      "all_declared_files_rehashed": true,
+      "files": 6
+    },
+    {
+      "root": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime02",
+      "manifest": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\runtime02\\snapshot.json",
+        "bytes": 1227,
+        "sha256": "ed08a32d8ed83bd274a97bbf4a7f22c864e96ed545ada27d856d18bb8cf50644"
+      },
+      "all_declared_files_rehashed": true,
+      "files": 6
+    },
+    {
+      "root": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime01",
+      "manifest": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime01\\snapshot.json",
+        "bytes": 1165,
+        "sha256": "9117dd5a138d69743bbaa3e7f901fc8202b4b6b094c43ac55c59f697f5b015ba"
+      },
+      "all_declared_files_rehashed": true,
+      "files": 6
+    },
+    {
+      "root": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime02",
+      "manifest": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime02\\snapshot.json",
+        "bytes": 1260,
+        "sha256": "ff62b90b3cbc077b06c23aa2e47b2005fc2f778caae5bb027e3b479e6892f9ac"
+      },
+      "all_declared_files_rehashed": true,
+      "files": 6
+    },
+    {
+      "root": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\render-runtime02",
+      "manifest": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\render-runtime02\\snapshot.json",
+        "bytes": 1060,
+        "sha256": "b6be194c0c10eaf99a29060cc124fdd98d0c7d69748ddfb400dd9384e47edc79"
+      },
+      "all_declared_files_rehashed": true,
+      "files": 5
+    },
+    {
+      "root": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\closeup-runtime02",
+      "manifest": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\closeup-runtime02\\snapshot.json",
+        "bytes": 1051,
+        "sha256": "e35ead4b8c1af2640ebcc65b87775af294014e319188555f6bff080754ebb61e"
+      },
+      "all_declared_files_rehashed": true,
+      "files": 5
+    }
+  ],
+  "object_runtime_source_files_rehashed": 9,
+  "object_completion": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-pipeline-completed01.json",
+    "bytes": 1093,
+    "sha256": "310a38dc7a297fc4dbc7d09d76d090bc64dbba3198466d1d2f4c05da051497f5"
+  },
+  "object_successful_stages": [
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-initial01.finished.json",
+      "bytes": 233,
+      "sha256": "cf9c9a53d7b2a4fe6e0e13830f0bfea37eb868d514aac1cf147d3db0b6752756"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-temporal01.finished.json",
+      "bytes": 233,
+      "sha256": "61a7619036c1f6f06e04090b4aa9ad013fb3ea09582498591462512e831c4ecf"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-validation01.finished.json",
+      "bytes": 219,
+      "sha256": "6859e2c90ebbd5dbec168be0e8ca26c8eb24e82db915410d9e51d63c35678b36"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-contact-export-recovery01.finished.json",
+      "bytes": 280,
+      "sha256": "ea622f03247020be3cb2b589cda7973365697a0310ce447e00222f102f4c3175"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-samples-recovery01.finished.json",
+      "bytes": 279,
+      "sha256": "0e42a31c7555e1b69c4b062608e0645864efa0b39dba6533d14401ff33724372"
+    }
+  ],
+  "preserved_original_object_export_failure": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-contact-export01.finished.json",
+    "bytes": 233,
+    "sha256": "8a6f67cc04b90e6e183b37a444b25b3e02a913a1e62bf5a0ac88b6562f83eb1d"
+  },
+  "object_pose_usable_frames": 313,
+  "actual_native_fits": [
+    {
+      "revision": 1,
+      "arm": "A",
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\ab-plan01-A.finished.json",
+        "bytes": 2314,
+        "sha256": "97b5c2140e1cfacdcca763d87f98d8ed73dd52109d21aae5c23dbf5a84e764c9"
+      },
+      "native": {
+        "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\A-no-contact01\\episode_000016_human.npz",
+        "bytes": 203598,
+        "sha256": "7a9b7e035e5ff98c1463456f05b54c9c7ac0c84c184bd292b580d505ab7d46ff"
+      }
+    },
+    {
+      "revision": 1,
+      "arm": "B",
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\ab-plan01-B.finished.json",
+        "bytes": 2735,
+        "sha256": "be8ed41ec5c51c3eacadbc18bd551a318d863ee0ec3f64050c9b0c55e577db48"
+      },
+      "native": {
+        "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\B-manual-contact01\\episode_000016_human.npz",
+        "bytes": 258730,
+        "sha256": "bfa81c6a86e0c114f58a83b280af08e49de78c422689840156ab550bdd7e1502"
+      }
+    },
+    {
+      "revision": 2,
+      "arm": "A",
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\ab-plan02-A.finished.json",
+        "bytes": 2314,
+        "sha256": "7345cd6ee8051f2db2e6641d55cff4699aa162727b6a6c9a97a8127abb98bdb5"
+      },
+      "native": {
+        "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\A-no-contact02\\episode_000016_human.npz",
+        "bytes": 203598,
+        "sha256": "27c9303e12e7381e2a9b88c6dada89a4a233ff76ea47398c65667c6aa3b0ca82"
+      }
+    },
+    {
+      "revision": 2,
+      "arm": "B",
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\ab-plan02-B.finished.json",
+        "bytes": 2892,
+        "sha256": "02f299ed61998530f2c6113b91abc7722ccc038ccc1e78fef085b74fd7685022"
+      },
+      "native": {
+        "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\B-manual-contact02\\episode_000016_human.npz",
+        "bytes": 260282,
+        "sha256": "fe705b600b14509f22f49c9733345fd2b55776d38ecc19e490a029bffd56e1ea"
+      }
+    }
+  ],
+  "completed_independent_evaluations": [
+    {
+      "revision": 1,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation01.finished.json",
+        "bytes": 1803,
+        "sha256": "e43fb93449b25aa73856cdae06641a6fa19bed77d8077efd4bc13b2d08582c34"
+      },
+      "input_manifest": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-inputs01.json",
+        "bytes": 6575,
+        "sha256": "6e8e1c8a09cb357e1b224add02eca143edfdb2668de5dfd05f136fdf8a636fc4"
+      },
+      "evaluation": {
+        "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\evaluation01.json",
+        "bytes": 9179820,
+        "sha256": "1cc785e5a55297d3b34881ef8586ed964ba250e6e2ca2c8b54f49ccfb75d8203"
+      },
+      "all360_native_parity_and_review_array_hashes_rechecked": true
+    },
+    {
+      "revision": 2,
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation02.finished.json",
+        "bytes": 1803,
+        "sha256": "8a6c0c8fc7f204f1e323f1c3452639f3d4c0a4305b46fcc604384070c7505988"
+      },
+      "input_manifest": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-inputs02.json",
+        "bytes": 7493,
+        "sha256": "cab278827e3698abe6a6cc24610135850d5ce4481acae87f6bad1c83c455f796"
+      },
+      "evaluation": {
+        "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\evaluation02.json",
+        "bytes": 9181901,
+        "sha256": "e22fa40432eb1cf89a0a8f76038509b7139c43af69e25be322998c58fcdc31fc"
+      },
+      "all360_native_parity_and_review_array_hashes_rechecked": true
+    }
+  ],
+  "reviews": [
+    {
+      "review": "review02",
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\render02.finished.json",
+        "bytes": 1179,
+        "sha256": "18b3716f30d8fd9194f839ba70d31d12eb1a6024667b0efda0afe3e1e5cb1d5f"
+      },
+      "video_summary": {
+        "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\summary.json",
+        "bytes": 6973,
+        "sha256": "140ecf9414d419f0605cd619952b066cf3b28f3741575856bc2eabca2f8393e6"
+      },
+      "videos": [
+        {
+          "file": "contact-comparison.mp4",
+          "frames_fully_decoded": 360,
+          "fps": 30.0,
+          "size": [
+            1152,
+            462
+          ],
+          "bytes": 942326,
+          "sha256": "4c644090ec1543f3d879cdcb5e702752a152627abb988356ce7b27bd5138be28"
+        },
+        {
+          "file": "contact-slow-000040-000110.mp4",
+          "frames_fully_decoded": 71,
+          "fps": 10.0,
+          "size": [
+            1152,
+            462
+          ],
+          "bytes": 454252,
+          "sha256": "e0c9950b43b7c930c5737edd6b4f3c85db351b9ac09f7061abcf18523208132b"
+        },
+        {
+          "file": "contact-slow-000230-000300.mp4",
+          "frames_fully_decoded": 71,
+          "fps": 10.0,
+          "size": [
+            1152,
+            462
+          ],
+          "bytes": 438617,
+          "sha256": "7b72d3ebb56c3014e0087ad457cf13cd958c1bf879949e64db9080f30e23ceeb"
+        }
+      ],
+      "sample_images_rehashed": 20
+    },
+    {
+      "review": "review-closeup02",
+      "receipt": {
+        "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\closeup-render02.finished.json",
+        "bytes": 1215,
+        "sha256": "9c31b272b225b633318aed016bada1ec186191b7ea1c0b2ea49b77cf477ccc16"
+      },
+      "video_summary": {
+        "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\summary.json",
+        "bytes": 6948,
+        "sha256": "f820c3542d1da633d5bd6c8fdbd6a61faea344c40d98562d64489b9a850207e8"
+      },
+      "videos": [
+        {
+          "file": "contact-comparison.mp4",
+          "frames_fully_decoded": 360,
+          "fps": 30.0,
+          "size": [
+            1536,
+            590
+          ],
+          "bytes": 1697182,
+          "sha256": "56eccb59f47beb833ecb3e7b5bd31b2651ae4ba63ff67f51bfe453a1f2c3c437"
+        },
+        {
+          "file": "contact-slow-000040-000110.mp4",
+          "frames_fully_decoded": 71,
+          "fps": 10.0,
+          "size": [
+            1536,
+            590
+          ],
+          "bytes": 798591,
+          "sha256": "6a22e645fcdfa8b61ada1bfe6f7bf7188c3d1a55e6b1be80461f72cacdeca3c8"
+        },
+        {
+          "file": "contact-slow-000230-000300.mp4",
+          "frames_fully_decoded": 71,
+          "fps": 10.0,
+          "size": [
+            1536,
+            590
+          ],
+          "bytes": 782017,
+          "sha256": "da132ef069809d5bec9cdc8c9134cdaff22254079896882b8a8b056e9d0dc873"
+        }
+      ],
+      "sample_images_rehashed": 20
+    }
+  ],
+  "videos_fully_decoded_and_current_bytes_rehashed": 6,
+  "html_only_clarification": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\review-index-clarification02.json",
+    "bytes": 1263,
+    "sha256": "cd748d4d631b6a6712f792a2365908a38403c5b269f1e08f9f4d8b0bec8a4c99"
+  },
+  "final_static_review": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\protocol-review01\\final-static-review02.json",
+    "bytes": 11549,
+    "sha256": "944a253f939afc2d49ae8b9606b38b4e6f78e1aa1424d6f08958c9be1d8400b3"
+  },
+  "independent_numeric_review": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\protocol-review01\\evaluation02-independent-review01.json",
+    "bytes": 59529,
+    "sha256": "3d060bce16bd3b021a367f6bc9dd20d532cb82c84ccdece32ade72f5d78d3f1a"
+  },
+  "contact_arrays_exact_reconstruction_and_current_hashes_rechecked": true,
+  "same_camera_complete_original_ids_verified": true,
+  "preexisting_unrelated_status_sha256": "234d4c2fc6baf3fe141ffaf12c59372ea120658507446c49340c1eee591728b5",
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "scale_accepted": false,
+  "official_score_available": false,
+  "contact_model_training_started": false,
+  "episode11_execution_started": false,
+  "all30_execution_authorized": false,
+  "main_merge_or_deployment_performed": false
+}

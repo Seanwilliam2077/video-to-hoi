@@ -1,0 +1,32 @@
+{
+  "recorded_at": "2026-10-31T12:30:57.019575+00:00",
+  "source_root": "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi",
+  "files": [
+    {
+      "path": "src/v2hoi/__init__.py",
+      "bytes": 79,
+      "sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda"
+    },
+    {
+      "path": "src/v2hoi/contact_review.py",
+      "bytes": 5264,
+      "sha256": "dd9fee9a5a6c96803f21e076f4197573e93bad9c5fd808748557eef1d922be16"
+    },
+    {
+      "path": "src/v2hoi/hand_contact.py",
+      "bytes": 20472,
+      "sha256": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b"
+    },
+    {
+      "path": "tools/render_contact_ab.py",
+      "bytes": 15324,
+      "sha256": "0630727175e26d7f8c177ae89638dee8a12f38affa5c28b3a07e480e2808f580"
+    },
+    {
+      "path": "tools/review_human.py",
+      "bytes": 24250,
+      "sha256": "856f5c8231900fba1ba1a15f0b33031c76719ca1ea395e8db04cc58080bf3932"
+    }
+  ],
+  "scope": "render-runtime02 revision02; firstattemptsources unchanged"
+}

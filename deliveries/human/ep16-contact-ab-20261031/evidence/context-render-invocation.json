@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-10-31T12:37:26.818749+00:00",
+  "wrapper_pid": 104592,
+  "command": [
+    "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\render-runtime02\\tools\\render_contact_ab.py",
+    "--input-manifest",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-inputs02.json",
+    "--evaluation",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\evaluation02.json",
+    "--output",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02",
+    "--workers",
+    "6"
+  ],
+  "cwd": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\render-runtime02",
+  "input_manifest_sha256": "cab278827e3698abe6a6cc24610135850d5ce4481acae87f6bad1c83c455f796",
+  "evaluation_sha256": "e22fa40432eb1cf89a0a8f76038509b7139c43af69e25be322998c58fcdc31fc",
+  "render_snapshot_sha256": "b6be194c0c10eaf99a29060cc124fdd98d0c7d69748ddfb400dd9384e47edc79",
+  "renderer_sha256": "0630727175e26d7f8c177ae89638dee8a12f38affa5c28b3a07e480e2808f580",
+  "child_pid": 111732,
+  "returncode": 0,
+  "wall_seconds": 594.0150000001304,
+  "frozen_sources_unchanged": true
+}

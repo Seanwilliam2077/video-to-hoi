@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-31T12:33:40.460070+00:00",
+  "scope": "Explicit fixed native hand-skin selection for A/B geometry diagnostics",
+  "selection_function": "native_hand_vertex_indices(model, threshold=0.5)",
+  "selection_threshold": 0.5,
+  "selection_basis": "Sum of native MHR LBS weights on each hand joint range; vertices with hand weight >=0.5",
+  "hand_vertex_counts_anatomical_left_right": [
+    2321,
+    2321
+  ],
+  "native_model_sha256": "352e271a6c42729c68554ceaea0c955e866970160c31e35506d782dc0f7377bc",
+  "frozen_selection_source": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime01\\src\\v2hoi\\hand_contact.py",
+  "frozen_selection_source_sha256": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b",
+  "evaluated_phase_policy": "Independent evaluator measures all360frames with an all-ones phase mask, then reports all-frame and fixed pose-usable/manual-phase subsets. No released/unusable frames are silently discarded.",
+  "probe_label_correction": "An unused display benchmark mislabeled this default threshold0.1. Its image/label did not select vertices for fitting, independent evaluation or the final all-native-triangle renderer.",
+  "geometry_interpretation": "Selected native hand-skin vertex penetration into an uncertain reconstructed convex object; not full mesh intersection volume, actual contact truth or official PEN.",
+  "quality_accepted": false,
+  "official_scores_available": false
+}

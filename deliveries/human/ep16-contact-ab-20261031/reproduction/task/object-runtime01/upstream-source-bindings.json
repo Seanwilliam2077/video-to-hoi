@@ -1,0 +1,35 @@
+{
+  "files": [
+    {
+      "name": "fit_object_hypotheses.py",
+      "source": "J:\\video-to-hoi\\work\\human-hand-round2\\object\\fit_object_hypotheses.py",
+      "source_sha256": "10b894c54b50cbc5575b9434e5b890cf2f7ebe4fd17c6afdd4084b447b6f12c3",
+      "task_copy_sha256": "20357e18c61c1c0a382085049d729eb7b46286dd7e798be47d30a75fe740a98b"
+    },
+    {
+      "name": "track_object_texture.py",
+      "source": "J:\\video-to-hoi\\work\\human-hand-round2\\object\\track_object_texture.py",
+      "source_sha256": "83a4c43c51c74b89868c3832ed5a19d50804109cca4241ccd10a48db7c8c231c",
+      "task_copy_sha256": "3aeff6bac019fec1efc533799b2e3c9e72df2258e8e02baf0b25e490de1ff3e5"
+    },
+    {
+      "name": "temporal_object_stronger_rotation.py",
+      "source": "J:\\video-to-hoi\\work\\human-hand-round2\\object\\temporal_object_stronger_rotation.py",
+      "source_sha256": "3bdeacbd2ea63fcd723c1783a570f759f0e60568de2ba6d7517c7879fe29fba5",
+      "task_copy_sha256": "ff4f51b3485e59541dff4dca26e9fb73ef44d8878e120dabb1dca31984754ecf"
+    },
+    {
+      "name": "validate_temporal_candidate.py",
+      "source": "J:\\video-to-hoi\\work\\human-hand-round2\\object\\validate_temporal_candidate.py",
+      "source_sha256": "c299c57e4db028e49343492db2de775189633adf27fed0ff6ddf827f4349e598",
+      "task_copy_sha256": "4af3f33fbc8f7b32fa52871d8ef56ade8afbcf3d30babe742b70a8dde88f6710"
+    },
+    {
+      "name": "prepare_contact_mesh.py",
+      "source": "J:\\video-to-hoi\\work\\human-hand-round2\\object\\prepare_contact_mesh.py",
+      "source_sha256": "d5cdf4b41c609cecaaf4c133235d91f95cd75bbcfc73563388a6b4a84bc6fb93",
+      "task_copy_sha256": "55c0c62451ec0f8cfdcbf70a9b73f57a548e558bb07964cfff0a110c42efd612"
+    }
+  ],
+  "modifications": "fit module globals now exact currentcamera/sourcepaths; analytic trigonometric zeros threshold1e-12 fixes known superellipsoid seam artifact. Other copied computation remains unchanged."
+}

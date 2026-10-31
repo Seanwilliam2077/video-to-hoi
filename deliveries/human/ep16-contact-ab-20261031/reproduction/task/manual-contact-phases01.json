@@ -1,0 +1,101 @@
+{
+  "schema_version": "manual_contact_phase_annotation.v1",
+  "recorded_at": "2026-10-31T12:07:11.021236+00:00",
+  "track": 1,
+  "episode": 16,
+  "video": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+  "video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "frame_count": 360,
+  "fps": 30.0,
+  "annotation_method": "Conservative source-RGB-only manual phase annotation, independently reviewed before A/B fitting. Contact information is not inferred from fitted geometry or model residuals.",
+  "source_review_receipt": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\protocol-review01\\source-review-receipt01.json",
+  "source_review_receipt_sha256": "ec84b813cc6bbd4d7b712fff9697cf3541480d63e292d5efe8d94e5ce5561559",
+  "inspected_source_frames": [
+    0,
+    30,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70,
+    75,
+    90,
+    120,
+    180,
+    210,
+    240,
+    250,
+    255,
+    260,
+    265,
+    270,
+    275,
+    280,
+    285,
+    290,
+    300,
+    330,
+    359
+  ],
+  "phase_intervals_inclusive": [
+    {
+      "phase": "approach_pickup_not_admitted",
+      "first": 0,
+      "last": 74,
+      "anchor_weight": 0.0,
+      "eligible_sides": [],
+      "state": "unresolved",
+      "evidence": "Early contact/first touch is not temporally localized; no attraction in this complete interval."
+    },
+    {
+      "phase": "conservative_bimanual_carry",
+      "first": 75,
+      "last": 250,
+      "anchor_weight": 1.0,
+      "eligible_sides": [
+        "left",
+        "right"
+      ],
+      "state": "active",
+      "constraint_type": "grasp",
+      "evidence": "Source RGB samples show airborne object carried with both hands. This admits a soft coarse grasp hypothesis, not measured fingertip contact."
+    },
+    {
+      "phase": "placement_and_release_transition_unknown",
+      "first": 251,
+      "last": 289,
+      "anchor_weight": 0.0,
+      "eligible_sides": [],
+      "state": "unresolved",
+      "evidence": "Object is being placed and hands withdraw near285; exact release times and sliding contact are uncertain. All attraction is disabled."
+    },
+    {
+      "phase": "released_clear",
+      "first": 290,
+      "last": 359,
+      "anchor_weight": 0.0,
+      "eligible_sides": [],
+      "state": "inactive",
+      "constraint_type": "no_contact",
+      "evidence": "Inspected RGB290/300/330/359 shows hands separated from the resting object."
+    }
+  ],
+  "depth_gauge_interval_inclusive": [
+    90,
+    230
+  ],
+  "depth_gauge_frame_policy": "Root-frozen object preparation uses only original SAM native wrists on frame IDs not divisible by5 within90..230; body geometry and depth remain estimates. This is not an independently calibrated object scale.",
+  "manual_phase_weight_semantics": "The active phase weight1 is multiplied by the existing8-frame boundary ramp and the fixed object-pose reliability gate. Root-frozen global contact anchor weight.01 and tip-penetration proxy weight.005 remain separate.",
+  "limitations": [
+    "Specific fingertip contact identities and surface anchor locations are not observed through occlusion.",
+    "A soft object-local anchor is an engineering prior; no-slip and constant contact correspondences throughout carrying are unverified. Do not interpret this label as an instruction to clamp every finger.",
+    "Only preexisting near-surface eligible tips may be admitted under a separately frozen geometric gate; no new image observations are created.",
+    "Current MHR human and object share estimated camera/relative-scale gauge; physical metric scale and hidden geometry remain unaccepted.",
+    "Phase annotation is shared reconstruction evidence, not independent ground truth or official challenge scoring data.",
+    "The solver must keep exactly the same native mutable-variable mask in A andB; lack of MP support is not measured physical occlusion."
+  ],
+  "quality_accepted": false,
+  "official_scores_available": false,
+  "all30_execution_authorized": false
+}

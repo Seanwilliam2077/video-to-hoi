@@ -1,0 +1,241 @@
+{
+  "recorded_at": "2026-10-31T12:55:24.655119+00:00",
+  "reviewer": "Codex contact_ab_protocol independent source/evaluation/static reviewer",
+  "track": 1,
+  "episode": 16,
+  "review_mode": "Actual image-tool inspection of saved JPEGs. No continuous playback or physical hidden-contact correctness is claimed.",
+  "primary_closeup_fixed_sample_ids": [
+    0,
+    40,
+    60,
+    70,
+    75,
+    90,
+    110,
+    120,
+    180,
+    210,
+    240,
+    250,
+    251,
+    260,
+    280,
+    285,
+    287,
+    290,
+    308,
+    359
+  ],
+  "primary_closeup_images_actually_viewed": 20,
+  "context_images_actually_viewed": 10,
+  "required_context_ids": [
+    90,
+    120,
+    250,
+    285
+  ],
+  "unique_original_frame_ids_across_both_views": 20,
+  "actual_image_views": [
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 0,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000000.jpg",
+      "sha256": "02c92af6465e285fc5bf30ead8ac4a48c5dfe9d2aed11a7b4c98da5173a4a6b3"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 40,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000040.jpg",
+      "sha256": "b4bc986fc86f1e6b1782375c25090bada05a9fb50aef9eb79fd4e4214c37f6cc"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 60,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000060.jpg",
+      "sha256": "1374d912de14c14e5a7c8974f62e203dbc7cef1dae5e695dda4ae7b0377e2b4a"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 70,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000070.jpg",
+      "sha256": "5c4a13341c09220011ef995e7ef16347e9d9615c81614561032ce72faa2125e6"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 75,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000075.jpg",
+      "sha256": "94f090bf82683c3a7c680713aea1a3e4d0cad06f31aefe7cc3e23b3ab708b32e"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 90,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000090.jpg",
+      "sha256": "0864c6f7fe0111fc6a9afea4a9bcb71df522d93904b3db2372b9317f7c59b58e"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 110,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000110.jpg",
+      "sha256": "cb4e2c49ca0be437b1bb2ebee62580c495190a0cb704cb7653cffab392678119"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 120,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000120.jpg",
+      "sha256": "214b94f474565afa4e322e8805a37fe271d899989830618fe1e73d79c951d69e"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 180,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000180.jpg",
+      "sha256": "abe15284d2506e814e2da0fd90293f149b5dc6b7540520b989f637886bc97eb4"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 210,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000210.jpg",
+      "sha256": "f3e570cd65ea3195aa19554d3b186021fc53c745e41ad41545641144f386a829"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 240,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000240.jpg",
+      "sha256": "6888673175a69d1e6e0b0e1aa6f534f4fc7cd2197bb0fbaed63d43603c8d8d06"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 250,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000250.jpg",
+      "sha256": "e31e0cc6b929cf29495ad07fbb7e00c464581a87c528f0c9c5282bf71ca764e7"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 251,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000251.jpg",
+      "sha256": "746b9980f5d32f1074b12ccd74330fbf85038db2fc3c4abf83cfc55c189a8447"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 260,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000260.jpg",
+      "sha256": "d79c61b7473adae0a5cab47849a8035d3e9061c98b6ee39173b60b4e64bcb0db"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 280,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000280.jpg",
+      "sha256": "9713600fb9b42cf632c14f4bbd9bbfe86165d4f383d122c0e631be59686385f0"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 285,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000285.jpg",
+      "sha256": "3d5ee54ac7caa8caf9b02504a64081121117c693d8fc356799b9007afd9b56bd"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 287,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000287.jpg",
+      "sha256": "436de5eb79b0c84379262af845ecf9c15d9c6d12167fd90de63744f93e84ddc3"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 290,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000290.jpg",
+      "sha256": "64dfaed055e079bf54cb3e68f95480852b518774e2e20de0f40d7c34ab8dd625"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 308,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000308.jpg",
+      "sha256": "9a12d87374ce5264a994d0bf675b3830b4a9e6fe268a8a5faa9c124c399792cf"
+    },
+    {
+      "review": "review-closeup02",
+      "original_frame_id": 359,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02\\frames\\contact-000359.jpg",
+      "sha256": "a779406d353e238468d5bc104a2cdacd952ed75cd59c48034cf31633d1fd0d40"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 0,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000000.jpg",
+      "sha256": "9b7006163f5cb4c2a81e9413f4c60241ec2ef4b428e9622f782ff66fdd858e78"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 40,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000040.jpg",
+      "sha256": "37ca2d93c8003f58a5838584e35b61b4852db68ecc9db44619faff02334b0258"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 60,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000060.jpg",
+      "sha256": "40da9307db1d18c9068064b70d040bbdb9ef603e482b34ee3a8ca9ac0a2800b9"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 70,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000070.jpg",
+      "sha256": "b1f74ae54e63c4c4e1f761242c541ef3d57a01b24c8652cb03fe152770a8363d"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 75,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000075.jpg",
+      "sha256": "ec10761ce7531d39bfda496af5378afc0121acf7665a07df63807ec82e80d5ab"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 90,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000090.jpg",
+      "sha256": "f05ab6f432e8148d48983825a965a735d3b49201aa91d0f851b1b2185764b453"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 110,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000110.jpg",
+      "sha256": "989cccc4ea884c1ed97510b0037b5c7de45c1248220f2c06ea3410f30e26870f"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 120,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000120.jpg",
+      "sha256": "43b9be07ba155aea781f15dd52d53a9c864f3b7d11162c84efa941defc0b0c70"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 250,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000250.jpg",
+      "sha256": "f7195932b5d7fdfe232a6f425c464a8479161cf2e886cf483dc29a8c66a48bf4"
+    },
+    {
+      "review": "review02",
+      "original_frame_id": 285,
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02\\frames\\contact-000285.jpg",
+      "sha256": "fb45dc8b55212339f6d344ec574b77f58689031c85ee612931a445a1daadd32a"
+    }
+  ],
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "evaluation_sha256": "e22fa40432eb1cf89a0a8f76038509b7139c43af69e25be322998c58fcdc31fc",
+  "context_video_receipt_sha256": "140ecf9414d419f0605cd619952b066cf3b28f3741575856bc2eabca2f8393e6",
+  "closeup_video_receipt_sha256": "f820c3542d1da633d5bd6c8fdbd6a61faea344c40d98562d64489b9a850207e8",
+  "findings": [
+    "Both display variants consistently show sourceRGB/A(no contact)/B(manual-phase contact), using shared source cameras/object geometry and the same display ROI for both methods. Closeup makes finger differences more visible while context retains the whole scene.",
+    "The sampled carrying frames show small A/B changes, mainly in the supported right hand; no clear grasp-fidelity superiority of B is established from these source comparisons.",
+    "The far/left hand is frequently hidden by the estimated orange object. Its129 usable-carry finger states are frozen in both variants; static appearance cannot demonstrate recovered hidden articulation. A depth-tested overlay can conceal an estimated hand inside the estimated object, so the independent skin-depth conflict must remain in the conclusion.",
+    "At110 and210 sourceRGB still shows carrying while the caption says attractionOFF. This is object-pose uncertainty abstention, not a physical release label or a missing prediction.",
+    "At250/251 the admission switch is visible without an obvious large static pose discontinuity in the adjacent rendered pair; this one pair does not override the full-clip motion-guard failures.",
+    "The sampled285/287/290 sequence shows hands opening/withdrawing in both methods, without an obvious new B-only lock at this display resolution. Exact release timing and hidden finger positions remain unverified.",
+    "Neither lower anchor residuals nor visual mesh overlap confirms correct contact, penetration truth, calibrated scale or competition scores.",
+    "The independent numerical evaluation still fails11 supported finger-motion edges,14 supported wrist-motion edges and the fixed usable-carry right worst-skin nonregression guard(+2.246mm vs+2mm limit)."
+  ],
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "scale_accepted": false,
+  "official_score_available": false,
+  "contact_model_training_started": false,
+  "episode11_execution_started": false,
+  "all30_execution_authorized": false
+}

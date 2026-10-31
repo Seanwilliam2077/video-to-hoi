@@ -1,0 +1,37 @@
+{
+  "recorded_at": "2026-10-31T12:30:57.002559+00:00",
+  "source_root": "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi",
+  "files": [
+    {
+      "path": "src/v2hoi/__init__.py",
+      "bytes": 79,
+      "sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda"
+    },
+    {
+      "path": "src/v2hoi/human_result.py",
+      "bytes": 19808,
+      "sha256": "d2074d2c139c996bca9abeb4fbb585d63f76a17bfae59ae456968e2ab8a4e5c2"
+    },
+    {
+      "path": "src/v2hoi/hand_contact.py",
+      "bytes": 20472,
+      "sha256": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b"
+    },
+    {
+      "path": "tools/evaluate_contact_ab.py",
+      "bytes": 31026,
+      "sha256": "94a60410753c5fd41bbb44e97c26bc2938b3fa67f6e3c3c1022c68f7dd2a92fb"
+    },
+    {
+      "path": "tools/evaluate_human_hand_pilots.py",
+      "bytes": 33495,
+      "sha256": "11f77eb336c4be64b37ae8be3e572e59efb6f6561c957e99216214457781ef8d"
+    },
+    {
+      "path": "tools/evaluate_refined_egohand_pilots.py",
+      "bytes": 30800,
+      "sha256": "6b57adf0903c165fdb99fd1fccb1567c40b6c8a045d55b62ff579e27058e3c12"
+    }
+  ],
+  "scope": "evaluation-runtime02 revision02; firstattemptsources unchanged"
+}

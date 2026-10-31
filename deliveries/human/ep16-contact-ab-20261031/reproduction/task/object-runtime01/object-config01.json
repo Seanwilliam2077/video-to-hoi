@@ -1,0 +1,3049 @@
+{
+  "recorded_at": "2026-10-31T12:07:10.512777+00:00",
+  "track": 1,
+  "episode": 16,
+  "frames": 360,
+  "fps": 30,
+  "video": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+  "video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "masks": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full",
+  "masks_report_sha256": "5c162524164adc38b8ade7dcec82603e40416d046aefc826e86954c23eaa0ab7",
+  "camera_intrinsics": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays\\camera_intrinsics.npy",
+  "camera_intrinsics_sha256": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919",
+  "camera_matrix": [
+    [
+      818.745849609375,
+      0.0,
+      767.5
+    ],
+    [
+      0.0,
+      818.745849609375,
+      575.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "human_native_baseline": "J:/video-to-hoi/runs/human-all30-20261021/episode_000016/baseline/attempt-0001/episode_000016_human.npz",
+  "human_native_baseline_sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777",
+  "human_joints": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\review_arrays\\joints_3d.npy",
+  "human_joints_sha256": "64a57fc42b5c58b3520020c1ba3075f696c54abd7452a6114b3173fe2671f459",
+  "depth_anchor_m": 2.879471778869629,
+  "depth_gauge_frames": [
+    91,
+    92,
+    93,
+    94,
+    96,
+    97,
+    98,
+    99,
+    101,
+    102,
+    103,
+    104,
+    106,
+    107,
+    108,
+    109,
+    111,
+    112,
+    113,
+    114,
+    116,
+    117,
+    118,
+    119,
+    121,
+    122,
+    123,
+    124,
+    126,
+    127,
+    128,
+    129,
+    131,
+    132,
+    133,
+    134,
+    136,
+    137,
+    138,
+    139,
+    141,
+    142,
+    143,
+    144,
+    146,
+    147,
+    148,
+    149,
+    151,
+    152,
+    153,
+    154,
+    156,
+    157,
+    158,
+    159,
+    161,
+    162,
+    163,
+    164,
+    166,
+    167,
+    168,
+    169,
+    171,
+    172,
+    173,
+    174,
+    176,
+    177,
+    178,
+    179,
+    181,
+    182,
+    183,
+    184,
+    186,
+    187,
+    188,
+    189,
+    191,
+    192,
+    193,
+    194,
+    196,
+    197,
+    198,
+    199,
+    201,
+    202,
+    203,
+    204,
+    206,
+    207,
+    208,
+    209,
+    211,
+    212,
+    213,
+    214,
+    216,
+    217,
+    218,
+    219,
+    221,
+    222,
+    223,
+    224,
+    226,
+    227,
+    228,
+    229
+  ],
+  "depth_gauge_joints": [
+    42,
+    78
+  ],
+  "depth_gauge_policy": "Original fixed SAM native wrists, RGB-reviewed stable carry90..230inclusive excluding everyfifth originalframe, pooledmedian. No A/B output/contact-residual tuning. Object-center\u2248wrist-depth is an explicit uncertain monocular gauge assumption.",
+  "depth_gauge_wrist_dispersion_p05_p95_m": [
+    2.810602581501007,
+    2.9467341899871826
+  ],
+  "shape_family": "rounded_cube_n16",
+  "shape_family_lineage": "J:\\video-to-hoi\\work\\human-hand-round2\\object\\EXPERIMENT.md",
+  "old_shape_report_sha256": "f55c3fe11462ab54a8ee48e8ff4d2e8772d6a3c078c420c284f2800d9a8b4e4e",
+  "old_camera_or_3D_reference_points_reused": false,
+  "object_static_scale": true,
+  "all30_execution_authorized": false,
+  "small_model_training_authorized": false,
+  "result_root": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031",
+  "object_initializer": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-initial01",
+  "mask_files": [
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000000.png",
+      "sha256": "f55eee020b0278e250227e1977160064f3bde2b9318f3759f4ba991194c10b30"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000001.png",
+      "sha256": "4a0de593147a3aa860451236d8bdd1dcefbb2f62ff3fc1693d590a9c0edb385c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000002.png",
+      "sha256": "2744aa4c839b69de00603ae0d063b9ea2898499248aee7d4f4ad568ce4ec30e0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000003.png",
+      "sha256": "3225f55d113b59b8e0b383831a9f1170acba3eb42c50f19e58151e14f2bf7797"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000004.png",
+      "sha256": "98b5fb45a4d4dbdad0233d4a381aa7951afc23f9b773939cdfa8fce26ff98d58"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000005.png",
+      "sha256": "a77a1c0f04a05a807f3b5d7752d12fc010a666f01affc7c7b2c32277e8900372"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000006.png",
+      "sha256": "7a94f3738f0b878b1c8f2cdf7abd3978471334449a474fdd7e63e696bf1ceec1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000007.png",
+      "sha256": "114fdc6d8c2fb7f9044cf0d35175b741f59f9938abd4bb9285847f2c00388e0d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000008.png",
+      "sha256": "e7fa9031522d32d23756526b8428bcbae8d53e71a2a4965024badb1fddc912d1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000009.png",
+      "sha256": "e1a9e0e2103c4a7b8d806fd596e1002ae7c8a97945101d0252f71f214c754f25"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000010.png",
+      "sha256": "22d7755434636a22777635ebafff129a33af2fc56b321df953f42524022a1537"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000011.png",
+      "sha256": "ed9fe07e5981f6c56bf0022a55c1fe2f66c4dffcae66efb209afd2468f2754d3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000012.png",
+      "sha256": "48f8699e503356d88030b1969401e81e7bbb6d068f77488cdf5d7391be7543a4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000013.png",
+      "sha256": "054e1663202c8cf1f6c17622c7e6936b8149dcd562f3367c8734e879e55e3ac5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000014.png",
+      "sha256": "2a59c54cbfc69aa693717517d293639fa4ddfdf9b0fa2fa7dd73a682f390e32a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000015.png",
+      "sha256": "fe025d32654c0b6c08cd23b63251e683536bd6c7988e3638be5be3e61a14c89b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000016.png",
+      "sha256": "fcc473b8a6b3bea6fc882b50879e4be9478259167fb813587195f88b9436f6a9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000017.png",
+      "sha256": "f57d6cb1d08c8814d38301064a4d639d8aac1927e4861c5c6ab8497fa9788fff"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000018.png",
+      "sha256": "3d908151e44ff875de3af68e29f59fbfe611e9a9cbadc07deb47d05cd4225635"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000019.png",
+      "sha256": "5448f8fe939677376444060b732cf83d0162a83eb4d2c1ba830225872c1c9ac0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000020.png",
+      "sha256": "f55053a83f2d52d5b284de48f5950ace5e4ef328c68cc126620ada5f40f40a21"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000021.png",
+      "sha256": "7a57c2edefa6dd981f148f9068976379959c0ed68f1289b30f5b0c52fb4ffba2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000022.png",
+      "sha256": "14f8a3922292e129180b1a58e49f89d940f13f02aa571155c9e90571a15b00c4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000023.png",
+      "sha256": "fe0fb1e8179d727c082dd33bc2c67c53b5217dc74eb75346c162d0900c709039"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000024.png",
+      "sha256": "c60e3c86fd6301c23af26162077a740896fd6b41a126cb12ad51ee03f260118b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000025.png",
+      "sha256": "8fceb5820ebf1833505c46df0aaea0d6d298aab5e4f9950448f12b7ee88fe69e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000026.png",
+      "sha256": "c453f9c517e2a59f80272fa880268bab23888350d66bda34ac7c5a50eacb0215"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000027.png",
+      "sha256": "427fe207f908828c8aa83e426cb430aa28cf5443ca39f7f7f7ea24d4e050d7c1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000028.png",
+      "sha256": "ee55bdc8036a68157cdd31d2ee5318a36cea907cd655332c6311eb258e672700"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000029.png",
+      "sha256": "f3ddaf3769b3b5382ca798eb73cf1f228b32e399c27ce9d7d570287183c99f40"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000030.png",
+      "sha256": "9d30b287d2d1de27a703de1dab490775b281bf66eca74288ec99cc4f7d22f4fa"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000031.png",
+      "sha256": "fec0e65cb198ebbf423fc2b3c693d3c06d05af968285ef9e2d1aeee6a0d15d9e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000032.png",
+      "sha256": "feb1924ea210a364b5ef1185dc32a886a4260bc7b2eb210585a33d1979aef5eb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000033.png",
+      "sha256": "bf9cbc88d0305b9891e53c857d81239a543e732ebce5e4a77a1b9720bcc0d1ca"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000034.png",
+      "sha256": "3121cd1d10ade985e1140a7ad5c36db1b87809c8f5bf2d3a3b0a628f724035d9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000035.png",
+      "sha256": "cb00f3e8dd3b6082d97b780afe3dcc9e6838d7dc3ad1923f4f41d12023844553"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000036.png",
+      "sha256": "f22c671ba7da980b3113556e0cc8c1a3e6dc1896878ce1cd2c1582a4ae19483f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000037.png",
+      "sha256": "9971a8de10497c6a2868d8efac3e0b1925a1db914a911177e25b23c8b5e59911"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000038.png",
+      "sha256": "6978967234748c57052597ab7b686d426312ad6ddac1116459c8a1ac86b61eb0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000039.png",
+      "sha256": "41a72c39777ad547b1c08285a88534f131f924a0cfd81118208f0a069289a7b5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000040.png",
+      "sha256": "a2e846ae2b0d8a6f12a90dacb7db6b480a2b0414d441cb28813e736d8a1b3207"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000041.png",
+      "sha256": "60ba4231513a8be63bc4d190ae3e540e1c3bdfcf97f9564a2d7e063bda0c0478"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000042.png",
+      "sha256": "bd1e2c1e41abaeb6cdad58b6292a65da848bd512133989dc3043174c8cf1b023"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000043.png",
+      "sha256": "b8756e95b5583c3561abf64cd197d36b453f35f8f6806f495ce1a68beb4f014c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000044.png",
+      "sha256": "8544e3afb558e4e83006a010af5d705b84cfc5429403f98e90e25304e52f27a2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000045.png",
+      "sha256": "8f12b3ca45cf62810baf28f6420e16305e29da72edd8166cee24367893de413d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000046.png",
+      "sha256": "d93646f9a89bc5836241686f8968bce35006df9e15eeb0c64ef2dfd4b5609d9f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000047.png",
+      "sha256": "792b8c76ace51a2d98dfc3e143d6420050a07bdbbe46f91155e9ae2c3c60be81"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000048.png",
+      "sha256": "0ef76c1af8584d827206df67ab86ca69d79f2feeb3641b57dbf162f13384dc4a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000049.png",
+      "sha256": "74c0198a1fe10e69a19b6c5a90540754bdb491759ac822596377a4ec53c0513e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000050.png",
+      "sha256": "620e5a0cdb371275b3e95f0725cfc2817a8ada024975988c7ff13d3e02f8c58d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000051.png",
+      "sha256": "2c131163b98829da693d47099d677dfc0bb5adc98e6805c9db4c0cfd30158287"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000052.png",
+      "sha256": "f5f13072a92783f6c16d1f143329e48b2310bd03b156dc221febe4a4f48d43dc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000053.png",
+      "sha256": "95ef32c8fb1a76cbffa57219e76b55e8b215f712698f4722225b5c4c6de16e19"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000054.png",
+      "sha256": "e9eef278f93865968b1772f583445c625190c09aa0279fd2fad6a2ffed1f8aa3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000055.png",
+      "sha256": "90acd9eadf1ba18663779ea7534cb8a55d078e44932c01856a45c76e9c2263d7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000056.png",
+      "sha256": "5d7aaffa93901b3c41b99207b8b4da48e282c50142a880c1f8265460ebda7868"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000057.png",
+      "sha256": "4ea3e06cd6a6cebf0edbd239e004bbbbf2ef784361bee7b78a224aaaaab6be3c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000058.png",
+      "sha256": "4a2e18d3db3dd6fa2e68e8ea2f6085caeefcc88d2d10278f6c9c5575dc6177f9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000059.png",
+      "sha256": "f3611fee22ccb76c1dea55488c059c262dbc0a83801e0ec5a572f8d088862f4c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000060.png",
+      "sha256": "c6988a2256105cfeca93b500bb42dbefd2ff02cf45ffec2fa29f49132ebf6ac8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000061.png",
+      "sha256": "5d50c7bead46a68fc9be70f9a717aa4530c866deb4dc21111efe040706b3b56e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000062.png",
+      "sha256": "9a93bdb89ec1ad611598c26f0759584c146f378eabdd5d1e9aba39252d5a62bd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000063.png",
+      "sha256": "a4fd819cc10afe4f555f51211a80f5ff3de8368cef81c3694064987aadd9c5b7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000064.png",
+      "sha256": "8cad44951d2ea2d69a8d47cf1dced699758143ce5a30ec1a5567cf64b6d3bbd9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000065.png",
+      "sha256": "d7fd90bbf9f3a167b0e32bc3001f4b7f7307d273ca85c6babf1a9accd7b7c225"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000066.png",
+      "sha256": "331435a8dae6689e1541c1b9cefa860095fe7cf823c5982319b9fd6243109508"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000067.png",
+      "sha256": "ef95c5f793d3e7f635191a4e5e0cf27f712a89f6acd824c015174f6f5b1a45b6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000068.png",
+      "sha256": "77509e01b6a85991a49a8694f6ebfa955fd56cd497a4626ff78e70dca0995ef8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000069.png",
+      "sha256": "9a38b680096380b248d263809db784327db5bd1979a9544faf4e0cfa1441a805"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000070.png",
+      "sha256": "b9c2b7ffbaf9055e8a55c31e8d6f29781d02f5e964ee337c652a61a9174e10be"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000071.png",
+      "sha256": "4c7fcfb8ec0917d40dde27dee7cdde30d7d8e55dcfe36a5ed1e1a8035e76bd69"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000072.png",
+      "sha256": "1609b5194d5a49d22f7c8a048cfd8ce7395fbc7bdd927dc9a38f6eeaae692037"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000073.png",
+      "sha256": "2aa63d5d1c00d5b18f82f147162cdedba5c619178d9ccd94a8ac97e7b8eaded3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000074.png",
+      "sha256": "4b18ac04363f6dd7108f8ae9a4228a264dd08318a1657a9d3bb56df83752c50e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000075.png",
+      "sha256": "3524026992b6036cbc6b927a49a5ce5f1c7c32482f2609fed549d48a6720794a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000076.png",
+      "sha256": "5d9802c84c08ba1793491803c9803f1e76864a8daecf4a4b76b613f9d680b5e5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000077.png",
+      "sha256": "f88db092a4a3e648ffc76ac1223b5dda7cdf4aad2953812b0c7e8d22a75f4e30"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000078.png",
+      "sha256": "9b94a3d8573ba51d73197c32f91085bfac425c398c0ad38fdad8adb29c95cdcf"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000079.png",
+      "sha256": "b4f27f6f8fb7401983f8331bbfb65a7f08ab7f753dd989ec3c6be7ad6a9a9207"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000080.png",
+      "sha256": "82645e5442b2011dca4a79b028215644e88860f3ac742e7e96141373a7d19301"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000081.png",
+      "sha256": "f74d8b4accfe284789d3709c5bb7a0579e25194510e99d33a64db5596fac3fbe"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000082.png",
+      "sha256": "75e32f766133f00f35f9cd2b7091c47e54eaae7ad6a21dce00da569b516ebe3a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000083.png",
+      "sha256": "c005cab111b627a8dfb21f85a51064ec255a8455616beefa9b03614217c8be91"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000084.png",
+      "sha256": "9eda9379a734d9a6f97dec619054784f1de86a04c5a9222a736bc21bf1aa6cb0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000085.png",
+      "sha256": "875c8e979198953e8eac10fd4e7122cd74796f4c77e4886244b2efa01ea70de3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000086.png",
+      "sha256": "c54172af545e4d50808f51333285ce37da5e320c001609fdbeb66b96c90a254c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000087.png",
+      "sha256": "7437489e891250291e42e8a08fd6db8efaedcd95c820729245b10491237835c3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000088.png",
+      "sha256": "001bbef2476bdfd02e1600218df8ac8094c4b62387c8493de37ef8e57551e45a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000089.png",
+      "sha256": "fc4016a5f38ddc8dbad66c25f4d224392a3f3d32ffd100bbbe849a7c849294a8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000090.png",
+      "sha256": "2637af4526cc4252afdc854bfc12e58171cfd204fc1c14f336d3d44756fe1a09"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000091.png",
+      "sha256": "22e428c26d4659a4f781aa19d727cfc57750c5db96581279eaf80c276958a5ff"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000092.png",
+      "sha256": "df557a8b0a93694450dee5640d15ba3678a5983acb40c5488cca30c3b1bdd962"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000093.png",
+      "sha256": "735d9ec52230f8c316af8ae6323cf46dd3351e296a50fe8b7a3d0e1799d23ca7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000094.png",
+      "sha256": "742aa32855066a78134208823fcbbc510f4963bbd32d7f185f8abb28d9089416"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000095.png",
+      "sha256": "29088e076d9607c6a5a0acc31a324de3280bc3bd3b618022e452a3f57b658265"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000096.png",
+      "sha256": "3703c7ba0dc1950b41633dffa091f91bd1f823c1c3a937f593bcece9fa0e620b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000097.png",
+      "sha256": "3a0b3c0a2fe5e147aeb923c00629bec15db4e62442688c1ddaf994a492456f1f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000098.png",
+      "sha256": "a815d45ae121c615fffb7f92b5b61635efbaf2d81e699986342ce242656f7004"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000099.png",
+      "sha256": "8f477ee022352ba098f5e57f7408fc51caddcb3f0c6eb4d6561fb541821bf463"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000100.png",
+      "sha256": "a427d9cbe830cce3e0b160fc8a132c93408743b2a2b7e8e1d00e2fdd6f61792e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000101.png",
+      "sha256": "2b55aafd470389b12978593fe6263c34b10e02df4f90c7e5f642cb713447c6e9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000102.png",
+      "sha256": "6fdeeee7de67feeba235515699e173c15bd007b038bdc741c150109c2f6788b6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000103.png",
+      "sha256": "aab620df541aa74e14cf958a9ca3b91a3c34f8d3d5d1967b3f02423f2355bf42"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000104.png",
+      "sha256": "837c76fb8a56c8840c12e0b00f93483aa7c182f3ae933100c8350472988e287d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000105.png",
+      "sha256": "941c902f7a243570406dc9b3fdac695e6b4fcf6bc33ed42ebcb966d214472f1a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000106.png",
+      "sha256": "91662166b14a997e4545a215594daf5b34a75965f8c035dd3355d0f2f4ef869b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000107.png",
+      "sha256": "47e8dcce1769ef1ffb8f21f853efe2c77792ec2d683a081cb0aa9b4004aa1885"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000108.png",
+      "sha256": "53db21f6b23e8d82efca82f1f3e6f19ba933a10662924c98df789aa512052c3f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000109.png",
+      "sha256": "c49bf50a4a232d8e27f1e420c68bf23803a3189b80d007d5d1abdbbc73631761"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000110.png",
+      "sha256": "254db98d0520ba6d6d02c2cb988956490484a331ad1a2df3b3bbfe8b24645622"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000111.png",
+      "sha256": "15489fa1e3e67ba6a09bee6258a1731896c461d1ccbea4f19f69272f66fd3ef1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000112.png",
+      "sha256": "87821ce3594bab88a1ac9c576f88dd7d6836c3e1f0138ea90fdd1f4acd545a03"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000113.png",
+      "sha256": "fea79f542cd5a0c66f7f0faa6e938b2fabeaa5d64b89a45ec41308ce9d38dd15"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000114.png",
+      "sha256": "a91bb5a64f873db5635e0f0e572f3e6421f6707056364a68c7b86ca5e618713c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000115.png",
+      "sha256": "aff0e9f4b494755d8f789bec34418748140af360953d7074979bf5518b7a4005"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000116.png",
+      "sha256": "032aee0aebc036793f98e227883cebb74b2b8ba3d8a454bfe67e5b007e0bea86"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000117.png",
+      "sha256": "2f5aa1c594650966b8f88f2bf3c8467e1a5e9239d2998ff5ba9ee17d333bb313"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000118.png",
+      "sha256": "fbaff93baeac11393108526d16b683979485049a954ba69033c60a92933c05a1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000119.png",
+      "sha256": "e981d467e175c32c42fbed6aefd66d7e730b8fc8c0d9ee75ea81d4b35bc652f1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000120.png",
+      "sha256": "b5767da7af45e194c26b8bc983ef615e622330c52e18bc74545809fe6a16e432"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000121.png",
+      "sha256": "0f6aef1d05b67a04e69ae25d1efb9f0d41e6efa50d83ee3a96c6facd6f2c84db"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000122.png",
+      "sha256": "6226cae963ecc93d7dcdc6ec37eafa4ffd9306193b6731ffbf2928938f535af5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000123.png",
+      "sha256": "83303a27fc176b5866fff114eab8a3ae678a225d2d3d023f0c4fcee393b0a108"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000124.png",
+      "sha256": "034c2045a202fbc22c484bac54fa08f3d1da89864ba79e737b1ef1fbd9dc93de"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000125.png",
+      "sha256": "1c144d334a07917480f8c8c31046cbd67283b41b369d3386f9ac4a10ae866fa4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000126.png",
+      "sha256": "a46a9623165a8b4e02d532b41b7debd3b31a5954b7b518d264aba02d6c89446d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000127.png",
+      "sha256": "2509d02eaf0a35bbb4279fc9577368a6f471f84d133394a11d2c63b305fe617e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000128.png",
+      "sha256": "b4aac2ca9e45cf63fde83fd3df11c40154dc231254fffa1de8b6581ba625b401"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000129.png",
+      "sha256": "f865a5a879766ee31542dec8572d6e1084a4d1fb6af71b8b1e0e6d385c8321e6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000130.png",
+      "sha256": "a75170fb5a5d5904c3f55dcbf48bbb276a0b9b0cd25db340bdede023c03b2140"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000131.png",
+      "sha256": "6b9c7abe8029834aa802488b03d676707d6b11835f9080aed767644704b1e78f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000132.png",
+      "sha256": "ef5fc8713a2429d0bc71b6c0cf997c43470fe1b2c2308a2bc83b9974b8178e16"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000133.png",
+      "sha256": "bc7400fa5c2581261fdd7b150d9fd7674220b160892130d5be7f3bdd7eaa78b7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000134.png",
+      "sha256": "7547319a00ee183e082d0a9086d222361f21858f8d2dcbc0939d99cf32737825"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000135.png",
+      "sha256": "57d98bbe182ef097fcdb2c53bf7e3c8680255cd3b8cba0d999fffee1918ffdb5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000136.png",
+      "sha256": "2dc2a03649aa7aeab935cc606aa6b315bc5499b54ca2f0863cb248cccfd3c9d9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000137.png",
+      "sha256": "d88cf607aeaf83c83fc71668f6d5373dd0df15261fa81ce65953bc7bbf78cba2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000138.png",
+      "sha256": "ebfc9397917ba6873fa7dcb368fb9ffd35de650d7450462c90af995a0694cb96"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000139.png",
+      "sha256": "1187857de1490a54029328799612eea74b435f191be79ff1e5c0fb92bd683d6e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000140.png",
+      "sha256": "2646d81e66e01eb706c4ba34d95a0209aa592edc7ae38e214691a166285a28bc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000141.png",
+      "sha256": "0961af36b1b88e23574bd2399c4f5a8bc08769a2d353573fa379025f42119595"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000142.png",
+      "sha256": "0dda451a638e6c2cbca896e94f512089cbd4d8ff3742610e531cf17b3bef4f52"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000143.png",
+      "sha256": "16bf6045daeae24454ee3e91bae531f471331370ea0f1852c76c40e2307878e6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000144.png",
+      "sha256": "572b59d5cf36e990144700951d3e04dd56dd0e531ef4762c50cd7e520956e8d9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000145.png",
+      "sha256": "77cc0d04ae76450447686afabf4818c5fc96ace2d38a7080b40c50c5c01cfb88"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000146.png",
+      "sha256": "b4a7544c1a12ba0e560c14274739e66eb17f907add53ede34daa1a57d4b31bff"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000147.png",
+      "sha256": "fec2ffe52ed55ee9b2de7e1f78a77d460b91815b96ffd112089a4cc546db4c3c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000148.png",
+      "sha256": "d97e418cc592882961720bf368477fe9708103dee37371847dcc59831e54ec7f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000149.png",
+      "sha256": "ec1e74ac8a8cb6310cce5d271ee627f2d55fe444860b3d77279eecc3cdc7cbfd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000150.png",
+      "sha256": "eb4159a236806221b40db5eec1591b3f84320d456f0e9820400c8c588975f991"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000151.png",
+      "sha256": "a545f0ffca5382e95a19d19a7cdbf4951cdd465b0f5557fb7e77c965a5c768fb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000152.png",
+      "sha256": "e1e13f387e8bcfc2af34977f279a4547aaa4fe9ebc614bb0ab03ec38ca03ae83"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000153.png",
+      "sha256": "ae0e9ca0080a90dca9c137a17cdc427590b874ff8966986d28708b219c465233"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000154.png",
+      "sha256": "11f4e9148f87fdfff7b1b4ef7041c053dac5f35b5ac2067a2dcfee6628d04256"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000155.png",
+      "sha256": "f2c5fefd087d169c9647f6de0d6d03c242082d3ea9af16731f3c23a9568615d2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000156.png",
+      "sha256": "0744e877dece3b91364ee5230478a3cf85f70f5846bfeb8cd8eae8fcc2a73458"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000157.png",
+      "sha256": "c3a5960156643593b0a045814339658173c6a4b788b707945dffbd0ee663aa6e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000158.png",
+      "sha256": "ad3161100586bdde95d6a8ceda187033d8e2f29190deaff2062eb7561e6d3be6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000159.png",
+      "sha256": "d9a688880c2ef901ad921944f4f0406ae2f1e247057bd2f52c57ac56b90733e6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000160.png",
+      "sha256": "ede626665568d6aaab98f4d744ec89c7810d7794249b390e953ce2ad6b2dde4e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000161.png",
+      "sha256": "322a3c8035aa985d52b34bbaf12854928f31d2b32b01eae2564fd7be21b4bbfb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000162.png",
+      "sha256": "46e64f42926943689e72e77ca22b901def5012d590402c5ff79950d45188950e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000163.png",
+      "sha256": "f1b8cf972b0a2e1c3603718202f3ecf341ded6398ddd9d07f2df790cfac3615a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000164.png",
+      "sha256": "81ddf72769f9e61abbb2e2ea62bc5154f8ea54dbf0ae3835d847a948b3e58ba6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000165.png",
+      "sha256": "4185de6984cb0dcface836f2000c20fffd55bfc6e42581facbc172553fbff0db"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000166.png",
+      "sha256": "2f9c3fb4856de8606be36f722b9a0d8243ddcaa69b83aa5400c1dbdb573dae60"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000167.png",
+      "sha256": "a9e1110a0d15fc2b050e841fe5ab5f30adfa04b10edd97c5441f7b6b4164e245"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000168.png",
+      "sha256": "b11d37ef77abb0b862388f2bd354151ee070d7efc363f20ed5201667114be603"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000169.png",
+      "sha256": "211009263882048c4d6d473b8271f1389cb0f9da47e4ffb1321cb080420cfd40"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000170.png",
+      "sha256": "ae0ba7cbb5c6770dcbe95254c57dcb73e38c0995321b4d42ce4f6fb16a7a85ee"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000171.png",
+      "sha256": "18bafda69d3ee195425ce76f04a2111df5c7da812e06f3282801ed507db88330"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000172.png",
+      "sha256": "e7d91eee78e54f0e4d97b61ef745552197f4eb675d1f06bf077b150bb984b0dd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000173.png",
+      "sha256": "05c873dd586b4329b8fc22bc7a68e045a4c4569d398c08d8b4cd1b07e720216e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000174.png",
+      "sha256": "8acb20bf50a709eeceb28bc3f1a87b0d4c5e169a1028e3a0c9e54ba980cea735"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000175.png",
+      "sha256": "e39695dc4306e6611f0f3e0cd923d898f01672c759513ad99de21c1b5c8ec927"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000176.png",
+      "sha256": "8f1219f015983a65c4a65a087d71e2b48ad3311ac2e556237a289a9d2a609104"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000177.png",
+      "sha256": "120651ac76f20d9bd8395c90d7e578ee6d8994a345ddb7b56088f7a993d6f43a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000178.png",
+      "sha256": "35ef32825d9c8019b4aba876dbafa36ca381064aff0f9732a68bed6d709a190f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000179.png",
+      "sha256": "6653e304038857c293ea9d7f06239a7fa57939dced0ac8d532ec958d8baab1e4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000180.png",
+      "sha256": "81ca4e0847ca01aa19904f031d9216d5980c216ed2078eda26adc66b6157daca"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000181.png",
+      "sha256": "261bdd0e62647afc52528c12ebf69eb909f8d0d4749a48ce236b16d6c48009ad"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000182.png",
+      "sha256": "d70d2b120d125ae7aa9294c7e41a81b0972a77cbe43d2e25ebd681af3435ed91"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000183.png",
+      "sha256": "a4e8037af4d3c4a3ccbc0b46d5dc6264e550e4a6b6d4980191228a80e1d77130"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000184.png",
+      "sha256": "0c5761d78a533f457ae915d89390a8f3a38a5a31a07176f33c6a204d0372a234"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000185.png",
+      "sha256": "56718a69499aecbc1305d858416130ad5419c58c040ece3ae8b0b643e3e30eda"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000186.png",
+      "sha256": "55caa4ea5cf225527423dbf4c7cea68067f6a93a280947a7bac9347965632114"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000187.png",
+      "sha256": "91afd60a3a53888a2800c43404aa191b1ff9b4b8791593f87a1b678b7969692e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000188.png",
+      "sha256": "09df166a46e77cbb0fffbc3479325386cabc0e240634752bcfc7cf52053f6b12"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000189.png",
+      "sha256": "23089f4d447d25f219cd3e9e25f0472cb8d94a0a7eb0dc969a9bab7cc76de6ca"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000190.png",
+      "sha256": "420c7a5fceba350024ecf23264abd2fb78404f6146dcd0323a61a1b0e3d3bd30"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000191.png",
+      "sha256": "d8b16497b491e0d63671973a020cf8901dcfbdf54fae3738d8e2da2fcb923341"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000192.png",
+      "sha256": "43b8f99a4adbfabc036adfaa3c5f215de4ae38802a6ae681c386cace7f822d12"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000193.png",
+      "sha256": "8170624b92b16cf803bccc1d8dbf01512388b465775eb52e8099c0001b87febb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000194.png",
+      "sha256": "cda20810d57c728102884ae0bf9d5065a58bd2a47376df586a68b2392a48da57"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000195.png",
+      "sha256": "6a32a849a56ab4ebb8928219f8180040b4929127332d237a222f4246648d88b8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000196.png",
+      "sha256": "6a870318947653b8ea81f8764f14d3eacfe0ac8e521be079f2bb6d2778a72f42"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000197.png",
+      "sha256": "dde0c7a3d9b3529c2f68ea565594d216b761cc0e612ea38b7cc6b5adf58b10e0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000198.png",
+      "sha256": "65dd8ecab72fa6810d80229464014735cc31b5c874cc015cb340c8fa7c55f780"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000199.png",
+      "sha256": "f70b653e8fc5771ea4182b42a5cccab5d24b6ef0ce4d349fc1167caab0aa9e5b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000200.png",
+      "sha256": "8316f071d813b949b805ac6a7d7e869ee7ee60d2dce5c09a48c1e2ece6cac93e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000201.png",
+      "sha256": "a9f7f106e599233ab571b9389c28ad8043886af8fdad1cb7e3b237e55d64ee72"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000202.png",
+      "sha256": "6c3593a3c4c0d707a036706e523bc0160826288db8207143c1621659f7f1523f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000203.png",
+      "sha256": "ea179f1b65c8ef2cc25e018c6c270acc857d263553cabdf36a94d7651fc1d8b6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000204.png",
+      "sha256": "be0a6ffda27bfac1fc521eabfe1dcd38230173f19c853e6ddba32e05b6e17d9d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000205.png",
+      "sha256": "c9dc025148a764b2219c5a0b0373cec4ef0b3e0063ff22460cdc0b7d595725c3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000206.png",
+      "sha256": "8bc624b9007bc858815c6b890d8d19e74570f84720689b7fd82ebfba8bdb5cb2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000207.png",
+      "sha256": "800d9cd80fa310d93c51b80cd1f1e175487c1466f52f65cd487ff309b3d56d22"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000208.png",
+      "sha256": "7b35a208f9107984067c8b77d687b2edfc002fe2e485aea0911ce4b0d5c74cb6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000209.png",
+      "sha256": "767ce52d76894569bd61682f9244d29ea3a790845ecf552afc4cfc7fe8eb8523"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000210.png",
+      "sha256": "ce9ecb81dd7abdd10303f1e7132a610b478722f9a8eee12cd912f0d3e54af72f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000211.png",
+      "sha256": "2c5956fc4ff121d1376c1fdb94e32f03cbc31a71b7678c1efc9c5ba35412987c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000212.png",
+      "sha256": "ded2bc8b2c8286b5d3ff66ca0d2be3cbad4eec89f8026911279c7ec0bcb5333a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000213.png",
+      "sha256": "43fb74178b9eebf84a1f2702f6bea37818376ee807aae7ceffdaec3ed2015b24"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000214.png",
+      "sha256": "f54fc4ff447af08c8be6cd342ba3c4d8603a930b40f3f1b59855aeeff663d746"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000215.png",
+      "sha256": "dad214a4aee09eb35155690bdce18d08ce1cdb03bc057c5764eba9cc33509cad"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000216.png",
+      "sha256": "c16e62f433d43e17e8774c69376f84644b483c40eb0a412440b18e8c8c380b68"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000217.png",
+      "sha256": "4fa1ddcda0834e806db066e559817138673de9833595d0e42f5402d1178e4e96"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000218.png",
+      "sha256": "20956a2aae1ed334e3c75f832a40ecbab72a4741cd38fe557e5cae69e35f8d81"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000219.png",
+      "sha256": "58e1809fd2a4a9203f4849f1c045fc16b3a0b517a82579e6d00a9b34faf244d8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000220.png",
+      "sha256": "02a4e82d5ba2717faba0a37b97b6ee40411879a74396dec533e8d983dc267665"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000221.png",
+      "sha256": "44a6d4b5d061583b263693503a92ac32bd92cb3ab1f758e802e7fe826040aea4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000222.png",
+      "sha256": "e5330b4fb92e7ef70a18850dfe0a78b609ac2f39934e3317e857ef17e0fd9e0a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000223.png",
+      "sha256": "e4d7052aef5b337b013274f6e0365c0d9582aefb10fb4223ab8e17771338f168"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000224.png",
+      "sha256": "1ea95bd5b2d03d361dad2a0952b4e66694c854184df972d1459ab7d1e0501fa5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000225.png",
+      "sha256": "e007b7419e9ff30427283e78fc0a04dc4a503c42997f1dbdd4082dd890b58596"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000226.png",
+      "sha256": "7f640e1031ba8dddddaffbe5897d728b9f16bb80a5331273e69b36d4377ab060"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000227.png",
+      "sha256": "75a2ccbe78f68da5e2adea4a88bd5e240ba75e3939486051d320b7da79073cee"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000228.png",
+      "sha256": "2b09bbf6f9eee0d3078d2acc92237f85a7b84916402bb8beb142034098237d22"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000229.png",
+      "sha256": "a1aea04f1b5ae16061ccbadef58a8adfde13272578da8f44f12ee34aa8a15c7e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000230.png",
+      "sha256": "8f4eb0190fe0ed380183d5cf6a23d1eea12cceb587633e26b0d409f47699a023"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000231.png",
+      "sha256": "a4160923e70e362ba650d7d01fbb5f626940d09dbe9bbf24bb6427ea1288e7ab"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000232.png",
+      "sha256": "e31c4e6c13dcf8ff01ffc47d6ee970d92af3ae05544d342494c2d1b0deb5eb6b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000233.png",
+      "sha256": "f594513f9375a8ae6a9c41e3a533c418eae20145e06b1fb5d349cc23a2ca5ef8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000234.png",
+      "sha256": "8fca548c67a3e0f30a07a62a79877dc1c4b5a86a578779072fd3d5938f1582db"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000235.png",
+      "sha256": "05fc8f02dbe9c56070982e55b49ce8fd0bcd185407961c6a6d56310a86d89d4f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000236.png",
+      "sha256": "1f03d23ce8a0994920a8de238efcee004d7854b9a34cf786bb0290c490a51bc6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000237.png",
+      "sha256": "d0a070e9181effd228c941e385efec5327eec97c226a9386a63035141ab49813"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000238.png",
+      "sha256": "7e51a6be1c5cc8ca95b1512ac01de72f99aa7b3425f157b3909b733be5b96aee"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000239.png",
+      "sha256": "2b568f00f7bf22fc6372b1aa647183e0ea2676387ba8124caa447f44c25a56cd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000240.png",
+      "sha256": "4d9f61cb61eeff989d996c9a49bb178b74af0da1341d544cc285080bc4a37622"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000241.png",
+      "sha256": "0c03e3b25abfaab2df7b827c347f22c7fb9494a1a0da622f5a8cfb98232139ff"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000242.png",
+      "sha256": "e68500dcb828e7543e07d7575caf92be579a001ea07989af8da937ee6491a141"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000243.png",
+      "sha256": "cec65370681f78c172b178492811623a7d6ca66c7694c2878dd71efd35482e1f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000244.png",
+      "sha256": "e9ba72fa09e1a521036b763827027c3332c432d827550c14d69c70493cc8474e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000245.png",
+      "sha256": "e4e18589c80a6cdd9a116f4445fd4b42292a77e1640fa45bebadb23c6d46b8a3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000246.png",
+      "sha256": "91ab80dbce18a863d45e330a333d938c8308d10a9bd821289936ed01eb77f037"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000247.png",
+      "sha256": "89e7d2af2a6bdd835fbd7d822955b20e5e0705f6c87ac3dd585003b5eafb64f1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000248.png",
+      "sha256": "b5c110ca88904fda8d6adb2ca4a96f6dc347df9895dff8cc7f38c3f7750cf0a7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000249.png",
+      "sha256": "643803582e7a675a1ad655274e8d6dfe7cd471499627ef158056b67cbd013e0a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000250.png",
+      "sha256": "e63a13cbcec9b9ecf65b83e6eadcbbb54832e2a7101fc156f9f76b0ca4a3979f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000251.png",
+      "sha256": "bec3a6fa5ad80d68f4a377398f8e2d460c18f8bc623b8e35310689ceba906ce5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000252.png",
+      "sha256": "68d0726a708c7a616ae8dceb46068d676d23acbe40a125e3b2fd23292839ecea"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000253.png",
+      "sha256": "ba451f5e2d26bd327146092d3c54da5651db606c11bed5738fab2489430e17a4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000254.png",
+      "sha256": "003fa684579d3f1feafda0a910609614a543589b3286b2437c94a8f8992b22f6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000255.png",
+      "sha256": "b9dd35aa509dbf4f9e61afac9324b105e6d89d21bba22e8158c1c517cd731e11"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000256.png",
+      "sha256": "00972787a49da41fdffa2ad29715de047d5af5214ca9d6bc419c494919ad5fdd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000257.png",
+      "sha256": "42093c2e5354f2ea1a9b9799f9bc66b3233b416a6236af2de3d3c04013468b94"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000258.png",
+      "sha256": "f8e787b3e56352ee98a15bb3ea9e359821b337564a64be2f6a67b59b5efff0bc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000259.png",
+      "sha256": "284f78e0f6af89c707a5c4cb0d30285148a4c72d09b73a9dde7488a67e089cdb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000260.png",
+      "sha256": "29bb170feeaff75767339f06ea2f301937855c34539768a90d59433da0e49a1d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000261.png",
+      "sha256": "3cc9839be7dbebd97f6ac89fda553abc845a5fd9bb70254026e49b5ed1c277f8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000262.png",
+      "sha256": "115eee4353c696ce92264fbdee4eb58dcc64cad0c210e76fb3764c05c147e6bd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000263.png",
+      "sha256": "ef256c54a192bedfba82eef64efc8e9b312d05ba9b35fc7fbc3320b5cb1aaef8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000264.png",
+      "sha256": "74f406201a2b8741f7065f5bc269c4c4e2e25f2f8723f45e5f46499f3fc875b2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000265.png",
+      "sha256": "9916785ca82cd1039f921f62f90080cd705797ca908ef1e75a1330e301d4a92d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000266.png",
+      "sha256": "a3d27810617e78b9f4a3ce4c4024e9bf18b45b8c1f74f07088535518582e9912"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000267.png",
+      "sha256": "c75956b269470f262624361443a68a3fa22d1808122a1dd91a8ecd3a86905281"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000268.png",
+      "sha256": "9e746927a85bfb211435b1fa02fa21fa298d66b1beff6288e63d4cb218561d99"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000269.png",
+      "sha256": "94144a813c5402749cb44c46cfb6e9b67ac5aca9e17aabb3b4fae0e9a5385d74"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000270.png",
+      "sha256": "a192bc13c8001194237d887515a05bf69c26f61cc8c017917c06e536659417f8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000271.png",
+      "sha256": "cf32153d1b1595aa07111aa1db591f2d873269164fb8fd518e649e7e3848d21f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000272.png",
+      "sha256": "29402d0c5cd6ccf8c8bb3f669d77f10a315a8765ca46d337158a1603c03335eb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000273.png",
+      "sha256": "866865ed42bd9150af7af55768edfd178068bfc3e5959ea6c24045a6755c8467"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000274.png",
+      "sha256": "1b3f0f5610e201537a06c668a099981971a5a10ce21a5d45d1874fbbfb6ca7f6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000275.png",
+      "sha256": "64b479545a0b001d87f7e81a997df1708924e6396a89ce8b18fde06df875699f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000276.png",
+      "sha256": "c65cc69721a7541c05f189cdc5f111efe17fe62a5f33082e2cb26e0038f346b2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000277.png",
+      "sha256": "2385a14d3705f9b74570eda21cb7b202994f19e5bf4680908dbc84c1240cfd0f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000278.png",
+      "sha256": "ad75eb3dbc0029fbee8aba2db90a55c2425b05fd6bb74a425dc0ac79b25847a8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000279.png",
+      "sha256": "3d9256fe5de71fd8abd4fc2b2be2652ff8a9d80dfa55e722e61d2b42ff18b32c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000280.png",
+      "sha256": "b901f3ab88119b9a72e3f065b74fbcb130381f6be9762db108ab3c284df17c51"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000281.png",
+      "sha256": "654ee7fd4125478bd8e2e6c3843257003f7c41cdf192b86ea5c0657a0d0fbdeb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000282.png",
+      "sha256": "590885155e690c90ec2d10b1141a1fecf3399419c8da26284146205e30fd6fee"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000283.png",
+      "sha256": "3fe8ae84345faf99172f0352c7e220d8419b28fa6787c1ffd1f363a49a64a097"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000284.png",
+      "sha256": "0119602a3b1d5533fe305e40030127003225373e0f7d56ed77b58cb828edd31a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000285.png",
+      "sha256": "f22078395610574d13d062ab37ebb1a09ea61f103352e349a3fce74786d2ca38"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000286.png",
+      "sha256": "e1f5e2b4392b4519546692c72b761ef445ed2678effae67f081b869518714104"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000287.png",
+      "sha256": "5ba4fe0c4d1027b46da4d27cd8782240ed8c335f81e7beb3bc67124f745ef2c0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000288.png",
+      "sha256": "9b81fe3a5fa6c27e455a3ba3675caf07edcac5f85e1ad1167dde7e001075b9e4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000289.png",
+      "sha256": "33eb234ea1c32355373e04efc09b6060977bdbe81f3a0b72421463e8d9416947"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000290.png",
+      "sha256": "3d08a35c15d08af19c04848d30c894d8ea230a9d794d752c774ad1778f555b0a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000291.png",
+      "sha256": "73b1721426391a601c984605967ae2b972a7fe3b727b82035aca5a2a881fb161"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000292.png",
+      "sha256": "70dcf6071f4fe42efe970f9f9ccb4a4ec06fd45f6b902ff41a0ea504338a383a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000293.png",
+      "sha256": "f2fef8073462dbf1a144c4eeb2cfb068a3b86162030ae542ec484d0f6e45f0d2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000294.png",
+      "sha256": "7b07f9b635089e3e2ca401f615123df5613a7f7ccdf43dd20fb479d2433d466b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000295.png",
+      "sha256": "575cc2357c3d64a6a09bd8217f31469cf0389f8cbeb7a1d45632ea83af128ef8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000296.png",
+      "sha256": "e1fbbb0412e9759fbd46334f77f2a70d77d5f08fa5ff641711e7726de51ac243"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000297.png",
+      "sha256": "182091df05ab30107eaf8ccda04f85deb92f29b0e18c780473d5eb188c6c766f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000298.png",
+      "sha256": "d2b7b15202fa99cf2844c5afca49d0691e4576e3c6c1f0b6e1ff59fa552e4f29"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000299.png",
+      "sha256": "4bf423cb95511952b028180b4919b8a2301953434ff3ea95d072b1c912f0addb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000300.png",
+      "sha256": "060318cdde906edfa3d1bf9606f4c989c5a02eb38a18ea6ecc552718587aee0c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000301.png",
+      "sha256": "b0dfa3cad766e3f0e0aaa0cb1174c03086691692b5e771e3b63d41e216482719"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000302.png",
+      "sha256": "63432f0029e5f2b8811c3ff79da5205885313fb7a4e9ee75280d9d97082edb5d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000303.png",
+      "sha256": "0c3efdbd3189504c05af305fef06ebe407281b2bcc7f49af9222156c40a0a9aa"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000304.png",
+      "sha256": "ba50409248f2c0ed063cd92209abcbe8458acf19ba53aadb399dabbacff10a7d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000305.png",
+      "sha256": "284006bb83afbeba983ca1ffb9c227a030e76b8e9c87502a5e4607a71faaba54"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000306.png",
+      "sha256": "9050bcb0cc6ab4df4a4e28ce531652de7170a365ddaa7b3432b576f0d2845c9d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000307.png",
+      "sha256": "c60058530eb9323e0668421c70fc16348f5d081cfaa6f6200a8a1338aafd1f0d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000308.png",
+      "sha256": "a6c3371c3f619016d7556cc05c874fae92b4d38a8e2b550465bc0d816b7ea29b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000309.png",
+      "sha256": "bd90872d56b563f4154d55637f705c31d64425cb80ed6dc1a014588cca41b993"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000310.png",
+      "sha256": "26819f343c582601936096a4f571edb29f9a36a6e28deaafb44beb337ccb5d4f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000311.png",
+      "sha256": "ce0c911d0e711bfca59d7aaedcfaa5ff88b8c6ff462913d00d25ae1166198a0d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000312.png",
+      "sha256": "7f1004d1f4c9cc5b4ef9c97347fd71b82436591e9aa4fbc0e30bbbbbe4e9290f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000313.png",
+      "sha256": "6567912cdc2d9093a6a516d92d2a8de08f101497e74bb2376a8c2f70c90ad9b5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000314.png",
+      "sha256": "55f3f451ff9719168468340a0256727d46a998cc263566f3373e50486920bf9e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000315.png",
+      "sha256": "cd406737830e5a2463b25c4cdbc2d7c9c5d34d49d15f668d5eeef840ad994a11"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000316.png",
+      "sha256": "74ae27fc6cbad87591cc4def5ba3208e98d317028b1fdd21bbc089e2a32525e5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000317.png",
+      "sha256": "4898f45a1a2cdf22b85aad3f44c0ac9e213d47597c4b581460e2c88e128b8808"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000318.png",
+      "sha256": "2d091c0dc971d72d1de55ffa843fb7434f81b36b8cdac8e7ff5c3a6c6528b842"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000319.png",
+      "sha256": "16b499fd9d57bd7d985621cac560571154aea1c7ccf43ca2af5de959c6c2ff2d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000320.png",
+      "sha256": "90521eeb14971aa4333381e2da3f3039beade1cdf5303b5f9098299fe998b44d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000321.png",
+      "sha256": "4538ccd1e89fe2145a700769031c6815c3b68f49cd0309cbd37110353738c8f7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000322.png",
+      "sha256": "460b3652fe716563c4041b70017f0339888c0bcf1f2efc4c5ed360718b2d2727"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000323.png",
+      "sha256": "ec495012330fbd11a57e943e9bc694d7924e5a2e22e4fb359d1d68058cf3a798"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000324.png",
+      "sha256": "f455aad6dec8bb660e0a2f4d4189f90b1fa28176c4eae29d4fbdc7d2cade6133"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000325.png",
+      "sha256": "234dc694ba589ec9a636a47dcb97ae01c4f5a8b9a5f361571da7aaa6952db2fb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000326.png",
+      "sha256": "ef6003239fe26a8f72e7d19d663752e38c3795a502928c99a4d04b0ab6e9dc73"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000327.png",
+      "sha256": "aed34b16f34840d7a97e1a9c7c8c29e0603ce31cab4d4eca6f5dee48c782b457"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000328.png",
+      "sha256": "21e841579363ea6e94422be638c33a28e93e60273aa51f8033b5caa654d2426d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000329.png",
+      "sha256": "6d44893e45ea27640cbb0fff97d2f0cbae60600dff48e73f6129d59ae1e4642b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000330.png",
+      "sha256": "894fedfff32c7ccaad2d1bbbabe1bd186cfd31be823bb71234d3d004a398cda8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000331.png",
+      "sha256": "2897e3b70d6b2d20a501328643a5f533e25f9a94f78bea5a349cda5fb8663c77"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000332.png",
+      "sha256": "e4eb50f13039c23031da8bec5f40a4de020933d39bea01ef710a7ec00251956f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000333.png",
+      "sha256": "70d3cd53093e22989a15efd91fd980b8bf217f2fef220418ad11978fe4a9cbc6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000334.png",
+      "sha256": "a4d38c0eef63d010b8a16f07d5695f55cc574cebf4a699ba35ea565ee30f9d5b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000335.png",
+      "sha256": "3690b861e61aca3f63be204534e0fa7f54bfd9c57888b72451149ee1c1605750"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000336.png",
+      "sha256": "7d0be10cc3a1368338513c7d8c043cbe30932509c2abd2cec70da04425aafaee"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000337.png",
+      "sha256": "1220e3d50c0b441b1156ee778f851bfcd3bac488034122d5f53a23249816a69e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000338.png",
+      "sha256": "477c0df94b2300c06b40a68198cc302c08d459103c65b07b8c2ef3d40cdc0de3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000339.png",
+      "sha256": "590f7c760a00c1c8805cd27f0f727c3afb8115be2d47ee282a16dee73207a1c2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000340.png",
+      "sha256": "341719dc99a0529b8fcbec02bd7a921fd8bf563ec3ce65953c43c3a68b3466db"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000341.png",
+      "sha256": "d04e96fac93a69d0c8df14530b59a26aa144f0088764904c7cd64234ca6eff1c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000342.png",
+      "sha256": "12894ac5c2847faafbe699107f7f662bc0efd88ae4db06471b0926ae8d0ac4af"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000343.png",
+      "sha256": "883b2f64afb47472ee09ffe1c3c422ff30992d031cff347e800eb5c33989d523"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000344.png",
+      "sha256": "0c32ff4d01aae5134335e543208e76382f3f363b3abfba89b67965b6e79e7128"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000345.png",
+      "sha256": "31178f693987097a149071cc5c32bbd26326c81fb7f53953ade5df23f2f95865"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000346.png",
+      "sha256": "0bae4138f37034d2d583860749668bd2c6eb2c85b8cc82146c06df5b69981e01"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000347.png",
+      "sha256": "f2de943fce162fd34622782400d245189f3dcf89ceb2518736d107945e949ab9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000348.png",
+      "sha256": "d3e3dfa08279655540c53c9a423a9c6d12df8631e0d80972b6f5c5a2f5fa1bbb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000349.png",
+      "sha256": "cda94ea504d619a97bfe7c7e94ce3101a7f0e6261708043e6732a19e7b809489"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000350.png",
+      "sha256": "655507bf748dd26dfa369fd8acb8f98ee2075edbfd6467eaa0766e505135ff0c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000351.png",
+      "sha256": "88f1c3a65fb9ee8f42a52e5fc23e71aa3ff8f66476ba985e3fc9fbf7d09a34e3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000352.png",
+      "sha256": "57fe3af2e3ebc6b18bb03ed2212a9d5de506aa023484acbf7037f953bc13ddb2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000353.png",
+      "sha256": "990104b1555bc015eb29f2fc29aff82c7354603f3c6505c721afd0d6f5fc2133"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000354.png",
+      "sha256": "9f95fbdb2e51556e61a96ea3a16abe00a29da62a72951394ae309a7e4f5be77b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000355.png",
+      "sha256": "07ac3a5bcbbdde0fbc041990da6fff96cee4430be0491c6efb5164ae381bac5b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000356.png",
+      "sha256": "1c85a925a6002612bd4e165e8837918a5d2c1cb1e6404469a9c1e8846c453bd1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000357.png",
+      "sha256": "3c46b77813a2f69afc6a471a41bd3e69e8253762d70be364cf1e592a5b5cc177"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000358.png",
+      "sha256": "edb9bf68a0a9591efa9d2008041e8a79a4deb55d0652a1e2bbba0d5323acb21e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\object\\000359.png",
+      "sha256": "c2fa94c519364eaf8f7e4c5a12e10cd4292fd09f25fd7d5eef0df3c9e34f41af"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000000.png",
+      "sha256": "36bfbabf5981c5726992915de3e72e028c457b5c34d314ef672915d82b940dc1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000001.png",
+      "sha256": "5350f77138724343ecf0951319bb2bee509f8d28678ff651be02d32439b81066"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000002.png",
+      "sha256": "8b381425130a32cf09d8a3a8d6a4e0cffa766b6f3cf3683d3d1a1ee37e604e24"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000003.png",
+      "sha256": "e3dff198830b3f8e97ee2fb95ddd10812644483ce72f4a9d44696f326be97a3a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000004.png",
+      "sha256": "23cd27cb496a89817926f8553176e63db11928a420dabfd9a8806a7c36491102"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000005.png",
+      "sha256": "8d3ac042fc8e6acca3b9ebd12987f1814467b084213950cfedfb66a162944565"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000006.png",
+      "sha256": "6b6a781ff757f1e4bc14535d00f14a84e5dd95900882f82aba315c0f572aae37"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000007.png",
+      "sha256": "61dcbcb3a0549da391e8f13f6c49fe5b30a394c1f59629e4c1d0e636e775ba8d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000008.png",
+      "sha256": "74c0444f6148ca8345cc360d90bcaf4be594b361651fd029e38a8221de78af28"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000009.png",
+      "sha256": "2e7ca0bf73738c5bdce7fc5e53a37b6a72a66e4cf0fafd4aef4c1156e411fcef"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000010.png",
+      "sha256": "f4218ddf091e69a2a5c11d8a45a1b41fb364b47f7e200ba88721b40a1df93eef"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000011.png",
+      "sha256": "5e7fe19276710b1519101ef0ca48adb8868d80cc7a055f56b5c4ff2631f1e5b6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000012.png",
+      "sha256": "24ccf287533b1d095428d84e01acdfe101419cc2b8b0300f31295d4238a7aae8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000013.png",
+      "sha256": "8ec77d6dcf7a7bf2c6a859e86e96071a271a1ea32e15072e0de1f88891dd2e52"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000014.png",
+      "sha256": "609e92d669997896ba4be708db666cc9b22bd5afc9f932e9dc251fb0ed23b5f2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000015.png",
+      "sha256": "dd14edec5de94b6f9b0c5c524a6239ede7f614fcdb7ba856361cec1c2a4fc7aa"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000016.png",
+      "sha256": "8b37245cfa06671a3a35ab5b7082dd021fd388aeae1a44f9155e5961cfbe76b2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000017.png",
+      "sha256": "dd3860b821f54de5b54858d50e7d0e67da608250848a23af16e478810a19abe5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000018.png",
+      "sha256": "5aa0c8cb4e421da5ac54ba6ba9d8d53f775edf0a2c1d98b3ae399c6b1721ad37"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000019.png",
+      "sha256": "231d54f0f9bb117a2911c6c1f8b17a34c5c43d0c9de8a1f4297477864aa23e92"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000020.png",
+      "sha256": "4968f2ec7429e037ef2bd5ff69925bec7a270c6b42a7edf3ac1a5df38c79ffde"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000021.png",
+      "sha256": "cadb1bbc7e219eebb9c42c3baf30cd1e981c9a385f05829792a2a75bbb36d9ac"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000022.png",
+      "sha256": "80c6737ecaae0c48dcaf18029e03e4b235d014f56e561d1fed4373e18bb02e3a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000023.png",
+      "sha256": "2328cebbc1d9f769d8fa5b1afa043743e686f9950693e53e18d042f46c59a348"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000024.png",
+      "sha256": "d1d824ef43929881a689e80192d7bc8c2fb708ab9aa12f20d1a3f71e395e404b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000025.png",
+      "sha256": "341deee12e52863f632606c0350af5d38cbd26355b104ffb2e05c4fdf0f8ade2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000026.png",
+      "sha256": "b6e2f077ccbe1408cb8b24e3a113c826dc63f7ca667b75c347e9c92c6ac45d6f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000027.png",
+      "sha256": "ef1f0f19f6b89e86d9b99aa48b2dfd53ce18f64c679f5dc27276da20cb1125ce"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000028.png",
+      "sha256": "0b31f2f91d2154bf4bacb8153710ec3259d8583efeac47c661b8b41e5c97e526"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000029.png",
+      "sha256": "38e5792e526757163ec8a48851450315cf3ea34ad46e2453b9c09cc8ba69a7d7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000030.png",
+      "sha256": "f27656be59840048f489357c3eb7d3701b91705793db9a7381a2db4aa0cf8212"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000031.png",
+      "sha256": "d21ef7d1fe59f5abe4863a41c6a8d16f5705bedc44ee51e5cad8436c71ca09e1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000032.png",
+      "sha256": "8aff52f076702ed6d34a8f12b90d369ac49e55e46404ce7ec816a936aca4414c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000033.png",
+      "sha256": "3d2f77e3bacad06c7e78b603a762b1bd53b694facb0d6e021d60fad9deda9b0a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000034.png",
+      "sha256": "32693043bc11a7ba3f1105d45d2f9d79a648a7749822f200b91486bcd17bb7eb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000035.png",
+      "sha256": "875b0a91126baf5cff74eeda32e5bfc75e5711cc7b02b08f5d520a64ee18e39c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000036.png",
+      "sha256": "0fb36fd9a006b488e2918e31e76c97eb444e98aa5ed26702cff81688f23afaf9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000037.png",
+      "sha256": "67d8f3e6f6e0c57cc48dfd42dda85270336a86639b03370ad7539a25176417a3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000038.png",
+      "sha256": "69e19eec7882a53f78bb955fb2fddc231aa23d54998f2a394fc2b52aeb1a1cf8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000039.png",
+      "sha256": "615bed416ff33f29d9b36c694e41770f4dbdbee2e7f4c8654e2058827b3f5114"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000040.png",
+      "sha256": "1d868b9e73dfe57c873e83e0cdb9faeb56df51a7563c913a8ceb4801048f1505"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000041.png",
+      "sha256": "a0adbf425bf20b4804e6675e85b5a160192d9bb81528f4d767c12552c1205ad6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000042.png",
+      "sha256": "69270c814240e5cf3ca461c9172f5ea75e76a23d22ea7eb6af21cb5f4262cf88"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000043.png",
+      "sha256": "3dc691eee1223e572db8d6b1bbbfcb22093a2d21eab81ca95be04ac96eed7535"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000044.png",
+      "sha256": "8cf34ec5ef8168d3e509299eda1957d845d7dde4a921690ba33f05de83cee0d5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000045.png",
+      "sha256": "82254a6f291137635345b9454d42e7d128da4678adcc2ebac1fb5c07ae435d86"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000046.png",
+      "sha256": "cccb49c9ffd710e61355e5f9ccc2e713d9056e47fd929541f94f99a0494b11bc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000047.png",
+      "sha256": "30919591a41a7634a4e10b14ea01127438989a338b7fab9249278248418bf9ae"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000048.png",
+      "sha256": "74c0464d197ec0aee95e34465fa3e400121396b9672ed152c929df2a09cf3b17"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000049.png",
+      "sha256": "f3f1726586abed2e5bb705e0c1cd0891ab0d0e37b53f1927a7ba60d0e38ecf0e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000050.png",
+      "sha256": "d2e4ac25cba10ef19f76427e165a417e1d6ee2a9b2b1571716fc5805e37f58b3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000051.png",
+      "sha256": "2d2a886c936ad5bac128785a1a81e3b619684adc422035fe2a6a91cc8b0d7cb3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000052.png",
+      "sha256": "91c29d09d54741165d6055f60a6ace0c2d78ce89ef3969de9f598ee8f4a6c999"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000053.png",
+      "sha256": "7d1da00ee4f0563db7ed805e6eca0baf084f0dbc2067b2e8fb1d24bb8be25bf2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000054.png",
+      "sha256": "f238ee0c6cf6627a84b465cbc3d5975c99b40026ae00bf87195cc75122fb53f1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000055.png",
+      "sha256": "16b03e55041c33f2795664e0e3fd1208bbfc5f700a4421c049faf6e6486df9a0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000056.png",
+      "sha256": "50c982c59a948caa1e2ea0da5839d2b4e69304f3073bb4aa02984af91d3bc949"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000057.png",
+      "sha256": "6ae5b09ff1ab5d20149fab80c07a3ec38a7166f876d683373eb280f96f25c9bf"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000058.png",
+      "sha256": "68583d0ea11d3d7078ff0adb1c5c64d63aff1976df41b39112125980d5ea8352"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000059.png",
+      "sha256": "367e6d1f6154b757c5a7aee6a35b983bfefa549772e6080f339ea410ec7532c8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000060.png",
+      "sha256": "36db87ec4021880aa326070933d91e8c5203475b3c06041e443bcb38bea1199b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000061.png",
+      "sha256": "779eb28f70934e04e6da941efcaf132f1e49766b226577359f5c6cad92b6d0fd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000062.png",
+      "sha256": "63108b448234c8d3bcf93c539af8c7096b2289e8b5627fae1f2654cba5e8e7fd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000063.png",
+      "sha256": "3deebeda21aca48a8135a63207851858a19740998485c3e7818f46626d2af1b4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000064.png",
+      "sha256": "4056acccab4f9b05451274a358cc2f250c377f3065827efc4f6d002c8adb7523"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000065.png",
+      "sha256": "8fa0ee4d0913f332a6f329b51970d7170841b491b231086841c246beac6ecaab"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000066.png",
+      "sha256": "191860665eb82a5dfa3af84fcccb0c4d7267d4580011bc15dd434e36034aefd3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000067.png",
+      "sha256": "f7bc88b3c9facf372816bb17b25a3214dbdce6d852d6de851ada74d59159f9b7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000068.png",
+      "sha256": "7e2925e94e283e3c0a5ffdda7188ea987999e63fe38077a51ef237dd31298c61"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000069.png",
+      "sha256": "ccb243306b241876488330bc6b6149db88b1f2ffc8e90c65d3e6748192a333b3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000070.png",
+      "sha256": "7d1af955bff3d317b7106360d74ece338baea05ea52a1342c3161a672febc0f1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000071.png",
+      "sha256": "5d8f8aabbcbb62e1024c9f3a1df978e5d41b2a2d4bfd30a3c0bbdf0d2fc26f59"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000072.png",
+      "sha256": "0302bc68afc1c1d5b4c4af1c501d78ef1cb93720f894122bd0ec37f8abc5ea29"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000073.png",
+      "sha256": "822a6edfdee0d8b27dc087ee9ec977a3fd5669339a77d276eaff2ba31e74203f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000074.png",
+      "sha256": "d459b4f7fbb372673b6f50fcc814893f59b1472b6ba229db3162908badd10a4b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000075.png",
+      "sha256": "74340f8f2c5692636df33dbb2f4d8ae7da3cdbc15a38f6bd3b8ddb11424ff6c1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000076.png",
+      "sha256": "a251c835012c31f401d8013ed0e13fd09a32863e961fb2fdfa28f82b272b3617"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000077.png",
+      "sha256": "0eebf29a0c9d90644a2af2d52609c4422f873e82ef3064f4a04e4b574e264dc2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000078.png",
+      "sha256": "747d6ab4058409b6744e163641d09b68b15a505984846c35f8d1a9d541e8e6f3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000079.png",
+      "sha256": "c5309d9b117979303a0cdf7eecd5020246ce8f5ae7e3694212da844900a61e2a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000080.png",
+      "sha256": "6035ec797db19d57016bf3b506462e35a198556c9298eb62f4ff3aa41ea3b620"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000081.png",
+      "sha256": "2ea0a25d5b01c5ece4a8f8df1221677136a6f2f78992fa3dd26440e8662d9599"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000082.png",
+      "sha256": "7d5446e221ca5498c9706fb2856e24107a738c3038fee464991e96eef795d5fb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000083.png",
+      "sha256": "012a3ffbdc5ff8a5aac65aaee3b5740776caefe568d7cc6aaa9b0810c0866ff5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000084.png",
+      "sha256": "00e7ee6199023b9a4e8d9dda00f2f41fe898d7a15fcf8dcfa901890ad2f15421"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000085.png",
+      "sha256": "501501e2babc72461c66af704c689b53f1844c765ac883e96d40d42be22d4019"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000086.png",
+      "sha256": "2a64389bef4fd077ea20a354f7cd2279582f3aee8d3574a0e2da571707817589"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000087.png",
+      "sha256": "df71eb4d69284692197aacf11d122634e0e61e0ae52c3b81a749656076b779c0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000088.png",
+      "sha256": "9480700c7e27b6b37bed14ff8f8b76807ee2153033607f35fc531b486e88765c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000089.png",
+      "sha256": "c4072959c48c6e2145c9f76f956855492086ea02f3f5c14b35e610716c3ae58d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000090.png",
+      "sha256": "4e4f25ff2e79ebd6ca7c15387362ca85059c82dadb8ebc6226c8ce8ab95e1cc3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000091.png",
+      "sha256": "fe0cdc55d0864143ff9656074aba6cf4aff4fbe7d09361df74ffcf88d2642889"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000092.png",
+      "sha256": "5aa1adf24f9885b282e4fe1d5fd97b2d80cd4728e8e44d8704d1020695cdbc1b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000093.png",
+      "sha256": "8c59cc84cb56f968f1198d7a8f180fce8bb152268f6a0e2842faa29db7c6df21"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000094.png",
+      "sha256": "4edb28471a6611edc293c8b23436e2dd39f32bf97c985482054ae1f1c2a6454e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000095.png",
+      "sha256": "0e740ea0d4b731e7bbbbded0810ec55881bca8895b183cb04b127e2e80441c48"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000096.png",
+      "sha256": "6cdd412b19083fa1d7c73d84b386ea3ed450a363cdffae61c99ccb73dffc553e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000097.png",
+      "sha256": "31f3abd99cf068d733c0017a633f8acd1bf36f3cacc389acde2d040c1a84e402"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000098.png",
+      "sha256": "585f1f149a4630aa683c5d0a119f54c152bc13b3392dddebdc882db745cf7934"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000099.png",
+      "sha256": "86e36a871a3291415539b6062252c7513faea75289fd1f5d4a90973a7810414b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000100.png",
+      "sha256": "849f28f20de6c0c631a215f5f5ce7fad1dd9e9354e5d85b513c7547db860f736"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000101.png",
+      "sha256": "19b8cfaa6522befc87343fef4c8ac37695f8744c59fc22fec6831fd7b8f94e15"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000102.png",
+      "sha256": "410bc5ad5f096d992acd6ecf50c5a52bd7df9586079ea6948d7165322a2fe1a5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000103.png",
+      "sha256": "f257d2a19470b8304f8734c1a1f5334b4651404791711de76a697e55c3cf52eb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000104.png",
+      "sha256": "d05923c67cb4625c0e069c6fb87896e8617674a5c3776861551064ee5b0af2e4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000105.png",
+      "sha256": "dfe6ab61b6c23eaf73afc4f83fd18cb1b89157b345fc62c51daff090fbeea410"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000106.png",
+      "sha256": "5ed0b554b3db1349c499cf27ecfb3ba3e5964c9d949ed99cfebd2b437f34a33c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000107.png",
+      "sha256": "c51265b13176acfc5caede69f06070736d52c07eb87942aec5a0329fc3497c65"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000108.png",
+      "sha256": "06e1bb9e9c23412d8bb029e07aaa45c7861a77c4db31a215e7447d22dbd10a52"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000109.png",
+      "sha256": "f37ca18a16fcb3133565218a2b70aec165f3ec27c9f6785128a7a67b8d9d0779"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000110.png",
+      "sha256": "ff0a2f283ca905c31d85f6ae84cfba1218c8d334f5105a0715d67b06a5bffe50"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000111.png",
+      "sha256": "7438f1c431c5c50392b8e421719cbd69710c68bcefc63365f587bbd8168ad2f7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000112.png",
+      "sha256": "e7a35befe76e2ea32d8d1ef46f655a62a35978312c99c11fc5a6532b0fe8e2e7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000113.png",
+      "sha256": "ea3e03f571b41b22f9102aae383d324e9feee34b8fa8c06b36848d500a55e13d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000114.png",
+      "sha256": "9c0632f6b69e4c2d871d8d90c6dc30c5a219b86320f46cd94a22a2e211c8a70c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000115.png",
+      "sha256": "e6603957ff65cadda3987fbf78fd31059393d3845a3997c90dd35199e2120450"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000116.png",
+      "sha256": "6627b51890bc985925eff09d9f0acdaea3e5332a0c0bb8c7f269ff0bc7c394a8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000117.png",
+      "sha256": "173044ee65e1bb5bb10fdf9ab558f2e6067e2ee2a8ea1426ea39c091d8f796c4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000118.png",
+      "sha256": "2408c10f32d047603fcdc43d62bdf99eacfc5248ceabf2dbe73984dd597604cf"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000119.png",
+      "sha256": "f57457a13325afb796df221f23068fb0a159a2e508c6eabe6db6ba5f01a733ff"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000120.png",
+      "sha256": "9d6aeb20bcf902325dee0292cfe49971de0c092ee9e4dbc973e07905622dab76"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000121.png",
+      "sha256": "e48924ca431342d46ea480eaec89b2057de2c03827d6411c85bd16f2fa206df0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000122.png",
+      "sha256": "3706615c53c71792690bda50e3c2617fb33e30d4ca626b5c34759854536a2e76"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000123.png",
+      "sha256": "a10a3112cec08ccfce9a074cf2c8a15d12341229566f8642c8ed24f054cc5938"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000124.png",
+      "sha256": "ac2c7142a413dad160c12a88026c49d76bfbb8a74fa4a9bb4e049f026acc8340"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000125.png",
+      "sha256": "555c56923a1b312df604552c5d7134a42376d9d6113673e21462d470241af7c7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000126.png",
+      "sha256": "32691e47dfcfff76ba9fe1ce841a6e4799c8509ec33a757f2c798924b547ac4c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000127.png",
+      "sha256": "16685ffd4af391efae1ab3fc771e1534e21659083a2513f0a7833d6fadf2ea35"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000128.png",
+      "sha256": "882071c27cecd50a5b4c323510578b9ba4012fc24d548f05f41eb23bcd461a99"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000129.png",
+      "sha256": "34999924d6f1584a1198d35c517250a16d6ae8bc0b8a404a904d719925bb1eaf"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000130.png",
+      "sha256": "c283bdec29c3685842f00bb39a34c97b797c0e5db633f35d73d776576c1199b7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000131.png",
+      "sha256": "cb8e52e993fbeac33d553babeeaddfdd63d7c04e3ba5f37fc5fa27de9729a8c0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000132.png",
+      "sha256": "994d1444918955bbec0849f710f305a8d53169b3fe5efa2e6593b5e2439dd35f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000133.png",
+      "sha256": "66291d7842d1203bdfba7c6f111361115c77bd3486b4776444d12013aca382d0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000134.png",
+      "sha256": "db3e232df8f04cfa2a55436952f1d3b252ee15131a4adfbeefbbe22b13589364"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000135.png",
+      "sha256": "7efc77fe68dbc304e562e6b65f08185fbb49a342583e7ccc1a6bcdeafd32fef8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000136.png",
+      "sha256": "9efe2c1acf3edecce69df49e4976405ff7881068324da61bbf0d47a811d0d720"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000137.png",
+      "sha256": "de5edd5fb3eaf1d265152315efd10cad54f35dc883367b658eba3bf3b04e0259"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000138.png",
+      "sha256": "46860d38c58ce3153f36742efa74c93cbc918216561fee607be6c61e7290395c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000139.png",
+      "sha256": "286531ec1ff90b0ed2b3fb59dc668ae2389f104a9baf34b59ed6ae33b67e9d26"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000140.png",
+      "sha256": "99db03bd616fbe4324b04be3beaa8000c6e29d112ab759d02af2ddacb0114a1d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000141.png",
+      "sha256": "7cd4248c6d1e91009d7e0c3483db79984d829489215d9566fae661d053dbaec8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000142.png",
+      "sha256": "00477e58c98cea4f9d304e6c6a2890a9168720f3033acff798483ddb1272d9c7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000143.png",
+      "sha256": "b88f07fd059e59d4be4b711e828ec53921310ef689f78917778bb451d618adf1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000144.png",
+      "sha256": "fcec3ae1fce8da03d7270e577435099e78820a318f9cbdc6d0b8ec7defad6f1d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000145.png",
+      "sha256": "2b4fb96c9799f671df276ea344d07fa91ac0e929eaeff283ef84cad53b23c4ac"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000146.png",
+      "sha256": "5f1fa1306cbfe4bb90719b6bdc7b61a7c463a2bf68975e9937f41053775ffa69"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000147.png",
+      "sha256": "3c1298a86d961ecd0fe366e4da6cdc9bb4f8c59e23c945ba92675af1ec550a05"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000148.png",
+      "sha256": "8b8138ce850310ea40fc10e98d0c4ae08ffc710c49fccd66522bb6fbedf0ac22"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000149.png",
+      "sha256": "b714ff8d5c8d32d1408cc5897df3f70e812df10004dcb01df34b598df99ea5df"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000150.png",
+      "sha256": "72cb04e052dda1351fd5cf0c05051462e683745cf8500b94e59bb9220fc237f3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000151.png",
+      "sha256": "5d9e8270ec1027efa2525bf917ebd927b968b5bd8de684fff10550ff0e145334"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000152.png",
+      "sha256": "d918ef26332ab9ffe7d2f57b1e48d384ff23ba48456bddb1507fff8777d68722"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000153.png",
+      "sha256": "43d48c24531e8d224f5199f987f6fdf362012f38ccd378b097e4cd175927102b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000154.png",
+      "sha256": "5c44cc813e1a02bc879bd78f9b4000c103a01ea4a6941d37c154f7484af3be32"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000155.png",
+      "sha256": "81aa6b43668252fa88616a1f50c8b88d4ffdf8ed6fddb26c0f3c31be94c28547"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000156.png",
+      "sha256": "327a1bf2ed7abd64f898ba8adbbed811cac83701b28445d88ffaea7084dc795a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000157.png",
+      "sha256": "d66252eda8a54d2b912577bd626b2d1f7401ee92327416493b78349cc10cb264"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000158.png",
+      "sha256": "f17bdfecee83e2ab1781e4d25064566746341fbf5cfbfe258ff4a186045f2832"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000159.png",
+      "sha256": "c6561f3372a34c69856b5452800551c4c8962d10f61a461bf4c798c0a1c42f56"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000160.png",
+      "sha256": "b9f8ce605923f022c51b5475110332478a669b73dcb8d0c544c80adf4f850949"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000161.png",
+      "sha256": "773167d747411ecbaa502fb411fc5e6659e00a7c769a2ea22cc83f0cf96a6948"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000162.png",
+      "sha256": "a45956846824e4830f7a4cb01b6c2202de9e8c8b75393f0c11fca42af29f6f01"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000163.png",
+      "sha256": "a259ca3505fa3e11c63ac23c29279ad42ac8d047b141d68ae6bd26d22f41a93a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000164.png",
+      "sha256": "ee963fd826e020376c55445da9566341c61318616c331be39b69ab38b91d4f61"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000165.png",
+      "sha256": "11fabf559daacf4d02d5e2bb9bab1ee6df5b1d13ecf00f6fe1ef2cdb5648a10d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000166.png",
+      "sha256": "81fdec4441e8c6805af180d4f04da9e23d99cfb6c9cdae8a0b1c96156a45a309"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000167.png",
+      "sha256": "546417e635e1feb191368d836aa3ba38fe97c1a3ca1031ea3930873a7d0e0171"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000168.png",
+      "sha256": "732418d7aa30eed387e5c9e4430d64e3fd9c130905c55bf2d3130ce7f65ccdf7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000169.png",
+      "sha256": "a318bf09234ec78ac68d92d1700f4723cea5e2305d8033cdbac3e853b7c41e40"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000170.png",
+      "sha256": "508f6fccb8f318469f014df9023da4e831f376536ad52fc47630b24cf26b573d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000171.png",
+      "sha256": "ef355e4cd1a4d7f289b01d209dc6f96cd845723ea2f87b8cda753f33d92d1a57"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000172.png",
+      "sha256": "5d522ce0e126ff075c9c0f06dd89877ac2cfb67a0c41eb9a31d8f1417d4a3689"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000173.png",
+      "sha256": "aa22b62a979415c66b756784e82866e0e7a26aa8e15d838af51ce89c6d343745"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000174.png",
+      "sha256": "6898de72f081a3ca8790d03b3af3ffaeb72c7e8f01c24a1f1f6c837d46fecd1c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000175.png",
+      "sha256": "e4c0493eea59e62627ec8771377e0d84888236332645a3752fa49f0221696288"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000176.png",
+      "sha256": "3fb8e288dbb29ba1501c5ca80c731631d1c31021d8f74d05b2f897360711b7d4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000177.png",
+      "sha256": "c37b4ea2d6e0b966f7f99690c2ea1ec1d94ace52e951928a906a37a6407ed687"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000178.png",
+      "sha256": "b105b62a41db5e08e5aa5c2d609d83204423d322f732edf541777c2d29627674"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000179.png",
+      "sha256": "6355e42ca2fb8ecc146fd29ceaef7f116c7e4743021847b71a6a2cd2965dfbe2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000180.png",
+      "sha256": "200e2596ff3adb2e6f2081a9e9bb0660d01acd516f1fb84e3299f922ba45fed0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000181.png",
+      "sha256": "d12650f27d2b33a814d8b217ed322624cda98c57d104cdf7d5ca2fff534ea4a0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000182.png",
+      "sha256": "2395250792d519c0f75fb7d00b1b9a0fb1fbb89ca4a4cd6eaf523db339389128"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000183.png",
+      "sha256": "0c2a0b569aeac0a38bc6e8c21a25cdc01519e0605ba553aed544781d781dd54f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000184.png",
+      "sha256": "5a66d6bdedec5ceb75ba441f1b21d2ea69cfbb1b8ae44a598632bc87488efacb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000185.png",
+      "sha256": "e61fbd4bd06b29c7cf33afc61e47139b5f38bb6d8d49f27b950e6f0c148a962d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000186.png",
+      "sha256": "8d9a91d20371460080ff4730e8bf5fc3911054f638d07df77741769ed6739800"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000187.png",
+      "sha256": "7d00fb10d13e9d28a80034a4f54e2603a87b22d21a5f8be01638009869f3b1cb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000188.png",
+      "sha256": "573ce8c0f825ebefed7f53efda6da66d582ea20a5b2df58c49d71dafe7ba497b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000189.png",
+      "sha256": "9d6d5e8d94bc77552f590dc3105f49da1453201b6dfe9f77f1be9e1310674376"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000190.png",
+      "sha256": "3b5d79a6cd748af911a5dd0e5838b25b7925edd80a677702b6e19894268b281f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000191.png",
+      "sha256": "ff39d0b471922f5b92a85aeb4aca83ecd49a2cddf66a8cd32074ba1b987db908"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000192.png",
+      "sha256": "eaf240bc36aa250430511919f824d46b0b85ab4294b81227fb2f93f54fffe1dc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000193.png",
+      "sha256": "1e8c9d63e253eb8dfa8229801ed5f6dcca98ce286b748c324e4f650e5c2cafe2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000194.png",
+      "sha256": "1d920f5b129e46abf1cfcd98f9be599d9c1c82fa5e3ddd22e69db26b02d62895"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000195.png",
+      "sha256": "f34ec1c260d66668a094ca8de6440b97937a14a27a597a9b051ed5c5ca4b38f4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000196.png",
+      "sha256": "1d3d2c6f239e1d7bd32cd00910a189294d09951853696e7faa0e0dcf41f30079"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000197.png",
+      "sha256": "689725604f71e38dc76c444b953532b58cfcb9ee205fc6cddc0abf131f52e7a3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000198.png",
+      "sha256": "e4233446aaf0094d617785dc99c29050d568a20445ff6b33aff5fab19e8d9ad5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000199.png",
+      "sha256": "1d348714c5b43b28e1d623d4434748d675b614c2f82cea79a0c803fa480018de"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000200.png",
+      "sha256": "af555a3c57e4b5d37959f782dca9e8aaa828ffd4be479e3514af4f497923da72"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000201.png",
+      "sha256": "cbb5bcfb6736485db841fa95a98c43f5a38f7588b26e3d70239dfbb507975080"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000202.png",
+      "sha256": "69e0eaac82df1bbf8530b6a7f5dab7d8204d9116d975da01b65a1960f5c3828f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000203.png",
+      "sha256": "02b22ab898e8a3556b3e0effec8c93a60e3bd32a4d1769c806a0920e68082aa0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000204.png",
+      "sha256": "d0f17bacb72f5ebcc90141c9752cb7c54f76fbebba89c3a6d7a4fa6ac317b4cf"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000205.png",
+      "sha256": "79f8891cb54435dc4ae669df1c7d127449fc12b993b09ebdfc3631eb59031ce7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000206.png",
+      "sha256": "552d30ca176b7664b641df1990590846ebb75e4ecc1b9a9e59dddeb35eb182f9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000207.png",
+      "sha256": "7695d71d3b4bbea4e8356bc39492097f490a3aae42fdb50e2d26c268e1578432"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000208.png",
+      "sha256": "0b8191cded251584e14b1ad1b7daae47df39964c677c3de68c796d9e7a2d2cbc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000209.png",
+      "sha256": "ab9d27f92dd33bd6cab4d04963a80a0adeb84837a02825823017830c1f439bf2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000210.png",
+      "sha256": "48c7c837c419f26e698b307b6f30bec5fa5f84004918cff7673114a894e0094e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000211.png",
+      "sha256": "9c094491f1590d6c6446be57fe38d709ea755cf63b7c4cb73ff261f00e988e7a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000212.png",
+      "sha256": "d1fab3a5150e275f2e1437592c9173ed5f8b4ebfb8328f0b921e8ecc220d8663"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000213.png",
+      "sha256": "fb2f6379c203bb03888c104dd01ce7fd24ec6c74382ff003480fa72714120b0c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000214.png",
+      "sha256": "4a1146033aa019bc1d39e0c4e1dc549490fb0348062459b3272dcbb63394416e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000215.png",
+      "sha256": "d28cfbc05b8d00cfbf83101cc032782a373719652a05785750877463a329b93c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000216.png",
+      "sha256": "0c58b51ee5bb5e07d87039ac6bcff0bb7cc084550e28f66f836e49c60f99515f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000217.png",
+      "sha256": "c1695fc655e5b397e3e4496bd36e0fea17c7f255c594c0bd5e3891b4b3057b7f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000218.png",
+      "sha256": "b45d73f115facaf5da413edb4adf5a4302c8a24cc662400d89d8df5dfc74cee6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000219.png",
+      "sha256": "2799fa763b77ca27d84dd361f9ce432c3f73c0ee302c861b58c73a0f420c6e7c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000220.png",
+      "sha256": "02faeec0f5d0f97e3fb40c54dfd0a0badc767bcc321f8e5987a3e0333e3892d8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000221.png",
+      "sha256": "efb37cec3214912868ef02fde8d1f838db23a501cecccaa2cdf3635b00acec1b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000222.png",
+      "sha256": "57c3d712e7761ba715e4233e180e2407a911ffb1d2ec23e95d89a6c3cca59dbb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000223.png",
+      "sha256": "bb0883ee2e64a16713885735250880478cada31d071e5fb974ac6ef65a50c09d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000224.png",
+      "sha256": "3e3082be6f0decc7dbed551b942131199f9ec5b1f3fb42be6e1a6224c87e2cbb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000225.png",
+      "sha256": "f60d274eb7e2d3fdcf75cd343c9aa396a2d9afad151aa8b347862ef02cabd268"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000226.png",
+      "sha256": "51dc4f0a2737ab67e90dc3a8667c7dcd40129a4854656451f4557f65e84a059e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000227.png",
+      "sha256": "7a8dca9e40c8c955815bec0e4ea66632d775ef38eb20aeed62b12aa8f12d74ee"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000228.png",
+      "sha256": "78663779d7cb4b943b6752c8dbb334a1f70c29ec8d9d39d0356f44134694e65b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000229.png",
+      "sha256": "e68a482420d3561911d929de340f1d1cea9cd4b68802d6dca37df79ce28afd0e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000230.png",
+      "sha256": "6e2d5c301ac845176d2a38956d1d8dcae772c978b26f3f10d09967d7aab609b6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000231.png",
+      "sha256": "f9a03395aae16dfb796d63af92b3ad42fbd63536e6322450b67bf92d8dd44a19"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000232.png",
+      "sha256": "b40580890ad96cf99d1d80fba2ad252820d30447692cf90f8bf4b38275d19425"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000233.png",
+      "sha256": "fe41ca5bc4079623d0385a11d53577b5c02abfeb007a9d3e3fa2b7923b00c089"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000234.png",
+      "sha256": "23e3ceaf6d93e3ad678ab36f837527c2c6c2a7882028526486019f2134e3611e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000235.png",
+      "sha256": "2cf2493518e9b75b4a56ff0815f4d9d496e85d58291dccf265736aebacb83bb5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000236.png",
+      "sha256": "a8a86e540e41256b894280dd0ad4174b5b55d8c7296e847f264f38cc2ccaeced"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000237.png",
+      "sha256": "6837a8322a1eacd95340b1039345abbe2a018d944c6bc3450c1d0b9586ac4b4d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000238.png",
+      "sha256": "9edfaebd41e180e19d7eb0ecf1514a5e50e97cd0b77d0b622049834d150e37f5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000239.png",
+      "sha256": "e9d38664bb644b093f9521229373a56ad34ed5e7eda663288d14452ce145103d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000240.png",
+      "sha256": "872dcfd9cfd6dcb6e8a4eaf16d579b1cc7b206d8882ed6e5929004a86df51bae"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000241.png",
+      "sha256": "dee35b32857aa0362eddffb9afa24605926c107a5468dc3d30b85c4567380d9c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000242.png",
+      "sha256": "1e1ac7fffed2bb169b79742d94d38de3a11f5775ef10684ad76625990e58378d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000243.png",
+      "sha256": "b099b00eab22173f7563e2a67ed0c3843762a3367a7cb6c71bd34640991c4e7a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000244.png",
+      "sha256": "69ca2d1816a7970125e90324d5727316e9e826db9533297170532f8e065de595"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000245.png",
+      "sha256": "9d774cea1808287a6b8a9605de017a91db3258b2e205b1f5ba408c6db6e7b8a7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000246.png",
+      "sha256": "90a03b33b36254e000b5980ff04a1c7bb390800303df527899bbc63d87b3af1e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000247.png",
+      "sha256": "4ea38f982b392975022dc2b4315cf2135e5e692598370b50e157176b2367bb48"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000248.png",
+      "sha256": "8dc40f47cc3838240c28f1a6e2a193d7703519af1057329dc1a67c040bec4e47"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000249.png",
+      "sha256": "0832fe3e44dcf464062a4867e61d4e8bc21d13b3048c9d9ebd562c96ec1b3f3a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000250.png",
+      "sha256": "d9ee36ccb6dd1eef423423d71558e089f99ad3d70fbc1269ad97588ca7a340dc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000251.png",
+      "sha256": "d9c3a10d1b7f5afac497ef4fb36977e3f02ee856fcb7c2f65a370bc8babe2231"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000252.png",
+      "sha256": "d78b98b869d9726fd32ade2b724ca89c6ba8403cf80128a9e86e60d8abdf099a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000253.png",
+      "sha256": "a52fdc0d2b3418f7079a2dc0fbb97cab13a9f252a79ace7a263dbd39c4f4aa31"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000254.png",
+      "sha256": "a162059bb1656a4f192e9f131148ae1e7955ce61a481bd6d248f295d1e22a803"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000255.png",
+      "sha256": "8c1c14acd19f456953bd148ea4318df03356adae26a23dc8bac7530494e8875a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000256.png",
+      "sha256": "37ee92347f57133c5364f7e2761c46b04cbcd05b11a92c6cb079d295d903b4ae"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000257.png",
+      "sha256": "b4ae4388138a394b93d64d9c7bbdedb1e6eb790a44f5b057bc0580faef3474bf"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000258.png",
+      "sha256": "7f8edf304cc57a4b4b26d39feaa3e422dbe92f16d7329c7966fe58489d3672aa"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000259.png",
+      "sha256": "52a83849470fc4f6db05975bcceb3fd0d4f0a8df582464801890a2cfbe2ad47e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000260.png",
+      "sha256": "2b927fa0cf59aa78fb3f5487e7f47161e7c46790b449a3b0d47a034f1a2348b1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000261.png",
+      "sha256": "0b6c64feb5f05e653319ad566e6e78f3e4855f3552d4c1729ae0ee534a31c9e4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000262.png",
+      "sha256": "ecb0c25c430967120827a6cd125ce7ef87afa67190677952538c3cbaf03b1cd0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000263.png",
+      "sha256": "37c19bc4003d7cb043e80c0ed31e013940b8948e64dcca33a74ef0c14c69bde5"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000264.png",
+      "sha256": "f07a7af4dae6e3c2d729dc2dc9cc21f07ca9aee03b8443e0d752408984eddd0a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000265.png",
+      "sha256": "b79429997844bdc33175c105314b48c02a0a026a889086e74ef59d30c1496e87"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000266.png",
+      "sha256": "2c00b64ec46fa47ff56dd3517b61733f730d864be9355bd356d12b4454c2e63b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000267.png",
+      "sha256": "58bee2a641a3d6b7647d07f5ac72fc2a05ba368b600758d11beac518d7b33e85"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000268.png",
+      "sha256": "468911eb185eb6d96433ca4dc820ff214264e2aad89476243adb858f7e5fb0c7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000269.png",
+      "sha256": "9aee940d304609b98185ad098c1da4d40744566346b984b2d5554b9013079ddb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000270.png",
+      "sha256": "d5ce1688e80792e07f013f2985462dca0972b6d9f4c5727a8d9811ef29cd7fc7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000271.png",
+      "sha256": "62ad883babfc7506403f17c024980bee6967cb1d46dffb859a2649bd1225712d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000272.png",
+      "sha256": "d2f25f8ee62ee3175e89415306616a388560a0003b0919d57d8a694c6bd67020"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000273.png",
+      "sha256": "2a08b217ccb10893046c558d66df729cac5633e212259a214abb52bf1082ab68"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000274.png",
+      "sha256": "6abbacce46b9d202f3709eef6e3fef8ed083b8cda9e232e6d8b663a46aea2813"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000275.png",
+      "sha256": "e47230376c2e596818fd439e182f8235d233205c7ad9f8c690ee182345126abd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000276.png",
+      "sha256": "4e46e8af8c87f141575f3195ca26ba4fbf85222a70251cb4465ab18f7e26f597"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000277.png",
+      "sha256": "4585a0017592160ac655973918acb3782a3a329fd3b9fc933ce7551d3c5ac636"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000278.png",
+      "sha256": "ee69b8e9c36fe0c1bd5bfc9a52cf6b042e8c23ff7bcf8c4af0cc03d89415ffe1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000279.png",
+      "sha256": "d134a00a7db9987aa6b89a2c3e06f8139868851077dab3b8fbe91bd523c5ccb1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000280.png",
+      "sha256": "547107269fdfe2f0cc3b829c620eda269ea832278ecde1b0d67c27e613597bcd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000281.png",
+      "sha256": "6d29c26b285ee7478306334ce68298f8bf5624ea7baf4925fe8355c9af071471"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000282.png",
+      "sha256": "35d5334986a3089ecd4004fb1617dd17c2b8d85481725d7e531ad6e02aab28f6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000283.png",
+      "sha256": "cd380b408ebcd0b304736a9c2c8fcfbb53ce6e539d074907e6f07dc665848270"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000284.png",
+      "sha256": "4f347c8366256682cce515f1f88a7be5c9768073ed9d09fcfca677fcc4caafae"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000285.png",
+      "sha256": "787f1b306f532559990299812f9c23e1953fd055f6aab0682b664014aebf97b4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000286.png",
+      "sha256": "553a619da9aad7e0d7511c18af0765023896d5001b1306220a3385c55c552029"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000287.png",
+      "sha256": "13977c3cadb11a8eb72e1e5f244e4b74dcf32f16b907d60f8965d68f1d8f5963"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000288.png",
+      "sha256": "214056b44e6f943861afd106e706ef02ebfcd7047430ce2c749fd6d41c6221cb"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000289.png",
+      "sha256": "6e04a8eba0b1072a3982be4ce39bff0d9c46fbd2cb446034939ea4f924772e05"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000290.png",
+      "sha256": "cf944f231207a99b821170dd123a9a23dfbe097c064585e36c32903ff9f273bc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000291.png",
+      "sha256": "5acad2cfb90b656b96de3a4938a04808ec127889a9f95e9aa4dbded60aeb8d54"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000292.png",
+      "sha256": "2942bfeb0f8dc72e05f19b9db14077982fcc307f8b280669bd3865be3ed88db2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000293.png",
+      "sha256": "7664d677f12c65f209a83ddf823c52c10efd2de96f8cec0843f4ee0c6b4180e9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000294.png",
+      "sha256": "ba30d1008fe1cfa1c80b2afbeb5f4c304492f4665cb574a4e6451a57a7fc0fc8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000295.png",
+      "sha256": "d1777a82d567eb753ed1c012ea665ba5a33d3ad41f70be70f156547b3aca7cc4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000296.png",
+      "sha256": "c320d0091388a0b415c9c70004eb7444cf89be6cc72551bce4b1ce124774f530"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000297.png",
+      "sha256": "d362e3c268996b8c46d098c26126a434b08a580b7ef058c92eb9c0f961ab4224"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000298.png",
+      "sha256": "c0e5a9dee8c278779a02991d158ce6565b68007a4c8ecfec0292a42f57d39cb7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000299.png",
+      "sha256": "ad30eb82d2bea3caf10df6e63136f0eb8c1aa83e80f795a93ee7ba696cb3e502"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000300.png",
+      "sha256": "2d39dbfa3c8d27f9ad5e31998977c9b2ab28ce0c83af5848f8171a5da637db2a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000301.png",
+      "sha256": "57b72835743deed48cb281fb38b318796ae1bd830a2fd2929864e89bb26180c9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000302.png",
+      "sha256": "3e48dbcde116ee5314abd2cf85e184a9665737a1230601a3028713209a2f557d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000303.png",
+      "sha256": "0ffe1916c5b900cb6a30971c57f518a2846b51fe13990126b87cc9a7e080596a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000304.png",
+      "sha256": "f1ebf524790c81662660d24b50a7b4e998ada35290c0bee8af2a529b73b70d89"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000305.png",
+      "sha256": "968e8239ef0921c9fe23f8639fc6084c7d8602b7b8e770bd7781ec8ede70e096"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000306.png",
+      "sha256": "8d559e198d4db31531b48136c6c3916ed712952a404e0f788049d110dbea1e97"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000307.png",
+      "sha256": "d48eb079cea693afbeb9b85bde35829bd53adcf47e1549f97097669cc358b437"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000308.png",
+      "sha256": "3239e868b51212e58db532ba12d76855b78d2f468bd3fb0ae6a21ea8a1e1164c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000309.png",
+      "sha256": "25bf9e70d4ddd942965d5c2307e10079531dcd7b9aa857a65d3bc7a17c1e38bd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000310.png",
+      "sha256": "fde22b8ce6e9876415d75c1f06a72502912fbc07f440c1e5aca7e35b8132ab1b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000311.png",
+      "sha256": "2e8ab053724b5ddfdc388e3b22bdc7212a5eb422e30f52528778b9db7db086c1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000312.png",
+      "sha256": "b5a56ff0cf6176ef2e61b7949d5d7dd1534a3b37d95ae657b41829d720e269da"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000313.png",
+      "sha256": "63e4b4d09bc57ed58404fceac7273f16c30546c98e7f4538b494d9e2b8f8cf9e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000314.png",
+      "sha256": "6acb5dedec341e90830c7685765f882c2562057e8c4cc75e80534c6bb6c9e0c6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000315.png",
+      "sha256": "33a255c0ff20b2f619fae1227361e18b95c1a38a7c1a9747efcee75c95a11f3f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000316.png",
+      "sha256": "49a40ad66fbf813be6106aa82bcce4d19a5c4e742a8a279f191b513c8ac00f6d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000317.png",
+      "sha256": "1ff01300577c3aa1cad02545a0e2357636202e6fb18474e7b2b35ca629375bee"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000318.png",
+      "sha256": "dedff334b6f0abf3af80de1147afe04d5ae9461fd89dd077c553243f5184b663"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000319.png",
+      "sha256": "fda92b956dac8058d9a4641482ab3534d8a6eacc071d1a0740748f35d739ccb2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000320.png",
+      "sha256": "0a010855e3f715369c65a9fae0eb0c0752af655b99d7ff32f522d4a90c30c0e9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000321.png",
+      "sha256": "b248d6f85a7ab25a13affe1008b5aa2133ebfef4ade8eda6e6324a80fbec5fff"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000322.png",
+      "sha256": "e7815a5322ac915ba5a43b1c187133e038bc1128b1f3487ff8b35ef99308f7f6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000323.png",
+      "sha256": "7fce6ff9c21326367d557d2687411e4b6e965a2f7e35e5d4d9d79834fbe9b6e4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000324.png",
+      "sha256": "43fe9b34c748c5b54b5872349de523d682d21796344ff82e01acef332f2f390e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000325.png",
+      "sha256": "51a51f5ff3d706b11d194600569eb46d1f98b15d0121008226fe037fb62db181"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000326.png",
+      "sha256": "c95135ece18a8aec76c996095d2b11488309fcce48e3f9b5b1c44926bd0ac013"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000327.png",
+      "sha256": "407dbf1e7161215ec40b49a9e5bd2d0315cec870395fe8ddd19384bcd120c2e1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000328.png",
+      "sha256": "2aa7a03e878a6b6190ca321ce283ce0b784d1251b62905fa888b48f37123fc6e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000329.png",
+      "sha256": "172b608b7aaf409c44d6cc68a60388c71dca4549d71fb16bb6a8f8282b6a0c86"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000330.png",
+      "sha256": "8e4fbb509ea68a187c756825f2883ae94839f444ed74754987f7d1b20bc04a80"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000331.png",
+      "sha256": "6c189f5fe4a38bb15f7438cad7260fbf9ee30377291d89edc6a1ec082b7576d2"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000332.png",
+      "sha256": "31d9e7c8c68917af2f3edfa3c2f0de89d8373a91e8a2817fa0eb1836e038331a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000333.png",
+      "sha256": "4e7d495bd5dd32c22ff045bc819b49998e579a7963f49210db5e96f471935adf"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000334.png",
+      "sha256": "a2831b20b6816a7b82a98f671c6ea92bbaf8dfabe36d6433af6431d5ff43ef40"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000335.png",
+      "sha256": "c824ad03e8e6da6d53761121842eb241783440fadcbe90735f63348c6d80c380"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000336.png",
+      "sha256": "fcfb4e961745d69d177d3ec151cc43f462ea3ca4b4fec35056cba41b5c928e96"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000337.png",
+      "sha256": "a7083cf59bf774b12220753da94a9886ad955b2028479f44caf18d437d3bc4a7"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000338.png",
+      "sha256": "0c9428ad603597c6b8425c971209989ce1cf4d3fc2149e06466fb7cddf1df1ce"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000339.png",
+      "sha256": "4364dab3b3b53159dd4c32a6373a995dfece8de195d8666436850f4373198c5c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000340.png",
+      "sha256": "f58a3947080a893d141799dd6f8417569c19849b1a3165e83511bb2dafd697ab"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000341.png",
+      "sha256": "7d9cf47b3f84f3beae322a75d90825cc2976f0862d8a4ec76e9d2241fd50610c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000342.png",
+      "sha256": "e49a2fb4761e2d0e7c97fe7bd033d1f8c3a5b0b4b10efe770710365600bbd0da"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000343.png",
+      "sha256": "bb62cb1f628d88e7e30cdca6a71cd80a31208d968a591425b56fed6c0b3534e9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000344.png",
+      "sha256": "1f6dc860bf3133500217e2a8ba6bc2d329f8abd6fdbd7f60a8e0e88c35dd89d4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000345.png",
+      "sha256": "6dbbca1f1523a2498366a614b200fe64d2fe8339a0fdc37ee12e7d2b60004ea0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000346.png",
+      "sha256": "253c00b546ba12d5e637be94159e2d6ea05233a49ddf27930b222ab3a30a3c7c"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000347.png",
+      "sha256": "f877f0913084a2a692815864dc127b065d8e761bf748d1e99f797461352bd4f6"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000348.png",
+      "sha256": "b76ac425e8d3afa7cd680e4944f508076ef6d1ab3d37cf59cd087188f6e04f1e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000349.png",
+      "sha256": "4b1326eb4f37b1ba13697ed5c643cdbb8b13fa97ff447be844050fa83d7fe516"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000350.png",
+      "sha256": "15877ad5f6498d6e4a28edd952e00fa12beef23d245649162255091b15d48a2a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000351.png",
+      "sha256": "553a36cf08ae17f48b2cc9c76699a16df117ea4b1aa0d01d2e5e2e9c175edd6a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000352.png",
+      "sha256": "2fb0a0c5bc543ce2ac1aae0a23ced300802f708fa39f591eb1de5bd79f3aded0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000353.png",
+      "sha256": "af8be802d61189a4386b541875afb316997a0f714cec1c71a21ffa0e2d6cbe9a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000354.png",
+      "sha256": "2ea29116f7c17076d36471345de684f6f89f0d058e4ac26d546c3f1bc2f536be"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000355.png",
+      "sha256": "e140f22b498069f4d73a95905a48bfc91ab9c4a1322d84c0cb05b3fa8fa926bf"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000356.png",
+      "sha256": "5757095bf4958fa0b78623332d18c895801f1858e4a2bc6a4beb94095428f734"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000357.png",
+      "sha256": "e2914b6545f3b613a66f3ee0e49eed2381140ecdd322149e2c9aad1402af897b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000358.png",
+      "sha256": "66595cb82441d3d449e7718e90bffbd04056b1e17e565e92f9112453b716c29a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\official\\masks-full\\human\\000359.png",
+      "sha256": "cf9ce7c8de82b64ae0dc80aeb2fe5a7efa430cf1d9199ab8fb65573237f9c8ef"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "recorded_at": "2026-10-31T12:10:28.954047+00:00",
+  "pid": 6656,
+  "command": [
+    "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-runtime01\\temporal_object_stronger_rotation.py",
+    "--source",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-initial01",
+    "--output",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01",
+    "--nfev",
+    "45"
+  ],
+  "cwd": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-runtime01",
+  "source_sha256": {
+    "fit_object_hypotheses.py": "20357e18c61c1c0a382085049d729eb7b46286dd7e798be47d30a75fe740a98b",
+    "object-config01.json": "2226e948b466f9aad2ad346fb0b137644c2c5c5447ea216cd16b487bf07e5c1d",
+    "prepare_contact_mesh.py": "55c0c62451ec0f8cfdcbf70a9b73f57a548e558bb07964cfff0a110c42efd612",
+    "prepare_object_initial01.py": "c074624de48c0b3387b63028d5d8dad08791c075043519435595caa9111049cb",
+    "render_object_samples01.py": "118d233438216b4b65b0556fec32636b1d7f9cba8efe6045aedbfe43cc13d7d3",
+    "temporal_object_stronger_rotation.py": "ff4f51b3485e59541dff4dca26e9fb73ef44d8878e120dabb1dca31984754ecf",
+    "track_object_texture.py": "3aeff6bac019fec1efc533799b2e3c9e72df2258e8e02baf0b25e490de1ff3e5",
+    "upstream-source-bindings.json": "3a2617f106fa63bd4e71d1b19b3f45cea9af68a3aeb08056f51799fec6593e85",
+    "validate_temporal_candidate.py": "4af3f33fbc8f7b32fa52871d8ef56ade8afbcf3d30babe742b70a8dde88f6710"
+  },
+  "log": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-temporal01.log",
+  "track": 1,
+  "episode": 16
+}

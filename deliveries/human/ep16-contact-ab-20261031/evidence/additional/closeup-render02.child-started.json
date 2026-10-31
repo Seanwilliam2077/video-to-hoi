@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-10-31T12:44:04.327972+00:00",
+  "wrapper_pid": 87956,
+  "command": [
+    "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\closeup-runtime02\\tools\\render_contact_ab.py",
+    "--input-manifest",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-inputs02.json",
+    "--evaluation",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\evaluation02.json",
+    "--output",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02",
+    "--workers",
+    "4",
+    "--size",
+    "512"
+  ],
+  "cwd": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\closeup-runtime02",
+  "input_manifest_sha256": "cab278827e3698abe6a6cc24610135850d5ce4481acae87f6bad1c83c455f796",
+  "evaluation_sha256": "e22fa40432eb1cf89a0a8f76038509b7139c43af69e25be322998c58fcdc31fc",
+  "render_snapshot_sha256": "e35ead4b8c1af2640ebcc65b87775af294014e319188555f6bff080754ebb61e",
+  "renderer_sha256": "0721d8ad9fec4e48cd4cf68f83e845f7b1ff6a83005e44efec369502ba3fbfa5",
+  "child_pid": 105448
+}

@@ -13,3 +13,7 @@ deliveries/human/egohand-pilots-20261031/*.json -text -whitespace
 deliveries/human/egohand-refined-pilots-20261031/reproduction/** -text -whitespace
 deliveries/human/egohand-refined-pilots-20261031/evidence/** -text -whitespace
 deliveries/human/egohand-refined-pilots-20261031/*.json -text -whitespace
+# Preserve exact local contact A/B sources, execution receipts and numeric notes.
+deliveries/human/ep16-contact-ab-20261031/reproduction/** -text -whitespace
+deliveries/human/ep16-contact-ab-20261031/evidence/** -text -whitespace
+deliveries/human/ep16-contact-ab-20261031/*.json -text -whitespace

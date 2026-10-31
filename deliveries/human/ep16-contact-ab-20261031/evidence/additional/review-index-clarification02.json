@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-10-31T12:54:15.833821+00:00",
+  "source_script_sha256": "8ac7faa693fbf47af87de62c2d44b494d6497bc72330a3f5760fd39fd22788e3",
+  "operation": "Add English interpretation paragraphs to the two display indexes only; preserve original indexes and every video/geometry/evaluation byte.",
+  "outputs": [
+    {
+      "directory": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review02",
+      "original_index_sha256": "2ab78a622b0e5b78f5d1c79b1871b619e867ca6f88ed10c3d0919b2dfa5ac774",
+      "current_index_sha256": "2d110f44a868691307badb0e109975c8d14cb2e553cb46b07197853f04a68950",
+      "original_backup": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\original-review-indexes02\\review02.html",
+      "all_video_bytes_unchanged": true
+    },
+    {
+      "directory": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\review-closeup02",
+      "original_index_sha256": "2ab78a622b0e5b78f5d1c79b1871b619e867ca6f88ed10c3d0919b2dfa5ac774",
+      "current_index_sha256": "2d110f44a868691307badb0e109975c8d14cb2e553cb46b07197853f04a68950",
+      "original_backup": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\original-review-indexes02\\review-closeup02.html",
+      "all_video_bytes_unchanged": true
+    }
+  ]
+}

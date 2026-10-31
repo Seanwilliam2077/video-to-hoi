@@ -1,0 +1,189 @@
+{
+  "schema_version": "ep16_contact_ab_video_review.v1",
+  "recorded_at": "2026-10-31T12:54:15.074209+00:00",
+  "track": 1,
+  "episode": 16,
+  "frames": 360,
+  "fps": 30,
+  "input_manifest_sha256": "cab278827e3698abe6a6cc24610135850d5ce4481acae87f6bad1c83c455f796",
+  "evaluation_sha256": "e22fa40432eb1cf89a0a8f76038509b7139c43af69e25be322998c58fcdc31fc",
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "sources_before_and_after": {
+    "manifest": "cab278827e3698abe6a6cc24610135850d5ce4481acae87f6bad1c83c455f796",
+    "evaluation": "e22fa40432eb1cf89a0a8f76038509b7139c43af69e25be322998c58fcdc31fc",
+    "renderer": "0721d8ad9fec4e48cd4cf68f83e845f7b1ff6a83005e44efec369502ba3fbfa5",
+    "rasterizer": "dd9fee9a5a6c96803f21e076f4197573e93bad9c5fd808748557eef1d922be16"
+  },
+  "native_review_array_sha256": {
+    "a": {
+      "vertices_m": "9e72c33a0500f068b950e1d851c3b63a741562e388285a54c50fdf2b65327da4",
+      "joints_3d": "5ea3f005d6a015a01d67c31a09f74212abb27cd3b498305a751b1a0ca1aa6642",
+      "faces": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+      "frame_indices": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7",
+      "camera_intrinsics": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919"
+    },
+    "b": {
+      "vertices_m": "09b6256fc74ebe68c9b221ff972564242057bd371ce0c3f58525d13f788747f7",
+      "joints_3d": "b9115316a3853d6698b41ff6408a1141aaa1748f6872dd375b49684e95fa642e",
+      "faces": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+      "frame_indices": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7",
+      "camera_intrinsics": "969017f4036296b240f14eee38fb22630253080f1d3bf708d8bb75cda8e31919"
+    }
+  },
+  "display_roi_original_pixels": [
+    520,
+    500,
+    850,
+    830
+  ],
+  "videos": [
+    {
+      "file": "contact-comparison.mp4",
+      "frames_fully_decoded": 360,
+      "fps": 30.0,
+      "size": [
+        1536,
+        590
+      ],
+      "bytes": 1697182,
+      "sha256": "56eccb59f47beb833ecb3e7b5bd31b2651ae4ba63ff67f51bfe453a1f2c3c437"
+    },
+    {
+      "file": "contact-slow-000040-000110.mp4",
+      "frames_fully_decoded": 71,
+      "fps": 10.0,
+      "size": [
+        1536,
+        590
+      ],
+      "bytes": 798591,
+      "sha256": "6a22e645fcdfa8b61ada1bfe6f7bf7188c3d1a55e6b1be80461f72cacdeca3c8"
+    },
+    {
+      "file": "contact-slow-000230-000300.mp4",
+      "frames_fully_decoded": 71,
+      "fps": 10.0,
+      "size": [
+        1536,
+        590
+      ],
+      "bytes": 782017,
+      "sha256": "da132ef069809d5bec9cdc8c9134cdaff22254079896882b8a8b056e9d0dc873"
+    }
+  ],
+  "actually_saved_static_samples": [
+    {
+      "original_frame_id": 0,
+      "file": "frames\\contact-000000.jpg",
+      "sha256": "02c92af6465e285fc5bf30ead8ac4a48c5dfe9d2aed11a7b4c98da5173a4a6b3"
+    },
+    {
+      "original_frame_id": 40,
+      "file": "frames\\contact-000040.jpg",
+      "sha256": "b4bc986fc86f1e6b1782375c25090bada05a9fb50aef9eb79fd4e4214c37f6cc"
+    },
+    {
+      "original_frame_id": 60,
+      "file": "frames\\contact-000060.jpg",
+      "sha256": "1374d912de14c14e5a7c8974f62e203dbc7cef1dae5e695dda4ae7b0377e2b4a"
+    },
+    {
+      "original_frame_id": 70,
+      "file": "frames\\contact-000070.jpg",
+      "sha256": "5c4a13341c09220011ef995e7ef16347e9d9615c81614561032ce72faa2125e6"
+    },
+    {
+      "original_frame_id": 75,
+      "file": "frames\\contact-000075.jpg",
+      "sha256": "94f090bf82683c3a7c680713aea1a3e4d0cad06f31aefe7cc3e23b3ab708b32e"
+    },
+    {
+      "original_frame_id": 90,
+      "file": "frames\\contact-000090.jpg",
+      "sha256": "0864c6f7fe0111fc6a9afea4a9bcb71df522d93904b3db2372b9317f7c59b58e"
+    },
+    {
+      "original_frame_id": 110,
+      "file": "frames\\contact-000110.jpg",
+      "sha256": "cb4e2c49ca0be437b1bb2ebee62580c495190a0cb704cb7653cffab392678119"
+    },
+    {
+      "original_frame_id": 120,
+      "file": "frames\\contact-000120.jpg",
+      "sha256": "214b94f474565afa4e322e8805a37fe271d899989830618fe1e73d79c951d69e"
+    },
+    {
+      "original_frame_id": 180,
+      "file": "frames\\contact-000180.jpg",
+      "sha256": "abe15284d2506e814e2da0fd90293f149b5dc6b7540520b989f637886bc97eb4"
+    },
+    {
+      "original_frame_id": 210,
+      "file": "frames\\contact-000210.jpg",
+      "sha256": "f3e570cd65ea3195aa19554d3b186021fc53c745e41ad41545641144f386a829"
+    },
+    {
+      "original_frame_id": 240,
+      "file": "frames\\contact-000240.jpg",
+      "sha256": "6888673175a69d1e6e0b0e1aa6f534f4fc7cd2197bb0fbaed63d43603c8d8d06"
+    },
+    {
+      "original_frame_id": 250,
+      "file": "frames\\contact-000250.jpg",
+      "sha256": "e31e0cc6b929cf29495ad07fbb7e00c464581a87c528f0c9c5282bf71ca764e7"
+    },
+    {
+      "original_frame_id": 251,
+      "file": "frames\\contact-000251.jpg",
+      "sha256": "746b9980f5d32f1074b12ccd74330fbf85038db2fc3c4abf83cfc55c189a8447"
+    },
+    {
+      "original_frame_id": 260,
+      "file": "frames\\contact-000260.jpg",
+      "sha256": "d79c61b7473adae0a5cab47849a8035d3e9061c98b6ee39173b60b4e64bcb0db"
+    },
+    {
+      "original_frame_id": 280,
+      "file": "frames\\contact-000280.jpg",
+      "sha256": "9713600fb9b42cf632c14f4bbd9bbfe86165d4f383d122c0e631be59686385f0"
+    },
+    {
+      "original_frame_id": 285,
+      "file": "frames\\contact-000285.jpg",
+      "sha256": "3d5ee54ac7caa8caf9b02504a64081121117c693d8fc356799b9007afd9b56bd"
+    },
+    {
+      "original_frame_id": 287,
+      "file": "frames\\contact-000287.jpg",
+      "sha256": "436de5eb79b0c84379262af845ecf9c15d9c6d12167fd90de63744f93e84ddc3"
+    },
+    {
+      "original_frame_id": 290,
+      "file": "frames\\contact-000290.jpg",
+      "sha256": "64dfaed055e079bf54cb3e68f95480852b518774e2e20de0f40d7c34ab8dd625"
+    },
+    {
+      "original_frame_id": 308,
+      "file": "frames\\contact-000308.jpg",
+      "sha256": "9a12d87374ce5264a994d0bf675b3830b4a9e6fe268a8a5faa9c124c399792cf"
+    },
+    {
+      "original_frame_id": 359,
+      "file": "frames\\contact-000359.jpg",
+      "sha256": "a779406d353e238468d5bc104a2cdacd952ed75cd59c48034cf31633d1fd0d40"
+    }
+  ],
+  "requested_cpu_workers": 4,
+  "actual_worker_pids": [
+    28380,
+    30540,
+    60592,
+    108036
+  ],
+  "render_seconds_mean": 6.699013888889588,
+  "total_seconds": 609.2340000001714,
+  "rendering": "All native and object triangles, perspective-correct shared Z-buffer, constant albedo. One fixed display ROI for both methods and every frame.",
+  "limitations": "Visibility is between estimated meshes only. No table/background geometry, calibrated scale, true contact, hidden hand accuracy or official score is established.",
+  "quality_accepted": false,
+  "all30_execution_authorized": false
+}

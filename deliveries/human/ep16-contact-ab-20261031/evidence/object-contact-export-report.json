@@ -1,0 +1,21 @@
+{
+  "source_npz_sha256": "d583b3c15282cf2373e9f95d7c280bf8d76c81c7980859e7d161b61afb0580e9",
+  "contact_npz_sha256": "95f696082ef636c7860b89ca0e2c3206b5ebebe433f02e270dc39a24954678a9",
+  "before_vertices": 1625,
+  "before_faces": 2944,
+  "after_vertices": 1474,
+  "after_faces": 2944,
+  "geometry_max_nearest_change_m": 0.0,
+  "watertight": true,
+  "winding_consistent": true,
+  "convex_supporting_plane_max_violation_m": 5.551115123125783e-17,
+  "volume_m3": 0.00896013512164573,
+  "extents_m": [
+    0.20902644975530463,
+    0.20902644975530463,
+    0.20902644975530463
+  ],
+  "pose_usable_frames": 313,
+  "pose_usable_semantics": "Binary conservative gate, not probability: per-frame conditional heldout mean<=3px and visiblemaskIoU>=.9. Missing heldout evidence gets0. Global motion/image guards also required.",
+  "notice": "Contact-ready denotes passed weak-experiment guards plus closed topology and finite poses only. It does not certify camera, scale, hidden geometry or physical contact accuracy. Scale sensitivity0.8/1/1.2 is a chosen experiment range, not a calibrated interval."
+}

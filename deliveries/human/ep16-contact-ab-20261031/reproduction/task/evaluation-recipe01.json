@@ -1,0 +1,64 @@
+{
+  "recorded_at": "2026-10-31T12:14:52.770452+00:00",
+  "status": "prepared_not_run",
+  "track": 1,
+  "episode": 16,
+  "authorized_episodes": [
+    16
+  ],
+  "all30_execution_authorized": false,
+  "schema_version": "ep16_contact_ab_eval_recipe.v1",
+  "working_directory": "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi",
+  "source_sha256": {
+    "tools/evaluate_contact_ab.py": "efd77972a6d666bac0ac9613c489ce4809e2cfbaf416b82b3d026c39177657a7",
+    "tests/test_contact_ab_evaluation.py": "08e679111352164f84fdbb5e3bf8bf1d3a396d43fc1aa2ff6e9adb82af0411d7"
+  },
+  "helper_source_sha256": {
+    "tools/evaluate_human_hand_pilots.py": "11f77eb336c4be64b37ae8be3e572e59efb6f6561c957e99216214457781ef8d",
+    "tools/evaluate_refined_egohand_pilots.py": "6b57adf0903c165fdb99fd1fccb1567c40b6c8a045d55b62ff579e27058e3c12",
+    "src/v2hoi/hand_contact.py": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b"
+  },
+  "argv_template": [
+    "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+    "-B",
+    "FROZEN_RUNTIME/tools/evaluate_contact_ab.py",
+    "--input-manifest",
+    "TASK/evaluation-inputs01.json",
+    "--output",
+    "RESULTS/evaluation01.json",
+    "--tool-root",
+    "FROZEN_RUNTIME",
+    "--threads",
+    "1",
+    "--model-batch",
+    "8"
+  ],
+  "path_relocation_required": true,
+  "explicit_input_binding_keys": [
+    "manifest",
+    "source_video",
+    "baseline",
+    "a",
+    "b",
+    "historical_no_contact",
+    "legacy_reference",
+    "fresh_reference",
+    "original_active_hands",
+    "object",
+    "object_report",
+    "phases",
+    "fit_configuration_reference",
+    "protocol",
+    "criteria"
+  ],
+  "controlled_variant_nested_binding_keys": [
+    "report",
+    "support",
+    "weights"
+  ],
+  "frozen_criteria_sha256": "eb1d2cfee70375dff42700dd4c553e366648bbf975973f55a1544660ba88ef21",
+  "manual_phases_sha256": "63872d905201031408f8ce8fdb0aba844f8d755971be9debc073eb6b26d9fa0c",
+  "quality_accepted": false,
+  "official_score_available": false,
+  "actual_model_execution_performed": false
+}

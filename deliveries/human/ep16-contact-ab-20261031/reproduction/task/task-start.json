@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-31T12:05:02.981616+00:00",
+  "branch": "human",
+  "source_commit": "262b7b1d3e83787820cca0026af23995d7b08fe2",
+  "track": 1,
+  "authorized_episodes": [
+    16
+  ],
+  "frames": 360,
+  "preexisting_unrelated_status_sha256": "234d4c2fc6baf3fe141ffaf12c59372ea120658507446c49340c1eee591728b5",
+  "scope": "Reprepare same-camera/object-relative-scale geometry then matched no-contact versus RGB-reviewed manual-phase contact nativeMHR solves; no learned contact training until a beneficial experiment is established and reported. No EP11 or all30 execution in this first experiment.",
+  "camera_estimated_not_calibrated": true,
+  "official_score_available": false,
+  "quality_or_scale_or_contact_accepted": false,
+  "all30_execution_authorized": false
+}

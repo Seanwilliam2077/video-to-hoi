@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-10-31T12:22:34.245405+00:00",
+  "status": "prepared_for_root_authorized_execution",
+  "track": 1,
+  "episode": 16,
+  "input_manifest": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-inputs01.json",
+    "bytes": 6575,
+    "sha256": "6e8e1c8a09cb357e1b224add02eca143edfdb2668de5dfd05f136fdf8a636fc4"
+  },
+  "source": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime01\\tools\\evaluate_contact_ab.py",
+    "bytes": 27823,
+    "sha256": "efd77972a6d666bac0ac9613c489ce4809e2cfbaf416b82b3d026c39177657a7"
+  },
+  "runtime_snapshot": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime01\\snapshot.json",
+    "bytes": 1165,
+    "sha256": "9117dd5a138d69743bbaa3e7f901fc8202b4b6b094c43ac55c59f697f5b015ba"
+  },
+  "tool_root": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime01",
+  "output": "J:/video-to-hoi/runs/ep16-contact-ab-20261031/evaluation01.json",
+  "command": [
+    "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime01\\tools\\evaluate_contact_ab.py",
+    "--input-manifest",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-inputs01.json",
+    "--output",
+    "J:/video-to-hoi/runs/ep16-contact-ab-20261031/evaluation01.json",
+    "--tool-root",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-runtime01",
+    "--threads",
+    "1",
+    "--model-batch",
+    "8"
+  ],
+  "all30_execution_authorized": false,
+  "quality_accepted": false
+}

@@ -1,0 +1,164 @@
+{
+  "schema_version": "ep16_contact_ab_evaluation_inputs.v2",
+  "recorded_at": "2026-10-31T12:34:49.452947+00:00",
+  "track": 1,
+  "episode": 16,
+  "frames": 360,
+  "authorized_episodes": [
+    16
+  ],
+  "all30_execution_authorized": false,
+  "source_video": {
+    "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+    "bytes": 11744057,
+    "sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74"
+  },
+  "manifest": {
+    "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\manifest.json",
+    "bytes": 21841,
+    "sha256": "115ba62f458f632f037ef9347fad2c0181d92f5f27b70a2970c30a92b465c66d"
+  },
+  "baseline": {
+    "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz",
+    "bytes": 191669,
+    "sha256": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777"
+  },
+  "a": {
+    "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\A-no-contact02\\episode_000016_human.npz",
+    "bytes": 203598,
+    "sha256": "27c9303e12e7381e2a9b88c6dada89a4a233ff76ea47398c65667c6aa3b0ca82",
+    "report": {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\A-no-contact02\\report.json",
+      "bytes": 54262,
+      "sha256": "c175ffad02d71d0884895ecdabbdd236812e7f2a14ded458cc173aeec7c86d83"
+    },
+    "support": {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\A-no-contact02\\active_hands.npy",
+      "bytes": 848,
+      "sha256": "b888935960d8c41524e91548947472e3cc4937187dc713351f83ce61ea169b00"
+    },
+    "weights": {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\A-no-contact02\\optimization_weights.npy",
+      "bytes": 60608,
+      "sha256": "f92bd32d2c16e9f0594a56e737a3dbef1c703398f15f5cfd4fa60c19494ed5c1"
+    }
+  },
+  "b": {
+    "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\B-manual-contact02\\episode_000016_human.npz",
+    "bytes": 260282,
+    "sha256": "fe705b600b14509f22f49c9733345fd2b55776d38ecc19e490a029bffd56e1ea",
+    "report": {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\B-manual-contact02\\report.json",
+      "bytes": 324996,
+      "sha256": "e64cff85fa99838408a503f0a5be897d26d43b73be37a898c079429b0aff569c"
+    },
+    "support": {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\B-manual-contact02\\active_hands.npy",
+      "bytes": 848,
+      "sha256": "b888935960d8c41524e91548947472e3cc4937187dc713351f83ce61ea169b00"
+    },
+    "weights": {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\B-manual-contact02\\optimization_weights.npy",
+      "bytes": 60608,
+      "sha256": "f92bd32d2c16e9f0594a56e737a3dbef1c703398f15f5cfd4fa60c19494ed5c1"
+    }
+  },
+  "historical_no_contact": {
+    "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\candidate-mp02\\episode_000016_human.npz",
+    "bytes": 203595,
+    "sha256": "4a58a3af46a19032b16b74c8f06f93fc5a3dc097c6d533a361ad0cd971e1f169"
+  },
+  "legacy_reference": {
+    "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\observations\\attempt-0001\\observations.npz",
+    "bytes": 189992,
+    "sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7"
+  },
+  "fresh_reference": {
+    "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\fresh-mp02\\observations.npz",
+    "bytes": 189822,
+    "sha256": "941012c727c11b2039abce7309b66e5da4bc27b1e2c8944740fe2f93cf5646f3"
+  },
+  "original_active_hands": {
+    "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\refined\\attempt-0003\\active_hands.npy",
+    "bytes": 848,
+    "sha256": "bac9ea06e1d296ec6403fa9d10e9d9073e717161abc09e2a6e3986fa5ca397cb"
+  },
+  "object": {
+    "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\contact_ready.npz",
+    "bytes": 90110,
+    "sha256": "95f696082ef636c7860b89ca0e2c3206b5ebebe433f02e270dc39a24954678a9"
+  },
+  "object_report": {
+    "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\report.json",
+    "bytes": 222522,
+    "sha256": "49757193a059028366dad033d06c348e490dd8b44186718dd66c66c31174f731"
+  },
+  "phases": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\manual-contact-phases01.json",
+    "bytes": 4189,
+    "sha256": "63872d905201031408f8ce8fdb0aba844f8d755971be9debc073eb6b26d9fa0c"
+  },
+  "criteria": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\frozen-contact-ab-criteria01.json",
+    "bytes": 2524,
+    "sha256": "eb1d2cfee70375dff42700dd4c553e366648bbf975973f55a1544660ba88ef21"
+  },
+  "fit_configuration_reference": {
+    "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\candidate-mp02\\report.json",
+    "bytes": 54266,
+    "sha256": "582b74179016bd1b0e944fe9af612edbf8927d1150bba36d3fbfd966874b89c6"
+  },
+  "protocol": {
+    "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\ab-plan02.json",
+    "bytes": 13580,
+    "sha256": "87716d0e196d8d5af8563832b5266b0533c5dd39e72b2800b8f1cd12e5bb6ac5"
+  },
+  "completed_native_fit_receipts": {
+    "A": {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\ab-plan02-A.finished.json",
+      "bytes": 2314,
+      "sha256": "7345cd6ee8051f2db2e6641d55cff4699aa162727b6a6c9a97a8127abb98bdb5"
+    },
+    "B": {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\ab-plan02-B.finished.json",
+      "bytes": 2892,
+      "sha256": "02f299ed61998530f2c6113b91abc7722ccc038ccc1e78fef085b74fd7685022"
+    }
+  },
+  "previous_evaluation_input_manifest": {
+    "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep16-evaluation-inputs02.json",
+    "bytes": 9861,
+    "sha256": "a3fb918efc60c42848e2bbc8ab9b52fea04ff8cc204730ae2edd4a6f9c4720af"
+  },
+  "manual_phase_with_mutable_finger_controls": [
+    0,
+    129
+  ],
+  "manual_phase_without_mutable_finger_controls": [
+    129,
+    0
+  ],
+  "left_hand_limitation": "All129 usable carry frames have frozen left finger controls. This experiment cannot demonstrate recovered left finger articulation; any allowed arm motion is a separate block.",
+  "quality_accepted": false,
+  "official_score_available": false,
+  "contact_model_training_started": false,
+  "episode11_execution_started": false,
+  "contact_anchor_reference": {
+    "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\candidate-mp02\\episode_000016_human.npz",
+    "bytes": 203595,
+    "sha256": "4a58a3af46a19032b16b74c8f06f93fc5a3dc097c6d533a361ad0cd971e1f169"
+  },
+  "prior_controlled_attempt": {
+    "input_manifest": {
+      "path": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\evaluation-inputs01.json",
+      "bytes": 6575,
+      "sha256": "6e8e1c8a09cb357e1b224add02eca143edfdb2668de5dfd05f136fdf8a636fc4"
+    },
+    "evaluation": {
+      "path": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\evaluation01.json",
+      "bytes": 9179820,
+      "sha256": "1cc785e5a55297d3b34881ef8586ed964ba250e6e2ca2c8b54f49ccfb75d8203"
+    },
+    "retained_reason": "Actual first-run anchors lay only on immutable left fingers; revised anchor-selection prior is explicit and pre-fit frozen."
+  }
+}

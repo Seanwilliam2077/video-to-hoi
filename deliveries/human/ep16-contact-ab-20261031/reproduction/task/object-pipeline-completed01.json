@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-31T12:14:52.707427+00:00",
+  "status": "completed_with_environment_only_export_recovery",
+  "original_export_failure_preserved": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\object-contact-export01.finished.json",
+  "contact_ready": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\contact_ready.npz",
+  "contact_ready_sha256": "95f696082ef636c7860b89ca0e2c3206b5ebebe433f02e270dc39a24954678a9",
+  "geometry_ply_sha256": "3919e9b338c80923c1007c46b6909a23defce22b3221b3208aebbe2b265ec2ea",
+  "object_report_sha256": "49757193a059028366dad033d06c348e490dd8b44186718dd66c66c31174f731",
+  "validation_sha256": "101fa93c3e1f73f44b06168378b472b9011a15e84cb18a7a0b05e8b1907ed0c7",
+  "source_pin_sha256": "d0fd087b0137e9ea6bb9f268e61bf2177257ed28c10af930ff371a10c59f0a1a",
+  "sample_review": "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\sample-review\\summary.json",
+  "quality_accepted": false,
+  "contact_or_scale_accepted": false,
+  "official_score_available": false,
+  "all30_execution_authorized": false
+}

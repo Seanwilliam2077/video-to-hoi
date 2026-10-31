@@ -1,0 +1,885 @@
+{
+  "schema_version": "ep16_object_left_hand_conflict_audit.v1",
+  "recorded_at": "2026-10-31T12:35:00.759870+00:00",
+  "track": 1,
+  "episode": 16,
+  "scope": "Read-only coordinate/topology/rig validation and conflict attribution against one fixed uncertain reconstructed object; no object or hand corrections.",
+  "source_sha256": "847240c2e0ffa1de761caba5ec928ce51a35fbd9525cdec1f84ca6a256e08c9e",
+  "protected_inputs_sha256_before_and_after": {
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\object-final01\\contact_ready.npz": "95f696082ef636c7860b89ca0e2c3206b5ebebe433f02e270dc39a24954678a9",
+    "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\baseline\\attempt-0001\\episode_000016_human.npz": "d770f1d869dccb61622d4affe82abd60cb342424b4519e38cd957287029fb777",
+    "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\render-hand-skin-indices01.npz": "3c740da4dd1479bb60a8c095cae8194828013ee851462ec6c85b199a42c9efaf",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\A-no-contact01\\episode_000016_human.npz": "7a9b7e035e5ff98c1463456f05b54c9c7ac0c84c184bd292b580d505ab7d46ff",
+    "J:\\video-to-hoi\\runs\\ep16-contact-ab-20261031\\B-manual-contact01\\episode_000016_human.npz": "bfa81c6a86e0c114f58a83b280af08e49de78c422689840156ab550bdd7e1502"
+  },
+  "native_decoder": {
+    "frames": [
+      90,
+      120,
+      210,
+      250
+    ],
+    "full_native_vertices_vs_saved_max_absolute_m": 2.384185791015625e-07,
+    "full_native_hand_joints_vs_saved_max_absolute_m": 2.9802322387695312e-08,
+    "native_conversion": "Native centimetres/y-up/z-back multiplied by[.01,-.01,-.01] into OpenCV metres/y-down/z-forward",
+    "joint_names": [
+      "l_wrist",
+      "r_wrist"
+    ]
+  },
+  "verified_skin_selection": {
+    "actual_verified_threshold": 0.5,
+    "actual_cache_counts": [
+      2321,
+      2321
+    ],
+    "all_cache_indices_equal_rig_recomputed": true,
+    "counts_if_threshold_0p1": [
+      2427,
+      2427
+    ],
+    "historical_benchmark_label_erratum": "hand-skin-display-benchmark01.json says >=.1; actual cached indices exactly match .5, not .1. This is stale metadata wording, not a geometry change."
+  },
+  "carry_parameter_preservation": {
+    "usable_carry_frames": [
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      100,
+      101,
+      102,
+      103,
+      104,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      140,
+      142,
+      143,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      223,
+      224,
+      225,
+      226,
+      227,
+      228,
+      229,
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      238,
+      239,
+      240,
+      241,
+      242,
+      243,
+      244,
+      245,
+      246,
+      247,
+      248,
+      249,
+      250
+    ],
+    "A_B_left_finger_controls_exact": true,
+    "A_left_finger_controls_exact_original_SAM": true,
+    "A_B_left_selected_skin_exact": true
+  },
+  "rows": [
+    {
+      "frame": 90,
+      "object_center_camera_m": [
+        -0.16967614897321698,
+        0.19544183777555765,
+        2.8632626576451363
+      ],
+      "object_camera_z_minmax_m": [
+        2.7058029931639,
+        3.020722322126373
+      ],
+      "object_local_bbox_m": [
+        [
+          -0.10451322487765231,
+          -0.10451322487765231,
+          -0.10451322487765231
+        ],
+        [
+          0.10451322487765231,
+          0.10451322487765231,
+          0.10451322487765231
+        ]
+      ],
+      "pose_usable": true,
+      "hands": {
+        "left": {
+          "skin_vertices": 2321,
+          "penetrating_vertices": 2255,
+          "penetrating_fraction": 0.9715639810426541,
+          "mean_depth_over_all_hand_vertices_mm": 44.61001939340666,
+          "max_depth_mm": 86.54242847667224,
+          "local_skin_bbox_m": [
+            [
+              -0.12718156889824656,
+              0.005856221118707439,
+              -0.07983848509598568
+            ],
+            [
+              0.02412279086169988,
+              0.09385963359443612,
+              0.0007213767909810811
+            ]
+          ],
+          "wrist_local_m": [
+            -0.11643060471084081,
+            0.0619883682341114,
+            -0.05825910770922702
+          ],
+          "palm_knuckle_centroid_local_m": [
+            -0.043865236558708304,
+            0.0497318448456024,
+            -0.06507250227285746
+          ],
+          "tip_order": [
+            "thumb",
+            "index",
+            "middle",
+            "ring",
+            "pinky"
+          ],
+          "fingertip_local_m": [
+            [
+              -0.008494613924030042,
+              0.07312046616428225,
+              -0.005212011859270429
+            ],
+            [
+              0.018202302284535673,
+              0.03859082562276507,
+              -0.017407541249518585
+            ],
+            [
+              0.02004671716039137,
+              0.02636959189351467,
+              -0.022633139177562243
+            ],
+            [
+              -0.0029032488502099833,
+              0.019306832902913497,
+              -0.018669391941845536
+            ],
+            [
+              -0.018843272462948795,
+              0.012347095406348362,
+              -0.033611708326395776
+            ]
+          ],
+          "skin_camera_z_minmax_m": [
+            2.8499059677124023,
+            2.9852635860443115
+          ],
+          "wrist_camera_z_m": 2.9703123569488525,
+          "a_vs_original_SAM_skin_max_abs_m": 9.5367431640625e-07,
+          "a_vs_b_skin_max_abs_m": 0.0,
+          "row_transform_vs_inverse_homogeneous_max_abs_m": 4.0939474033052647e-16,
+          "independent_world_vs_local_hull_max_signed_difference_m": 3.608224830031759e-16,
+          "inside_exact_triangle_vs_support_plane_distance_max_difference_m": 3.6157909721890036e-09
+        },
+        "right": {
+          "skin_vertices": 2321,
+          "penetrating_vertices": 0,
+          "penetrating_fraction": 0.0,
+          "mean_depth_over_all_hand_vertices_mm": 0.0,
+          "max_depth_mm": 0.0,
+          "local_skin_bbox_m": [
+            [
+              -0.17917555650045586,
+              -0.05402759756037677,
+              0.10888136534975287
+            ],
+            [
+              -0.01378315549014103,
+              0.06502882094692888,
+              0.19044971178713768
+            ]
+          ],
+          "wrist_local_m": [
+            -0.1660498714666508,
+            -0.006463360409105103,
+            0.1778274110770238
+          ],
+          "palm_knuckle_centroid_local_m": [
+            -0.0938207163989955,
+            -0.005645054562147352,
+            0.16461830957442247
+          ],
+          "tip_order": [
+            "thumb",
+            "index",
+            "middle",
+            "ring",
+            "pinky"
+          ],
+          "fingertip_local_m": [
+            [
+              -0.09130704284359778,
+              0.06119180964356233,
+              0.11313534275245789
+            ],
+            [
+              -0.019544895945036916,
+              0.03377009225489919,
+              0.13018346693047333
+            ],
+            [
+              -0.01705767548030017,
+              0.004133166616272767,
+              0.11761196147257345
+            ],
+            [
+              -0.028100732411541395,
+              -0.023233522064895568,
+              0.11604412538712015
+            ],
+            [
+              -0.05213179982298587,
+              -0.04883640849068305,
+              0.12246374971439161
+            ]
+          ],
+          "skin_camera_z_minmax_m": [
+            2.7769205570220947,
+            2.8873813152313232
+          ],
+          "wrist_camera_z_m": 2.8612523078918457,
+          "a_vs_original_SAM_skin_max_abs_m": 0.04981064796447754,
+          "a_vs_b_skin_max_abs_m": 0.0009696483612060547,
+          "row_transform_vs_inverse_homogeneous_max_abs_m": 4.510281037539698e-16,
+          "independent_world_vs_local_hull_max_signed_difference_m": 4.718447854656915e-16,
+          "inside_exact_triangle_vs_support_plane_distance_max_difference_m": null
+        }
+      }
+    },
+    {
+      "frame": 120,
+      "object_center_camera_m": [
+        -0.20613166630526844,
+        0.14767939099787072,
+        2.8619323181921765
+      ],
+      "object_camera_z_minmax_m": [
+        2.7138152724132274,
+        3.0100493639711257
+      ],
+      "object_local_bbox_m": [
+        [
+          -0.10451322487765231,
+          -0.10451322487765231,
+          -0.10451322487765231
+        ],
+        [
+          0.10451322487765231,
+          0.10451322487765231,
+          0.10451322487765231
+        ]
+      ],
+      "pose_usable": true,
+      "hands": {
+        "left": {
+          "skin_vertices": 2321,
+          "penetrating_vertices": 2321,
+          "penetrating_fraction": 1.0,
+          "mean_depth_over_all_hand_vertices_mm": 55.27167650581998,
+          "max_depth_mm": 81.92326347673753,
+          "local_skin_bbox_m": [
+            [
+              -0.10237510546218749,
+              -0.030609941479662377,
+              -0.07231516448442474
+            ],
+            [
+              0.04818042492793644,
+              0.058007338645857484,
+              0.01354125807793228
+            ]
+          ],
+          "wrist_local_m": [
+            -0.10067267458150843,
+            0.015616999861898276,
+            -0.01372087282215704
+          ],
+          "palm_knuckle_centroid_local_m": [
+            -0.03572739812042573,
+            0.008725734614544931,
+            -0.048318745782007046
+          ],
+          "tip_order": [
+            "thumb",
+            "index",
+            "middle",
+            "ring",
+            "pinky"
+          ],
+          "fingertip_local_m": [
+            [
+              0.016117445326595092,
+              0.04932864706947306,
+              -0.01329419006712844
+            ],
+            [
+              0.04158468477840693,
+              0.01349037704091618,
+              -0.031476846844298495
+            ],
+            [
+              0.045225560052431224,
+              2.9774556543695366e-05,
+              -0.038339630265959684
+            ],
+            [
+              0.027565889225208123,
+              -0.009504637470263935,
+              -0.022590327989222836
+            ],
+            [
+              0.006410346699474513,
+              -0.020155081850361953,
+              -0.025907669111946533
+            ]
+          ],
+          "skin_camera_z_minmax_m": [
+            2.822418451309204,
+            2.9618401527404785
+          ],
+          "wrist_camera_z_m": 2.9481265544891357,
+          "a_vs_original_SAM_skin_max_abs_m": 9.5367431640625e-07,
+          "a_vs_b_skin_max_abs_m": 0.0,
+          "row_transform_vs_inverse_homogeneous_max_abs_m": 3.608224830031759e-16,
+          "independent_world_vs_local_hull_max_signed_difference_m": 5.48172618408671e-16,
+          "inside_exact_triangle_vs_support_plane_distance_max_difference_m": 3.0811840856515005e-09
+        },
+        "right": {
+          "skin_vertices": 2321,
+          "penetrating_vertices": 0,
+          "penetrating_fraction": 0.0,
+          "mean_depth_over_all_hand_vertices_mm": 0.0,
+          "max_depth_mm": 0.0,
+          "local_skin_bbox_m": [
+            [
+              -0.043578912847448914,
+              -0.03275491398521709,
+              0.11997771690632293
+            ],
+            [
+              0.1285696139432834,
+              0.05990163932211569,
+              0.20142021670038188
+            ]
+          ],
+          "wrist_local_m": [
+            -0.02548472590743712,
+            0.01020506649434391,
+            0.19141060860454634
+          ],
+          "palm_knuckle_centroid_local_m": [
+            0.044104960372828426,
+            0.003724904582104922,
+            0.16888287935126955
+          ],
+          "tip_order": [
+            "thumb",
+            "index",
+            "middle",
+            "ring",
+            "pinky"
+          ],
+          "fingertip_local_m": [
+            [
+              0.06405341566124537,
+              0.052965893467206836,
+              0.12432119643252482
+            ],
+            [
+              0.11970868352860249,
+              0.029341911538545568,
+              0.12827301249727346
+            ],
+            [
+              0.12559450983609155,
+              0.010418954147104734,
+              0.1247039757917753
+            ],
+            [
+              0.1149171974250389,
+              -0.0005369921205793911,
+              0.1281924011509116
+            ],
+            [
+              0.08276560304066341,
+              -0.01894185679649782,
+              0.12792766994661833
+            ]
+          ],
+          "skin_camera_z_minmax_m": [
+            2.7136571407318115,
+            2.8654837608337402
+          ],
+          "wrist_camera_z_m": 2.841019630432129,
+          "a_vs_original_SAM_skin_max_abs_m": 0.018090486526489258,
+          "a_vs_b_skin_max_abs_m": 0.0011986792087554932,
+          "row_transform_vs_inverse_homogeneous_max_abs_m": 3.191891195797325e-16,
+          "independent_world_vs_local_hull_max_signed_difference_m": 5.551115123125783e-16,
+          "inside_exact_triangle_vs_support_plane_distance_max_difference_m": null
+        }
+      }
+    },
+    {
+      "frame": 210,
+      "object_center_camera_m": [
+        -0.23344804113534154,
+        0.1241142200752444,
+        2.865792587756768
+      ],
+      "object_camera_z_minmax_m": [
+        2.707896456579561,
+        3.023688718933975
+      ],
+      "object_local_bbox_m": [
+        [
+          -0.10451322487765231,
+          -0.10451322487765231,
+          -0.10451322487765231
+        ],
+        [
+          0.10451322487765231,
+          0.10451322487765231,
+          0.10451322487765231
+        ]
+      ],
+      "pose_usable": false,
+      "hands": {
+        "left": {
+          "skin_vertices": 2321,
+          "penetrating_vertices": 2321,
+          "penetrating_fraction": 1.0,
+          "mean_depth_over_all_hand_vertices_mm": 51.16608818976328,
+          "max_depth_mm": 90.66400366590177,
+          "local_skin_bbox_m": [
+            [
+              -0.07280169116494077,
+              -0.03162986658574606,
+              -0.07568297552076805
+            ],
+            [
+              0.07921695692285592,
+              0.04696783920107786,
+              0.009182707872638704
+            ]
+          ],
+          "wrist_local_m": [
+            -0.0706076091370037,
+            0.0029494793961577963,
+            -0.03028314488781868
+          ],
+          "palm_knuckle_centroid_local_m": [
+            -0.001598153279569439,
+            0.011463278209913375,
+            -0.05533502177306428
+          ],
+          "tip_order": [
+            "thumb",
+            "index",
+            "middle",
+            "ring",
+            "pinky"
+          ],
+          "fingertip_local_m": [
+            [
+              0.04177599002466833,
+              0.03758212430040938,
+              -0.0017881733114373988
+            ],
+            [
+              0.0713206429582515,
+              0.01117435220562176,
+              -0.025099676990237744
+            ],
+            [
+              0.07603752881671638,
+              0.00137513616613678,
+              -0.03460066150548704
+            ],
+            [
+              0.05741105736415924,
+              -0.01316046690544338,
+              -0.027157210267112306
+            ],
+            [
+              0.0391939827910526,
+              -0.022239906497466534,
+              -0.038554813115755114
+            ]
+          ],
+          "skin_camera_z_minmax_m": [
+            2.808967351913452,
+            2.9501328468322754
+          ],
+          "wrist_camera_z_m": 2.936328887939453,
+          "a_vs_original_SAM_skin_max_abs_m": 7.152557373046875e-07,
+          "a_vs_b_skin_max_abs_m": 0.0,
+          "row_transform_vs_inverse_homogeneous_max_abs_m": 5.724587470723463e-16,
+          "independent_world_vs_local_hull_max_signed_difference_m": 4.371503159461554e-16,
+          "inside_exact_triangle_vs_support_plane_distance_max_difference_m": 2.4535170284334384e-09
+        },
+        "right": {
+          "skin_vertices": 2321,
+          "penetrating_vertices": 61,
+          "penetrating_fraction": 0.026281775096940973,
+          "mean_depth_over_all_hand_vertices_mm": 0.08530242868272286,
+          "max_depth_mm": 6.067749150246438,
+          "local_skin_bbox_m": [
+            [
+              -0.03842680427494242,
+              -0.05519468868075786,
+              0.09834828718105888
+            ],
+            [
+              0.11713709022470442,
+              0.061298997504129184,
+              0.17630169064837936
+            ]
+          ],
+          "wrist_local_m": [
+            -0.019615940196538284,
+            -0.02982565685210889,
+            0.16226764503640026
+          ],
+          "palm_knuckle_centroid_local_m": [
+            0.049108129706790266,
+            -0.00599439551430068,
+            0.1522041262607955
+          ],
+          "tip_order": [
+            "thumb",
+            "index",
+            "middle",
+            "ring",
+            "pinky"
+          ],
+          "fingertip_local_m": [
+            [
+              0.048183687406154,
+              0.045937527220830845,
+              0.10269397907186828
+            ],
+            [
+              0.10860247866034864,
+              0.05679254941204433,
+              0.12699484415245624
+            ],
+            [
+              0.11328531499020136,
+              0.04046296650010494,
+              0.10958172203867975
+            ],
+            [
+              0.10832874471715556,
+              0.022180800661920665,
+              0.10588871286716324
+            ],
+            [
+              0.09852717154489546,
+              -0.013248581420272082,
+              0.1067037854862714
+            ]
+          ],
+          "skin_camera_z_minmax_m": [
+            2.6984283924102783,
+            2.8480467796325684
+          ],
+          "wrist_camera_z_m": 2.8253347873687744,
+          "a_vs_original_SAM_skin_max_abs_m": 0.011803865432739258,
+          "a_vs_b_skin_max_abs_m": 0.0056514739990234375,
+          "row_transform_vs_inverse_homogeneous_max_abs_m": 5.585809592645319e-16,
+          "independent_world_vs_local_hull_max_signed_difference_m": 6.938893903907228e-16,
+          "inside_exact_triangle_vs_support_plane_distance_max_difference_m": 1.8373963461826293e-10
+        }
+      }
+    },
+    {
+      "frame": 250,
+      "object_center_camera_m": [
+        -0.2236765359854993,
+        0.3362784462501935,
+        2.9221495262429813
+      ],
+      "object_camera_z_minmax_m": [
+        2.7778034077586575,
+        3.066495644727305
+      ],
+      "object_local_bbox_m": [
+        [
+          -0.10451322487765231,
+          -0.10451322487765231,
+          -0.10451322487765231
+        ],
+        [
+          0.10451322487765231,
+          0.10451322487765231,
+          0.10451322487765231
+        ]
+      ],
+      "pose_usable": true,
+      "hands": {
+        "left": {
+          "skin_vertices": 2321,
+          "penetrating_vertices": 1669,
+          "penetrating_fraction": 0.7190866006031883,
+          "mean_depth_over_all_hand_vertices_mm": 24.903087009041947,
+          "max_depth_mm": 62.13002667604278,
+          "local_skin_bbox_m": [
+            [
+              -0.08587233281075522,
+              0.04233111578339911,
+              -0.08050362232439898
+            ],
+            [
+              0.04967649929509653,
+              0.16820972008467472,
+              0.00017617981686243313
+            ]
+          ],
+          "wrist_local_m": [
+            -0.06433760982899722,
+            0.14889911358966962,
+            -0.057233164882033755
+          ],
+          "palm_knuckle_centroid_local_m": [
+            -0.008411924140592638,
+            0.10131175534401912,
+            -0.06560894977776534
+          ],
+          "tip_order": [
+            "thumb",
+            "index",
+            "middle",
+            "ring",
+            "pinky"
+          ],
+          "fingertip_local_m": [
+            [
+              0.035188488037221674,
+              0.10248465695081509,
+              -0.00580094429117924
+            ],
+            [
+              0.04264449429788369,
+              0.058053095031253804,
+              -0.02127560488322802
+            ],
+            [
+              0.038054464409549606,
+              0.046423182342304505,
+              -0.026853106322002603
+            ],
+            [
+              0.01472725508997021,
+              0.05182788347758909,
+              -0.022051617361788418
+            ],
+            [
+              -0.004263875301847028,
+              0.0556280824324327,
+              -0.03592685327693742
+            ]
+          ],
+          "skin_camera_z_minmax_m": [
+            2.8900673389434814,
+            3.020897626876831
+          ],
+          "wrist_camera_z_m": 3.000659942626953,
+          "a_vs_original_SAM_skin_max_abs_m": 7.152557373046875e-07,
+          "a_vs_b_skin_max_abs_m": 0.0,
+          "row_transform_vs_inverse_homogeneous_max_abs_m": 7.771561172376096e-16,
+          "independent_world_vs_local_hull_max_signed_difference_m": 2.914335439641036e-16,
+          "inside_exact_triangle_vs_support_plane_distance_max_difference_m": 1.6949326317461377e-09
+        },
+        "right": {
+          "skin_vertices": 2321,
+          "penetrating_vertices": 113,
+          "penetrating_fraction": 0.04868591124515295,
+          "mean_depth_over_all_hand_vertices_mm": 0.11541058106817184,
+          "max_depth_mm": 5.644284484141449,
+          "local_skin_bbox_m": [
+            [
+              -0.13993172314809618,
+              0.006341403932773872,
+              0.08709147662465642
+            ],
+            [
+              0.013453504734119673,
+              0.15721131299325786,
+              0.16668578848148996
+            ]
+          ],
+          "wrist_local_m": [
+            -0.11674798967843335,
+            0.1303468828158653,
+            0.15382889186080198
+          ],
+          "palm_knuckle_centroid_local_m": [
+            -0.06350787039515272,
+            0.08108796051175414,
+            0.14237285955266019
+          ],
+          "tip_order": [
+            "thumb",
+            "index",
+            "middle",
+            "ring",
+            "pinky"
+          ],
+          "fingertip_local_m": [
+            [
+              -0.010399458068574702,
+              0.13473291560038705,
+              0.09217836595309391
+            ],
+            [
+              0.009967162275655209,
+              0.05052903421769527,
+              0.10200054679608878
+            ],
+            [
+              -0.0024902166498494576,
+              0.02384247724450204,
+              0.10476385895150395
+            ],
+            [
+              -0.02497793021477135,
+              0.009677052165833066,
+              0.11415375614400732
+            ],
+            [
+              -0.058801807763102905,
+              0.009334922160361612,
+              0.12287682920547507
+            ]
+          ],
+          "skin_camera_z_minmax_m": [
+            2.8433258533477783,
+            2.9388115406036377
+          ],
+          "wrist_camera_z_m": 2.911363363265991,
+          "a_vs_original_SAM_skin_max_abs_m": 0.049410104751586914,
+          "a_vs_b_skin_max_abs_m": 0.0008831024169921875,
+          "row_transform_vs_inverse_homogeneous_max_abs_m": 8.049116928532385e-16,
+          "independent_world_vs_local_hull_max_signed_difference_m": 6.38378239159465e-16,
+          "inside_exact_triangle_vs_support_plane_distance_max_difference_m": 1.8557221037607263e-10
+        }
+      }
+    }
+  ],
+  "interpretation": [
+    "Independent posed-world ConvexHull checks agree with object-local checks; the large left invasion is present in the saved coordinates rather than introduced by a transpose, handedness, native-unit or reversed-normal test bug.",
+    "At the sampled carry frames, A left skin remains the original SAM prediction within decoder numerical tolerance and A/B left skin is exactly equal. B contact attraction did not create the left invasion.",
+    "The left palm and fingers lie deep within the assumed cube. At frame210 its entire skin bounding box lies within the cube interior; right hand stays mainly near/outside the +localZ surface.",
+    "The unobserved left pose is a prior while object hidden shape and center-depth gauge are assumptions. These checks identify a joint human-object incompatibility, not which estimate is physically wrong.",
+    "Shared camera and units establish mathematical consistency only. Source RGB alone does not identify a unique hidden left articulation, object backside or exact relative depth.",
+    "Do not tune object scale/pose after A/B or infer improved official penetration/true contact from these diagnostics."
+  ],
+  "object_camera_mesh_scale_or_pose_changed": false,
+  "quality_accepted": false,
+  "contact_or_scale_accepted": false,
+  "official_score_available": false
+}

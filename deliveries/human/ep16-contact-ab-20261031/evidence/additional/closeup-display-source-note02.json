@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-31T12:44:04.127223+00:00",
+  "source_template": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\render-runtime02\\tools\\render_contact_ab.py",
+  "source_template_sha256": "0630727175e26d7f8c177ae89638dee8a12f38affa5c28b3a07e480e2808f580",
+  "actual_source": "J:\\video-to-hoi\\work\\ep16-contact-ab-20261031\\closeup-runtime02\\tools\\render_contact_ab.py",
+  "actual_source_sha256": "0721d8ad9fec4e48cd4cf68f83e845f7b1ff6a83005e44efec369502ba3fbfa5",
+  "only_source_difference": {
+    "before": "roi = fixed_union_roi(all_points)",
+    "after": "roi = np.asarray([520, 500, 850, 830], dtype=np.int64)"
+  },
+  "display_roi_original_pixels": [
+    520,
+    500,
+    850,
+    830
+  ],
+  "same_for_source_A_B_and_all_frames": true,
+  "model_evaluation_or_geometry_change": false
+}

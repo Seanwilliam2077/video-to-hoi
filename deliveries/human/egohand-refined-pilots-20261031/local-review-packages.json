@@ -1,0 +1,33 @@
+{
+  "recorded_at": "2026-10-31T11:09:14.960188+00:00",
+  "track": 1,
+  "packager_source_sha256": "8caa847af81a046a507e743b8db859d5da5e15978eabc6709329572aa4f10646",
+  "metadata_errata_manifest_sha256": "6e0d542692717a99fac6d8c8263bc2ec6184fd09566964fd2f44e19328d171c3",
+  "canonical_numeric_npy_members_reverified": true,
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "all30_execution_authorized": false,
+  "automatic_promotion": false,
+  "outputs": [
+    {
+      "episode": 16,
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\local-delivery02\\egohand-refined-pilots-20261031-ep16-review.zip",
+      "bytes": 85120152,
+      "sha256": "f5636f3d3d7f088b089777a286e7383430c4eeda660f3b278aa3114917ddb211",
+      "payload_files": 218,
+      "all_zip_members_rehashed": true,
+      "published": false
+    },
+    {
+      "episode": 11,
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\local-delivery02\\egohand-refined-pilots-20261031-ep11-review.zip",
+      "bytes": 244720252,
+      "sha256": "6857b292dd54e30707e7319d031abade9a49e75f589496f3a96b76b080f27002",
+      "payload_files": 775,
+      "all_zip_members_rehashed": true,
+      "published": false
+    }
+  ]
+}

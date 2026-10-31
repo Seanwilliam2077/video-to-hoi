@@ -1,0 +1,10 @@
+{
+  "controller": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_refined_postprocessing02.py",
+  "sha256": "0c1ecc3715868780cd4cea01a4cc2e9bd187ab079ca8c970ac12a7116090d28f",
+  "syntax": "passed",
+  "upstream_commit_unchanged": true,
+  "attempt02_only": true,
+  "stop_waits_for_existing_fit_future_then_refuses_new_stage": "passed",
+  "incomplete_receipt_read_retries_without_rerunning_job": "passed",
+  "independent_synthetic_no_models_or_videos": true
+}

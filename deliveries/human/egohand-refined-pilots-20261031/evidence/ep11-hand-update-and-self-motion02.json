@@ -1,0 +1,100 @@
+{
+  "episode": 11,
+  "retained_native_corrections_by_hand": {
+    "legacy_mediapipe": {
+      "left": {
+        "changed_original_frame_count": 523,
+        "zero_update_hand": false,
+        "maximum_finger_control_delta_radians": 0.12048986554145813,
+        "p95_absolute_finger_control_delta_radians": 0.06345554292201995,
+        "maximum_arm_control_delta_radians": 0.07262554485350847,
+        "interpretation": "Magnitude of the retained control correction, not actual hand motion or accuracy; an unchanged hand does not demonstrate an improvement"
+      },
+      "right": {
+        "changed_original_frame_count": 592,
+        "zero_update_hand": false,
+        "maximum_finger_control_delta_radians": 0.11039639264345169,
+        "p95_absolute_finger_control_delta_radians": 0.05887985713779925,
+        "maximum_arm_control_delta_radians": 0.07392501831054688,
+        "interpretation": "Magnitude of the retained control correction, not actual hand motion or accuracy; an unchanged hand does not demonstrate an improvement"
+      }
+    },
+    "legacy_egohand": {
+      "left": {
+        "changed_original_frame_count": 877,
+        "zero_update_hand": false,
+        "maximum_finger_control_delta_radians": 0.6251232177019119,
+        "p95_absolute_finger_control_delta_radians": 0.2864178724586964,
+        "maximum_arm_control_delta_radians": 0.10000002384185791,
+        "interpretation": "Magnitude of the retained control correction, not actual hand motion or accuracy; an unchanged hand does not demonstrate an improvement"
+      },
+      "right": {
+        "changed_original_frame_count": 877,
+        "zero_update_hand": false,
+        "maximum_finger_control_delta_radians": 0.5699587166309357,
+        "p95_absolute_finger_control_delta_radians": 0.27518697977066037,
+        "maximum_arm_control_delta_radians": 0.10000002384185791,
+        "interpretation": "Magnitude of the retained control correction, not actual hand motion or accuracy; an unchanged hand does not demonstrate an improvement"
+      }
+    },
+    "fresh_mediapipe": {
+      "left": {
+        "changed_original_frame_count": 523,
+        "zero_update_hand": false,
+        "maximum_finger_control_delta_radians": 0.2615257799625397,
+        "p95_absolute_finger_control_delta_radians": 0.12069637402892111,
+        "maximum_arm_control_delta_radians": 0.10000000894069672,
+        "interpretation": "Magnitude of the retained control correction, not actual hand motion or accuracy; an unchanged hand does not demonstrate an improvement"
+      },
+      "right": {
+        "changed_original_frame_count": 592,
+        "zero_update_hand": false,
+        "maximum_finger_control_delta_radians": 0.2349267452955246,
+        "p95_absolute_finger_control_delta_radians": 0.10270727127790451,
+        "maximum_arm_control_delta_radians": 0.10000002384185791,
+        "interpretation": "Magnitude of the retained control correction, not actual hand motion or accuracy; an unchanged hand does not demonstrate an improvement"
+      }
+    },
+    "refined_egohand": {
+      "left": {
+        "changed_original_frame_count": 523,
+        "zero_update_hand": false,
+        "maximum_finger_control_delta_radians": 0.503439836204052,
+        "p95_absolute_finger_control_delta_radians": 0.2188896924257278,
+        "maximum_arm_control_delta_radians": 0.10000002384185791,
+        "interpretation": "Magnitude of the retained control correction, not actual hand motion or accuracy; an unchanged hand does not demonstrate an improvement"
+      },
+      "right": {
+        "changed_original_frame_count": 592,
+        "zero_update_hand": false,
+        "maximum_finger_control_delta_radians": 0.5042048841714859,
+        "p95_absolute_finger_control_delta_radians": 0.20811158120632164,
+        "maximum_arm_control_delta_radians": 0.10000002384185791,
+        "interpretation": "Magnitude of the retained control correction, not actual hand motion or accuracy; an unchanged hand does not demonstrate an improvement"
+      }
+    }
+  },
+  "wrist_relative_self_D2_p95_native_estimated_mm_per_frame_squared": {
+    "baseline": {
+      "left": 29.56449958953724,
+      "right": 27.95264409394983
+    },
+    "legacy_mediapipe": {
+      "left": 29.121833989326372,
+      "right": 26.741376301126696
+    },
+    "legacy_egohand": {
+      "left": 37.0530559459928,
+      "right": 30.95620180981691
+    },
+    "fresh_mediapipe": {
+      "left": 29.67469115844022,
+      "right": 27.19896255570173
+    },
+    "refined_egohand": {
+      "left": 30.712239383141736,
+      "right": 26.509656717787486
+    }
+  },
+  "scope": "Retained correction and prediction-only self-motion; no reference-relative acceleration or hidden accuracy"
+}

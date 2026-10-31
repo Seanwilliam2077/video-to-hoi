@@ -1,0 +1,322 @@
+{
+  "recorded_at": "2026-10-31T11:15:35.733458+00:00",
+  "track": 1,
+  "status": "actual_crop_producer_preserved_and_numeric_equivalence_verified",
+  "auditor_sha256": "c0e51ad0cb84ff9d189e6ed2d3a328a23e5bd64dd565e9ffada178a1950865d3",
+  "episodes": [
+    {
+      "episode": 16,
+      "producer_recorded_at": "2026-10-31T10:05:17.252766+00:00",
+      "crop_receipt": {
+        "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\crop-policy-receipt.json",
+        "sha256": "fed8515c0b5cb65ad6053c173f54867c1c4b70c01697c675acb16fbd0b04f8aa"
+      },
+      "actual_producer": {
+        "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\source_snapshot\\prepare_refined_egohand_crops.py",
+        "sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679",
+        "bytes": 3821
+      },
+      "only_digest_function_differs_from_later_runtime": true,
+      "imported_numerical_modules": [
+        {
+          "relative_path": "src/v2hoi/refined_egohand.py",
+          "producer_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\source_snapshot\\refined_egohand.py",
+          "sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+          "runtime_hashes": {
+            "runtime01": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+            "runtime02": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34"
+          }
+        },
+        {
+          "relative_path": "src/v2hoi/egohand_adapter.py",
+          "producer_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\source_snapshot\\egohand_adapter.py",
+          "sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+          "runtime_hashes": {
+            "runtime01": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+            "runtime02": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4"
+          }
+        }
+      ],
+      "digest_equivalence_on_actual_inputs_and_artifacts": [
+        {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\observations\\attempt-0001\\observations.npz",
+          "producer_and_later_digest_equal": true,
+          "sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7"
+        },
+        {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\manifest.json",
+          "producer_and_later_digest_equal": true,
+          "sha256": "115ba62f458f632f037ef9347fad2c0181d92f5f27b70a2970c30a92b465c66d"
+        },
+        {
+          "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+          "producer_and_later_digest_equal": true,
+          "sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\crop_boxes.npy",
+          "producer_and_later_digest_equal": true,
+          "sha256": "02b5279cc2452426dbfc8c50ef0cb3af8abafdc6d6860d614f6fb5df0e08768d"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\crop_anchors.npz",
+          "producer_and_later_digest_equal": true,
+          "sha256": "d23b1803fa8271c053e51080175830900c22eaaf73a3d1783cf7b628cd64e0d1"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\source_snapshot\\prepare_refined_egohand_crops.py",
+          "producer_and_later_digest_equal": true,
+          "sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\source_snapshot\\refined_egohand.py",
+          "producer_and_later_digest_equal": true,
+          "sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\source_snapshot\\egohand_adapter.py",
+          "producer_and_later_digest_equal": true,
+          "sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4"
+        }
+      ],
+      "in_memory_crop_boxes_exactly_reproduced": true,
+      "crop_trace_arrays": [
+        {
+          "key": "frame_indices",
+          "dtype": "int64",
+          "shape": [
+            360
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "side_order",
+          "dtype": "<U5",
+          "shape": [
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "training_anchor_weights",
+          "dtype": "float32",
+          "shape": [
+            360,
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "crop_source_class",
+          "dtype": "<U40",
+          "shape": [
+            360,
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "raw_anchor_centers",
+          "dtype": "float64",
+          "shape": [
+            360,
+            2,
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "raw_anchor_sides",
+          "dtype": "float64",
+          "shape": [
+            360,
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "crop_boxes",
+          "dtype": "int32",
+          "shape": [
+            360,
+            2,
+            4
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        }
+      ],
+      "core_report_fields_reproduced": true
+    },
+    {
+      "episode": 11,
+      "producer_recorded_at": "2026-10-31T10:05:17.370481+00:00",
+      "crop_receipt": {
+        "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\crop-policy-receipt.json",
+        "sha256": "920cbb50c624301a495641250486b4118f8029c341b1e766fc918749dc442296"
+      },
+      "actual_producer": {
+        "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\source_snapshot\\prepare_refined_egohand_crops.py",
+        "sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679",
+        "bytes": 3821
+      },
+      "only_digest_function_differs_from_later_runtime": true,
+      "imported_numerical_modules": [
+        {
+          "relative_path": "src/v2hoi/refined_egohand.py",
+          "producer_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\source_snapshot\\refined_egohand.py",
+          "sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+          "runtime_hashes": {
+            "runtime01": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+            "runtime02": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34"
+          }
+        },
+        {
+          "relative_path": "src/v2hoi/egohand_adapter.py",
+          "producer_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\source_snapshot\\egohand_adapter.py",
+          "sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+          "runtime_hashes": {
+            "runtime01": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+            "runtime02": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4"
+          }
+        }
+      ],
+      "digest_equivalence_on_actual_inputs_and_artifacts": [
+        {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\observations\\attempt-0001\\observations.npz",
+          "producer_and_later_digest_equal": true,
+          "sha256": "9445a68b84436caaf6fef82f3aa1c1a9e60d0809717ccfeb395461bce63857e3"
+        },
+        {
+          "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\inference\\attempt-0001\\manifest.json",
+          "producer_and_later_digest_equal": true,
+          "sha256": "42f53498d1d84f8288a7e2a14ec6fa9b4458d788a9eaaf0493cbc40ffb0642dd"
+        },
+        {
+          "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000011.mp4",
+          "producer_and_later_digest_equal": true,
+          "sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\crop_boxes.npy",
+          "producer_and_later_digest_equal": true,
+          "sha256": "9d75bb9d6b8708454d9ee117840a004ca17b4db23e2bf6e6eeec35237b02d089"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\crop_anchors.npz",
+          "producer_and_later_digest_equal": true,
+          "sha256": "b2e66e562e9a26df1db21a3ce5a74335d8bb864772f483e7198182d754e6ed34"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\source_snapshot\\prepare_refined_egohand_crops.py",
+          "producer_and_later_digest_equal": true,
+          "sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\source_snapshot\\refined_egohand.py",
+          "producer_and_later_digest_equal": true,
+          "sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34"
+        },
+        {
+          "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\source_snapshot\\egohand_adapter.py",
+          "producer_and_later_digest_equal": true,
+          "sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4"
+        }
+      ],
+      "in_memory_crop_boxes_exactly_reproduced": true,
+      "crop_trace_arrays": [
+        {
+          "key": "frame_indices",
+          "dtype": "int64",
+          "shape": [
+            877
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "side_order",
+          "dtype": "<U5",
+          "shape": [
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "training_anchor_weights",
+          "dtype": "float32",
+          "shape": [
+            877,
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "crop_source_class",
+          "dtype": "<U40",
+          "shape": [
+            877,
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "raw_anchor_centers",
+          "dtype": "float64",
+          "shape": [
+            877,
+            2,
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "raw_anchor_sides",
+          "dtype": "float64",
+          "shape": [
+            877,
+            2
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        },
+        {
+          "key": "crop_boxes",
+          "dtype": "int32",
+          "shape": [
+            877,
+            2,
+            4
+          ],
+          "values_equal_including_nan": true,
+          "payload_bytes_equal": true
+        }
+      ],
+      "core_report_fields_reproduced": true
+    }
+  ],
+  "later_cli": {
+    "runtime01_sha256": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b",
+    "runtime02_sha256": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b",
+    "current_repo_sha256": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b",
+    "git_28deb40_blob_sha256": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b"
+  },
+  "exact_cli_diff": "--- actual_crop_producer_5e1c\n+++ later_runtime_cli_9078\n@@ -16,8 +16,11 @@\n \n \n def digest(path):\n+    result = hashlib.sha256()\n     with Path(path).open(\"rb\") as stream:\n-        return hashlib.file_digest(stream, \"sha256\").hexdigest()\n+        for block in iter(lambda: stream.read(4 * 1024 * 1024), b\"\"):\n+            result.update(block)\n+    return result.hexdigest()\n \n \n def main():\n",
+  "source_hash_path_logic": "The CLI hashes Path(__file__) plus ROOT/src modules, where ROOT is the executed CLI's parents[1]. It does not hardcode a separate live REPO path. Each artifact snapshots those bytes after recording their hashes.",
+  "numerical_impact": "The only CLI difference is equivalent SHA256 file-reading implementation. All crop calculations/imported modules are identical; actual crop boxes and trace arrays are reproduced in memory without writing replacements.",
+  "staging_implication": "Use the receipt-bound actual 5e1c producer snapshot for initial tight crops. The later 9078 runtime/commit copy is not the historical producer and must not replace its receipt hash.",
+  "preservation": "No crop, receipt, runtime, inference, native result, evaluation, video or canonical artifact was changed. Only this new audit recipe/receipt is added.",
+  "original_launch_argv_not_recovered_by_this_audit": true,
+  "official_scores_computed": false,
+  "quality_accepted": false
+}

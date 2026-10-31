@@ -1,0 +1,64 @@
+{
+  "recorded_at": "2026-10-31T10:57:30.124135+00:00",
+  "reviewer": "Codex root",
+  "episode": 16,
+  "review_mode": "Actual tool-viewed static comparison JPEGs; no claim of continuous playback or true3D/contact labels",
+  "viewed_images": [
+    {
+      "panel": "old-new-egohand-comparison",
+      "original_frame_id": 110,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000110.jpg",
+      "sha256": "8813a89e40ed434f777ba7cbbcb76e4f5e95e75245275a09808c042ea849ca93"
+    },
+    {
+      "panel": "old-new-egohand-comparison",
+      "original_frame_id": 284,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000284.jpg",
+      "sha256": "1f98a44da9f708fd03185f875949b29a8774e7b706fbebd4d52f9ac3bb0e4969"
+    },
+    {
+      "panel": "old-new-egohand-comparison",
+      "original_frame_id": 285,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000285.jpg",
+      "sha256": "c2acdd5a50d914b5e04a31213c8f5950d937f977a98b73fec6217bae59cb3b75"
+    },
+    {
+      "panel": "old-new-egohand-comparison",
+      "original_frame_id": 286,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000286.jpg",
+      "sha256": "a48047a26b9504f62f3d96e03e9429414679db0b79e48e69ea0a8d43e1b47610"
+    },
+    {
+      "panel": "hands-comparison",
+      "original_frame_id": 110,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000110.jpg",
+      "sha256": "516187f13667fd0e31d35329ddea560696a84e83cd00bb3511c8b7f64588a50d"
+    },
+    {
+      "panel": "hands-comparison",
+      "original_frame_id": 285,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000285.jpg",
+      "sha256": "650b5a58277f5809a76ceba55c459cd5460b78ea54e6163ec266b875e2247b02"
+    },
+    {
+      "panel": "hands-comparison",
+      "original_frame_id": 287,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000287.jpg",
+      "sha256": "3e89d76465f94d5233d90576e61f23c06505650487493548ab5de37e56d4d063"
+    },
+    {
+      "panel": "hands-comparison",
+      "original_frame_id": 308,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000308.jpg",
+      "sha256": "a6e1b5520502be0bdeaa5903881c77cb46e6145d6b8b519f001d607f4d3396a6"
+    }
+  ],
+  "findings": [
+    "One common display ROI preserves relative model sizes.",
+    "Right hand at287 is more curled in refined EgoHand than source RGB and both MP columns during the predefined release window. This is a sampled shape concern, not established timing lag.",
+    "Unsupported left-hand visual similarity must be read with the exact baseline-control equality audit, not interpreted as recovered hidden articulation."
+  ],
+  "quality_accepted": false,
+  "official_score_available": false,
+  "all30_execution_authorized": false
+}

@@ -1,0 +1,4729 @@
+{
+  "episode": 11,
+  "track": 1,
+  "frames": 877,
+  "fps": 30.0,
+  "created_at": "2026-10-31T11:07:36.863377+00:00",
+  "wall_seconds": 722.2039999999106,
+  "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+  "helper_sha256": "7e605f1b1f789a54c4093bba314a1e8e4ec32b80753e5dc5901c3b32eb0ab127",
+  "renderer_source_sha256": {
+    "compare_human_hands.py": "54f4980bdc7514562dbff1f9d6c3341fb1e0ffbdc70ba0a114d9aa18fddf00c1",
+    "review_human.py": "856f5c8231900fba1ba1a15f0b33031c76719ca1ea395e8db04cc58080bf3932"
+  },
+  "input_manifest_sha256": "0ea596b080ac85d6a0e2005445eb71e2ff5060aad456ecec1d6ba07e63949a34",
+  "completed_evaluation": {
+    "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\evaluation02.json",
+    "sha256": "2bcb9735abb5d562f1af7cde711985b3dc3a900bb860e897daf2f08623bcee78"
+  },
+  "native_variant_bindings": {
+    "baseline": {
+      "directory": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\baseline\\attempt-0001",
+      "files": {
+        "episode_000011_human.npz": {
+          "sha256": "7ede9edd181421383868c6efec123354baf51179ffc0baff71992ba90858dfe4",
+          "bytes": 460787
+        },
+        "report.json": {
+          "sha256": "5da028ad10d94111c28012663b5e6e365798b04750e03ce4d3ef6fd0e5ec0a4f",
+          "bytes": 11068
+        },
+        "review_arrays/camera_intrinsics.npy": {
+          "sha256": "c50361bec158e508424f35d34183d1eefdf26f343c4cf2542ae7b9ce74225897",
+          "bytes": 164
+        },
+        "review_arrays/faces.npy": {
+          "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+          "bytes": 885104
+        },
+        "review_arrays/fps.npy": {
+          "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994",
+          "bytes": 136
+        },
+        "review_arrays/frame_indices.npy": {
+          "sha256": "0a73c2f50eb9cf50f20a57699aba108e181d777c389cb84af1a58030cfe64657",
+          "bytes": 7144
+        },
+        "review_arrays/joints_3d.npy": {
+          "sha256": "695cc1a467337ccfffcb62d0a46da1b8685e89b20bc8b9f73b79ec92dae2364f",
+          "bytes": 1336676
+        },
+        "review_arrays/vertices_m.npy": {
+          "sha256": "b39823bc3ce6a63849b8765615abd66ca8c7df49276e12b678a8bb6dc27c040c",
+          "bytes": 194052164
+        }
+      }
+    },
+    "legacy_mediapipe": {
+      "directory": "J:\\video-to-hoi\\runs\\human-hand-pilots-20261023\\episode_000011\\candidate01",
+      "files": {
+        "episode_000011_human.npz": {
+          "sha256": "b4636fcf9170789d047379266b6e68c237aa28667e5ca843acba8605c6b6bfa4",
+          "bytes": 475584
+        },
+        "report.json": {
+          "sha256": "2db1ca4f3ba7415582260f99974d7e3b76e49144de0eebf9b74760d803dc84f1",
+          "bytes": 101287
+        },
+        "review_arrays/camera_intrinsics.npy": {
+          "sha256": "c50361bec158e508424f35d34183d1eefdf26f343c4cf2542ae7b9ce74225897",
+          "bytes": 164
+        },
+        "review_arrays/faces.npy": {
+          "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+          "bytes": 885104
+        },
+        "review_arrays/fps.npy": {
+          "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994",
+          "bytes": 136
+        },
+        "review_arrays/frame_indices.npy": {
+          "sha256": "0a73c2f50eb9cf50f20a57699aba108e181d777c389cb84af1a58030cfe64657",
+          "bytes": 7144
+        },
+        "review_arrays/joints_3d.npy": {
+          "sha256": "c2bdcf290479eab380725876c50f377c3a1007c846a1546917dc996a938657e2",
+          "bytes": 1336676
+        },
+        "review_arrays/vertices_m.npy": {
+          "sha256": "cf6c8a6877a6890ab1fef020b3eb89c732815910168cb3e91123480de2984c34",
+          "bytes": 194052164
+        }
+      }
+    },
+    "legacy_egohand": {
+      "directory": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000011\\candidate-smoothed01",
+      "files": {
+        "episode_000011_human.npz": {
+          "sha256": "f2bc391111a3e67538da38911cda0bcff0bb0e5759e2e9621413cabccd86ba9d",
+          "bytes": 499106
+        },
+        "report.json": {
+          "sha256": "a8b1ef0f2059a587dfd74987bcfe41a3fabdb34fe545bac089f295e2c22c5c23",
+          "bytes": 519417
+        },
+        "review_arrays/camera_intrinsics.npy": {
+          "sha256": "c50361bec158e508424f35d34183d1eefdf26f343c4cf2542ae7b9ce74225897",
+          "bytes": 164
+        },
+        "review_arrays/faces.npy": {
+          "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+          "bytes": 885104
+        },
+        "review_arrays/fps.npy": {
+          "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994",
+          "bytes": 136
+        },
+        "review_arrays/frame_indices.npy": {
+          "sha256": "0a73c2f50eb9cf50f20a57699aba108e181d777c389cb84af1a58030cfe64657",
+          "bytes": 7144
+        },
+        "review_arrays/joints_3d.npy": {
+          "sha256": "78ccb2f0ce8fea9285b84337aa588b0a4dfb4b2d25bf75114abe6dfae447597f",
+          "bytes": 1336676
+        },
+        "review_arrays/vertices_m.npy": {
+          "sha256": "a7911448feedf9e1eb0373a0b68d61df9ae4df10c572f19ee3c3ce0a1e8727c0",
+          "bytes": 194052164
+        }
+      }
+    },
+    "fresh_mediapipe": {
+      "directory": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\candidate-mp02",
+      "files": {
+        "episode_000011_human.npz": {
+          "sha256": "8bf1dae7e8f7aa11b58c7ea478a4019919885d689b2a91a73aa628a317ffecd7",
+          "bytes": 476061
+        },
+        "report.json": {
+          "sha256": "59919284e97b6f2596a61c3252a5df8fbc89916e2907cbd8a5d52b9367f46cc1",
+          "bytes": 101948
+        },
+        "review_arrays/camera_intrinsics.npy": {
+          "sha256": "c50361bec158e508424f35d34183d1eefdf26f343c4cf2542ae7b9ce74225897",
+          "bytes": 164
+        },
+        "review_arrays/faces.npy": {
+          "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+          "bytes": 885104
+        },
+        "review_arrays/fps.npy": {
+          "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994",
+          "bytes": 136
+        },
+        "review_arrays/frame_indices.npy": {
+          "sha256": "0a73c2f50eb9cf50f20a57699aba108e181d777c389cb84af1a58030cfe64657",
+          "bytes": 7144
+        },
+        "review_arrays/joints_3d.npy": {
+          "sha256": "1c8e47ef04e0cf1545864dd8417bb8c18eebe7db7f48731c5d4855b0c8c86bb4",
+          "bytes": 1336676
+        },
+        "review_arrays/vertices_m.npy": {
+          "sha256": "2a45f953cd1a9e6eea6e55c5b84bc2289bc8c82e09cf62b3d89fdb019109d3c4",
+          "bytes": 194052164
+        }
+      }
+    },
+    "refined_egohand": {
+      "directory": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\candidate-egohand02",
+      "files": {
+        "episode_000011_human.npz": {
+          "sha256": "d4aa2b83eb00780a6750dc8bec5656d1403f6e827d5422588fa864c4510d41c7",
+          "bytes": 478765
+        },
+        "report.json": {
+          "sha256": "d099e2e5b04e726f421cb7d5823e19cb410e9f2a7090ff3089352f2b79a8c8c7",
+          "bytes": 113765
+        },
+        "review_arrays/camera_intrinsics.npy": {
+          "sha256": "c50361bec158e508424f35d34183d1eefdf26f343c4cf2542ae7b9ce74225897",
+          "bytes": 164
+        },
+        "review_arrays/faces.npy": {
+          "sha256": "38a54991de6de3f9b9399e17f265dbda47da25b23fc5cb967276536803374841",
+          "bytes": 885104
+        },
+        "review_arrays/fps.npy": {
+          "sha256": "07b70d2f93a30794b19f50b58d87e19ae8772e5e15b0800e2e71e8a11fd7a994",
+          "bytes": 136
+        },
+        "review_arrays/frame_indices.npy": {
+          "sha256": "0a73c2f50eb9cf50f20a57699aba108e181d777c389cb84af1a58030cfe64657",
+          "bytes": 7144
+        },
+        "review_arrays/joints_3d.npy": {
+          "sha256": "af6a80c592e08a602d45184e9cd1f54e2bdfa574140eb2f867a724a768113955",
+          "bytes": 1336676
+        },
+        "review_arrays/vertices_m.npy": {
+          "sha256": "c980d2551b440a5a5dde804fb16a4459da5a70d2b69bc1589e5d69be354ba937",
+          "bytes": 194052164
+        }
+      }
+    }
+  },
+  "proposal_bindings": {
+    "fresh_mediapipe": {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\fresh-mp02\\observations.npz",
+      "sha256": "9ca42b7d552dba3a9b7cfcac5a913016db911f700e075c6140e8555f7bade4f4",
+      "kind": "image_detector",
+      "label": "Fresh MP: shared wrist/gate reference",
+      "shared_inputs": [
+        "EgoHand wrist anchoring",
+        "EgoHand image-support gating"
+      ],
+      "report": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\fresh-mp02\\report.json",
+        "sha256": "017a47019e7b4e481fa5bf042b4fd2b4b8e751ed8f151f93361dc541cfc23712"
+      }
+    },
+    "refined_raw": {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\observations-raw02\\observations.npz",
+      "sha256": "708312462fdeb2430da58c55c21a2cd8d642f487e1ee4448354737d5cfb496a5",
+      "kind": "generated_proposal",
+      "label": "Raw Ego retarget/gated proposal",
+      "shared_inputs": [
+        "fresh_mediapipe training wrists/gates"
+      ],
+      "report": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\observations-raw02\\report.json",
+        "sha256": "e8af82471b47b6233d24d9fbd8f546d61aefe758e26cb96666217008e3a393bc"
+      }
+    },
+    "refined_egohand": {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\observations-smoothed02\\observations.npz",
+      "sha256": "7e2e1624a2ec265e9e5316e5b4d58ff8de3e6a0635c6b13f8d0a09384dda4cef",
+      "kind": "generated_proposal",
+      "label": "Smoothed Ego retarget/gated proposal",
+      "shared_inputs": [
+        "fresh_mediapipe training wrists/gates"
+      ],
+      "report": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\observations-smoothed02\\report.json",
+        "sha256": "f0b3580e9c61b5767e3f41175c46b1903083a8fbacfa74d03b18801f065623fd"
+      }
+    }
+  },
+  "generated_proposal_display": {
+    "refined_raw": "Full retargeted camera geometry projected through frozen K; green admitted, orange prior-only, no visibility truth",
+    "refined_egohand": "Full retargeted camera geometry projected through frozen K; green admitted, orange prior-only, no visibility truth"
+  },
+  "original_specialist_geometry_preserved_in_npz_not_replaced_by_admission_mask": true,
+  "columns": {
+    "hands-comparison": [
+      "Source RGB",
+      "Preserved bounded MediaPipe MHR",
+      "Fresh same-new-crop MediaPipe MHR",
+      "Revised EgoHand smoothed/gated MHR"
+    ],
+    "old-new-egohand-comparison": [
+      "Source RGB",
+      "Preserved EgoHand smoothed MHR",
+      "Revised EgoHand smoothed/gated MHR"
+    ],
+    "proposal-comparison": [
+      "Source RGB",
+      "Fresh MP: shared wrist/gate reference",
+      "Raw Ego retarget/gated proposal",
+      "Smoothed Ego retarget/gated proposal"
+    ]
+  },
+  "display_roi": {
+    "file": "display-rois.npy",
+    "sha256": "e2a1e21035c32cfeffd3de87c3ada421bbbfccdf97a77b387bcea249492743b3",
+    "same_for_every_method_and_comparison_video": true,
+    "source_input_crops_unchanged": true,
+    "center_policy": "Nine-frame median union centers",
+    "size_policy": "Local maximum size enlarged to contain every current-frame selected native hand/displayed generated proposal and fresh input crop, with8% margin",
+    "noncausal_display_only_filter": true,
+    "per_method_magnification": false,
+    "minimum_square_pixels": 72,
+    "maximum_square_pixels": 171
+  },
+  "source_inspection_windows": {
+    "track": 1,
+    "episode": 11,
+    "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+    "interpretation": "Manual review intervals only; never used to create fit targets or phase constraints",
+    "windows": [
+      {
+        "first_original_frame_id": 280,
+        "last_original_frame_id": 340,
+        "side": "both",
+        "label": "Manual source review: table interaction; broad interval, not ground-truth phase"
+      },
+      {
+        "first_original_frame_id": 480,
+        "last_original_frame_id": 620,
+        "side": "both",
+        "label": "Manual source review: hand/table overlap and detector dropouts; broad interval, not ground-truth occlusion labels"
+      },
+      {
+        "first_original_frame_id": 680,
+        "last_original_frame_id": 850,
+        "side": "both",
+        "label": "Manual source review: grasp and table tipping; broad interval, not ground-truth phase"
+      }
+    ]
+  },
+  "videos": [
+    {
+      "file": "hands-comparison.mp4",
+      "decoded_frames": 877,
+      "fps": 30.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 6524942,
+      "sha256": "ccb292307c1c503841fcaaa418efa605b83c1bfe6f8669a791d78bc3d242d87e"
+    },
+    {
+      "file": "critical/hands-comparison-slow-000280-000340.mp4",
+      "decoded_frames": 61,
+      "fps": 10.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 782268,
+      "sha256": "084efefbcc9e4f0df9a7ae3e764575a7c3b41554d3ffc21daf16419d8a0c5568"
+    },
+    {
+      "file": "critical/hands-comparison-slow-000480-000620.mp4",
+      "decoded_frames": 141,
+      "fps": 10.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 1862299,
+      "sha256": "c7d4803d6922ba53e1023b9b648a1a0b2db356218b5b03cc434a2d81974bcdeb"
+    },
+    {
+      "file": "critical/hands-comparison-slow-000680-000850.mp4",
+      "decoded_frames": 171,
+      "fps": 10.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 1940138,
+      "sha256": "7517f5a0e5ac1a490666b82b4d1fd5ee618ecaea0f22d17fb257da9bc4cbb6a4"
+    },
+    {
+      "file": "old-new-egohand-comparison.mp4",
+      "decoded_frames": 877,
+      "fps": 30.0,
+      "size": [
+        768,
+        636
+      ],
+      "bytes": 4955952,
+      "sha256": "1e96b3cb76afdc927e65acb7c2ed14748ac8a8ff6be1e0124de5089062d5dbd2"
+    },
+    {
+      "file": "critical/old-new-egohand-comparison-slow-000280-000340.mp4",
+      "decoded_frames": 61,
+      "fps": 10.0,
+      "size": [
+        768,
+        636
+      ],
+      "bytes": 588490,
+      "sha256": "a56df7ba6aa1ad5c1975371fafde1888ffc0e20dc06ea6378cc2037b4254ee89"
+    },
+    {
+      "file": "critical/old-new-egohand-comparison-slow-000480-000620.mp4",
+      "decoded_frames": 141,
+      "fps": 10.0,
+      "size": [
+        768,
+        636
+      ],
+      "bytes": 1407517,
+      "sha256": "cb3091827106597048ab8f76adf883aae60d7781b3a1cbe123381aeefca00dd6"
+    },
+    {
+      "file": "critical/old-new-egohand-comparison-slow-000680-000850.mp4",
+      "decoded_frames": 171,
+      "fps": 10.0,
+      "size": [
+        768,
+        636
+      ],
+      "bytes": 1469838,
+      "sha256": "48d8646254e44de647eee8c8815a383a3109a47f709448a31853b35616ff4127"
+    },
+    {
+      "file": "proposal-comparison.mp4",
+      "decoded_frames": 877,
+      "fps": 30.0,
+      "size": [
+        1024,
+        636
+      ],
+      "bytes": 7884405,
+      "sha256": "e4e6728ca5bbdd9648966193285ece725ce6d09d1b6e12b18e3a2a86d0ddc3ff"
+    }
+  ],
+  "snapshots": [
+    {
+      "original_frame_id": 0,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000000.jpg",
+      "sha256": "62a7705e0f25618d2c71d3e52a18d1e296d7bfaf824951e8e37a17e8b852e1aa"
+    },
+    {
+      "original_frame_id": 0,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000000.jpg",
+      "sha256": "b4d74fcc23549505f36adc5eea03cba16b2cf650731bed588f77156608547bb5"
+    },
+    {
+      "original_frame_id": 0,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000000.jpg",
+      "sha256": "e9e243b6466e184e569c84e4be6e775a7e178e5b5b00460433b6b9f018d71ed4"
+    },
+    {
+      "original_frame_id": 31,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000031.jpg",
+      "sha256": "24f97ddb458053d0eca4322dde96473f1050fe8b6fd8cd7376638472c9ab98d3"
+    },
+    {
+      "original_frame_id": 31,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000031.jpg",
+      "sha256": "a96f58e664b2f8f9664c93646c93f2bcb25b12828fbdc304b3168610b15a976d"
+    },
+    {
+      "original_frame_id": 31,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000031.jpg",
+      "sha256": "b36adb52fecfeb52c6a3c8f77046eef2699579cca29899d05933413639858ecd"
+    },
+    {
+      "original_frame_id": 32,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000032.jpg",
+      "sha256": "8c6f3f51c8b8046ebe7dc3f4f3d24e2b9f78aa49c3205e43a6b8cbd6e868da40"
+    },
+    {
+      "original_frame_id": 32,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000032.jpg",
+      "sha256": "f820b37d0658d1e5a9904b965a5c5b83e9d6147a27ff3a17f7249dc79dfdb878"
+    },
+    {
+      "original_frame_id": 32,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000032.jpg",
+      "sha256": "c15c031d22b5aa32acb571fefb08607f183d3f965ef6a10849fd55bae8519caf"
+    },
+    {
+      "original_frame_id": 33,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000033.jpg",
+      "sha256": "d27bb571fe1c19a271cf13d873cdd69488742e54e38f0b469a87812775eb2b41"
+    },
+    {
+      "original_frame_id": 33,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000033.jpg",
+      "sha256": "29b6790c3172d1b7904ef2fa4e8918feecc56e49c79b044cf8319e1c89dac712"
+    },
+    {
+      "original_frame_id": 33,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000033.jpg",
+      "sha256": "7bcf43b32095019a0af5c977dd737144a8e9341dc465a33d8b2b72b695f4ad11"
+    },
+    {
+      "original_frame_id": 34,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000034.jpg",
+      "sha256": "b828475ab3d415046062f1084279f63b4869712a9720eac931bb4d443d3e0d5a"
+    },
+    {
+      "original_frame_id": 34,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000034.jpg",
+      "sha256": "aede772fdd50aff45178d1da77d9b9da8527388d760a6525b1b4c608ac0800a7"
+    },
+    {
+      "original_frame_id": 34,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000034.jpg",
+      "sha256": "fb4c3dc0ae693898e36cff67d507c071e6d406f61004a41f03b32f558611f543"
+    },
+    {
+      "original_frame_id": 39,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000039.jpg",
+      "sha256": "c0fccbc1d9124319d9e5fcfa21c5adda04e5e7d3942a358e87d9b4884108e65b"
+    },
+    {
+      "original_frame_id": 39,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000039.jpg",
+      "sha256": "1752c3094248affb48671a2a05d56480ff0ae568b8a46968bd92444cd398fa9b"
+    },
+    {
+      "original_frame_id": 39,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000039.jpg",
+      "sha256": "2730c0372a4f94a2276410b7c6fbc2f6e7d3347dc21a01264133ea1446c9ceaa"
+    },
+    {
+      "original_frame_id": 40,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000040.jpg",
+      "sha256": "e0c8fc47fc018cedc801d8be52140701bec8ba540bb709f7dce7c16ece8f9d1e"
+    },
+    {
+      "original_frame_id": 40,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000040.jpg",
+      "sha256": "54c55bc29c52583fb900f6d6382c407444d74d077dd532e684e64e67847fdfd7"
+    },
+    {
+      "original_frame_id": 40,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000040.jpg",
+      "sha256": "1a8f5eb56b10d89f109715810b3891e3025d55bc5acc9b061da80afe9563aeaf"
+    },
+    {
+      "original_frame_id": 41,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000041.jpg",
+      "sha256": "08c0d15bf3f1eb15483e378f2f7af0e96842e02c9acf9eba86c1acf0704d1b0d"
+    },
+    {
+      "original_frame_id": 41,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000041.jpg",
+      "sha256": "084cda71de067e24507d6255646e5d6dd14419963e02d64c19d38e57439b2879"
+    },
+    {
+      "original_frame_id": 41,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000041.jpg",
+      "sha256": "55dc20218e6416095843772a19bb95412b07a94baee54187b62d019bba81ba2a"
+    },
+    {
+      "original_frame_id": 42,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000042.jpg",
+      "sha256": "d42e939e988da4b8bcbdb9473d226ae0743f3028bdac233c94af11af28193297"
+    },
+    {
+      "original_frame_id": 42,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000042.jpg",
+      "sha256": "39434b951a8642f4d1a657430c7eb528a987a58fa897f9a02837b4b55147ba9c"
+    },
+    {
+      "original_frame_id": 42,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000042.jpg",
+      "sha256": "914373a286e657ce02fee0de8dffd9d465f041fbdc54d2c1a971b380a6461b12"
+    },
+    {
+      "original_frame_id": 47,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000047.jpg",
+      "sha256": "5a871b1736189138e11ec8c0f39e90372a8cd5564cae0e6fcf3cdfcaec26a1a4"
+    },
+    {
+      "original_frame_id": 47,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000047.jpg",
+      "sha256": "e43ec0edf8143a9c08e60ed96c5cf478cfae13f180d964938b9d96a32a086455"
+    },
+    {
+      "original_frame_id": 47,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000047.jpg",
+      "sha256": "11619bdf5a0023d9ff49c8ab497487c51cb5bf00e27b7f92924c1866a8751803"
+    },
+    {
+      "original_frame_id": 48,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000048.jpg",
+      "sha256": "ad584e42a792570202c79e564dcbe01f358a980745b2d10f6faa394274168de7"
+    },
+    {
+      "original_frame_id": 48,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000048.jpg",
+      "sha256": "74e65907ac34605ed847f939c167f716c4abd86d3505815f63f7dcd53bca190e"
+    },
+    {
+      "original_frame_id": 48,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000048.jpg",
+      "sha256": "d951510cc4864f897847c53a6379ef9213a312b7197096a6666db24800608092"
+    },
+    {
+      "original_frame_id": 49,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000049.jpg",
+      "sha256": "621d2c15e3d8f00efb87a22e2ee2fd2e677fe92e17ef29594923947b706502ce"
+    },
+    {
+      "original_frame_id": 49,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000049.jpg",
+      "sha256": "7f32ee8f09645b6c807ca99732842696f16d9a9af8c771a09f2e1923c319aa9e"
+    },
+    {
+      "original_frame_id": 49,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000049.jpg",
+      "sha256": "aa8a085cfcaf2aa31edd23eb5a0ef1b487456d9f5b0d0d0afc38c651f15c6374"
+    },
+    {
+      "original_frame_id": 50,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000050.jpg",
+      "sha256": "8fe46a3d02c1b115046d8046b59cb56dc29d56318212aeda4ead7f9c76fb7521"
+    },
+    {
+      "original_frame_id": 50,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000050.jpg",
+      "sha256": "00cfe7ce0a71736d7669b884160c6b42bdfb7b8b13f6b4c420dbf209c8e36a30"
+    },
+    {
+      "original_frame_id": 50,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000050.jpg",
+      "sha256": "4026ac7c9f8ea585c61bde48d004dc46abca8f03599a88cc2cb21a9dd0f3adc1"
+    },
+    {
+      "original_frame_id": 105,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000105.jpg",
+      "sha256": "49be2a518495190fc0661d2c832c0873269adb0619355208e99695b36ef9d027"
+    },
+    {
+      "original_frame_id": 105,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000105.jpg",
+      "sha256": "505fb73cbc7de64106baa953c149dde94f13bf8ce56a4ba21d62d35482d4a1c8"
+    },
+    {
+      "original_frame_id": 105,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000105.jpg",
+      "sha256": "5b9e5ef56b5d8ccec7dfb969e98629304a4348199b525c6b0e45b0311c193c86"
+    },
+    {
+      "original_frame_id": 106,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000106.jpg",
+      "sha256": "da72a864a573e3237f9f0462ccc51c0049250f290fdd21706df4e1e65b9f3bf6"
+    },
+    {
+      "original_frame_id": 106,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000106.jpg",
+      "sha256": "c9c369f2746107277f32ea547d8619a415bbc6e93340794de418d6e0d6c20804"
+    },
+    {
+      "original_frame_id": 106,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000106.jpg",
+      "sha256": "b2b11be1709201fffa36d248e511b269c5c8f4ca12600c1bc63267e7f46d0d59"
+    },
+    {
+      "original_frame_id": 107,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000107.jpg",
+      "sha256": "8fe90833caab265e6298d31853bfcc542471eb9756fc83e1c729d9c961152e5c"
+    },
+    {
+      "original_frame_id": 107,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000107.jpg",
+      "sha256": "31184d05068b4e43d348bb9299193c3b2147f15eba79500cac1e3a198f6abbe9"
+    },
+    {
+      "original_frame_id": 107,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000107.jpg",
+      "sha256": "c0d061e49c5070c3a6dec990452ce2db59e034978471fc6e3ed6e12c046a911c"
+    },
+    {
+      "original_frame_id": 108,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000108.jpg",
+      "sha256": "0632b69ef0c79e8c2747d68c619e498817dcb0dcd732649ddfca7a42f7ee54f7"
+    },
+    {
+      "original_frame_id": 108,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000108.jpg",
+      "sha256": "807bb1782e01bdf8eb849030a93a9bcdc05b1fcc5a4f22f4869d2f319a5b944b"
+    },
+    {
+      "original_frame_id": 108,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000108.jpg",
+      "sha256": "d2a040d2cbe6b9c0e21c19d1018c04d7cdeab16b588ed2a798d3aaf10ac966fa"
+    },
+    {
+      "original_frame_id": 113,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000113.jpg",
+      "sha256": "aebd1b2517b505a25521a4ee0cb66231f70ff8e68fc7d23abdcbcf929391f552"
+    },
+    {
+      "original_frame_id": 113,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000113.jpg",
+      "sha256": "65c9eb0d7851ab7373a127ffa9991d58ccc4340db816e3e4deb80518c319bf30"
+    },
+    {
+      "original_frame_id": 113,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000113.jpg",
+      "sha256": "a28dcc6fff61ed8637dfa8e5c459ad00ef48994d5e0686f5cf618443f647f41f"
+    },
+    {
+      "original_frame_id": 114,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000114.jpg",
+      "sha256": "6affdbdb5c87b0745db627dec78f29561491ac4d9754ae361ae26f5269132776"
+    },
+    {
+      "original_frame_id": 114,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000114.jpg",
+      "sha256": "265b540fb8b074432bf23740ea28e849ca71cb7257edd4218aa1d0a18a60d14c"
+    },
+    {
+      "original_frame_id": 114,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000114.jpg",
+      "sha256": "7ae3d3500bd2bfec8351fdc78deff75447b156e8424400a2484f48b75f754d5a"
+    },
+    {
+      "original_frame_id": 115,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000115.jpg",
+      "sha256": "d3883d19eb9a0dff0254663efd3eb7843e5a6cec61ae89e3278ebbcf6b01d167"
+    },
+    {
+      "original_frame_id": 115,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000115.jpg",
+      "sha256": "bda4874632434acde68765e7483eced7ebe7292ac2a356156ef2ef4be66001d7"
+    },
+    {
+      "original_frame_id": 115,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000115.jpg",
+      "sha256": "416ef90f6b335e5fa6fd17fdfb5909643ef37a4c7a768b2c31a908e94b8752ea"
+    },
+    {
+      "original_frame_id": 116,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000116.jpg",
+      "sha256": "066674209a617dc53d674efb56078a1f354a88605fd94cd56969c3bcff0504bf"
+    },
+    {
+      "original_frame_id": 116,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000116.jpg",
+      "sha256": "142c8d56cca6f87c9753ecdfadb084e10b11bcce4f1f2274ce49a58d6a0489e8"
+    },
+    {
+      "original_frame_id": 116,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000116.jpg",
+      "sha256": "9db9f2559906b372f8a7ba519229d665cf7b32a376c58ef0294de8fb1b83e0db"
+    },
+    {
+      "original_frame_id": 144,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000144.jpg",
+      "sha256": "162e3f8226d1ce3bc5e94262cdd183a7cec12576f061999aa51101e0e96efb00"
+    },
+    {
+      "original_frame_id": 144,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000144.jpg",
+      "sha256": "daa62d27879cfd7c89bef80ed91a13e6fa219ad4998efa95fda076bc76cee93b"
+    },
+    {
+      "original_frame_id": 144,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000144.jpg",
+      "sha256": "525dd0c792790a729fd807b936315aab97367ac1d05ffc239439f76d5de4f771"
+    },
+    {
+      "original_frame_id": 145,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000145.jpg",
+      "sha256": "883b77759f61e3ad2c08306bbaebd888ce934705b1c7fbe873929014b3053cbf"
+    },
+    {
+      "original_frame_id": 145,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000145.jpg",
+      "sha256": "19b95cbb642aaec7d5fd984c93a56d0a10a57f58f4e9a34d4211224ba43d14b0"
+    },
+    {
+      "original_frame_id": 145,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000145.jpg",
+      "sha256": "80c242eb8283ad5c3f0cf62329b068fecbf03a47de94d8d592f097747724c110"
+    },
+    {
+      "original_frame_id": 146,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000146.jpg",
+      "sha256": "f3467adbd3e007b772f9d867239872b86348c830d258658ed42aa1d521b352f8"
+    },
+    {
+      "original_frame_id": 146,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000146.jpg",
+      "sha256": "e4cf50f00aa23a4aa13c0c354e4f960ad495a770ec573db62d8ff889dc94784a"
+    },
+    {
+      "original_frame_id": 146,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000146.jpg",
+      "sha256": "fa145d2519d70ecd5ad525e3cffa8d21a912e0e7e16965d836723acc370b06b9"
+    },
+    {
+      "original_frame_id": 147,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000147.jpg",
+      "sha256": "84e81b12f22cb4ce3635aab74121ddad4affddf32242a202a6afc006debd25c9"
+    },
+    {
+      "original_frame_id": 147,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000147.jpg",
+      "sha256": "bb731f35d9d2bea310bc11a265863fda67284af2479bd3f853ea75221f60b523"
+    },
+    {
+      "original_frame_id": 147,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000147.jpg",
+      "sha256": "17f15f3c1d37dadb767c5217caa7949f9bcc4e671ac455227e4dbf18d93c69b9"
+    },
+    {
+      "original_frame_id": 152,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000152.jpg",
+      "sha256": "08a084159dfe52dbc6e7c628597923f4bd52228366d5f0d4d8603efb2c9494c5"
+    },
+    {
+      "original_frame_id": 152,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000152.jpg",
+      "sha256": "9fa0fe8d2abbe47c27e574435f45533a161ad34a4340aa7adb884f36f082db74"
+    },
+    {
+      "original_frame_id": 152,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000152.jpg",
+      "sha256": "821ddf7770a8090f8c118279d55a9b47b7940b62266f504647ec10132ba15dcb"
+    },
+    {
+      "original_frame_id": 153,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000153.jpg",
+      "sha256": "a968858ecf9a71ff3619ef4bac4fb53ccc93572ae2ffa036a076c8e9ebaf319b"
+    },
+    {
+      "original_frame_id": 153,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000153.jpg",
+      "sha256": "a0ea1d406e9f981b347fbc17cf178c9d7baac48deeea41cc7ae48c70e971b70e"
+    },
+    {
+      "original_frame_id": 153,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000153.jpg",
+      "sha256": "557f57caafc7cc8b72c4721c1dbfdee3504268596ae4159115453cc4f70073e2"
+    },
+    {
+      "original_frame_id": 154,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000154.jpg",
+      "sha256": "09cfe16aef8a92fe6ec030a770e459975bc227a5a3912944d73f065914f5d351"
+    },
+    {
+      "original_frame_id": 154,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000154.jpg",
+      "sha256": "0aaf73ef8196b8aa88691f28c0f481091aed5ae52bcaa36814b02a4a93bae43f"
+    },
+    {
+      "original_frame_id": 154,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000154.jpg",
+      "sha256": "39094adcd05f92133d0ad697930ed0e6fcd3d439f3f357da05a0939d43324587"
+    },
+    {
+      "original_frame_id": 155,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000155.jpg",
+      "sha256": "10fe68a8402acb16261d1369b85deea6356cfc1340e2563c2aa3e7e070be2083"
+    },
+    {
+      "original_frame_id": 155,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000155.jpg",
+      "sha256": "93ba0f2d7236c93e590c11194628511762be97936af193e968b8351bb144532d"
+    },
+    {
+      "original_frame_id": 155,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000155.jpg",
+      "sha256": "5ef915d7be4986c63dd1902e80c7be742120aa7a40cab80367cc92d55cdb58b3"
+    },
+    {
+      "original_frame_id": 156,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000156.jpg",
+      "sha256": "a54c1a5510417f3522522614a375221649edcb9385ef7430ae39448e754be342"
+    },
+    {
+      "original_frame_id": 156,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000156.jpg",
+      "sha256": "ffee6fa47cd855596b9983894f1b8d7076a8ee0291187c912e101eccf7b7230f"
+    },
+    {
+      "original_frame_id": 156,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000156.jpg",
+      "sha256": "a334d3119297f5986d1b2826dffce3f31b3afa192c808613c03519330e62320a"
+    },
+    {
+      "original_frame_id": 161,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000161.jpg",
+      "sha256": "c24dad0f1291b259c9f86f8d0a7bbe2f4b1a214199ddff0e42901f62a2366b4e"
+    },
+    {
+      "original_frame_id": 161,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000161.jpg",
+      "sha256": "5aa360069393a66b7e5c8391bcc62ecfb773d1a30b6e74aa349de2d725cff988"
+    },
+    {
+      "original_frame_id": 161,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000161.jpg",
+      "sha256": "9305f44b8c60c23b0de6321a94110f06f145b6ff7569cf29bbb5185f879f3d44"
+    },
+    {
+      "original_frame_id": 162,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000162.jpg",
+      "sha256": "948d7bbead97830b99690c89a082c7af2d926b4a04ae9caf785d61a8244f0ab1"
+    },
+    {
+      "original_frame_id": 162,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000162.jpg",
+      "sha256": "e75df15b1dc68102dcc2073202db93a6c4b448c6aa7401b19343d61766e1a65e"
+    },
+    {
+      "original_frame_id": 162,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000162.jpg",
+      "sha256": "7f9c3fd20d50110b1091b24a69d24e83895a7dbb7d1143d8f27c77c0bc08216d"
+    },
+    {
+      "original_frame_id": 163,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000163.jpg",
+      "sha256": "8a849382d02738ec18cc5902f93a8eb4ad2a408ff0da879e644950a6d6e32c32"
+    },
+    {
+      "original_frame_id": 163,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000163.jpg",
+      "sha256": "95ad9ef7886f6ff0ba8c226ee10516c132e7938e92869f9b4aa91ca1ffd8ea8d"
+    },
+    {
+      "original_frame_id": 163,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000163.jpg",
+      "sha256": "c8aa1ee234a392cb9822638f7ea7764fb85e9e60059d34ba0d3080ab71be6b07"
+    },
+    {
+      "original_frame_id": 164,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000164.jpg",
+      "sha256": "fe1cd20c781decda008f19b727b17370d18e46462eb42a538fd0cc16ae8b7a08"
+    },
+    {
+      "original_frame_id": 164,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000164.jpg",
+      "sha256": "8102bed17ed849406909fa8ba17eacb7258be39e6dc42cf6836c2775f6d2608a"
+    },
+    {
+      "original_frame_id": 164,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000164.jpg",
+      "sha256": "0ebee8ce0dbd0876101661e9bf888f9b51d39fc5470d63a013cb8c7861605116"
+    },
+    {
+      "original_frame_id": 174,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000174.jpg",
+      "sha256": "fd75fb935b0099225203968a59ecb08d263ba48565bfc3d27ada9dcd159c509d"
+    },
+    {
+      "original_frame_id": 174,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000174.jpg",
+      "sha256": "e14767bad666c3653e144e7322294ece9d47ae0921f8c0e51490c29c75619b88"
+    },
+    {
+      "original_frame_id": 174,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000174.jpg",
+      "sha256": "d8e2db501319384cffb626dca88cddb07a934327703360a2502309cf720b464c"
+    },
+    {
+      "original_frame_id": 175,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000175.jpg",
+      "sha256": "763e114f97fa9cea0f5e7103dd77e2dc1c650e228b8324e4fc81ca8fbd9d6d4f"
+    },
+    {
+      "original_frame_id": 175,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000175.jpg",
+      "sha256": "654db4fb62d71cf4c91b89f2c384c3db56ccfed21a78376d395780ecbcc32420"
+    },
+    {
+      "original_frame_id": 175,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000175.jpg",
+      "sha256": "4115d89849773cf08cf2e87decb9847eb0df61d164f78749504e98d76fc05c49"
+    },
+    {
+      "original_frame_id": 176,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000176.jpg",
+      "sha256": "457dc9b2c6004c7f07b1fdeea8512d23876d5b53fd2570896c52933a268ebb82"
+    },
+    {
+      "original_frame_id": 176,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000176.jpg",
+      "sha256": "77fc77bc26e089b7a5c4dc4579af2279d5a6ceaa1025c94819bc22dac2abff66"
+    },
+    {
+      "original_frame_id": 176,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000176.jpg",
+      "sha256": "553755421371f269792801814012b152626a79f4e9305072d1264c9e6f99f8c0"
+    },
+    {
+      "original_frame_id": 177,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000177.jpg",
+      "sha256": "eaf3424fcdb0e47e543c6ed19119e294490e0beddb7498492ad7e2ac1d41c117"
+    },
+    {
+      "original_frame_id": 177,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000177.jpg",
+      "sha256": "b53a809825f3c371792fa32c56f5404b21b78bf47c620d130663de0e81cf7bfa"
+    },
+    {
+      "original_frame_id": 177,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000177.jpg",
+      "sha256": "54f56bb5fbf4db132da2c7647d21f772e1b67cc7aa2d970fa709c99f42850b18"
+    },
+    {
+      "original_frame_id": 182,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000182.jpg",
+      "sha256": "f2ad5372bff11dd9ad8147f255702e3b931e45e76d96a378bc5da1fef9f75348"
+    },
+    {
+      "original_frame_id": 182,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000182.jpg",
+      "sha256": "ac30eb7388d9eb3adf27e02115db9a0049fea645653c93292e88c8f2ccb80500"
+    },
+    {
+      "original_frame_id": 182,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000182.jpg",
+      "sha256": "9574e1d57fdf40dfc6d9ce8d6bb3b3bb53c2dc429117f591aa8c939d5b992385"
+    },
+    {
+      "original_frame_id": 183,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000183.jpg",
+      "sha256": "b09c90763bffd73f4402d62fc8c419c63ad8846801fa350cab9149eb7a04f752"
+    },
+    {
+      "original_frame_id": 183,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000183.jpg",
+      "sha256": "29ea018a85f30e6a5dd3aba48d40f385c3b02196e6f5ef4990016f3b5cb4b2d4"
+    },
+    {
+      "original_frame_id": 183,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000183.jpg",
+      "sha256": "00c597fc999649413f4fbd07a3d9b064da194f1106fad8b0076734308b6e450e"
+    },
+    {
+      "original_frame_id": 184,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000184.jpg",
+      "sha256": "60070947f79338e846b94ef32d6b3fcb12beb65dbacc339a19db5d0eeb41cd5e"
+    },
+    {
+      "original_frame_id": 184,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000184.jpg",
+      "sha256": "1f26c93a3aae93784b84f5457e3ac9d66d3a0bd029c38cafb4517950c79c19b3"
+    },
+    {
+      "original_frame_id": 184,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000184.jpg",
+      "sha256": "81ba2eeeadc0ccddb41daec83d79ad1089c4dae5bc92ae3408916a556a06036a"
+    },
+    {
+      "original_frame_id": 185,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000185.jpg",
+      "sha256": "3576ae81898674e0c4e0f3c02409bc5053fef077f70ee5343c56c849d1238e17"
+    },
+    {
+      "original_frame_id": 185,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000185.jpg",
+      "sha256": "688d59c06022852cda7c4cdc4b2d489fcdbc37b342449c86f982dd32f692067b"
+    },
+    {
+      "original_frame_id": 185,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000185.jpg",
+      "sha256": "70d2ffa1d693b84eb5b6d4c481a6a3d4625d46ec11653d8e4367900b8bd7a31a"
+    },
+    {
+      "original_frame_id": 200,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000200.jpg",
+      "sha256": "234eb7ec8d1c89fcebae70cd85359bdf500c7df645c6d9460cd6c7d25092243b"
+    },
+    {
+      "original_frame_id": 200,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000200.jpg",
+      "sha256": "23e1abdc3b16825da525ccb8d1c5e25f418b60b75a313845dcb4947a47a648bb"
+    },
+    {
+      "original_frame_id": 200,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000200.jpg",
+      "sha256": "4af31c45c27d35ca0b264ae44e42b5a40e94c550fd789f1283a06c6f075ce378"
+    },
+    {
+      "original_frame_id": 201,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000201.jpg",
+      "sha256": "b350887469a77277191358f1d625c768c5401780e3cf1fe2dd5b2a3b400250ba"
+    },
+    {
+      "original_frame_id": 201,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000201.jpg",
+      "sha256": "87eef408d34fbcb7684fb6f7f5aaff59908cfeac337e8034b89ee65a8e0d45b9"
+    },
+    {
+      "original_frame_id": 201,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000201.jpg",
+      "sha256": "b2e722c31a616d04ed5ba9201900dc22a8043519af8f9377c4fa263d0d5b7b36"
+    },
+    {
+      "original_frame_id": 202,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000202.jpg",
+      "sha256": "b457010f24f040bee55e4f1046f508b408930cd5334792369d2ad8d02c686e78"
+    },
+    {
+      "original_frame_id": 202,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000202.jpg",
+      "sha256": "bdb2c86ede75e3676768776fcc0109e7765964a54594dd5a4c16162c07805e61"
+    },
+    {
+      "original_frame_id": 202,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000202.jpg",
+      "sha256": "25882d6ac9ce9140af0c6190fdf62533c3efca9972b44d148acd61780a8c9626"
+    },
+    {
+      "original_frame_id": 203,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000203.jpg",
+      "sha256": "9442d17803d9a9f8edb771a6dbf8f4a5a8fe21473315a770cf0d81357be46bf9"
+    },
+    {
+      "original_frame_id": 203,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000203.jpg",
+      "sha256": "aa93d417010ea9be05e92c1ce96962f7b5753c6784ea788921bad7b2a1c65701"
+    },
+    {
+      "original_frame_id": 203,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000203.jpg",
+      "sha256": "e6cf597e42cd0c159a4fcdb2bcba3fc8e371175225f8b42508c3bf5328f8b574"
+    },
+    {
+      "original_frame_id": 208,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000208.jpg",
+      "sha256": "bf3b6015a454a5fa7c6cdaea8f7445fe7cb9a0f8792c2bc7cfab49d08f51da02"
+    },
+    {
+      "original_frame_id": 208,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000208.jpg",
+      "sha256": "7cf52217f656f2946930ef8412e8d8cbf75058cca6a8d03355adb3535d84ba85"
+    },
+    {
+      "original_frame_id": 208,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000208.jpg",
+      "sha256": "d57ad8d3e41bc4c398607f63ecc3e4232b41fff1b78196551d052fa7bf073735"
+    },
+    {
+      "original_frame_id": 209,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000209.jpg",
+      "sha256": "1f35211108056c4fd2b00e204a3f38c9a8451993e8aa1a42bdc7af7c2d174d63"
+    },
+    {
+      "original_frame_id": 209,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000209.jpg",
+      "sha256": "12755c8a54d93183658db168897ab765cf0b55b994fbc864fce8a2cd9cd5bfd8"
+    },
+    {
+      "original_frame_id": 209,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000209.jpg",
+      "sha256": "e675638c170de2b4953a7971fea33b615612e8449afc82478a505c93b770993b"
+    },
+    {
+      "original_frame_id": 210,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000210.jpg",
+      "sha256": "341142029967d77dcd3e74194629b0276d59cea798c91a132e0b85373a501f2e"
+    },
+    {
+      "original_frame_id": 210,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000210.jpg",
+      "sha256": "def6292569ca0d3e2706b0c6df206b79daee60e15269baf149c749eebbd89001"
+    },
+    {
+      "original_frame_id": 210,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000210.jpg",
+      "sha256": "44f60ca11e9f2f88934e8b235d1ede06b647673e8fab2c347f1393a8674be819"
+    },
+    {
+      "original_frame_id": 211,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000211.jpg",
+      "sha256": "dbbb14240370c15f586cdf2449f820ed484241103a94c2897131ad2e7cf58aaf"
+    },
+    {
+      "original_frame_id": 211,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000211.jpg",
+      "sha256": "ca54f4d0bf84d06425c22b798c073011a1ad18661af67cfa2d06fe5f8a198607"
+    },
+    {
+      "original_frame_id": 211,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000211.jpg",
+      "sha256": "e983c6cfdf88a4ede76abe04abc893e0a9611d440389858c926c99f0a07dd41a"
+    },
+    {
+      "original_frame_id": 226,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000226.jpg",
+      "sha256": "761cf54c4d83e0946029a1a37764056dc4ce4e5437c26fe1c8775548de5a1d33"
+    },
+    {
+      "original_frame_id": 226,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000226.jpg",
+      "sha256": "e220e9aa9aacfe7e2b37e7fbbd77cb65e40e367f89946a6e5abf46f0a7d9b641"
+    },
+    {
+      "original_frame_id": 226,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000226.jpg",
+      "sha256": "b20c4df6aa861a417296642786ca29a3bed7c461933f8da22e4e7964c0d582ce"
+    },
+    {
+      "original_frame_id": 227,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000227.jpg",
+      "sha256": "feca9c64434834190b3474796186c00499c7280410e9673d916c8bd014f96ae4"
+    },
+    {
+      "original_frame_id": 227,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000227.jpg",
+      "sha256": "04860562a6ebcee5bc508041e2bf6fbeadc9977d2a3f50930f993aeb1b3b7d7c"
+    },
+    {
+      "original_frame_id": 227,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000227.jpg",
+      "sha256": "efebd2dcf3eff9f80ddfafc0b0344539e8917c44b5a2f4c4f4ad44370c4102c4"
+    },
+    {
+      "original_frame_id": 228,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000228.jpg",
+      "sha256": "57c9bdb67d9a36487f563ee2ac1e3d0f93e916372622baf2def4df38dfe9222b"
+    },
+    {
+      "original_frame_id": 228,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000228.jpg",
+      "sha256": "f81ab1625a70c4d03d2599e39a3ad244f390c716a8fb073575208ccb2e2f6e7a"
+    },
+    {
+      "original_frame_id": 228,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000228.jpg",
+      "sha256": "6a2f93b7292dc0bc4de6e4099adb7b78b991f6e5731ac29e347df2bbfafbcc30"
+    },
+    {
+      "original_frame_id": 229,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000229.jpg",
+      "sha256": "ae86750c2a88a7b0605323e9d54b6c82475022f6c77b8fb9c2b846cb1a480f77"
+    },
+    {
+      "original_frame_id": 229,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000229.jpg",
+      "sha256": "c507bfa953a1bd5fe5333614b8f3874b0f404df00cdd8923c83f0aa582bd803f"
+    },
+    {
+      "original_frame_id": 229,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000229.jpg",
+      "sha256": "2e62c01717e855c1186860bb531da8f05c1562e463660f6a7429a2d4f0d8a3de"
+    },
+    {
+      "original_frame_id": 240,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000240.jpg",
+      "sha256": "fa819861ba998917bebb23812fdc0e639d4f627aa1d11b9fb25121f0b459f036"
+    },
+    {
+      "original_frame_id": 240,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000240.jpg",
+      "sha256": "6c9a2417fc50c79a99f0b5ebc2ce524c3709f29e2bbb2dd45f23491773ccc883"
+    },
+    {
+      "original_frame_id": 240,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000240.jpg",
+      "sha256": "addc31642855b71a7cb345edcd1ccb7f8e69f28a6fcf863ffc52b75d21a4cbc6"
+    },
+    {
+      "original_frame_id": 241,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000241.jpg",
+      "sha256": "43978663c576a317d4d37f455db42a3222743398b3b916da6ea7d40222546344"
+    },
+    {
+      "original_frame_id": 241,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000241.jpg",
+      "sha256": "9988b76e44f55db45b51a521c1e685f655c2cec36454aeb413d13d8986d66b51"
+    },
+    {
+      "original_frame_id": 241,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000241.jpg",
+      "sha256": "ddbfa84dede12e3fea13a00015e5c6e4c652a0a0e6eb1ba19b1b083ee6b6640a"
+    },
+    {
+      "original_frame_id": 242,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000242.jpg",
+      "sha256": "02e84e655829e3d70e56aebc7c3355c2c8c5fd4c2f53066b975ab03d289787b5"
+    },
+    {
+      "original_frame_id": 242,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000242.jpg",
+      "sha256": "26bf40485c7a781854b1ab9f0b061d5ede3cd71106564a83dddd7b909b35d9db"
+    },
+    {
+      "original_frame_id": 242,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000242.jpg",
+      "sha256": "9ff3f0b3d975828dcc0e4d18c9f29c9d333327ed7a2209a2a5bd76ad6c89f558"
+    },
+    {
+      "original_frame_id": 243,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000243.jpg",
+      "sha256": "eb935d1f05c444804a396505f3abc8cbe24a04e6cf98bdfa169ab83fcdadde96"
+    },
+    {
+      "original_frame_id": 243,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000243.jpg",
+      "sha256": "83b4527d40dd4250c54d1e51b395026bb71a4584fd7e2b6db4668508084ad8d3"
+    },
+    {
+      "original_frame_id": 243,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000243.jpg",
+      "sha256": "c588c36c3b99fc75b1eaf8291fa1214b08931b4a025cc7ee18a92e25a00b7a62"
+    },
+    {
+      "original_frame_id": 244,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000244.jpg",
+      "sha256": "6cc8746221dcf9dedd855ca272287c299493110a7cfe885f54b52300056f1b09"
+    },
+    {
+      "original_frame_id": 244,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000244.jpg",
+      "sha256": "ddd7bf1fc9c9752d8b9e95234104de36c0668d14ad34421d3740844162e1bc6a"
+    },
+    {
+      "original_frame_id": 244,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000244.jpg",
+      "sha256": "56086b955a82cdfb17599051ef10d5bb4c7e42b7d885c2564c47d5aee50dd0b0"
+    },
+    {
+      "original_frame_id": 245,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000245.jpg",
+      "sha256": "f496dd061c4c9579c40f7a21c462e648709025de04294a2bf79d0a2e6b2794f8"
+    },
+    {
+      "original_frame_id": 245,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000245.jpg",
+      "sha256": "09351cd0c8537127f1f4509585b6fbc33d5db2ff1929f4f5247d57adf7c50203"
+    },
+    {
+      "original_frame_id": 245,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000245.jpg",
+      "sha256": "9eef40fde8d7986a1e2e71f1d9d483eafda5f7f2c1362056ce5a2ae17ffe5e9d"
+    },
+    {
+      "original_frame_id": 246,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000246.jpg",
+      "sha256": "d84e12ea46d70805e73b7490a3048e5b6b98ca36fa79b4e71c2020701ad2fab9"
+    },
+    {
+      "original_frame_id": 246,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000246.jpg",
+      "sha256": "5cc1638ed8b77a6e465d47596296366a9fddd669403e171e61e92c5299adbda5"
+    },
+    {
+      "original_frame_id": 246,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000246.jpg",
+      "sha256": "3f3ee29df5dfdc474a271784fbcedc296ecbef74ec63c7b855ad377b213bad74"
+    },
+    {
+      "original_frame_id": 247,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000247.jpg",
+      "sha256": "ea8bdf31786238619a00f0be186408ad3cf4e05fefcaaf7c5fe614bd66eaadde"
+    },
+    {
+      "original_frame_id": 247,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000247.jpg",
+      "sha256": "ed86fef91d06b5cb51ac149e262892d61d986d858c415144fb9b2d1909b4267f"
+    },
+    {
+      "original_frame_id": 247,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000247.jpg",
+      "sha256": "226e8ad8c398e52930217434489d0bb5497d425240326f093fc4bf074a90e92b"
+    },
+    {
+      "original_frame_id": 248,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000248.jpg",
+      "sha256": "d3cfeff4e243f412c93a91f561f1728d233d1282d66176fd4969ed849c3f0066"
+    },
+    {
+      "original_frame_id": 248,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000248.jpg",
+      "sha256": "c78dced3d72d8cc425100f2d58f6745af627048540555663f279f9abf8ac1dce"
+    },
+    {
+      "original_frame_id": 248,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000248.jpg",
+      "sha256": "3a696ee2d1c557a68531d3ad9026bb9c1d545100987d7a159d4b3de6984e4eb8"
+    },
+    {
+      "original_frame_id": 249,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000249.jpg",
+      "sha256": "e2fed390da3520c5d97298674490db41c6c10356a4c7704cde65335e4ea3abf1"
+    },
+    {
+      "original_frame_id": 249,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000249.jpg",
+      "sha256": "e34b35122bed5179b5ad33149968a3041306c0e454d5a4439b62e49a8055ee6a"
+    },
+    {
+      "original_frame_id": 249,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000249.jpg",
+      "sha256": "06c0cd045fd90de5b3049a1694cf89be7b15ae130b7ac9a1d8dfb98ce6e643e0"
+    },
+    {
+      "original_frame_id": 250,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000250.jpg",
+      "sha256": "1c3d236d4217efc58c61d0b7410735f7d862c502e715829d9c328e6dc3a09e1d"
+    },
+    {
+      "original_frame_id": 250,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000250.jpg",
+      "sha256": "ca705be31d3a01f517e0547ea5cdcc8f5075fcca65ded692d64d85d4d622674a"
+    },
+    {
+      "original_frame_id": 250,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000250.jpg",
+      "sha256": "ce2b7dd0b2ec07afdd36309534a542730b2baeb767143faf98a1cd8ca822850f"
+    },
+    {
+      "original_frame_id": 251,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000251.jpg",
+      "sha256": "6cc711173c58c6ce5fc8aeab0ded20bb3a1f75066ad30e7bd77da4373806aa82"
+    },
+    {
+      "original_frame_id": 251,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000251.jpg",
+      "sha256": "c3424f76c34ad80ffff7476be820ffafa838a9b18aa2e2575f9e8d545628f569"
+    },
+    {
+      "original_frame_id": 251,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000251.jpg",
+      "sha256": "d1c3ff1942f1a8d44728548e3d990653d8a99b855bc9a8e4973c5916bd711e40"
+    },
+    {
+      "original_frame_id": 252,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000252.jpg",
+      "sha256": "89d39bad0c92052b1a6c053f6eb9f80c70910e591f7443a3bb3b62c00fb8797a"
+    },
+    {
+      "original_frame_id": 252,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000252.jpg",
+      "sha256": "e8d914f57f3cd48dc01bee1423c5a6a9bcd983dad43e6219cb6c3903219ccf87"
+    },
+    {
+      "original_frame_id": 252,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000252.jpg",
+      "sha256": "569648ec00a2d84f36c74016abb3d989e4f62c7a12dd7077e3a4ac4f883e84ac"
+    },
+    {
+      "original_frame_id": 253,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000253.jpg",
+      "sha256": "8bd0019f1a26938c4bb31618d9c376d4139ab082f1736ae67a809052c69be5b7"
+    },
+    {
+      "original_frame_id": 253,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000253.jpg",
+      "sha256": "2794c7b31ce6955dd0c1c551cbdf57b6aa1d16c53e03e367995ae3d998a559c4"
+    },
+    {
+      "original_frame_id": 253,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000253.jpg",
+      "sha256": "8448623cd9838bc5435eab5821885e1666e45f13f4f43b02ca4a09b0a5b239a8"
+    },
+    {
+      "original_frame_id": 254,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000254.jpg",
+      "sha256": "8c96c06fafc4b2a4571357126480d4b132307404ebb98559a7a99341efbbcc67"
+    },
+    {
+      "original_frame_id": 254,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000254.jpg",
+      "sha256": "5db6c6b80afba5e756a21f8783570d881d7ef5478536743c8ec2231c88a1733b"
+    },
+    {
+      "original_frame_id": 254,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000254.jpg",
+      "sha256": "2c5a42c22e206bc119701968225d76b0007381284a31805049486f8e3a9c78db"
+    },
+    {
+      "original_frame_id": 255,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000255.jpg",
+      "sha256": "4c9c371535ce07abe82c9d84619d9fe6b15fdf0e61e7e9d360f6d904f04ecd41"
+    },
+    {
+      "original_frame_id": 255,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000255.jpg",
+      "sha256": "bb64be851ea7e03d5aa5a2267c88ef86a734dafcc178f02d228ca3ad0c02e278"
+    },
+    {
+      "original_frame_id": 255,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000255.jpg",
+      "sha256": "09407a10ca74a288a0a56e8e00162ed243ffd8d495dca4f0848cd12ffa7410fe"
+    },
+    {
+      "original_frame_id": 256,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000256.jpg",
+      "sha256": "f83db1b61c9d8bc789d5ea790679af31c8311ece67b03c0c93436584b3a141af"
+    },
+    {
+      "original_frame_id": 256,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000256.jpg",
+      "sha256": "bae3ca778cc1e07578f2a27c2d5e535be8fa4b392752cc863c17845d77eee095"
+    },
+    {
+      "original_frame_id": 256,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000256.jpg",
+      "sha256": "b80c130ea03b5c356a9519d541c1c318c1e00176a3ced1aa7be405b2a1465e6c"
+    },
+    {
+      "original_frame_id": 257,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000257.jpg",
+      "sha256": "1286b95cbcc6c4bf9319b2b78d4d7a89dc67d524c95d7b0531e83a3059dd115a"
+    },
+    {
+      "original_frame_id": 257,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000257.jpg",
+      "sha256": "fae902e6d8f846f67c7f6cb108fd3d27634ca4a8ef1464838894532d511f5013"
+    },
+    {
+      "original_frame_id": 257,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000257.jpg",
+      "sha256": "9a5906d2831cdbff8fe4f6ec7112294c5f752db25834f81195d2d9cc3bf3ee50"
+    },
+    {
+      "original_frame_id": 258,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000258.jpg",
+      "sha256": "16e483f919ce1404766ff6a98e1f62cf26176631dd8af7bb8fb173097eba6e31"
+    },
+    {
+      "original_frame_id": 258,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000258.jpg",
+      "sha256": "3ba57390b7d883ecbe84e34212c45fa458bf94d67e3afac10a0086034717a643"
+    },
+    {
+      "original_frame_id": 258,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000258.jpg",
+      "sha256": "a83b020fa3e2bf70d9dc0a1cc5cdecca8c5da69f9a34e70312932cc901de27e1"
+    },
+    {
+      "original_frame_id": 261,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000261.jpg",
+      "sha256": "e841fb349be07f84782936c43101e2ec53effd695f78f1615c1440bb8ef49189"
+    },
+    {
+      "original_frame_id": 261,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000261.jpg",
+      "sha256": "ee99e29129f0c595840eb4ceeaf5131d46c1e6dcc4145c3ad2457a9da7ce14ed"
+    },
+    {
+      "original_frame_id": 261,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000261.jpg",
+      "sha256": "350c71eb95c56502be619e1516620a9e4ee9c5bc5e362afd7e9c68fc8d7e6496"
+    },
+    {
+      "original_frame_id": 262,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000262.jpg",
+      "sha256": "6de78810606aaa778e52616f3cb8a4e17246b461114d2b898708157de4e37496"
+    },
+    {
+      "original_frame_id": 262,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000262.jpg",
+      "sha256": "b7ce5cab2d1c768e3027278dd9321d39161ca022b5712ac9fd5e13baad4e46be"
+    },
+    {
+      "original_frame_id": 262,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000262.jpg",
+      "sha256": "a38cfb10c665f4ac06e7043ddd56fdcd7172b0b777ab25a0645a7db9f30d78ff"
+    },
+    {
+      "original_frame_id": 263,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000263.jpg",
+      "sha256": "d77cc2088bb806603e12f327db837c99d139722fa6b6a2f8b9aafe1549a98253"
+    },
+    {
+      "original_frame_id": 263,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000263.jpg",
+      "sha256": "64cd65e61539c7e19c8e89f6a9de523bcd3bc67691251d9d95f3a0c487449a1b"
+    },
+    {
+      "original_frame_id": 263,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000263.jpg",
+      "sha256": "b326d2cb09b7170e0d164e63104739e4097a2e462a0a1b7a27f9a4ddb3fd31e4"
+    },
+    {
+      "original_frame_id": 264,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000264.jpg",
+      "sha256": "0e1c5a701539b17f3a20c5b303950aa3cfb953dfc63b3ccae4950d4b2193c63c"
+    },
+    {
+      "original_frame_id": 264,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000264.jpg",
+      "sha256": "e9df490a4e746205258cbcce44aa92dab197b530f01bb3bdacb36755eab1bc42"
+    },
+    {
+      "original_frame_id": 264,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000264.jpg",
+      "sha256": "b4e10313e704c0ea0a428428908179b08b22b78a2b5b1d471c9a44d5e5fc26e7"
+    },
+    {
+      "original_frame_id": 269,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000269.jpg",
+      "sha256": "75b71fa82f050184a65e5dda1cc4b402f808749d43be4790c8903e2f766d0375"
+    },
+    {
+      "original_frame_id": 269,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000269.jpg",
+      "sha256": "c0122f46ab2c28c7c32722d137a819fa8dfd240a724f6f09a2727133dfa51bc3"
+    },
+    {
+      "original_frame_id": 269,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000269.jpg",
+      "sha256": "ae08ecc84d80c055e013c28323d12260a483c781b350ea17f1be8e23ffe5eb94"
+    },
+    {
+      "original_frame_id": 270,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000270.jpg",
+      "sha256": "ac49b2e249406b8c9ea55c7b8afb4194e1481d749b4a1761ebd2fb3c33673710"
+    },
+    {
+      "original_frame_id": 270,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000270.jpg",
+      "sha256": "495188a975a9171ff3ce85556a8ec99d3064826b2672a922fe715f84407696e1"
+    },
+    {
+      "original_frame_id": 270,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000270.jpg",
+      "sha256": "90648c870114f38f1ee460a50f63c330de1fac57d149d316f2fb2d73b585f80b"
+    },
+    {
+      "original_frame_id": 271,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000271.jpg",
+      "sha256": "1c2626cc41d9eac2740cccfdab22dd4229274ab0cbdd766fabfb83c16efb88e3"
+    },
+    {
+      "original_frame_id": 271,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000271.jpg",
+      "sha256": "c183d95ce1a4c0cefe57e4ab5c8609d5fe0b2af76f22ca96281f0c37dbe72bb8"
+    },
+    {
+      "original_frame_id": 271,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000271.jpg",
+      "sha256": "720947bb214e87eedccea9e717bf76b271842511a538bff8c184bb7a1d4aea6e"
+    },
+    {
+      "original_frame_id": 272,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000272.jpg",
+      "sha256": "252855b0ba02287dfd39e7ccbb647f147cd656c652704db3037a6d4cf7735786"
+    },
+    {
+      "original_frame_id": 272,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000272.jpg",
+      "sha256": "9df7ba034975c71aebbb01c97d787c90e7f47c1c19b331d842832d11c7e29495"
+    },
+    {
+      "original_frame_id": 272,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000272.jpg",
+      "sha256": "749535fd67f17499b7810c9b8035c49b98dde39edc033e7e5133476f8ac8fa75"
+    },
+    {
+      "original_frame_id": 280,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000280.jpg",
+      "sha256": "4b157b10e656aab013090e61e8a6674854d83ce9ca700159837cebeb71003e92"
+    },
+    {
+      "original_frame_id": 280,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000280.jpg",
+      "sha256": "deae91cc38c70e2519eddc8ca0e2d93342b0f135f347f8ce4c4e4afbe7c62b24"
+    },
+    {
+      "original_frame_id": 280,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000280.jpg",
+      "sha256": "51397ad39fb24a972c15d1a2cbfeb1a4796b7d5de81d997b66b92b8344860163"
+    },
+    {
+      "original_frame_id": 287,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000287.jpg",
+      "sha256": "a635465cbfc8751333f978f0d73e0977847fd80fb37cb582d9306044e10df7c2"
+    },
+    {
+      "original_frame_id": 287,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000287.jpg",
+      "sha256": "3b870a911ebb04b9d9cd7416fcb631adc4e81b28d2f876aa4eed9491c8e4cc65"
+    },
+    {
+      "original_frame_id": 287,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000287.jpg",
+      "sha256": "a3b8ec2bc7607118213347d4b779224d3f27d62e4e8525743b4817f4cc39fa76"
+    },
+    {
+      "original_frame_id": 288,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000288.jpg",
+      "sha256": "c7f80cf4925070356eb6a638b3ae1deef2652e10a9e0f84dd635092541076b39"
+    },
+    {
+      "original_frame_id": 288,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000288.jpg",
+      "sha256": "545b77526cedf599ec0f52abb49ac0849cc2e7f951f97ea7d4b95c4b031c4432"
+    },
+    {
+      "original_frame_id": 288,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000288.jpg",
+      "sha256": "058439f12a5fe47c3a43b78b2a7030b56e6aeb4f99b9d072505bac5f4578f460"
+    },
+    {
+      "original_frame_id": 289,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000289.jpg",
+      "sha256": "701099b6dd22ba72f2f8bf858c4cf1f866035970c6aaa806f8829913316c4c1a"
+    },
+    {
+      "original_frame_id": 289,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000289.jpg",
+      "sha256": "87c97e1e1f4f9453bf4e9030fb16d52f31b5648ea323d212f15c0eaec01815b6"
+    },
+    {
+      "original_frame_id": 289,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000289.jpg",
+      "sha256": "140f1df577e816566d107b0b86b39df7b195af0d2e6c8e189f8114d0a5d9c14a"
+    },
+    {
+      "original_frame_id": 290,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000290.jpg",
+      "sha256": "1f747c096add601a0bf7c295d3f89e11ec576acc6de38adf9a968ad197a055cb"
+    },
+    {
+      "original_frame_id": 290,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000290.jpg",
+      "sha256": "dfe31c49e1a904dc7709dd21b4346ac634b18bcd14a2afb17edc0a764661f932"
+    },
+    {
+      "original_frame_id": 290,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000290.jpg",
+      "sha256": "f313961856df88d2e5383bd33743e88daeb0c0bb4339e9d343e4db3b1d6424df"
+    },
+    {
+      "original_frame_id": 295,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000295.jpg",
+      "sha256": "3a66add248e6e6638a4787d64b86a2f181320d6076a884df0560b6ba0c99ac9a"
+    },
+    {
+      "original_frame_id": 295,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000295.jpg",
+      "sha256": "801c5c1aa30551ee3c94e28270dbdc7b921d4c5b53877a3de9c96add7f908fd8"
+    },
+    {
+      "original_frame_id": 295,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000295.jpg",
+      "sha256": "f8515b4714814e329bd37357b5e64e1e616101cf8d20fb2c95f9823709a74b5d"
+    },
+    {
+      "original_frame_id": 296,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000296.jpg",
+      "sha256": "41d726ebbb6e6dbd8f3818dcacd3ece8988352b463586adaaa1bb74378bf4ddc"
+    },
+    {
+      "original_frame_id": 296,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000296.jpg",
+      "sha256": "eea3bf82f431b0c7ec24fb72a2948f45d4f73320966426cedcbf06d0d6978e15"
+    },
+    {
+      "original_frame_id": 296,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000296.jpg",
+      "sha256": "f04fb3826a3f0205d02b80f83815148554b5f94c2d06eaafc52bfaedb4450581"
+    },
+    {
+      "original_frame_id": 297,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000297.jpg",
+      "sha256": "f3892dc6aea7df11cba5b0416af13dddd04a8ec06e6e81efcfeed6a6a57122bb"
+    },
+    {
+      "original_frame_id": 297,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000297.jpg",
+      "sha256": "17772f2a728456c2480792615e55ac7592f9d9142c591963e12efdd0daf7972c"
+    },
+    {
+      "original_frame_id": 297,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000297.jpg",
+      "sha256": "30826a897cd43e30e52f32e28cc2460146f4bc3ea9e159193b2d7c8f9a683f9b"
+    },
+    {
+      "original_frame_id": 298,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000298.jpg",
+      "sha256": "b693c91b70fa1de8b3605e7831644d0f114339204217ab032af5834f824cc56d"
+    },
+    {
+      "original_frame_id": 298,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000298.jpg",
+      "sha256": "2bf5fa85ae3ee081abfc5f2dff8325081077876358156120e2a43d2a2c16e33f"
+    },
+    {
+      "original_frame_id": 298,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000298.jpg",
+      "sha256": "63466e16666a7f826642a40f41a424b9df8a046925f72e7a989f278cab98f218"
+    },
+    {
+      "original_frame_id": 299,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000299.jpg",
+      "sha256": "efffc3711e8f906e174edc622e9b6f2b82e99e73ae0e21585698312ea92e6aac"
+    },
+    {
+      "original_frame_id": 299,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000299.jpg",
+      "sha256": "5db152a91d50af6039f90fa2e939c5a8edcbe86a5698481675467b9c3dbd540f"
+    },
+    {
+      "original_frame_id": 299,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000299.jpg",
+      "sha256": "e873981b03b2986de1bf0fe7e5b8c549104592d007126a466709b5e14ceb555e"
+    },
+    {
+      "original_frame_id": 304,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000304.jpg",
+      "sha256": "7814557da131a618c0c71a81ed3f8c5a44678698ab44c5c6c969d6d2445287b8"
+    },
+    {
+      "original_frame_id": 304,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000304.jpg",
+      "sha256": "038d645102048fa79a0b1fe79c4543d9d055bf0a163d5f312605a0839da2f36a"
+    },
+    {
+      "original_frame_id": 304,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000304.jpg",
+      "sha256": "4afe093b31713efac5624ca9073de6d0de995d4f1cb8ac4bc9ae9ab43011ad3c"
+    },
+    {
+      "original_frame_id": 305,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000305.jpg",
+      "sha256": "f7648e3ca14b130a7a48303810eb307413eddcebae19b61b05d17865f0a02eae"
+    },
+    {
+      "original_frame_id": 305,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000305.jpg",
+      "sha256": "d6d48217fcab1b8bf71e8302a617e72a221330152dec67512efa90ce890135b4"
+    },
+    {
+      "original_frame_id": 305,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000305.jpg",
+      "sha256": "8a301899d2995b3af5e5fee667441838435bf96cc737d400deed37e582bb3bf2"
+    },
+    {
+      "original_frame_id": 306,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000306.jpg",
+      "sha256": "4956107a0d5d7be874ad99731cb24e66deac149dd2517ad07851c101bd653f99"
+    },
+    {
+      "original_frame_id": 306,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000306.jpg",
+      "sha256": "fcc97d0882eb0b27614492e1dd643b2d921e83a7216efd7cdbb42c46f5438c87"
+    },
+    {
+      "original_frame_id": 306,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000306.jpg",
+      "sha256": "0a0369c8c7d046e1da19b9628765fc25e639f2a1f53c5718097bb1c4b41ff3b6"
+    },
+    {
+      "original_frame_id": 307,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000307.jpg",
+      "sha256": "6a86c1546e4bbf8314f44805f9b37c8e90a1247b372b62a56d83e55d28d159b4"
+    },
+    {
+      "original_frame_id": 307,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000307.jpg",
+      "sha256": "b1f91bdfef86e5b0e4ec8d3a1102a01d5333b08f2682e3e7f8be859e01bddd19"
+    },
+    {
+      "original_frame_id": 307,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000307.jpg",
+      "sha256": "9779a8df08cdde3db3f03d1df1fc870e50cdad40c230ccc9567ed7925dfc2aac"
+    },
+    {
+      "original_frame_id": 321,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000321.jpg",
+      "sha256": "3486e5b9a7d6de354279f0a8f9db8a29468784162ecf48ad2a3b921d35574b2e"
+    },
+    {
+      "original_frame_id": 321,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000321.jpg",
+      "sha256": "ad403ec27d8dfd256845f2ddca3f5891e34bb75aae8bc73206153b59ac16010f"
+    },
+    {
+      "original_frame_id": 321,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000321.jpg",
+      "sha256": "6d33d356637abd8c15ce2c3b5eed8e94fbb317aa9755eaddbc9861616d700726"
+    },
+    {
+      "original_frame_id": 322,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000322.jpg",
+      "sha256": "05081fe35ab0931869e095092502f2e7af29074b67673f8b81001a57f7109ffe"
+    },
+    {
+      "original_frame_id": 322,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000322.jpg",
+      "sha256": "04e68ec2f541b6c295011086e301424eda35bed2c8b5f37dbf57712be037faf3"
+    },
+    {
+      "original_frame_id": 322,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000322.jpg",
+      "sha256": "e365e9565a3d71072a28dfb406ec1ad6076fa5ef182c16638453be8214f87439"
+    },
+    {
+      "original_frame_id": 323,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000323.jpg",
+      "sha256": "41583ab812056326607168a4e64046c6ac26fc74b5e65e38d8b1d918c1751384"
+    },
+    {
+      "original_frame_id": 323,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000323.jpg",
+      "sha256": "44a2a5b7be081ca90dd815f7757e076fad87d3bd5d03aab069d437e3e13c2cd0"
+    },
+    {
+      "original_frame_id": 323,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000323.jpg",
+      "sha256": "b78336964cecf9d88c85ffc302760897e5a6c11f6ff387fd49f0d921a8674c1b"
+    },
+    {
+      "original_frame_id": 324,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000324.jpg",
+      "sha256": "6e9c600d8769f6cbf97122519d9d7157f2be4e77f85b6514be5079f7cf18e5ff"
+    },
+    {
+      "original_frame_id": 324,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000324.jpg",
+      "sha256": "2cdfa29f415a7349e32b7b4c7288f47359c869e08e822229c4ddf5e9b1e86bc4"
+    },
+    {
+      "original_frame_id": 324,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000324.jpg",
+      "sha256": "a34fb12272840f6ac7c0382b1d04fc89882126f69d9942aeb15c3171b7e94b4f"
+    },
+    {
+      "original_frame_id": 325,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000325.jpg",
+      "sha256": "2d048ad8ae706b8676cf7f34096fdf7ef06a103cce8267a964c6e4264d50513e"
+    },
+    {
+      "original_frame_id": 325,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000325.jpg",
+      "sha256": "ee1e19279ef85800fcc29e2d34df6823144cb4b682e12b0e472d47483c00c8ef"
+    },
+    {
+      "original_frame_id": 325,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000325.jpg",
+      "sha256": "3bac14fa8d63177b8340cbe4cb9312563e7f44787882701be995dd242bd046b5"
+    },
+    {
+      "original_frame_id": 329,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000329.jpg",
+      "sha256": "f83030cfcf8b2bf7724a12f17a7e4add764030832040bfb7ab8c8746bd10198d"
+    },
+    {
+      "original_frame_id": 329,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000329.jpg",
+      "sha256": "1a2951586a7eca8a81f6a341e07940d19769e78ac22cb57c619a43c3f692444c"
+    },
+    {
+      "original_frame_id": 329,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000329.jpg",
+      "sha256": "94a6e439981561a06a8acb29a877055314f2a134b0a1b494d08feecb4d946cfd"
+    },
+    {
+      "original_frame_id": 330,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000330.jpg",
+      "sha256": "50f76406d2b4b63f025e5581fed98a973d26bb58981749bb0fb58f4f604f065d"
+    },
+    {
+      "original_frame_id": 330,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000330.jpg",
+      "sha256": "48cb920f3e306ed0db74689e1d604aa16f43200a4e6e7cf58356672cac190893"
+    },
+    {
+      "original_frame_id": 330,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000330.jpg",
+      "sha256": "6e9c681ed0afbb305fa0c58dd2669ff51745b6242be0c9ab027f9b50311de5da"
+    },
+    {
+      "original_frame_id": 331,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000331.jpg",
+      "sha256": "789573f4669c3d1104496c9e0f6677d4e8def6b102c63ae2ad1860fdaeaaa2ae"
+    },
+    {
+      "original_frame_id": 331,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000331.jpg",
+      "sha256": "e9cfc49cecfa2259e1ee796ff02f9ddb3b80d115b82ee913dec1be573d0daa4f"
+    },
+    {
+      "original_frame_id": 331,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000331.jpg",
+      "sha256": "be3be6e04bfb4c19f7208566202a3d1375ebbec1d721d59939c4595d7d5631b0"
+    },
+    {
+      "original_frame_id": 332,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000332.jpg",
+      "sha256": "581d842762ad25e48385b221fcd172d866cfd47aaeb897b1d028919c9e9ed466"
+    },
+    {
+      "original_frame_id": 332,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000332.jpg",
+      "sha256": "7ec6acc031a35058e1e089f80d1c56e39331d713c40e4d0e49ce7b93b69beb09"
+    },
+    {
+      "original_frame_id": 332,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000332.jpg",
+      "sha256": "422b50079f6c7825b1ff842b08bd27b64171bf5979ce81520263aec687dce363"
+    },
+    {
+      "original_frame_id": 333,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000333.jpg",
+      "sha256": "f7f4ebc17d9e8aab3b237fa3e9b61bf3b32bd6891a5604fca85ed321a1ecbc56"
+    },
+    {
+      "original_frame_id": 333,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000333.jpg",
+      "sha256": "e7392ca31ac1e1567d46c13b180b9d5907ff672b471a558c13fb3ab2f676160d"
+    },
+    {
+      "original_frame_id": 333,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000333.jpg",
+      "sha256": "85291ad9562e441c10becaf5a0b8f5ccb9a8227bd3a75c9a9ae9dece474dadcd"
+    },
+    {
+      "original_frame_id": 340,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000340.jpg",
+      "sha256": "55c29cd4687398adfce4f37bfac831bcb973fdcbaed543f657c30b313f65e3bf"
+    },
+    {
+      "original_frame_id": 340,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000340.jpg",
+      "sha256": "3942b59a18a0f3410756b0db00acf257bf0d700bfa3c2779c9b8ab024a76ad7a"
+    },
+    {
+      "original_frame_id": 340,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000340.jpg",
+      "sha256": "5e67fc552f45c5037ee865992387336f073bd52ee69cd2947d7c422439e53c63"
+    },
+    {
+      "original_frame_id": 378,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000378.jpg",
+      "sha256": "6d2ef5859f4cf72e4b01cbb2c14ed65e8eb52221a27c487b35cbef8dedef4fba"
+    },
+    {
+      "original_frame_id": 378,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000378.jpg",
+      "sha256": "8f613aea957134de56dfa63aeda286dd0edc1e33fdf3a603378f2e4ee51e8305"
+    },
+    {
+      "original_frame_id": 378,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000378.jpg",
+      "sha256": "18162794e572598bd5e5a99cfd6df8feec7ebe2bc07a1f9376010475aea60663"
+    },
+    {
+      "original_frame_id": 379,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000379.jpg",
+      "sha256": "e0d278965cb33d006786e366a184abaefab1a9fba1d21970b66f844ff8d4954c"
+    },
+    {
+      "original_frame_id": 379,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000379.jpg",
+      "sha256": "4a41c9788696adbe4ec71c036f0d4f7915f105efbea7dcd9dca9da4b9d82938a"
+    },
+    {
+      "original_frame_id": 379,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000379.jpg",
+      "sha256": "a41aea0b60dc9377af740047245708e6bc4ce694485ee0fcde63af724db948fa"
+    },
+    {
+      "original_frame_id": 380,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000380.jpg",
+      "sha256": "edbbff2358e628462bf77c1c155f165560b706f03894cc0efb188acaea5c642e"
+    },
+    {
+      "original_frame_id": 380,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000380.jpg",
+      "sha256": "a25fc5b63fdf74a215976160e11a0cd645ad0bdab7387b97a4f1e11fd4ef61bc"
+    },
+    {
+      "original_frame_id": 380,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000380.jpg",
+      "sha256": "faa9702ac1eb383e431f020133b0bf37721386d4b23c07c460dda167eb40d7a8"
+    },
+    {
+      "original_frame_id": 381,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000381.jpg",
+      "sha256": "a42ec463d0136141283d9d8ad97db03e5e6d93075e109d289108652f3a7e6b7d"
+    },
+    {
+      "original_frame_id": 381,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000381.jpg",
+      "sha256": "79cc9330e9dcda54309ab40ec959bb3a0b610781199d7e39fdb484d679e8c3fd"
+    },
+    {
+      "original_frame_id": 381,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000381.jpg",
+      "sha256": "a2ada80cbcc38d7580f1893551b7a09c53361e2f84b3f6bfe0be2bfeab003ebc"
+    },
+    {
+      "original_frame_id": 386,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000386.jpg",
+      "sha256": "d2324582161cabd680ae065c12da6a57aa373e705068d1ca2451cf60539f0b1a"
+    },
+    {
+      "original_frame_id": 386,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000386.jpg",
+      "sha256": "f047b55e710488bd197df2df158263f190bc3cdb02eac30003b37f4dad5bd31f"
+    },
+    {
+      "original_frame_id": 386,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000386.jpg",
+      "sha256": "fcf18a7cc23b6f7e2e0f50bc97438099c69ae644a88fbdb93e499fc1e76e7b76"
+    },
+    {
+      "original_frame_id": 387,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000387.jpg",
+      "sha256": "427c8583740a510225996a7deb00236359df9abfc73d9bacb41dc8a357338a26"
+    },
+    {
+      "original_frame_id": 387,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000387.jpg",
+      "sha256": "f2ac1f27578cde7c12ff7843db9d60b77025bba05a0f3599f751b7ff45cf15c3"
+    },
+    {
+      "original_frame_id": 387,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000387.jpg",
+      "sha256": "7df9c59f7cc7d42ed3468d0a359a2eae490a55d4af7c62c83e083c6ba8a00b64"
+    },
+    {
+      "original_frame_id": 388,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000388.jpg",
+      "sha256": "a9e0ae6b371f6ff871c9d3108e4ffe1972307d7ac26d14036e5443c9c960df1f"
+    },
+    {
+      "original_frame_id": 388,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000388.jpg",
+      "sha256": "d9d4b24cd655365a7c834138c994d9522ccb761cc13dbfe06e2b7c8cf426bfd8"
+    },
+    {
+      "original_frame_id": 388,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000388.jpg",
+      "sha256": "b0ca9ac2b9953575bed11f47be9db95253419ace6a6a996bc1873030db88cee9"
+    },
+    {
+      "original_frame_id": 389,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000389.jpg",
+      "sha256": "c79a2dcb77995d2b593082dd47d7246143a3b7b9e82511211f461dc504312c61"
+    },
+    {
+      "original_frame_id": 389,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000389.jpg",
+      "sha256": "2983509ce1c39496e554ccf4e8cf1e39f291f5890516055aea71aee3923e6f6a"
+    },
+    {
+      "original_frame_id": 389,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000389.jpg",
+      "sha256": "3d7451f19ea75aa4258ab7527e853a017f3b45491addd7e1f7c1e2bbf9a6690b"
+    },
+    {
+      "original_frame_id": 400,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000400.jpg",
+      "sha256": "d270a0864bde6ee685692662f84cf1d2fc404213c95cafb2cfcee08833339fde"
+    },
+    {
+      "original_frame_id": 400,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000400.jpg",
+      "sha256": "86b68a5c41155218f9eac5d6d9a4c84aa66703c61a8f70b2497c7f822c069113"
+    },
+    {
+      "original_frame_id": 400,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000400.jpg",
+      "sha256": "a2f0f05f32f64868dd7f8111af12a92feeb891059ea4ce7eb6683469786bb232"
+    },
+    {
+      "original_frame_id": 402,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000402.jpg",
+      "sha256": "cc25a79e1d3faaa48dbdc7ca939d0a8cf5ed67039f8790cfd5802ac1943b72b7"
+    },
+    {
+      "original_frame_id": 402,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000402.jpg",
+      "sha256": "5bc2340d7ee4b9d73b3a2bd679137671a05b74c711da39b3855e33c633e79011"
+    },
+    {
+      "original_frame_id": 402,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000402.jpg",
+      "sha256": "426304f0ab36926faa8d869883d339c1d7322863a5c0382d0d4a2fafb660e99f"
+    },
+    {
+      "original_frame_id": 403,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000403.jpg",
+      "sha256": "599beec3c70c22d24e2caaf41aa44d4c19637e4de6b34a327940018a5d614c09"
+    },
+    {
+      "original_frame_id": 403,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000403.jpg",
+      "sha256": "7738e4d402e8c47be8c2701266ff299e69fc32b2e15345f11ce71202f8b816ef"
+    },
+    {
+      "original_frame_id": 403,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000403.jpg",
+      "sha256": "08adb19b4475e5cc199253c695aff661b2c1787b74569911076d435c0cc1a132"
+    },
+    {
+      "original_frame_id": 404,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000404.jpg",
+      "sha256": "026420c1b70c6073dece18d12f6e828452267415ef26f19f1353860af258bf56"
+    },
+    {
+      "original_frame_id": 404,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000404.jpg",
+      "sha256": "21f981b14fe00af0666d47f602cf664e43e47660ab31b8f6df81bfbad76f73fb"
+    },
+    {
+      "original_frame_id": 404,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000404.jpg",
+      "sha256": "d84d7f7a39783859c653b7a606c414d9de34ab3ecd2a0584e220bd8c680b4f3b"
+    },
+    {
+      "original_frame_id": 405,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000405.jpg",
+      "sha256": "2e94dc2ca1937ace991408713e5bedc26f4ae0c40da2386933b08505e993c5eb"
+    },
+    {
+      "original_frame_id": 405,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000405.jpg",
+      "sha256": "a350f02f1233f9f2015a487f662ff622d63222a79a4e46779b62c80171bbfacf"
+    },
+    {
+      "original_frame_id": 405,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000405.jpg",
+      "sha256": "e51ac731b9cea08dda3b2e07f8d691e6f67be4a11fc42234e72cdf233aa690c7"
+    },
+    {
+      "original_frame_id": 406,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000406.jpg",
+      "sha256": "9f8e37725c54d552b8a5d0735e4aae17106bb181039a398d2ae186cde6378614"
+    },
+    {
+      "original_frame_id": 406,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000406.jpg",
+      "sha256": "211c5d9b26f4640300330cff7527d8e4aef8505492e0d7060684d30032fe046c"
+    },
+    {
+      "original_frame_id": 406,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000406.jpg",
+      "sha256": "355d0a2e5afd8073b733b9869ed3e7455dd1f4383e286a0b4957677ff2274b47"
+    },
+    {
+      "original_frame_id": 410,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000410.jpg",
+      "sha256": "bc084a7535b2cef9cc10a35c20521a7db8d051cba72f06dc8524d3b5f993de64"
+    },
+    {
+      "original_frame_id": 410,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000410.jpg",
+      "sha256": "ed787f18b7bf4d15e02599ec066377b10280e3ad7bc381029f4c8fa21fa333e5"
+    },
+    {
+      "original_frame_id": 410,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000410.jpg",
+      "sha256": "cb97ff65a55c43611a46f8776627fab505fc6c5fd214ee07e703aca904919abc"
+    },
+    {
+      "original_frame_id": 411,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000411.jpg",
+      "sha256": "420104abf3266fb736198892959ef5014fa63819faa9fdb87762087058f7f61b"
+    },
+    {
+      "original_frame_id": 411,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000411.jpg",
+      "sha256": "678125909353c736853011f78860b2d24cdf935867eb729d201d8934df5d5a56"
+    },
+    {
+      "original_frame_id": 411,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000411.jpg",
+      "sha256": "20eb594cc1439fe8fdc0a8693dc82aec6c2a6435536662fcd204d84554e222a6"
+    },
+    {
+      "original_frame_id": 412,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000412.jpg",
+      "sha256": "64e09a720fcc6f602442545d810f30216a450f61b57d76a4b3d3d35c812b7664"
+    },
+    {
+      "original_frame_id": 412,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000412.jpg",
+      "sha256": "8dccd29371a0f914c857a0701ee87229ebafbed8c963e63d63ca6a0b508a88bb"
+    },
+    {
+      "original_frame_id": 412,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000412.jpg",
+      "sha256": "f13d48c8f50d6fca9a4b8ac133af3f54ef693c5041d7465eca8eb467f2a4db55"
+    },
+    {
+      "original_frame_id": 413,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000413.jpg",
+      "sha256": "be7cfa47fbcf0599b1f23f5345d4ccf2088b5237cbbe8b64da143413d60f656d"
+    },
+    {
+      "original_frame_id": 413,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000413.jpg",
+      "sha256": "a2110bcb1742919b2fb71d7648a6df2b453de71b76b5391b1bf09a94ec538d97"
+    },
+    {
+      "original_frame_id": 413,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000413.jpg",
+      "sha256": "7ad78a7cec8cdab8220b16cd6aa833d16e0c1e8592f79019fee5aef1825c988c"
+    },
+    {
+      "original_frame_id": 414,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000414.jpg",
+      "sha256": "76591274b78f48b45976b8059758e67cb25b4bf5b48f08caf554809ddd6cd5f8"
+    },
+    {
+      "original_frame_id": 414,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000414.jpg",
+      "sha256": "56e3ef634e8a9a81ea290f4720d084624fa2d6b10496cb5c30507dc2efad10d5"
+    },
+    {
+      "original_frame_id": 414,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000414.jpg",
+      "sha256": "cbe39a29568e67b583205d9053bf1ba3b2c9dc4b75ab435d83fc7ee7823715e6"
+    },
+    {
+      "original_frame_id": 430,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000430.jpg",
+      "sha256": "aaa81273bcbdff3daaa3af301d9bff4bf3f7c875184973f00491a49a9e9ffb38"
+    },
+    {
+      "original_frame_id": 430,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000430.jpg",
+      "sha256": "a6422c318620452a11a6430a71726f0477568697d00b4f2054df23ed33cb5ebf"
+    },
+    {
+      "original_frame_id": 430,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000430.jpg",
+      "sha256": "e2d90553241287df24320813c0fc72d9fdb0cad5238c09a3ee1a87cd6975eae3"
+    },
+    {
+      "original_frame_id": 431,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000431.jpg",
+      "sha256": "80004b8ac6647efbe8fe507eaa4c8e424d09d52ea0dcc5383804870cc1b4bf1a"
+    },
+    {
+      "original_frame_id": 431,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000431.jpg",
+      "sha256": "d50ded77c9a12a700fbf65fba62e191d3ba32c77e8da6c188aac2d90e1d37901"
+    },
+    {
+      "original_frame_id": 431,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000431.jpg",
+      "sha256": "db9abd00f9b253f724b4bbca8796832bfa2be739ce7a57b2c832a6aa8543de6a"
+    },
+    {
+      "original_frame_id": 432,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000432.jpg",
+      "sha256": "c0a5b2a68fbaac93556be5edc3424171100677b8d2e957a28499311dbc2f129d"
+    },
+    {
+      "original_frame_id": 432,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000432.jpg",
+      "sha256": "7be9ed9bb7149c3d20f24ef8005644ad8cf4c915cb389185afbfa8f1d393822e"
+    },
+    {
+      "original_frame_id": 432,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000432.jpg",
+      "sha256": "4ce14f0cb54994181dc3d83d881b8c529c1ce7c4a100355a041888dafa718c4b"
+    },
+    {
+      "original_frame_id": 433,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000433.jpg",
+      "sha256": "c39b22812214c5baff0046e772c4bf7777b005a949e5ada04a2bdeb0e4ca46e9"
+    },
+    {
+      "original_frame_id": 433,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000433.jpg",
+      "sha256": "677175bd8a80756e8996671da38014922d706ee32a3ea54b2a40b203cbbd9028"
+    },
+    {
+      "original_frame_id": 433,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000433.jpg",
+      "sha256": "63acfdc669b2f8273157d8aa96bc0f9fe28e329505eb4d8f97bd386ca46615ec"
+    },
+    {
+      "original_frame_id": 438,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000438.jpg",
+      "sha256": "5b6c58b544379e00fff724b514fb28dfbe4b13a2c0e4fb15e40619920709e44b"
+    },
+    {
+      "original_frame_id": 438,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000438.jpg",
+      "sha256": "411989d3c1b892dadc59ad8ffb92b5e48cd3f384bde8406fc1de607b8bdcfd23"
+    },
+    {
+      "original_frame_id": 438,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000438.jpg",
+      "sha256": "59cfc3521159f15fba341e8b3af64db5229d29d2bdd8cd9a86c8e228cfb7ee2f"
+    },
+    {
+      "original_frame_id": 439,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000439.jpg",
+      "sha256": "1bb6f7001a58bc89d600b0ae99243d0860a9230e7f349cb0df2d5059abe09672"
+    },
+    {
+      "original_frame_id": 439,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000439.jpg",
+      "sha256": "3cd3b97e077a9a041da2cc520e2f6da939852c1fc755a1c43b596b9e1b2ee7d9"
+    },
+    {
+      "original_frame_id": 439,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000439.jpg",
+      "sha256": "ab888321b23405536669ee060a950c91c4751d0c7d4eb8a592903c5d702cb2c6"
+    },
+    {
+      "original_frame_id": 440,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000440.jpg",
+      "sha256": "feac806bcb1782740e254d1a1b3cac574a9bbe910a55e5c47c796f64c4b9ed36"
+    },
+    {
+      "original_frame_id": 440,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000440.jpg",
+      "sha256": "f52e90f3de5c896cf186b23b02419a40bec61a3ed7c53a324c0b50e1b079168c"
+    },
+    {
+      "original_frame_id": 440,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000440.jpg",
+      "sha256": "4bfa17a089d523c2d1845d6c1cfa280b3fb193f23bef72078766a2821c288d70"
+    },
+    {
+      "original_frame_id": 441,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000441.jpg",
+      "sha256": "9e712dc62f790f3cbd42d9881b5faa51a9cedc635524f729b05dfd0359c390d6"
+    },
+    {
+      "original_frame_id": 441,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000441.jpg",
+      "sha256": "1046f9ace4c253255fe5c3bf64603f5f58bb7ec8ee8cc8a3a6fff58189013f05"
+    },
+    {
+      "original_frame_id": 441,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000441.jpg",
+      "sha256": "49ee4ca5c1a4cc3bcbbcd82f3ce84ca98829c413dfb67f200633c2809ae309ae"
+    },
+    {
+      "original_frame_id": 480,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000480.jpg",
+      "sha256": "e5531477d1ef69cbcf413fdbde66abccd3e1ca00824d281aad1e287663df3712"
+    },
+    {
+      "original_frame_id": 480,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000480.jpg",
+      "sha256": "2721a74e4f6b3ff8fd0c0e1fcb92461fd6d5442258234586530d3bb7b5379dca"
+    },
+    {
+      "original_frame_id": 480,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000480.jpg",
+      "sha256": "b08ce4b69611a01fcb877f129487827b2797749759fa102b1f0496df6a2d5858"
+    },
+    {
+      "original_frame_id": 488,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000488.jpg",
+      "sha256": "f2a53ddfb09c2091041986abf19c1836df98d4c8fa66c59b7e1d59d3daea09d8"
+    },
+    {
+      "original_frame_id": 488,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000488.jpg",
+      "sha256": "bc1334575b1cd30d4f13433e10680e1bbf528adb8db534137183cf087fb1a12f"
+    },
+    {
+      "original_frame_id": 488,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000488.jpg",
+      "sha256": "70904dc7f6acf0049d86fcb4140468327503a985495faf75a39b5ae632c9f011"
+    },
+    {
+      "original_frame_id": 489,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000489.jpg",
+      "sha256": "7959f78a90a4a0639d5a92f9a888f50c42503d1911275424feb2a8082bef6740"
+    },
+    {
+      "original_frame_id": 489,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000489.jpg",
+      "sha256": "5cb182ab1c69e8b69279bdc85f341e1e21e5ba4fd1f0eff52110fd74c4fdb329"
+    },
+    {
+      "original_frame_id": 489,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000489.jpg",
+      "sha256": "8bbb70136cc199c126d19cbb1dd8631381315b01a8d2459295bfe9b5ae6ad86e"
+    },
+    {
+      "original_frame_id": 490,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000490.jpg",
+      "sha256": "09694afc543d2b7edb43ef8b2e4c75976af6d14a7d15a57aed9796bdb40eb74a"
+    },
+    {
+      "original_frame_id": 490,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000490.jpg",
+      "sha256": "27e61726945bb73c2ebd945d321847777baf7a66fd3dbe2d9586f3b2ca3c193f"
+    },
+    {
+      "original_frame_id": 490,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000490.jpg",
+      "sha256": "0717f92ff19e4e6ec083c5f7ded7e8d1284f788ee94342db5fc08a30c5dad5dd"
+    },
+    {
+      "original_frame_id": 491,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000491.jpg",
+      "sha256": "3bf263e9c9eec2e3550526d6d1419e69503ef96f2479d65f6373266b4a20dc08"
+    },
+    {
+      "original_frame_id": 491,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000491.jpg",
+      "sha256": "94954fdb9b4f2152ab161bf73cc7daf8de6ec81a5367802c686380cad7800a39"
+    },
+    {
+      "original_frame_id": 491,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000491.jpg",
+      "sha256": "26c27fa9904f7ea424bf4f5b4253239de927024f7541bb1a5cfab4b255f6de1a"
+    },
+    {
+      "original_frame_id": 496,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000496.jpg",
+      "sha256": "118d0d65aa2be29d0145756a547a621b696df84b6a25e62a68151e07bc7418ed"
+    },
+    {
+      "original_frame_id": 496,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000496.jpg",
+      "sha256": "d354bbf8487a2ae3ee6cd1de2808ea5a8c2705d1febe4cb2407399c8864861a4"
+    },
+    {
+      "original_frame_id": 496,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000496.jpg",
+      "sha256": "f99bbd03f60a9344b13cb335677f2be1330bffacc2a52e60107ec2b92c73b14d"
+    },
+    {
+      "original_frame_id": 497,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000497.jpg",
+      "sha256": "8a03bb83b6f8a204a9d5acc4f6919f3e414a7eedaf8e7dcfe835baad0249ca76"
+    },
+    {
+      "original_frame_id": 497,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000497.jpg",
+      "sha256": "c0d9e68712aa43e02d2c64ea565a708a03ea11d3b5819a136f8fca2ec34d37b1"
+    },
+    {
+      "original_frame_id": 497,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000497.jpg",
+      "sha256": "224179157ff784593575cd7d8970419147cf7cd2639ae774d36b576b0a469efd"
+    },
+    {
+      "original_frame_id": 498,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000498.jpg",
+      "sha256": "39a6115abeb080b4d98b8657cfb9774d3d66301a2d6369110e244a403a5945e0"
+    },
+    {
+      "original_frame_id": 498,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000498.jpg",
+      "sha256": "3900587546ee64f50629ad1b585d3408501bc1153025746c61f2e7ee7b8783d7"
+    },
+    {
+      "original_frame_id": 498,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000498.jpg",
+      "sha256": "0f081eabba73fdb31d6c89f1c40b8403b66cbbb2e4dba191eb785a3efbd8c2ea"
+    },
+    {
+      "original_frame_id": 499,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000499.jpg",
+      "sha256": "ffa4b621ef5e575d2ea03d7bc427b492cea673390bf7d2e3977a294a1c3e3b3d"
+    },
+    {
+      "original_frame_id": 499,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000499.jpg",
+      "sha256": "b1d84414b5ba765366f1b213e802e177afee29aae792b7dde41503882df92830"
+    },
+    {
+      "original_frame_id": 499,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000499.jpg",
+      "sha256": "0b2f2ca109b1fe07d663ff1dbfbeece42c69eb90cef308e1bf57fcc8e02c5aeb"
+    },
+    {
+      "original_frame_id": 502,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000502.jpg",
+      "sha256": "386e2abcb93124213558183650f469d25ee8a8e8e4e28390c46b86d7d18fc54e"
+    },
+    {
+      "original_frame_id": 502,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000502.jpg",
+      "sha256": "99fd43f1fcb2e4ed7ee70a2e7bd5552fc027b99ea1eab9ae102c4cbe44915509"
+    },
+    {
+      "original_frame_id": 502,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000502.jpg",
+      "sha256": "e5bbc1da6692d2ecb9f77f90810ad917ab22fe80731560b929f699a6b27e8e7f"
+    },
+    {
+      "original_frame_id": 503,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000503.jpg",
+      "sha256": "9f4ee0afb99ad8d13cf9a1a9c1b73ad1bb2d867c5dc98310ec369088527edf31"
+    },
+    {
+      "original_frame_id": 503,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000503.jpg",
+      "sha256": "7060e57eb6f124b82de1d165b2afc9e707cf82651d1cc98d06dcfefdea7c78f2"
+    },
+    {
+      "original_frame_id": 503,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000503.jpg",
+      "sha256": "e0421ea4ac3ec4546f4ea0a560a886eb30b95fea0199aba43431c3dd39916232"
+    },
+    {
+      "original_frame_id": 504,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000504.jpg",
+      "sha256": "a245a2b304c5d4391e5ade20b7a526895562f989282bd961441470da0e66339a"
+    },
+    {
+      "original_frame_id": 504,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000504.jpg",
+      "sha256": "1287adb6c5a337638b998943ca3fd3f17f32e7384d70c45cfcd580bb8ab4dd7d"
+    },
+    {
+      "original_frame_id": 504,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000504.jpg",
+      "sha256": "6f9b4e784535d3598116afed7ba145eae17a3916af587a3fefdf5372b7da8420"
+    },
+    {
+      "original_frame_id": 505,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000505.jpg",
+      "sha256": "ff4b45ad166d6645980c8799535aa9821fd4202d44c382e3cf5a6dae9d247079"
+    },
+    {
+      "original_frame_id": 505,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000505.jpg",
+      "sha256": "9310e383807160fe3af8a012b9d9aa71dc9ee4fb0624a0c498c3965fffaba576"
+    },
+    {
+      "original_frame_id": 505,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000505.jpg",
+      "sha256": "07701948625af4a7f95115445dad4f5c42ff010fff8e65731fcbdc2b60924f21"
+    },
+    {
+      "original_frame_id": 510,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000510.jpg",
+      "sha256": "c78a717c338901e5687ef69628ff5327470b642053265456613fcb5251bfd2fa"
+    },
+    {
+      "original_frame_id": 510,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000510.jpg",
+      "sha256": "938e36807ee7c6d07a1544620d7fc6cd438a6bd6b707de677c6ba3809797f689"
+    },
+    {
+      "original_frame_id": 510,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000510.jpg",
+      "sha256": "b6cd3eb8eba42d220abd7d4ab1cdf19b031e9cd89a89731646251b689937b94c"
+    },
+    {
+      "original_frame_id": 511,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000511.jpg",
+      "sha256": "dbf471e42391c102bccee3ee4121b4f89b4b22c95c548aab3284e9b0108d5a73"
+    },
+    {
+      "original_frame_id": 511,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000511.jpg",
+      "sha256": "9ffccc50a99f3ab93626e4ae9291efd00dcda6c4d7819ffc61637f90975a7fc1"
+    },
+    {
+      "original_frame_id": 511,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000511.jpg",
+      "sha256": "03818c1b85bbccb485afd601bf73eb3c393b46da43992860353314aa4b8f6e7f"
+    },
+    {
+      "original_frame_id": 512,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000512.jpg",
+      "sha256": "880ff6ea96e7b9165b047f22774b48d07b575ea266cfe390784b76ab6a360ce2"
+    },
+    {
+      "original_frame_id": 512,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000512.jpg",
+      "sha256": "42765383f76fd9a5fedfc466968f5e074f4ac583ed37af158ac3b04b7921c263"
+    },
+    {
+      "original_frame_id": 512,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000512.jpg",
+      "sha256": "b1d17502e55395dc605c8866a366ebf68c9ab1bbe968b8dc914d18e45f1dc1ab"
+    },
+    {
+      "original_frame_id": 513,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000513.jpg",
+      "sha256": "f73de1923e5a4dbf1e7457fb63e1c64e0168b037a3f025e42b95d9b99fc3da7b"
+    },
+    {
+      "original_frame_id": 513,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000513.jpg",
+      "sha256": "c0c0c01a32268e39521b2c6fddb773efb4fb55d371beaf32ce6df8c61de6a3f5"
+    },
+    {
+      "original_frame_id": 513,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000513.jpg",
+      "sha256": "fa8566be4996ae182a1b5e4ba79b6251aeeae572608ce5791ab5127d6df43d0a"
+    },
+    {
+      "original_frame_id": 538,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000538.jpg",
+      "sha256": "23f6eeeb5728fa711fe7f26932621256f3541a4a8b757967d73c838b5f43bfbf"
+    },
+    {
+      "original_frame_id": 538,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000538.jpg",
+      "sha256": "07f05a8768091d6c6856111b06f970473c4bf547ad13f20fba82a4db650fbe8c"
+    },
+    {
+      "original_frame_id": 538,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000538.jpg",
+      "sha256": "121e1e5f1110588484390acf59fee3402b970b4526dd89717b5b1bac0a012d03"
+    },
+    {
+      "original_frame_id": 539,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000539.jpg",
+      "sha256": "f5210e06b8271f746194d75bf050c8670079614a198dd2f428eb513005f71694"
+    },
+    {
+      "original_frame_id": 539,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000539.jpg",
+      "sha256": "a3d1254b23947113bfcc2df94c7c87c7eb37d2c45aad7b7f83ef37b344ad73e6"
+    },
+    {
+      "original_frame_id": 539,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000539.jpg",
+      "sha256": "349b39c02e825546ab7ade52cfa09be54d0faf6aea9d4979cb19d25337b14275"
+    },
+    {
+      "original_frame_id": 540,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000540.jpg",
+      "sha256": "31013b6efc734f15a1ca6ebfd28cd75eee21ffe8db7ab4e7b22942bdb4cca5fe"
+    },
+    {
+      "original_frame_id": 540,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000540.jpg",
+      "sha256": "d53215125a127534b21b744db4c27b803555d262338982f1b10613097aadd11c"
+    },
+    {
+      "original_frame_id": 540,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000540.jpg",
+      "sha256": "10a4a96727bb7a086430b6e7d7315f336e703aabb01b1285366a99fc5b126031"
+    },
+    {
+      "original_frame_id": 541,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000541.jpg",
+      "sha256": "81f2df6c2079087905daec5040526132e353a95bf19f8c4af0a90a44a5eb414d"
+    },
+    {
+      "original_frame_id": 541,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000541.jpg",
+      "sha256": "c33a665f6e90286a9b1d66f8f7715da2b492843033346f980f68959a15ead642"
+    },
+    {
+      "original_frame_id": 541,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000541.jpg",
+      "sha256": "5bcba7b1b670d1b5e39771c7ece719dfd1de1a9145fde5748577050c2bde818d"
+    },
+    {
+      "original_frame_id": 546,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000546.jpg",
+      "sha256": "d0ea5628d591f5e57bd79e7cb38acbd3ee3da62687c3ed53cafcb9718431b96c"
+    },
+    {
+      "original_frame_id": 546,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000546.jpg",
+      "sha256": "86c7b8d9b7b9c2ca2f8027df3d1f2b7af459cb7c4d34b17532694d8cc4680f7b"
+    },
+    {
+      "original_frame_id": 546,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000546.jpg",
+      "sha256": "273ba39d71353354a624bc99b03e98ee8f2c1cc446ff65a8b20a4bb33bc7d840"
+    },
+    {
+      "original_frame_id": 547,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000547.jpg",
+      "sha256": "b6e93e632ecbfd8d314f5f5ef01ccaa3c31ae9dc22701e5f98b2590ebe31db79"
+    },
+    {
+      "original_frame_id": 547,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000547.jpg",
+      "sha256": "5fe64203f421daf94f3d315c9020b47c71a9dfef9dc71ac70446b719699246ae"
+    },
+    {
+      "original_frame_id": 547,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000547.jpg",
+      "sha256": "5c69458a3dd2f5aa712f56b8379c0a7582aab008021b4e2359e65f0964affd1e"
+    },
+    {
+      "original_frame_id": 548,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000548.jpg",
+      "sha256": "7231c252842affd655328ba871d896cf253cb8e9b73cb5fd1ed586be22228210"
+    },
+    {
+      "original_frame_id": 548,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000548.jpg",
+      "sha256": "f93f85158723d7547fa46945f6cac0e8b22c9ba20858ec95570da9d39bfa81fc"
+    },
+    {
+      "original_frame_id": 548,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000548.jpg",
+      "sha256": "a6ad582a1bc386079bed624410efb818fa8cb69d546402ce03a8b3579ee5ec15"
+    },
+    {
+      "original_frame_id": 549,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000549.jpg",
+      "sha256": "e875d1497c77bddfdb043c05fc98c811d6ef20b6d729ce8638b986b2bce1a930"
+    },
+    {
+      "original_frame_id": 549,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000549.jpg",
+      "sha256": "3d5d4a2960d24d19b0682efae6d8ff229b090b3bcafa403f5789b6b66ffaa75c"
+    },
+    {
+      "original_frame_id": 549,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000549.jpg",
+      "sha256": "7c3f69e7fb4c4c5e0fc4469af145a8e9157da103b577dd33838a69172ef412c4"
+    },
+    {
+      "original_frame_id": 558,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000558.jpg",
+      "sha256": "e650be059a427287401f78b7ff0b70ba5ef2187689dc8b3a2622b52d1f5388b4"
+    },
+    {
+      "original_frame_id": 558,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000558.jpg",
+      "sha256": "c5872ae7624133d4cc8e7da19f99ba82bcfcabbdaa45084a8183230ea27ac2bb"
+    },
+    {
+      "original_frame_id": 558,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000558.jpg",
+      "sha256": "ca71dc3ac9c165b04a3a48a20ddaae9f245b041a0396bfad236c7d078e1b2ac4"
+    },
+    {
+      "original_frame_id": 559,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000559.jpg",
+      "sha256": "2591bf832ce6d87d3035833eef3fd80dd9211b98546f53fcb86394a531e9c0c4"
+    },
+    {
+      "original_frame_id": 559,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000559.jpg",
+      "sha256": "b7a91486f5c7b8de311fbfa667e2ef2c97dd9ab46bebaaf14a87806f74a39c6a"
+    },
+    {
+      "original_frame_id": 559,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000559.jpg",
+      "sha256": "c4e644b2acdc5553d99fb0a1196c6bd6b872ad3749a4686b6faafbfe3ab9d55f"
+    },
+    {
+      "original_frame_id": 560,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000560.jpg",
+      "sha256": "49df30999d2483b451c59fba03611703536238e57df901f24c36c3b82db37878"
+    },
+    {
+      "original_frame_id": 560,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000560.jpg",
+      "sha256": "f6708e05c8d6684a1d8d2d7fc184b6302d1eb8b9fb64ed3335834e3b47a448c2"
+    },
+    {
+      "original_frame_id": 560,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000560.jpg",
+      "sha256": "50291d2699fc68cd9adb59b42bbb1a832d21cac791124e8d2274f60e9e0e46fd"
+    },
+    {
+      "original_frame_id": 561,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000561.jpg",
+      "sha256": "6f9c1b965e607772cc8b8918eec568b2d069d964e50b554bde1b762ec219a5f4"
+    },
+    {
+      "original_frame_id": 561,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000561.jpg",
+      "sha256": "801d03ab7ee5e161cb271ce2700339e6733e6fdbaa0e9b87ba72ed0ed287a426"
+    },
+    {
+      "original_frame_id": 561,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000561.jpg",
+      "sha256": "d1ae2380ea0249f0027efda60900474adb9f62f5e3c5af68110714d16be2701c"
+    },
+    {
+      "original_frame_id": 566,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000566.jpg",
+      "sha256": "d703a3c50b2fd88c45e264a58e075c8d97144fb7947458b69342ac242ed97670"
+    },
+    {
+      "original_frame_id": 566,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000566.jpg",
+      "sha256": "ee42db3a8c13bfbc4eb64d94cde002ffb284a147a0c869da86e531c75cdecc26"
+    },
+    {
+      "original_frame_id": 566,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000566.jpg",
+      "sha256": "c1c16ce23f1890938d3717d5c2b0467b0fd0f9bc08e9e3f8ad623f728941b3ee"
+    },
+    {
+      "original_frame_id": 567,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000567.jpg",
+      "sha256": "60113896692ce36f41087a6b4410f55752e174320ea2f8e9ce7b8488f0c681cf"
+    },
+    {
+      "original_frame_id": 567,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000567.jpg",
+      "sha256": "e2bb83fecf6e3875e02560d47d65aa9bfb2b0e3be653bc1c03c02cbf7f634bc6"
+    },
+    {
+      "original_frame_id": 567,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000567.jpg",
+      "sha256": "fa6434c95929032908196ce233b76241f953466be0c4f12f5f01d9272f911110"
+    },
+    {
+      "original_frame_id": 568,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000568.jpg",
+      "sha256": "93919d0568a0e16650ffef7d80635fec0c7d0639c4c0e501ac19e3c8b3fe6334"
+    },
+    {
+      "original_frame_id": 568,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000568.jpg",
+      "sha256": "09e313564365e8ba849a526e35662e07f941c1785e0b8eed46910d5b9a308187"
+    },
+    {
+      "original_frame_id": 568,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000568.jpg",
+      "sha256": "def7531749200ac0dde6688ce3eebe40ccefffbcc0fbbffbf390ca5ee4db3303"
+    },
+    {
+      "original_frame_id": 569,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000569.jpg",
+      "sha256": "4a9a50cb987e07bec09f3d320bd12bc9783c3e1aa5cac4c5b951a5bb6758cce0"
+    },
+    {
+      "original_frame_id": 569,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000569.jpg",
+      "sha256": "d6ef511826b6962d01106feeac1c826a1a4cf56ffca588057d9d1d57070c4b57"
+    },
+    {
+      "original_frame_id": 569,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000569.jpg",
+      "sha256": "68cb1dea863e0b170af3ed40f3ce8204e9e600b190f3bbc169faf6d658ad8917"
+    },
+    {
+      "original_frame_id": 604,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000604.jpg",
+      "sha256": "692c05b0e00b6a9781ff041ae8f62844d892eecebca84adf0c66e2f8c801d113"
+    },
+    {
+      "original_frame_id": 604,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000604.jpg",
+      "sha256": "464245265cda17f3d0d926504c7d64834c833c3340d9b2de7f627ebb15de39f8"
+    },
+    {
+      "original_frame_id": 604,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000604.jpg",
+      "sha256": "9ac4c894d4531f03fe437b885429fa8db4838e3ea8cb7e9356717e06ce9ca8d8"
+    },
+    {
+      "original_frame_id": 605,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000605.jpg",
+      "sha256": "724e64f417ddf16144e49029d43543bfbb34503439dad8e8ec1052eefa0a7103"
+    },
+    {
+      "original_frame_id": 605,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000605.jpg",
+      "sha256": "17bf6528173990a4fe1a9d75427522e77e40b84c56898f1fe87a6aca11bf5286"
+    },
+    {
+      "original_frame_id": 605,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000605.jpg",
+      "sha256": "6f669c2aac057a7e58008d0eced95f8ac8634f10b1d7bf3d826a90ac368b5e62"
+    },
+    {
+      "original_frame_id": 606,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000606.jpg",
+      "sha256": "c532f12e0e7f24104e74eb0950764a9e1b8975555842b88f7c277c751829c5e1"
+    },
+    {
+      "original_frame_id": 606,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000606.jpg",
+      "sha256": "fd7ed08ceae693753f8fca41f4bca0873a89e0e6eb66e6435fe48deef99e01f6"
+    },
+    {
+      "original_frame_id": 606,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000606.jpg",
+      "sha256": "f1b80f177debd426c2f5d77ca0b74e6a9d6d95254a2fde799eb08b5eda8b69d0"
+    },
+    {
+      "original_frame_id": 607,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000607.jpg",
+      "sha256": "f37b8dc7cd2467a4566d33d4550c1c2f101be23270da8feca8a3e98a5780df6a"
+    },
+    {
+      "original_frame_id": 607,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000607.jpg",
+      "sha256": "69054bde89c896cf93f52f0b3bb5a5ff2d4493bd262b8b1ed9120c16896a1345"
+    },
+    {
+      "original_frame_id": 607,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000607.jpg",
+      "sha256": "0f12f7196d529be8395c73dc28ba04f20aa993a25a41f50327f604976bb522f4"
+    },
+    {
+      "original_frame_id": 612,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000612.jpg",
+      "sha256": "25ade6c292048ea7d9ec2c2a1bdc1035ebae3bec2eb01a92d18fc65739ce599f"
+    },
+    {
+      "original_frame_id": 612,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000612.jpg",
+      "sha256": "fff6cfe1c5e5ee9681652b3e7d2f2e5115b9d84b677d4d76ff82a35ab68c7787"
+    },
+    {
+      "original_frame_id": 612,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000612.jpg",
+      "sha256": "f4ff6a6b8bb9e4b700894049a2b70be7981863dde4cfad5ab1c4d1878f4a2a53"
+    },
+    {
+      "original_frame_id": 613,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000613.jpg",
+      "sha256": "d4602b79a7e78b2945b8ff7da284f42b01c4fac776c62c04f45ec901911025a2"
+    },
+    {
+      "original_frame_id": 613,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000613.jpg",
+      "sha256": "415c079643657e92787ef222ef8b2d9c6cedd6e500231dfd2b3cc8b738aff794"
+    },
+    {
+      "original_frame_id": 613,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000613.jpg",
+      "sha256": "420387e38ea3e0e5b23eb9fc071acdedf4f26f219c8f35b7c0be279f05b0be54"
+    },
+    {
+      "original_frame_id": 614,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000614.jpg",
+      "sha256": "7a0de61423b73daa6935b9bae56db8f40d8a7393d3cdba05c9edba4a8e8fe2f3"
+    },
+    {
+      "original_frame_id": 614,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000614.jpg",
+      "sha256": "706c3a84f491d00c00dc699e0c7ea981970c4e64301dad0abff0eebcfc6d58a3"
+    },
+    {
+      "original_frame_id": 614,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000614.jpg",
+      "sha256": "d9dfee9ad8498330f457c745765cd7ef4c08f23dce7949d7329ae6a1f4b3e2d7"
+    },
+    {
+      "original_frame_id": 615,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000615.jpg",
+      "sha256": "0b82850e677ef9b9e43f38a5e0d4850ed8f35b0df57bc412f5bd358af4420e99"
+    },
+    {
+      "original_frame_id": 615,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000615.jpg",
+      "sha256": "fc9777d045a4fa6e7b30c9c412efb63b58d4312c1d413a0786537d5e1c29662b"
+    },
+    {
+      "original_frame_id": 615,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000615.jpg",
+      "sha256": "d76f16464ee3c9a93b1f7ba0cbab8e9b87cee5fae76aa74171dfa290512f58c6"
+    },
+    {
+      "original_frame_id": 616,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000616.jpg",
+      "sha256": "e4d15015f86535835017fcf68b4d861058fec21bdae78abc656c0f11188e3d4e"
+    },
+    {
+      "original_frame_id": 616,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000616.jpg",
+      "sha256": "763d8f443d6fa4bfddb5a38080a2e9c2900afb921f05a78a1ab2d9c66a90fa7d"
+    },
+    {
+      "original_frame_id": 616,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000616.jpg",
+      "sha256": "ad49405982b0d852f735d59fa4aa3dd591c2a670d2e79015f67fd9d8cb46b435"
+    },
+    {
+      "original_frame_id": 617,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000617.jpg",
+      "sha256": "f6ab5d9af637a27e67dc13fa0aac5f72448c40df20bf94538ed6b2cc69ff1647"
+    },
+    {
+      "original_frame_id": 617,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000617.jpg",
+      "sha256": "1222a140dadb6b4832d10113b170c9099ea8bd545ea3fed76d22031deb14a5c0"
+    },
+    {
+      "original_frame_id": 617,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000617.jpg",
+      "sha256": "6fab976fa124f9ea2036fae891e38025df2b4e8e91fb89b6b36e00e4bdbea177"
+    },
+    {
+      "original_frame_id": 618,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000618.jpg",
+      "sha256": "781286d27d1d553ff3beca4e88831d4826044048d9d3edf543610155c9404074"
+    },
+    {
+      "original_frame_id": 618,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000618.jpg",
+      "sha256": "975d4ac447ed996e76f088c9db99f95002615cf545655531f8d4ca439666b6dd"
+    },
+    {
+      "original_frame_id": 618,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000618.jpg",
+      "sha256": "6c4ce3bba66900d40e341b09376bd18fcf2ff382b442d76f92fef6fe736bea8d"
+    },
+    {
+      "original_frame_id": 619,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000619.jpg",
+      "sha256": "8ab40dca164127065dc37e35737aee8d54a55700cb7bcf00f7a6872bb6e35b07"
+    },
+    {
+      "original_frame_id": 619,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000619.jpg",
+      "sha256": "fc94dd19c88075bd4775106e4cd13874805dd049d228300f19f67bc76f512750"
+    },
+    {
+      "original_frame_id": 619,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000619.jpg",
+      "sha256": "48efae94361b9f1a87e7ff80b93220ac2fdd1b614566341f25b77bd87d68bae4"
+    },
+    {
+      "original_frame_id": 620,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000620.jpg",
+      "sha256": "f5a6c874ea7586bb3dcd724c358759a61d1327b18e62b7b729885bb8115363c1"
+    },
+    {
+      "original_frame_id": 620,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000620.jpg",
+      "sha256": "1993bc6209b9e33841fe58b62b799359389ff9a603987987907542a89024a9b7"
+    },
+    {
+      "original_frame_id": 620,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000620.jpg",
+      "sha256": "84c835163987a183dab05167d0c995f5d196a3d37b30a730015ab2aa0bb43101"
+    },
+    {
+      "original_frame_id": 624,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000624.jpg",
+      "sha256": "ca0651619fb0f16a61fdec40a737b5984a58363e643ad0a29c0f53053e5bcb47"
+    },
+    {
+      "original_frame_id": 624,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000624.jpg",
+      "sha256": "c72c3d396bf987332be8efb01abfae0e462fb0496dde4511a4e25dc51f5c4780"
+    },
+    {
+      "original_frame_id": 624,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000624.jpg",
+      "sha256": "91bb627838d32e02961e259494d131558375fa33de3fdfd280b5ca6a504dd9bc"
+    },
+    {
+      "original_frame_id": 625,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000625.jpg",
+      "sha256": "45ba2cb83c14ee6bd60e33634887e7495e33b6feb29575cf005ff70070b775b8"
+    },
+    {
+      "original_frame_id": 625,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000625.jpg",
+      "sha256": "c4b8b3bc144db72df6c8354b5769eab5f02edac711bcceb273af1824ab975926"
+    },
+    {
+      "original_frame_id": 625,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000625.jpg",
+      "sha256": "509bb0dfcd8bc3ca732eb1b83ba1514975a00fafa8d18bfa158ac93e10d21f50"
+    },
+    {
+      "original_frame_id": 626,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000626.jpg",
+      "sha256": "f892f014c940a60011f53cf220486c23d2182d025d6903d0b9abb3ad0c34dc83"
+    },
+    {
+      "original_frame_id": 626,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000626.jpg",
+      "sha256": "6660263ec0d6302f7c02a01863fed24e3d0d9c4d7ac168a62184dd6ad0a3d97c"
+    },
+    {
+      "original_frame_id": 626,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000626.jpg",
+      "sha256": "80fb89a0f674cf4a74b922b29e3512754375fbf66d2c39cbef80c36bd783b11a"
+    },
+    {
+      "original_frame_id": 627,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000627.jpg",
+      "sha256": "a2569f88dc4376cfcd0b99ef83dfe81e2a63f9ab7148eb665ecd977ba8772159"
+    },
+    {
+      "original_frame_id": 627,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000627.jpg",
+      "sha256": "71e1c797ac662606a59504560496ee91ea92c7ecc213342210d9c3f0941a3b30"
+    },
+    {
+      "original_frame_id": 627,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000627.jpg",
+      "sha256": "e453ef82d77888c76995d647da980c804a756ce7d1bb7398bd950b19ba819a2d"
+    },
+    {
+      "original_frame_id": 638,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000638.jpg",
+      "sha256": "09418741613a9804a544fb6a5b94267ca5a895857f32cf0110f388f169ceac87"
+    },
+    {
+      "original_frame_id": 638,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000638.jpg",
+      "sha256": "fcb58856bf21a263562a39bda3d4fed396839b3ec19f20340076e4ec7a00aa1d"
+    },
+    {
+      "original_frame_id": 638,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000638.jpg",
+      "sha256": "1c48a15950ba883ba554e837fb0e163c02880ec90ac5a956cf7c7851e3ba2b03"
+    },
+    {
+      "original_frame_id": 639,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000639.jpg",
+      "sha256": "51aaac7901abff9ac4f1ec4213450bf9bda253e066f51dc79c98968d6b73b4e5"
+    },
+    {
+      "original_frame_id": 639,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000639.jpg",
+      "sha256": "b8601f3298e9e90d9c14c066a565628bd585d7dff044ac9839f712c5c8ffe2b6"
+    },
+    {
+      "original_frame_id": 639,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000639.jpg",
+      "sha256": "c2de32a1e33ab9281663874175b8a5cb93b106848163d45e007c19135a7ac5c7"
+    },
+    {
+      "original_frame_id": 640,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000640.jpg",
+      "sha256": "6a9847b92524b0889146926866bec4c045f8aa2d011c699dd3e8ad0e4ded207c"
+    },
+    {
+      "original_frame_id": 640,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000640.jpg",
+      "sha256": "bd435a4ab8dbf028add19c869109324ce256ab54ebf19108c82193ff22abd1f5"
+    },
+    {
+      "original_frame_id": 640,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000640.jpg",
+      "sha256": "ea204c287e1b64e4b78a5831874b1ffaa019c6e6cca3ef1ad5a791fdc888c672"
+    },
+    {
+      "original_frame_id": 641,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000641.jpg",
+      "sha256": "77bd91f046d22d16f31a16651e73d2c157f20cb459af0c232483efc38badb31a"
+    },
+    {
+      "original_frame_id": 641,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000641.jpg",
+      "sha256": "73ece31d1f48afb70b102f9d8e22923a4dc37336cfb8f603d7dfbcd7b00ba9f6"
+    },
+    {
+      "original_frame_id": 641,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000641.jpg",
+      "sha256": "dd0058fd799fee279c95e99adbf2ff8904947fa192765c331cd1659a6748fc80"
+    },
+    {
+      "original_frame_id": 646,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000646.jpg",
+      "sha256": "9fad77256fd3ead8e3b8fd34fe490f618f0137e4c5ba5b9a34e3e234fd8ebca3"
+    },
+    {
+      "original_frame_id": 646,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000646.jpg",
+      "sha256": "480138da9307ac368ef984d3715b3746bcc915774dd4dba4a5d7c30fe135fe23"
+    },
+    {
+      "original_frame_id": 646,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000646.jpg",
+      "sha256": "d3984ff8bae61cfe82fde96a255f95c93983a514a39bd7ed7c5951895651c831"
+    },
+    {
+      "original_frame_id": 647,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000647.jpg",
+      "sha256": "a56db13db9a5cb10cf49cf1d2ea1bf3ce550a280495c168afdaf7b68be5b5189"
+    },
+    {
+      "original_frame_id": 647,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000647.jpg",
+      "sha256": "1597db96716e5ef524d66a2c4c171cf22c45c80f234909e37cc8b032a4b3381b"
+    },
+    {
+      "original_frame_id": 647,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000647.jpg",
+      "sha256": "7d9b2dd5e78004d2a49a0af5093856d783eff8f1812f76e1f8b54093560f6b0a"
+    },
+    {
+      "original_frame_id": 648,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000648.jpg",
+      "sha256": "f0d344c8746de5e44c4aa57463f9e66b2f6f62cff2197ffc0c4b1097f81cf4b5"
+    },
+    {
+      "original_frame_id": 648,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000648.jpg",
+      "sha256": "feea09707b6de1b8bb31c8e8ce8e1c5752ded9cba5b604925932aca6534b76b3"
+    },
+    {
+      "original_frame_id": 648,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000648.jpg",
+      "sha256": "33c2141cb792966a5e3911331c8338b0d42dfd3bed14adaa98b1be0be8e4bbff"
+    },
+    {
+      "original_frame_id": 649,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000649.jpg",
+      "sha256": "3aa1d157317bb6a2a470b54afc5a008461fd1d50114a90e81485784128005f6c"
+    },
+    {
+      "original_frame_id": 649,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000649.jpg",
+      "sha256": "48520e0937bffaeeea996fde99831d172f453890c52f1898302098489d4946da"
+    },
+    {
+      "original_frame_id": 649,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000649.jpg",
+      "sha256": "ced801d1ada04876cc91ff6ef2940cc4ddf341f44a5755d51fbdf5e857a9c7a0"
+    },
+    {
+      "original_frame_id": 677,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000677.jpg",
+      "sha256": "78b291be6cc487999b7899bad75ccead18fedce507c642619967159deb0da1be"
+    },
+    {
+      "original_frame_id": 677,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000677.jpg",
+      "sha256": "6db44192575923cbcaa766f39046c5e35d7c61106d08e24530a26d1130a9bb7f"
+    },
+    {
+      "original_frame_id": 677,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000677.jpg",
+      "sha256": "bea7005910bd5bbd71a7d7affe2d9db5b47493ffd4ec754178ba3d576766f163"
+    },
+    {
+      "original_frame_id": 678,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000678.jpg",
+      "sha256": "2fd6feb8ee7009cdb68ee8ed38e1c8d261d547e23e57bec772513fe91899316f"
+    },
+    {
+      "original_frame_id": 678,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000678.jpg",
+      "sha256": "4f3ab4b536e37df0ffd2892fadafe5c29233f8aa70507a959230514e40ecd582"
+    },
+    {
+      "original_frame_id": 678,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000678.jpg",
+      "sha256": "cc044e3e29f1f6ecb8aef86d2853d4db05e4366e2be212bafbaed5d65d76d50b"
+    },
+    {
+      "original_frame_id": 679,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000679.jpg",
+      "sha256": "ebc00512a83c1941e1fb8ea86974e1dc376734aafb40c309704d469fb8fff067"
+    },
+    {
+      "original_frame_id": 679,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000679.jpg",
+      "sha256": "da8abf8cc68548b266710df69d4ad0050168eee3ed8c0a41e29044c9952a10bb"
+    },
+    {
+      "original_frame_id": 679,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000679.jpg",
+      "sha256": "2995d83323674d689a39712ab302464eb872f7e03f2506088f146a3ccc0cc0f0"
+    },
+    {
+      "original_frame_id": 680,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000680.jpg",
+      "sha256": "19a3e79b8835d3fa3abc043d72adc4c31187c9ee4db6255beb8b106e6dfd7266"
+    },
+    {
+      "original_frame_id": 680,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000680.jpg",
+      "sha256": "6b10324e63a14e467cd94d7b8c9afe9a17c5051e71a85e6bd6b7e34f71dde4d6"
+    },
+    {
+      "original_frame_id": 680,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000680.jpg",
+      "sha256": "ff222eb0a49669761d67adc07b4c927bbc336e6896d22f7e4e992c7c4f69a6ac"
+    },
+    {
+      "original_frame_id": 685,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000685.jpg",
+      "sha256": "cbf898a2faffbe36ba6fc4a57337860375b0f3ce6d1260867bf68239166a10dd"
+    },
+    {
+      "original_frame_id": 685,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000685.jpg",
+      "sha256": "890aa417e4bf25c82409113f07ca89b1fec18882621ffa2453f925e63a73edb7"
+    },
+    {
+      "original_frame_id": 685,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000685.jpg",
+      "sha256": "0ec3e127bb07aae556dd27600c00e6971fcfb26b735025210e05ab737b2cbc68"
+    },
+    {
+      "original_frame_id": 686,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000686.jpg",
+      "sha256": "dff5916501e4a394606389c12a5ef352c7aad81590ec15f9d0947426dfdb5cd5"
+    },
+    {
+      "original_frame_id": 686,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000686.jpg",
+      "sha256": "6e6d8e3848a704f3a0dced4c2d46eeb57dd2723a9216bbbd3e256bda87e41d99"
+    },
+    {
+      "original_frame_id": 686,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000686.jpg",
+      "sha256": "6f7692572757f3b0d798a2095a3d20d3087bea808c7e04cc15e0f11eb5f4861f"
+    },
+    {
+      "original_frame_id": 687,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000687.jpg",
+      "sha256": "9861047b366d3894cbca3a460fe1fcc93403035598d805f1724e5f03b5013631"
+    },
+    {
+      "original_frame_id": 687,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000687.jpg",
+      "sha256": "5543523dd0f5d1bb7d8d64ab9801685b896d194e6ca7a78469b587ab07dc5739"
+    },
+    {
+      "original_frame_id": 687,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000687.jpg",
+      "sha256": "e1e73b7bd7707b9177f2e42a27a5e821e2072bee63beaf773b48f2ed178a1d54"
+    },
+    {
+      "original_frame_id": 688,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000688.jpg",
+      "sha256": "e5228b5b76349931069b5c4abe8a22a2fe953f8f00eef46fc5995ec557077719"
+    },
+    {
+      "original_frame_id": 688,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000688.jpg",
+      "sha256": "88e7cf9434180fadc7e94c9aad83547f9bd9e44970d930d0e9cbb1188405df2f"
+    },
+    {
+      "original_frame_id": 688,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000688.jpg",
+      "sha256": "683d7e35919ddeafde2d81af452c6beb1a7332c3b359287be18e5d032562d6e4"
+    },
+    {
+      "original_frame_id": 692,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000692.jpg",
+      "sha256": "560bc279030e2c982b1a35bd31a2e3f3cd99489a3c935cbf6e68d74048ef578b"
+    },
+    {
+      "original_frame_id": 692,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000692.jpg",
+      "sha256": "be8c919f609a0e5088aa15f33de3932e967684deab8a27bf78ccc684e3577d38"
+    },
+    {
+      "original_frame_id": 692,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000692.jpg",
+      "sha256": "0a89e02ce125ccaa029e9ed28ef3e43540979d2382e153f363446a3d3cdee19a"
+    },
+    {
+      "original_frame_id": 693,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000693.jpg",
+      "sha256": "4c44d8e34f4982c202b5c9545b2ad574b0984c69d80bef69656ed0818066bf93"
+    },
+    {
+      "original_frame_id": 693,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000693.jpg",
+      "sha256": "252a0e0b32e04773c84695ee3c9fc9217b6e8ceea69d8a46d0481d684a309f84"
+    },
+    {
+      "original_frame_id": 693,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000693.jpg",
+      "sha256": "db11b7438039972d269a1eb720c5292550b7c504dd7478a39a564f754690cb86"
+    },
+    {
+      "original_frame_id": 694,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000694.jpg",
+      "sha256": "7c8e64e005e7fb3555f8f7b7c6c3377bf4a7948d0d05bfbe9b991f1df90007aa"
+    },
+    {
+      "original_frame_id": 694,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000694.jpg",
+      "sha256": "fff75788d6508f0d83f7d9197944f3333594b320fd3acde527dedea6cf65c683"
+    },
+    {
+      "original_frame_id": 694,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000694.jpg",
+      "sha256": "a1f15603a0641288ff4be11ddeda3ea3495465fa7f4bf38d98d453e63ec1db7a"
+    },
+    {
+      "original_frame_id": 695,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000695.jpg",
+      "sha256": "5d11813b8ee47fce90f8909b87a09d18611c0b91e1bb5b87c09661c52de8bea7"
+    },
+    {
+      "original_frame_id": 695,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000695.jpg",
+      "sha256": "f733f403147c07b2cc4dc263a3056c4b88364377805abe08e04ffc68804cdb5a"
+    },
+    {
+      "original_frame_id": 695,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000695.jpg",
+      "sha256": "82dfce3405236626172124a35db667742e5e4768cc0c55b29c7442fa15f826e2"
+    },
+    {
+      "original_frame_id": 702,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000702.jpg",
+      "sha256": "0331609d3075c06b899c93fc04980dea8d58572aead62a83521f60a824ed8491"
+    },
+    {
+      "original_frame_id": 702,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000702.jpg",
+      "sha256": "fcc24495b1f4e2c0aa08761d97f59fa1b649adbb2632122439897927486e8cdd"
+    },
+    {
+      "original_frame_id": 702,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000702.jpg",
+      "sha256": "69d046619ae704a2ba4bf642da8020337b18b1dd114b3e3224f69a08435634e2"
+    },
+    {
+      "original_frame_id": 703,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000703.jpg",
+      "sha256": "8e7ab79493e8970d30a4afb47b1dd6e2a72fc96a3a0bfc4530a134ce5d3c0b36"
+    },
+    {
+      "original_frame_id": 703,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000703.jpg",
+      "sha256": "abebf7a56de10b534c2d1f500f70e292f3658d57f7371a0017f9cd1898a97d93"
+    },
+    {
+      "original_frame_id": 703,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000703.jpg",
+      "sha256": "886db41e059943ec0ea0e2fae6f3ef1af1b1659c97a6a6994900a65f10d5ce1e"
+    },
+    {
+      "original_frame_id": 704,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000704.jpg",
+      "sha256": "b650385670e1adbc3999281052b92db908c8cd69eb9ec2df63435d4df5b20d36"
+    },
+    {
+      "original_frame_id": 704,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000704.jpg",
+      "sha256": "c75b48783bf4d5d3086d46f431e3b28a49b518166959d57afd72accd6a0536c8"
+    },
+    {
+      "original_frame_id": 704,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000704.jpg",
+      "sha256": "c6c7f42266aff0ae692e006d46677cadbca8b531116447b1d7baf3e8533c2efa"
+    },
+    {
+      "original_frame_id": 705,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000705.jpg",
+      "sha256": "f3ea8e8bd1cf000907c2f36841df46968d56db8bedc1d848397e7a722552f36c"
+    },
+    {
+      "original_frame_id": 705,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000705.jpg",
+      "sha256": "2e3232d668d39b189dee642551a9e79502a6b15a7826b15e2e2b5dd69aaf9532"
+    },
+    {
+      "original_frame_id": 705,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000705.jpg",
+      "sha256": "c424e645d9690cc996c1d0742fe3d143272dcdce6d79b16faee7f3f438110c1c"
+    },
+    {
+      "original_frame_id": 768,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000768.jpg",
+      "sha256": "5b028bb3a7a46889508b3a82b7a2768d49166f75b9ff3c1f087a885283d8bdc6"
+    },
+    {
+      "original_frame_id": 768,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000768.jpg",
+      "sha256": "06753dbeb74f922e01d1be892d51c03126ae66e4d414ee4a2a905d06f2471be1"
+    },
+    {
+      "original_frame_id": 768,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000768.jpg",
+      "sha256": "90993e66347b762a07311c35eb4648612f6a420586278a6b4a3621ab2af7f6ee"
+    },
+    {
+      "original_frame_id": 769,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000769.jpg",
+      "sha256": "bcc05faa90d66bbf80337c722e306f5efad3aceda5b1c8ff3a97fbb999b46c98"
+    },
+    {
+      "original_frame_id": 769,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000769.jpg",
+      "sha256": "bfeaaaac6238f5f7d61cd804ed1331dc20cdc9aa7145674360eb2af9b774ddab"
+    },
+    {
+      "original_frame_id": 769,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000769.jpg",
+      "sha256": "ba3bbc183f9421d7918edd8df489cc9b07339541a44ccbedba4a4342dfcaac78"
+    },
+    {
+      "original_frame_id": 770,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000770.jpg",
+      "sha256": "b962e3ce23fa107b46f2d7c5a45c5a22cecca88eaaa18a4d4b0e641d9ee3d08e"
+    },
+    {
+      "original_frame_id": 770,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000770.jpg",
+      "sha256": "0a57c95bb5ed7eb28965578862bcdca6d054ae8830fef3ec0ae47cb0f3632b9a"
+    },
+    {
+      "original_frame_id": 770,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000770.jpg",
+      "sha256": "f11ea07272e5a41fb8f6e2a2da6f13b11740c6434438229ae3a6f8d8daf605ec"
+    },
+    {
+      "original_frame_id": 771,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000771.jpg",
+      "sha256": "bd13206b58ad326f00617e38f4bf2eaf6edbd3ef64e2f797ae4aa5b122640443"
+    },
+    {
+      "original_frame_id": 771,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000771.jpg",
+      "sha256": "f8095bfcd6849163575bdc1cfb192aef3db6fae29e130d1fe7caecd70b913817"
+    },
+    {
+      "original_frame_id": 771,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000771.jpg",
+      "sha256": "7bda1533b40bc4d0744d2b7c45599fd878ba81f6ca74e6724fddd4e7fe09d4f3"
+    },
+    {
+      "original_frame_id": 776,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000776.jpg",
+      "sha256": "294c9d44d9055b1fde6d6ca4e0a5192c3c02b62ed62e144a976e94788c80e6a1"
+    },
+    {
+      "original_frame_id": 776,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000776.jpg",
+      "sha256": "a30492f5124f5c491ec65d3f1a3a76e82583b5df152737a43c54e2bd9f8a3c9c"
+    },
+    {
+      "original_frame_id": 776,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000776.jpg",
+      "sha256": "fa98a4441e9039dc045640f23881933b6ffa15b37d9505b847f16871e3e7c218"
+    },
+    {
+      "original_frame_id": 777,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000777.jpg",
+      "sha256": "e15f84fb98342fa3bdda77af501f42814e30b670e4803014ea9fa97d5435ae2e"
+    },
+    {
+      "original_frame_id": 777,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000777.jpg",
+      "sha256": "58123e6fe72b2a93485521273d3f5e49f752dd2e42857675a5769a1a25ab2a6f"
+    },
+    {
+      "original_frame_id": 777,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000777.jpg",
+      "sha256": "169c9198bf15551979064e55a4119eb50828fca41327d9fe6b14ca12949ec520"
+    },
+    {
+      "original_frame_id": 778,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000778.jpg",
+      "sha256": "c41121eaea9921fe4273357e6a4576c998d71cb662570f5a5a7225e5357f6775"
+    },
+    {
+      "original_frame_id": 778,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000778.jpg",
+      "sha256": "f84d55e6cc4bd0a6d0021edb31869da016a75f682feb56fcee1b17ee08bee0bf"
+    },
+    {
+      "original_frame_id": 778,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000778.jpg",
+      "sha256": "8ff7dae072816330e54c8cd7386234937a74a9df2c60d7754d06b05f51e22f38"
+    },
+    {
+      "original_frame_id": 779,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000779.jpg",
+      "sha256": "f72fe27c7ae08c6e68369f367b7429b27f76f90057e2b29628c59a0e709c8305"
+    },
+    {
+      "original_frame_id": 779,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000779.jpg",
+      "sha256": "1e2ddb5d72cc6e5ba1b60436ff7ca7101b64f1d0f3a9a48a8787c1b1c7244f91"
+    },
+    {
+      "original_frame_id": 779,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000779.jpg",
+      "sha256": "caef5ebbdab90a7b56e7eb9b184a112e93de131d8eccd9e216233de6f8141798"
+    },
+    {
+      "original_frame_id": 788,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000788.jpg",
+      "sha256": "83ea0d38614eaba20a3c82e13676087374618920b34f79c5165adf7bc4ef79c4"
+    },
+    {
+      "original_frame_id": 788,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000788.jpg",
+      "sha256": "7ac5b9238ceae434551226b645cd32344730f2c274de18987acdeea3bafa236f"
+    },
+    {
+      "original_frame_id": 788,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000788.jpg",
+      "sha256": "a12b06c12db3f7399bc0ead38372143d9c088cdf0d9de4d0757a4bdb7401aca0"
+    },
+    {
+      "original_frame_id": 789,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000789.jpg",
+      "sha256": "b4c39f7ec539ca629ec7aeab836be2180a98cb03099355f68e22d9e475c43baf"
+    },
+    {
+      "original_frame_id": 789,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000789.jpg",
+      "sha256": "6928cdcf7febd62b069b837372b86863687b0eaadea90e8d7f51d9d8a432d1ac"
+    },
+    {
+      "original_frame_id": 789,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000789.jpg",
+      "sha256": "8b1c9bcbae610db2c45e7a7ee8c9da17b2ecc4c8bc1cfb619ea09c63d912e841"
+    },
+    {
+      "original_frame_id": 790,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000790.jpg",
+      "sha256": "7b81254a4c96c0c48220b182f18b550dd895ad524dcfaef1e27c5c7f07060bf1"
+    },
+    {
+      "original_frame_id": 790,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000790.jpg",
+      "sha256": "cbd54945970cb36ab11d1c5d3204960837f5ad05c368d87317234781933187ed"
+    },
+    {
+      "original_frame_id": 790,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000790.jpg",
+      "sha256": "a05a34e23a62348afbafc2328b23a701d9a1b4206920537fd0ce515e2255a7a2"
+    },
+    {
+      "original_frame_id": 791,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000791.jpg",
+      "sha256": "0deca23304c6e796fd5503cb35f1c6eceb4879690bfb6a202c59f09207261677"
+    },
+    {
+      "original_frame_id": 791,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000791.jpg",
+      "sha256": "dd9e977c483febb6c423dc74b2b2f94a419e59070e67bd3d9f1f5d6f1742e80d"
+    },
+    {
+      "original_frame_id": 791,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000791.jpg",
+      "sha256": "a23ee1e5403539edc136944752c533d1a41dd6aa32374d86c3b45c082e0544d9"
+    },
+    {
+      "original_frame_id": 796,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000796.jpg",
+      "sha256": "fd8b2e446b4349dca7732e768c0dc85ec227ada7dee090983dc8a475a09aa9bd"
+    },
+    {
+      "original_frame_id": 796,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000796.jpg",
+      "sha256": "c8ffc2e4734f1a94b9e67d484030aec3248f72a4ecfeae9a4899499b27ac8352"
+    },
+    {
+      "original_frame_id": 796,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000796.jpg",
+      "sha256": "4f8bdcdef6e908a0158465c3cb49ef4f848da5f498accbb5b0fd8f89f6555118"
+    },
+    {
+      "original_frame_id": 797,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000797.jpg",
+      "sha256": "6cb69971384fc45d1750fa18acfcca051bb12dcc07950ddbf45118204376cbe3"
+    },
+    {
+      "original_frame_id": 797,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000797.jpg",
+      "sha256": "1deb1022aad8fa4f81a76254543e268d94bc4b3c5a0c58ba90ed98192b514f7d"
+    },
+    {
+      "original_frame_id": 797,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000797.jpg",
+      "sha256": "8c7647af98d0b5f1a45a25d9c549a8a45ce52744243023b154f963ee58f80fa4"
+    },
+    {
+      "original_frame_id": 798,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000798.jpg",
+      "sha256": "db78b2a2877b80a618f686c3058bd01096928e55d92d3d06e3fbbbfd7146fff9"
+    },
+    {
+      "original_frame_id": 798,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000798.jpg",
+      "sha256": "1bb034542798c80dfb6ecd3523d28efda583601988cd4d46c0538fec13af9477"
+    },
+    {
+      "original_frame_id": 798,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000798.jpg",
+      "sha256": "9fa163c03075f08f6540ed6bc2d24158ab59d0a11a2e510533f72fe3c80d3e87"
+    },
+    {
+      "original_frame_id": 799,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000799.jpg",
+      "sha256": "5c2a9850d3b02d1ff30f82606cc7d58a50edeea42a12df2540f0de5e121a4e80"
+    },
+    {
+      "original_frame_id": 799,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000799.jpg",
+      "sha256": "9be178efb09e31e8b88cdf2c8619a18a6c5770f91a67793e01fe89123c3491d9"
+    },
+    {
+      "original_frame_id": 799,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000799.jpg",
+      "sha256": "e20641b58bf863436de4f05600f36430710b5030a0569dac18924fc8a3d36811"
+    },
+    {
+      "original_frame_id": 800,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000800.jpg",
+      "sha256": "d6d139fdf8835fbe8dabdaa954cf2dd8229eb8752162574b362920e3ada293b9"
+    },
+    {
+      "original_frame_id": 800,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000800.jpg",
+      "sha256": "6096fec75665a71cbbe3beb10836fa19bdd86f60b98bc17272add081288f6055"
+    },
+    {
+      "original_frame_id": 800,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000800.jpg",
+      "sha256": "36d3c90d8cbf3e6ca350c54c8b7fa0af1717dd6548c17e52b7a2b11bfc963c9f"
+    },
+    {
+      "original_frame_id": 803,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000803.jpg",
+      "sha256": "71a4d78b14c70ce6351aac964172900f3ea35043bfa035f1b321df8c9cff35fa"
+    },
+    {
+      "original_frame_id": 803,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000803.jpg",
+      "sha256": "fa4b3f1955147ac789216293c7b1563683f95b9882861415ee2d0d71ad2cbe49"
+    },
+    {
+      "original_frame_id": 803,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000803.jpg",
+      "sha256": "66e5a931d66de681c4f19f7c60858620c222e42ed418ae69d728decdd5a7d37c"
+    },
+    {
+      "original_frame_id": 806,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000806.jpg",
+      "sha256": "ea8ff91f5088668921bda51aea5d27cd486afe1f5cbbeee5e7a415373b868fa7"
+    },
+    {
+      "original_frame_id": 806,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000806.jpg",
+      "sha256": "c97641c43be152521c74d9dd1a46e3d85cbd09330757255d1a83e1058fcfe7c4"
+    },
+    {
+      "original_frame_id": 806,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000806.jpg",
+      "sha256": "4195db85bdf902ad7d3629bb749aae7c75fd5aee72a1d1f47070562eb6123db2"
+    },
+    {
+      "original_frame_id": 807,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000807.jpg",
+      "sha256": "61fd1e43ec1510e2ac05d61cb3f0b443ab6ceb8e40e1d351bf1dd591110f77b6"
+    },
+    {
+      "original_frame_id": 807,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000807.jpg",
+      "sha256": "0007e7bcfed67cd84dc2c10e51e482405096c36b730415a7008741317baa1681"
+    },
+    {
+      "original_frame_id": 807,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000807.jpg",
+      "sha256": "c01edd496e3ec92168bb714c0c355a2c3554ce3ff0e007bf5aeb31184021cd8e"
+    },
+    {
+      "original_frame_id": 808,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000808.jpg",
+      "sha256": "0325149f7f7d4f4482de2cb2170c4f926d66df1f633e20a01b4a8d2b009fb7bb"
+    },
+    {
+      "original_frame_id": 808,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000808.jpg",
+      "sha256": "d68c8b4dd74172994716dd0d4089eee8deee83ad4c63a1d56c16c2bf06cf139a"
+    },
+    {
+      "original_frame_id": 808,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000808.jpg",
+      "sha256": "bfbf46df6cb8314dcb099c2e77432783992e734b0c1e225071767bc113c9c9d1"
+    },
+    {
+      "original_frame_id": 809,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000809.jpg",
+      "sha256": "e243e44b2631f46a518eac1e0266232879943d5f63c593a88954dfd17ac38c79"
+    },
+    {
+      "original_frame_id": 809,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000809.jpg",
+      "sha256": "93bd0a4aaf0492c54ead46baec8cf042209ee7de319272ca0c2ac5ddab4e2d11"
+    },
+    {
+      "original_frame_id": 809,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000809.jpg",
+      "sha256": "8c3b6895da5b85f88f8399f1f62af5cf1eb2f9e42ae1cf0a13b8b6cd49b001e9"
+    },
+    {
+      "original_frame_id": 835,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000835.jpg",
+      "sha256": "4e73ce969d2c4d14490c297e959c58cddd3a01223b3302c6c102900e9692e8ff"
+    },
+    {
+      "original_frame_id": 835,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000835.jpg",
+      "sha256": "ec3db8bb7060170279303b040d8dc9dca32be3bfa1b73b30e596815bce0bc1a0"
+    },
+    {
+      "original_frame_id": 835,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000835.jpg",
+      "sha256": "a63a2c2238fea5bfa7ead899352dcd8b2da76eab5166ad0f31e577bc56abb68b"
+    },
+    {
+      "original_frame_id": 836,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000836.jpg",
+      "sha256": "f7d59c4431b279abaa077ae83d53f59cbf6c77fca8ab35b57b8f6ad031ebff27"
+    },
+    {
+      "original_frame_id": 836,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000836.jpg",
+      "sha256": "f1d9dcb7059c420ea78cd058e82c93b63c1ee955b8e3a3d0efe87d9de0a60c18"
+    },
+    {
+      "original_frame_id": 836,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000836.jpg",
+      "sha256": "b4d400d3ad88fc76cc98bd5df018b9f921ec803ac243720079e247238dde84c5"
+    },
+    {
+      "original_frame_id": 837,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000837.jpg",
+      "sha256": "6ea533b3c0d672edb892ae85e3db27cfd3b763e2e66fff729c07865dff00f017"
+    },
+    {
+      "original_frame_id": 837,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000837.jpg",
+      "sha256": "a6775a445eefcf08f0d3badd76b215374c4331f2d2b24e8f37050323e15fc1ed"
+    },
+    {
+      "original_frame_id": 837,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000837.jpg",
+      "sha256": "5964cb0469dece7c57ea9c21bc72c801abba38301378db234044a98f8349d114"
+    },
+    {
+      "original_frame_id": 838,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000838.jpg",
+      "sha256": "bce0610cac820e0b5243d963f1d556d65d0f6457f5e9379b7bd993780bccb66e"
+    },
+    {
+      "original_frame_id": 838,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000838.jpg",
+      "sha256": "262f75c13114b7daad59c5b63c17b3091267f8115c4b6d22dc03b0cd3915470c"
+    },
+    {
+      "original_frame_id": 838,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000838.jpg",
+      "sha256": "0760e9dd5deed547cc9be2c0758610aa606b27fffce0b8c388a841ad956646f3"
+    },
+    {
+      "original_frame_id": 843,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000843.jpg",
+      "sha256": "fedcdbcd9588161e7ebb01235718745e89a688b89c9994324c5d18bfeceb542d"
+    },
+    {
+      "original_frame_id": 843,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000843.jpg",
+      "sha256": "62a0b5cd7448c1246dd557c8f0798818bcf0c0e922d877e7325380d3595ff3ef"
+    },
+    {
+      "original_frame_id": 843,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000843.jpg",
+      "sha256": "d5fce6f527cf0aef16ec0fa2ab8fe3c4e876b25269155a4a891062202df578b7"
+    },
+    {
+      "original_frame_id": 844,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000844.jpg",
+      "sha256": "2030df30e238c92eb2e09d89db1a786864d70aafe84f669a07043f402410b6ff"
+    },
+    {
+      "original_frame_id": 844,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000844.jpg",
+      "sha256": "e12f76269c92c520c41a5def8148f3b226f63af0f8093e6bef23bf89b310f27d"
+    },
+    {
+      "original_frame_id": 844,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000844.jpg",
+      "sha256": "7c3a740ee7e67fbcbb5f3d9ec6ea97ab94893ead8f9b150ae643eafc13c27a35"
+    },
+    {
+      "original_frame_id": 845,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000845.jpg",
+      "sha256": "45b6dac598e818eadb0be8f8db746297e37607de0c54fb13f3e3782a6c807491"
+    },
+    {
+      "original_frame_id": 845,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000845.jpg",
+      "sha256": "00a34cbcd4396934e1429bf79efd1a09085bf7b50f8eb39b07a77b805f8ba57b"
+    },
+    {
+      "original_frame_id": 845,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000845.jpg",
+      "sha256": "29d2345fcb505361e5d10855b8c3b179d2b77f3c4bad3a66f3d189c75f8cbc4f"
+    },
+    {
+      "original_frame_id": 846,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000846.jpg",
+      "sha256": "df32ca827e4b31f197b325ac0c15719af002e71ce1a13129afd904cde22e2ab4"
+    },
+    {
+      "original_frame_id": 846,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000846.jpg",
+      "sha256": "6c687d40b255653363ee3d970b9338a62b232e8c23aa5afbcaa45bbc030f2f56"
+    },
+    {
+      "original_frame_id": 846,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000846.jpg",
+      "sha256": "6c759ba18bc7f0c9b17d05f1c229d2896f9d44481f98d8eafc33c7aa0f61cc96"
+    },
+    {
+      "original_frame_id": 850,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000850.jpg",
+      "sha256": "0c518804ec890997b8a1e0a1e357f7793f148e01fac2abfa8bbef41b01cca453"
+    },
+    {
+      "original_frame_id": 850,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000850.jpg",
+      "sha256": "879c53a7f200aebca7c87dc6af69458165ece337fe6d1363996365aa13081fe9"
+    },
+    {
+      "original_frame_id": 850,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000850.jpg",
+      "sha256": "f6d50be172b2e8e62b01055c36288349d721da05d495dec79854dadaf2adcb0c"
+    },
+    {
+      "original_frame_id": 876,
+      "group": "hands-comparison",
+      "file": "frames/hands-comparison-000876.jpg",
+      "sha256": "027ff5028720b5fd5d3f2e09446d4af8a3400dbf46d91be1f368421a73a1d7db"
+    },
+    {
+      "original_frame_id": 876,
+      "group": "old-new-egohand-comparison",
+      "file": "frames/old-new-egohand-comparison-000876.jpg",
+      "sha256": "effbc6c3578debabf7f75a388fa5f4945749897c25b7445a3a0b183061fda5e9"
+    },
+    {
+      "original_frame_id": 876,
+      "group": "proposal-comparison",
+      "file": "frames/proposal-comparison-000876.jpg",
+      "sha256": "7c07ba8ee679e064a51d536871da9f07783a8131c92892dacb5037f1b542b50b"
+    }
+  ],
+  "browser_playback_checked": false,
+  "static_frames_manually_reviewed": false,
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "official_score_available": false,
+  "all30_execution_authorized": false,
+  "limitations": [
+    "Full video decode checks integrity, not visual quality.",
+    "The fresh MP reference is shared with Ego wrist anchoring/gating and is not independent validation.",
+    "Admitted generated points do not establish hand visibility or hidden recovery.",
+    "Mesh overlay has no object-depth compositing and cannot prove contact or penetration.",
+    "Display ROIs differ from model input crops; all methods share each exact saved display square.",
+    "Slow motion repeats original frames at10fps; it adds no inferred frames or timing truth."
+  ]
+}

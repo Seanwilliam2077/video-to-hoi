@@ -1,0 +1,66 @@
+{
+  "episode": 16,
+  "command": [
+    "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\tools\\evaluate_refined_egohand_pilots.py",
+    "--episode",
+    "16",
+    "--input-manifest",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep16-evaluation-inputs02.json",
+    "--review-windows",
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\ep16-review-windows.json",
+    "--output",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\evaluation02.json",
+    "--tool-root",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02",
+    "--device",
+    "cpu",
+    "--threads",
+    "1",
+    "--model-batch",
+    "8"
+  ],
+  "cwd": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02",
+  "log": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep16-evaluation02.log",
+  "input_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_refined_postprocessing02.py",
+      "sha256": "6185c21b3ad8937326739a5ab210ac31f7e5364b125fb1825eb98e1b86a9d4c0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_postprocessing_job.py",
+      "sha256": "e1428e96cbc35298a740a477c98a2f61ec06c7714158d1fa46bea904c69526a8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\snapshot.json",
+      "sha256": "2782b6bddbdaeb6e6cd01c03fa3d2ace3ad7cfae94e5b995f40df18025beb57b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\protocol02.json",
+      "sha256": "eeabb07a21a77a9a96c71e9a7adb4e753c96df24d66819e57340df8ca677a34d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\inputs-manifest02.json",
+      "sha256": "449311c5c03fa8aacd0b7c14e54b4a9c812edf0e7bf169894eb046fa4e53162f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep16-evaluation-inputs02.json",
+      "sha256": "a3fb918efc60c42848e2bbc8ab9b52fea04ff8cc204730ae2edd4a6f9c4720af"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\ep16-review-windows.json",
+      "sha256": "7211bae61d2a9fc2c7615f76648c2b6344e422b3991a702630aa2a61ac049cd3"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\tools\\evaluate_refined_egohand_pilots.py",
+      "sha256": "6b57adf0903c165fdb99fd1fccb1567c40b6c8a045d55b62ff579e27058e3c12"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\tools\\evaluate_human_hand_pilots.py",
+      "sha256": "11f77eb336c4be64b37ae8be3e572e59efb6f6561c957e99216214457781ef8d"
+    }
+  ],
+  "automatic_promotion": false,
+  "all30_execution_authorized": false
+}

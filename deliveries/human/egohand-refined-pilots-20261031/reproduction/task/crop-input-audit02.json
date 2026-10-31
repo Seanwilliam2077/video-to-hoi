@@ -1,0 +1,51 @@
+{
+  "recorded_at": "2026-10-31T10:23:36.100255+00:00",
+  "track": 1,
+  "status": "passed",
+  "episodes": [
+    {
+      "episode": 16,
+      "frames": 360,
+      "crop_receipt_sha256": "0ba0228df6ddca2132650a962353b3f4d6aca32c56a84c0aac07f4df98e5d8c0",
+      "crop_boxes_sha256": "5c8a84d72f2720b38c096ac5c738af5a58b147bddbf0242d1d707a81704a3a8f",
+      "crop_anchors_sha256": "aa7729707222c53f928a984b8a502e6bd0ef182e29f057698c0a3deb3962558d",
+      "exact_original_or_trial_boxes": true,
+      "square_inside_image": true,
+      "stride5_anchor_gate_weights_zero": true,
+      "training_route_support_nonregression": true,
+      "heldout_neighbour_only_route": true,
+      "mixed_duplicate_pairs_wide": true,
+      "raw_cache_hits_per_side": [
+        360,
+        282
+      ],
+      "neural_recompute_views_per_side": [
+        0,
+        78
+      ]
+    },
+    {
+      "episode": 11,
+      "frames": 877,
+      "crop_receipt_sha256": "f0e10de692d979f91a410b1e313477e42ce9d404e5425ef53ebbb97135462138",
+      "crop_boxes_sha256": "c6fe51980d2bffe094f6d521fc8f26d21b6d486d1d0f609ceacdb9357bfe9bec",
+      "crop_anchors_sha256": "244bf2b9cd952b3b734f9cd966f11c6bb7fb658cd4258eec2dc48a731a056c4f",
+      "exact_original_or_trial_boxes": true,
+      "square_inside_image": true,
+      "stride5_anchor_gate_weights_zero": true,
+      "training_route_support_nonregression": true,
+      "heldout_neighbour_only_route": true,
+      "mixed_duplicate_pairs_wide": true,
+      "raw_cache_hits_per_side": [
+        766,
+        752
+      ],
+      "neural_recompute_views_per_side": [
+        111,
+        125
+      ]
+    }
+  ],
+  "all30_execution_started": false,
+  "quality_accepted": false
+}

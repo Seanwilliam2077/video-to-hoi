@@ -1,0 +1,95 @@
+{
+  "recorded_at": "2026-10-31T10:35:33.545538+00:00",
+  "track": 1,
+  "episode": 16,
+  "passed": true,
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "prediction_receipt_sha256": "3f7af2b64c49d4bd61d25a554609638292ca8b340d793656eb861bce0074737d",
+  "raw_cache_checks": [
+    {
+      "side": "left",
+      "exact_raw_cache_hit_count": 360,
+      "newly_inferred_view_count": 0,
+      "all_cached_parameter_geometry_projection_arrays_exact": true,
+      "compared_fields": [
+        "hand_poses",
+        "identity_coeffs",
+        "global_scale",
+        "vertices",
+        "joints",
+        "cam_t",
+        "scale_params",
+        "pred_kp2d_crop_presence",
+        "pred_kp2d_sigma",
+        "pred_keypoints_2d",
+        "pred_projection_valid"
+      ],
+      "fresh_chunk_coverage_exact": true
+    },
+    {
+      "side": "right",
+      "exact_raw_cache_hit_count": 282,
+      "newly_inferred_view_count": 78,
+      "all_cached_parameter_geometry_projection_arrays_exact": true,
+      "compared_fields": [
+        "hand_poses",
+        "identity_coeffs",
+        "global_scale",
+        "vertices",
+        "joints",
+        "cam_t",
+        "scale_params",
+        "pred_kp2d_crop_presence",
+        "pred_kp2d_sigma",
+        "pred_keypoints_2d",
+        "pred_projection_valid"
+      ],
+      "fresh_chunk_coverage_exact": true
+    }
+  ],
+  "output_checks": [
+    {
+      "variant": "raw",
+      "side": "left",
+      "frames": 360,
+      "sha256": "0c284f8e0bf585f2bf84f4a36d21b9d7d2b9796c4bd45a200cde56db8fe90da0",
+      "finite_3d_geometry": true,
+      "invalid_2d_projection_count": 0,
+      "valid_projection_roundtrip_max_pixels": 5.919963031995177e-05
+    },
+    {
+      "variant": "raw",
+      "side": "right",
+      "frames": 360,
+      "sha256": "6e9dbdcf584b07544302c67bef72ac6237949a488685c9612752f631015e5132",
+      "finite_3d_geometry": true,
+      "invalid_2d_projection_count": 0,
+      "valid_projection_roundtrip_max_pixels": 6.383448398017343e-05
+    },
+    {
+      "variant": "upstream_adaptive_smoothed",
+      "side": "left",
+      "frames": 360,
+      "sha256": "6492c3eb8bcd5608deb1db08017ae2832dd9e01a6589ddaecc76b345b190bfef",
+      "finite_3d_geometry": true,
+      "invalid_2d_projection_count": 0,
+      "valid_projection_roundtrip_max_pixels": 2.260692827242564e-06
+    },
+    {
+      "variant": "upstream_adaptive_smoothed",
+      "side": "right",
+      "frames": 360,
+      "sha256": "da3222d40023901ec5dd2f8c6159a9981cbc5ea859200118b69453759288b502",
+      "finite_3d_geometry": true,
+      "invalid_2d_projection_count": 0,
+      "valid_projection_roundtrip_max_pixels": 3.1489406855926894e-06
+    }
+  ],
+  "cache_hits": 642,
+  "newly_inferred_hand_views": 78,
+  "smoothed_cache_reused": false,
+  "official_smoothing_recomputed_full_clip": true,
+  "quality_or_contact_accepted": false,
+  "official_scores_computed": false,
+  "all30_execution_started": false
+}

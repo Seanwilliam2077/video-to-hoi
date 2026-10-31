@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-31T10:50:54.760440+00:00",
+  "episodes": [
+    16,
+    11
+  ],
+  "helper_sha256": "28b3fb3bc941e637f19833a750f7bf94d75f7f5c783cf2204b168c9393bb0c66",
+  "classifier": {
+    "source_path": "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi\\tools\\refine_human_hands.py",
+    "source_sha256_at_capture": "30d6647be48e987247a0a9ba66eae460fdb20a0aef50b41dfb7b845cb932368a",
+    "snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata-corrections02\\classifier-source-reference.py",
+    "snapshot_sha256": "30d6647be48e987247a0a9ba66eae460fdb20a0aef50b41dfb7b845cb932368a",
+    "function": "target_provenance",
+    "first_line": 27,
+    "last_line": 55,
+    "function_source_sha256": "5151a5016a87ab9a9fee442a8b9fbcf54a0b30633fa0ef90a295a8d372cbb50e",
+    "interpretation": "Classification reference only; not the source executed by the original fitting run"
+  },
+  "loader_sha256": "d2074d2c139c996bca9abeb4fbb585d63f76a17bfae59ae456968e2ab8a4e5c2",
+  "maximum_wait_seconds": 3600,
+  "all30_execution_authorized": false
+}

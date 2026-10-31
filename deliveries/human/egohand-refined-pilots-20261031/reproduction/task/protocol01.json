@@ -1,0 +1,104 @@
+{
+  "recorded_at": "2026-10-31T10:06:36.878724+00:00",
+  "track": 1,
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "all30_execution_authorized": false,
+  "main_changes": [
+    "training-image-supported tighter common crops",
+    "native-body wrist-depth retargeting with fixed per-hand clip palm scale",
+    "training-image-corrobated wrist and per-joint support gates"
+  ],
+  "crop_policy": {
+    "holdout_stride": 5,
+    "minimum_accepted_fingers": 8,
+    "minimum_confidence": 0.05,
+    "crop_padding": 1.5,
+    "minimum_crop_side": 64,
+    "maximum_crop_side": 208,
+    "center_median_window": 5,
+    "side_median_window": 15,
+    "maximum_crop_missing_frames": 8,
+    "accepted_point_margin_pixels": 2,
+    "minimum_scale_anchor_frames": 5
+  },
+  "retarget_policy": {
+    "native_identity_and_scales_fixed": true,
+    "native_wrist_depth_fixed_per_original_frame": true,
+    "lateral_wrist_source": "fresh same-crop MediaPipe training frames only",
+    "palm_scalar": "one median native/SOMA raw-reference 3D palm ratio per hand and clip; at least5 supported training anchors, otherwise that hand has zero new image targets",
+    "same_raw_reference_for_raw_and_smoothed": true,
+    "model_finger_pixels_not_copied_from_mediapipe": true,
+    "per_frame_scaling_or_clamping": false
+  },
+  "image_support_policy": {
+    "minimum_accepted_fingers": 8,
+    "requires_accepted_wrist": true,
+    "requires_corresponding_joint_image_support": true,
+    "minimum_confidence": 0.05,
+    "stride5_shared_anchor_and_gate_weights_zero": true,
+    "not_a_true_visibility_model": true,
+    "no_residual_threshold_selection": true
+  },
+  "fit_configuration": {
+    "iterations": 600,
+    "learning_rate": 0.001,
+    "max_delta_radians": 0.65,
+    "min_confidence": 0.05,
+    "min_landmarks": 8,
+    "max_gap_frames": 8,
+    "pixel_scale": 10.0,
+    "robust_delta_pixels": 5.0,
+    "relative_weight": 1.0,
+    "velocity_weight": 0.1,
+    "acceleration_weight": 0.025,
+    "pose_prior_weight": 0.03,
+    "motion_gate_pixels": 3.0,
+    "holdout_stride": 5,
+    "unobserved_policy": "preserve",
+    "optimize_wrist_chain": true,
+    "arm_delta_limit_radians": 0.1,
+    "arm_prior_weight": 0.03,
+    "wrist_observation_weight": 0.5,
+    "wrist_anchor_weight": 0.025,
+    "wrist_max_displacement_metres": 0.04,
+    "arm_update_temporal_weight": 0.08,
+    "finger_update_temporal_weight": 0.08,
+    "spatial_acceleration_weight": 0.0,
+    "support_transition_frames": 8,
+    "correction_velocity_budget_weight": 1.0,
+    "correction_budget_safety_fraction": 0.2
+  },
+  "observer_inputs": {
+    "same_revised_source_boxes_for_both": true,
+    "same_original_estimated_K": true,
+    "native_model_specific_sampling_preserved": true,
+    "EgoHand_affine256_no_perspective_no_aspect_rectification": true,
+    "MediaPipe384CUBIC_same_old_mirror_and_color_gates": true
+  },
+  "temporal_scope": "Whole-clip official EgoHand filter remains unchanged; images and baseline/filter remain transductive. No unseen-frame generalization claim. Native fitter/shared anchors/gates exclude stride5 targets.",
+  "fixed_gpu_smoke_tolerances": {
+    "joint_and_camera_point_norm_metres": 0.0001,
+    "source_projection_pixels": 0.1,
+    "float32": true,
+    "TF32": false,
+    "batch_size": 1,
+    "quality_selection": false
+  },
+  "native_variants": [
+    "baseline",
+    "legacy_mediapipe",
+    "legacy_egohand",
+    "fresh_mediapipe",
+    "refined_egohand"
+  ],
+  "controlled_pair": [
+    "fresh_mediapipe",
+    "refined_egohand"
+  ],
+  "review_windows": "Preserve prior EP16 40-110,240-308 and EP11 280-340,480-620,680-850 source-bound inspection windows.",
+  "official_scores_available": false,
+  "automatic_promotion": false
+}

@@ -1,0 +1,58 @@
+{
+  "recorded_at": "2026-10-31T10:34:00.883355+00:00",
+  "episode": 16,
+  "variants": {
+    "raw": {
+      "observations": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\observations-raw02\\observations.npz",
+        "sha256": "fb34ae32f000891ac02f3f6d444d0ba95cf7730922d479f77576678757d81f1e"
+      },
+      "report": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\observations-raw02\\report.json",
+        "sha256": "a432cc376727a06f774336b1d000860f020d311aa251e4f2f04a1ce5d09d8f8d"
+      },
+      "heldout_shared_input_weights_zero": true,
+      "native_wrist_depth_max_difference_metres": 0.0,
+      "fixed_scalar": [
+        0.9833310770713839,
+        1.077273877910911
+      ],
+      "fixed_scale_calibrated": [
+        true,
+        true
+      ],
+      "new_target_frames_per_hand": [
+        22,
+        249
+      ],
+      "scope": "Shared-input and coordinate provenance, not actual hand visibility, physical scale or accuracy"
+    },
+    "smoothed": {
+      "observations": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\observations-smoothed02\\observations.npz",
+        "sha256": "c55b05792213e1d34ab306ff250b708cc36e7e9c39e17ac9327990ed712c3454"
+      },
+      "report": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\observations-smoothed02\\report.json",
+        "sha256": "0f2a0a1a4084ba3daad476e38598f96f85cec47a44712c7b5dd24779a27e3046"
+      },
+      "heldout_shared_input_weights_zero": true,
+      "native_wrist_depth_max_difference_metres": 0.0,
+      "fixed_scalar": [
+        0.9833310770713839,
+        1.077273877910911
+      ],
+      "fixed_scale_calibrated": [
+        true,
+        true
+      ],
+      "new_target_frames_per_hand": [
+        22,
+        249
+      ],
+      "scope": "Shared-input and coordinate provenance, not actual hand visibility, physical scale or accuracy"
+    }
+  },
+  "same_raw_reference_fixed_scales": true,
+  "quality_accepted": false
+}

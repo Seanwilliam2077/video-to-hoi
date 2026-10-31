@@ -1,0 +1,488 @@
+{
+  "recorded_at": "2026-10-31T08:27:13.482918+00:00",
+  "python": "3.11.16 (main, Sep 29 2026, 14:58:48) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Scripts\\python.exe",
+  "isolated_site": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages",
+  "read_only_shared_site": "J:/video-to-hoi/work/human-runtime/venv/Lib/site-packages",
+  "base_runtime_replaced_or_upgraded": false,
+  "imports": [
+    {
+      "name": "torch",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages\\torch\\__init__.py",
+      "seconds": 29.016000000061467
+    },
+    {
+      "name": "torchvision",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages\\torchvision\\__init__.py",
+      "seconds": 3.125
+    },
+    {
+      "name": "hydra",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\hydra\\__init__.py",
+      "seconds": 0.3279999999795109
+    },
+    {
+      "name": "rich",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\rich\\__init__.py",
+      "seconds": 0.0
+    },
+    {
+      "name": "warp",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\warp\\__init__.py",
+      "seconds": 0.4220000000204891
+    },
+    {
+      "name": "pxr",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\pxr\\__init__.py",
+      "seconds": 0.0
+    },
+    {
+      "name": "soma",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages\\soma\\__init__.py",
+      "seconds": 3.155999999959022
+    },
+    {
+      "name": "dinov3.models.vision_transformer",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\dinov3-source\\dinov3\\models\\vision_transformer.py",
+      "seconds": 0.06200000015087426
+    },
+    {
+      "name": "egohand.models.egohand",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\egohand\\models\\egohand.py",
+      "seconds": 0.10999999986961484
+    },
+    {
+      "name": "inference.pipeline.predictor",
+      "ok": true,
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\upstream-git\\src\\python\\isaaccapture_egopost\\inference\\pipeline\\predictor.py",
+      "seconds": 0.8900000001303852
+    }
+  ],
+  "all_imports_passed": true,
+  "pip_check": {
+    "returncode": 0,
+    "output": "No broken requirements found.\n"
+  },
+  "commands": [
+    {
+      "label": "independent-venv",
+      "command": [
+        "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+        "-m",
+        "venv",
+        "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv"
+      ]
+    },
+    {
+      "label": "minimal-core",
+      "command": [
+        "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--disable-pip-version-check",
+        "--no-deps",
+        "py-soma-x==0.3.0",
+        "hydra-core==1.3.7",
+        "hydra-colorlog==1.2.0",
+        "rich==14.3.3"
+      ],
+      "log": "environment-install-attempt03.log"
+    },
+    {
+      "label": "minimal-geometry",
+      "command": [
+        "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--disable-pip-version-check",
+        "--no-deps",
+        "warp-lang==1.11.1",
+        "trimesh==4.11.3",
+        "rtree==1.4.1",
+        "cholespy",
+        "usd-core",
+        "colorlog",
+        "markdown-it-py",
+        "mdurl",
+        "pygments"
+      ],
+      "log": "environment-install-attempt04.log"
+    }
+  ],
+  "packages": [
+    {
+      "name": "cholespy",
+      "version": "2.2.0",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "colorlog",
+      "version": "6.12.0",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "hydra-colorlog",
+      "version": "1.2.0",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "hydra-core",
+      "version": "1.3.7",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pip",
+      "version": "24.0",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "py-soma-x",
+      "version": "0.3.0",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "rich",
+      "version": "14.3.3",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "rtree",
+      "version": "1.4.1",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "setuptools",
+      "version": "79.0.1",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "trimesh",
+      "version": "4.11.3",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "usd-core",
+      "version": "26.11",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "warp-lang",
+      "version": "1.11.1",
+      "location": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.14.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "antlr4-python3-runtime",
+      "version": "4.9.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "braceexpand",
+      "version": "0.1.7",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "einops",
+      "version": "0.8.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "filelock",
+      "version": "4.0.7",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.6.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.13.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "httpx2",
+      "version": "2.13.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "huggingface_hub",
+      "version": "2.0.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "imageio-ffmpeg",
+      "version": "0.6.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "lightning-utilities",
+      "version": "0.15.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "multidict",
+      "version": "6.9.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "networkx",
+      "version": "3.6.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "opencv-python-headless",
+      "version": "4.11.0.86",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pillow",
+      "version": "11.1.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.4",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "psutil",
+      "version": "7.0.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "pytorch-lightning",
+      "version": "2.5.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "roma",
+      "version": "1.5.4",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "sympy",
+      "version": "1.13.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "timm",
+      "version": "1.0.20",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "torch",
+      "version": "2.5.1+cu124",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "torchmetrics",
+      "version": "1.7.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.20.1+cu124",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.4",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "yacs",
+      "version": "0.1.8",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    },
+    {
+      "name": "yarl",
+      "version": "1.25.1",
+      "location": "J:\\video-to-hoi\\work\\human-runtime\\venv\\Lib\\site-packages"
+    }
+  ],
+  "geometry_smoke": {
+    "recorded_at": "2026-10-31T08:14:13.385054+00:00",
+    "source": "generic SOMA-X neutral model assets only",
+    "device": "cpu",
+    "mode": "torch",
+    "cases": [
+      {
+        "side": "left",
+        "seconds": 13.640000000130385,
+        "joint_shape": [
+          1,
+          25,
+          3
+        ],
+        "vertices_shape": [
+          1,
+          2859,
+          3
+        ],
+        "finite": true
+      },
+      {
+        "side": "right",
+        "seconds": 3.406999999890104,
+        "joint_shape": [
+          1,
+          25,
+          3
+        ],
+        "vertices_shape": [
+          1,
+          2859,
+          3
+        ],
+        "finite": true
+      }
+    ],
+    "passed": true
+  },
+  "compatibility_deviations": [
+    "Python3.11/Torch2.5.1cu124/NumPy1.26 versus upstream Python3.12 and newer minimum pins; actual model CPU and geometry checks required and passed separately.",
+    "Pinned DINOv3 imported directly by .pth after packaging attempts failed because sparse checkout omits unrelated development requirements. Source commit unchanged.",
+    "Officialpy-soma-x0.3.0 actuallyrequires generic MHRlod1model+neutral transfer meshes; these were allowlisted separately instead of silently following currentdocsLOD6list.",
+    "CPU factory overrides upstream hardcoded CUDA construction and selects denseTorch skinning. Learned checkpoint/crop/camera equations remain unchanged.",
+    "No RT-DETR/PyTorch3D/ViPE/originalcamera calibration or demo data are inference inputs.",
+    "An initial overly-broad source checkout accidentally materialized example documentation assets; bytes were excluded unused in a verified task-local quarantine, see source-checkout-attempt01.json."
+  ],
+  "all30_execution_started": false
+}

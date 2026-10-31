@@ -1,0 +1,29 @@
+{
+  "episode": 16,
+  "command": [
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Scripts\\python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\raw_cache02.py",
+    "--asset-root",
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031",
+    "--output",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\cache-contract-ep16-attempt01.result.json"
+  ],
+  "log": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\cache-contract-ep16-attempt01.log",
+  "source_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\raw_cache02.py",
+      "sha256": "e415747f01bfc190ae811bc0452ecc0b1fff1996099a998ced04b7282e5e67ef"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\run_controlled_egohand.py",
+      "sha256": "9cbfdd91c492da8d54f661d02f3cfba567e09ec6206ff477b4f2a36eac75770b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\prediction-receipt.json",
+      "sha256": "be89b287b8cf40814bbb11c65d1db7c4e1addc6166cc47c7232554852ccbc8ec"
+    }
+  ],
+  "all30_execution_authorized": false,
+  "neural_forward_forbidden": true
+}

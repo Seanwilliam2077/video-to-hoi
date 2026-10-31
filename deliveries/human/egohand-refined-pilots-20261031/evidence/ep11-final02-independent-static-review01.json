@@ -1,0 +1,267 @@
+{
+  "recorded_at": "2026-10-31T11:09:25.901474+00:00",
+  "track": 1,
+  "episode": 11,
+  "reviewer": "Codex egohand_adapter independent final02 sampled QA",
+  "evaluation_sha256": "2bcb9735abb5d562f1af7cde711985b3dc3a900bb860e897daf2f08623bcee78",
+  "numeric_review": {
+    "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep11-final02-independent-numeric-review01.json",
+    "sha256": "6a114899212bd80aaad0a3126f8b8482836b57e010745c427979b9ed86f4bf1e"
+  },
+  "display_roi_sha256": "e2a1e21035c32cfeffd3de87c3ada421bbbfccdf97a77b387bcea249492743b3",
+  "fixed_main_sample_ids": [
+    0,
+    280,
+    340,
+    400,
+    480,
+    511,
+    512,
+    559,
+    560,
+    620,
+    680,
+    800,
+    803,
+    850,
+    876
+  ],
+  "fixed_critical_detail_ids": [
+    511,
+    512,
+    559,
+    560,
+    803
+  ],
+  "images_actually_viewed": [
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000000.jpg",
+      "sha256": "62a7705e0f25618d2c71d3e52a18d1e296d7bfaf824951e8e37a17e8b852e1aa",
+      "original_frame_id": 0,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000280.jpg",
+      "sha256": "4b157b10e656aab013090e61e8a6674854d83ce9ca700159837cebeb71003e92",
+      "original_frame_id": 280,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000340.jpg",
+      "sha256": "55c29cd4687398adfce4f37bfac831bcb973fdcbaed543f657c30b313f65e3bf",
+      "original_frame_id": 340,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000400.jpg",
+      "sha256": "d270a0864bde6ee685692662f84cf1d2fc404213c95cafb2cfcee08833339fde",
+      "original_frame_id": 400,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000480.jpg",
+      "sha256": "e5531477d1ef69cbcf413fdbde66abccd3e1ca00824d281aad1e287663df3712",
+      "original_frame_id": 480,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000511.jpg",
+      "sha256": "dbf471e42391c102bccee3ee4121b4f89b4b22c95c548aab3284e9b0108d5a73",
+      "original_frame_id": 511,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000512.jpg",
+      "sha256": "880ff6ea96e7b9165b047f22774b48d07b575ea266cfe390784b76ab6a360ce2",
+      "original_frame_id": 512,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000559.jpg",
+      "sha256": "2591bf832ce6d87d3035833eef3fd80dd9211b98546f53fcb86394a531e9c0c4",
+      "original_frame_id": 559,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000560.jpg",
+      "sha256": "49df30999d2483b451c59fba03611703536238e57df901f24c36c3b82db37878",
+      "original_frame_id": 560,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000620.jpg",
+      "sha256": "f5a6c874ea7586bb3dcd724c358759a61d1327b18e62b7b729885bb8115363c1",
+      "original_frame_id": 620,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000680.jpg",
+      "sha256": "19a3e79b8835d3fa3abc043d72adc4c31187c9ee4db6255beb8b106e6dfd7266",
+      "original_frame_id": 680,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000800.jpg",
+      "sha256": "d6d139fdf8835fbe8dabdaa954cf2dd8229eb8752162574b362920e3ada293b9",
+      "original_frame_id": 800,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000803.jpg",
+      "sha256": "71a4d78b14c70ce6351aac964172900f3ea35043bfa035f1b321df8c9cff35fa",
+      "original_frame_id": 803,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000850.jpg",
+      "sha256": "0c518804ec890997b8a1e0a1e357f7793f148e01fac2abfa8bbef41b01cca453",
+      "original_frame_id": 850,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000876.jpg",
+      "sha256": "027ff5028720b5fd5d3f2e09446d4af8a3400dbf46d91be1f368421a73a1d7db",
+      "original_frame_id": 876,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\old-new-egohand-comparison-000511.jpg",
+      "sha256": "9ffccc50a99f3ab93626e4ae9291efd00dcda6c4d7819ffc61637f90975a7fc1",
+      "original_frame_id": 511,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\old-new-egohand-comparison-000512.jpg",
+      "sha256": "42765383f76fd9a5fedfc466968f5e074f4ac583ed37af158ac3b04b7921c263",
+      "original_frame_id": 512,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\old-new-egohand-comparison-000559.jpg",
+      "sha256": "b7a91486f5c7b8de311fbfa667e2ef2c97dd9ab46bebaaf14a87806f74a39c6a",
+      "original_frame_id": 559,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\old-new-egohand-comparison-000560.jpg",
+      "sha256": "f6708e05c8d6684a1d8d2d7fc184b6302d1eb8b9fb64ed3335834e3b47a448c2",
+      "original_frame_id": 560,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\old-new-egohand-comparison-000803.jpg",
+      "sha256": "fa4b3f1955147ac789216293c7b1563683f95b9882861415ee2d0d71ad2cbe49",
+      "original_frame_id": 803,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\proposal-comparison-000511.jpg",
+      "sha256": "03818c1b85bbccb485afd601bf73eb3c393b46da43992860353314aa4b8f6e7f",
+      "original_frame_id": 511,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\proposal-comparison-000512.jpg",
+      "sha256": "b1d17502e55395dc605c8866a366ebf68c9ab1bbe968b8dc914d18e45f1dc1ab",
+      "original_frame_id": 512,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\proposal-comparison-000559.jpg",
+      "sha256": "c4e644b2acdc5553d99fb0a1196c6bd6b872ad3749a4686b6faafbfe3ab9d55f",
+      "original_frame_id": 559,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\proposal-comparison-000560.jpg",
+      "sha256": "50291d2699fc68cd9adb59b42bbb1a832d21cac791124e8d2274f60e9e0e46fd",
+      "original_frame_id": 560,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\proposal-comparison-000803.jpg",
+      "sha256": "66e5a931d66de681c4f19f7c60858620c222e42ed418ae69d728decdd5a7d37c",
+      "original_frame_id": 803,
+      "viewed_with": "view_image",
+      "review_kind": "sampled_static_JPEG_only"
+    }
+  ],
+  "findings": [
+    {
+      "original_frame_ids": [
+        0,
+        280,
+        340,
+        400,
+        480,
+        620,
+        680,
+        800,
+        850,
+        876
+      ],
+      "note": "All frozen main-window endpoints/context samples were inspected. Several table-interaction samples hide the hand behind the table or body; transparent native meshes do not recover visibility. Where hands are visible, revised and samecropMP native fits retain similar gross placement with local shape differences. Some body/wrist placement and articulation uncertainty persists, and these static contexts establish no general revisedEgo advantage."
+    },
+    {
+      "original_frame_ids": [
+        511,
+        512
+      ],
+      "note": "Revised generated proposals are substantially less oversized/displaced than the originalEgo proposals reviewed earlier, consistent with the native-depth/shared-wrist construction. Native revised hands are closer to the original baseline/MP family and avoid some oldEgo excessive shape changes. The source hand remains visible while detector support switches left20/right0 to left0/right21. This is not a verified true occlusion transition. At512 the orange left estimate is unadmitted, while its native fitted correction can continue from neighboring priors; neither is new independent evidence."
+    },
+    {
+      "original_frame_ids": [
+        559,
+        560
+      ],
+      "note": "Left input region is mostly torso/jeans/table, with no clearly inspectable left fingertips. Revised native left finger/arm controls are exactly baseline at both frames; the displayed orange left geometry is a guess, not hidden-hand recovery. The right native hand is more compact than oldEgo but remains imperfectly aligned, with no clear superiority over samecropMP. Frame560 is heldout, so orange right geometry despite17greenMP reference points follows deliberate anchor/gate exclusion. Proposal-display changes559-to560 must not be read as finalnative jitter or a true visibility event."
+    },
+    {
+      "original_frame_ids": [
+        803
+      ],
+      "note": "Left hand is visible but motion-blurred despite0MP image targets, so calling it fully occluded would be incorrect. Revised native left receives a small neighboring-prior update(maxfinger.05143rad) without a direct image target. Old/revised articulation differs, but blur prevents deciding the true finger configuration. Visible right gross placement is similar across the bounded fits; exact articulation remains uncertain."
+    }
+  ],
+  "synthesis": "The revision contains oldEgo scale/wrist-placement and unsupported-update problems, but does not demonstrate better true finger/grasp reconstruction than final samecropMP. Its source-visible hand motion and heldout image-reference distances remain weaker than the control numerically. Some self-motion measures improve and the source/pose trajectories are not frozen, but this is not equivalent to real accuracy or preserved true release timing.",
+  "limits": [
+    "Exactly25JPEGs were actually viewed:15fixed main samples plus5old/new and5proposal details. No continuous playback was performed by this reviewer.",
+    "SharedMP wrist anchors/gates and native baseline depth partly construct the improved proposal alignment. They are not independent model accuracy, visibility or calibration truth.",
+    "Orange marks unadmitted generated geometry, including deliberate stride5 exclusion on visible hands. It does not prove occlusion, hand recovery or that the displayed estimate was used as an explicit fit prior.",
+    "Unknown native intervals can remain exactly baseline or receive only neighboring temporal/collar corrections. Global nonzero updates and complete877-frame coverage do not prove every hidden pose improved.",
+    "Opening proxies are nonconstant geometric ratios, not true joint-angle/contact labels. The evaluator freezes2px/0.001m denominator guards for2D/3D; do not mix these with earlier unguarded ratios.",
+    "Pooled20-joint prediction-only D2 p95 is distinct from p95 of per-frame joint means and from official reference-relative acceleration error.",
+    "The human renderer has no object-depth occlusion test. Cyan across the table is not penetration evidence.",
+    "Original and freshMP references differ and are fallible; no single reference pass confers quality acceptance. Historical versus revisedEgo also changes multiple pipeline components simultaneously.",
+    "Final artifacts/source remained unchanged. No new inference, fitting, tuning, cache/privateGPUinventory publication or official scoring occurred."
+  ],
+  "source_report_label_erratum": "See numeric review: candidate-egohand02 report reused independentMP prose/key despite correct generated-proposal source/input bindings. Preserve original report and attach the explicit correction.",
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "official_scores_computed": false,
+  "all30_execution_started": false
+}

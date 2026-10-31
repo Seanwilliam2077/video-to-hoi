@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-10-31T10:33:21.602718+00:00",
+  "track": 1,
+  "selected_full02_device": "cpu",
+  "selected_dtype": "float32",
+  "selected_torch_threads": 12,
+  "selected_hand_batch_size": 8,
+  "selection_basis": "Runtime health and previously verified throughput only; no reconstruction quality or score selection",
+  "CPU_batch1_smoke": {
+    "frames_per_hand": 11,
+    "predictor_seconds": 62.76736340019852,
+    "smoothing_seconds": 2.48384159989655,
+    "completed": true
+  },
+  "CPU_batch8_reference_seconds_per_source_frame": 2.19525,
+  "GPU_probe": {
+    "status": "interrupted_at_authorized_runtime_health_deadline",
+    "wall_seconds": 584.0168465999886,
+    "finished_returncode": 4294967295,
+    "first_predictor_log_or_chunk_observed": false,
+    "numerical_parity_measured": false,
+    "torch_peak_memory_measured": false,
+    "actual_neural_pid_terminated": 112424,
+    "ownership_verified_before_termination": true,
+    "unrelated_processes_terminated": false
+  },
+  "full02_optimization": "Reuse2160 exact RAW hand views only; infer314 changed hand views; recompute complete official smoothing",
+  "private_gpu_app_inventory_excluded": true,
+  "quality_assessed": false,
+  "all30_execution_started": false
+}

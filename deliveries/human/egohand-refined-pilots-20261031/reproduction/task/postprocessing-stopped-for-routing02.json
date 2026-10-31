@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-10-31T10:19:54.1222727Z",
+  "status": "idle_trial01_controller_stopped_after_all_owned_fits_completed",
+  "pid": 43240,
+  "no_owned_children_before_stop": true,
+  "no_active_task_fits_before_stop": true,
+  "archive_path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\postprocessing-trial01-archive.json",
+  "archive_sha256": "f244ce32942c2f70eee50ab368d662ec884d78ebf7ba2bcbf2a162375897877b",
+  "full_egohand_inference_started": false,
+  "all30_execution_authorized": false,
+  "prior_artifacts_preserved": true
+}

@@ -1,0 +1,256 @@
+{
+  "recorded_at": "2026-10-31T10:06:31.434995+00:00",
+  "track": 1,
+  "status": "passed",
+  "episodes": [
+    {
+      "episode": 16,
+      "frames": 360,
+      "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+      "crop_receipt": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\crop-policy-receipt.json",
+      "crop_receipt_sha256": "fed8515c0b5cb65ad6053c173f54867c1c4b70c01697c675acb16fbd0b04f8aa",
+      "crop_boxes_sha256": "02b5279cc2452426dbfc8c50ef0cb3af8abafdc6d6860d614f6fb5df0e08768d",
+      "crop_anchors_sha256": "d23b1803fa8271c053e51080175830900c22eaaf73a3d1783cf7b628cd64e0d1",
+      "all_original_frame_ids": true,
+      "square_in_frame_boxes": true,
+      "holdout_training_anchors_zero": true,
+      "sides": {
+        "left": {
+          "source_classes": {
+            "sam_fallback_unknown": 329,
+            "training_image_anchor": 22,
+            "training_neighbor_crop_interpolation": 9
+          },
+          "side_pixels": {
+            "minimum": 64.0,
+            "p05": 64.0,
+            "median": 112.0,
+            "p95": 112.0,
+            "maximum": 112.0
+          },
+          "training_anchor_count": 22,
+          "anchor_full21_span_over_new_crop_side": {
+            "minimum": 0.20996379852294922,
+            "p05": 0.40717854499816897,
+            "median": 0.44202375411987305,
+            "p95": 0.5260241508483886,
+            "maximum": 0.5480823516845703
+          },
+          "same_anchor_full21_span_over_old_crop_side": {
+            "minimum": 0.11997931344168526,
+            "p05": 0.23267345428466796,
+            "median": 0.25258500235421316,
+            "p95": 0.3005852290562221,
+            "maximum": 0.3131899152483259
+          },
+          "accepted_point_crop_margin_pixels": {
+            "minimum": 13.1162109375,
+            "p05": 14.961944580078125,
+            "median": 17.601348876953125,
+            "p95": 18.738613891601563,
+            "maximum": 20.82684326171875
+          },
+          "fallback_boxes_exactly_preserved": true,
+          "maximum_interpolated_missing_frames": 2,
+          "crop_center_step_pixels": {
+            "minimum": 0.0,
+            "p05": 0.0,
+            "median": 1.0,
+            "p95": 5.0990195135927845,
+            "maximum": 12.649110640673518
+          }
+        },
+        "right": {
+          "source_classes": {
+            "sam_fallback_unknown": 25,
+            "training_image_anchor": 246,
+            "training_neighbor_crop_interpolation": 89
+          },
+          "side_pixels": {
+            "minimum": 64.0,
+            "p05": 64.0,
+            "median": 64.0,
+            "p95": 112.0,
+            "maximum": 112.0
+          },
+          "training_anchor_count": 246,
+          "anchor_full21_span_over_new_crop_side": {
+            "minimum": 0.38135337829589844,
+            "p05": 0.4270646572113037,
+            "median": 0.5817551612854004,
+            "p95": 0.6641168594360352,
+            "maximum": 0.7332210540771484
+          },
+          "same_anchor_full21_span_over_old_crop_side": {
+            "minimum": 0.21791621616908483,
+            "p05": 0.24403694697788783,
+            "median": 0.33243152073451454,
+            "p95": 0.3794953482491629,
+            "maximum": 0.41898345947265625
+          },
+          "accepted_point_crop_margin_pixels": {
+            "minimum": 8.10528564453125,
+            "p05": 10.487289428710938,
+            "median": 13.189605712890625,
+            "p95": 18.130172729492188,
+            "maximum": 19.38623046875
+          },
+          "fallback_boxes_exactly_preserved": true,
+          "maximum_interpolated_missing_frames": 8,
+          "crop_center_step_pixels": {
+            "minimum": 0.0,
+            "p05": 0.0,
+            "median": 1.0,
+            "p95": 6.082762530298219,
+            "maximum": 18.027756377319946
+          }
+        }
+      }
+    },
+    {
+      "episode": 11,
+      "frames": 877,
+      "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+      "crop_receipt": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\crop-policy-receipt.json",
+      "crop_receipt_sha256": "920cbb50c624301a495641250486b4118f8029c341b1e766fc918749dc442296",
+      "crop_boxes_sha256": "9d75bb9d6b8708454d9ee117840a004ca17b4db23e2bf6e6eeec35237b02d089",
+      "crop_anchors_sha256": "b2e66e562e9a26df1db21a3ce5a74335d8bb864772f483e7198182d754e6ed34",
+      "all_original_frame_ids": true,
+      "square_in_frame_boxes": true,
+      "holdout_training_anchors_zero": true,
+      "sides": {
+        "left": {
+          "source_classes": {
+            "sam_fallback_unknown": 477,
+            "training_image_anchor": 273,
+            "training_neighbor_crop_interpolation": 127
+          },
+          "side_pixels": {
+            "minimum": 64.0,
+            "p05": 64.0,
+            "median": 112.0,
+            "p95": 112.0,
+            "maximum": 116.0
+          },
+          "training_anchor_count": 273,
+          "anchor_full21_span_over_new_crop_side": {
+            "minimum": 0.2663307189941406,
+            "p05": 0.310076904296875,
+            "median": 0.5366411209106445,
+            "p95": 0.6607404082568723,
+            "maximum": 0.7321376800537109
+          },
+          "same_anchor_full21_span_over_old_crop_side": {
+            "minimum": 0.15218898228236608,
+            "p05": 0.17718680245535715,
+            "median": 0.3052231924874442,
+            "p95": 0.3669605800083705,
+            "maximum": 0.41836438860212055
+          },
+          "accepted_point_crop_margin_pixels": {
+            "minimum": 6.12420654296875,
+            "p05": 10.58736572265625,
+            "median": 14.42657470703125,
+            "p95": 21.8087158203125,
+            "maximum": 23.16851806640625
+          },
+          "fallback_boxes_exactly_preserved": true,
+          "maximum_interpolated_missing_frames": 7,
+          "crop_center_step_pixels": {
+            "minimum": 0.0,
+            "p05": 0.0,
+            "median": 4.0,
+            "p95": 11.180339887498949,
+            "maximum": 26.92582403567252
+          }
+        },
+        "right": {
+          "source_classes": {
+            "sam_fallback_unknown": 427,
+            "training_image_anchor": 307,
+            "training_neighbor_crop_interpolation": 143
+          },
+          "side_pixels": {
+            "minimum": 64.0,
+            "p05": 64.0,
+            "median": 87.0,
+            "p95": 112.0,
+            "maximum": 122.0
+          },
+          "training_anchor_count": 307,
+          "anchor_full21_span_over_new_crop_side": {
+            "minimum": 0.21717357635498047,
+            "p05": 0.3552863121032715,
+            "median": 0.5932331085205078,
+            "p95": 0.6782420459609204,
+            "maximum": 0.7630766107794944
+          },
+          "same_anchor_full21_span_over_old_crop_side": {
+            "minimum": 0.12409918648856026,
+            "p05": 0.20302074977329798,
+            "median": 0.3367459656762295,
+            "p95": 0.4131467861599392,
+            "maximum": 0.4527587890625
+          },
+          "accepted_point_crop_margin_pixels": {
+            "minimum": 9.6854248046875,
+            "p05": 10.662322998046875,
+            "median": 13.15985107421875,
+            "p95": 19.960162353515624,
+            "maximum": 23.72393798828125
+          },
+          "fallback_boxes_exactly_preserved": true,
+          "maximum_interpolated_missing_frames": 8,
+          "crop_center_step_pixels": {
+            "minimum": 0.0,
+            "p05": 0.0,
+            "median": 3.605551275463989,
+            "p95": 10.198039027185569,
+            "maximum": 30.479501308256342
+          }
+        }
+      },
+      "original_frame511": {
+        "new_boxes": [
+          [
+            916,
+            608,
+            980,
+            672
+          ],
+          [
+            839,
+            602,
+            951,
+            714
+          ]
+        ],
+        "old_boxes": [
+          [
+            896,
+            584,
+            1008,
+            696
+          ],
+          [
+            839,
+            602,
+            951,
+            714
+          ]
+        ],
+        "source_class": [
+          "training_image_anchor",
+          "sam_fallback_unknown"
+        ],
+        "training_anchor_weights": [
+          1.0,
+          0.0
+        ]
+      }
+    }
+  ],
+  "interpretation": "Source provenance, crop coverage and image-evidence occupancy only; not reconstruction or visibility accuracy",
+  "all30_execution_started": false,
+  "quality_accepted": false
+}

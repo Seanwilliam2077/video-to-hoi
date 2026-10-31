@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-10-31T10:08:01.269469+00:00",
+  "files": [
+    {
+      "path": "tools/human_hand/observations.py",
+      "sha256": "4a903221516c0e579793766dc27676994d6949c444f9cc0798bbac77f644c304"
+    },
+    {
+      "path": "src/v2hoi/hand_crop_inputs.py",
+      "sha256": "80605993d436b93d30f07050e6723981f8cd7a6b2ac375ac2fb4905708959d14"
+    },
+    {
+      "path": "src/v2hoi/__init__.py",
+      "sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda"
+    }
+  ]
+}

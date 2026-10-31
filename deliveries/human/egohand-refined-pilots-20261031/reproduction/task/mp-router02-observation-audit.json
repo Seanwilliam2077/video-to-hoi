@@ -1,0 +1,120 @@
+{
+  "recorded_at": "2026-10-31T10:26:04.618791+00:00",
+  "track": 1,
+  "all30_execution_authorized": false,
+  "episodes": [
+    {
+      "episode": 16,
+      "old": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\observations\\attempt-0001\\observations.npz",
+        "sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7"
+      },
+      "tight_trial": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\fresh-mp01\\observations.npz",
+        "sha256": "8d12d075d8599c16b2e476d0946e26f740d122f5c85c75919cf9b08b6a8b7a41"
+      },
+      "routed": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\fresh-mp02\\observations.npz",
+        "sha256": "941012c727c11b2039abce7309b66e5da4bc27b1e2c8944740fe2f93cf5646f3"
+      },
+      "supported_wrist_and_eight_fingers": {
+        "old": [
+          27,
+          310
+        ],
+        "tight": [
+          10,
+          205
+        ],
+        "routed": [
+          27,
+          312
+        ]
+      },
+      "training_support": {
+        "old": [
+          22,
+          246
+        ],
+        "routed": [
+          22,
+          249
+        ]
+      },
+      "old_to_routed_lost_ids": {
+        "left": [],
+        "right": [
+          315
+        ]
+      },
+      "old_to_routed_gained_ids": {
+        "left": [],
+        "right": [
+          6,
+          314,
+          326
+        ]
+      }
+    },
+    {
+      "episode": 11,
+      "old": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\observations\\attempt-0001\\observations.npz",
+        "sha256": "9445a68b84436caaf6fef82f3aa1c1a9e60d0809717ccfeb395461bce63857e3"
+      },
+      "tight_trial": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\fresh-mp01\\observations.npz",
+        "sha256": "16a00cac5c6281907727fd575cba53b9522c6803f89ae9fab7a44d03b45d2487"
+      },
+      "routed": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\fresh-mp02\\observations.npz",
+        "sha256": "9ca42b7d552dba3a9b7cfcac5a913016db911f700e075c6140e8555f7bade4f4"
+      },
+      "supported_wrist_and_eight_fingers": {
+        "old": [
+          344,
+          384
+        ],
+        "tight": [
+          256,
+          277
+        ],
+        "routed": [
+          346,
+          392
+        ]
+      },
+      "training_support": {
+        "old": [
+          273,
+          307
+        ],
+        "routed": [
+          275,
+          314
+        ]
+      },
+      "old_to_routed_lost_ids": {
+        "left": [],
+        "right": []
+      },
+      "old_to_routed_gained_ids": {
+        "left": [
+          127,
+          129
+        ],
+        "right": [
+          88,
+          103,
+          104,
+          198,
+          199,
+          200,
+          201,
+          202
+        ]
+      }
+    }
+  ],
+  "interpretation": "Actual same-model/gate rerun supports the conservative router; detector support is not measured visibility or pose accuracy. No native quality metric used for crop routing."
+}

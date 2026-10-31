@@ -1,0 +1,117 @@
+{
+  "episode": 11,
+  "command": [
+    "J:/video-to-hoi/work/human-runtime/venv/Scripts/python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\tools\\adapt_refined_egohand.py",
+    "--left",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\smoothed\\left_results.npz",
+    "--right",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\smoothed\\right_results.npz",
+    "--scale-reference-left",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\raw\\left_results.npz",
+    "--scale-reference-right",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\raw\\right_results.npz",
+    "--fresh-observations",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\fresh-mp02\\observations.npz",
+    "--manifest",
+    "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\inference\\attempt-0001\\manifest.json",
+    "--baseline-review-arrays",
+    "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\baseline\\attempt-0001\\review_arrays",
+    "--crop-policy-receipt",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000011\\crop-policy-receipt.json",
+    "--prediction-receipt",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\prediction-receipt.json",
+    "--upstream-commit",
+    "9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9",
+    "--variant",
+    "smoothed",
+    "--output",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\observations-smoothed02"
+  ],
+  "cwd": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02",
+  "log": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep11-adapt-smoothed02.log",
+  "input_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_refined_postprocessing02.py",
+      "sha256": "6185c21b3ad8937326739a5ab210ac31f7e5364b125fb1825eb98e1b86a9d4c0"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_postprocessing_job.py",
+      "sha256": "e1428e96cbc35298a740a477c98a2f61ec06c7714158d1fa46bea904c69526a8"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\snapshot.json",
+      "sha256": "2782b6bddbdaeb6e6cd01c03fa3d2ace3ad7cfae94e5b995f40df18025beb57b"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\protocol02.json",
+      "sha256": "eeabb07a21a77a9a96c71e9a7adb4e753c96df24d66819e57340df8ca677a34d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\inputs-manifest02.json",
+      "sha256": "449311c5c03fa8aacd0b7c14e54b4a9c812edf0e7bf169894eb046fa4e53162f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\prediction-receipt.json",
+      "sha256": "229e6145578c1fb80056f69261c619cd95beec575f2274c45d7c4b69d0e47760"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep11-inference-attempt02.finished.json",
+      "sha256": "002eacdb37e9fb6ca9f0380cd0629ec7305a76d3c3386f00a622814d497fb48e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\raw\\left_results.npz",
+      "sha256": "c98c0d8dbec91da0d44ce6e5eb3dbb3f2c8ea973556528359eb0a6eb38f19821"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\raw\\right_results.npz",
+      "sha256": "d073504f67f08c77465af766a6a59e3f831073b31a394c605c1008a0baca4892"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\smoothed\\left_results.npz",
+      "sha256": "c5c5f3f5430fe5ad347e31db768b6175c19400adef1e9d51b3f6151bd51d49dc"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\smoothed\\right_results.npz",
+      "sha256": "d148e22c542d38da667776050a3b91e80bd7d624416800ce7264f5b033424e2e"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\fresh-mp02\\observations.npz",
+      "sha256": "9ca42b7d552dba3a9b7cfcac5a913016db911f700e075c6140e8555f7bade4f4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\fresh-mp02\\report.json",
+      "sha256": "017a47019e7b4e481fa5bf042b4fd2b4b8e751ed8f151f93361dc541cfc23712"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep11-fresh-mp02.finished.json",
+      "sha256": "57973695a0ffebda2dabab7291200dbdc728d6c9c9bd138144de81d2144c0d02"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000011\\crop-policy-receipt.json",
+      "sha256": "f0e10de692d979f91a410b1e313477e42ce9d404e5425ef53ebbb97135462138"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\inference\\attempt-0001\\manifest.json",
+      "sha256": "42f53498d1d84f8288a7e2a14ec6fa9b4458d788a9eaaf0493cbc40ffb0642dd"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\tools\\adapt_refined_egohand.py",
+      "sha256": "7d55bd4617fb1af4dd90e17493d97367960b661e7984e6aaca22e7ed46e776a9"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\src\\v2hoi\\refined_egohand.py",
+      "sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\src\\v2hoi\\egohand_adapter.py",
+      "sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4"
+    }
+  ],
+  "automatic_promotion": false,
+  "all30_execution_authorized": false,
+  "pid": 65052,
+  "launcher_pid": 108872,
+  "started_at": "2026-10-31T10:42:54.972340+00:00"
+}

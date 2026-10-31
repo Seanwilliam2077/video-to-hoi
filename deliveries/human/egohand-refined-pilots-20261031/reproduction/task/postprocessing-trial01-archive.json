@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-10-31T10:19:52.5781495Z",
+  "status": "trial01_archived_before_idle_controller_stop",
+  "reason": "Root directed crop routing02 from training image support only; preserve trial01 and stop its idle waiter after both fits finished",
+  "controller": {
+    "pid": 43240,
+    "parent_pid": 102112,
+    "command": "\"J:\\video-to-hoi\\work\\human-runtime\\python\\cpython-3.11-windows-x86_64-none\\python.exe\"  -B J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_refined_postprocessing.py --config J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\postprocessing-config01.json --config-sha256 c3bac3c677cb91f46006add63c89cb1038f77dfb04b333b142627a9532010714 --mode run --preflight-receipt J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\postprocessing-preflight01.json --preflight-sha256 a7b6a176ff976825503eee0edd45bc9a52671eae2180e7f222877af4769a96f6",
+    "creation_date": "2026-10-31T18:11:07.249941+08:00"
+  },
+  "owned_child_processes": [],
+  "active_task_fits": [],
+  "fits": [
+    {
+      "episode": 16,
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep16-fit-mp01.finished.json",
+      "sha256": "92c6328f505cf02d4fe693d91d03b82abfb8f337a83e29a3aef030d52b5c0cb2",
+      "returncode": 0,
+      "wall_seconds": 239.06299999984913
+    },
+    {
+      "episode": 11,
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep11-fit-mp01.finished.json",
+      "sha256": "e0f055400f11d6350e7b2f1393fa7af9dffe25993a0e8ee98bce5cf2b748c89b",
+      "returncode": 0,
+      "wall_seconds": 472.5
+    }
+  ],
+  "started_receipt": {
+    "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\postprocessing-started01.json",
+    "sha256": "2be5a5a6cf4b1d1745fa07ce6a426357d638859d2189e14b80d892e9f07d756d"
+  },
+  "progress_snapshot": {
+    "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\postprocessing-progress01.final-snapshot.json",
+    "sha256": "e1f4dc97b987d1d4a5e7c15f3881cb91dd7304616ab5f9142949ad4fc26f3405"
+  },
+  "source_controller_sha256": "83cbb2b4ecebee0263559f191905dd7a6e2794fea2129776f55b138247787a39",
+  "all30_execution_authorized": false,
+  "quality_accepted": false
+}

@@ -1,0 +1,392 @@
+{
+  "recorded_at": "2026-10-31T10:24:09.750954+00:00",
+  "source_commit_before_new_changes": "3e8d21e075f6d8098df4f07dea09b54bb103dc47",
+  "files": [
+    {
+      "path": "src/v2hoi/__init__.py",
+      "bytes": 79,
+      "sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda"
+    },
+    {
+      "path": "src/v2hoi/body.py",
+      "bytes": 3053,
+      "sha256": "4c93bb1d2105a27e62d4576d910700e4e55d5be7b57e938f5e66f682fc087e3c"
+    },
+    {
+      "path": "src/v2hoi/check.py",
+      "bytes": 2258,
+      "sha256": "ca1e04499f1215a4f6f437adaad421557e0bafa3f6a65eaa9392560f95389d82"
+    },
+    {
+      "path": "src/v2hoi/clips.py",
+      "bytes": 3630,
+      "sha256": "18c31ebaae9009e26f92c4d4d4d82dbb09fe880001f12fbf464ffe5488ddbce3"
+    },
+    {
+      "path": "src/v2hoi/contracts.py",
+      "bytes": 17122,
+      "sha256": "304731faca80d7fdc30a4f7eea1cdeb5ebfcf182f9fc3f698b4640b60e1cc8ea"
+    },
+    {
+      "path": "src/v2hoi/dataset.py",
+      "bytes": 5003,
+      "sha256": "947205753f1bfba6aac20cf2e22e0e6df1cd58a40ab7f5e2668f545416fe1eaa"
+    },
+    {
+      "path": "src/v2hoi/deliverables.py",
+      "bytes": 15232,
+      "sha256": "c4f40b52c7267961203f82bb3d911f0cd2bce6e24934d5d898ee160da285d504"
+    },
+    {
+      "path": "src/v2hoi/download.py",
+      "bytes": 1402,
+      "sha256": "7cfd40155f9182d5d8388faf20cd1af88b8ea7c68d4887fe2d36c546363d4196"
+    },
+    {
+      "path": "src/v2hoi/egohand_adapter.py",
+      "bytes": 12313,
+      "sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4"
+    },
+    {
+      "path": "src/v2hoi/gates.py",
+      "bytes": 20305,
+      "sha256": "4dafa34fb898adceba61ed30d1916ea4da15216b84497548f03d632514242b20"
+    },
+    {
+      "path": "src/v2hoi/geometry.py",
+      "bytes": 8349,
+      "sha256": "ae9e3b5b02f23ef3affeb42350558e1de299c24a9a0244fabe7d2b7fcb99414c"
+    },
+    {
+      "path": "src/v2hoi/hand_contact.py",
+      "bytes": 20472,
+      "sha256": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b"
+    },
+    {
+      "path": "src/v2hoi/hand_crop_inputs.py",
+      "bytes": 2585,
+      "sha256": "80605993d436b93d30f07050e6723981f8cd7a6b2ac375ac2fb4905708959d14"
+    },
+    {
+      "path": "src/v2hoi/hand_crop_router.py",
+      "bytes": 9223,
+      "sha256": "47e34caefc97da61780d89f7dfc31fd963f68efc4c9605cd09fc1f9806b4d8d7"
+    },
+    {
+      "path": "src/v2hoi/hand_refinement.py",
+      "bytes": 48522,
+      "sha256": "eb0c2560f8ebbbbc6d2065f1d482b0c14c2b730d61bf97bb754d1ff326baa56f"
+    },
+    {
+      "path": "src/v2hoi/human_result.py",
+      "bytes": 19808,
+      "sha256": "d2074d2c139c996bca9abeb4fbb585d63f76a17bfae59ae456968e2ab8a4e5c2"
+    },
+    {
+      "path": "src/v2hoi/metrics.py",
+      "bytes": 7944,
+      "sha256": "687a1bff4709d14cec31c266478f9db518105bccc69067f4ab9cc724f1f91fec"
+    },
+    {
+      "path": "src/v2hoi/refined_egohand.py",
+      "bytes": 18832,
+      "sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34"
+    },
+    {
+      "path": "src/v2hoi/run.py",
+      "bytes": 5010,
+      "sha256": "80462a0b5fcb042f6f25732bb9154ee8d465fada0a2ac802f69cf6b0e59de6a7"
+    },
+    {
+      "path": "src/v2hoi/sam_body_inputs.py",
+      "bytes": 15134,
+      "sha256": "188f47748fd7ffda9a06802b8bdf3867095780c3b87a818b210ea1fac55cb0cb"
+    },
+    {
+      "path": "src/v2hoi/score.py",
+      "bytes": 26499,
+      "sha256": "bef3bc69c76ee646f24b88f13777ec7dac6b9238a09daa81973a729101bce714"
+    },
+    {
+      "path": "src/v2hoi/stages/__init__.py",
+      "bytes": 1943,
+      "sha256": "11bf82e2d38cee8ab4c2419ac86363725fe2c838b6c97bd784a89cf6bdc52fa6"
+    },
+    {
+      "path": "src/v2hoi/stages/export.py",
+      "bytes": 4916,
+      "sha256": "3a060c4ef815a6357dcb2ebb70eb9b83ed28b3aeefd65e3c2874dcf407280a89"
+    },
+    {
+      "path": "src/v2hoi/stages/human.py",
+      "bytes": 2239,
+      "sha256": "3910412aeac1694aa1c15203ef083c3ab5921e48a288fa49a89756bc636bf106"
+    },
+    {
+      "path": "src/v2hoi/stages/inputs.py",
+      "bytes": 1948,
+      "sha256": "36cb1e6206bf163044f164b77c2274ebd06f7e543fb8c88c50319dc94b716826"
+    },
+    {
+      "path": "src/v2hoi/stages/motion.py",
+      "bytes": 1949,
+      "sha256": "4a3cb341cbe96d575c8395e15a74a58f5a5112d3353c650076b83f24da890f91"
+    },
+    {
+      "path": "src/v2hoi/stages/objects.py",
+      "bytes": 1672,
+      "sha256": "0b95338cf79fd7e0702a4b2aff3b50bc1bb9b988a2c0e02e5dd935f9b8d3713b"
+    },
+    {
+      "path": "src/v2hoi/stages/refine.py",
+      "bytes": 1141,
+      "sha256": "a219e3b1094a8cbdddb6ea625889065383e6b54b9333d97010c6812efa835de1"
+    },
+    {
+      "path": "src/v2hoi/v2/__init__.py",
+      "bytes": 162,
+      "sha256": "8077e17df0889c25087c98af4698415e84e9cf3657d09137e51c8bb4d062a19e"
+    },
+    {
+      "path": "src/v2hoi/v2/artifacts.py",
+      "bytes": 19400,
+      "sha256": "d13a816612f2fadd8ac85b09b52c11a4ba5e3a70682b1b22cfd55a77c9de48f3"
+    },
+    {
+      "path": "src/v2hoi/v2/contracts.py",
+      "bytes": 38014,
+      "sha256": "49bfdf8ad2ba3c0aeccffa6296568410efcc14e7c86e8abe02c61abdeca06a30"
+    },
+    {
+      "path": "src/v2hoi/v2/geometry.py",
+      "bytes": 11374,
+      "sha256": "edd44935afd51b20ceda1c0ab464f4992a71a76773a30887ad1af28499f29554"
+    },
+    {
+      "path": "tools/adapt_egohand_observations.py",
+      "bytes": 5247,
+      "sha256": "41c861bdf56a0acaeba3338ba7b45b4422626341d107d71e61d593467ca6e267"
+    },
+    {
+      "path": "tools/adapt_refined_egohand.py",
+      "bytes": 10359,
+      "sha256": "7d55bd4617fb1af4dd90e17493d97367960b661e7984e6aaca22e7ed46e776a9"
+    },
+    {
+      "path": "tools/assemble_runtime_cp311.py",
+      "bytes": 3526,
+      "sha256": "403cc2dee875fbc88ae69874a2992211459e74344381519b1ca20275cdd683d6"
+    },
+    {
+      "path": "tools/assemble_runtime_profile.py",
+      "bytes": 3928,
+      "sha256": "0db18283d255e3f18187b78a54f67bcd31c1a66a5acfbf312c385f606e7abcd1"
+    },
+    {
+      "path": "tools/benchmark_first3.py",
+      "bytes": 11039,
+      "sha256": "fa190f4d39d37874d28d8e4ee7099d37d4f44350435dc7a7df3959610d449310"
+    },
+    {
+      "path": "tools/benchmark_moge_video.py",
+      "bytes": 7854,
+      "sha256": "a4dccf841cce69060c4b3fe8ff4d4675f03f82c4132e5a37c39005c4fe29e497"
+    },
+    {
+      "path": "tools/build_delivery_catalog.py",
+      "bytes": 18762,
+      "sha256": "dbee124c99526b8dc17295f943024f7ae32aad13557d9b1a855e606c76dedb68"
+    },
+    {
+      "path": "tools/build_human_catalog.py",
+      "bytes": 12717,
+      "sha256": "b9c0042e1db8bca02d8e04f5b8453954bfc9f8d6e50c28673ebe0e9e0390fcc7"
+    },
+    {
+      "path": "tools/check_body_handoff.py",
+      "bytes": 24347,
+      "sha256": "018f09b10a71c407bd04beb24ff27154fcd4d467fa6021664005788692bc65fa"
+    },
+    {
+      "path": "tools/check_body_native_readers.py",
+      "bytes": 9575,
+      "sha256": "834204a898d94b67c02688b70f87df1fd211f271b1e136b45a6a310d2211dba2"
+    },
+    {
+      "path": "tools/compare_human_hands.py",
+      "bytes": 12981,
+      "sha256": "54f4980bdc7514562dbff1f9d6c3341fb1e0ffbdc70ba0a114d9aa18fddf00c1"
+    },
+    {
+      "path": "tools/demo_delivery_gates.py",
+      "bytes": 4472,
+      "sha256": "9dda991ff01c266b9bf629b3069eeab2a3f1aa3964e09b2db809d334c7a98f58"
+    },
+    {
+      "path": "tools/download_foundationpose.py",
+      "bytes": 7092,
+      "sha256": "539e0261b5d8cdab642a77193463609790f610b4c6462de7f937ba6945b27fa7"
+    },
+    {
+      "path": "tools/evaluate_egohand_pilots.py",
+      "bytes": 15540,
+      "sha256": "f49c1a29398db4d699b422bbb6bb380dd445f5a32e57e87b6b3e2d7513daf9aa"
+    },
+    {
+      "path": "tools/evaluate_human_hand_pilots.py",
+      "bytes": 33495,
+      "sha256": "11f77eb336c4be64b37ae8be3e572e59efb6f6561c957e99216214457781ef8d"
+    },
+    {
+      "path": "tools/evaluate_refined_egohand_pilots.py",
+      "bytes": 30800,
+      "sha256": "6b57adf0903c165fdb99fd1fccb1567c40b6c8a045d55b62ff579e27058e3c12"
+    },
+    {
+      "path": "tools/fetch_assets.py",
+      "bytes": 22691,
+      "sha256": "1dd4f1b2f93eb6b575b5dc4b7b725d52121d39884191ff491b961773cb53e452"
+    },
+    {
+      "path": "tools/fetch_runtime_distributions.py",
+      "bytes": 3937,
+      "sha256": "ff8b9e4c32da1459a54d4c2262cb8af2414546412b442e3afe51a6eae5acaf27"
+    },
+    {
+      "path": "tools/finalize_human.py",
+      "bytes": 6905,
+      "sha256": "8231ad5ccd24abe2464af6199846d3b17acaa719c32c212993d27f84f272eb66"
+    },
+    {
+      "path": "tools/human_hand/observations.py",
+      "bytes": 18132,
+      "sha256": "4a903221516c0e579793766dc27676994d6949c444f9cc0798bbac77f644c304"
+    },
+    {
+      "path": "tools/human_runtime/prepare_assets.py",
+      "bytes": 10956,
+      "sha256": "12a0f5994eefa0f30177344e44a55e2148b2611969b13796983e288015b2e56c"
+    },
+    {
+      "path": "tools/human_runtime/prepare_converter.py",
+      "bytes": 3902,
+      "sha256": "6be1748d6dd905daedcdd2a1032d9a8491e17d682c01406b5b1351107073d8e9"
+    },
+    {
+      "path": "tools/human_runtime/prepare_sources.py",
+      "bytes": 5587,
+      "sha256": "1b43783688012d6bbff71758dd04a55ab6de20786fb345bd48ecf943a1125026"
+    },
+    {
+      "path": "tools/package_body_handoff.py",
+      "bytes": 30119,
+      "sha256": "0bd6516ff797b8375cb0f3dacf4a36b837dd84ee64af769e0fc126f7dd2882e9"
+    },
+    {
+      "path": "tools/package_human_delivery.py",
+      "bytes": 35292,
+      "sha256": "ab4d8fbd61bce47e815fde15ff62f6cfe675a8b07c08229154c3e1b8985a9947"
+    },
+    {
+      "path": "tools/prepare_body_camera.py",
+      "bytes": 23491,
+      "sha256": "ed82f4253387c81f6d91fd892eb95ed1d11796f4cd8670058dbd2407adc91932"
+    },
+    {
+      "path": "tools/prepare_body_masks.py",
+      "bytes": 29679,
+      "sha256": "56fa59b572125ae9e2b04b0ca0f5574d90a4039166a82f2edc3e5c40026ab7dc"
+    },
+    {
+      "path": "tools/prepare_bundle.py",
+      "bytes": 27445,
+      "sha256": "62905b704d9c01c80a21c14567d4d7c72738d0eac4ebdd88138074d3753c5952"
+    },
+    {
+      "path": "tools/prepare_model_release.py",
+      "bytes": 9895,
+      "sha256": "07e502ff19f070c613d9d0f38f213d7e0c16b63e255d5e231f351ef6989c63dd"
+    },
+    {
+      "path": "tools/prepare_refined_egohand_crops.py",
+      "bytes": 3919,
+      "sha256": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b"
+    },
+    {
+      "path": "tools/prepare_track1_data.py",
+      "bytes": 20730,
+      "sha256": "34adbf9657bcb5b0ce6c8196756178d91ea25ddb8b0e83638fb9fd5ab566bc98"
+    },
+    {
+      "path": "tools/prepare_wheelhouse.py",
+      "bytes": 11499,
+      "sha256": "3c6e3fc1bb77a45d43eeb89e028f3e5fff4d1f37b7aa5f07d8d32f4528a24df2"
+    },
+    {
+      "path": "tools/progress_board.py",
+      "bytes": 25333,
+      "sha256": "c6e3cae0d43816ab1da07a52f490cffe70268ad523e44fa93fd6b3fa7742ea1f"
+    },
+    {
+      "path": "tools/publish_human_delivery.py",
+      "bytes": 28207,
+      "sha256": "d9fe8d99b0a5e3efaee29de05f4039c7e6f2991d954d7704661cdfc42f1a0344"
+    },
+    {
+      "path": "tools/rank_first3.py",
+      "bytes": 22239,
+      "sha256": "e12b828d3a93a2458b70987e2341bb1564a83d09bdff8a9a97d744e098a8e884"
+    },
+    {
+      "path": "tools/refine_human_hands.py",
+      "bytes": 21076,
+      "sha256": "cdc92007060568df7c99cda2ef34fa8afa38e3a511f2a5f8cc6cddcba8ad3977"
+    },
+    {
+      "path": "tools/render_body_mask_qa.py",
+      "bytes": 9199,
+      "sha256": "bc6cd3338ba51fa271a6931b4176da10f4cd3b5874ccd1ee54cfe1dae64a93d1"
+    },
+    {
+      "path": "tools/restore_handoff.py",
+      "bytes": 2841,
+      "sha256": "407a0b47f9ab4fcd5af7e14ea28be8bd989738ac114f9130826a04531eb5a370"
+    },
+    {
+      "path": "tools/restore_model_release.py",
+      "bytes": 14551,
+      "sha256": "4fdbc30b176aeadf0a3c1b631c62872c73a476006313114fb813d1d08abad99c"
+    },
+    {
+      "path": "tools/review_human.py",
+      "bytes": 24250,
+      "sha256": "856f5c8231900fba1ba1a15f0b33031c76719ca1ea395e8db04cc58080bf3932"
+    },
+    {
+      "path": "tools/route_refined_hand_crops.py",
+      "bytes": 6462,
+      "sha256": "659252927a4b5c6ef16c355dd52bf8cabe22442cec6daf00a430a2076a994f3a"
+    },
+    {
+      "path": "tools/run_human_batch.py",
+      "bytes": 51043,
+      "sha256": "dac13e8b750d508548e11b480413a28a48e283111c5bf017ad9af123b9deeece"
+    },
+    {
+      "path": "tools/run_sam3d_body.py",
+      "bytes": 24064,
+      "sha256": "c2d2d50a3c6e23bdaaaf69f72d3d168629dc476bc1984750dc42f79560fb3792"
+    },
+    {
+      "path": "tools/serve_human_review.py",
+      "bytes": 3506,
+      "sha256": "6f2e7897acbe3dd8e1c61f4990ef7634dcce598d3dc6a04a90622dac4e5024a0"
+    },
+    {
+      "path": "tools/track1_gallery/build.py",
+      "bytes": 6631,
+      "sha256": "e2201dbd443ffd17062c8d2fb1c82aeec81bd7839bca6e806ff5c6c730e7548c"
+    }
+  ],
+  "all30_execution_authorized": false
+}

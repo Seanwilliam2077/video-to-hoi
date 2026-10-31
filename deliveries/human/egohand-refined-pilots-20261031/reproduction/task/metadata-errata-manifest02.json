@@ -1,0 +1,154 @@
+{
+  "schema_version": "human_metadata_errata_manifest.v1",
+  "recorded_at": "2026-10-31T10:54:43.853345+00:00",
+  "track": 1,
+  "status": "both_canonical_metadata_copies_verified",
+  "helper": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata_corrections02.py",
+  "helper_sha256": "28b3fb3bc941e637f19833a750f7bf94d75f7f5c783cf2204b168c9393bb0c66",
+  "completion": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata-corrections02\\completion.json",
+  "completion_sha256": "f0ee927fbe02a3931f77c5697e0bc629dd2a42f125579006c9afc11aeb60c935",
+  "episodes": [
+    {
+      "episode": 16,
+      "canonical_npz": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata-corrections02\\episode_000016\\episode_000016_human.npz",
+      "canonical_npz_sha256": "7da3e259d042dd4ef451a29bc9f037d059e531e3cea4de4c6411b751ee958b0a",
+      "canonical_report": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata-corrections02\\episode_000016\\report.json",
+      "canonical_report_sha256": "15aab751832be15624cf75cb017cecae74fa26588c8e852dec623fd4af3137e1",
+      "correction_receipt": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata-corrections02\\episode_000016\\correction-receipt.json",
+      "correction_receipt_sha256": "9663d791a6d4202e9f13c31d78956d4ce65be7536338070c4f2572475839d986",
+      "original_npz": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\candidate-egohand02\\episode_000016_human.npz",
+      "original_npz_sha256": "428536a1b532019dbf4000e50178097edc83fb29f2a8229e6c9b0f959622173c",
+      "original_report": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\candidate-egohand02\\report.json",
+      "actual_observation_kind": "egohand_geometric_proposals.v1",
+      "actual_observation_report_schema": "refined_egohand_proposals.v1",
+      "new_method": "source_bound_model_target_native_mhr_sequence_fit",
+      "nonreport_array_checks": [
+        {
+          "key": "pose",
+          "dtype": "float32",
+          "shape": [
+            360,
+            136
+          ],
+          "array_payload_sha256": "1fa50b75e21e4421800536d20dcf2f12b82f28206688a16f303075284dd38a3b",
+          "original_and_canonical_npy_member_sha256": "d4e17f98eb1ae886dd16443574014efb643cafeb7fc523558e268ba7580e86b0",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        },
+        {
+          "key": "scales",
+          "dtype": "float32",
+          "shape": [
+            68
+          ],
+          "array_payload_sha256": "6bf2d757ea63bc73e0a2047984206a7dfc2852bf35fd55c1c6bb1d8fb7e921c7",
+          "original_and_canonical_npy_member_sha256": "b0d38d4aad7ffbe2d9f46c1ac818e427d7f46d55b476a8db982636209bb0ac5f",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        },
+        {
+          "key": "shape",
+          "dtype": "float32",
+          "shape": [
+            45
+          ],
+          "array_payload_sha256": "4149231d6b083593bb4ceba375c10d3a2954efe0194bcab5831aedeb484346c2",
+          "original_and_canonical_npy_member_sha256": "cf344f4b1d9fcdd44916fbee207f0d612e682900de9a7e93a10c17ed7c665d4b",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        },
+        {
+          "key": "fps",
+          "dtype": "float32",
+          "shape": [],
+          "array_payload_sha256": "409303c5035263c102682239f8d654e7e194daae6235aff347c036576a261d96",
+          "original_and_canonical_npy_member_sha256": "2d8c6bb8970af1a7a3816348ec22b36281bd665d0746cfffcb3613c0238615ef",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        },
+        {
+          "key": "frame_indices",
+          "dtype": "int64",
+          "shape": [
+            360
+          ],
+          "array_payload_sha256": "c5b5d89abc3aae5b9debf1091964dedb9e385c3348ba8746fecd1165ae058289",
+          "original_and_canonical_npy_member_sha256": "3ca08dc687cd62c6a5a10aded2d0db13553ba26395f0905edadc9472231f1fa7",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        }
+      ],
+      "executed_source_hashes_preserved": true
+    },
+    {
+      "episode": 11,
+      "canonical_npz": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata-corrections02\\episode_000011\\episode_000011_human.npz",
+      "canonical_npz_sha256": "161008e2f91e5c07053d14f32ce848f74f6a192caf1357ecf57661490812714f",
+      "canonical_report": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata-corrections02\\episode_000011\\report.json",
+      "canonical_report_sha256": "c769bf49220f50f0a72951d70119da3f395d7b55e4ccca51b14f0778b652880e",
+      "correction_receipt": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata-corrections02\\episode_000011\\correction-receipt.json",
+      "correction_receipt_sha256": "c594601d67e353647157533852d89343b96eafacadcc25429455af762d7cbb5b",
+      "original_npz": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\candidate-egohand02\\episode_000011_human.npz",
+      "original_npz_sha256": "d4aa2b83eb00780a6750dc8bec5656d1403f6e827d5422588fa864c4510d41c7",
+      "original_report": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\candidate-egohand02\\report.json",
+      "actual_observation_kind": "egohand_geometric_proposals.v1",
+      "actual_observation_report_schema": "refined_egohand_proposals.v1",
+      "new_method": "source_bound_model_target_native_mhr_sequence_fit",
+      "nonreport_array_checks": [
+        {
+          "key": "pose",
+          "dtype": "float32",
+          "shape": [
+            877,
+            136
+          ],
+          "array_payload_sha256": "b687713c64f8f0f460b5e0e1fb62859e89dc774a0cb6e8fd0e9381d40769d757",
+          "original_and_canonical_npy_member_sha256": "5d14a8eafc42f1ec6d4e2acd9759ce4b7290231d521a569f971505503acc9a0b",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        },
+        {
+          "key": "scales",
+          "dtype": "float32",
+          "shape": [
+            68
+          ],
+          "array_payload_sha256": "ab4c2e65381a7ca12386acd78036b2d6a83a204ce504adeb9c7851c7673ffd51",
+          "original_and_canonical_npy_member_sha256": "903973ab04f2a6988cae8bf5669ccb8826ba0275d10bb48465550221def41371",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        },
+        {
+          "key": "shape",
+          "dtype": "float32",
+          "shape": [
+            45
+          ],
+          "array_payload_sha256": "4b32e0392e12ad053d96cff73cc9e3cc8c1ce0876a4a34f7c53e0a29b277ab14",
+          "original_and_canonical_npy_member_sha256": "4404f4f276db28ea1efa319dce8d75b7c9dde9d7698fa89933afc10811cfc23d",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        },
+        {
+          "key": "fps",
+          "dtype": "float32",
+          "shape": [],
+          "array_payload_sha256": "409303c5035263c102682239f8d654e7e194daae6235aff347c036576a261d96",
+          "original_and_canonical_npy_member_sha256": "2d8c6bb8970af1a7a3816348ec22b36281bd665d0746cfffcb3613c0238615ef",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        },
+        {
+          "key": "frame_indices",
+          "dtype": "int64",
+          "shape": [
+            877
+          ],
+          "array_payload_sha256": "f01f48f128e89e98eff46914eec0473a9f05e325d1bc322e011568a4f4430b86",
+          "original_and_canonical_npy_member_sha256": "0a73c2f50eb9cf50f20a57699aba108e181d777c389cb84af1a58030cfe64657",
+          "exact_dtype_shape_payload_and_member_bytes": true
+        }
+      ],
+      "executed_source_hashes_preserved": true
+    }
+  ],
+  "numeric_parameter_or_geometry_change": false,
+  "old_evaluation_and_video_preserved": true,
+  "all_original_bytes_preserved_rechecked": true,
+  "all_nonreport_npy_members_identical_rechecked": true,
+  "no_neural_fit_or_render_rerun": true,
+  "official_scores_computed": false,
+  "quality_or_contact_accepted": false,
+  "all30_execution_started": false
+}

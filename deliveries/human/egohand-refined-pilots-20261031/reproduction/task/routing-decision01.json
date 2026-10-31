@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-31T10:17:13.671787+00:00",
+  "track": 1,
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "all30_execution_authorized": false,
+  "decision": "Preserve tight-crop trial01; add conservative training-image-support routing between original and tight boxes before full neural inference.",
+  "reason": "Same detector/gates lose supported detections, including source-visible EP11frame511 (old20admittedpoints,tight0). Lost observations must not be counted as quality improvement.",
+  "selection_inputs": [
+    {
+      "episode": 16,
+      "old_mediapipe": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\observations\\attempt-0001\\observations.npz",
+        "sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7"
+      },
+      "tight_trial_mediapipe": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\fresh-mp01\\observations.npz",
+        "sha256": "8d12d075d8599c16b2e476d0946e26f740d122f5c85c75919cf9b08b6a8b7a41"
+      }
+    },
+    {
+      "episode": 11,
+      "old_mediapipe": {
+        "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000011\\observations\\attempt-0001\\observations.npz",
+        "sha256": "9445a68b84436caaf6fef82f3aa1c1a9e60d0809717ccfeb395461bce63857e3"
+      },
+      "tight_trial_mediapipe": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\fresh-mp01\\observations.npz",
+        "sha256": "16a00cac5c6281907727fd575cba53b9522c6803f89ae9fab7a44d03b45d2487"
+      }
+    }
+  ],
+  "excluded_selection_inputs": [
+    "Stride5 detector positions/weights",
+    "Native fitting losses or quality metrics",
+    "Official/hidden reference scores"
+  ],
+  "router_rule": {
+    "minimum_accepted_fingers": 8,
+    "requires_wrist": true,
+    "trial_finger_count_not_below_old": true,
+    "tight_entry_consecutive_training_slots": 3,
+    "immediate_wide_on_regression": true,
+    "heldout": "wide unless nearest left/right training routes are both tight; no heldout detector data",
+    "new_mixed_pair_duplicate_guard_pixels": 12,
+    "blended_target_or_box_interpolation": false
+  },
+  "trial_artifacts_read_only": true,
+  "full_Ego_inference_started": false,
+  "quality_accepted": false
+}

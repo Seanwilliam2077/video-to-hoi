@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-31T11:16:21.546841+00:00",
+  "scope": "Additional independent crop producer audit, copied after the original247-file staging without modifying its inventory or any original artifact. Both inventories together bind copied evidence.",
+  "original_staging_inventory_sha256": "e804354961b2b18dc0d0fbf36cd316258426e87f62aae9f666b02f39010e753d",
+  "files": [
+    {
+      "path": "evidence/crop-producer-source-review.json",
+      "bytes": 14491,
+      "sha256": "08867e1d40b4d93ab9d90c5afe198985444b028268655440a9bad044bd6f57dc",
+      "source": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crop-cli-producer-provenance-audit02.json"
+    },
+    {
+      "path": "reproduction/task/audit_crop_producer_source02.py",
+      "bytes": 8527,
+      "sha256": "c0e51ad0cb84ff9d189e6ed2d3a328a23e5bd64dd565e9ffada178a1950865d3",
+      "source": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\audit_crop_producer_source02.py"
+    }
+  ]
+}

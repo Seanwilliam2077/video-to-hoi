@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-31T10:00:36.854653+00:00",
+  "track": 1,
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "all30_execution_authorized": false,
+  "start_commit": "3e8d21e075f6d8098df4f07dea09b54bb103dc47",
+  "branch": "human",
+  "preexisting_unrelated_status_sha256": "234d4c2fc6baf3fe141ffaf12c59372ea120658507446c49340c1eee591728b5",
+  "prior_source_root": "J:/video-to-hoi/work/egohand-pilots-20261031",
+  "prior_results_read_only": true,
+  "no_catalog_promotion": true,
+  "official_scores_available": false
+}

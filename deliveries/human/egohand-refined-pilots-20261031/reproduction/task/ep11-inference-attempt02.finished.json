@@ -1,0 +1,94 @@
+{
+  "episode": 11,
+  "command": [
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Scripts\\python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_refined_egohand02.py",
+    "--asset-root",
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031",
+    "--input-manifest",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\inputs-manifest02.json",
+    "--input-manifest-sha256",
+    "449311c5c03fa8aacd0b7c14e54b4a9c812edf0e7bf169894eb046fa4e53162f",
+    "--protocol",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\protocol02.json",
+    "--protocol-sha256",
+    "eeabb07a21a77a9a96c71e9a7adb4e753c96df24d66819e57340df8ca677a34d",
+    "--crop-boxes",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000011\\crop_boxes.npy",
+    "--crop-receipt",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000011\\crop-policy-receipt.json",
+    "--crop-receipt-sha256",
+    "f0e10de692d979f91a410b1e313477e42ce9d404e5425ef53ebbb97135462138",
+    "--episode",
+    "11",
+    "--output",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02",
+    "--device",
+    "cpu",
+    "--dtype",
+    "float32",
+    "--threads",
+    "12",
+    "--batch-size",
+    "8",
+    "--frame-chunk-size",
+    "8",
+    "--with-smoothing",
+    "--reuse-verified-raw-cache",
+    "--raw-cache-proof",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\cache-contract-ep16-attempt01.result.json",
+    "--raw-cache-proof-sha256",
+    "76675aeb3554863fa6bc2d2a76896a0d2865e290902a023d25dc34020c95b18a"
+  ],
+  "output": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02",
+  "log": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep11-inference-attempt02.log",
+  "source_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_refined_egohand02.py",
+      "sha256": "91729499f3454489e9611e4a51498e8c4886d1421acf6df2f367ac53533c4ec4"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\raw_cache02.py",
+      "sha256": "e415747f01bfc190ae811bc0452ecc0b1fff1996099a998ced04b7282e5e67ef"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_runtime_job.py",
+      "sha256": "d4a81c97b76faa6e82eda6463b72938f7c3342ed510b8638837c86d0cac28ada"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_two_full02.py",
+      "sha256": "1274b125f3f95f40b6ee222e815ffdeb9a49bca33458898cbf5912ce99a64e36"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\protocol02.json",
+      "sha256": "eeabb07a21a77a9a96c71e9a7adb4e753c96df24d66819e57340df8ca677a34d"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\inputs-manifest02.json",
+      "sha256": "449311c5c03fa8aacd0b7c14e54b4a9c812edf0e7bf169894eb046fa4e53162f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000011\\crop_boxes.npy",
+      "sha256": "c6fe51980d2bffe094f6d521fc8f26d21b6d486d1d0f609ceacdb9357bfe9bec"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000011\\crop-policy-receipt.json",
+      "sha256": "f0e10de692d979f91a410b1e313477e42ce9d404e5425ef53ebbb97135462138"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\cache-contract-ep16-attempt01.result.json",
+      "sha256": "76675aeb3554863fa6bc2d2a76896a0d2865e290902a023d25dc34020c95b18a"
+    }
+  ],
+  "all30_execution_authorized": false,
+  "raw_cache_enabled": true,
+  "all_hand_views_neurally_recomputed": false,
+  "quality_selection": false,
+  "started_at": "2026-10-31T10:33:52.277849+00:00",
+  "launcher_pid": 64776,
+  "pid": 80844,
+  "finished_at": "2026-10-31T10:42:50.890134+00:00",
+  "returncode": 0,
+  "wall_seconds": 538.5978965999093
+}

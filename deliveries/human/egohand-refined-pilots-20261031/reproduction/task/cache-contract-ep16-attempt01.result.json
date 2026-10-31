@@ -1,0 +1,155 @@
+{
+  "recorded_at": "2026-10-31T10:27:06.974478+00:00",
+  "track": 1,
+  "episode": 16,
+  "passed": true,
+  "neural_forward_calls": 0,
+  "raw_cache_lineage": {
+    "receipt": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\prediction-receipt.json",
+    "receipt_sha256": "be89b287b8cf40814bbb11c65d1db7c4e1addc6166cc47c7232554852ccbc8ec",
+    "raw_outputs": {
+      "left": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\raw\\left_results.npz",
+        "sha256": "0c284f8e0bf585f2bf84f4a36d21b9d7d2b9796c4bd45a200cde56db8fe90da0"
+      },
+      "right": {
+        "path": "J:\\video-to-hoi\\runs\\egohand-pilots-20261031\\episode_000016\\egohand-raw-attempt01\\raw\\right_results.npz",
+        "sha256": "73c6d96bb7882214b26690e185a0cb2dfda437d7327bc4430fc9ee088137a8d1"
+      }
+    },
+    "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+    "camera_sha256": "4c50ff6e28dd2b9fd1c2d1b536470c6b5395521825376cf35151c8a6c16bf0df",
+    "original_observations_sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7",
+    "upstream_commit": "9dfc9f25fe0b8c69a2f4f0bc01eb669097f7d1b9",
+    "checkpoint_sha256": "f940ecb6e3b73d5bd9e562cff232550e1c072f6c063eb4f705951122b15d8a75",
+    "original_runner_sha256": "9cbfdd91c492da8d54f661d02f3cfba567e09ec6206ff477b4f2a36eac75770b",
+    "sampling": "Official affine256 bilinear RGB/ImageNet; FP32 CPU; no perspective/aspect rectification/box expansion",
+    "restored_internal_metadata": [
+      "K_fullimg from exact original K",
+      "hand_type from anatomical side",
+      "image_id from original frame ID"
+    ],
+    "smoothed_cache_reused": false,
+    "prediction_interpolation": false
+  },
+  "golden_matching_crop_checks": [
+    {
+      "side": "left",
+      "original_frame_id": 0,
+      "joint_norm_metres": 1.5034731859486783e-07,
+      "translation_norm_metres": 2.9802322387695312e-08,
+      "source_projection_pixels": 6.034386319611126e-05
+    },
+    {
+      "side": "left",
+      "original_frame_id": 108,
+      "joint_norm_metres": 1.3514129193481494e-07,
+      "translation_norm_metres": 2.10711732506752e-08,
+      "source_projection_pixels": 5.287794810299005e-05
+    },
+    {
+      "side": "left",
+      "original_frame_id": 109,
+      "joint_norm_metres": 1.289537152615594e-07,
+      "translation_norm_metres": 5.198957708785201e-08,
+      "source_projection_pixels": 7.462069931878886e-05
+    },
+    {
+      "side": "left",
+      "original_frame_id": 110,
+      "joint_norm_metres": 2.1099749858422e-07,
+      "translation_norm_metres": 1.285075370560662e-07,
+      "source_projection_pixels": 0.00014105979496055175
+    },
+    {
+      "side": "left",
+      "original_frame_id": 111,
+      "joint_norm_metres": 2.3442704844001128e-07,
+      "translation_norm_metres": 7.54831077642848e-08,
+      "source_projection_pixels": 0.00010912521264339062
+    },
+    {
+      "side": "left",
+      "original_frame_id": 112,
+      "joint_norm_metres": 1.4774897749703086e-07,
+      "translation_norm_metres": 4.7867086294672845e-08,
+      "source_projection_pixels": 6.250124462609911e-05
+    },
+    {
+      "side": "left",
+      "original_frame_id": 283,
+      "joint_norm_metres": 1.271519636247831e-07,
+      "translation_norm_metres": 4.826228519050346e-07,
+      "source_projection_pixels": 3.475614635377252e-05
+    },
+    {
+      "side": "left",
+      "original_frame_id": 284,
+      "joint_norm_metres": 1.671406266723352e-07,
+      "translation_norm_metres": 5.372690026206328e-08,
+      "source_projection_pixels": 5.7856233267436755e-05
+    },
+    {
+      "side": "left",
+      "original_frame_id": 285,
+      "joint_norm_metres": 1.0693594987287725e-07,
+      "translation_norm_metres": 4.791597802977776e-07,
+      "source_projection_pixels": 3.5280479454447696e-05
+    },
+    {
+      "side": "right",
+      "original_frame_id": 0,
+      "joint_norm_metres": 2.862677206394437e-07,
+      "translation_norm_metres": 1.2287812012345967e-07,
+      "source_projection_pixels": 0.0001952661651041144
+    }
+  ],
+  "whole_clip_official_smoothing_roundtrip": [
+    {
+      "side": "left",
+      "frames": 360,
+      "old_smoothed_sha256": "6492c3eb8bcd5608deb1db08017ae2832dd9e01a6589ddaecc76b345b190bfef",
+      "recomputed_smoothed_sha256": "6492c3eb8bcd5608deb1db08017ae2832dd9e01a6589ddaecc76b345b190bfef",
+      "max_abs_differences": {
+        "num_frames": 0.0,
+        "hand_poses": 0.0,
+        "identity_coeffs": 0.0,
+        "global_scale": 0.0,
+        "vertices": 0.0,
+        "joints": 0.0,
+        "cam_t": 0.0,
+        "scale_params": 0.0,
+        "pred_kp2d_crop_presence": 0.0,
+        "pred_kp2d_sigma": 0.0,
+        "pred_keypoints_2d": 0.0
+      },
+      "source_projection_norm_difference_pixels": 0.0,
+      "passed": true
+    },
+    {
+      "side": "right",
+      "frames": 360,
+      "old_smoothed_sha256": "84de03d4a7c7e79dcc915feb7475c6a6c99c34d80b7c15363d54ae4322a6d476",
+      "recomputed_smoothed_sha256": "84de03d4a7c7e79dcc915feb7475c6a6c99c34d80b7c15363d54ae4322a6d476",
+      "max_abs_differences": {
+        "num_frames": 0.0,
+        "hand_poses": 0.0,
+        "identity_coeffs": 0.0,
+        "global_scale": 0.0,
+        "vertices": 0.0,
+        "joints": 0.0,
+        "cam_t": 0.0,
+        "scale_params": 0.0,
+        "pred_kp2d_crop_presence": 0.0,
+        "pred_kp2d_sigma": 0.0,
+        "pred_keypoints_2d": 0.0
+      },
+      "source_projection_norm_difference_pixels": 0.0,
+      "passed": true
+    }
+  ],
+  "model_camera_mode": "sam3db_perspective",
+  "proof_source_sha256": "e415747f01bfc190ae811bc0452ecc0b1fff1996099a998ced04b7282e5e67ef",
+  "quality_assessed": false,
+  "all30_execution_started": false
+}

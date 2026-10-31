@@ -1,0 +1,205 @@
+{
+  "recorded_at": "2026-10-31T10:50:58.511645+00:00",
+  "track": 1,
+  "episode": 16,
+  "reviewer": "Codex egohand_adapter independent final02 sampled QA",
+  "evaluation_sha256": "d7fb13844d7fbd6b4536fcaebbd1870be0df00d805bf293c3234b16b7d3a320c",
+  "numeric_review": {
+    "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep16-final02-independent-numeric-review01.json",
+    "sha256": "39958c3c632294600a0b7e7f684640bcb2c2b89e97ae1f23d0d4db7249b36ef2"
+  },
+  "display_roi_sha256": "dabaa465548b5da027736cb57eb815c88e9431a051a1d9f71c56fc6286e408aa",
+  "images_actually_viewed": [
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000060.jpg",
+      "sha256": "bb9f62fad103b9b074f4374f3d2c24539e08c306e6f5c446448a7ada251799b8",
+      "original_frame_id": 60,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000060.jpg",
+      "sha256": "20ba5b6a45be50d36777214d0b23a92ceee55c39d98bbadbe9922b37ac49f927",
+      "original_frame_id": 60,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\proposal-comparison-000060.jpg",
+      "sha256": "1df158059f275271723b1db48319666fe08295dddfaee31a0c366c230dfe8e57",
+      "original_frame_id": 60,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000110.jpg",
+      "sha256": "516187f13667fd0e31d35329ddea560696a84e83cd00bb3511c8b7f64588a50d",
+      "original_frame_id": 110,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000110.jpg",
+      "sha256": "8813a89e40ed434f777ba7cbbcb76e4f5e95e75245275a09808c042ea849ca93",
+      "original_frame_id": 110,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\proposal-comparison-000110.jpg",
+      "sha256": "3197944845334aeac701e9254e63df9ac25eb080cbc2fbc2e684411cbb6fddd5",
+      "original_frame_id": 110,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000284.jpg",
+      "sha256": "44da4e338f34ce85e0ea913e4718a22073ce0e04b81ddd61ed9703b001b87bbc",
+      "original_frame_id": 284,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000284.jpg",
+      "sha256": "1f98a44da9f708fd03185f875949b29a8774e7b706fbebd4d52f9ac3bb0e4969",
+      "original_frame_id": 284,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\proposal-comparison-000284.jpg",
+      "sha256": "ffd7bfc9068cb4719bbcc979f70a03492fcbe676bcc2469934eda364a277826d",
+      "original_frame_id": 284,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000285.jpg",
+      "sha256": "650b5a58277f5809a76ceba55c459cd5460b78ea54e6163ec266b875e2247b02",
+      "original_frame_id": 285,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000285.jpg",
+      "sha256": "c2acdd5a50d914b5e04a31213c8f5950d937f977a98b73fec6217bae59cb3b75",
+      "original_frame_id": 285,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\proposal-comparison-000285.jpg",
+      "sha256": "0566ff63684e0421844a4a118880fddecebca99e04c940c11cd682bcff1a1bca",
+      "original_frame_id": 285,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000286.jpg",
+      "sha256": "ac4790d4f13e0165dbe3c737d39c2286353ab07d8374f6ab0bcf9537e4c08d3e",
+      "original_frame_id": 286,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000286.jpg",
+      "sha256": "a48047a26b9504f62f3d96e03e9429414679db0b79e48e69ea0a8d43e1b47610",
+      "original_frame_id": 286,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\proposal-comparison-000286.jpg",
+      "sha256": "507b9f517e64224a84b5590fa28fd6be255fb4d8fe67eefdab9b157fe8a5c6cf",
+      "original_frame_id": 286,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000287.jpg",
+      "sha256": "3e89d76465f94d5233d90576e61f23c06505650487493548ab5de37e56d4d063",
+      "original_frame_id": 287,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000287.jpg",
+      "sha256": "7ff52f772d6faaf4ccb78794d83f71eb0a62bebd269e591e3881a11dda2631e1",
+      "original_frame_id": 287,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\proposal-comparison-000287.jpg",
+      "sha256": "9266da88b64bd400eb12484ea6aed141a0af982a2b41fce7048f3ae78e582abf",
+      "original_frame_id": 287,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\hands-comparison-000308.jpg",
+      "sha256": "a6e1b5520502be0bdeaa5903881c77cb46e6145d6b8b519f001d607f4d3396a6",
+      "original_frame_id": 308,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\old-new-egohand-comparison-000308.jpg",
+      "sha256": "10736f594f482791e9355072efdab7f291063f867e99ccb75856b15013855251",
+      "original_frame_id": 308,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\frames\\proposal-comparison-000308.jpg",
+      "sha256": "5d4520b86ac6831c00ae2addfba14ea6c92ba7468eb60e20ece05e9d27e9c380",
+      "original_frame_id": 308,
+      "viewed_with": "view_image",
+      "kind": "sampled_static_JPEG_only"
+    }
+  ],
+  "findings": [
+    {
+      "original_frame_ids": [
+        60,
+        110
+      ],
+      "note": "Revised proposal span and wrist placement are less excessive than legacyEgo. The left fingers are substantially obscured; revised native left finger/arm controls are exactly baseline, so their similarity to MP is abstention from uncorroborated corrections rather than recovered hidden motion. Visible right articulation still differs from the source/MP and no clear static superiority over samecropMP is established. These are stride5 holdouts: Ego0admitted/orange can occur with21green freshMP reference points, because training gates are deliberately zero."
+    },
+    {
+      "original_frame_ids": [
+        284,
+        285,
+        286,
+        287
+      ],
+      "note": "Left hand becomes more inspectable around release. Revised native hand stays near baseline/MP and reduces legacyEgo exaggerated opening, but source blur and partial visibility prevent true finger-angle/contact validation. Left image admission is0/0/21/21 across these four frames;285 is heldout. Small fitted left corrections at284/285 arise from neighboring support and temporal/collar priors, not direct targets there."
+    },
+    {
+      "original_frame_ids": [
+        287
+      ],
+      "note": "The revised RIGHT native hand is visibly more curled/closed than the sourceRGB and the samecropMP fit at this sampled release frame. This is a specific remaining articulation/release-shape concern, consistent with its smaller opening proxy in240-308. Static images alone do not establish temporal lag, twitch frequency or an exact release event."
+    },
+    {
+      "original_frame_ids": [
+        308
+      ],
+      "note": "Right hand is down near the thigh; candidates retain imperfect but broadly similar placement. Left fingers remain unverified. Revised native left finger/arm controls are exactly baseline while orange generated left geometry is still displayed; that guessed geometry is not recovered image evidence."
+    }
+  ],
+  "interpretation_limits": [
+    "Shared trainingMP wrist anchoring and imposed native depth partly construct the improved proposal placement; native-depth parity and near-zero proposal wrist-anchor error are not independent accuracy measures.",
+    "The orange unadmitted Ego geometry is a displayed generated estimate, not proof that this geometry was used as an explicit fit prior. Fitting image weights are zero on those points, while native baseline/temporal priors remain.",
+    "Orange may mean stride5 exclusion, insufficient hand/joint support or crop validity. It is not a true occlusion/visibility label. Missing MP landmarks are not an occlusion label either.",
+    "Native opening curves vary and global native updates are nonzero, but unsupported left intervals can remain exactly baseline. Neither fact establishes true grasp preservation or hidden-motion recovery.",
+    "Both sharedcropMP and refinedEgo depend on the same fallible detector. MP-referenced distances and guard failures remain method-dependent development diagnostics, including the original holdout.",
+    "The human overlay has no object depth/occlusion test. Cyan triangles across the box are not penetration/contact evidence.",
+    "No continuous video playback, source modification, fit tuning, extra inference, hidden reference data, official scores or quality acceptance occurred in this review."
+  ],
+  "source_report_label_erratum": "See numeric review: candidate-egohand02 report reused independentMP prose/key despite correct generated-proposal input/source bindings. Preserve original report and attach explicit correction.",
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "official_scores_computed": false,
+  "all30_execution_started": false
+}

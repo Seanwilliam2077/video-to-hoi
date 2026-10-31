@@ -1,0 +1,168 @@
+{
+  "recorded_at": "2026-10-31T10:45:48.561511+00:00",
+  "status": "completed_and_integrity_audited",
+  "track": 1,
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "total_original_source_frames": 1237,
+  "total_hand_views_per_variant": 2474,
+  "exact_raw_cache_reused_hand_views": 2160,
+  "newly_neurally_inferred_hand_views": 314,
+  "raw_cache_fraction": 0.8730800323362975,
+  "all_original_hand_views_neurally_recomputed": false,
+  "all_original_frame_ids_preserved": true,
+  "old_smoothed_outputs_reused": false,
+  "official_smoothing_recomputed_entire_merged_raw_clip": true,
+  "device": "cpu",
+  "dtype": "float32",
+  "torch_threads": 12,
+  "hand_batch_size": 8,
+  "runner_sha256": "91729499f3454489e9611e4a51498e8c4886d1421acf6df2f367ac53533c4ec4",
+  "raw_cache_helper_sha256": "e415747f01bfc190ae811bc0452ecc0b1fff1996099a998ced04b7282e5e67ef",
+  "cache_proof_sha256": "76675aeb3554863fa6bc2d2a76896a0d2865e290902a023d25dc34020c95b18a",
+  "protocol_sha256": "eeabb07a21a77a9a96c71e9a7adb4e753c96df24d66819e57340df8ca677a34d",
+  "inputs_sha256": "449311c5c03fa8aacd0b7c14e54b4a9c812edf0e7bf169894eb046fa4e53162f",
+  "timing_interpretation": "Predictor wall includes crops/preprocessing/neural forward/predictor geometry; not profiler-isolated kernel time. Outer includes source verification/import/model setup/filter/export.",
+  "GPU_decision": "Bounded task-owned probe interrupted before first predictor log/chunk; no GPU numerical result or per-process peak available; other applications untouched. See runtime-device-decision02.json.",
+  "episodes": {
+    "16": {
+      "frames": 360,
+      "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+      "cache_hits_per_side": {
+        "left": 360,
+        "right": 282
+      },
+      "neural_recomputed_views_per_side": {
+        "left": 0,
+        "right": 78
+      },
+      "model_load_seconds": 28.52593609993346,
+      "model_transfer_seconds": 0.41915469989180565,
+      "inference_seconds": 119.21645489963703,
+      "smoothing_seconds": 37.69639950012788,
+      "wall_seconds": 188.37788429996,
+      "process_memory": {
+        "rss": 5972758528,
+        "vms": 8420032512,
+        "peak_wset": 9340563456
+      },
+      "outer_process_seconds": 235.05382490018383,
+      "prediction_receipt": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\inference-attempt02\\prediction-receipt.json",
+      "prediction_receipt_sha256": "3f7af2b64c49d4bd61d25a554609638292ca8b340d793656eb861bce0074737d",
+      "output_sha_and_projection_checks": [
+        {
+          "variant": "raw",
+          "side": "left",
+          "frames": 360,
+          "sha256": "0c284f8e0bf585f2bf84f4a36d21b9d7d2b9796c4bd45a200cde56db8fe90da0",
+          "finite_3d_geometry": true,
+          "invalid_2d_projection_count": 0,
+          "valid_projection_roundtrip_max_pixels": 5.919963031995177e-05
+        },
+        {
+          "variant": "raw",
+          "side": "right",
+          "frames": 360,
+          "sha256": "6e9dbdcf584b07544302c67bef72ac6237949a488685c9612752f631015e5132",
+          "finite_3d_geometry": true,
+          "invalid_2d_projection_count": 0,
+          "valid_projection_roundtrip_max_pixels": 6.383448398017343e-05
+        },
+        {
+          "variant": "upstream_adaptive_smoothed",
+          "side": "left",
+          "frames": 360,
+          "sha256": "6492c3eb8bcd5608deb1db08017ae2832dd9e01a6589ddaecc76b345b190bfef",
+          "finite_3d_geometry": true,
+          "invalid_2d_projection_count": 0,
+          "valid_projection_roundtrip_max_pixels": 2.260692827242564e-06
+        },
+        {
+          "variant": "upstream_adaptive_smoothed",
+          "side": "right",
+          "frames": 360,
+          "sha256": "da3222d40023901ec5dd2f8c6159a9981cbc5ea859200118b69453759288b502",
+          "finite_3d_geometry": true,
+          "invalid_2d_projection_count": 0,
+          "valid_projection_roundtrip_max_pixels": 3.1489406855926894e-06
+        }
+      ],
+      "all_cache_rows_exact": true,
+      "fresh_view_chunk_ids_exact": true
+    },
+    "11": {
+      "frames": 877,
+      "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+      "cache_hits_per_side": {
+        "left": 766,
+        "right": 752
+      },
+      "neural_recomputed_views_per_side": {
+        "left": 111,
+        "right": 125
+      },
+      "model_load_seconds": 31.936860100133345,
+      "model_transfer_seconds": 0.7099105999805033,
+      "inference_seconds": 369.32783159893006,
+      "smoothing_seconds": 76.45258340006694,
+      "wall_seconds": 484.3427512999624,
+      "process_memory": {
+        "rss": 6068346880,
+        "vms": 8516022272,
+        "peak_wset": 9384251392
+      },
+      "outer_process_seconds": 538.5978965999093,
+      "prediction_receipt": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\inference-attempt02\\prediction-receipt.json",
+      "prediction_receipt_sha256": "229e6145578c1fb80056f69261c619cd95beec575f2274c45d7c4b69d0e47760",
+      "output_sha_and_projection_checks": [
+        {
+          "variant": "raw",
+          "side": "left",
+          "frames": 877,
+          "sha256": "c98c0d8dbec91da0d44ce6e5eb3dbb3f2c8ea973556528359eb0a6eb38f19821",
+          "finite_3d_geometry": true,
+          "invalid_2d_projection_count": 0,
+          "valid_projection_roundtrip_max_pixels": 0.00010194684196092114
+        },
+        {
+          "variant": "raw",
+          "side": "right",
+          "frames": 877,
+          "sha256": "d073504f67f08c77465af766a6a59e3f831073b31a394c605c1008a0baca4892",
+          "finite_3d_geometry": true,
+          "invalid_2d_projection_count": 0,
+          "valid_projection_roundtrip_max_pixels": 0.00010045132176514517
+        },
+        {
+          "variant": "upstream_adaptive_smoothed",
+          "side": "left",
+          "frames": 877,
+          "sha256": "c5c5f3f5430fe5ad347e31db768b6175c19400adef1e9d51b3f6151bd51d49dc",
+          "finite_3d_geometry": true,
+          "invalid_2d_projection_count": 0,
+          "valid_projection_roundtrip_max_pixels": 3.2283945020925134e-06
+        },
+        {
+          "variant": "upstream_adaptive_smoothed",
+          "side": "right",
+          "frames": 877,
+          "sha256": "d148e22c542d38da667776050a3b91e80bd7d624416800ce7264f5b033424e2e",
+          "finite_3d_geometry": true,
+          "invalid_2d_projection_count": 0,
+          "valid_projection_roundtrip_max_pixels": 3.32375898949658e-06
+        }
+      ],
+      "all_cache_rows_exact": true,
+      "fresh_view_chunk_ids_exact": true
+    }
+  },
+  "quality_or_contact_accepted": false,
+  "official_scores_computed": false,
+  "all30_execution_started": false,
+  "total_inference_seconds": 488.5442864985671,
+  "total_smoothing_seconds": 114.14898290019482,
+  "total_wall_seconds": 672.7206355999224,
+  "total_outer_process_seconds": 773.6517215000931
+}

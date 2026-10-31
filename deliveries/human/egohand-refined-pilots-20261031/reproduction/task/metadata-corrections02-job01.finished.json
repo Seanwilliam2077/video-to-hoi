@@ -1,0 +1,37 @@
+{
+  "episode": 16,
+  "command": [
+    "J:\\video-to-hoi\\work\\egohand-pilots-20261031\\venv\\Scripts\\python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata_corrections02.py",
+    "--episode",
+    "16",
+    "--episode",
+    "11",
+    "--maximum-wait-seconds",
+    "3600"
+  ],
+  "log": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata-corrections02-job01.log",
+  "source_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\metadata_corrections02.py",
+      "sha256": "28b3fb3bc941e637f19833a750f7bf94d75f7f5c783cf2204b168c9393bb0c66"
+    },
+    {
+      "path": "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi\\tools\\refine_human_hands.py",
+      "sha256": "30d6647be48e987247a0a9ba66eae460fdb20a0aef50b41dfb7b845cb932368a"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\runtime02\\src\\v2hoi\\human_result.py",
+      "sha256": "d2074d2c139c996bca9abeb4fbb585d63f76a17bfae59ae456968e2ab8a4e5c2"
+    }
+  ],
+  "all30_execution_authorized": false,
+  "scope": "Metadata-only canonical copies; no original/controller/evaluation/video/geometry changes",
+  "started_at": "2026-10-31T10:50:54.008187+00:00",
+  "launcher_pid": 98392,
+  "pid": 93340,
+  "finished_at": "2026-10-31T10:51:35.069801+00:00",
+  "returncode": 0,
+  "wall_seconds": 41.06040819990449
+}

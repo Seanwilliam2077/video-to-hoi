@@ -1,0 +1,1610 @@
+{
+  "recorded_at": "2026-10-31T11:14:53.961520+00:00",
+  "track": 1,
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "files": [
+    {
+      "path": "completed-integrity.json",
+      "bytes": 215490,
+      "sha256": "1ba062d4ebb3410298a3671692c4f1b13921fcc64d7694699f014fe90524a486",
+      "category": "combined_final_integrity_and_errata_bridge"
+    },
+    {
+      "path": "evidence/checks/focused-torch-tests02.json",
+      "bytes": 4334,
+      "sha256": "62e4ff2cdac27fb2c004a5e2be8e0507d2d8584db3e9a97a16cdb1ed5c175345",
+      "category": "explicit_workflow_or_focused_check"
+    },
+    {
+      "path": "evidence/checks/workflow-catalog03.json",
+      "bytes": 3667,
+      "sha256": "a707d2284ebedda50b0306d9303ab45db4d6454a138ab4d9cb5feaebb4a131c9",
+      "category": "explicit_workflow_or_focused_check"
+    },
+    {
+      "path": "evidence/checks/workflow-node03.json",
+      "bytes": 3698,
+      "sha256": "74f96f0f0255e23d6ada67aa622d85398254449b889c7fd221d3cd6048c841c1",
+      "category": "explicit_workflow_or_focused_check"
+    },
+    {
+      "path": "evidence/checks/workflow-python-tests03.json",
+      "bytes": 5333,
+      "sha256": "9d8f01511a9a51589f66ebcb6bd1c7e9404a9960c52d9481e2c5cdb8be9ee5da",
+      "category": "explicit_workflow_or_focused_check"
+    },
+    {
+      "path": "evidence/checks/workflow-registry03.json",
+      "bytes": 3672,
+      "sha256": "cfce87d80cc8e63d287d9e952e2c4e25eaaeabcc45814657833d717713e19fea",
+      "category": "explicit_workflow_or_focused_check"
+    },
+    {
+      "path": "evidence/ep11-as-executed-generated-native-report.json",
+      "bytes": 113765,
+      "sha256": "d099e2e5b04e726f421cb7d5823e19cb410e9f2a7090ff3089352f2b79a8c8c7",
+      "category": "historical_metadata_preserved"
+    },
+    {
+      "path": "evidence/ep11-compact-evaluation02.json",
+      "bytes": 72693,
+      "sha256": "6a5c84b9ea82716e2c63c61e7d649880f0476274272aa2ada470bba4f19d886e",
+      "category": "additional_compact_numeric_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep11-final02-independent-numeric-review01.json",
+      "bytes": 67997,
+      "sha256": "6a114899212bd80aaad0a3126f8b8482836b57e010745c427979b9ed86f4bf1e",
+      "category": "numeric_static_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep11-final02-independent-static-review01.json",
+      "bytes": 14862,
+      "sha256": "f74de173b292e426d98f6d1c4be04242e8c2f44536fe3dd70c228c66e816d77d",
+      "category": "numeric_static_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep11-hand-update-and-self-motion02.json",
+      "bytes": 4793,
+      "sha256": "ca449c36e08e57eea36b66095bfde93a137dc576b64aaba0d217afa523fbf567",
+      "category": "additional_compact_numeric_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep11-postprocessing-completion02.json",
+      "bytes": 902,
+      "sha256": "741e87ccd0165ea69b34459dbaa452038de58aad63242105f1c2aa133435560e",
+      "category": "completed_stage_provenance"
+    },
+    {
+      "path": "evidence/ep11-prediction-verification02.json",
+      "bytes": 27849,
+      "sha256": "a0a9094f17be57ec3e016053f0bd507d519e2ba13e507987c062e452d5b97702",
+      "category": "numeric_static_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep11-retarget-verification02.json",
+      "bytes": 2136,
+      "sha256": "1951b21e2559f6bda23de73e73a888b1fa2ae60dbd56d161301990a273f00168",
+      "category": "numeric_static_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep11-video-integrity02.json",
+      "bytes": 181197,
+      "sha256": "6cf497712def786c9c15abde877a54a78310180d006f57a0f31cd0ec488dbadd",
+      "category": "video_file_and_source_bindings"
+    },
+    {
+      "path": "evidence/ep16-as-executed-generated-native-report.json",
+      "bytes": 61712,
+      "sha256": "d3222834c6e2f261e8848fcced30dd6afabfb6c15e908b6da65e2806083e39cd",
+      "category": "historical_metadata_preserved"
+    },
+    {
+      "path": "evidence/ep16-compact-evaluation02.json",
+      "bytes": 50668,
+      "sha256": "01b5e95fc0bbeaa414bafcf518fec8a41d7b837840a003c003be30a1cbd15872",
+      "category": "additional_compact_numeric_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep16-completed-integrity02.json",
+      "bytes": 95361,
+      "sha256": "9784caf2ec38acfc5af0eaa5962bbbf250f59a2b1193594b14e842e1d3a86069",
+      "category": "additional_compact_numeric_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep16-final02-independent-numeric-review01.json",
+      "bytes": 29450,
+      "sha256": "39958c3c632294600a0b7e7f684640bcb2c2b89e97ae1f23d0d4db7249b36ef2",
+      "category": "numeric_static_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep16-final02-independent-static-review01.json",
+      "bytes": 11830,
+      "sha256": "15f988ec05e18cc29ac6e3e98d7c71964e03ded6f6a5a73581163c72c08e2b12",
+      "category": "numeric_static_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep16-hand-update-and-self-motion02.json",
+      "bytes": 4823,
+      "sha256": "9f1f1b149aa4a903e33f366f048e13a40ee2a6466add93113e9041520747748e",
+      "category": "additional_compact_numeric_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep16-postprocessing-completion02.json",
+      "bytes": 902,
+      "sha256": "fad22d6e01e2b7b48f9e7e56cd0432e35b7733e160fbe631311b099b09e87e89",
+      "category": "completed_stage_provenance"
+    },
+    {
+      "path": "evidence/ep16-prediction-verification02.json",
+      "bytes": 13364,
+      "sha256": "6ff4b56827b73a6ef18f1b9d84d32227ac9c6291b03bbeb8ea9202cdd87abeb2",
+      "category": "numeric_static_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep16-retarget-verification02.json",
+      "bytes": 2132,
+      "sha256": "15856062a80e26d3e5e60788bbc65180c9d2041570f7008fd03c21274524816e",
+      "category": "numeric_static_or_integrity_QA"
+    },
+    {
+      "path": "evidence/ep16-video-integrity02.json",
+      "bytes": 52840,
+      "sha256": "74f0254481605daf7068bd26c4b6d4882897ea5313fe3e7c201f30ea4faf6a04",
+      "category": "video_file_and_source_bindings"
+    },
+    {
+      "path": "evidence/root-static-review-ep11-02.json",
+      "bytes": 3537,
+      "sha256": "331df793936a0d58a6faf233945814037649d10ae9b053fa4c0b03effa0f9f02",
+      "category": "actual_root_static_image_review"
+    },
+    {
+      "path": "evidence/root-static-review-ep16-02.json",
+      "bytes": 3321,
+      "sha256": "422922d067115544dc3914ab780e4e095aee2101eff620b2870e7a30ce9fe98e",
+      "category": "actual_root_static_image_review"
+    },
+    {
+      "path": "local-review-packages.json",
+      "bytes": 1246,
+      "sha256": "d65b5b606d7c10abeb9d79fe2d0803bf3d958b59f724024b9f2b14116150644f",
+      "category": "verified_local_delivery_archives"
+    },
+    {
+      "path": "reproduction/README.txt",
+      "bytes": 4577,
+      "sha256": "f6f715ca8daa83c7fa3d2257691a25bb1224c3bd0ff7391ed1086017a7c39018",
+      "category": "reproduction_limits"
+    },
+    {
+      "path": "reproduction/task/adapter-design-and-depth-diagnosis01.json",
+      "bytes": 7316,
+      "sha256": "bfe1e4fa402e3a79f689a06f6a636c83892cbf02597f3907fb29a21b6de70fca",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/asset-provenance02/dinov3-source/LICENSE.md",
+      "bytes": 7569,
+      "sha256": "70caeefb829f11a21cd8fe524e8c3e9efeaeb8ec6e9326810878b9104f4255fc",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/asset-provenance02/environment-receipt.json",
+      "bytes": 15807,
+      "sha256": "50557907c0ecd4956cbe75bcd52dd158cd8d0d441e26d19305a6b297ba51701f",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/asset-provenance02/environment-source-receipt.json",
+      "bytes": 54364,
+      "sha256": "6a3f4563d42d80cf0225d804f04c90d18de2f268b3fd24f3ea8071d1e02c07ba",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/asset-provenance02/run_controlled_egohand.py",
+      "bytes": 10058,
+      "sha256": "9cbfdd91c492da8d54f661d02f3cfba567e09ec6206ff477b4f2a36eac75770b",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/asset-provenance02/upstream-git/LICENSES/LicenseRef-OpenMDW-1.1.txt",
+      "bytes": 2668,
+      "sha256": "08841347438676b1e836dd5fab5fc8c114d9ba575ab9edaa894d6764b7661516",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/asset-provenance02/weights-verified-upstream-objects.json",
+      "bytes": 9058,
+      "sha256": "3d0c1793e37d2be9f1ddc5d783758c39251868b34f949fa65ce54c06e9fbf75a",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/asset-provenance02/weights/egohand/README.md",
+      "bytes": 8623,
+      "sha256": "9f3f0ee8ec9a6861a5dd353d1a1dea5daa225c34870c7b1e74df018e5a7007f6",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/asset-provenance02/weights/soma/LICENSE",
+      "bytes": 11387,
+      "sha256": "d1a7d615ab8eff4de143b1456f46dabf232f54daf0fcf9a70442bb6f637a9e95",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/audit_full02_outputs.py",
+      "bytes": 5516,
+      "sha256": "085275574fb21fb30e5b788456dec2e26daeb01ce4773c4080745ff514178562",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/cache-contract-ep16-attempt01.finished.json",
+      "bytes": 1446,
+      "sha256": "ed0efd00d17bab5e59a327387d3c438d4c687c0b0dfcd1c233e8076e72e3d37d",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/cache-contract-ep16-attempt01.json",
+      "bytes": 1239,
+      "sha256": "89acae7756f4ae6d356b351286d44ce537dd88ca6d70a5d022dc6ab42902b5b0",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/cache-contract-ep16-attempt01.result.json",
+      "bytes": 5924,
+      "sha256": "76675aeb3554863fa6bc2d2a76896a0d2865e290902a023d25dc34020c95b18a",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/cache-contract-ep16-attempt01.started.json",
+      "bytes": 1335,
+      "sha256": "b99d966ee1d1a34ec33e0a6b7da4c0b33144952a5d297b59b27d892fb49fc69c",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/cache-sparse-export-proof01.json",
+      "bytes": 1563,
+      "sha256": "bb9847df153d65a3d23526d519b0a3306bcff070518623e47ad21e609a5db6b1",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/controller02-stop-selftest01.json",
+      "bytes": 411,
+      "sha256": "bc14d985a4e9db75e550111882c9657af59cca31dde1f8f3c2db8aabd8f66fcf",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/controller02-stop-selftest02.json",
+      "bytes": 481,
+      "sha256": "eaab4797db6cfc099d0b34b4788b190b530ca06ba5378300bd218f57a14eff0b",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/crop-input-audit01.json",
+      "bytes": 8877,
+      "sha256": "352eebe068eba0eeb2592c0e765a39aaf7bb95749da30be75666b9abf28e99ae",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/crop-input-audit02.json",
+      "bytes": 1735,
+      "sha256": "a6629e50446af1903ee8f1924d972c924da7c3eb9e588118ebe63e47db73441f",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/crop-preparation-source-note02.json",
+      "bytes": 3490,
+      "sha256": "abfdee67d5def18dd116aff3ec67ceed34fbd04f6ec290c6955348d541a60254",
+      "category": "producer_vs_captured_hashing_wrapper_note"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000011/crop-policy-receipt.json",
+      "bytes": 41070,
+      "sha256": "920cbb50c624301a495641250486b4118f8029c341b1e766fc918749dc442296",
+      "category": "trial_or_final_crop_provenance"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000011/crop_anchors.npz",
+      "bytes": 23066,
+      "sha256": "b2e66e562e9a26df1db21a3ce5a74335d8bb864772f483e7198182d754e6ed34",
+      "category": "trial_or_final_crop_provenance"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000011/crop_boxes.npy",
+      "bytes": 28192,
+      "sha256": "9d75bb9d6b8708454d9ee117840a004ca17b4db23e2bf6e6eeec35237b02d089",
+      "category": "trial_or_final_crop_provenance"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000011/source_snapshot/egohand_adapter.py",
+      "bytes": 12313,
+      "sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+      "category": "actual_initial_crop_producer_source"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000011/source_snapshot/prepare_refined_egohand_crops.py",
+      "bytes": 3821,
+      "sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679",
+      "category": "actual_initial_crop_producer_source"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000011/source_snapshot/refined_egohand.py",
+      "bytes": 18832,
+      "sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+      "category": "actual_initial_crop_producer_source"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000016/crop-policy-receipt.json",
+      "bytes": 18685,
+      "sha256": "fed8515c0b5cb65ad6053c173f54867c1c4b70c01697c675acb16fbd0b04f8aa",
+      "category": "trial_or_final_crop_provenance"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000016/crop_anchors.npz",
+      "bytes": 9113,
+      "sha256": "d23b1803fa8271c053e51080175830900c22eaaf73a3d1783cf7b628cd64e0d1",
+      "category": "trial_or_final_crop_provenance"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000016/crop_boxes.npy",
+      "bytes": 11648,
+      "sha256": "02b5279cc2452426dbfc8c50ef0cb3af8abafdc6d6860d614f6fb5df0e08768d",
+      "category": "trial_or_final_crop_provenance"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000016/source_snapshot/egohand_adapter.py",
+      "bytes": 12313,
+      "sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+      "category": "actual_initial_crop_producer_source"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000016/source_snapshot/prepare_refined_egohand_crops.py",
+      "bytes": 3821,
+      "sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679",
+      "category": "actual_initial_crop_producer_source"
+    },
+    {
+      "path": "reproduction/task/crops/episode_000016/source_snapshot/refined_egohand.py",
+      "bytes": 18832,
+      "sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+      "category": "actual_initial_crop_producer_source"
+    },
+    {
+      "path": "reproduction/task/crops02/episode_000011/crop-policy-receipt.json",
+      "bytes": 43624,
+      "sha256": "f0e10de692d979f91a410b1e313477e42ce9d404e5425ef53ebbb97135462138",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/crops02/episode_000011/crop_anchors.npz",
+      "bytes": 22797,
+      "sha256": "244bf2b9cd952b3b734f9cd966f11c6bb7fb658cd4258eec2dc48a731a056c4f",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/crops02/episode_000011/crop_boxes.npy",
+      "bytes": 28192,
+      "sha256": "c6fe51980d2bffe094f6d521fc8f26d21b6d486d1d0f609ceacdb9357bfe9bec",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/crops02/episode_000016/crop-policy-receipt.json",
+      "bytes": 20723,
+      "sha256": "0ba0228df6ddca2132650a962353b3f4d6aca32c56a84c0aac07f4df98e5d8c0",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/crops02/episode_000016/crop_anchors.npz",
+      "bytes": 10041,
+      "sha256": "aa7729707222c53f928a984b8a502e6bd0ef182e29f057698c0a3deb3962558d",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/crops02/episode_000016/crop_boxes.npy",
+      "bytes": 11648,
+      "sha256": "5c8a84d72f2720b38c096ac5c738af5a58b147bddbf0242d1d707a81704a3a8f",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/ep11-adapt-raw02.finished.json",
+      "bytes": 6346,
+      "sha256": "caebe323fd26a5adf610fd0c63f556103ed272a500bb9001df912ee8b2ebba5e",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-adapt-raw02.json",
+      "bytes": 6136,
+      "sha256": "6b59818eb778760b782a201ae908728516e473823fa783c583828673f20b435f",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-adapt-raw02.started.json",
+      "bytes": 6233,
+      "sha256": "6089b6b1bbbfe913005a64f30ebc1888deb6b9801a2171cb5d25e7e5da65a4be",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-adapt-smoothed02.finished.json",
+      "bytes": 6371,
+      "sha256": "549b25a11f6a16af6747e03335b51ed2c54f131f3c4edce89a324ba7babbdf82",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-adapt-smoothed02.json",
+      "bytes": 6161,
+      "sha256": "b1754d2cd22d5e411023380c235209f1810b41ee9a6099a5ddece898736bd1a4",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-adapt-smoothed02.started.json",
+      "bytes": 6258,
+      "sha256": "f0db82734cef339b8745157dac32c8ca09c64696e64c99d0f2b34cf6f736190f",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-evaluation02.finished.json",
+      "bytes": 3115,
+      "sha256": "f4efbde5961786994add9bc5c9bde7a07154f5277a9a4c207ce241c284360226",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-evaluation02.json",
+      "bytes": 2905,
+      "sha256": "78b2d8908664ceb0f65d283b89fccafb9d329adf6eb4623efe9b55f7739c268b",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-evaluation02.started.json",
+      "bytes": 3002,
+      "sha256": "0d47bdc7850d12fcf0effab29cd6bb1b4b9d11902511f05500915db4ef9b784c",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-fit-egohand02.finished.json",
+      "bytes": 5020,
+      "sha256": "ccccca3b09ff4e18c3d2e26a377b5316a7de7acf133bf387970ee3fe442f83bb",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-fit-egohand02.json",
+      "bytes": 4824,
+      "sha256": "1e5ed158cdd292bff569ba77e62548abd681e8cdef00408309a058345833dd8c",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-fit-egohand02.started.json",
+      "bytes": 4920,
+      "sha256": "fa4aafc8abcb79321803386b8423fc87ec070cb9897d9d849032c49163f20a49",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-fit-mp02.finished.json",
+      "bytes": 4979,
+      "sha256": "f116e6fead70ef464916ce8ca1717fa3da1278f7cc137c47ab11a08f38984926",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-fit-mp02.json",
+      "bytes": 4771,
+      "sha256": "1d38cabd5540410950c968ecbf9ec60cb6db76e33152d7454b0c4273729670c6",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-fit-mp02.started.json",
+      "bytes": 4867,
+      "sha256": "924291b57898cbe4e9d0e0d57740dd425c6e408e33cd239a2961171809900064",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-fresh-mp02.finished.json",
+      "bytes": 3374,
+      "sha256": "57973695a0ffebda2dabab7291200dbdc728d6c9c9bd138144de81d2144c0d02",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-fresh-mp02.json",
+      "bytes": 3167,
+      "sha256": "7d999f4d5a75ef8aa8614d7b8d998e9741d211444e936ceffe679fefec52fcea",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-fresh-mp02.started.json",
+      "bytes": 3261,
+      "sha256": "63795e7c008eef71152c36a56f400e62e78c76c21d848b04f0efed30f1403f12",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-inference-attempt02.finished.json",
+      "bytes": 4101,
+      "sha256": "002eacdb37e9fb6ca9f0380cd0629ec7305a76d3c3386f00a622814d497fb48e",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/ep11-inference-attempt02.json",
+      "bytes": 3893,
+      "sha256": "463592182ca37cdee99e19d047857b61be655e7a2fdaa6b3ddbf4efc9bec3891",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/ep11-inference-attempt02.started.json",
+      "bytes": 3989,
+      "sha256": "a0fb799cc4ca342ef71a832fe32d8078537763a1c5e19ecc04bbb5529bc5c720",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/ep11-inference-integrity02.json",
+      "bytes": 3052,
+      "sha256": "31ae32126f38c29cfd3fb09b17c513cca9fbfdb8b5ec795e6e18673df525b302",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/ep11-render02.finished.json",
+      "bytes": 3601,
+      "sha256": "f75f825b140c6294c04bda79290651c94967d77caa65a55a94aca94705357e30",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-render02.json",
+      "bytes": 3393,
+      "sha256": "bc8b5120953104caf0db9aca828bab53a6cec29a82a9916193c457373dc442a9",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep11-render02.started.json",
+      "bytes": 3489,
+      "sha256": "b9d932adc9cb2f2a371783b690dd65f5e28b3724360a29ee037f9025b5dc9398",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-adapt-raw02.finished.json",
+      "bytes": 6345,
+      "sha256": "ecee1386a3f7239b7d18f99e21cedccb3c8fb91d28a370e4f7b093be697d76f5",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-adapt-raw02.json",
+      "bytes": 6136,
+      "sha256": "76a1d991c9b9d5cce6177221062c8de10a4df13ce8d723d157453718721fa620",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-adapt-raw02.started.json",
+      "bytes": 6232,
+      "sha256": "c4dba32a5474e35172b7a2471df28d8450a282df55c33a0b979a6eae8e432fa2",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-adapt-smoothed02.finished.json",
+      "bytes": 6370,
+      "sha256": "f2431f9d1c8c814d7cee37a8ad62f864d5f81a015bedc26c284cb324ae8d438d",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-adapt-smoothed02.json",
+      "bytes": 6161,
+      "sha256": "35d65c57220aab3153fc069ffd5d4c0c105e572d90c3ce66da95658096650f9e",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-adapt-smoothed02.started.json",
+      "bytes": 6258,
+      "sha256": "fb4a37d648cdb6563f0be11739a704cdcfacaa9ac52d3cce3e1f13ce06cde84b",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-evaluation02.finished.json",
+      "bytes": 3113,
+      "sha256": "896a24c0077518205408bf71fc9a35941d857bd330ca1048485a16117b118763",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-evaluation02.json",
+      "bytes": 2905,
+      "sha256": "cae66ca1071d93c0ee54ed69e9c7a50921fc5ab57b991b422a0a15bc51a80fb2",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-evaluation02.started.json",
+      "bytes": 3001,
+      "sha256": "7a0091786b6b4189a39782269fc984a045aae37a58107e18b16592371eda7823",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-fit-egohand02.finished.json",
+      "bytes": 5034,
+      "sha256": "153008a1f8f3669043c3c1240e0f3cc8209153f989cc3349409f66eacc32dc8c",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-fit-egohand02.json",
+      "bytes": 4824,
+      "sha256": "8b54867454fd257752bf59de11c1859d7c2a551f80160aa2d979ae46e265bf5d",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-fit-egohand02.started.json",
+      "bytes": 4921,
+      "sha256": "83206c3c21c450ec8d71fad34de2ebda6fc900ec7b14b534614c5c9017803996",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-fit-mp02.finished.json",
+      "bytes": 4980,
+      "sha256": "7449740db953be1fcf7a6df8b45b5ce3e512b6340bf3decdfb96c6025960d85f",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-fit-mp02.json",
+      "bytes": 4771,
+      "sha256": "6121e443fe6fe7e938504563b70700837b2577408fb7e0251e9b2126e866f836",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-fit-mp02.started.json",
+      "bytes": 4867,
+      "sha256": "819363aa6f45cfa53e2ec2da36e8e985fcee79bf3b9c640514851752b76b7ce8",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-fresh-mp02.finished.json",
+      "bytes": 3374,
+      "sha256": "6eeb7b2ee61ad07e27db5c505d76bba4f40c3490545447d56904ffcfccd9122c",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-fresh-mp02.json",
+      "bytes": 3167,
+      "sha256": "203e4e5906ebbbb3b8ec3f510d6e2426575970f8b30b287f06f2a070de517a08",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-fresh-mp02.started.json",
+      "bytes": 3262,
+      "sha256": "66781e3d2ddfe9a5ff9295c6e2652758d3e5f959f220c4ddb53a9b1c379e86ee",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-inference-attempt02.finished.json",
+      "bytes": 4102,
+      "sha256": "52fc91c164f99de23cb29eaa8b32a7773f6e2def903a9ffba5dc76b9dfcf374f",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/ep16-inference-attempt02.json",
+      "bytes": 3893,
+      "sha256": "e920bc3c86b3267fb2520ee4b48d9c0f49d4bac563a8df158d88f3a56380a803",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/ep16-inference-attempt02.started.json",
+      "bytes": 3989,
+      "sha256": "0a8b4303943db8d432d84ee9cd299d28cdad3dda936084b4f419451ac7e17873",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/ep16-inference-integrity02.json",
+      "bytes": 3046,
+      "sha256": "5965467d41121794acea90a2502c6ed5990e418b05de54671fa981786d74ad7e",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/ep16-render02.finished.json",
+      "bytes": 3592,
+      "sha256": "64014394d8203eba8302c79c378dcaa3212d806d11094bf46949ef76808c20d2",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-render02.json",
+      "bytes": 3393,
+      "sha256": "39c24d230ea2afbc1a2c57eeb3a4ce55e8f6b095963ff2bc859779cbb4032b63",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/ep16-render02.started.json",
+      "bytes": 3490,
+      "sha256": "04527b8922abd47b63a29d8011e28bdf1f589a35f0cbb4cecf38b8b17efdca17",
+      "category": "actual_stage_command_and_receipt"
+    },
+    {
+      "path": "reproduction/task/final-inference-receipts02/episode_000011.json",
+      "bytes": 145386,
+      "sha256": "229e6145578c1fb80056f69261c619cd95beec575f2274c45d7c4b69d0e47760",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/final-inference-receipts02/episode_000016.json",
+      "bytes": 75466,
+      "sha256": "3f7af2b64c49d4bd61d25a554609638292ca8b340d793656eb861bce0074737d",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/inference-runtime02/source-pin.json",
+      "bytes": 1590,
+      "sha256": "868059171dba97c48000c354017d4444b8428ee1325c20d94ecd59b9f3a8e5ee",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/inputs-manifest01.json",
+      "bytes": 12005,
+      "sha256": "f0e28af44cd1951d9a4a6b8fcff3284efc15b3c21e61389038651bd5289aa09a",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/inputs-manifest02.json",
+      "bytes": 13756,
+      "sha256": "449311c5c03fa8aacd0b7c14e54b4a9c812edf0e7bf169894eb046fa4e53162f",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02-job01.finished.json",
+      "bytes": 1441,
+      "sha256": "a535ba9650fccbc5403bef5e84d5d87c26b845d9bd97f7b021c8259a25eb83c9",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02-job01.json",
+      "bytes": 1233,
+      "sha256": "726c150c83d3a6aa2009587718101c091609c8b7f445e67a2a5437433cf292f4",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02-job01.started.json",
+      "bytes": 1329,
+      "sha256": "66a08c6b4cb604f60549813403a5c5628b08105453527b147eb1dedbbd6a5172",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02/classifier-source-reference.py",
+      "bytes": 22147,
+      "sha256": "30d6647be48e987247a0a9ba66eae460fdb20a0aef50b41dfb7b845cb932368a",
+      "category": "metadata_only_classifier_evidence"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02/completion.json",
+      "bytes": 16331,
+      "sha256": "f0ee927fbe02a3931f77c5697e0bc629dd2a42f125579006c9afc11aeb60c935",
+      "category": "metadata_only_classifier_evidence"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02/episode_000011/correction-receipt.json",
+      "bytes": 7468,
+      "sha256": "c594601d67e353647157533852d89343b96eafacadcc25429455af762d7cbb5b",
+      "category": "canonical_metadata_sidecar"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02/episode_000011/report.json",
+      "bytes": 117592,
+      "sha256": "c769bf49220f50f0a72951d70119da3f395d7b55e4ccca51b14f0778b652880e",
+      "category": "canonical_metadata_sidecar"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02/episode_000016/correction-receipt.json",
+      "bytes": 7468,
+      "sha256": "9663d791a6d4202e9f13c31d78956d4ce65be7536338070c4f2572475839d986",
+      "category": "canonical_metadata_sidecar"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02/episode_000016/report.json",
+      "bytes": 65539,
+      "sha256": "15aab751832be15624cf75cb017cecae74fa26588c8e852dec623fd4af3137e1",
+      "category": "canonical_metadata_sidecar"
+    },
+    {
+      "path": "reproduction/task/metadata-corrections02/run-started.json",
+      "bytes": 1107,
+      "sha256": "c75c18d73cca5578cd0bfdd24a2f8b0b47cc0944a3d11365f9d7b89b70a1df93",
+      "category": "metadata_only_classifier_evidence"
+    },
+    {
+      "path": "reproduction/task/metadata-errata-manifest02.json",
+      "bytes": 8112,
+      "sha256": "6e0d542692717a99fac6d8c8263bc2ec6184fd09566964fd2f44e19328d171c3",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/metadata_corrections02.py",
+      "bytes": 16716,
+      "sha256": "28b3fb3bc941e637f19833a750f7bf94d75f7f5c783cf2204b168c9393bb0c66",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/mp-router02-observation-audit.json",
+      "bytes": 3257,
+      "sha256": "88699d77fb292632c8863963cbdd399d5f793391d042a9dbb19af757f26ed747",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/mp-runtime01/snapshot.json",
+      "bytes": 514,
+      "sha256": "403421d1e1989477c4bdeaada68ec6264d1303e3445650c68b5fe55ceee4e898",
+      "category": "actual_fresh_MP_source_manifest"
+    },
+    {
+      "path": "reproduction/task/mp-runtime01/src/v2hoi/__init__.py",
+      "bytes": 79,
+      "sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda",
+      "category": "exact_executed_fresh_MP_source"
+    },
+    {
+      "path": "reproduction/task/mp-runtime01/src/v2hoi/hand_crop_inputs.py",
+      "bytes": 2585,
+      "sha256": "80605993d436b93d30f07050e6723981f8cd7a6b2ac375ac2fb4905708959d14",
+      "category": "exact_executed_fresh_MP_source"
+    },
+    {
+      "path": "reproduction/task/mp-runtime01/tools/human_hand/observations.py",
+      "bytes": 18132,
+      "sha256": "4a903221516c0e579793766dc27676994d6949c444f9cc0798bbac77f644c304",
+      "category": "exact_executed_fresh_MP_source"
+    },
+    {
+      "path": "reproduction/task/package_local_reviews02.py",
+      "bytes": 10261,
+      "sha256": "8caa847af81a046a507e743b8db859d5da5e15978eabc6709329572aa4f10646",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/postprocessing-config02.json",
+      "bytes": 7371,
+      "sha256": "5a9ffcf20e617c6ef5d1b3708ff67dd068aa73ac80ae23f0ff0915d4f58b5d0f",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/postprocessing-finished02.json",
+      "bytes": 3316,
+      "sha256": "f2bc9cc131e814ae2b22a9cc34c0c061a25fe43b64b603543cab9d10d4a757b8",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/postprocessing-preflight02.json",
+      "bytes": 59271,
+      "sha256": "b0ad34c98705d0982b839fbf8bc3e315682068abac98511a31a0cc497dff6cf5",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/postprocessing-started02.json",
+      "bytes": 1254,
+      "sha256": "02ae2d10c023cb60b67e01d6a0aa651c0a35f206270186df44ff448774046b8c",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/postprocessing-stopped-for-routing02.json",
+      "bytes": 563,
+      "sha256": "c99e1ac854486532140ad77121bd2d54ec735f037011dc024bb08704723504fa",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/postprocessing-trial01-archive.json",
+      "bytes": 2239,
+      "sha256": "f244ce32942c2f70eee50ab368d662ec884d78ebf7ba2bcbf2a162375897877b",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/protocol01.json",
+      "bytes": 3802,
+      "sha256": "2c9f18036322d274a50401058a962fe36684e885265d5a3703cc403e24eb9a7d",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/protocol02.json",
+      "bytes": 5278,
+      "sha256": "eeabb07a21a77a9a96c71e9a7adb4e753c96df24d66819e57340df8ca677a34d",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/raw_cache02.py",
+      "bytes": 12798,
+      "sha256": "e415747f01bfc190ae811bc0452ecc0b1fff1996099a998ced04b7282e5e67ef",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/render_refined_egohand_comparison.py",
+      "bytes": 22599,
+      "sha256": "7e605f1b1f789a54c4093bba314a1e8e4ec32b80753e5dc5901c3b32eb0ab127",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/routing-decision01.json",
+      "bytes": 2338,
+      "sha256": "979d412e507658715ec2ba52afd4d5ad2329a84ccf1592463366a993fcbbc758",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/run_focused_torch_checks02.py",
+      "bytes": 2506,
+      "sha256": "af8e89d3f4e3c184928234be74895dcb7e236bd0c34ae48db7eb8ced1ce0468e",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/run_job.py",
+      "bytes": 2050,
+      "sha256": "a8dc6a981eac24cc24bc1e0331449dad92a3c0091823a984c4c940ceafbcdba6",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/run_postprocessing_job.py",
+      "bytes": 2458,
+      "sha256": "e1428e96cbc35298a740a477c98a2f61ec06c7714158d1fa46bea904c69526a8",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/run_refined_egohand02.py",
+      "bytes": 22491,
+      "sha256": "91729499f3454489e9611e4a51498e8c4886d1421acf6df2f367ac53533c4ec4",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/run_refined_postprocessing02.py",
+      "bytes": 39528,
+      "sha256": "6185c21b3ad8937326739a5ab210ac31f7e5364b125fb1825eb98e1b86a9d4c0",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/run_runtime_job.py",
+      "bytes": 1692,
+      "sha256": "d4a81c97b76faa6e82eda6463b72938f7c3342ed510b8638837c86d0cac28ada",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/run_two_full02.py",
+      "bytes": 1233,
+      "sha256": "1274b125f3f95f40b6ee222e815ffdeb9a49bca33458898cbf5912ce99a64e36",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/run_workflow_checks03.py",
+      "bytes": 2712,
+      "sha256": "4ce76cdd1234fd21de3583997d935a0893da6b658f929136c9ec4349b01f624d",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/runtime-device-decision02.json",
+      "bytes": 1264,
+      "sha256": "28afea9445b2babf84713466a2dcb7f2e877fd33eaaf01e8e6aa1fe76c27560a",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/runtime-final-summary02.json",
+      "bytes": 7080,
+      "sha256": "26677d260f626147065d5e7bdedc5fd47af473adeeeed41822e5425815038bc3",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/runtime-reproduction-bundle-plan02.json",
+      "bytes": 13883,
+      "sha256": "e4c221964dec97becb50ced76a476f4d841c3bc8973ca125bc34f6a8960874b7",
+      "category": "runtime_allowlist"
+    },
+    {
+      "path": "reproduction/task/runtime01/snapshot.json",
+      "bytes": 12759,
+      "sha256": "01d14d460e6530a5aec311202e8b8142c52417b7381b9079b04e07c940aa2f98",
+      "category": "captured_historical_manifest_not_actual_prep_wrapper_bytes"
+    },
+    {
+      "path": "reproduction/task/runtime02/snapshot.json",
+      "bytes": 13101,
+      "sha256": "2782b6bddbdaeb6e6cd01c03fa3d2ace3ad7cfae94e5b995f40df18025beb57b",
+      "category": "executed_runtime_manifest"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/__init__.py",
+      "bytes": 79,
+      "sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/body.py",
+      "bytes": 3053,
+      "sha256": "4c93bb1d2105a27e62d4576d910700e4e55d5be7b57e938f5e66f682fc087e3c",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/check.py",
+      "bytes": 2258,
+      "sha256": "ca1e04499f1215a4f6f437adaad421557e0bafa3f6a65eaa9392560f95389d82",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/clips.py",
+      "bytes": 3630,
+      "sha256": "18c31ebaae9009e26f92c4d4d4d82dbb09fe880001f12fbf464ffe5488ddbce3",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/contracts.py",
+      "bytes": 17122,
+      "sha256": "304731faca80d7fdc30a4f7eea1cdeb5ebfcf182f9fc3f698b4640b60e1cc8ea",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/dataset.py",
+      "bytes": 5003,
+      "sha256": "947205753f1bfba6aac20cf2e22e0e6df1cd58a40ab7f5e2668f545416fe1eaa",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/deliverables.py",
+      "bytes": 15232,
+      "sha256": "c4f40b52c7267961203f82bb3d911f0cd2bce6e24934d5d898ee160da285d504",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/download.py",
+      "bytes": 1402,
+      "sha256": "7cfd40155f9182d5d8388faf20cd1af88b8ea7c68d4887fe2d36c546363d4196",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/egohand_adapter.py",
+      "bytes": 12313,
+      "sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/gates.py",
+      "bytes": 20305,
+      "sha256": "4dafa34fb898adceba61ed30d1916ea4da15216b84497548f03d632514242b20",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/geometry.py",
+      "bytes": 8349,
+      "sha256": "ae9e3b5b02f23ef3affeb42350558e1de299c24a9a0244fabe7d2b7fcb99414c",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/hand_contact.py",
+      "bytes": 20472,
+      "sha256": "7dceac208441accb7822c7cd481e1bde44c16f2f50d4caae01d1bf1281b4c43b",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/hand_crop_inputs.py",
+      "bytes": 2585,
+      "sha256": "80605993d436b93d30f07050e6723981f8cd7a6b2ac375ac2fb4905708959d14",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/hand_crop_router.py",
+      "bytes": 9223,
+      "sha256": "47e34caefc97da61780d89f7dfc31fd963f68efc4c9605cd09fc1f9806b4d8d7",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/hand_refinement.py",
+      "bytes": 48522,
+      "sha256": "eb0c2560f8ebbbbc6d2065f1d482b0c14c2b730d61bf97bb754d1ff326baa56f",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/human_result.py",
+      "bytes": 19808,
+      "sha256": "d2074d2c139c996bca9abeb4fbb585d63f76a17bfae59ae456968e2ab8a4e5c2",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/metrics.py",
+      "bytes": 7944,
+      "sha256": "687a1bff4709d14cec31c266478f9db518105bccc69067f4ab9cc724f1f91fec",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/refined_egohand.py",
+      "bytes": 18832,
+      "sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/run.py",
+      "bytes": 5010,
+      "sha256": "80462a0b5fcb042f6f25732bb9154ee8d465fada0a2ac802f69cf6b0e59de6a7",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/sam_body_inputs.py",
+      "bytes": 15134,
+      "sha256": "188f47748fd7ffda9a06802b8bdf3867095780c3b87a818b210ea1fac55cb0cb",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/score.py",
+      "bytes": 26499,
+      "sha256": "bef3bc69c76ee646f24b88f13777ec7dac6b9238a09daa81973a729101bce714",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/stages/__init__.py",
+      "bytes": 1943,
+      "sha256": "11bf82e2d38cee8ab4c2419ac86363725fe2c838b6c97bd784a89cf6bdc52fa6",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/stages/export.py",
+      "bytes": 4916,
+      "sha256": "3a060c4ef815a6357dcb2ebb70eb9b83ed28b3aeefd65e3c2874dcf407280a89",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/stages/human.py",
+      "bytes": 2239,
+      "sha256": "3910412aeac1694aa1c15203ef083c3ab5921e48a288fa49a89756bc636bf106",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/stages/inputs.py",
+      "bytes": 1948,
+      "sha256": "36cb1e6206bf163044f164b77c2274ebd06f7e543fb8c88c50319dc94b716826",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/stages/motion.py",
+      "bytes": 1949,
+      "sha256": "4a3cb341cbe96d575c8395e15a74a58f5a5112d3353c650076b83f24da890f91",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/stages/objects.py",
+      "bytes": 1672,
+      "sha256": "0b95338cf79fd7e0702a4b2aff3b50bc1bb9b988a2c0e02e5dd935f9b8d3713b",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/stages/refine.py",
+      "bytes": 1141,
+      "sha256": "a219e3b1094a8cbdddb6ea625889065383e6b54b9333d97010c6812efa835de1",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/v2/__init__.py",
+      "bytes": 162,
+      "sha256": "8077e17df0889c25087c98af4698415e84e9cf3657d09137e51c8bb4d062a19e",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/v2/artifacts.py",
+      "bytes": 19400,
+      "sha256": "d13a816612f2fadd8ac85b09b52c11a4ba5e3a70682b1b22cfd55a77c9de48f3",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/v2/contracts.py",
+      "bytes": 38014,
+      "sha256": "49bfdf8ad2ba3c0aeccffa6296568410efcc14e7c86e8abe02c61abdeca06a30",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/src/v2hoi/v2/geometry.py",
+      "bytes": 11374,
+      "sha256": "edd44935afd51b20ceda1c0ab464f4992a71a76773a30887ad1af28499f29554",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/adapt_egohand_observations.py",
+      "bytes": 5247,
+      "sha256": "41c861bdf56a0acaeba3338ba7b45b4422626341d107d71e61d593467ca6e267",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/adapt_refined_egohand.py",
+      "bytes": 10359,
+      "sha256": "7d55bd4617fb1af4dd90e17493d97367960b661e7984e6aaca22e7ed46e776a9",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/assemble_runtime_cp311.py",
+      "bytes": 3526,
+      "sha256": "403cc2dee875fbc88ae69874a2992211459e74344381519b1ca20275cdd683d6",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/assemble_runtime_profile.py",
+      "bytes": 3928,
+      "sha256": "0db18283d255e3f18187b78a54f67bcd31c1a66a5acfbf312c385f606e7abcd1",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/benchmark_first3.py",
+      "bytes": 11039,
+      "sha256": "fa190f4d39d37874d28d8e4ee7099d37d4f44350435dc7a7df3959610d449310",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/benchmark_moge_video.py",
+      "bytes": 7854,
+      "sha256": "a4dccf841cce69060c4b3fe8ff4d4675f03f82c4132e5a37c39005c4fe29e497",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/build_delivery_catalog.py",
+      "bytes": 18762,
+      "sha256": "dbee124c99526b8dc17295f943024f7ae32aad13557d9b1a855e606c76dedb68",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/build_human_catalog.py",
+      "bytes": 12717,
+      "sha256": "b9c0042e1db8bca02d8e04f5b8453954bfc9f8d6e50c28673ebe0e9e0390fcc7",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/check_body_handoff.py",
+      "bytes": 24347,
+      "sha256": "018f09b10a71c407bd04beb24ff27154fcd4d467fa6021664005788692bc65fa",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/check_body_native_readers.py",
+      "bytes": 9575,
+      "sha256": "834204a898d94b67c02688b70f87df1fd211f271b1e136b45a6a310d2211dba2",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/compare_human_hands.py",
+      "bytes": 12981,
+      "sha256": "54f4980bdc7514562dbff1f9d6c3341fb1e0ffbdc70ba0a114d9aa18fddf00c1",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/demo_delivery_gates.py",
+      "bytes": 4472,
+      "sha256": "9dda991ff01c266b9bf629b3069eeab2a3f1aa3964e09b2db809d334c7a98f58",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/download_foundationpose.py",
+      "bytes": 7092,
+      "sha256": "539e0261b5d8cdab642a77193463609790f610b4c6462de7f937ba6945b27fa7",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/evaluate_egohand_pilots.py",
+      "bytes": 15540,
+      "sha256": "f49c1a29398db4d699b422bbb6bb380dd445f5a32e57e87b6b3e2d7513daf9aa",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/evaluate_human_hand_pilots.py",
+      "bytes": 33495,
+      "sha256": "11f77eb336c4be64b37ae8be3e572e59efb6f6561c957e99216214457781ef8d",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/evaluate_refined_egohand_pilots.py",
+      "bytes": 30800,
+      "sha256": "6b57adf0903c165fdb99fd1fccb1567c40b6c8a045d55b62ff579e27058e3c12",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/fetch_assets.py",
+      "bytes": 22691,
+      "sha256": "1dd4f1b2f93eb6b575b5dc4b7b725d52121d39884191ff491b961773cb53e452",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/fetch_runtime_distributions.py",
+      "bytes": 3937,
+      "sha256": "ff8b9e4c32da1459a54d4c2262cb8af2414546412b442e3afe51a6eae5acaf27",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/finalize_human.py",
+      "bytes": 6905,
+      "sha256": "8231ad5ccd24abe2464af6199846d3b17acaa719c32c212993d27f84f272eb66",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/human_hand/observations.py",
+      "bytes": 18132,
+      "sha256": "4a903221516c0e579793766dc27676994d6949c444f9cc0798bbac77f644c304",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/human_runtime/prepare_assets.py",
+      "bytes": 10956,
+      "sha256": "12a0f5994eefa0f30177344e44a55e2148b2611969b13796983e288015b2e56c",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/human_runtime/prepare_converter.py",
+      "bytes": 3902,
+      "sha256": "6be1748d6dd905daedcdd2a1032d9a8491e17d682c01406b5b1351107073d8e9",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/human_runtime/prepare_sources.py",
+      "bytes": 5587,
+      "sha256": "1b43783688012d6bbff71758dd04a55ab6de20786fb345bd48ecf943a1125026",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/package_body_handoff.py",
+      "bytes": 30119,
+      "sha256": "0bd6516ff797b8375cb0f3dacf4a36b837dd84ee64af769e0fc126f7dd2882e9",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/package_human_delivery.py",
+      "bytes": 35292,
+      "sha256": "ab4d8fbd61bce47e815fde15ff62f6cfe675a8b07c08229154c3e1b8985a9947",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/prepare_body_camera.py",
+      "bytes": 23491,
+      "sha256": "ed82f4253387c81f6d91fd892eb95ed1d11796f4cd8670058dbd2407adc91932",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/prepare_body_masks.py",
+      "bytes": 29679,
+      "sha256": "56fa59b572125ae9e2b04b0ca0f5574d90a4039166a82f2edc3e5c40026ab7dc",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/prepare_bundle.py",
+      "bytes": 27445,
+      "sha256": "62905b704d9c01c80a21c14567d4d7c72738d0eac4ebdd88138074d3753c5952",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/prepare_model_release.py",
+      "bytes": 9895,
+      "sha256": "07e502ff19f070c613d9d0f38f213d7e0c16b63e255d5e231f351ef6989c63dd",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/prepare_refined_egohand_crops.py",
+      "bytes": 3919,
+      "sha256": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/prepare_track1_data.py",
+      "bytes": 20730,
+      "sha256": "34adbf9657bcb5b0ce6c8196756178d91ea25ddb8b0e83638fb9fd5ab566bc98",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/prepare_wheelhouse.py",
+      "bytes": 11499,
+      "sha256": "3c6e3fc1bb77a45d43eeb89e028f3e5fff4d1f37b7aa5f07d8d32f4528a24df2",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/progress_board.py",
+      "bytes": 25333,
+      "sha256": "c6e3cae0d43816ab1da07a52f490cffe70268ad523e44fa93fd6b3fa7742ea1f",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/publish_human_delivery.py",
+      "bytes": 28207,
+      "sha256": "d9fe8d99b0a5e3efaee29de05f4039c7e6f2991d954d7704661cdfc42f1a0344",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/rank_first3.py",
+      "bytes": 22239,
+      "sha256": "e12b828d3a93a2458b70987e2341bb1564a83d09bdff8a9a97d744e098a8e884",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/refine_human_hands.py",
+      "bytes": 21076,
+      "sha256": "cdc92007060568df7c99cda2ef34fa8afa38e3a511f2a5f8cc6cddcba8ad3977",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/render_body_mask_qa.py",
+      "bytes": 9199,
+      "sha256": "bc6cd3338ba51fa271a6931b4176da10f4cd3b5874ccd1ee54cfe1dae64a93d1",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/restore_handoff.py",
+      "bytes": 2841,
+      "sha256": "407a0b47f9ab4fcd5af7e14ea28be8bd989738ac114f9130826a04531eb5a370",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/restore_model_release.py",
+      "bytes": 14551,
+      "sha256": "4fdbc30b176aeadf0a3c1b631c62872c73a476006313114fb813d1d08abad99c",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/review_human.py",
+      "bytes": 24250,
+      "sha256": "856f5c8231900fba1ba1a15f0b33031c76719ca1ea395e8db04cc58080bf3932",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/route_refined_hand_crops.py",
+      "bytes": 6462,
+      "sha256": "659252927a4b5c6ef16c355dd52bf8cabe22442cec6daf00a430a2076a994f3a",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/run_human_batch.py",
+      "bytes": 51043,
+      "sha256": "dac13e8b750d508548e11b480413a28a48e283111c5bf017ad9af123b9deeece",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/run_sam3d_body.py",
+      "bytes": 24064,
+      "sha256": "c2d2d50a3c6e23bdaaaf69f72d3d168629dc476bc1984750dc42f79560fb3792",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/serve_human_review.py",
+      "bytes": 3506,
+      "sha256": "6f2e7897acbe3dd8e1c61f4990ef7634dcce598d3dc6a04a90622dac4e5024a0",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/runtime02/tools/track1_gallery/build.py",
+      "bytes": 6631,
+      "sha256": "e2201dbd443ffd17062c8d2fb1c82aeec81bd7839bca6e806ff5c6c730e7548c",
+      "category": "exact_executed_runtime_source"
+    },
+    {
+      "path": "reproduction/task/stage_refined_delivery_evidence02.py",
+      "bytes": 23933,
+      "sha256": "4f1381e6f4086ec74480fa3622d4e3e2ff08adff6dcf6f929f183fb9a8a9f3db",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/summarize_completed02.py",
+      "bytes": 4709,
+      "sha256": "dd6bdbc3687ad07d36aa020201ae6ea6b707b0005c9ef009b57fd45266514aa4",
+      "category": "task_recipe"
+    },
+    {
+      "path": "reproduction/task/task-start.json",
+      "bytes": 540,
+      "sha256": "325387c092a3decb9ff23c4ebc3191be22e064ad39010a7f2182e646c36917b6",
+      "category": "task_evidence"
+    },
+    {
+      "path": "reproduction/task/two-pilot-inference-completion02.json",
+      "bytes": 9140,
+      "sha256": "8d76208027748a79170a16cc9736209b4578a652f3dba2e164cbdcf7b4da9266",
+      "category": "inference_recipe_or_bound_evidence"
+    },
+    {
+      "path": "reproduction/task/verify_refined_completed_evidence02.py",
+      "bytes": 20356,
+      "sha256": "a680c1d6fb9de3cb25f7744b81d1bf1d4ed34fb7172d34766ebf84cdadc1aa76",
+      "category": "task_recipe"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 857578,
+      "sha256": "66215b7a5b43eb8bcc553cb3aa23fb42c06d0b8998d4aaceb16135b3d189c729",
+      "category": "complete_fresh_and_legacy_compact_metrics"
+    }
+  ],
+  "file_count": 247,
+  "total_bytes": 4550407,
+  "scope": "Exact copied small source/evidence bytes. Authored report/module documents, this inventory, weights, numeric parameter/media payloads and private GPU/app inventory are excluded.",
+  "executed_vs_metadata_classifier_roles": [
+    {
+      "episode": 16,
+      "executed_fitting_classifier_sha256": "cdc92007060568df7c99cda2ef34fa8afa38e3a511f2a5f8cc6cddcba8ad3977",
+      "metadata_only_classifier_reference_sha256": "30d6647be48e987247a0a9ba66eae460fdb20a0aef50b41dfb7b845cb932368a",
+      "canonical_executed_source_hashes_preserved": true,
+      "nonreport_npy_members_identical": true
+    },
+    {
+      "episode": 11,
+      "executed_fitting_classifier_sha256": "cdc92007060568df7c99cda2ef34fa8afa38e3a511f2a5f8cc6cddcba8ad3977",
+      "metadata_only_classifier_reference_sha256": "30d6647be48e987247a0a9ba66eae460fdb20a0aef50b41dfb7b845cb932368a",
+      "canonical_executed_source_hashes_preserved": true,
+      "nonreport_npy_members_identical": true
+    }
+  ],
+  "additional_actual_executed_source_sets": [
+    {
+      "source_root": "mp-runtime01",
+      "actual_stage": "fresh MediaPipe observer02",
+      "retained_complete_snapshot": true,
+      "files": [
+        {
+          "path": "tools/human_hand/observations.py",
+          "actual_source_sha256": "4a903221516c0e579793766dc27676994d6949c444f9cc0798bbac77f644c304",
+          "same_path_in_runtime02": true,
+          "byte_equivalent_to_runtime02": true
+        },
+        {
+          "path": "src/v2hoi/hand_crop_inputs.py",
+          "actual_source_sha256": "80605993d436b93d30f07050e6723981f8cd7a6b2ac375ac2fb4905708959d14",
+          "same_path_in_runtime02": true,
+          "byte_equivalent_to_runtime02": true
+        },
+        {
+          "path": "src/v2hoi/__init__.py",
+          "actual_source_sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda",
+          "same_path_in_runtime02": true,
+          "byte_equivalent_to_runtime02": true
+        }
+      ]
+    },
+    {
+      "actual_stage": "initial tight-crop preparation01",
+      "source_sets": [
+        {
+          "episode": 16,
+          "source_root": "crops/episode_000016/source_snapshot",
+          "actual_stage": "initial crop producer as bound by output source receipts",
+          "files": [
+            {
+              "recorded_path": "tools/prepare_refined_egohand_crops.py",
+              "actual_producer_sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679",
+              "byte_equivalent_to_runtime02": false
+            },
+            {
+              "recorded_path": "src/v2hoi/refined_egohand.py",
+              "actual_producer_sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+              "byte_equivalent_to_runtime02": true
+            },
+            {
+              "recorded_path": "src/v2hoi/egohand_adapter.py",
+              "actual_producer_sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+              "byte_equivalent_to_runtime02": true
+            }
+          ]
+        },
+        {
+          "episode": 11,
+          "source_root": "crops/episode_000011/source_snapshot",
+          "actual_stage": "initial crop producer as bound by output source receipts",
+          "files": [
+            {
+              "recorded_path": "tools/prepare_refined_egohand_crops.py",
+              "actual_producer_sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679",
+              "byte_equivalent_to_runtime02": false
+            },
+            {
+              "recorded_path": "src/v2hoi/refined_egohand.py",
+              "actual_producer_sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+              "byte_equivalent_to_runtime02": true
+            },
+            {
+              "recorded_path": "src/v2hoi/egohand_adapter.py",
+              "actual_producer_sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+              "byte_equivalent_to_runtime02": true
+            }
+          ]
+        }
+      ],
+      "captured_wrapper_differs_only_in_digest_helper": true,
+      "no_original_receipt_or_snapshot_rewritten": true
+    }
+  ],
+  "metric_reference_coverage": [
+    {
+      "episode": 16,
+      "full_legacy_and_fresh_reference_tables_copied_without_filtering": true,
+      "mandatory_compact_source": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\completed-summary02.json",
+      "additional_per_episode_compact_available": true,
+      "pooled_D2_support": "20 non-wrist hand landmarks per hand; prediction-only diagnostic"
+    },
+    {
+      "episode": 11,
+      "full_legacy_and_fresh_reference_tables_copied_without_filtering": true,
+      "mandatory_compact_source": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\completed-summary02.json",
+      "additional_per_episode_compact_available": true,
+      "pooled_D2_support": "20 non-wrist hand landmarks per hand; prediction-only diagnostic"
+    }
+  ],
+  "status_page_sha256_before_and_after": "234d4c2fc6baf3fe141ffaf12c59372ea120658507446c49340c1eee591728b5",
+  "all30_execution_authorized": false,
+  "quality_or_contact_accepted": false,
+  "official_scores_computed": false,
+  "git_stage_commit_push_performed": false
+}

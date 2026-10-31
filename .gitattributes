@@ -9,3 +9,7 @@ deliveries/platform/body-inputs-track1-20261016/** -text whitespace=blank-at-eol
 deliveries/human/egohand-pilots-20261031/reproduction/** -text -whitespace
 deliveries/human/egohand-pilots-20261031/evidence/** -text -whitespace
 deliveries/human/egohand-pilots-20261031/*.json -text -whitespace
+# Preserve exact executed recipes and correction bridges for the refined pilots.
+deliveries/human/egohand-refined-pilots-20261031/reproduction/** -text -whitespace
+deliveries/human/egohand-refined-pilots-20261031/evidence/** -text -whitespace
+deliveries/human/egohand-refined-pilots-20261031/*.json -text -whitespace

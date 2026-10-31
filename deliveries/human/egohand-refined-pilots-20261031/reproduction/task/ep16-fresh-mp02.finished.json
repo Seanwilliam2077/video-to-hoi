@@ -1,0 +1,67 @@
+{
+  "episode": 16,
+  "command": [
+    "J:/video-to-hoi/work/human-hand-round2/expert/venv/Scripts/python.exe",
+    "-B",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\mp-runtime01\\tools\\human_hand\\observations.py",
+    "--video",
+    "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+    "--sam-keypoints",
+    "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\raw\\pred_keypoints_2d.npy",
+    "--model",
+    "J:\\video-to-hoi\\work\\human-hand-round2\\expert\\hand_landmarker.task",
+    "--output",
+    "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\fresh-mp02",
+    "--episode",
+    "16",
+    "--mirror-check",
+    "--crop-boxes",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000016\\crop_boxes.npy",
+    "--crop-policy-receipt",
+    "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000016\\crop-policy-receipt.json"
+  ],
+  "cwd": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\mp-runtime01",
+  "log": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\ep16-fresh-mp02.log",
+  "input_bindings": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\mp-runtime01\\tools\\human_hand\\observations.py",
+      "sha256": "4a903221516c0e579793766dc27676994d6949c444f9cc0798bbac77f644c304"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\mp-runtime01\\src\\v2hoi\\hand_crop_inputs.py",
+      "sha256": "80605993d436b93d30f07050e6723981f8cd7a6b2ac375ac2fb4905708959d14"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\mp-runtime01\\src\\v2hoi\\__init__.py",
+      "sha256": "10b583122d2f1182be8657ddcaf38acf98cee9fe55b60a524f0a0720915c5eda"
+    },
+    {
+      "path": "J:\\video-to-hoi\\data\\body-deliveries\\body-inputs-track1-20261016\\data\\v2d\\track_1\\videos\\chunk-000\\observation.images.exo_camera\\episode_000016.mp4",
+      "sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74"
+    },
+    {
+      "path": "J:\\video-to-hoi\\runs\\human-all30-20261021\\episode_000016\\inference\\attempt-0001\\raw\\pred_keypoints_2d.npy",
+      "sha256": "f8282efc1f27ba5075354cfea18dc43c8194e60bc4be0992e3c6908be6ad6f69"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\human-hand-round2\\expert\\hand_landmarker.task",
+      "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000016\\crop_boxes.npy",
+      "sha256": "5c8a84d72f2720b38c096ac5c738af5a58b147bddbf0242d1d707a81704a3a8f"
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops02\\episode_000016\\crop-policy-receipt.json",
+      "sha256": "0ba0228df6ddca2132650a962353b3f4d6aca32c56a84c0aac07f4df98e5d8c0"
+    }
+  ],
+  "all30_execution_authorized": false,
+  "automatic_promotion": false,
+  "pid": 68200,
+  "launcher_pid": 115312,
+  "started_at": "2026-10-31T10:22:52.221050+00:00",
+  "returncode": 0,
+  "wall_seconds": 71.21899999980815,
+  "finished_at": "2026-10-31T10:24:03.446560+00:00"
+}

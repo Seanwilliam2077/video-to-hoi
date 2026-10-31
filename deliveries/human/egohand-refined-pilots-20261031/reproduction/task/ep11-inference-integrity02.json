@@ -1,0 +1,95 @@
+{
+  "recorded_at": "2026-10-31T10:43:36.681293+00:00",
+  "track": 1,
+  "episode": 11,
+  "passed": true,
+  "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+  "prediction_receipt_sha256": "229e6145578c1fb80056f69261c619cd95beec575f2274c45d7c4b69d0e47760",
+  "raw_cache_checks": [
+    {
+      "side": "left",
+      "exact_raw_cache_hit_count": 766,
+      "newly_inferred_view_count": 111,
+      "all_cached_parameter_geometry_projection_arrays_exact": true,
+      "compared_fields": [
+        "hand_poses",
+        "identity_coeffs",
+        "global_scale",
+        "vertices",
+        "joints",
+        "cam_t",
+        "scale_params",
+        "pred_kp2d_crop_presence",
+        "pred_kp2d_sigma",
+        "pred_keypoints_2d",
+        "pred_projection_valid"
+      ],
+      "fresh_chunk_coverage_exact": true
+    },
+    {
+      "side": "right",
+      "exact_raw_cache_hit_count": 752,
+      "newly_inferred_view_count": 125,
+      "all_cached_parameter_geometry_projection_arrays_exact": true,
+      "compared_fields": [
+        "hand_poses",
+        "identity_coeffs",
+        "global_scale",
+        "vertices",
+        "joints",
+        "cam_t",
+        "scale_params",
+        "pred_kp2d_crop_presence",
+        "pred_kp2d_sigma",
+        "pred_keypoints_2d",
+        "pred_projection_valid"
+      ],
+      "fresh_chunk_coverage_exact": true
+    }
+  ],
+  "output_checks": [
+    {
+      "variant": "raw",
+      "side": "left",
+      "frames": 877,
+      "sha256": "c98c0d8dbec91da0d44ce6e5eb3dbb3f2c8ea973556528359eb0a6eb38f19821",
+      "finite_3d_geometry": true,
+      "invalid_2d_projection_count": 0,
+      "valid_projection_roundtrip_max_pixels": 0.00010194684196092114
+    },
+    {
+      "variant": "raw",
+      "side": "right",
+      "frames": 877,
+      "sha256": "d073504f67f08c77465af766a6a59e3f831073b31a394c605c1008a0baca4892",
+      "finite_3d_geometry": true,
+      "invalid_2d_projection_count": 0,
+      "valid_projection_roundtrip_max_pixels": 0.00010045132176514517
+    },
+    {
+      "variant": "upstream_adaptive_smoothed",
+      "side": "left",
+      "frames": 877,
+      "sha256": "c5c5f3f5430fe5ad347e31db768b6175c19400adef1e9d51b3f6151bd51d49dc",
+      "finite_3d_geometry": true,
+      "invalid_2d_projection_count": 0,
+      "valid_projection_roundtrip_max_pixels": 3.2283945020925134e-06
+    },
+    {
+      "variant": "upstream_adaptive_smoothed",
+      "side": "right",
+      "frames": 877,
+      "sha256": "d148e22c542d38da667776050a3b91e80bd7d624416800ce7264f5b033424e2e",
+      "finite_3d_geometry": true,
+      "invalid_2d_projection_count": 0,
+      "valid_projection_roundtrip_max_pixels": 3.32375898949658e-06
+    }
+  ],
+  "cache_hits": 1518,
+  "newly_inferred_hand_views": 236,
+  "smoothed_cache_reused": false,
+  "official_smoothing_recomputed_full_clip": true,
+  "quality_or_contact_accepted": false,
+  "official_scores_computed": false,
+  "all30_execution_started": false
+}

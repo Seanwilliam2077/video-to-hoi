@@ -5,6 +5,7 @@ Completed runtime evidence and current controlled experiments:
 - [SAM 3D Body and MediaPipe all-30 delivery](sam-mediapipe-20261021/README.md): all 30 Track 1 videos / 16,563 original frames completed; Human packages are submitted, with reconstruction quality still unaccepted.
 - [Bounded hand-continuity pilots](hand-continuity-pilots-20261023/README.md): EP16/EP11 improvements to added-correction stability, with unresolved grasp and occlusion accuracy.
 - [Controlled EgoHand comparison](egohand-pilots-20261031/README.md): EP16/EP11 specialist-hand deployment, raw/smoothed native-MHR comparisons and separately identified evidence. This experiment does not authorize an all-30 rerun or replace selected dashboard results.
+- [Refined EgoHand crop and wrist pilots](egohand-refined-pilots-20261031/README.md): EP16/EP11 image-supported crop routing, native-depth wrist retargeting and matched MediaPipe comparisons. Wrist and unsupported-correction containment improve over prior EgoHand; visible finger stability and grasp accuracy remain unresolved. No all-30 expansion or selected-result promotion.
 
 The [standalone batch guide](../../docs/human-batch.md) describes the real SAM 3D Body, fixed-identity native MHR and independent MediaPipe route, including the EP16/EP11 pilot, resumable attempts, complete videos, hand close-ups and receiver/dashboard evidence. It is an execution interface, not an accepted all-30 result. Completed runtime evidence must be recorded separately below.
 

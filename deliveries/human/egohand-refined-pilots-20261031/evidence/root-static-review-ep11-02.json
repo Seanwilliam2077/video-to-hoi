@@ -1,0 +1,65 @@
+{
+  "recorded_at": "2026-10-31T11:07:03.636953+00:00",
+  "reviewer": "Codex root",
+  "episode": 11,
+  "review_mode": "Actual tool-viewed static comparison JPEGs only; complete playback not claimed",
+  "viewed_images": [
+    {
+      "panel": "old-new-egohand-comparison",
+      "original_frame_id": 280,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\old-new-egohand-comparison-000280.jpg",
+      "sha256": "deae91cc38c70e2519eddc8ca0e2d93342b0f135f347f8ce4c4e4afbe7c62b24"
+    },
+    {
+      "panel": "old-new-egohand-comparison",
+      "original_frame_id": 511,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\old-new-egohand-comparison-000511.jpg",
+      "sha256": "9ffccc50a99f3ab93626e4ae9291efd00dcda6c4d7819ffc61637f90975a7fc1"
+    },
+    {
+      "panel": "old-new-egohand-comparison",
+      "original_frame_id": 803,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\old-new-egohand-comparison-000803.jpg",
+      "sha256": "fa4b3f1955147ac789216293c7b1563683f95b9882861415ee2d0d71ad2cbe49"
+    },
+    {
+      "panel": "hands-comparison",
+      "original_frame_id": 511,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000511.jpg",
+      "sha256": "dbf471e42391c102bccee3ee4121b4f89b4b22c95c548aab3284e9b0108d5a73"
+    },
+    {
+      "panel": "hands-comparison",
+      "original_frame_id": 512,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000512.jpg",
+      "sha256": "880ff6ea96e7b9165b047f22774b48d07b575ea266cfe390784b76ab6a360ce2"
+    },
+    {
+      "panel": "hands-comparison",
+      "original_frame_id": 559,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000559.jpg",
+      "sha256": "2591bf832ce6d87d3035833eef3fd80dd9211b98546f53fcb86394a531e9c0c4"
+    },
+    {
+      "panel": "hands-comparison",
+      "original_frame_id": 560,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000560.jpg",
+      "sha256": "49df30999d2483b451c59fba03611703536238e57df901f24c36c3b82db37878"
+    },
+    {
+      "panel": "hands-comparison",
+      "original_frame_id": 803,
+      "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000011\\review02\\frames\\hands-comparison-000803.jpg",
+      "sha256": "71a4d78b14c70ce6351aac964172900f3ea35043bfa035f1b321df8c9cff35fa"
+    }
+  ],
+  "findings": [
+    "The sampled511/512 and559/560 native pairs do not show an obvious large inter-frame wrist jump at this display resolution; this is not an all-boundary or true-grasp pass.",
+    "At803 the left hand is visible but blurred in RGB while its new image admission is zero. Missing detector support is not proof of physical occlusion.",
+    "The refined native pose is closer to the MP/body family than old EgoHand; source detail is insufficient to establish a correct hidden hand or an overall grasp-fidelity win.",
+    "At280 hidden detail cannot establish which rendered pose is accurate. Read baseline-equality and retained-prior audits alongside static appearance."
+  ],
+  "quality_accepted": false,
+  "official_score_available": false,
+  "all30_execution_authorized": false
+}

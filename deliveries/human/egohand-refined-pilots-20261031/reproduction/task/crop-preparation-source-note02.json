@@ -1,0 +1,65 @@
+{
+  "recorded_at": "2026-10-31T11:14:25.794601+00:00",
+  "scope": "Initial crop producer source bytes only; original receipts/snapshots/results remain unchanged",
+  "captured_runtime01_tool_sha256": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b",
+  "captured_runtime02_tool_sha256": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b",
+  "actual_producer_snapshots": [
+    {
+      "episode": 16,
+      "all_non_digest_AST_identical_to_captured_tool": true,
+      "source_files": [
+        {
+          "recorded_path": "tools/prepare_refined_egohand_crops.py",
+          "actual_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\source_snapshot\\prepare_refined_egohand_crops.py",
+          "actual_sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679",
+          "same_bytes_as_runtime01": false,
+          "same_bytes_as_runtime02": false
+        },
+        {
+          "recorded_path": "src/v2hoi/refined_egohand.py",
+          "actual_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\source_snapshot\\refined_egohand.py",
+          "actual_sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+          "same_bytes_as_runtime01": true,
+          "same_bytes_as_runtime02": true
+        },
+        {
+          "recorded_path": "src/v2hoi/egohand_adapter.py",
+          "actual_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000016\\source_snapshot\\egohand_adapter.py",
+          "actual_sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+          "same_bytes_as_runtime01": true,
+          "same_bytes_as_runtime02": true
+        }
+      ]
+    },
+    {
+      "episode": 11,
+      "all_non_digest_AST_identical_to_captured_tool": true,
+      "source_files": [
+        {
+          "recorded_path": "tools/prepare_refined_egohand_crops.py",
+          "actual_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\source_snapshot\\prepare_refined_egohand_crops.py",
+          "actual_sha256": "5e1c9d4a4b9c47982bc35dd1fd8f718706f3aabd9e1217e28da01cc5e8386679",
+          "same_bytes_as_runtime01": false,
+          "same_bytes_as_runtime02": false
+        },
+        {
+          "recorded_path": "src/v2hoi/refined_egohand.py",
+          "actual_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\source_snapshot\\refined_egohand.py",
+          "actual_sha256": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+          "same_bytes_as_runtime01": true,
+          "same_bytes_as_runtime02": true
+        },
+        {
+          "recorded_path": "src/v2hoi/egohand_adapter.py",
+          "actual_snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\crops\\episode_000011\\source_snapshot\\egohand_adapter.py",
+          "actual_sha256": "fa7e8fd6384265b65e1fcf6d06b93aac2f3b9821431a3a2458ce74b3a53317a4",
+          "same_bytes_as_runtime01": true,
+          "same_bytes_as_runtime02": true
+        }
+      ]
+    }
+  ],
+  "difference": "The actual producer uses hashlib.file_digest; captured runtime tool uses streaming hashlib.sha256. All other AST nodes are identical. No geometry/config/target calculation changed.",
+  "numeric_rerun_required": false,
+  "quality_accepted": false
+}

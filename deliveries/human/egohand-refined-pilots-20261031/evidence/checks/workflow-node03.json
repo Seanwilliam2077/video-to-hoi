@@ -1,0 +1,47 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "tests/test_progress_board.cjs",
+    "tests/test_delivery_view.cjs",
+    "tests/test_progress_app.cjs"
+  ],
+  "started_at": "2026-10-31T10:54:35.794537+00:00",
+  "source_sha256_before": {
+    "src/v2hoi/hand_crop_inputs.py": "80605993d436b93d30f07050e6723981f8cd7a6b2ac375ac2fb4905708959d14",
+    "src/v2hoi/hand_crop_router.py": "47e34caefc97da61780d89f7dfc31fd963f68efc4c9605cd09fc1f9806b4d8d7",
+    "src/v2hoi/refined_egohand.py": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+    "tools/human_hand/observations.py": "4a903221516c0e579793766dc27676994d6949c444f9cc0798bbac77f644c304",
+    "tools/prepare_refined_egohand_crops.py": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b",
+    "tools/route_refined_hand_crops.py": "659252927a4b5c6ef16c355dd52bf8cabe22442cec6daf00a430a2076a994f3a",
+    "tools/adapt_refined_egohand.py": "7d55bd4617fb1af4dd90e17493d97367960b661e7984e6aaca22e7ed46e776a9",
+    "tools/evaluate_refined_egohand_pilots.py": "6b57adf0903c165fdb99fd1fccb1567c40b6c8a045d55b62ff579e27058e3c12",
+    "tools/refine_human_hands.py": "30d6647be48e987247a0a9ba66eae460fdb20a0aef50b41dfb7b845cb932368a",
+    "tests/test_hand_target_provenance.py": "e5a1d5c5a4a0906be8196e816ac338a637de5146fbf7ec616a2bcef267b80ee3",
+    "tests/test_hand_crop_inputs.py": "19fd5e00411aa59c667322695c5ad14946f1aa0db8e2583b6c0122d56f39cd6b",
+    "tests/test_hand_crop_router.py": "8c4ccc40c6585769e9c67f3c6e0e44b8a381c1023600bd62be7565438d5ff690",
+    "tests/test_refined_egohand.py": "f5caf83eaf63e4784dd83703668eb9d198cebff61ca78de4668d0e9f906d8f99",
+    "tests/test_refined_egohand_evaluation.py": "ca60da890faa1df77aaf40eb08a20627f0770356ea62634f737a769f0fb6aff8",
+    ".github/workflows/tests.yml": "bd97da5ede3fd11c794af436bd2ab7746ce2e62d1afcdb6c6cae1a9d93c5d61b"
+  },
+  "PYTHONPATH": "C:\\Users\\arthasxu\\.codex\\worktrees\\human-all30\\video-to-hoi\\src",
+  "returncode": 0,
+  "wall_seconds": 2.343000000109896,
+  "source_sha256_after": {
+    "src/v2hoi/hand_crop_inputs.py": "80605993d436b93d30f07050e6723981f8cd7a6b2ac375ac2fb4905708959d14",
+    "src/v2hoi/hand_crop_router.py": "47e34caefc97da61780d89f7dfc31fd963f68efc4c9605cd09fc1f9806b4d8d7",
+    "src/v2hoi/refined_egohand.py": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+    "tools/human_hand/observations.py": "4a903221516c0e579793766dc27676994d6949c444f9cc0798bbac77f644c304",
+    "tools/prepare_refined_egohand_crops.py": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b",
+    "tools/route_refined_hand_crops.py": "659252927a4b5c6ef16c355dd52bf8cabe22442cec6daf00a430a2076a994f3a",
+    "tools/adapt_refined_egohand.py": "7d55bd4617fb1af4dd90e17493d97367960b661e7984e6aaca22e7ed46e776a9",
+    "tools/evaluate_refined_egohand_pilots.py": "6b57adf0903c165fdb99fd1fccb1567c40b6c8a045d55b62ff579e27058e3c12",
+    "tools/refine_human_hands.py": "30d6647be48e987247a0a9ba66eae460fdb20a0aef50b41dfb7b845cb932368a",
+    "tests/test_hand_target_provenance.py": "e5a1d5c5a4a0906be8196e816ac338a637de5146fbf7ec616a2bcef267b80ee3",
+    "tests/test_hand_crop_inputs.py": "19fd5e00411aa59c667322695c5ad14946f1aa0db8e2583b6c0122d56f39cd6b",
+    "tests/test_hand_crop_router.py": "8c4ccc40c6585769e9c67f3c6e0e44b8a381c1023600bd62be7565438d5ff690",
+    "tests/test_refined_egohand.py": "f5caf83eaf63e4784dd83703668eb9d198cebff61ca78de4668d0e9f906d8f99",
+    "tests/test_refined_egohand_evaluation.py": "ca60da890faa1df77aaf40eb08a20627f0770356ea62634f737a769f0fb6aff8",
+    ".github/workflows/tests.yml": "bd97da5ede3fd11c794af436bd2ab7746ce2e62d1afcdb6c6cae1a9d93c5d61b"
+  }
+}

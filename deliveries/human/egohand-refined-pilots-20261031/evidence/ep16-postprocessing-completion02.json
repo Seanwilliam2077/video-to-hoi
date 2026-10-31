@@ -1,0 +1,20 @@
+{
+  "completed_at": "2026-10-31T10:47:24.718910+00:00",
+  "episode": 16,
+  "frames": 360,
+  "status": "complete_numeric_and_video_evidence_awaiting_visual_review",
+  "evaluation": {
+    "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\evaluation02.json",
+    "sha256": "d7fb13844d7fbd6b4536fcaebbd1870be0df00d805bf293c3234b16b7d3a320c"
+  },
+  "video_summary": {
+    "path": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\summary.json",
+    "sha256": "74f0254481605daf7068bd26c4b6d4882897ea5313fe3e7c201f30ea4faf6a04"
+  },
+  "review_index": "J:\\video-to-hoi\\runs\\egohand-refined-pilots-20261031\\episode_000016\\review02\\index.html",
+  "quality_accepted": false,
+  "contact_quality_accepted": false,
+  "official_score_available": false,
+  "automatic_promotion": false,
+  "all30_execution_authorized": false
+}

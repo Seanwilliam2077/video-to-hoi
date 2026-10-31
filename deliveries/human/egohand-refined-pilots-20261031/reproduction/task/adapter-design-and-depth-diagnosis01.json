@@ -1,0 +1,137 @@
+{
+  "recorded_at": "2026-10-31T10:10:06.973549+00:00",
+  "authorized_episodes": [
+    16,
+    11
+  ],
+  "all30_execution_authorized": false,
+  "source_sha256": {
+    "src/v2hoi/refined_egohand.py": "381d1e171f64d64e49d99d379c1ff65007bfbf60d9473207018a4fbd6e3a2f34",
+    "tools/prepare_refined_egohand_crops.py": "9078744b4bfc6a05d022627236560e14dbd93e955ac3cb4bd84168ed6a20071b",
+    "tools/adapt_refined_egohand.py": "7d55bd4617fb1af4dd90e17493d97367960b661e7984e6aaca22e7ed46e776a9",
+    "tests/test_refined_egohand.py": "f5caf83eaf63e4784dd83703668eb9d198cebff61ca78de4668d0e9f906d8f99"
+  },
+  "crop_receipt_sha256": {
+    "16": "fed8515c0b5cb65ad6053c173f54867c1c4b70c01697c675acb16fbd0b04f8aa",
+    "11": "920cbb50c624301a495641250486b4118f8029c341b1e766fc918749dc442296"
+  },
+  "actual_legacy_geometry_diagnostics": [
+    {
+      "episode": 16,
+      "original_frame_id": 110,
+      "side": "left",
+      "stride5_heldout": true,
+      "diagnostic_only_not_used_to_tune_gates": true,
+      "raw_global_scale": 1.0719716548919678,
+      "raw_wrist_depth_native_estimated_m": 1.2570936679840088,
+      "baseline_wrist_depth_native_estimated_m": 2.9389145374298096,
+      "raw_palm_width_m": 0.06310095226167954,
+      "native_palm_width_m": 0.06278544584984339,
+      "raw_projected_palm_width_px": 29.235931443489516,
+      "baseline_projected_palm_width_px": 13.369101501151192,
+      "accepted_MP_palm_width_px": null
+    },
+    {
+      "episode": 16,
+      "original_frame_id": 110,
+      "side": "right",
+      "stride5_heldout": true,
+      "diagnostic_only_not_used_to_tune_gates": true,
+      "raw_global_scale": 0.9883739948272705,
+      "raw_wrist_depth_native_estimated_m": 1.2349215745925903,
+      "baseline_wrist_depth_native_estimated_m": 2.815553903579712,
+      "raw_palm_width_m": 0.05828735846223987,
+      "native_palm_width_m": 0.062388444507438,
+      "raw_projected_palm_width_px": 26.066729077494642,
+      "baseline_projected_palm_width_px": 13.644401567783193,
+      "accepted_MP_palm_width_px": 15.761454582214355
+    },
+    {
+      "episode": 11,
+      "original_frame_id": 511,
+      "side": "left",
+      "stride5_heldout": false,
+      "diagnostic_only_not_used_to_tune_gates": true,
+      "raw_global_scale": 1.040852665901184,
+      "raw_wrist_depth_native_estimated_m": 1.4353036880493164,
+      "baseline_wrist_depth_native_estimated_m": 3.437631845474243,
+      "raw_palm_width_m": 0.062140654988909014,
+      "native_palm_width_m": 0.06160496147218453,
+      "raw_projected_palm_width_px": 23.890508070407723,
+      "baseline_projected_palm_width_px": 5.457809971466043,
+      "accepted_MP_palm_width_px": null
+    },
+    {
+      "episode": 11,
+      "original_frame_id": 512,
+      "side": "left",
+      "stride5_heldout": false,
+      "diagnostic_only_not_used_to_tune_gates": true,
+      "raw_global_scale": 1.0336499214172363,
+      "raw_wrist_depth_native_estimated_m": 1.4516301155090332,
+      "baseline_wrist_depth_native_estimated_m": 3.4415457248687744,
+      "raw_palm_width_m": 0.061855920096425016,
+      "native_palm_width_m": 0.061604795407881247,
+      "raw_projected_palm_width_px": 22.850691789579653,
+      "baseline_projected_palm_width_px": 5.722436991847727,
+      "accepted_MP_palm_width_px": null
+    },
+    {
+      "episode": 11,
+      "original_frame_id": 511,
+      "side": "right",
+      "stride5_heldout": false,
+      "diagnostic_only_not_used_to_tune_gates": true,
+      "raw_global_scale": 1.0659064054489136,
+      "raw_wrist_depth_native_estimated_m": 0.9987882375717163,
+      "baseline_wrist_depth_native_estimated_m": 3.1255691051483154,
+      "raw_palm_width_m": 0.06717079595351942,
+      "native_palm_width_m": 0.061917673483352656,
+      "raw_projected_palm_width_px": 32.095177318467016,
+      "baseline_projected_palm_width_px": 15.925777601059178,
+      "accepted_MP_palm_width_px": null
+    },
+    {
+      "episode": 11,
+      "original_frame_id": 512,
+      "side": "right",
+      "stride5_heldout": false,
+      "diagnostic_only_not_used_to_tune_gates": true,
+      "raw_global_scale": 1.061785340309143,
+      "raw_wrist_depth_native_estimated_m": 1.004551887512207,
+      "baseline_wrist_depth_native_estimated_m": 3.1349735260009766,
+      "raw_palm_width_m": 0.06703977577841344,
+      "native_palm_width_m": 0.06191772077148944,
+      "raw_projected_palm_width_px": 29.486547569689627,
+      "baseline_projected_palm_width_px": 15.781051394671936,
+      "accepted_MP_palm_width_px": 14.573848724365234
+    }
+  ],
+  "legacy_source_bindings": {
+    "16": {
+      "native_joints_sha256": "64a57fc42b5c58b3520020c1ba3075f696c54abd7452a6114b3173fe2671f459",
+      "observations_sha256": "5249aa7a887e5de4fe422523bc459a3c063a14833907b8e2886877520a364fd7",
+      "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+      "left_raw_egohand_sha256": "0c284f8e0bf585f2bf84f4a36d21b9d7d2b9796c4bd45a200cde56db8fe90da0",
+      "right_raw_egohand_sha256": "73c6d96bb7882214b26690e185a0cb2dfda437d7327bc4430fc9ee088137a8d1"
+    },
+    "11": {
+      "native_joints_sha256": "695cc1a467337ccfffcb62d0a46da1b8685e89b20bc8b9f73b79ec92dae2364f",
+      "observations_sha256": "9445a68b84436caaf6fef82f3aa1c1a9e60d0809717ccfeb395461bce63857e3",
+      "source_video_sha256": "1b5c95978413d92320b4a5ac4e1094194966f2e1eb399143ded367bb682eec40",
+      "left_raw_egohand_sha256": "63d9bd713330bab81d6c571137f07f50be78b1545be57f383cec645ebc19fed6",
+      "right_raw_egohand_sha256": "bc10ce70d570092829bd750ced738b56e14eb8321a333e2f3bc8bf5fd671a75c"
+    }
+  },
+  "interpretation": "Standalone 3D palm breadth is similar to fixed-body native geometry at these frames, while the standalone wrist is much nearer its camera. The resulting image span and wrist location differ substantially. Depth/scale values are estimates and approximate SOMA/native wrist semantics are not identical. These examples motivate the declared consistent-depth retarget; they are not ground-truth error or a validation-based method selection.",
+  "frozen_method": "One training-only raw-reference native/Ego 3D palm scalar per hand/clip; each frame uses original native wrist depth with fresh training detector wrist lateral anchor. Per-joint new image weight requires shared corroborated detector support and valid in-crop geometry. No framewise scale/clamp/orientation fit or copied detector finger coordinate. Unknown/heldout rows retain prior geometry with zero new image targets.",
+  "focus_checks": {
+    "command": "J:/video-to-hoi/.venv/Scripts/python.exe -B -m pytest -q tests/test_refined_egohand.py tests/test_egohand_adapter.py tests/test_hand_crop_inputs.py",
+    "result": "58 passed in20.99s",
+    "scope": "Synthetic geometry, adapter mathematics and frozen-crop input contracts. No real neural reconstruction or quality accepted."
+  },
+  "compatibility_note": "Final CLIs use streaming SHA256 for Python3.10. Crop artifacts preserve the source_snapshot/hash of their original generation CLI; compatibility-only CLI edit did not change any crop bytes or policy.",
+  "full_neural_run_launched_by_this_agent": false,
+  "quality_accepted": false,
+  "official_scores_computed": false
+}

@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_refined_egohand02.py",
+      "snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\inference-runtime02\\run_refined_egohand02.py",
+      "sha256": "91729499f3454489e9611e4a51498e8c4886d1421acf6df2f367ac53533c4ec4",
+      "bytes": 22491
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\raw_cache02.py",
+      "snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\inference-runtime02\\raw_cache02.py",
+      "sha256": "e415747f01bfc190ae811bc0452ecc0b1fff1996099a998ced04b7282e5e67ef",
+      "bytes": 12798
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_runtime_job.py",
+      "snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\inference-runtime02\\run_runtime_job.py",
+      "sha256": "d4a81c97b76faa6e82eda6463b72938f7c3342ed510b8638837c86d0cac28ada",
+      "bytes": 1692
+    },
+    {
+      "path": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\run_two_full02.py",
+      "snapshot": "J:\\video-to-hoi\\work\\egohand-refined-pilots-20261031\\inference-runtime02\\run_two_full02.py",
+      "sha256": "1274b125f3f95f40b6ee222e815ffdeb9a49bca33458898cbf5912ce99a64e36",
+      "bytes": 1233
+    }
+  ],
+  "protocol_sha256": "eeabb07a21a77a9a96c71e9a7adb4e753c96df24d66819e57340df8ca677a34d",
+  "input_manifest_sha256": "449311c5c03fa8aacd0b7c14e54b4a9c812edf0e7bf169894eb046fa4e53162f",
+  "all30_execution_authorized": false
+}

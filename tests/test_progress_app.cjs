@@ -90,7 +90,7 @@ class Element {
   focus() {}
 }
 
-async function app({registry = board(), contents = catalog(), humanContents = {schema_version: "hoi_human_catalog.v1", entries: []}, inputEvidence = null, hash = ""} = {}) {
+async function app({registry = board(), contents = catalog(), humanContents = {schema_version: "hoi_human_catalog.v1", entries: []}, objectContents = {schema_version: "hoi_object_catalog.v1", entries: []}, inputEvidence = null, hash = ""} = {}) {
   assert.deepEqual(HOI.validateBoard(registry), []);
   const elements = new Map(), stored = new Map(), events = new Map();
   const get = id => {
@@ -98,7 +98,7 @@ async function app({registry = board(), contents = catalog(), humanContents = {s
     return elements.get(id);
   };
   const location = new URL(`https://example.test/progress/${hash}`);
-  const network = {registry: clone(registry), contents: clone(contents), humanContents: clone(humanContents), inputEvidence: inputEvidence ? clone(inputEvidence) : null, catalogFailure: false, humanCatalogFailure: false};
+  const network = {registry: clone(registry), contents: clone(contents), humanContents: clone(humanContents), objectContents: clone(objectContents), objectCatalogFailure: false, inputEvidence: inputEvidence ? clone(inputEvidence) : null, catalogFailure: false, humanCatalogFailure: false};
   const history = {
     pushState(_state, _title, url) { location.href = new URL(url, location.href).href; },
     replaceState(_state, _title, url) { location.href = new URL(url, location.href).href; }
@@ -120,13 +120,15 @@ async function app({registry = board(), contents = catalog(), humanContents = {s
       events.get(name).push(handler);
     }},
     fetch: async url => {
+      const isObject = String(url).includes("object-catalog");
+      if (isObject && network.objectCatalogFailure) throw new Error("Independent simulated Object preview outage");
       const isHuman = String(url).includes("human-catalog");
       const isCatalog = String(url).includes("delivery-catalog");
       const isEvidence = String(url).includes("input-evidence");
       if (isHuman && network.humanCatalogFailure) throw new Error("Independent simulated Human preview outage");
       if (isCatalog && network.catalogFailure) throw new Error("Independent simulated catalog outage");
       if (isEvidence && !network.inputEvidence) return {ok: false, json: async () => ({})};
-      return {ok: true, json: async () => clone(isEvidence ? network.inputEvidence : isHuman ? network.humanContents : isCatalog ? network.contents : network.registry)};
+      return {ok: true, json: async () => clone(isObject ? network.objectContents : isEvidence ? network.inputEvidence : isHuman ? network.humanContents : isCatalog ? network.contents : network.registry)};
     }
   };
   vm.runInNewContext(APP, sandbox, {filename: "app.js"});
@@ -292,4 +294,49 @@ test("Human previews never migrate to newer records or stale upstream chains", a
   await value.click("refresh");
   assert.doesNotMatch(value.get("detail-content").innerHTML, /delivery-human-grid/);
   assert.match(value.get("detail-content").innerHTML, /需重新检查|stale/i);
+});
+
+function objectContents() {
+  const base = "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-independent-object-app";
+  const asset = name => ({url: `${base}/${name}`, bytes: 123, sha256: SHA});
+  const archive = asset("independent-object-app.zip"), checks = asset("producer-checks.json");
+  const entries = ["objects", "motion"].map(stage => {
+    const r = record(`fixture-${stage}`, {stage, source_commit: "", coverage: {frames: 5, objects_complete: true},
+      artifacts: (stage === "objects" ? ["object_record", "mesh"] : ["transforms"]).map(requirement_id => ({requirement_id, label: "Fixture", ...archive})),
+      upstream: stage === "motion" ? [{stage: "objects", record_id: "fixture-objects"}] : [],
+      checks: {structural: {status: "pass", evidence_url: checks.url}, quality: {status: "not_run", evidence_url: ""}, export: {status: "not_run", evidence_url: ""}}});
+    return {record: r, episode_id: EP, profile: "temporal_object_hoi_review.v1", frame_count: 5, object_name: "test_cube",
+      source_video_sha256: SHA, selected_result_sha256: SHA, archive, checks, manifest: asset("manifest.json"),
+      preview: {...asset(`${EP}_test_cube.mp4`), content_type: "video/mp4", original_frame_count: 5},
+      quality_accepted: false, metric_scale_verified: false, official_export_accepted: false};
+  });
+  return {schema_version: "hoi_object_catalog.v1", entries};
+}
+
+test("M3 previews open for Objects and Motion; refresh failures keep generic delivered files", async () => {
+  const contents = objectContents();
+  const value = await app({registry: board(contents.entries.map(x => x.record)), objectContents: contents});
+  for (const stage of ["objects", "motion"]) {
+    await value.click("board-panel", {episode: EP, stage});
+    assert.match(value.get("detail-content").innerHTML, /delivery-object-result/);
+    assert.equal((value.get("detail-content").innerHTML.match(/<video /g) || []).length, 1);
+  }
+  assert.equal(value.get("stat-accepted").textContent, 0);
+  value.network.objectCatalogFailure = true;
+  await value.click("refresh");
+  assert.doesNotMatch(value.get("detail-content").innerHTML, /delivery-object-result/);
+  assert.match(value.get("detail-content").innerHTML, /Open submitted content|打开递交内容/);
+});
+
+test("M3 media never migrates to a newer record and disappears for a stale mesh binding", async () => {
+  const contents = objectContents(), records = contents.entries.map(x => x.record);
+  const newer = {...clone(records[0]), id: "fixture-next-object", iteration: "next-v2", created_at: "2026-10-16T12:00:00Z"};
+  const value = await app({registry: board([...records, newer]), objectContents: contents});
+  await value.click("board-panel", {episode: EP, stage: "objects"});
+  assert.doesNotMatch(value.get("detail-content").innerHTML, /delivery-object-result/);
+  await value.navigate(`#episode=${EP}&stage=motion&record=fixture-motion`);
+  assert.match(value.get("detail-content").innerHTML, /delivery-object-result/);
+  value.network.registry.records.push({...clone(records[0]), id: "newer-same-mesh", created_at: "2026-10-16T13:00:00Z"});
+  await value.click("refresh");
+  assert.doesNotMatch(value.get("detail-content").innerHTML, /delivery-object-result/);
 });

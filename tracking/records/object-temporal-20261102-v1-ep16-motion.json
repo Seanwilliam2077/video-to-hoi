@@ -1,0 +1,49 @@
+{
+  "id": "object-temporal-20261102-v1-ep16-motion",
+  "episode_id": "episode_000016",
+  "stage": "motion",
+  "iteration": "object-temporal-20261102-v1",
+  "state": "submitted",
+  "kind": "real_track1",
+  "created_at": "2026-11-02T14:11:21Z",
+  "contributor": "M3 owner with Codex",
+  "reviewer": "",
+  "delivery_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/result-object-temporal-track1-20261102-v1",
+  "source_commit": "",
+  "upstream": [
+    {
+      "stage": "objects",
+      "record_id": "object-temporal-20261102-v1-ep16-objects"
+    }
+  ],
+  "coverage": {
+    "frames": 360,
+    "objects_complete": true
+  },
+  "checks": {
+    "structural": {
+      "status": "pass",
+      "evidence_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/producer-checks.json"
+    },
+    "quality": {
+      "status": "not_run",
+      "evidence_url": ""
+    },
+    "export": {
+      "status": "not_run",
+      "evidence_url": ""
+    }
+  },
+  "blocker": "Native input/Human registry lineage is not registered for these exact scenes; consumer and quality review pending.",
+  "next_action": "Inspect this episode in the release; verify original camera, mesh/pose/scale pairing and Human context before downstream use. No official export.",
+  "summary": "foam_grass_block: 360 original frames; complete object 6D trajectory including occlusion; no calibrated per-frame confidence delivered; full HOI video in the release. Structural checks concern this portable package, not the internal v1/native gate. Runtime source hashes are archived; no published generating commit is claimed.",
+  "artifacts": [
+    {
+      "requirement_id": "transforms",
+      "label": "Archive: episode_000016/motion.npz and scene.npz; full HOI preview alongside",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/object-temporal-track1-20261102-v1.zip",
+      "sha256": "0310d8db733783f7edf4360b4715c43cc5b0893c5f563a3c1b33446a3a29c7cc",
+      "bytes": 202896117
+    }
+  ]
+}

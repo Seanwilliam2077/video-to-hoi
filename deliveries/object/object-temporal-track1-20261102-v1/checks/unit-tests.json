@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "tests_passed": 334,
+  "duration_seconds": 13.16,
+  "command": "python -m pytest -q tests/test_bundle.py tests/test_contracts.py tests/test_dataset.py tests/test_fetch_assets.py tests/test_download_foundationpose.py tests/test_model_release_prepare.py tests/test_model_release_restore.py tests/test_handoff_restore.py tests/test_benchmark_first3.py tests/test_rank_first3.py tests/test_geometry.py tests/test_metrics.py tests/test_track1_score.py tests/test_object_handoff.py tests/test_run.py tests/test_physics_motion.py tests/test_ring_geometry.py tests/test_temporal_supported_path.py",
+  "scope": "Explicit local CI allowlist; independent synthetic tests; no quality or competition acceptance"
+}

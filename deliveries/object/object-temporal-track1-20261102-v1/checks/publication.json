@@ -1,0 +1,364 @@
+{
+  "repository": "Seanwilliam2077/video-to-hoi",
+  "release_tag": "result-object-temporal-track1-20261102-v1",
+  "release_id": 431529484,
+  "release_url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/result-object-temporal-track1-20261102-v1",
+  "storage_anchor_commit": "fb0bac9f02d346d32e086036c80f7c3041978d56",
+  "upload_manifest_sha256": "149e6cd99b8821db24cabf8bfdd91eccd0eecfa3de9ca95beeade3ba3164f0bc",
+  "complete": true,
+  "assets": [
+    {
+      "name": "object-temporal-track1-20261102-v1.zip",
+      "id": 701947991,
+      "bytes": 202896117,
+      "sha256": "0310d8db733783f7edf4360b4715c43cc5b0893c5f563a3c1b33446a3a29c7cc",
+      "role": "complete_object_handoff",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/object-temporal-track1-20261102-v1.zip",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000000_hula_hoop.mp4",
+      "id": 701948000,
+      "bytes": 8192324,
+      "sha256": "3f948663421f5711d437f4f330161bbdc0a564af3b205e0f4234eaca959374ff",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000000_hula_hoop.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000002_hula_hoop.mp4",
+      "id": 701948992,
+      "bytes": 9917626,
+      "sha256": "8105c20658a8b73f0d539a6838a975dbb0d24ee66a27eee72e6f2ef313992601",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000002_hula_hoop.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000001_hula_hoop.mp4",
+      "id": 701948001,
+      "bytes": 7397560,
+      "sha256": "67681929c449de8c63906729ec71892a3c034a9039c6ee073c87d9526402facf",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000001_hula_hoop.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000003_big_red_bowl.mp4",
+      "id": 701949056,
+      "bytes": 5910199,
+      "sha256": "a6e1c4fab70ac567ca402358af8a7a18a6f037dab44260404ef4324cc9485c6a",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000003_big_red_bowl.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000004_big_red_bowl.mp4",
+      "id": 701950060,
+      "bytes": 7358812,
+      "sha256": "a7cbc83a6570631c0cd141f04f4e4ba13258c63bc6a643c86b3db7c1ce0799e1",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000004_big_red_bowl.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000005_big_red_bowl.mp4",
+      "id": 701950518,
+      "bytes": 6253293,
+      "sha256": "af4ebc0b1e49ddb164c9c4e8ce90330ceb798ce32fc65f7f8dfb8ba932006003",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000005_big_red_bowl.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000006_iron.mp4",
+      "id": 701951014,
+      "bytes": 7334316,
+      "sha256": "ccb064b1f154474b328b06c8ab2d3fe59f443e06239da1f0e029321e8a2552c8",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000006_iron.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000007_iron.mp4",
+      "id": 701951125,
+      "bytes": 8224556,
+      "sha256": "a9155d6d5eb690f949fe62120abcae5fc7cf138791783b0339dad8dff996756c",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000007_iron.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000008_iron.mp4",
+      "id": 701952172,
+      "bytes": 5954635,
+      "sha256": "07f54341a02b81ea6a663fd844ff2be7db72ccceb6d0726896aabc5c164dbc66",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000008_iron.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000009_white_desk.mp4",
+      "id": 701952229,
+      "bytes": 4305661,
+      "sha256": "a8684e36fad945d18bd89f58525876371b9b23baca585afeb7bf23a505367a3f",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000009_white_desk.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000010_white_desk.mp4",
+      "id": 701952315,
+      "bytes": 5629167,
+      "sha256": "00cbdf188ca5cd8fae1748a7272bf26c1472976a3d0f3e399ad7c88efbe3d89f",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000010_white_desk.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000011_white_desk.mp4",
+      "id": 701952562,
+      "bytes": 10395004,
+      "sha256": "1a6fc02eefff56664634ec58d5f90fb70618e337dc7c5b0f5dd8052c8f759181",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000011_white_desk.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000012_black_pan.mp4",
+      "id": 701952686,
+      "bytes": 3759020,
+      "sha256": "69dabf2363b3a99757832fef85f55c5c6253608ec1145f0cd24728d361ba8482",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000012_black_pan.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000013_black_pan.mp4",
+      "id": 701952828,
+      "bytes": 3934047,
+      "sha256": "70922530cb9750164ec13ab22af5082a45f417f89ccf6d4b66c6f226b6476ba2",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000013_black_pan.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000014_black_pan.mp4",
+      "id": 701952939,
+      "bytes": 4107505,
+      "sha256": "736aa2eca54223450a96c0ae492ce8d36b21ed0ee4f9f0a21669d766acb87d6c",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000014_black_pan.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000015_foam_grass_block.mp4",
+      "id": 701952964,
+      "bytes": 5079220,
+      "sha256": "d6425dfa4406f8c6b026477cd8ae3fc7b7129c9ab0a4256206c88a826efd9902",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000015_foam_grass_block.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000016_foam_grass_block.mp4",
+      "id": 701953716,
+      "bytes": 3458013,
+      "sha256": "9cd43aac6e395fca6d6c8559d2bdd5698559bb410cd04aa2bb0fb079fd93903a",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000016_foam_grass_block.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000017_foam_grass_block.mp4",
+      "id": 701953748,
+      "bytes": 4279029,
+      "sha256": "545c421c4d98904ce1840900283be526c4116087f0726f11b6b4dde84fbfa4f2",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000017_foam_grass_block.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000018_paint_roller.mp4",
+      "id": 701953924,
+      "bytes": 6003327,
+      "sha256": "1f585eb163bb4a7c32237de399405f337ba787a2cce6b9eb277fa3625a7672cf",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000018_paint_roller.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000019_paint_roller.mp4",
+      "id": 701954774,
+      "bytes": 4426818,
+      "sha256": "5b2f720afabce7908339ed179f384407eb180370498d79590e1461ed8373ca4a",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000019_paint_roller.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000020_paint_roller.mp4",
+      "id": 701954916,
+      "bytes": 5899209,
+      "sha256": "de458f53658e7b70d2fc911dddbf01ba6593737a07d715e3928866a08a974626",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000020_paint_roller.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000021_pink_foam_roll.mp4",
+      "id": 701955128,
+      "bytes": 6146986,
+      "sha256": "e433a7a143c518e33c9bc02160fc2e5939750f14fbb7bcebbd6b813cdd4322a8",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000021_pink_foam_roll.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000022_pink_foam_roll.mp4",
+      "id": 701955456,
+      "bytes": 5542980,
+      "sha256": "2bd84fc5f1ae979cadc035e141ab106fd42ab95f83e609a4d31b865539474d03",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000022_pink_foam_roll.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000023_pink_foam_roll.mp4",
+      "id": 701955905,
+      "bytes": 5617807,
+      "sha256": "5ef2f4913995a59ef8717f4752682036fb19d849e916855ab4b99275294c29b9",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000023_pink_foam_roll.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000024_short_wood_stool.mp4",
+      "id": 701955934,
+      "bytes": 4086889,
+      "sha256": "be128ee10565be860c5ba503f5f530046a9eb953a112ed510d461ad64cd1a5fd",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000024_short_wood_stool.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000025_short_wood_stool.mp4",
+      "id": 701956115,
+      "bytes": 4460201,
+      "sha256": "c6384c97d31abca2e2607925170d8cdff3ef63d8925dddfb1d98c1904a5a6767",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000025_short_wood_stool.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000026_short_wood_stool.mp4",
+      "id": 701956814,
+      "bytes": 4194849,
+      "sha256": "75b74d4df433f3a09ac7e8f5cd8e1373a9ac578f67d30c53664176f78ed2fe5d",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000026_short_wood_stool.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000027_white_laptop_cart.mp4",
+      "id": 701956868,
+      "bytes": 5055447,
+      "sha256": "d69ff55f6d06d425e18478abec5ced53c972358079756f901aeceb27f69ab774",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000027_white_laptop_cart.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000028_white_laptop_cart.mp4",
+      "id": 701956954,
+      "bytes": 3720798,
+      "sha256": "f4ca2c7a6354bdd8b2b9b2e48db49e3fb015ca834658c8cb7a096a39ee1caa7b",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000028_white_laptop_cart.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "episode_000029_white_laptop_cart.mp4",
+      "id": 701957019,
+      "bytes": 4263190,
+      "sha256": "eb9ab619c56580f32ed2e56e1ff6e9d2cfd6ebd9bae6a4ebd5e1907efc2e10e4",
+      "role": "full_hoi_preview",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/episode_000029_white_laptop_cart.mp4",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "manifest.json",
+      "id": 701957133,
+      "bytes": 250953,
+      "sha256": "6f40bd51305f6c96cbdba79f82be3bef353fedec42a8d44e63396e250fd97828",
+      "role": "delivery_evidence",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/manifest.json",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "README.md",
+      "id": 701957254,
+      "bytes": 2620,
+      "sha256": "1d9a812046367811ff5a0afbb70c1d4c3d85203c7189afbe68f7095a923950eb",
+      "role": "delivery_evidence",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/README.md",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "producer-checks.json",
+      "id": 701957342,
+      "bytes": 644,
+      "sha256": "62657646b0efa475cfab51d626a609e6bb2eedbfa9922b6069edcec45cf711b7",
+      "role": "delivery_evidence",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/producer-checks.json",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    },
+    {
+      "name": "SHA256SUMS",
+      "id": 701957365,
+      "bytes": 3319,
+      "sha256": "05d610cb4072c70242848611e6f387341898b5ee8f9c15886f5d6982b7fd4313",
+      "role": "checksums",
+      "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases/download/result-object-temporal-track1-20261102-v1/SHA256SUMS",
+      "server_digest_verified": true,
+      "anonymous_download_verified": true
+    }
+  ],
+  "published": true,
+  "reconstruction_quality_accepted": false,
+  "official_export_valid": false
+}

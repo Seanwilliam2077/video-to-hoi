@@ -247,3 +247,26 @@ prefer distinct timestamps to avoid an ambiguous human interpretation.
 Do not copy local `.gates/current` pointers, locks or mutable run directories
 into Git. This registry is a human coordination index, not a model execution
 controller, a native package importer or a replacement for local gate receipts.
+
+## Published M3 object and HOI previews
+
+`object-catalog.json` binds submitted Objects and Motion records to the exact
+published archive, complete HOI video, manifest and portable check report. The
+initial delivery covers all 30 videos. Open either M3 stage to play that exact
+scene, or follow the links to inspect meshes and trajectories in the archive.
+Every entry retains pending quality, estimated metric scale and official export;
+missing per-frame confidence and native predecessor integration remain explicit.
+
+The builder rehashes the local release assets and requires matching public-download
+verification. CI checks the exact immutable registry binding, full inventory frame
+coverage, canonical same-release URLs and committed publication evidence without
+opening media or rerunning inference:
+
+```bash
+python tools/build_object_catalog.py --package <extracted-object-delivery> --archive <delivery.zip> --producer-checks <producer-checks.json>
+python tools/build_object_catalog.py --check
+```
+
+An absent, malformed, mismatching or stale Object entry falls back to the ordinary
+stage file cards. It cannot borrow a previous iteration's video, change registry
+states, grant native readiness or substitute another Human reconstruction.

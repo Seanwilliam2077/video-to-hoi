@@ -57,8 +57,10 @@ jobs:
           tests/test_check_body_handoff.py
           tests/test_package_body_handoff.py
           tests/test_delivery_catalog.py
+          tests/test_object_catalog.py
       - run: python tools/progress_board.py validate
       - run: python tools/build_delivery_catalog.py --check
+      - run: python tools/build_object_catalog.py --check
   progress-board:
     runs-on: ubuntu-latest
     steps:
@@ -70,4 +72,4 @@ jobs:
         with:
           node-version: "22"
       # Built-in Node test runner; no npm packages, network fixtures or model data.
-      - run: node --test tests/test_progress_board.cjs tests/test_delivery_view.cjs tests/test_progress_app.cjs
+      - run: node --test tests/test_progress_board.cjs tests/test_delivery_view.cjs tests/test_progress_app.cjs tests/test_object_preview.cjs

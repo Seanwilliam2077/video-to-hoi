@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "date": "2026-11-02",
+  "scope": "M3 registry and preview integration; not reconstruction acceptance",
+  "pytest": {
+    "files": 37,
+    "passed": 918,
+    "seconds": 179.03,
+    "allowlist": ".github/workflows/tests.yml"
+  },
+  "node": {
+    "passed": 51,
+    "command": "node --test tests/test_progress_board.cjs tests/test_delivery_view.cjs tests/test_progress_app.cjs tests/test_object_preview.cjs"
+  },
+  "registry": {
+    "new_records": 60,
+    "total_records": 150,
+    "stale_records": 0,
+    "objects_registered": 30,
+    "motion_registered": 30
+  },
+  "catalog": {
+    "exact_record_bindings": 60,
+    "verified_release_assets": 35,
+    "source_frames": 16563
+  },
+  "browser": {
+    "actual_release_playback": true,
+    "episode": 15,
+    "video_duration_seconds": 16.7,
+    "video_width": 2304,
+    "video_height": 616,
+    "playback_advanced_seconds": 1.5139,
+    "mobile_width": 390,
+    "horizontal_overflow": false,
+    "english_and_chinese": true,
+    "light_and_dark": true,
+    "status_countdown_ticking": true
+  },
+  "main_merged": false,
+  "public_board_updated": false,
+  "quality_accepted": false,
+  "official_export_valid": false
+}

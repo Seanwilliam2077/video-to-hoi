@@ -11,6 +11,10 @@ on:
       - "tools/progress_board.py"
       - "tools/build_delivery_catalog.py"
       - "tools/build_human_catalog.py"
+      - "tools/build_object_catalog.py"
+      - "tests/test_object_preview.cjs"
+      - "tests/test_object_catalog.py"
+      - "deliveries/object/**"
       - "deliveries/platform/body-inputs-track1-20261016/**"
       - "tests/test_progress_board.cjs"
       - "tests/test_delivery_view.cjs"
@@ -41,7 +45,8 @@ jobs:
           python tools/progress_board.py validate
           python tools/build_delivery_catalog.py --check
           python tools/build_human_catalog.py --check
-          node --test tests/test_progress_board.cjs tests/test_delivery_view.cjs tests/test_progress_app.cjs
+          python tools/build_object_catalog.py --check
+          node --test tests/test_progress_board.cjs tests/test_delivery_view.cjs tests/test_progress_app.cjs tests/test_object_preview.cjs
       - name: Assemble the static page
         run: |
           mkdir -p _site
@@ -50,6 +55,7 @@ jobs:
           cp tracking/board.json _site/board.json
           cp tracking/delivery-catalog.json _site/delivery-catalog.json
           cp tracking/human-catalog.json _site/human-catalog.json
+          cp tracking/object-catalog.json _site/object-catalog.json
           cp tracking/input-evidence.json _site/input-evidence.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4

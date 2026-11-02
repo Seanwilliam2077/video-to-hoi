@@ -41,11 +41,11 @@
       value.split("/").every((part, index, parts) => part === "" ? index === parts.length - 1 : part !== "." && part !== "..");
   }
 
-  function recordErrors(record, stage = "inputs") {
+  function recordErrors(record, stage = "inputs", allowUnpublishedSource = false) {
     const errors = [];
     const fields = ["id", "episode_id", "stage", "iteration", "state", "kind", "created_at", "contributor", "reviewer", "summary", "delivery_url", "source_commit", "coverage", "upstream", "artifacts", "checks", "blocker", "next_action"];
     if (!object(record) || fields.some(key => !Object.hasOwn(record, key)) || Object.keys(record).some(key => !fields.includes(key))) return ["Record fields are invalid."];
-    if (!nonempty(record.id) || !EPISODE.test(record.episode_id) || record.stage !== stage || record.kind !== "real_track1" || !COMMIT.test(record.source_commit)) errors.push("Record identity is invalid.");
+    if (!nonempty(record.id) || !EPISODE.test(record.episode_id) || record.stage !== stage || record.kind !== "real_track1" || !(COMMIT.test(record.source_commit) || (allowUnpublishedSource && record.source_commit === ""))) errors.push("Record identity is invalid.");
     if (!["planned", "running", "blocked", "submitted", "checked", "accepted", "failed"].includes(record.state) ||
         !Number.isFinite(Date.parse(record.created_at)) || !safeUrl(record.delivery_url)) errors.push("Record state or URL is invalid.");
     for (const key of ["iteration", "contributor", "reviewer", "summary", "blocker", "next_action"]) if (!text(record[key])) errors.push(`Record ${key} is invalid.`);
@@ -315,5 +315,51 @@
       <div class="delivery-artifact-grid">${cards.join("")}</div><p class="delivery-next"><strong>${tr("Next step", "下一步")}：</strong>${escape(next)}</p></section>`;
   }
 
-  return Object.freeze({validateCatalog, entryFor, renderInputs, renderArtifacts, validateHumanCatalog, humanEntryFor, renderHuman});
+  function objectEntryErrors(entry) {
+    const fields = ["record", "episode_id", "profile", "frame_count", "object_name", "source_video_sha256", "selected_result_sha256", "archive", "manifest", "checks", "preview", "quality_accepted", "metric_scale_verified", "official_export_accepted"];
+    if (!exact(entry, fields)) return ["Object preview fields are invalid."];
+    const record = entry.record;
+    const errors = recordErrors(record, record?.stage, true);
+    if (!["objects", "motion"].includes(record?.stage) || entry.profile !== "temporal_object_hoi_review.v1" || !EPISODE.test(entry.episode_id) || entry.episode_id !== record?.episode_id || !positive(entry.frame_count) || entry.frame_count !== record?.coverage?.frames || !/^[a-z][a-z0-9_]*$/.test(entry.object_name) || !HASH.test(entry.source_video_sha256) || !HASH.test(entry.selected_result_sha256)) errors.push("Object preview identity or timeline is invalid.");
+    if (record?.state !== "submitted" || record?.checks?.structural?.status !== "pass" || record?.checks?.quality?.status !== "not_run" || record?.checks?.export?.status !== "not_run" || ["quality_accepted", "metric_scale_verified", "official_export_accepted"].some(key => entry[key] !== false)) errors.push("Object previews cannot grant acceptance.");
+    const release = entry.archive?.url?.match?.(RELEASE)?.[1];
+    const asset = value => humanAsset(value) && value.url.match(RELEASE)[1] === release;
+    if (![entry.archive, entry.manifest, entry.checks].every(asset) || !entry.archive.url.endsWith(".zip") || !entry.manifest.url.endsWith("/manifest.json") || !entry.checks.url.endsWith("/producer-checks.json")) errors.push("Object evidence assets are invalid.");
+    const preview = entry.preview;
+    if (!exact(preview, ["url", "sha256", "bytes", "content_type", "original_frame_count"]) || !asset({url: preview?.url, sha256: preview?.sha256, bytes: preview?.bytes}) || preview.content_type !== "video/mp4" || preview.original_frame_count !== entry.frame_count || !preview.url.endsWith(`/${entry.episode_id}_${entry.object_name}.mp4`)) errors.push("Object video must identify the exact complete episode.");
+    const required = record?.stage === "objects" ? ["object_record", "mesh"] : ["transforms"];
+    const artifacts = list(record?.artifacts).filter(object);
+    if (artifacts.length !== required.length || required.some(key => !artifacts.some(item => item.requirement_id === key && ["url", "sha256", "bytes"].every(field => item[field] === entry.archive?.[field]))) || record?.checks?.structural?.evidence_url !== entry.checks?.url) errors.push("Object preview does not bind registered artifacts and checks.");
+    return errors;
+  }
+  function validateObjectCatalog(catalog) {
+    if (!exact(catalog, ["schema_version", "entries"]) || catalog.schema_version !== "hoi_object_catalog.v1" || !Array.isArray(catalog.entries)) return ["Invalid Object catalog envelope."];
+    const errors = [], ids = new Set();
+    for (const entry of catalog.entries) {
+      errors.push(...objectEntryErrors(entry));
+      if (ids.has(entry?.record?.id)) errors.push("Duplicate Object preview record.");
+      ids.add(entry?.record?.id);
+    }
+    return errors;
+  }
+  function objectEntryFor(catalog, record) {
+    if (!object(record) || validateObjectCatalog(catalog).length) return null;
+    const entry = catalog.entries.find(item => item.record.id === record.id);
+    return entry && stable(entry.record) === stable(record) ? entry : null;
+  }
+  function renderObject(entry, language = "zh") {
+    if (objectEntryErrors(entry).length) return "";
+    const tr = (en, zh) => choose(language, en, zh);
+    const title = tr("M3 object result and full HOI video", "M3 物体结果与完整 HOI 视频");
+    return `<section class="delivery-view delivery-object-result" aria-label="${title}"><h3>${title}</h3>
+      <p>${escape(entry.episode_id)} · ${escape(entry.object_name)} · ${entry.frame_count} ${tr("original frames, including occlusion", "原始帧，包含遮挡时段")}</p>
+      <p class="delivery-notice">${tr("Submitted candidate; reconstruction quality, metric scale and official export remain unaccepted. Missing calibrated frame confidence and exact Input/Human registry lineage still require receiver review.", "已递交候选；重建质量、米制尺度与正式导出尚未验收。逐帧置信度及对应输入、人体的完整交接关系仍待接收方核对。")}</p>
+      <figure class="delivery-preview delivery-human-media"><figcaption>${tr("Complete source / scene / overlay comparison", "完整原视频、场景与叠加对照")}</figcaption><video controls playsinline preload="none" src="${escape(entry.preview.url)}" aria-label="${title}"></video><p>${link(entry.preview.url, tr("Open or download full HOI video", "打开或下载完整 HOI 视频"))} · ${escape(bytes(entry.preview.bytes, language))}</p>${fingerprint(entry.preview.sha256, language)}</figure>
+      <p>${link(entry.archive.url, tr("Download object scenes and all 30 HOI videos", "下载物体场景和全部 30 条 HOI 视频"), "button")}</p>
+      <p>${tr("Mesh scale is baked once: point = R × vertex + translation, object_scale = 1. Preserve the exported origin; camera axes are x right, y down, z forward. Human context belongs to these exact scenes.", "网格已包含拟合尺度：位置 = R × 顶点 + 平移，object_scale = 1。保留导出原点；相机轴为右、下、前。人体上下文属于本次场景。")}</p>
+      <p>${link(entry.manifest.url, tr("Source identities and exact file inventory", "来源身份与精确文件清单"))} · ${link(entry.checks.url, tr("Portable structure and full-video checks", "可搬运结构与完整视频检查"))}</p>
+      <p class="delivery-muted">${tr("Runtime source snapshots are archived by hash. The release tag is a storage anchor, not a claim about the generating commit. Do not mix another Human delivery without checking frame, camera and scale compatibility.", "运行时文件已按哈希归档。发布标签仅用于存储，不代表生成结果的代码提交。更换其他人体结果前需核对帧、相机与尺度。")}</p></section>`;
+  }
+
+  return Object.freeze({validateCatalog, entryFor, renderInputs, renderArtifacts, validateHumanCatalog, humanEntryFor, renderHuman, validateObjectCatalog, objectEntryFor, renderObject});
 });

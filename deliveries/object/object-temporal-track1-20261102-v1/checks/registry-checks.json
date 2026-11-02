@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "profile": "hoi_progress.v1 declaration validation only",
+  "new_records": 60,
+  "combined_records": 150,
+  "states": [
+    "submitted"
+  ],
+  "validator_url": "https://github.com/Seanwilliam2077/video-to-hoi/blob/e7f2fb0417283b112aa01b5ffeb13c5fa94ef233/tools/progress_board.py",
+  "validator_sha256": "5137a6f3fbe509964f6a8ce5121b85d33f3bc7ef598b4f934eb9aa61cffe69e5",
+  "upstream_existing_records_preserved": true,
+  "online_board_updated": false,
+  "native_execution_gate_passed": false,
+  "quality_accepted": false,
+  "official_export_valid": false
+}

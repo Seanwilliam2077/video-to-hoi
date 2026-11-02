@@ -6,6 +6,7 @@
   const raw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/board.json';
   const catalogRaw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/delivery-catalog.json';
   const humanCatalogRaw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/human-catalog.json';
+  const objectCatalogRaw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/object-catalog.json';
   const inputEvidenceRaw = 'https://raw.githubusercontent.com/Seanwilliam2077/video-to-hoi/main/tracking/input-evidence.json';
   const draftKey = 'hoi-progress-drafts-v1';
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -65,7 +66,7 @@
   let remote = false, attention = false, view = matchMedia('(max-width:760px)').matches ? 'cards' : 'matrix';
   let selectedEpisode = null, selectedStage = null, selectedRecordId = null, editing = false, recovery = null;
   let catalog = null, catalogMatches = new WeakMap(), preparationCategory = null, selectedComponent = '';
-  let humanCatalog = null, inputEvidence = null;
+  let humanCatalog = null, objectCatalog = null, inputEvidence = null;
   const preparationItems = [
     {id:'raw',title:'rawPrepared',note:'rawNote',stage:'inputs'},
     {id:'body',title:'bodyPrepared',note:'bodyNote',stage:'inputs'},
@@ -131,6 +132,9 @@
   }
   function setHumanCatalog(value) {
     humanCatalog = value && !HOIDelivery.validateHumanCatalog(value).length ? value : null;
+  }
+  function setObjectCatalog(value) {
+    objectCatalog = value && !HOIDelivery.validateObjectCatalog(value).length ? value : null;
   }
   function validEvidenceAsset(asset, frames) {
     return !!asset && typeof asset.url === 'string' && /^https:\/\/github\.com\/Seanwilliam2077\/video-to-hoi\/releases\/download\/[A-Za-z0-9][A-Za-z0-9._-]*\/[A-Za-z0-9][A-Za-z0-9._-]*$/.test(asset.url)
@@ -306,6 +310,7 @@
       ${renderInputEvidence(ep, selectedComponent)}
       ${stage.id==='inputs' ? (entry ? HOIDelivery.renderInputs(entry,language) : `<p class="notice">${esc(t('inputsUnmatched'))}</p>`) : ''}
       ${stage.id==='human' && r && !stale.has(r.id) ? HOIDelivery.renderHuman(HOIDelivery.humanEntryFor(humanCatalog,r),language) : ''}
+      ${['objects','motion'].includes(stage.id) && r && !stale.has(r.id) ? HOIDelivery.renderObject(HOIDelivery.objectEntryFor(objectCatalog,r),language) : ''}
       ${HOIDelivery.renderArtifacts(r,stage,language)}
       <div class="detail-label"><h3>${esc(t('stageChecks'))}</h3></div><div class="check-grid">${['structural','quality','export'].map(k => {const c=r?.checks[k];return `<div class="check-card ${c?.status||''}">${esc(t(k==='export'?'exportCheck':k))}<strong>${esc(t(c?.status||'not_run'))}</strong>${c?.evidence_url?link(c.evidence_url,t('evidence')):''}</div>`;}).join('')}</div><p class="small-note">${esc(t('checksNote'))}</p>
       <div class="detail-key-values">${[[t('contributor'),r?.contributor],[t('reviewer'),r?.reviewer],[t('coverage'),`${r?.coverage.frames??'?'} / ${ep.frames}`],[t('objectCoverage'),t(r?.coverage.objects_complete===true?'yes':r?.coverage.objects_complete===false?'no':'unknown')],[t('commit'),r?.source_commit],[t('currentRecord'),r?.id]].map(([key,value]) => `<div><span>${esc(key)}</span><b>${esc(value||'—')}</b></div>`).join('')}</div>
@@ -389,10 +394,11 @@ http://localhost:8765/docs/progress-board/</pre>`;
   $('refresh').addEventListener('click',async()=>{
     $('refresh').disabled=true;$('refresh').textContent=t('refreshing');
     try{
-      const [registry,contents,humanContents]=await Promise.allSettled([fetchJson(raw),fetchJson(catalogRaw),fetchJson(humanCatalogRaw)]);
+      const [registry,contents,humanContents,objectContents]=await Promise.allSettled([fetchJson(raw),fetchJson(catalogRaw),fetchJson(humanCatalogRaw),fetchJson(objectCatalogRaw)]);
       if(registry.status!=='fulfilled')throw registry.reason;
       setCatalog(contents.status==='fulfilled'?contents.value:null);
       setHumanCatalog(humanContents.status==='fulfilled'?humanContents.value:null);
+      setObjectCatalog(objectContents.status==='fulfilled'?objectContents.value:null);
       try { setInputEvidence(await fetchJson(inputEvidenceRaw)); } catch { setInputEvidence(null); }
       setBoard(registry.value,true);error(recovery?t('invalidStorage'):'');toast(t('refreshed'));
     }catch(e){error(`${t('loadError')} ${e.message}`);}finally{$('refresh').disabled=false;$('refresh').textContent=t('refresh');}
@@ -407,6 +413,8 @@ http://localhost:8765/docs/progress-board/</pre>`;
     try{setCatalog(await fetchJson(catalogPath));}catch{setCatalog(null);}
     const humanCatalogPath=location.pathname.includes('/docs/progress-board/')?'../../tracking/human-catalog.json':'./human-catalog.json';
     try{setHumanCatalog(await fetchJson(humanCatalogPath));}catch{setHumanCatalog(null);}
+    const objectCatalogPath=location.pathname.includes('/docs/progress-board/')?'../../tracking/object-catalog.json':'./object-catalog.json';
+    try{setObjectCatalog(await fetchJson(objectCatalogPath));}catch{setObjectCatalog(null);}
     const inputEvidencePath=location.pathname.includes('/docs/progress-board/')?'../../tracking/input-evidence.json':'./input-evidence.json';
     try{setInputEvidence(await fetchJson(inputEvidencePath));}catch{setInputEvidence(null);}
     setBoard(snapshot,false);restoreRoute();

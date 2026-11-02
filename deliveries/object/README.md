@@ -1,6 +1,8 @@
 # M3 Object deliveries
 
-Submit a small delivery record at **`deliveries/object/<unique-delivery-id>/README.md`** using the [shared template](../TEMPLATE.md), and open a PR to `main`. This folder currently contains instructions only, not completed delivery records. Any member may contribute.
+Submit a small delivery record at **`deliveries/object/<unique-delivery-id>/README.md`** using the [shared template](../TEMPLATE.md), and open a PR to `main`. Any member may contribute.
+
+Submitted review candidate: [all 30 object scenes and full HOI videos](object-temporal-track1-20261102-v1/README.md). Portable checks and public-download verification passed; quality, native dependency integration and official export remain pending.
 
 Code starts in [objects.py](../../src/v2hoi/stages/objects.py) for assets and [motion.py](../../src/v2hoi/stages/motion.py) for tracking. Shared contracts are in [contracts.py](../../src/v2hoi/contracts.py) and the [v2 foundation](../../src/v2hoi/v2/). Current registered reconstruction backends are fake; proposed native 05 requires its own typed adapter and checks.
 

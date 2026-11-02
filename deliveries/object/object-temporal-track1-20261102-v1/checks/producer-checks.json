@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "episodes": 30,
+  "original_frames": 16563,
+  "delivered_file_hashes_verified": 473,
+  "mesh_pose_camera_binding_verified": true,
+  "complete_human_context": true,
+  "videos_fully_decoded": true,
+  "reconstruction_quality_accepted": false,
+  "official_export_valid": false,
+  "scope": "Portable result structure, hashes and full timeline; not scientific acceptance",
+  "archive_crc_and_hashes_verified": true,
+  "archive_sha256": "0310d8db733783f7edf4360b4715c43cc5b0893c5f563a3c1b33446a3a29c7cc",
+  "archive_bytes": 202896117,
+  "original_batch_unchanged": true,
+  "packaging_seconds": 65.82799999997951
+}

@@ -1,0 +1,10 @@
+{
+  "published_object_mask_package": "input-evidence-20261022-ep16-object-masks",
+  "published_masks_status_for_object_cue": "REJECTED_SEMANTIC_MISMATCH_STATIONARY_TABLE",
+  "cached_native_postopt_object_masks": "Separately audited at source frames 150/175/190/210 by K_full @ inverse(K_crop); these cover the held box. Do not conflate them with the bad published package.",
+  "new_object_support": "/data1/defu/zly/nvda/continuation-20261102-v1/mast3r-pilot/source-interior-correction-v1/source-box-interiors.json",
+  "support_role": "Positive visible-box interior qualification only; not a replacement full timeline segmentation or official ground truth.",
+  "raw_predictions": "/data1/defu/zly/nvda/continuation-20261102-v1/mast3r-pilot/object-cue-13frames-v1/raw",
+  "trajectory_fit_enabled": false,
+  "reason": "Fixed source/cross-direction/temporal qualification did not establish full-window motion constraints."
+}

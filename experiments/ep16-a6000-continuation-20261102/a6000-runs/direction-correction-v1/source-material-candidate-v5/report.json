@@ -1,0 +1,376 @@
+{
+  "status": "completed_unaccepted_candidate",
+  "steps": 500,
+  "physical_gpu": 1,
+  "seconds": 22.768078804016113,
+  "source_material_intervals": [
+    {
+      "frames": [
+        90,
+        95
+      ],
+      "bound_tracks": 102
+    },
+    {
+      "frames": [
+        95,
+        100
+      ],
+      "bound_tracks": 89
+    },
+    {
+      "frames": [
+        100,
+        105
+      ],
+      "bound_tracks": 64
+    },
+    {
+      "frames": [
+        105,
+        110
+      ],
+      "bound_tracks": 83
+    },
+    {
+      "frames": [
+        110,
+        115
+      ],
+      "bound_tracks": 61
+    },
+    {
+      "frames": [
+        115,
+        120
+      ],
+      "bound_tracks": 39
+    },
+    {
+      "frames": [
+        120,
+        125
+      ],
+      "bound_tracks": 72
+    },
+    {
+      "frames": [
+        125,
+        130
+      ],
+      "bound_tracks": 39
+    },
+    {
+      "frames": [
+        130,
+        135
+      ],
+      "bound_tracks": 75
+    },
+    {
+      "frames": [
+        135,
+        140
+      ],
+      "bound_tracks": 85
+    },
+    {
+      "frames": [
+        140,
+        145
+      ],
+      "bound_tracks": 99
+    },
+    {
+      "frames": [
+        145,
+        150
+      ],
+      "bound_tracks": 75
+    },
+    {
+      "frames": [
+        150,
+        155
+      ],
+      "bound_tracks": 72
+    },
+    {
+      "frames": [
+        155,
+        160
+      ],
+      "bound_tracks": 56
+    },
+    {
+      "frames": [
+        160,
+        165
+      ],
+      "bound_tracks": 51
+    },
+    {
+      "frames": [
+        165,
+        170
+      ],
+      "bound_tracks": 58
+    },
+    {
+      "frames": [
+        170,
+        175
+      ],
+      "bound_tracks": 95
+    },
+    {
+      "frames": [
+        175,
+        180
+      ],
+      "bound_tracks": 95
+    },
+    {
+      "frames": [
+        180,
+        185
+      ],
+      "bound_tracks": 79
+    },
+    {
+      "frames": [
+        185,
+        190
+      ],
+      "bound_tracks": 97
+    },
+    {
+      "frames": [
+        190,
+        195
+      ],
+      "bound_tracks": 81
+    },
+    {
+      "frames": [
+        195,
+        200
+      ],
+      "bound_tracks": 85
+    },
+    {
+      "frames": [
+        200,
+        205
+      ],
+      "bound_tracks": 40
+    },
+    {
+      "frames": [
+        205,
+        210
+      ],
+      "bound_tracks": 38
+    },
+    {
+      "frames": [
+        210,
+        215
+      ],
+      "bound_tracks": 45
+    },
+    {
+      "frames": [
+        215,
+        220
+      ],
+      "bound_tracks": 18
+    },
+    {
+      "frames": [
+        220,
+        225
+      ],
+      "bound_tracks": 72
+    },
+    {
+      "frames": [
+        225,
+        230
+      ],
+      "bound_tracks": 75
+    },
+    {
+      "frames": [
+        230,
+        235
+      ],
+      "bound_tracks": 78
+    },
+    {
+      "frames": [
+        235,
+        240
+      ],
+      "bound_tracks": 41
+    },
+    {
+      "frames": [
+        240,
+        245
+      ],
+      "bound_tracks": 75
+    },
+    {
+      "frames": [
+        245,
+        250
+      ],
+      "bound_tracks": 83
+    },
+    {
+      "frames": [
+        250,
+        255
+      ],
+      "bound_tracks": 96
+    },
+    {
+      "frames": [
+        255,
+        260
+      ],
+      "bound_tracks": 89
+    },
+    {
+      "frames": [
+        260,
+        265
+      ],
+      "bound_tracks": 87
+    },
+    {
+      "frames": [
+        265,
+        270
+      ],
+      "bound_tracks": 101
+    },
+    {
+      "frames": [
+        270,
+        275
+      ],
+      "bound_tracks": 95
+    },
+    {
+      "frames": [
+        275,
+        280
+      ],
+      "bound_tracks": 107
+    },
+    {
+      "frames": [
+        280,
+        300
+      ],
+      "bound_tracks": 99
+    },
+    {
+      "frames": [
+        300,
+        330
+      ],
+      "bound_tracks": 110
+    },
+    {
+      "frames": [
+        330,
+        359
+      ],
+      "bound_tracks": 116
+    }
+  ],
+  "trace": [
+    {
+      "step": 1,
+      "corner_loss": 2.5402023792266846,
+      "mask_loss": 0.08691979944705963,
+      "material_track_loss": 1.0866763591766357,
+      "gauge_loss": 0.1536797285079956
+    },
+    {
+      "step": 51,
+      "corner_loss": 2.5058133602142334,
+      "mask_loss": 0.08716895431280136,
+      "material_track_loss": 0.9011582732200623,
+      "gauge_loss": 0.12683601677417755
+    },
+    {
+      "step": 101,
+      "corner_loss": 2.500635862350464,
+      "mask_loss": 0.08705933392047882,
+      "material_track_loss": 0.8962246775627136,
+      "gauge_loss": 0.12562231719493866
+    },
+    {
+      "step": 151,
+      "corner_loss": 2.5007331371307373,
+      "mask_loss": 0.08734419196844101,
+      "material_track_loss": 0.8952013254165649,
+      "gauge_loss": 0.12593547999858856
+    },
+    {
+      "step": 201,
+      "corner_loss": 2.501014471054077,
+      "mask_loss": 0.08723818510770798,
+      "material_track_loss": 0.8937121629714966,
+      "gauge_loss": 0.12591560184955597
+    },
+    {
+      "step": 251,
+      "corner_loss": 2.502953290939331,
+      "mask_loss": 0.08721299469470978,
+      "material_track_loss": 0.8970280885696411,
+      "gauge_loss": 0.125489741563797
+    },
+    {
+      "step": 301,
+      "corner_loss": 2.508657217025757,
+      "mask_loss": 0.08703190088272095,
+      "material_track_loss": 0.894105076789856,
+      "gauge_loss": 0.12458863109350204
+    },
+    {
+      "step": 351,
+      "corner_loss": 2.5101377964019775,
+      "mask_loss": 0.08705079555511475,
+      "material_track_loss": 0.8904829621315002,
+      "gauge_loss": 0.12488984316587448
+    },
+    {
+      "step": 401,
+      "corner_loss": 2.501255512237549,
+      "mask_loss": 0.08750680834054947,
+      "material_track_loss": 0.8942148089408875,
+      "gauge_loss": 0.1240314394235611
+    },
+    {
+      "step": 451,
+      "corner_loss": 2.4981205463409424,
+      "mask_loss": 0.08733155578374863,
+      "material_track_loss": 0.8951045274734497,
+      "gauge_loss": 0.1270989626646042
+    },
+    {
+      "step": 500,
+      "corner_loss": 2.504579544067383,
+      "mask_loss": 0.08702646195888519,
+      "material_track_loss": 0.8970337510108948,
+      "gauge_loss": 0.12574008107185364
+    }
+  ],
+  "sha256": "09316c834f67e94e49e29c7fce59d41f7c7d5ac2f431d524cd4c38113fc75a4c",
+  "accepted": false
+}

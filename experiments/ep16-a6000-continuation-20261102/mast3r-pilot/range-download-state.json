@@ -1,0 +1,25 @@
+{
+  "status": "failed_parts_preserved",
+  "parts_completed": 0,
+  "bytes_completed": 0,
+  "expected_bytes": 2754661648,
+  "seconds": 148.85330200195312,
+  "failures": [
+    {
+      "part": 326,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 325,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 327,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 328,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    }
+  ]
+}

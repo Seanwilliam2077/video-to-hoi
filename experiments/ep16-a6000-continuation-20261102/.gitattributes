@@ -1,0 +1,6 @@
+# Preserve the actual source and evidence bytes, including original line endings.
+**/*.py -text -whitespace
+**/*.json -text -whitespace
+**/*.txt -text -whitespace
+**/*.log -text -whitespace
+assets/** filter=lfs diff=lfs merge=lfs -text

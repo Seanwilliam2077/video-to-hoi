@@ -1,0 +1,15 @@
+{
+  "status": "cached_predictions_requalified_for_correct_semantic_region_pending_identity_review",
+  "new_model_forwards": 0,
+  "original_pilot_forward_calls": 24,
+  "original_raw_files_modified": false,
+  "source_region_contract_sha256": "3210daa54f985774d2f17bf6b6f833883af62af26e31a09c8f57a53e4125369b",
+  "old_published_masks": "REJECTED: stationary table, not held box",
+  "spatial_screen_passed_pairs": 24,
+  "corrected_match_count_range": [
+    60,
+    88
+  ],
+  "native_parameters_changed": false,
+  "geometry_or_contact_accepted": false
+}

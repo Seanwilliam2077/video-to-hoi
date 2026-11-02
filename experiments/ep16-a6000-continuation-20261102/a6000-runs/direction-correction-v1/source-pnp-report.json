@@ -1,0 +1,106 @@
+[
+  {
+    "frame": 90,
+    "pnp_mean_source_junction_error_px": 2.633616174773888
+  },
+  {
+    "frame": 100,
+    "pnp_mean_source_junction_error_px": 1.8714701219615257
+  },
+  {
+    "frame": 110,
+    "pnp_mean_source_junction_error_px": 3.5259428637328676
+  },
+  {
+    "frame": 120,
+    "pnp_mean_source_junction_error_px": 3.7604602935683755
+  },
+  {
+    "frame": 130,
+    "pnp_mean_source_junction_error_px": 2.9457207769713576
+  },
+  {
+    "frame": 140,
+    "pnp_mean_source_junction_error_px": 2.4340284722122134
+  },
+  {
+    "frame": 150,
+    "pnp_mean_source_junction_error_px": 3.588043438779096
+  },
+  {
+    "frame": 155,
+    "pnp_mean_source_junction_error_px": 2.897475044271163
+  },
+  {
+    "frame": 160,
+    "pnp_mean_source_junction_error_px": 3.0201393592506527
+  },
+  {
+    "frame": 165,
+    "pnp_mean_source_junction_error_px": 3.889784198868558
+  },
+  {
+    "frame": 170,
+    "pnp_mean_source_junction_error_px": 5.459868721440043
+  },
+  {
+    "frame": 175,
+    "pnp_mean_source_junction_error_px": 5.6233145653419605
+  },
+  {
+    "frame": 180,
+    "pnp_mean_source_junction_error_px": 5.896581878378048
+  },
+  {
+    "frame": 190,
+    "pnp_mean_source_junction_error_px": 4.336818576223243
+  },
+  {
+    "frame": 200,
+    "pnp_mean_source_junction_error_px": 4.710715420948178
+  },
+  {
+    "frame": 210,
+    "pnp_mean_source_junction_error_px": 6.034420278386875
+  },
+  {
+    "frame": 220,
+    "pnp_mean_source_junction_error_px": 5.839554619465955
+  },
+  {
+    "frame": 230,
+    "pnp_mean_source_junction_error_px": 3.4533910686911136
+  },
+  {
+    "frame": 240,
+    "pnp_mean_source_junction_error_px": 4.063534939266172
+  },
+  {
+    "frame": 250,
+    "pnp_mean_source_junction_error_px": 3.872481169535893
+  },
+  {
+    "frame": 260,
+    "pnp_mean_source_junction_error_px": 2.7055544601941652
+  },
+  {
+    "frame": 270,
+    "pnp_mean_source_junction_error_px": 1.551502825006194
+  },
+  {
+    "frame": 280,
+    "pnp_mean_source_junction_error_px": 1.4158023309487249
+  },
+  {
+    "frame": 300,
+    "pnp_mean_source_junction_error_px": 2.129603566997083
+  },
+  {
+    "frame": 330,
+    "pnp_mean_source_junction_error_px": 1.8174497472339246
+  },
+  {
+    "frame": 359,
+    "pnp_mean_source_junction_error_px": 1.6407310353467457
+  }
+]

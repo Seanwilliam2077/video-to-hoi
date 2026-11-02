@@ -1,0 +1,15 @@
+{
+  "status": "completed_requires_source_correspondence_review",
+  "forward_calls": 24,
+  "max_forward_calls": 24,
+  "gpu_wall_seconds": 57.655230166972615,
+  "peak_torch_allocated_bytes": 3368056320,
+  "model_sha256": "0a615eb05fa9db654050aa655945ee5696e7c6c1b7f93f1ee8c37249010f6feb",
+  "all_raw_predictions_and_misses_retained": true,
+  "spatial_screen_passed_pairs": 24,
+  "native_parameters_changed": false,
+  "training_performed": false,
+  "other_models_downloaded": false,
+  "full_rotation_recovered": false,
+  "next_gate": "Source-patch review for repetitive texture, hand/grass confusion and background dominance; no automatic native fitting."
+}

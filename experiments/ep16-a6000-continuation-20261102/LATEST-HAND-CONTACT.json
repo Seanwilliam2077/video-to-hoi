@@ -1,0 +1,13 @@
+{
+  "result": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/FINAL-HAND-CONTACT-RESULT.json",
+  "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/refined.pth",
+  "geometric_check_passed": true,
+  "user_accepted_object_turn_preserved": true,
+  "full_source_grasp_accuracy_claim": false,
+  "updated_at_utc": "2026-11-02T12:59:28.990925+00:00",
+  "hand_result_rejected_by_user": true,
+  "hand_reconstruction_accepted": false,
+  "physics_engine_used_for_delivered_hand_candidate": false,
+  "latest_hand_review": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-review-20261102/REVIEW-AND-NEXT-STEPS.json",
+  "previous_geometry_check_scope": "Human-object surfaces only; no hand self-collision, source finger accuracy or dynamics validation."
+}

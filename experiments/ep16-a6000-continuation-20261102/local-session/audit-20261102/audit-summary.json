@@ -1,0 +1,81 @@
+{
+  "checked_date": "2026-11-02 Asia/Shanghai",
+  "conclusion": "The campus 1080 Ti host holds the latest research state. A6000 has working migrated runtime and original model bytes, but not the complete latest research snapshot. No newer CARI4D checkpoint was found.",
+  "hosts": {
+    "a6000": {
+      "alias": "a6000dove",
+      "root": "/data1/defu/zly/nvda",
+      "gpu": "4 x RTX 6000 Ada 49140 MiB; no compute workloads at first inspection",
+      "verified": "CLI and CUDA kernels passed; EP16 original frame 150 body inference finite, 14.84 seconds, peak allocation 3610009600 bytes; FP16 configuration; full-sequence reconstruction not validated on this host",
+      "weights": "Three original model files independently rehashed and matched public official LFS SHA256",
+      "latest_experiment_top_level_entries": 33
+    },
+    "1080ti": {
+      "host": "121.48.165.39",
+      "root": "/mnt/zlydisk/zly/nvda",
+      "gpu": "4 x GTX 1080 Ti 11264 MiB; no compute workloads at inspection",
+      "latest_handoff_utc": "2026-11-02T02:53:27.604292+00:00",
+      "completed_execution": {
+        "EP16": 360,
+        "EP12": 405
+      },
+      "quality": "Execution completion does not establish accepted object rotation, human hand accuracy, contact, physical scale, or official score",
+      "research_storage": "Latest experiment directory approximately 17 GiB; historical runs approximately 8.9 GiB"
+    }
+  },
+  "upstream": {
+    "repo": "https://github.com/nvidia-isaac/video_to_data",
+    "latest_main": "0530204f3a085fb9ba9cc41b771fc4c853edeab8",
+    "latest_main_time_utc": "2026-10-31T18:57:36Z",
+    "latest_main_change": "Submission-container guide and verifier; does not update the reconstruction model",
+    "latest_release": "v0.4.0",
+    "local_source": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+    "cari4d_last_module_commit": "33129dd0f2d2dcfd1164d43fd076542660756ed2",
+    "cari4d_checkpoint": "2026-08-25-09-35-57/step200000.pth",
+    "cari4d_bytes": 2084484133,
+    "cari4d_sha256": "78ff5cb874dd012a272382e3f2d8bc11226d5b7d0ecc739a60fbb4a97a5a5ba3",
+    "weight_metadata_note": "Hugging Face repository revision differs from original pinned artifact revision; checkpoint bytes remain identical. Model-card text is not evidence of a different released checkpoint.",
+    "pending_submission_dependency_fix": "Open PR #216 adds six to submission-kit requirements; not a reconstruction improvement.",
+    "flashchord": "Latest release documents driver >=580 and >=46000 MiB free GPU memory for full recipes; A6000 inspected driver is 550.107.02. Full robot-policy training is separate from the present reconstruction task."
+  },
+  "public_team_progress": {
+    "repo": "https://github.com/Seanwilliam2077/video-to-hoi",
+    "latest_main": "e7f2fb0417283b112aa01b5ffeb13c5fa94ef233",
+    "latest_main_date": "2026-10-22",
+    "latest_main_change": "Publish all 30 object-mask/depth packages",
+    "latest_release": "human-hand-pilots-20261023",
+    "latest_release_status": "Experimental hand continuity candidates; hand pose, contact, scale and official accuracy remain unaccepted",
+    "local_clone": "9e671e5, 2026-10-20; public main is newer than this clone"
+  },
+  "research_blocker": {
+    "object": "Insufficient source-qualified object correspondences for true turning; repeated textures and occlusion remain ambiguous",
+    "human": "Existing hand-only visibility contradictions show that object-only edits cannot repair missing hand projection under the frozen human",
+    "closed_routes": "Do not repeat old scale/depth/yaw/controller sweeps without genuinely new evidence",
+    "method_compatibility": "Existing MuJoCo hand replay is not complete RePHO; full RHINO/RePHO routes require additional representation/environment/asset/training work, per the latest source review"
+  },
+  "recommended_sequence": [
+    {
+      "step": 1,
+      "action": "Preserve and copy the latest 1080 Ti research state to a new dated A6000 snapshot with file hashes; include task scripts, source/observation bindings, complete human-object paired references and necessary cached outputs. Keep both existing trees intact.",
+      "acceptance": "Same source frame IDs, camera/model identities and complete paired human-object state; no partial hybrid or overwritten reference."
+    },
+    {
+      "step": 2,
+      "action": "On A6000 validate the current paired state and complete timeline rendering before any method change; reuse already cached and verified inputs.",
+      "acceptance": "Full EP16 360-frame output and same source/reference identities; clearly label remaining quality failures."
+    },
+    {
+      "step": 3,
+      "action": "If the previously restricted new-model scope is explicitly approved, execute the existing isolated MASt3R object-observation qualification pilot.",
+      "existing_plan": "1080ti-mast3r-proposed-pilot.txt",
+      "scope": "One pinned 2754661648-byte checkpoint, 13 source frames 150:5:210, 24 ordered adjacent pairs, batch 1, 512 input, single idle 1080 Ti, <=30 minutes GPU, stop on incompatibility/OOM; no training or native pose changes. Changing the host requires an explicit protocol update.",
+      "acceptance": "Distributed non-collinear correspondences with source evidence; background, repeated patterns, confidence and cycle consistency alone do not qualify."
+    },
+    {
+      "step": 4,
+      "action": "Only if new observations qualify, predefine one bounded human-object correction comparison that addresses both human projection and object turning; preserve full-scene, full-timeline reviews.",
+      "acceptance": "Independent source agreement for hand projection, object turn timing/amplitude and occlusion; no claim of contact truth from penetration proxies."
+    }
+  ],
+  "execution_this_turn": "Read-only inspection and small evidence copies. No model downloads, installations, inference, training, remote edits, submissions or new agent calls."
+}

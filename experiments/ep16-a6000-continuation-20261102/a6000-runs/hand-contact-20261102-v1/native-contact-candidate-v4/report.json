@@ -1,0 +1,13 @@
+{
+  "status": "native_hand_contact_optimization_completed",
+  "steps": 1600,
+  "seconds": 68.99448442459106,
+  "input_sha256": "366927efac0f6472a1dd0049e0196e80dfaef872b218e90ed413f174bb10e7de",
+  "candidate_sha256": "4f61aa3120d8cb7d8780872ac6486d5ad88f5df316d1e195569e5702912c6809",
+  "object_rotation_translation_aliases_all_exact": true,
+  "nonarm_root_camera_scale_shape_frozen": true,
+  "full360frame_ids_preserved": true,
+  "physical_gpu": 1,
+  "accepted": false,
+  "full_scene_review_required": true
+}

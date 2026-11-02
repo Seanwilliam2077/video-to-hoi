@@ -1,0 +1,13 @@
+{
+  "user_instruction": "All external downloads must use a proxy or a mirror; no direct attempts.",
+  "proxy": "http://127.0.0.1:17897",
+  "transport": "Loopback-only reverse SSH forwarding to the existing local proxy at 127.0.0.1:7897",
+  "identity_checks": "Pinned revisions, byte sizes and SHA256 remain mandatory; no substitution with a different model.",
+  "local_artifacts_first": true,
+  "direct_fallback_allowed": false,
+  "preferred_mirror": "https://hf-mirror.com",
+  "remote_forward_required_for_inference": false,
+  "inference_model_files": "Local SHA-verified only",
+  "mirror_identity_checks": "Same pinned HF revision and original file SHA256",
+  "direct_upstream_fallback_allowed": false
+}

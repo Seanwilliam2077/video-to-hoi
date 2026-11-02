@@ -1,0 +1,40 @@
+{
+  "status": "full360_paired_scene_and_native_geometry_review_ready",
+  "input": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/source-material-candidate-v6/refined.pth",
+  "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v9/refined.pth",
+  "changed_pr_fields": [
+    "mhr_body_pose_cont",
+    "mhr_hand"
+  ],
+  "object_rotation_and_translation_all360_exact": true,
+  "human_root_camera_shape_scale_frozen": true,
+  "frame0_and_outside50_290_geometry_max_difference_below_1micrometer": true,
+  "decoded_frames": 360,
+  "fps": 30.0,
+  "diagnostics": {
+    "before": {
+      "all360_hand_max_penetration_mm": 98.95886806771159,
+      "all360_hand_mean_penetration_mm": 8.040988163282787,
+      "grasp70_260_nearest32_mean_distance_mm": [
+        9.11768090737857,
+        23.870331944050807
+      ],
+      "all360_wholehuman_vertex_max_penetration_mm": 98.95886806771159,
+      "frames_hand_penetration_gt1mm": 209
+    },
+    "after": {
+      "all360_hand_max_penetration_mm": 5.330212414264679,
+      "all360_hand_mean_penetration_mm": 0.0002942569744920081,
+      "grasp70_260_nearest32_mean_distance_mm": [
+        5.554773857850351,
+        5.489348804150671
+      ],
+      "all360_wholehuman_vertex_max_penetration_mm": 5.330212414264679,
+      "frames_hand_penetration_gt1mm": 23
+    }
+  },
+  "diagnostic_scope": "Analytic box SDF matches actual authored watertight convex mesh with exactly6axis planes and matching volume. Hand vertices and whole-human vertices measured; not official PEN or reference3D accuracy. Surface-triangle crossing not excluded by vertex-only test.",
+  "projection_shift_prior_scope": "Input projected joints, not observed keypoint ground truth.",
+  "seconds": 36.92690587043762,
+  "accepted": false
+}

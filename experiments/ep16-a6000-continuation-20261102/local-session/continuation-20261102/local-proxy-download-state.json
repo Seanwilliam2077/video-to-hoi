@@ -1,0 +1,41 @@
+{
+  "status": "incomplete_parts_preserved",
+  "parts_completed": 0,
+  "bytes_completed": 0,
+  "expected_bytes": 2754661648,
+  "seconds": 522.6963169574738,
+  "failed": [
+    {
+      "part": 156,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 160,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 159,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 158,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 161,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 162,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 163,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    },
+    {
+      "part": 164,
+      "error": "URLError(ConnectionRefusedError(111, 'Connection refused'))"
+    }
+  ]
+}

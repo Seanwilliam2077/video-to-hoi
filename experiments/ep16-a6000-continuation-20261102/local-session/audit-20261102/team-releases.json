@@ -1,0 +1,45 @@
+{
+  "url": "https://github.com/Seanwilliam2077/video-to-hoi/releases.atom",
+  "entries": [
+    {
+      "id": "tag:github.com,2008:Repository/1384861438/human-hand-pilots-20261023",
+      "title": "EP16 / EP11 hand continuity pilots — owner review required",
+      "updated": "2026-10-23T12:08:40Z"
+    },
+    {
+      "id": "tag:github.com,2008:Repository/1384861438/input-evidence-20261022",
+      "title": "Track 1 object masks and depth evidence",
+      "updated": "2026-10-22T04:28:14Z"
+    },
+    {
+      "id": "tag:github.com,2008:Repository/1384861438/sam-mediapipe-20261021",
+      "title": "Track 1 Human reconstruction and comparison reviews (in progress)",
+      "updated": "2026-10-21T15:45:34Z"
+    },
+    {
+      "id": "tag:github.com,2008:Repository/1384861438/body-inputs-track1-20261016",
+      "title": "All 30 Track 1 videos: verified Body inputs",
+      "updated": "2026-10-15T17:33:58Z"
+    },
+    {
+      "id": "tag:github.com,2008:Repository/1384861438/assets-completion-20260928",
+      "title": "Source, model and dependency handoff - 2026-09-28",
+      "updated": "2026-09-28T07:24:24Z"
+    },
+    {
+      "id": "tag:github.com,2008:Repository/1384861438/hf-models-20260927",
+      "title": "CARI4D and SAM3D model handoff - 2026-09-27",
+      "updated": "2026-09-27T06:06:36Z"
+    },
+    {
+      "id": "tag:github.com,2008:Repository/1384861438/foundationpose-addon-20260927",
+      "title": "FoundationPose add-on - 2026-09-27",
+      "updated": "2026-09-27T05:32:34Z"
+    },
+    {
+      "id": "tag:github.com,2008:Repository/1384861438/first3-benchmark-20260927",
+      "title": "First-three comparison kit (not run) - 2026-09-27",
+      "updated": "2026-09-27T10:30:58Z"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "url": "https://github.com/nvidia-isaac/video_to_data/commits/main.atom?path=reconstruction/modules/v2d_cari4d",
+  "entries": [
+    {
+      "id": "tag:github.com,2008:Grit::Commit/33129dd0f2d2dcfd1164d43fd076542660756ed2",
+      "title": "Release v0.4.0 (#178)",
+      "updated": "2026-09-23T20:13:48Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/dd395a730c5045af73a70483c60125b2154d215d",
+      "title": "[release] Update main to v0.3.0 while preserving documentation (#168)",
+      "updated": "2026-09-17T19:31:48Z"
+    }
+  ]
+}

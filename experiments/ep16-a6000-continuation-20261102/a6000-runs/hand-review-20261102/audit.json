@@ -1,0 +1,57 @@
+{
+  "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/refined.pth",
+  "mujoco_installed_version": "3.17.0",
+  "physics_used_for_this_candidate": false,
+  "same_native_parameter_fresh_decode_check": [
+    {
+      "frame": 96,
+      "fresh_vs_render_cache_max_mm": 0.000476837158203125,
+      "self_triangle_pairs": [
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 115,
+      "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+      "self_triangle_pairs": [
+        49,
+        0
+      ]
+    },
+    {
+      "frame": 130,
+      "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+      "self_triangle_pairs": [
+        51,
+        0
+      ]
+    },
+    {
+      "frame": 175,
+      "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+      "self_triangle_pairs": [
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 220,
+      "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+      "self_triangle_pairs": [
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 240,
+      "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+      "self_triangle_pairs": [
+        0,
+        0
+      ]
+    }
+  ],
+  "scope": "Proper noncoplanar intersections between nonadjacent triangles within each hand,6review frames; not an exhaustive hand-body collision audit. Positive counts establish self-intersection; zeros do not certify absence.",
+  "seconds": 15.516063690185547
+}

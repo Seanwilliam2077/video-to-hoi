@@ -1,0 +1,55 @@
+{
+  "url": "https://github.com/Seanwilliam2077/video-to-hoi/commits/main.atom",
+  "entries": [
+    {
+      "id": "tag:github.com,2008:Grit::Commit/e7f2fb0417283b112aa01b5ffeb13c5fa94ef233",
+      "title": "Publish all 30 object-mask and depth packages on the progress board.",
+      "updated": "2026-10-22T06:16:54Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/01b87c6217935b1fd3793d62281195595a9a02a9",
+      "title": "Register published object-mask and depth evidence on the progress board.",
+      "updated": "2026-10-22T03:52:43Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/45b3b754f7d85b4d9769a7e183eff4b470367929",
+      "title": "Document all-30 Human delivery and unresolved hand quality",
+      "updated": "2026-10-21T15:57:22Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/09dc691131bc1c3349d52fc01833c3a4362c0664",
+      "title": "Deliver remaining Track 1 Human candidates (sam-mediapipe-20261021)",
+      "updated": "2026-10-21T15:45:54Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/dcb27b4674d3a47a4d8fbc55d46bb95ca50bcec5",
+      "title": "Register published EP11 Human baseline and bulk launch evidence",
+      "updated": "2026-10-20T19:20:01Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/08705456c59bcdb220e30dfaa76aee7a516636be",
+      "title": "Register the remaining Track 1 Human processing queue",
+      "updated": "2026-10-20T19:15:53Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/f407c35d8e311a8d771698dcdcb67ae115a5504f",
+      "title": "Register published EP16 Human baseline and review previews",
+      "updated": "2026-10-20T19:07:56Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/21982effde7da5ba429aa618283ffb9f9bcc0277",
+      "title": "Refresh derived Human review pages when resuming completed episodes",
+      "updated": "2026-10-20T18:48:40Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/1997a8f4be742b20ddfe137bd5288868a6212ab4",
+      "title": "Guard Human hand candidates against support boundary motion regressions",
+      "updated": "2026-10-20T18:31:49Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/32b8aa588a1e319eb631844b60491d7a6f7cb05a",
+      "title": "Publish verifiable Human reviews and preserve hand observation identity",
+      "updated": "2026-10-20T18:11:00Z"
+    }
+  ]
+}

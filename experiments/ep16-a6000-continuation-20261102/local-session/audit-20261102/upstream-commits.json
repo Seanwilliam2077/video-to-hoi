@@ -1,0 +1,55 @@
+{
+  "url": "https://github.com/nvidia-isaac/video_to_data/commits/main.atom",
+  "entries": [
+    {
+      "id": "tag:github.com,2008:Grit::Commit/0530204f3a085fb9ba9cc41b771fc4c853edeab8",
+      "title": "Add submission-container guide, agent skill and verifier to the V2D s…",
+      "updated": "2026-10-31T18:57:36Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/7eb9721088615fe9201634a6be5cf48b049d1090",
+      "title": "Update Physical Word paper PDF (#212)",
+      "updated": "2026-10-20T19:09:53Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/627e0d60430b9c1a25a57379a88bdb5f93d54ca8",
+      "title": "Update Physical Word webpage to v2 (#211)",
+      "updated": "2026-10-20T18:17:37Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/0593d80de5d39ab6f56f73ed16ca464ba5053499",
+      "title": "List incomplete leaderboard entries last, unranked and greyed out (#209)",
+      "updated": "2026-10-19T23:45:21Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/c1b778a867a8c042c82aa3c5418220aca9ccfe58",
+      "title": "Give tied leaderboard scores the same rank (#208)",
+      "updated": "2026-10-19T21:47:02Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/d9d6bf04916a35447cc7a81b334519670b017dfe",
+      "title": "Update challenge FAQ PDF (#207)",
+      "updated": "2026-10-19T17:16:20Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/d7b3bf56eaa3a8137d3b130de8886ddee7a47004",
+      "title": "Add Physical Word project webpage to docs (#206)",
+      "updated": "2026-10-19T06:21:52Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/193382a184308f6800331f3db829f76dc4294cfe",
+      "title": "Add CoRL 2026 conference label to CHORD page (#202)",
+      "updated": "2026-10-08T18:03:33Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/12c36fb129c1a739a383c64f682d8d0a4b7e354d",
+      "title": "Add V2D challenge livestream recording link (#201)",
+      "updated": "2026-10-08T04:11:19Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/a709404e30954c14a97a8fb8417535a01a5b9299",
+      "title": "Update challenge FAQ PDF (#200)",
+      "updated": "2026-10-07T17:50:59Z"
+    }
+  ]
+}

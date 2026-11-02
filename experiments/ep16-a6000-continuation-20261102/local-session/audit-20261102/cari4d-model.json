@@ -1,0 +1,37 @@
+{
+  "url": "https://huggingface.co/api/models/nvidia/cari4d_commercial?blobs=true",
+  "sha": "6e064f8b261599a4e563d72cb8457256929d7455",
+  "lastModified": "2026-09-18T02:54:48.000Z",
+  "files": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+      "size": 1519
+    },
+    {
+      "rfilename": "2026-08-25-09-35-57/manifest.json",
+      "blobId": "5696a75cfd3d64a992fa58d67647d0c8227425bb",
+      "size": 449
+    },
+    {
+      "rfilename": "2026-08-25-09-35-57/resolved_config.yaml",
+      "blobId": "2ee2bbb08070089991fca0058349fe9b4556d166",
+      "size": 9842
+    },
+    {
+      "rfilename": "2026-08-25-09-35-57/step200000.pth",
+      "blobId": "ed5da62f832326648020dc3b50245e91a91d4db8",
+      "size": 2084484133,
+      "lfs": {
+        "sha256": "78ff5cb874dd012a272382e3f2d8bc11226d5b7d0ecc739a60fbb4a97a5a5ba3",
+        "size": 2084484133,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "4f73434d22030084ae943ff081e1f53c420e5916",
+      "size": 12498
+    }
+  ]
+}

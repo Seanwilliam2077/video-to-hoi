@@ -1,0 +1,53 @@
+{
+  "candidate": "One bounded conditional object-pose experiment, not an accepted reconstruction.",
+  "optimizer": "Adam",
+  "steps": 300,
+  "learning_rate": 0.04,
+  "knot_frames": [
+    150,
+    155,
+    160,
+    165,
+    170,
+    175,
+    180,
+    185,
+    190,
+    195,
+    200,
+    205,
+    210
+  ],
+  "max_rotation_delta_norm_degrees": 10,
+  "max_translation_delta_norm_m": 0.03,
+  "exactly_preserved_frames": "0..150 and 210..359",
+  "fixed": [
+    "native human parameters",
+    "shared K",
+    "object mesh/scale",
+    "source frame IDs",
+    "other native parameter fields"
+  ],
+  "fit_frames": "Even original source frames within 150..210",
+  "temporal_development_checks": "Odd source frames; not independent video or ground truth",
+  "mask_correction_reason": "First point-only candidate reduced reprojection error but degraded observed silhouette IoU; add the missing source silhouette term, no threshold or parameter-range search.",
+  "mask_fit_frames": [
+    150,
+    160,
+    170,
+    180,
+    190,
+    200,
+    210
+  ],
+  "mask_raster_resolution": 128,
+  "mask_loss_weight": 40,
+  "loss": {
+    "reprojection": "Per-group mean SmoothL1 beta=2 original pixels",
+    "delta_acceleration": ".25 * mean((100*d2(rot))^2) + .25 * mean((500*d2(trans))^2)",
+    "delta_prior": ".01 * mean((rot/rmax)^2) + .01 * mean((trans/tmax)^2)"
+  },
+  "no_hyperparameter_scan": true,
+  "network_downloads": 0,
+  "feature_identity_limit": "Robust short-track checks reduce mismatches; repeated pattern aliases and wrong anchor surface binding remain possible. Full human-object rendering is mandatory before interpreting the candidate."
+}

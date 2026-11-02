@@ -1,0 +1,18 @@
+{
+  "changed_pr_fields": [
+    "pose_abs",
+    "pose_abs_postopt"
+  ],
+  "all_human_fields_unchanged": true,
+  "observation_arrays_unchanged": true,
+  "shared_camera_mesh_scale_unchanged": true,
+  "frames0_60_exact": true,
+  "original_input_sha_verified": true,
+  "original_source_snapshot_preserved": true,
+  "rotation_orthogonality_max_abs": 2.980232238769531e-07,
+  "rotation_det_min": 0.9999997019767761,
+  "full_scene_decoded_frames": 360,
+  "zoom_frames": 360,
+  "fps": 30,
+  "downloads": 0
+}

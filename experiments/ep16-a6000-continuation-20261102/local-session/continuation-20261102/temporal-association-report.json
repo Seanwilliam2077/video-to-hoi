@@ -1,0 +1,112 @@
+{
+  "status": "temporal_association_checked_not_physical_identity",
+  "coordinate_tolerance_original_pixels": 1.7578125,
+  "tolerance_source": "Three network pixels under the frozen 300/512 inverse mapping, fixed once; no tolerance scan.",
+  "edge_counts": [
+    {
+      "pair": [
+        150,
+        155
+      ],
+      "source_supported": 65,
+      "roundtrip_supported": 2
+    },
+    {
+      "pair": [
+        155,
+        160
+      ],
+      "source_supported": 69,
+      "roundtrip_supported": 6
+    },
+    {
+      "pair": [
+        160,
+        165
+      ],
+      "source_supported": 64,
+      "roundtrip_supported": 38
+    },
+    {
+      "pair": [
+        165,
+        170
+      ],
+      "source_supported": 65,
+      "roundtrip_supported": 17
+    },
+    {
+      "pair": [
+        170,
+        175
+      ],
+      "source_supported": 87,
+      "roundtrip_supported": 8
+    },
+    {
+      "pair": [
+        175,
+        180
+      ],
+      "source_supported": 81,
+      "roundtrip_supported": 45
+    },
+    {
+      "pair": [
+        180,
+        185
+      ],
+      "source_supported": 75,
+      "roundtrip_supported": 12
+    },
+    {
+      "pair": [
+        185,
+        190
+      ],
+      "source_supported": 62,
+      "roundtrip_supported": 11
+    },
+    {
+      "pair": [
+        190,
+        195
+      ],
+      "source_supported": 65,
+      "roundtrip_supported": 15
+    },
+    {
+      "pair": [
+        195,
+        200
+      ],
+      "source_supported": 88,
+      "roundtrip_supported": 27
+    },
+    {
+      "pair": [
+        200,
+        205
+      ],
+      "source_supported": 78,
+      "roundtrip_supported": 38
+    },
+    {
+      "pair": [
+        205,
+        210
+      ],
+      "source_supported": 71,
+      "roundtrip_supported": 10
+    }
+  ],
+  "seed_tracks": 2,
+  "full_13_frame_tracks": 0,
+  "track_lengths": [
+    3,
+    2
+  ],
+  "new_model_forward_calls": 0,
+  "native_pose_changes": false,
+  "interpretation": "Roundtrip and adjacent-pair association can reject broken tracks; repeated-pattern aliases can also be self-consistent, so this does not certify physical feature identity or rotation."
+}

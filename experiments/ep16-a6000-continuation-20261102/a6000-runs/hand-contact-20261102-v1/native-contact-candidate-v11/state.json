@@ -1,0 +1,19 @@
+{
+  "closure_evaluation": 36,
+  "full241frame_loss": 406.5955312598295,
+  "worst_hand_penetration_mm": 0.0,
+  "components": {
+    "collision": 0.28049243958009973,
+    "hidden_distal_cone": 216.1113261543369,
+    "surface_witness_loss": 1.3598506629304707,
+    "fresh_surface_constraint_loss": 0.0,
+    "occlusion": 60.79884528322338,
+    "image_prior": 75.54679590438906,
+    "contact": 36.922083193830424,
+    "pose_prior": 0.1605208814144135,
+    "smooth": 0.652528941631317,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0
+  },
+  "seconds": 39.33240580558777
+}

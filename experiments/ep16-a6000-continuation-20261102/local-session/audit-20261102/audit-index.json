@@ -1,0 +1,75 @@
+{
+  "checked_at": "2026-11-02T11:52:06.777601+08:00",
+  "remote_evidence": [
+    {
+      "name": "1080ti-latest-handoff.json",
+      "source_host": "1080ti",
+      "source_path": "/mnt/zlydisk/zly/nvda/upstream-reproduction-20261029/experiments/ep16-joint-direction-20261031/LATEST-RESEARCH-HANDOFF-20261102.json",
+      "sha256": "db65cfa3d9e366f73aee1c8d971d9aebfb0d3fc370b6fb66f4cfdc5e7546924b",
+      "bytes": 7880
+    },
+    {
+      "name": "1080ti-primary-method-review.txt",
+      "source_host": "1080ti",
+      "source_path": "/mnt/zlydisk/zly/nvda/upstream-reproduction-20261029/experiments/ep16-joint-direction-20261031/primary-method-compatibility-20261102-v1/REPORT.md",
+      "sha256": "ec1a0c2094194ffe564160a2566b5dfb7b11434318636e9aa69cb1ef2c9a5fde",
+      "bytes": 9220
+    },
+    {
+      "name": "1080ti-mast3r-proposed-pilot.txt",
+      "source_host": "1080ti",
+      "source_path": "/mnt/zlydisk/zly/nvda/upstream-reproduction-20261029/experiments/ep16-joint-direction-20261031/primary-method-compatibility-20261102-v1/MAST3R-OBJECT-CUE-PILOT-PLAN.md",
+      "sha256": "af85db9df375ac00018e2155f5f100686bebc22eb98ba72e25cdf5be2ec7d40f",
+      "bytes": 3967
+    },
+    {
+      "name": "1080ti-ep12-completion-audit.json",
+      "source_host": "1080ti",
+      "source_path": "/mnt/zlydisk/zly/nvda/upstream-reproduction-20261029/ep12-completion-audit.json",
+      "sha256": "48640fbec92a13667c3db0aa030aec3ea1725a715871444ed26b1395ba686419",
+      "bytes": 1853
+    },
+    {
+      "name": "1080ti-independent-pilot-review.json",
+      "source_host": "1080ti",
+      "source_path": "/mnt/zlydisk/zly/nvda/upstream-reproduction-20261029/experiments/ep16-joint-direction-20261031/primary-method-compatibility-20261102-v1/independent-design-review.json",
+      "sha256": "3d423a4e2c0ccc231e86c8aba2331cf4160025f6a41b20821cd2bf1e09d3ef19",
+      "bytes": 1434
+    }
+  ],
+  "public_evidence": [
+    {
+      "name": "upstream-commits",
+      "ok": true
+    },
+    {
+      "name": "upstream-cari4d-commits",
+      "ok": true
+    },
+    {
+      "name": "upstream-body-commits",
+      "ok": true
+    },
+    {
+      "name": "team-commits",
+      "ok": true
+    },
+    {
+      "name": "team-releases",
+      "ok": true
+    },
+    {
+      "name": "cari4d-model",
+      "ok": true
+    },
+    {
+      "name": "sam-body-model",
+      "ok": true
+    },
+    {
+      "name": "sam-objects-model",
+      "ok": true
+    }
+  ],
+  "scope": "Read-only SSH and public source/model-metadata audit; small evidence copies only; no model download, inference, training, remote code mutation or submission."
+}

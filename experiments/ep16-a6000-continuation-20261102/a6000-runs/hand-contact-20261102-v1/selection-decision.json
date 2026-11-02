@@ -1,0 +1,6 @@
+{
+  "selected": "v11",
+  "reason": "All360human triangles pass0.1mm interior tolerance, all hand/bodyvertices nonpenetrating, objectallposes exact.",
+  "v12": "Not selected: contact refinement reintroduced4frames surface crossings. Retained as experimental history.",
+  "final_candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/refined.pth"
+}

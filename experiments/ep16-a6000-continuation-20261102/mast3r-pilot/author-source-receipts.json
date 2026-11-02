@@ -1,0 +1,23 @@
+[
+  {
+    "repo": "naver/mast3r",
+    "revision": "f5209afc300cec36239a7ac992263f36847bbba0",
+    "archive_sha256": "353d5f67bef20d1c6f1019419aba3f59d5f3e0aec9e8263468c48b519cdb8a33",
+    "source_only": true,
+    "excluded_demo_assets": true
+  },
+  {
+    "repo": "naver/dust3r",
+    "revision": "3cc8c88c413bb9e34c41db0e0eef99c2ee010b12",
+    "archive_sha256": "b4498bd7297d97b646006758a70943e5657a0c412e4c751b71a066908d94622c",
+    "source_only": true,
+    "excluded_demo_assets": true
+  },
+  {
+    "repo": "naver/croco",
+    "revision": "d7de0705845239092414480bd829228723bf20de",
+    "archive_sha256": "b8cefd52faf98e52601b87d18c9f4e804783496ae6dbd974e8ab5d54d219895e",
+    "source_only": true,
+    "excluded_demo_assets": true
+  }
+]

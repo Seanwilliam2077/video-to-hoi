@@ -1,0 +1,37 @@
+{
+  "status": "NOT_QUALIFIED_FOR_FULL_WINDOW_NATIVE_POSE_UPDATE",
+  "reviewed_source_pairs": [
+    [
+      150,
+      155
+    ],
+    [
+      170,
+      175
+    ],
+    [
+      205,
+      210
+    ]
+  ],
+  "published_mask_semantics": "Rejected: stationary table, despite correct source/video/frame hashes.",
+  "corrected_source_support": "13 source-only positive visible-box interior polygons, reviewed once; no full silhouette or material identity truth implied.",
+  "corrected_candidates_per_pair": [
+    60,
+    88
+  ],
+  "fixed_roundtrip_tolerance_original_pixels": 1.7578125,
+  "first_two_forward_roundtrip_counts": [
+    2,
+    6
+  ],
+  "full_13_frame_tracks": 0,
+  "limits": [
+    "This is a result for this fixed model, crop, matcher, support and association rule; not a proof that monocular rotation recovery is impossible.",
+    "Coarse sampling, repeated texture, viewpoint changes and occlusion can break or alias correspondences.",
+    "Spatial coverage and roundtrip consistency do not certify physical material-point identity."
+  ],
+  "decision": "Retain raw predictions and corrected candidates. Do not fit or promote a new full-window native pose from this evidence; do not tune thresholds to force qualification.",
+  "native_pose_update_started": false,
+  "additional_model_forwards_after_original_24": 0
+}

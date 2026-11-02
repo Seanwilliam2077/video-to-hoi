@@ -1,0 +1,55 @@
+{
+  "status": "ACTIVE",
+  "phase": "PRIMARY_METHOD_REVIEW_COMPLETE_MAST3R_SCOPE_DECISION_PENDING",
+  "updated_at_utc": "2026-11-02T02:53:27.604292+00:00",
+  "active_summary": {
+    "latest": "Primary-author method compatibility review COMPLETE:29 pinned text files379558bytes, task-root/environment metadata, one summary-only actualOpus5.5 consultation independently corrected. No install/model download/inference/training/GPU/pose change. No already-present complete author inference route verified. ONE optional MASt3R object-cue pilot plan concrete and independently reviewed; explicit scope exception required, NOT approved/started.",
+    "remote_root": "/mnt/zlydisk/zly/nvda/upstream-reproduction-20261029/experiments/ep16-joint-direction-20261031",
+    "experiment": "primary-method-compatibility-20261102-v1",
+    "working_reference": "processedjoint-green-v1 SHA61decc2bae1b4c5db67c30c7aee521edf61e5c1f5a352e70eec1f03c57234f32 NOT accepted/GT/untouched baseline. Earlier originalr2 complete paired alternative retained; no rollback/hybrid/physical warmstart.",
+    "primary_revisions": {
+      "RePHO": "4fceb14a3eee197ba7abede1c940f384f5d38736",
+      "RHINO": "a21e0fed83d42363375b6ce4613c5f64b6ea0b96",
+      "Mundo": "dee7da5417eb9605615e0e8340ec2c31aa48c2c6"
+    },
+    "RePHO_gap": "Author actual IsaacGym/SMPL-H153action, InterMimic initialization +sequence forward/back RL/refbuffer. infer_forward needs seq-trained checkpoint/ref_hoi/hoi_data; default1024env/300rollout. Our114DOF zeroG/notable hand computed-torquePD/normal feedback is NOT fullbody tracking/RL/dualpropagation. SMPLH/MANO conversion is not MHR array rename. Physics may constrain/change R, not guaranteed source-correct heading.",
+    "RHINO_gap": "Author foregroundSfM/MASt3R gives object apparent motion/shape, background separates camera; SMPLX/body2D/shared-world alignment and scene-specific neuralSDF/contact optimization missing. Demo checkpoints are their own scenes, not universalEP16. Default100ksteps/author~18h4090 not1080time estimate. No copying .8 weights or claiming shared-scale correctness.",
+    "Mundo_gap": "Pinned tree onlyREADME/logo/teaser; code/weights announced endNovember, no official executable SDK available in current repository. Our editor-fit-render-independentreview loop is implemented adaptation, not official diffusion renderer.8A800 figure pertains video generation, not agent-loop cost; generated video cannot validate geometry.",
+    "environment": "TaskcurrentPython3.12.3/Torch2.5.1/MuJoCo3.17.0; module specs isaacgym/rl_games/smplx absent. NamedSMPLH/MANO/InterMimic checkpoint not found in declared taskweights/CARI roots, not all-machine/global-license absence. Author RePHO Python3.8 stack not installed/tested;1080Ti11GB complete-route memory/time unknown.",
+    "opus": "ONE actualclaude-opus-5-5,num_turns1,is_errorfalse,toolsdisabled/ASCII+UTF8stdin/no web/code/project access. It switched BOX heading to BODY face/shoulder/rootyaw; that recommendation REJECTED, no detector/rootfit launched. Corrected claims about RHINO object cue source and physical R constraints;7Source tips !=zeroimage evidence. Fullresponse+Codexcorrections saved, no repeat call/model swap.",
+    "decision": "No further unjustified pose update under current assets. Recommended OPTIONAL one new pretrained OBJECT cue channel, not body/face detector or immediate RePHO training. It may still fail; not known necessary or sufficient for rotation. Independent Mundo editor approved plan-for-authorization only.",
+    "scope_pending": {
+      "approval": false,
+      "model": "naver/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric",
+      "revision": "06e7259f34c3060f322df5cb0c7b9094f57e41fc",
+      "bytes": 2754661648,
+      "sha256": "0a615eb05fa9db654050aa655945ee5696e7c6c1b7f93f1ee8c37249010f6feb",
+      "limits": "Specified checkpoint +isolated dependencies +13frames150:5:210/24ordered adjacent pair batch1/512/single idle1080Ti<=30min. Firstpair included. OOM/incompatibilitySTOP/no fallback/newmodels/training/Nativeupdates. Source/mask/confidence notGT. Approval required under current no-new-heavyweights constraint."
+    },
+    "reports": [
+      "primary-method-compatibility-20261102-v1/REPORT.md",
+      "primary-method-compatibility-20261102-v1/MAST3R-OBJECT-CUE-PILOT-PLAN.md",
+      "primary-method-compatibility-20261102-v1/final-status.json",
+      "primary-method-compatibility-20261102-v1/source-manifest.json",
+      "primary-method-compatibility-20261102-v1/existing-environment-inventory.json",
+      "opus-method-compatibility-20261102-advice.md"
+    ],
+    "closed_history": "OldH/depth/scale/sceneup/inverse/grids/compact/initR/Source0/appearance/block/cached2D familiesCLOSED; seven weak tips/final14critics do not qualifyfit. Source22noBox17310/22/1740/22 limits frozen-human object-only repairs. All old PIDs/agentsDONE; no GPUjobs.",
+    "constraints": "ResearchACTIVE/no olddeadline/perround approval. One explicit new-model scope decision, not routine next-step permission. Unanswered time is NOT approval; no repeated notifications/questions. Pending no downloads/install/inference/training/GPU/pose work. Source150210tilt/300releaseprotected, Track1/CLIidve-vm only/no ComputerUse/Track2/unknownassets/sharedmain/unrelatedmixes/overwrites/kills. Largerawbinaryremote/smallreportslocal. No officialPEN/ACC/CI/truecontact/success-video claims."
+  },
+  "next": [
+    "Read compactfront/NEXT, primary-method-compatibility REPORT/MAST3R-OBJECT-CUE-PILOT-PLAN/final-status/independent-design-review/proposed-model-metadata; actualOpus5.5 advice MUST include Codex corrections at its top. All jobs/agentsDONE,no pending. Do not repeat29sourcefetch/old sourcecritics/GPU/physics or reask same scope every wake.",
+    "First check whether user explicitly approved the NEW specified MASt3R checkpoint+isolated dependencies+bounded object-cue pilot. Existing ordinary autonomy is not that exception; elapsed time/preselected option is not approval. If unanswered, no dependent download/install/inference/newGPU/pose job, quiet unless material new evidence/action. If declined, preserve restriction/no substitute newmodel or old-family scan.",
+    "Only after explicit exception: execute saved fixed plan in independent task env. Verify source/13maskframebinding/modelrevision/hash, pin authorcode/submodules/dependencies BEFORE inference; no side-effect downloads of other models. Modelcard nonmetric example is NOT allowed substitution; Infinityconfig needs correct author loader. Recheck idleGPU2or3, no otherskilled.13frames150:5:210/24ordered adjacent pair, first included, batch1/512/max30min. OOM/incompatibilitySTOP, no crop/precision/model/budget fallback.",
+    "Pilot only new OBJECT observation qualification: all raw matches/pointmaps/miss preserved, source-only local neighborhoods distributed/non-collinear, no background-as-box motion, mask/networkconfidence/cycle consistency nottruth, relative foregroundcamera !=realcamera, metric !=true scale. AmbiguitySTOP without tuning. No Nativeposeupdate/360optimization/RL/SDF/diffusion/othermodel. Even positive only prewrite next matched protocol, not automatic acceptance.",
+    "Do not follow Opus bodyheading/rootyaw route or claim current hand MuJoCo is RePHO. Reuse compatibility report and ONE priorconsult; no mechanicalcalls. Keep Track1/sourceprotection/CLIidve-vm/otherssafe/independentcode/binariesremote, researchACTIVE. Notify meaningful result/failure/new useraction only; known unchanged pending decision quiet."
+  ],
+  "gpu_jobs_pending": [],
+  "scope_decision": {
+    "id": "mast3r_object_cue_20261102",
+    "status": "AWAITING_EXPLICIT_USER_EXCEPTION",
+    "model_revision": "06e7259f34c3060f322df5cb0c7b9094f57e41fc",
+    "training_included": false,
+    "existing_routine_autonomy_not_exception": true
+  }
+}

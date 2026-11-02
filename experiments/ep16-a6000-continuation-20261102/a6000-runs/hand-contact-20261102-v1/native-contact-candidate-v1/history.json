@@ -1,0 +1,699 @@
+[
+  {
+    "step": 1,
+    "loss": 802.0670776367188,
+    "collision": 386.8533935546875,
+    "occlusion": 415.21368408203125,
+    "image_prior": 2.6138583485157962e-12,
+    "contact": 0.0,
+    "pose_prior": 0.0,
+    "smooth": 0.0,
+    "actual_hand_max_penetration_mm": 97.46651458740234,
+    "actual_hand_mean_penetration_mm": 19.116479873657227,
+    "source_frames": [
+      138,
+      149
+    ],
+    "seconds": 7.777679681777954
+  },
+  {
+    "step": 26,
+    "loss": 353.63751220703125,
+    "collision": 267.2968444824219,
+    "occlusion": 86.30213928222656,
+    "image_prior": 0.029455505311489105,
+    "contact": 0.0,
+    "pose_prior": 0.004894220735877752,
+    "smooth": 0.0041695390827953815,
+    "actual_hand_max_penetration_mm": 90.57886505126953,
+    "actual_hand_mean_penetration_mm": 14.86319637298584,
+    "source_frames": [
+      82,
+      93
+    ],
+    "seconds": 10.261534214019775
+  },
+  {
+    "step": 51,
+    "loss": 9.730904579162598,
+    "collision": 1.2976853847503662,
+    "occlusion": 8.196168899536133,
+    "image_prior": 0.21900150179862976,
+    "contact": 0.0,
+    "pose_prior": 0.011203712783753872,
+    "smooth": 0.00684431754052639,
+    "actual_hand_max_penetration_mm": 14.606088638305664,
+    "actual_hand_mean_penetration_mm": 0.01159096509218216,
+    "source_frames": [
+      202,
+      213
+    ],
+    "seconds": 11.161427974700928
+  },
+  {
+    "step": 76,
+    "loss": 0.4271678030490875,
+    "collision": 0.0,
+    "occlusion": 0.0,
+    "image_prior": 0.40456992387771606,
+    "contact": 0.0,
+    "pose_prior": 0.01473348867148161,
+    "smooth": 0.007864376530051231,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0,
+    "source_frames": [
+      274,
+      285
+    ],
+    "seconds": 12.058676958084106
+  },
+  {
+    "step": 101,
+    "loss": 70.95160675048828,
+    "collision": 0.0,
+    "occlusion": 0.0,
+    "image_prior": 0.7663429379463196,
+    "contact": 70.16130828857422,
+    "pose_prior": 0.015699170529842377,
+    "smooth": 0.008258163928985596,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0,
+    "source_frames": [
+      218,
+      229
+    ],
+    "seconds": 12.97068977355957
+  },
+  {
+    "step": 126,
+    "loss": 31.059860229492188,
+    "collision": 7.360489845275879,
+    "occlusion": 15.4722261428833,
+    "image_prior": 0.47196054458618164,
+    "contact": 7.7114667892456055,
+    "pose_prior": 0.03659595549106598,
+    "smooth": 0.007120354566723108,
+    "actual_hand_max_penetration_mm": 26.696666717529297,
+    "actual_hand_mean_penetration_mm": 0.18910755217075348,
+    "source_frames": [
+      82,
+      93
+    ],
+    "seconds": 13.878670454025269
+  },
+  {
+    "step": 151,
+    "loss": 8.205276489257812,
+    "collision": 0.26400765776634216,
+    "occlusion": 5.325244903564453,
+    "image_prior": 0.17678876221179962,
+    "contact": 2.3611536026000977,
+    "pose_prior": 0.06859977543354034,
+    "smooth": 0.009481243789196014,
+    "actual_hand_max_penetration_mm": 7.280513763427734,
+    "actual_hand_mean_penetration_mm": 0.00527191674336791,
+    "source_frames": [
+      194,
+      205
+    ],
+    "seconds": 14.782766342163086
+  },
+  {
+    "step": 176,
+    "loss": 15.579442024230957,
+    "collision": 0.12037336081266403,
+    "occlusion": 0.0035940392408519983,
+    "image_prior": 0.3602580428123474,
+    "contact": 14.999682426452637,
+    "pose_prior": 0.085493303835392,
+    "smooth": 0.01004089880734682,
+    "actual_hand_max_penetration_mm": 6.441987991333008,
+    "actual_hand_mean_penetration_mm": 0.0004961668746545911,
+    "source_frames": [
+      210,
+      221
+    ],
+    "seconds": 15.68690037727356
+  },
+  {
+    "step": 201,
+    "loss": 9.208962440490723,
+    "collision": 3.7060375213623047,
+    "occlusion": 3.1191208362579346,
+    "image_prior": 0.38305091857910156,
+    "contact": 1.8979419469833374,
+    "pose_prior": 0.09327462315559387,
+    "smooth": 0.009537117555737495,
+    "actual_hand_max_penetration_mm": 24.812667846679688,
+    "actual_hand_mean_penetration_mm": 0.06800279766321182,
+    "source_frames": [
+      186,
+      197
+    ],
+    "seconds": 16.596728324890137
+  },
+  {
+    "step": 226,
+    "loss": 3.5973379611968994,
+    "collision": 0.4681021571159363,
+    "occlusion": 0.0032797015737742186,
+    "image_prior": 0.1904808133840561,
+    "contact": 2.826460838317871,
+    "pose_prior": 0.09969877451658249,
+    "smooth": 0.009315664879977703,
+    "actual_hand_max_penetration_mm": 7.969394207000732,
+    "actual_hand_mean_penetration_mm": 0.01213832851499319,
+    "source_frames": [
+      74,
+      85
+    ],
+    "seconds": 17.49760103225708
+  },
+  {
+    "step": 251,
+    "loss": 6.389134883880615,
+    "collision": 0.04140592738986015,
+    "occlusion": 0.0,
+    "image_prior": 0.481885701417923,
+    "contact": 5.752944469451904,
+    "pose_prior": 0.10337473452091217,
+    "smooth": 0.009523874148726463,
+    "actual_hand_max_penetration_mm": 3.629356622695923,
+    "actual_hand_mean_penetration_mm": 0.0009129809914156795,
+    "source_frames": [
+      218,
+      229
+    ],
+    "seconds": 18.41923999786377
+  },
+  {
+    "step": 276,
+    "loss": 3.803562641143799,
+    "collision": 0.2779552936553955,
+    "occlusion": 0.7702211141586304,
+    "image_prior": 0.4710201323032379,
+    "contact": 2.170435905456543,
+    "pose_prior": 0.10428521782159805,
+    "smooth": 0.00964508019387722,
+    "actual_hand_max_penetration_mm": 7.509507179260254,
+    "actual_hand_mean_penetration_mm": 0.00684358412399888,
+    "source_frames": [
+      162,
+      173
+    ],
+    "seconds": 19.32656192779541
+  },
+  {
+    "step": 301,
+    "loss": 2.1776905059814453,
+    "collision": 1.1708941459655762,
+    "occlusion": 0.0005895000067539513,
+    "image_prior": 0.14935600757598877,
+    "contact": 0.7405528426170349,
+    "pose_prior": 0.10669375956058502,
+    "smooth": 0.009604251012206078,
+    "actual_hand_max_penetration_mm": 12.72598648071289,
+    "actual_hand_mean_penetration_mm": 0.04295191913843155,
+    "source_frames": [
+      242,
+      253
+    ],
+    "seconds": 20.23027467727661
+  },
+  {
+    "step": 326,
+    "loss": 8.95415210723877,
+    "collision": 0.028107604011893272,
+    "occlusion": 0.0,
+    "image_prior": 0.11216811090707779,
+    "contact": 8.697549819946289,
+    "pose_prior": 0.10638870298862457,
+    "smooth": 0.009937576949596405,
+    "actual_hand_max_penetration_mm": 2.5313570499420166,
+    "actual_hand_mean_penetration_mm": 0.000399943848606199,
+    "source_frames": [
+      74,
+      85
+    ],
+    "seconds": 21.13049292564392
+  },
+  {
+    "step": 351,
+    "loss": 1.4830045700073242,
+    "collision": 0.606709897518158,
+    "occlusion": 0.0,
+    "image_prior": 0.14316506683826447,
+    "contact": 0.617119312286377,
+    "pose_prior": 0.10589326173067093,
+    "smooth": 0.010117104277014732,
+    "actual_hand_max_penetration_mm": 8.580535888671875,
+    "actual_hand_mean_penetration_mm": 0.013790000230073929,
+    "source_frames": [
+      250,
+      261
+    ],
+    "seconds": 22.034612894058228
+  },
+  {
+    "step": 376,
+    "loss": 1.7354763746261597,
+    "collision": 0.2985195219516754,
+    "occlusion": 0.19078470766544342,
+    "image_prior": 0.4272024631500244,
+    "contact": 0.6993701457977295,
+    "pose_prior": 0.10939378291368484,
+    "smooth": 0.010205619037151337,
+    "actual_hand_max_penetration_mm": 9.2684326171875,
+    "actual_hand_mean_penetration_mm": 0.005222329404205084,
+    "source_frames": [
+      202,
+      213
+    ],
+    "seconds": 22.936386346817017
+  },
+  {
+    "step": 401,
+    "loss": 2.577892303466797,
+    "collision": 0.07928217947483063,
+    "occlusion": 6.593470516236266e-06,
+    "image_prior": 0.025590157136321068,
+    "contact": 2.3525547981262207,
+    "pose_prior": 0.11023867130279541,
+    "smooth": 0.010220087133347988,
+    "actual_hand_max_penetration_mm": 3.16736102104187,
+    "actual_hand_mean_penetration_mm": 0.00167330470867455,
+    "source_frames": [
+      66,
+      77
+    ],
+    "seconds": 23.838615894317627
+  },
+  {
+    "step": 426,
+    "loss": 2.4402360916137695,
+    "collision": 0.1553516983985901,
+    "occlusion": 0.002977930475026369,
+    "image_prior": 0.4899525046348572,
+    "contact": 1.6713597774505615,
+    "pose_prior": 0.11013902723789215,
+    "smooth": 0.010454835370182991,
+    "actual_hand_max_penetration_mm": 5.177326679229736,
+    "actual_hand_mean_penetration_mm": 0.001496094511821866,
+    "source_frames": [
+      122,
+      133
+    ],
+    "seconds": 24.742663860321045
+  },
+  {
+    "step": 451,
+    "loss": 0.33599644899368286,
+    "collision": 0.0,
+    "occlusion": 0.0,
+    "image_prior": 0.216605544090271,
+    "contact": 0.0,
+    "pose_prior": 0.10871264338493347,
+    "smooth": 0.01067825872451067,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0,
+    "source_frames": [
+      274,
+      285
+    ],
+    "seconds": 25.653693199157715
+  },
+  {
+    "step": 476,
+    "loss": 0.8536888360977173,
+    "collision": 0.20191174745559692,
+    "occlusion": 3.6139854273642413e-06,
+    "image_prior": 0.14612743258476257,
+    "contact": 0.38507676124572754,
+    "pose_prior": 0.10971282422542572,
+    "smooth": 0.01085644867271185,
+    "actual_hand_max_penetration_mm": 4.509247779846191,
+    "actual_hand_mean_penetration_mm": 0.0033109679352492094,
+    "source_frames": [
+      250,
+      261
+    ],
+    "seconds": 26.565476894378662
+  },
+  {
+    "step": 501,
+    "loss": 1.0605217218399048,
+    "collision": 0.23832039535045624,
+    "occlusion": 0.0013464584480971098,
+    "image_prior": 0.4022670090198517,
+    "contact": 0.2972792685031891,
+    "pose_prior": 0.1104687750339508,
+    "smooth": 0.010839816182851791,
+    "actual_hand_max_penetration_mm": 5.080051898956299,
+    "actual_hand_mean_penetration_mm": 0.004606341477483511,
+    "source_frames": [
+      90,
+      101
+    ],
+    "seconds": 27.467106103897095
+  },
+  {
+    "step": 526,
+    "loss": 2.8036179542541504,
+    "collision": 0.1075386255979538,
+    "occlusion": 0.10570946335792542,
+    "image_prior": 0.3803522288799286,
+    "contact": 2.086907386779785,
+    "pose_prior": 0.11218789219856262,
+    "smooth": 0.010922444052994251,
+    "actual_hand_max_penetration_mm": 6.433963775634766,
+    "actual_hand_mean_penetration_mm": 0.0012495022965595126,
+    "source_frames": [
+      210,
+      221
+    ],
+    "seconds": 28.378711700439453
+  },
+  {
+    "step": 551,
+    "loss": 1.9341031312942505,
+    "collision": 0.5526564717292786,
+    "occlusion": 0.10742457211017609,
+    "image_prior": 0.4014703929424286,
+    "contact": 0.7497797012329102,
+    "pose_prior": 0.11140812933444977,
+    "smooth": 0.011363896541297436,
+    "actual_hand_max_penetration_mm": 13.808213233947754,
+    "actual_hand_mean_penetration_mm": 0.0064000459387898445,
+    "source_frames": [
+      138,
+      149
+    ],
+    "seconds": 29.302562713623047
+  },
+  {
+    "step": 576,
+    "loss": 0.1330045461654663,
+    "collision": 0.0,
+    "occlusion": 0.0,
+    "image_prior": 0.00835854560136795,
+    "contact": 0.0,
+    "pose_prior": 0.11317877471446991,
+    "smooth": 0.011467226780951023,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0,
+    "source_frames": [
+      50,
+      61
+    ],
+    "seconds": 30.214661359786987
+  },
+  {
+    "step": 601,
+    "loss": 1.4225951433181763,
+    "collision": 0.012282237410545349,
+    "occlusion": 2.1136544091859832e-05,
+    "image_prior": 0.42893630266189575,
+    "contact": 0.8572944402694702,
+    "pose_prior": 0.11244280636310577,
+    "smooth": 0.011618109419941902,
+    "actual_hand_max_penetration_mm": 1.2668371200561523,
+    "actual_hand_mean_penetration_mm": 2.633015174069442e-05,
+    "source_frames": [
+      202,
+      213
+    ],
+    "seconds": 31.118359327316284
+  },
+  {
+    "step": 626,
+    "loss": 4.582530498504639,
+    "collision": 0.2631732225418091,
+    "occlusion": 0.0,
+    "image_prior": 0.665898859500885,
+    "contact": 3.5264334678649902,
+    "pose_prior": 0.11496619135141373,
+    "smooth": 0.012058821506798267,
+    "actual_hand_max_penetration_mm": 8.845232009887695,
+    "actual_hand_mean_penetration_mm": 0.004122033249586821,
+    "source_frames": [
+      170,
+      181
+    ],
+    "seconds": 32.02213668823242
+  },
+  {
+    "step": 651,
+    "loss": 2.4168691635131836,
+    "collision": 0.1119287759065628,
+    "occlusion": 0.060337916016578674,
+    "image_prior": 0.6023616194725037,
+    "contact": 1.515662670135498,
+    "pose_prior": 0.11448092013597488,
+    "smooth": 0.012097437866032124,
+    "actual_hand_max_penetration_mm": 4.789613246917725,
+    "actual_hand_mean_penetration_mm": 0.00156743626575917,
+    "source_frames": [
+      106,
+      117
+    ],
+    "seconds": 32.93471431732178
+  },
+  {
+    "step": 676,
+    "loss": 0.1768375188112259,
+    "collision": 0.0,
+    "occlusion": 0.0,
+    "image_prior": 0.04829336330294609,
+    "contact": 0.0,
+    "pose_prior": 0.11642738431692123,
+    "smooth": 0.01211677584797144,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0,
+    "source_frames": [
+      58,
+      69
+    ],
+    "seconds": 33.839786529541016
+  },
+  {
+    "step": 701,
+    "loss": 1.371915340423584,
+    "collision": 0.03243207931518555,
+    "occlusion": 0.0001697790576145053,
+    "image_prior": 0.32673466205596924,
+    "contact": 0.880764901638031,
+    "pose_prior": 0.11946002393960953,
+    "smooth": 0.012353934347629547,
+    "actual_hand_max_penetration_mm": 1.0365471839904785,
+    "actual_hand_mean_penetration_mm": 6.23627202003263e-05,
+    "source_frames": [
+      186,
+      197
+    ],
+    "seconds": 34.98072099685669
+  },
+  {
+    "step": 726,
+    "loss": 0.8730024099349976,
+    "collision": 0.06746815890073776,
+    "occlusion": 0.0,
+    "image_prior": 0.15488283336162567,
+    "contact": 0.5173914432525635,
+    "pose_prior": 0.12071948498487473,
+    "smooth": 0.012540503405034542,
+    "actual_hand_max_penetration_mm": 3.22963285446167,
+    "actual_hand_mean_penetration_mm": 0.0011835010955110192,
+    "source_frames": [
+      250,
+      261
+    ],
+    "seconds": 35.8877899646759
+  },
+  {
+    "step": 751,
+    "loss": 0.30019158124923706,
+    "collision": 0.00091411272296682,
+    "occlusion": 0.0,
+    "image_prior": 0.16269539296627045,
+    "contact": 0.0,
+    "pose_prior": 0.12346161156892776,
+    "smooth": 0.013120466843247414,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0,
+    "source_frames": [
+      266,
+      277
+    ],
+    "seconds": 36.79882788658142
+  },
+  {
+    "step": 776,
+    "loss": 0.15938891470432281,
+    "collision": 0.0,
+    "occlusion": 0.0,
+    "image_prior": 0.01754734292626381,
+    "contact": 0.0,
+    "pose_prior": 0.1277359277009964,
+    "smooth": 0.014105651527643204,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0,
+    "source_frames": [
+      50,
+      61
+    ],
+    "seconds": 37.70642924308777
+  },
+  {
+    "step": 801,
+    "loss": 0.21149395406246185,
+    "collision": 0.0,
+    "occlusion": 0.0,
+    "image_prior": 0.06462598592042923,
+    "contact": 0.0,
+    "pose_prior": 0.13246174156665802,
+    "smooth": 0.014406222850084305,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0,
+    "source_frames": [
+      58,
+      69
+    ],
+    "seconds": 38.60775303840637
+  },
+  {
+    "step": 826,
+    "loss": 1.4848792552947998,
+    "collision": 0.9444711208343506,
+    "occlusion": 0.03976239264011383,
+    "image_prior": 0.27150821685791016,
+    "contact": 0.0779610425233841,
+    "pose_prior": 0.13696256279945374,
+    "smooth": 0.014213979244232178,
+    "actual_hand_max_penetration_mm": 7.85901403427124,
+    "actual_hand_mean_penetration_mm": 0.01726977899670601,
+    "source_frames": [
+      146,
+      157
+    ],
+    "seconds": 39.51459980010986
+  },
+  {
+    "step": 851,
+    "loss": 3.0923333168029785,
+    "collision": 0.163816437125206,
+    "occlusion": 0.0,
+    "image_prior": 0.3568534255027771,
+    "contact": 2.418912410736084,
+    "pose_prior": 0.13807207345962524,
+    "smooth": 0.0146788926795125,
+    "actual_hand_max_penetration_mm": 7.120996475219727,
+    "actual_hand_mean_penetration_mm": 0.0017904435517266393,
+    "source_frames": [
+      186,
+      197
+    ],
+    "seconds": 40.42652344703674
+  },
+  {
+    "step": 876,
+    "loss": 2.3166937828063965,
+    "collision": 1.2289834022521973,
+    "occlusion": 0.1840883195400238,
+    "image_prior": 0.3613966107368469,
+    "contact": 0.3907454013824463,
+    "pose_prior": 0.13671934604644775,
+    "smooth": 0.014760522171854973,
+    "actual_hand_max_penetration_mm": 14.394312858581543,
+    "actual_hand_mean_penetration_mm": 0.018459592014551163,
+    "source_frames": [
+      130,
+      141
+    ],
+    "seconds": 41.33815050125122
+  },
+  {
+    "step": 901,
+    "loss": 1.8640217781066895,
+    "collision": 0.0,
+    "occlusion": 0.0,
+    "image_prior": 0.3561544716358185,
+    "contact": 1.356285572052002,
+    "pose_prior": 0.13686437904834747,
+    "smooth": 0.014717346988618374,
+    "actual_hand_max_penetration_mm": 0.0,
+    "actual_hand_mean_penetration_mm": 0.0,
+    "source_frames": [
+      146,
+      157
+    ],
+    "seconds": 42.25495386123657
+  },
+  {
+    "step": 926,
+    "loss": 1.808541178703308,
+    "collision": 0.2779366374015808,
+    "occlusion": 0.0828503668308258,
+    "image_prior": 0.35039398074150085,
+    "contact": 0.9427193403244019,
+    "pose_prior": 0.1392243355512619,
+    "smooth": 0.01541648805141449,
+    "actual_hand_max_penetration_mm": 7.383965015411377,
+    "actual_hand_mean_penetration_mm": 0.005449533928185701,
+    "source_frames": [
+      210,
+      221
+    ],
+    "seconds": 43.15442109107971
+  },
+  {
+    "step": 951,
+    "loss": 4.422402381896973,
+    "collision": 4.06199312210083,
+    "occlusion": 0.050555769354104996,
+    "image_prior": 0.06374534964561462,
+    "contact": 0.08946791291236877,
+    "pose_prior": 0.141024649143219,
+    "smooth": 0.015615595504641533,
+    "actual_hand_max_penetration_mm": 16.547739028930664,
+    "actual_hand_mean_penetration_mm": 0.10047820955514908,
+    "source_frames": [
+      74,
+      85
+    ],
+    "seconds": 44.05888819694519
+  },
+  {
+    "step": 976,
+    "loss": 1.4505947828292847,
+    "collision": 0.6363547444343567,
+    "occlusion": 0.016187768429517746,
+    "image_prior": 0.19597844779491425,
+    "contact": 0.44311416149139404,
+    "pose_prior": 0.1429334282875061,
+    "smooth": 0.016026172786951065,
+    "actual_hand_max_penetration_mm": 11.935599327087402,
+    "actual_hand_mean_penetration_mm": 0.008874999359250069,
+    "source_frames": [
+      194,
+      205
+    ],
+    "seconds": 44.96413445472717
+  },
+  {
+    "step": 1000,
+    "loss": 0.8320561051368713,
+    "collision": 0.09807996451854706,
+    "occlusion": 4.6757929794694064e-07,
+    "image_prior": 0.2736380696296692,
+    "contact": 0.29065361618995667,
+    "pose_prior": 0.15243077278137207,
+    "smooth": 0.017253223806619644,
+    "actual_hand_max_penetration_mm": 3.8350448608398438,
+    "actual_hand_mean_penetration_mm": 0.0012802238343283534,
+    "source_frames": [
+      146,
+      157
+    ],
+    "seconds": 45.831239461898804
+  }
+]

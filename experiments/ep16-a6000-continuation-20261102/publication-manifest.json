@@ -1,0 +1,69 @@
+{
+  "schema": "nvda.a6000-publication.v1",
+  "date": "2026-11-02",
+  "repository": "Seanwilliam2077/video-to-hoi",
+  "branch": "physics-dynamic-contact-topology-v4",
+  "base_commit": "f74e86e1f6a9bb080d4205ae2905580f66631f59",
+  "source_runtime": "/data1/defu/zly/nvda/continuation-20261102-v1",
+  "scope": "Track 1 EP16 development snapshot; not official submission",
+  "hand_reconstruction_accepted": false,
+  "physics_engine_used_for_hand_v11": false,
+  "files": [
+    {
+      "path": "assets/direction-v6-full-scene.mp4",
+      "bytes": 2042160,
+      "sha256": "9a92985b90ae71d3a93ba7fd87ddd7d188846b039d7854ad4d58178d36edd66c",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "assets/direction-v6-object-zoom.mp4",
+      "bytes": 1570686,
+      "sha256": "a4492effcb9a616d299641359e6dba351ddaa5f197a298a53d1d07be0a03b25c",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "assets/direction-v6-refined.pth.gz",
+      "bytes": 5912205,
+      "sha256": "d33d802a30f6b408a71c4098e1b637074c72dbe6f087b5cf4b50a925f65a07c3",
+      "storage": "git-lfs",
+      "decompressed_bytes": 293588832,
+      "decompressed_sha256": "366927efac0f6472a1dd0049e0196e80dfaef872b218e90ed413f174bb10e7de",
+      "acceptance": "object turning direction visually accepted; hand not accepted"
+    },
+    {
+      "path": "assets/hand-v11-rejected-full-scene.mp4",
+      "bytes": 2030094,
+      "sha256": "d58a0ba6e07a2934a6e8dc44695210817c0b6367d509e0e79eb05b09c0a88a2c",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "assets/hand-v11-rejected-hand-zoom.mp4",
+      "bytes": 2641930,
+      "sha256": "fb94cd54a9317249f77c90905ae74b6b5e6df957ffd1af5385bf9619fdfbc653",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "assets/hand-v11-rejected-refined.pth.gz",
+      "bytes": 5912542,
+      "sha256": "df771b432f109f36b0f1bd4f647e56591ee19188ec3050ad8eed3ef5b1789775",
+      "storage": "git-lfs",
+      "decompressed_bytes": 293588576,
+      "decompressed_sha256": "0bdccbbf4ae5cc658ccd4d85116df78b161f9daf002d9ea3cc451840593508d0",
+      "acceptance": "hand result rejected by owner; diagnostic retention only"
+    },
+    {
+      "path": "assets/object.glb",
+      "bytes": 35672,
+      "sha256": "ca568bb88077c2be8a245192b0379dcacbe104b2ca86a6bf787ff4b8affd5998",
+      "storage": "git-lfs"
+    },
+    {
+      "path": "assets/runtime-source.tar.gz",
+      "bytes": 4906807,
+      "sha256": "4055294d50c9d750ce180852b22570db75cdbd1672f805bcfd8b939cc2f17b99",
+      "storage": "git-lfs"
+    }
+  ],
+  "model_weights": "Existing licensed weights referenced by handoff, not redistributed in this upload",
+  "retrieval_policy": "Proxy or mirror only; no direct fallback"
+}

@@ -1,0 +1,5452 @@
+{
+  "input": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v1/refined.pth",
+  "human_vertex_count": 18439,
+  "object_vertex_count": 866,
+  "object_faces": 1728,
+  "object_watertight": true,
+  "object_is_convex": true,
+  "mesh_volume": 0.007918748569885198,
+  "hull_volume": 0.007918748569885198,
+  "hull_planes": [
+    [
+      -1.0,
+      0.0,
+      0.0,
+      -0.0996603
+    ],
+    [
+      -0.0,
+      -1.0,
+      -0.0,
+      -0.0996603
+    ],
+    [
+      -0.0,
+      -0.0,
+      -1.0,
+      -0.0996603
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      -0.0996603
+    ],
+    [
+      0.0,
+      1.0,
+      -0.0,
+      -0.0996603
+    ],
+    [
+      1.0,
+      -0.0,
+      -0.0,
+      -0.0996603
+    ]
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 1,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 2,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 3,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 4,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 5,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 6,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 7,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 8,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 9,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 10,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 11,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 12,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 13,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 14,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 15,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 16,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 17,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 18,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 19,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 20,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 21,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 22,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 23,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 24,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 25,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 26,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 27,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 28,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 29,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 30,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 31,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 32,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 33,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 34,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 35,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 36,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 37,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 38,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 39,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 40,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 41,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 42,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 43,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 44,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 45,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 46,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 47,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 48,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 49,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 50,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 51,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 52,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 53,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 54,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 55,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 56,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 57,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 58,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 59,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 60,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 61,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 62,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 63,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 64,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 65,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 66,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 67,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 68,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 69,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 70,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 71,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 72,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 73,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 74,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.008101341213780876
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.7622732356071404
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0056082830025884385
+      ]
+    },
+    {
+      "frame": 75,
+      "hand_mean_penetration_mm": [
+        0.0050585602188439075,
+        0.02471102144522735
+      ],
+      "hand_max_penetration_mm": [
+        1.798853559780114,
+        3.594115658092492
+      ],
+      "hand_inside_fraction": [
+        0.0060396893874029335,
+        0.014667817083692839
+      ]
+    },
+    {
+      "frame": 76,
+      "hand_mean_penetration_mm": [
+        0.01771613990649561,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        3.8805457785606317,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.00992234685073339,
+        0.0
+      ]
+    },
+    {
+      "frame": 77,
+      "hand_mean_penetration_mm": [
+        1.2513111252736599e-05,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.029005391883843434,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 78,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 79,
+      "hand_mean_penetration_mm": [
+        0.001652843571326343,
+        0.06263669408102078
+      ],
+      "hand_max_penetration_mm": [
+        0.9448233082771235,
+        5.180947764205926
+      ],
+      "hand_inside_fraction": [
+        0.0025884383088869713,
+        0.02459016393442623
+      ]
+    },
+    {
+      "frame": 80,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0012099969961398222
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.6799626186370783
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0030198446937014668
+      ]
+    },
+    {
+      "frame": 81,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 82,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 83,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 84,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 85,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 86,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 87,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 88,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 89,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 90,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 91,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 92,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0020555188459605188
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        1.1790472105026177
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0025884383088869713
+      ]
+    },
+    {
+      "frame": 93,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 94,
+      "hand_mean_penetration_mm": [
+        0.004922595158520149,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        1.5862884953498773,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0060396893874029335,
+        0.0
+      ]
+    },
+    {
+      "frame": 95,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 96,
+      "hand_mean_penetration_mm": [
+        0.0013163883087447556,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.6559717491149836,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 97,
+      "hand_mean_penetration_mm": [
+        0.139498930562252,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        7.6802003219604424,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.03451251078515962,
+        0.0
+      ]
+    },
+    {
+      "frame": 98,
+      "hand_mean_penetration_mm": [
+        0.039409718536322545,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        6.482273621845239,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.015099223468507334,
+        0.0
+      ]
+    },
+    {
+      "frame": 99,
+      "hand_mean_penetration_mm": [
+        0.0052914688821287135,
+        0.002011088693255058
+      ],
+      "hand_max_penetration_mm": [
+        2.541572137165063,
+        1.46864382772445
+      ],
+      "hand_inside_fraction": [
+        0.003451251078515962,
+        0.0030198446937014668
+      ]
+    },
+    {
+      "frame": 100,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0005647691591738334
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.7107484176635676
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0012942191544434857
+      ]
+    },
+    {
+      "frame": 101,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0009622729838768567
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.9278061821937494
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0021570319240724763
+      ]
+    },
+    {
+      "frame": 102,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 103,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 104,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 105,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 106,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 107,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 108,
+      "hand_mean_penetration_mm": [
+        0.00014189221832235606,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.32890616207122136,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 109,
+      "hand_mean_penetration_mm": [
+        0.0025373603142367124,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        2.0384716823577813,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.001725625539257981,
+        0.0
+      ]
+    },
+    {
+      "frame": 110,
+      "hand_mean_penetration_mm": [
+        0.015276781405201181,
+        0.009298956760524932
+      ],
+      "hand_max_penetration_mm": [
+        4.928946776676171,
+        2.2403153613090447
+      ],
+      "hand_inside_fraction": [
+        0.00819672131147541,
+        0.007765314926660914
+      ]
+    },
+    {
+      "frame": 111,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 112,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 113,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 114,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 115,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 116,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 117,
+      "hand_mean_penetration_mm": [
+        0.00017631029366829194,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.2091008260726862,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0008628127696289905,
+        0.0
+      ]
+    },
+    {
+      "frame": 118,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 119,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 120,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 121,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 122,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 123,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 124,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 125,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0021846984279063042
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.3655447199821404
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.001725625539257981
+      ]
+    },
+    {
+      "frame": 126,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.003229367540127444
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.614230199146264
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.001725625539257981
+      ]
+    },
+    {
+      "frame": 127,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.003901247513016493
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.427317483711236
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0025884383088869713
+      ]
+    },
+    {
+      "frame": 128,
+      "hand_mean_penetration_mm": [
+        0.07808541314875483,
+        0.009002327661168657
+      ],
+      "hand_max_penetration_mm": [
+        11.106141193199152,
+        3.2365771964073113
+      ],
+      "hand_inside_fraction": [
+        0.017687661777394306,
+        0.004745470232959448
+      ]
+    },
+    {
+      "frame": 129,
+      "hand_mean_penetration_mm": [
+        0.37447159504063454,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        17.842568738746635,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.05090595340811044,
+        0.0
+      ]
+    },
+    {
+      "frame": 130,
+      "hand_mean_penetration_mm": [
+        0.171208389377635,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        18.919870538997642,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.02286453839516825,
+        0.0
+      ]
+    },
+    {
+      "frame": 131,
+      "hand_mean_penetration_mm": [
+        0.00017998082059739808,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.4171955421447687,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 132,
+      "hand_mean_penetration_mm": [
+        0.0,
+        6.79681876283737e-05
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.15755025892257024
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0004314063848144953
+      ]
+    },
+    {
+      "frame": 133,
+      "hand_mean_penetration_mm": [
+        0.001619466662880047,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        2.4156200721740655,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0012942191544434857,
+        0.0
+      ]
+    },
+    {
+      "frame": 134,
+      "hand_mean_penetration_mm": [
+        0.006018054773274712,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        2.8569626644134454,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.003451251078515962,
+        0.0
+      ]
+    },
+    {
+      "frame": 135,
+      "hand_mean_penetration_mm": [
+        0.00011198704063737794,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.25958596019744207,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 136,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 137,
+      "hand_mean_penetration_mm": [
+        5.554198202539375e-05,
+        3.9609175123352146e-05
+      ],
+      "hand_max_penetration_mm": [
+        0.12874631433486272,
+        0.08080927877425481
+      ],
+      "hand_inside_fraction": [
+        0.0004314063848144953,
+        0.0008628127696289905
+      ]
+    },
+    {
+      "frame": 138,
+      "hand_mean_penetration_mm": [
+        0.003529348836344182,
+        0.0031405330700335164
+      ],
+      "hand_max_penetration_mm": [
+        2.2777843311309747,
+        1.7280208900451592
+      ],
+      "hand_inside_fraction": [
+        0.003882657463330457,
+        0.0030198446937014668
+      ]
+    },
+    {
+      "frame": 139,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0020198501929216406
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.116576118755334
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0012942191544434857
+      ]
+    },
+    {
+      "frame": 140,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0019990927082387524
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.317272408294671
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0012942191544434857
+      ]
+    },
+    {
+      "frame": 141,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.005351815892088691
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        3.508247716712945
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0030198446937014668
+      ]
+    },
+    {
+      "frame": 142,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.007242614464722779
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        4.7111886575698785
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0030198446937014668
+      ]
+    },
+    {
+      "frame": 143,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.009119315676158387
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        5.104512257862084
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.003882657463330457
+      ]
+    },
+    {
+      "frame": 144,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.010207437815760802
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        5.046814961719506
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.003451251078515962
+      ]
+    },
+    {
+      "frame": 145,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.005679602746124184
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        3.710501177597039
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0025884383088869713
+      ]
+    },
+    {
+      "frame": 146,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 147,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 148,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 149,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 150,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 151,
+      "hand_mean_penetration_mm": [
+        0.00017616553191381369,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.40835170297622014,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 152,
+      "hand_mean_penetration_mm": [
+        1.998940567398113e-05,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.04633544235228826,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 153,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0003035518175985786
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.7036331131935053
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0004314063848144953
+      ]
+    },
+    {
+      "frame": 154,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.00033473637953618604
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.7068219616889887
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0008628127696289905
+      ]
+    },
+    {
+      "frame": 155,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.000530547151738343
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.8404481246948176
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0008628127696289905
+      ]
+    },
+    {
+      "frame": 156,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.00890845352449322
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.167716903972619
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.006902502157031924
+      ]
+    },
+    {
+      "frame": 157,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.007244717420309716
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.4980830982208184
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0060396893874029335
+      ]
+    },
+    {
+      "frame": 158,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 159,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.000552616162954261
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.6203058197975092
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0012942191544434857
+      ]
+    },
+    {
+      "frame": 160,
+      "hand_mean_penetration_mm": [
+        0.0013685736647549031,
+        0.030170128026308828
+      ],
+      "hand_max_penetration_mm": [
+        1.270093305397027,
+        4.144735915946954
+      ],
+      "hand_inside_fraction": [
+        0.0012942191544434857,
+        0.016824849007765316
+      ]
+    },
+    {
+      "frame": 161,
+      "hand_mean_penetration_mm": [
+        0.0007816491961787665,
+        0.0002820166112226638
+      ],
+      "hand_max_penetration_mm": [
+        1.548074467468255,
+        0.36911694555281926
+      ],
+      "hand_inside_fraction": [
+        0.0012942191544434857,
+        0.0008628127696289905
+      ]
+    },
+    {
+      "frame": 162,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 163,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 164,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 165,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.007181799027917669
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.531968338775628
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0064710957722174285
+      ]
+    },
+    {
+      "frame": 166,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.02672171084524939
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        4.456110580253594
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.015099223468507334
+      ]
+    },
+    {
+      "frame": 167,
+      "hand_mean_penetration_mm": [
+        0.00444834126771986,
+        0.0025061089824663088
+      ],
+      "hand_max_penetration_mm": [
+        3.304288072872155,
+        1.6210827067375115
+      ],
+      "hand_inside_fraction": [
+        0.0025884383088869713,
+        0.003882657463330457
+      ]
+    },
+    {
+      "frame": 168,
+      "hand_mean_penetration_mm": [
+        0.0,
+        1.5769124257345676e-05
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.03655283002852727
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0004314063848144953
+      ]
+    },
+    {
+      "frame": 169,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 170,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 171,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 172,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 173,
+      "hand_mean_penetration_mm": [
+        0.026296678306235596,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        8.45465092210769,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.006902502157031924,
+        0.0
+      ]
+    },
+    {
+      "frame": 174,
+      "hand_mean_penetration_mm": [
+        0.03436449772832303,
+        0.004339295124246489
+      ],
+      "hand_max_penetration_mm": [
+        8.228682263183588,
+        3.856435699748986
+      ],
+      "hand_inside_fraction": [
+        0.010353753235547885,
+        0.001725625539257981
+      ]
+    },
+    {
+      "frame": 175,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0021824582324550374
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        1.4137032464027337
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0021570319240724763
+      ]
+    },
+    {
+      "frame": 176,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 177,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 178,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 179,
+      "hand_mean_penetration_mm": [
+        0.007936669518353067,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        4.1745829418182305,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 180,
+      "hand_mean_penetration_mm": [
+        0.0177694244070028,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        7.7207910850524835,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0064710957722174285,
+        0.0
+      ]
+    },
+    {
+      "frame": 181,
+      "hand_mean_penetration_mm": [
+        0.0040608048856618255,
+        0.004097155198030549
+      ],
+      "hand_max_penetration_mm": [
+        4.491679652023309,
+        2.3415762022018365
+      ],
+      "hand_inside_fraction": [
+        0.0021570319240724763,
+        0.004314063848144953
+      ]
+    },
+    {
+      "frame": 182,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.016253420651997814
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        5.845040364551537
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0056082830025884385
+      ]
+    },
+    {
+      "frame": 183,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.005734273672350714
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        3.068074865627282
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0030198446937014668
+      ]
+    },
+    {
+      "frame": 184,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 185,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 186,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0028174932663352103
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.782091779994958
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0021570319240724763
+      ]
+    },
+    {
+      "frame": 187,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 188,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 189,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0014244344628196372
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.7974955275535517
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.003882657463330457
+      ]
+    },
+    {
+      "frame": 190,
+      "hand_mean_penetration_mm": [
+        2.288651857216884e-06,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.005305095005028737,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 191,
+      "hand_mean_penetration_mm": [
+        0.0010163554633867019,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.7741081550598078,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.001725625539257981,
+        0.0
+      ]
+    },
+    {
+      "frame": 192,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 193,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 194,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 195,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.00020787079879391534
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.449054224777215
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0008628127696289905
+      ]
+    },
+    {
+      "frame": 196,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.001438988001414458
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.282232327747338
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0021570319240724763
+      ]
+    },
+    {
+      "frame": 197,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 198,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 199,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 200,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 201,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 202,
+      "hand_mean_penetration_mm": [
+        0.00011169133165768985,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.2589005067825251,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0004314063848144953,
+        0.0
+      ]
+    },
+    {
+      "frame": 203,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 204,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 205,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 206,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 207,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 208,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 209,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 210,
+      "hand_mean_penetration_mm": [
+        0.0023464898105321707,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        2.2712278202056817,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.001725625539257981,
+        0.0
+      ]
+    },
+    {
+      "frame": 211,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 212,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 213,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 214,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.02527167542056848
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        4.938520772743218
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.012510785159620362
+      ]
+    },
+    {
+      "frame": 215,
+      "hand_mean_penetration_mm": [
+        0.00603298164829288,
+        0.07193406021856238
+      ],
+      "hand_max_penetration_mm": [
+        2.9817673399925164,
+        8.86835931091308
+      ],
+      "hand_inside_fraction": [
+        0.003451251078515962,
+        0.022433132010353754
+      ]
+    },
+    {
+      "frame": 216,
+      "hand_mean_penetration_mm": [
+        0.022824537758460987,
+        0.013358884526409834
+      ],
+      "hand_max_penetration_mm": [
+        7.000305040168755,
+        2.2984596922874383
+      ],
+      "hand_inside_fraction": [
+        0.00819672131147541,
+        0.011216566005176877
+      ]
+    },
+    {
+      "frame": 217,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 218,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 219,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 220,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 221,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.09456671080531676
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        7.781841142463677
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.027178602243313203
+      ]
+    },
+    {
+      "frame": 222,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.07958724337302975
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        7.035948617744439
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.02286453839516825
+      ]
+    },
+    {
+      "frame": 223,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0022543283714314038
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.7191492751121453
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0021570319240724763
+      ]
+    },
+    {
+      "frame": 224,
+      "hand_mean_penetration_mm": [
+        0.0,
+        1.0511740617830299e-06
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0024366214752130633
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0004314063848144953
+      ]
+    },
+    {
+      "frame": 225,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 226,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 227,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.006570027604650259
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        3.734194023895257
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0030198446937014668
+      ]
+    },
+    {
+      "frame": 228,
+      "hand_mean_penetration_mm": [
+        0.0029938518949167775,
+        0.020521321464510547
+      ],
+      "hand_max_penetration_mm": [
+        2.523549182701104,
+        4.8912617400169305
+      ],
+      "hand_inside_fraction": [
+        0.003451251078515962,
+        0.007765314926660914
+      ]
+    },
+    {
+      "frame": 229,
+      "hand_mean_penetration_mm": [
+        0.016750761492361335,
+        0.0019373828655897785
+      ],
+      "hand_max_penetration_mm": [
+        4.982956035423272,
+        1.9186961486816339
+      ],
+      "hand_inside_fraction": [
+        0.0060396893874029335,
+        0.001725625539257981
+      ]
+    },
+    {
+      "frame": 230,
+      "hand_mean_penetration_mm": [
+        0.004737104179120646,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        4.801988883304589,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0021570319240724763,
+        0.0
+      ]
+    },
+    {
+      "frame": 231,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 232,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 233,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 234,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 235,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 236,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 237,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 238,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 239,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 240,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 241,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.00014985719689836823
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.27640192060469915
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0008628127696289905
+      ]
+    },
+    {
+      "frame": 242,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.022848584977833652
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        3.29235969333648
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.013805004314063849
+      ]
+    },
+    {
+      "frame": 243,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0030487740169011317
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        1.199759824562066
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0056082830025884385
+      ]
+    },
+    {
+      "frame": 244,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 245,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 246,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 247,
+      "hand_mean_penetration_mm": [
+        0.0,
+        6.194151005320882e-05
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.14358042030333806
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0004314063848144953
+      ]
+    },
+    {
+      "frame": 248,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.014633827242386278
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.816714628028863
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.010785159620362382
+      ]
+    },
+    {
+      "frame": 249,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.023022697346985897
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        2.7518200710296563
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.016824849007765316
+      ]
+    },
+    {
+      "frame": 250,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 251,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 252,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 253,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 254,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 255,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 256,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 257,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 258,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.031689361473030725
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        3.759987933921807
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.015530629853321829
+      ]
+    },
+    {
+      "frame": 259,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.012801662010196104
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        3.0763375595092706
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.008628127696289905
+      ]
+    },
+    {
+      "frame": 260,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0037090177553290166
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        1.702413244533532
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.003882657463330457
+      ]
+    },
+    {
+      "frame": 261,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 262,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 263,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 264,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 265,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 266,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 267,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 268,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 269,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 270,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 271,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 272,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 273,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 274,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 275,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 276,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 277,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 278,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 279,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 280,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 281,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 282,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 283,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 284,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 285,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 286,
+      "hand_mean_penetration_mm": [
+        0.0050192404457368375,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        1.8153416946411065,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0056082830025884385,
+        0.0
+      ]
+    },
+    {
+      "frame": 287,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 288,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 289,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 290,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 291,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 292,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 293,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 294,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 295,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 296,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 297,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 298,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 299,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 300,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 301,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 302,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 303,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 304,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 305,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 306,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 307,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 308,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 309,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 310,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 311,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 312,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 313,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 314,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 315,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 316,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 317,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 318,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 319,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 320,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 321,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 322,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 323,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 324,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 325,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 326,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 327,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 328,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 329,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 330,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 331,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 332,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 333,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 334,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 335,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 336,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 337,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 338,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 339,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 340,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 341,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 342,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 343,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 344,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 345,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 346,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 347,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 348,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 349,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 350,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 351,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 352,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 353,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 354,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 355,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 356,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 357,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 358,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 359,
+      "hand_mean_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_max_penetration_mm": [
+        0.0,
+        0.0
+      ],
+      "hand_inside_fraction": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "seconds": 4.894614934921265,
+  "scope": "Signed convex hull face-plane depth for inside hand vertices; exact interior face clearance if actual mesh is convex, not an official penetration metric. Native hand spec all2318 vertices per hand."
+}

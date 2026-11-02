@@ -1,0 +1,93 @@
+{
+  "updated_at_utc": "2026-11-02T12:42:14.416120+00:00",
+  "phase": "NATIVE_HAND_OBJECT_SURFACE_INTERPENETRATION_VERIFIED",
+  "input_object_turn_visually_accepted_by_user": true,
+  "input": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/source-material-candidate-v6/refined.pth",
+  "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/refined.pth",
+  "candidate_sha256": "0bdccbbf4ae5cc658ccd4d85116df78b161f9daf002d9ea3cc451840593508d0",
+  "geometric_interpenetration_check_passed": true,
+  "source_grasp_pose_not_certified": true,
+  "official_submission_or_score_claim": false,
+  "changed_pr_fields": [
+    "mhr_body_pose_cont",
+    "mhr_hand"
+  ],
+  "preservation": {
+    "object_all360_rotation_translation_and_aliases_exact": true,
+    "all_camera_observation_arrays_exact": true,
+    "human_root_shape_scale_face_translation_exact": true,
+    "nonarm_native_body_controls_exact": true,
+    "frame0_native_parameters_exact": true,
+    "frames0_50_and290_359_native_parameters_exact": true,
+    "original_alignment_frame_id": "000000",
+    "full_original_frame_ids_exact": true,
+    "original_checkpoint_files_preserved": true,
+    "no_mesh_only_human_displacement": true
+  },
+  "diagnostics": {
+    "before": {
+      "all360_hand_max_penetration_mm": 98.95886806771159,
+      "all360_hand_mean_penetration_mm": 8.040988163282787,
+      "grasp70_260_nearest32_mean_distance_mm": [
+        9.11768090737857,
+        23.870331944050807
+      ],
+      "all360_wholehuman_vertex_max_penetration_mm": 98.95886806771159,
+      "frames_hand_penetration_gt1mm": 209
+    },
+    "after": {
+      "all360_hand_max_penetration_mm": 0.0,
+      "all360_hand_mean_penetration_mm": 0.0,
+      "grasp70_260_nearest32_mean_distance_mm": [
+        11.3239476228799,
+        5.8226975866554485
+      ],
+      "all360_wholehuman_vertex_max_penetration_mm": 0.0,
+      "frames_hand_penetration_gt1mm": 0
+    }
+  },
+  "surface_crossing_check": {
+    "all_canonical_human_triangles": true,
+    "all360frames": true,
+    "interior_tolerance_mm": 0.1,
+    "before_affected_frames": 210,
+    "after_affected_frames": 0,
+    "algorithm": "Triangle-cuboid separating axis theorem,3box axes,9cross axes and triangle normal; every canonical human triangle, every360frame.",
+    "mesh_geometry_contract": "Watertight convex866vertex1728face mesh with6axis planes and matching box volume."
+  },
+  "source_image_diagnostic": {
+    "before": {
+      "approximate_fit_wrist_elbow_mean_error_px": [
+        12.31411014875153,
+        13.06112806341229
+      ],
+      "scope": "Same fitted approximate source annotations,6pixel read uncertainty. Not independent or3D validation."
+    },
+    "after": {
+      "approximate_fit_wrist_elbow_mean_error_px": [
+        8.646659892193869,
+        10.833042706009042
+      ],
+      "scope": "Same fitted approximate source annotations,6pixel read uncertainty. Not independent or3D validation."
+    }
+  },
+  "full_scene_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/full-scene-v11/source-old-new-full-scene-360-30fps.mp4",
+  "hand_zoom_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/full-scene-v11/source-old-new-hand-zoom-360-30fps.mp4",
+  "decoded_frames": 360,
+  "fps": 30,
+  "tests": {
+    "required_explicit_synthetic_suite_passed": 273,
+    "log": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/required-tests.log",
+    "synthetic_triangle_box_sat_and_triangle_interior_lp_fixtures_passed": true
+  },
+  "downloads_this_task": 0,
+  "limitations": [
+    "This removes interpenetration in the current authored object/native human geometry to0.1mm surface tolerance; no hidden-reference accuracy or official PEN claim.",
+    "The exact finger grasp is still approximate: visible wrist/elbow labels are manually read source fit proposals and hidden hand depth uses source-reviewed occlusion roles.",
+    "Closest surface support is not recovered forces, grasp mechanics or independently measured contact.",
+    "Other original reconstruction limitations, including partial object texture, remain."
+  ],
+  "candidate_stage": "v11",
+  "local_hand_zoom_video": "/home/lonpyer/nvda/hand-contact-20261102/hand-contact-fixed-zoom.mp4",
+  "local_full_scene_video": "/home/lonpyer/nvda/hand-contact-20261102/hand-contact-fixed-full-scene.mp4"
+}

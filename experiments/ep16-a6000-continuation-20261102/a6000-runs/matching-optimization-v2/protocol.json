@@ -1,0 +1,43 @@
+{
+  "authorization": "Current user explicitly requested fixing unreliable matching and running optimization on A6000, not stopping at analysis.",
+  "source": "Track 1 EP16 only",
+  "window_original_frames": [
+    150,
+    210
+  ],
+  "source_roi_xyxy": [
+    590,
+    490,
+    890,
+    790
+  ],
+  "anchor_frames": [
+    150,
+    165,
+    180,
+    195
+  ],
+  "tracking": "One source frame per step; points seeded by cached MASt3R object candidates plus image corners within independently source-reviewed visible-box interiors.",
+  "mask": "Current Native full-resolution object mask mapping via K_full @ inverse(K_crop), not rejected published table masks.",
+  "checks": {
+    "LK_window": 15,
+    "LK_levels": 2,
+    "LK_FB_max_original_pixels": 0.75,
+    "anchor_template_size": 11,
+    "anchor_template_ZNCC_min": 0.7,
+    "minimum_source_mask_erosion": 2,
+    "no_reactivation": true
+  },
+  "difference_from_old_rejected_LK": "New short 15-frame tracks, source-reviewed anchor interiors, correct moving-object mask and direct anchor-template test at every source frame. No old 120-210 track IDs are reused.",
+  "important_limit": "These are source-image observation proposals, not true physical material-point labels. The subsequent pose candidate remains conditional and unaccepted.",
+  "fit_validation_split": "Even original frames fit; odd frames are temporal development checks, not unseen-video or 3D ground truth.",
+  "pose_budget": {
+    "one_candidate": true,
+    "steps": 300,
+    "rotation_delta_norm_cap_degrees": 10,
+    "translation_delta_norm_cap_m": 0.03,
+    "human_camera_mesh_scale_frozen": true,
+    "frame_150_210_and_outside_window_exactly_preserved": true
+  },
+  "downloads": "None; all existing checkpoint/source bytes reused. Any later downloads must use proxy or mirror."
+}

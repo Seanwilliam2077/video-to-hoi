@@ -1,0 +1,65 @@
+{
+  "episode": 12,
+  "frame_ids_exact": true,
+  "finite_parameters": {
+    "pose_abs": true,
+    "mhr_global_rot6d": true,
+    "mhr_trans": true,
+    "mhr_body_pose_cont": true,
+    "mhr_hand": true,
+    "mhr_shape": true,
+    "mhr_scale": true,
+    "mhr_face": true,
+    "contact_logits": true,
+    "pose_abs_postopt": true
+  },
+  "same_human": true,
+  "same_scene": true,
+  "image_diagnostics": {
+    "scope": "Full-image visible IoU on fitted masks; not reconstruction accuracy",
+    "preview_codec": "libx264",
+    "segments": [
+      {
+        "start": 0,
+        "stop": 135,
+        "mean_native_candidate": [
+          0.4828544785661361,
+          0.7147237882207408
+        ]
+      },
+      {
+        "start": 135,
+        "stop": 270,
+        "mean_native_candidate": [
+          0.23925091234117982,
+          0.6963394948879776
+        ]
+      },
+      {
+        "start": 270,
+        "stop": 405,
+        "mean_native_candidate": [
+          0.38193145818657426,
+          0.8053652932694116
+        ]
+      }
+    ],
+    "preview_decoded_frames": 405
+  },
+  "status": "complete execution, not accepted physical accuracy",
+  "limitations": [
+    "Experimental rigid-object stage; estimated depth and masks are not ground truth",
+    "Image fitting is measured on fitting observations; no official score or unseen-video acceptance",
+    "Human pose/hand contact and camera are frozen; contact refinement is still pending",
+    "Unobserved motion remains an explicit estimate; scale-depth ambiguity remains monocular"
+  ],
+  "visual_review_frames": [
+    0,
+    114,
+    198,
+    270,
+    340,
+    404
+  ],
+  "visual_notes": "Black object low contrast on dark mesh background; assess RGB overlay, do not interpret invisibility as absent geometry. Whole-body overlay not exact. Need hand/handle closeups and independent contact/penetration."
+}

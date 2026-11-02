@@ -1,0 +1,330 @@
+......................................................EEEEEEEF.......... [ 26%]
+........................................................................ [ 52%]
+........................................................................ [ 79%]
+.........................................................                [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_manual_download_uses_fixed_paths_and_records_receipt __
+
+    @pytest.fixture
+    def asset():
+>       manifest = manual.assets.load_manifest(manual.assets.DEFAULT_MANIFEST)
+
+tests/test_download_foundationpose.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/fetch_assets.py:89: in load_manifest
+    safe_path(Path.cwd(), target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/data1/defu/zly/nvda/continuation-20261102-v1')
+relative = 'weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main'
+
+    def safe_path(root: Path, relative: str) -> Path:
+        """Resolve a manifest path without escaping the destination or using symlinks."""
+        if not isinstance(relative, str) or not relative or "\\" in relative:
+            raise AssetError("asset paths must be nonempty POSIX relative paths")
+        parts = PurePosixPath(relative).parts
+        if PurePosixPath(relative).is_absolute() or PureWindowsPath(relative).anchor or ".." in parts:
+            raise AssetError(f"unsafe asset path: {relative}")
+        if any(p.lower() in {"track_2", "track2", ".git", ".env"} for p in parts):
+            raise AssetError(f"prohibited asset path: {relative}")
+        root = root.resolve()
+        candidate = root.joinpath(*parts)
+        for parent in [candidate, *candidate.parents]:
+            if parent == root:
+                break
+            if parent.is_symlink():
+>               raise AssetError(f"symlink asset path: {relative}")
+E               fetch_assets.AssetError: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main
+
+tools/fetch_assets.py:58: AssetError
+_ ERROR at setup of test_browser_registration_is_offline_and_detects_tampering _
+
+    @pytest.fixture
+    def asset():
+>       manifest = manual.assets.load_manifest(manual.assets.DEFAULT_MANIFEST)
+
+tests/test_download_foundationpose.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/fetch_assets.py:89: in load_manifest
+    safe_path(Path.cwd(), target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/data1/defu/zly/nvda/continuation-20261102-v1')
+relative = 'weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main'
+
+    def safe_path(root: Path, relative: str) -> Path:
+        """Resolve a manifest path without escaping the destination or using symlinks."""
+        if not isinstance(relative, str) or not relative or "\\" in relative:
+            raise AssetError("asset paths must be nonempty POSIX relative paths")
+        parts = PurePosixPath(relative).parts
+        if PurePosixPath(relative).is_absolute() or PureWindowsPath(relative).anchor or ".." in parts:
+            raise AssetError(f"unsafe asset path: {relative}")
+        if any(p.lower() in {"track_2", "track2", ".git", ".env"} for p in parts):
+            raise AssetError(f"prohibited asset path: {relative}")
+        root = root.resolve()
+        candidate = root.joinpath(*parts)
+        for parent in [candidate, *candidate.parents]:
+            if parent == root:
+                break
+            if parent.is_symlink():
+>               raise AssetError(f"symlink asset path: {relative}")
+E               fetch_assets.AssetError: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main
+
+tools/fetch_assets.py:58: AssetError
+_ ERROR at setup of test_invalid_files_never_get_complete_receipt[missing_config] _
+
+    @pytest.fixture
+    def asset():
+>       manifest = manual.assets.load_manifest(manual.assets.DEFAULT_MANIFEST)
+
+tests/test_download_foundationpose.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/fetch_assets.py:89: in load_manifest
+    safe_path(Path.cwd(), target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/data1/defu/zly/nvda/continuation-20261102-v1')
+relative = 'weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main'
+
+    def safe_path(root: Path, relative: str) -> Path:
+        """Resolve a manifest path without escaping the destination or using symlinks."""
+        if not isinstance(relative, str) or not relative or "\\" in relative:
+            raise AssetError("asset paths must be nonempty POSIX relative paths")
+        parts = PurePosixPath(relative).parts
+        if PurePosixPath(relative).is_absolute() or PureWindowsPath(relative).anchor or ".." in parts:
+            raise AssetError(f"unsafe asset path: {relative}")
+        if any(p.lower() in {"track_2", "track2", ".git", ".env"} for p in parts):
+            raise AssetError(f"prohibited asset path: {relative}")
+        root = root.resolve()
+        candidate = root.joinpath(*parts)
+        for parent in [candidate, *candidate.parents]:
+            if parent == root:
+                break
+            if parent.is_symlink():
+>               raise AssetError(f"symlink asset path: {relative}")
+E               fetch_assets.AssetError: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main
+
+tools/fetch_assets.py:58: AssetError
+____ ERROR at setup of test_invalid_files_never_get_complete_receipt[html] _____
+
+    @pytest.fixture
+    def asset():
+>       manifest = manual.assets.load_manifest(manual.assets.DEFAULT_MANIFEST)
+
+tests/test_download_foundationpose.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/fetch_assets.py:89: in load_manifest
+    safe_path(Path.cwd(), target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/data1/defu/zly/nvda/continuation-20261102-v1')
+relative = 'weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main'
+
+    def safe_path(root: Path, relative: str) -> Path:
+        """Resolve a manifest path without escaping the destination or using symlinks."""
+        if not isinstance(relative, str) or not relative or "\\" in relative:
+            raise AssetError("asset paths must be nonempty POSIX relative paths")
+        parts = PurePosixPath(relative).parts
+        if PurePosixPath(relative).is_absolute() or PureWindowsPath(relative).anchor or ".." in parts:
+            raise AssetError(f"unsafe asset path: {relative}")
+        if any(p.lower() in {"track_2", "track2", ".git", ".env"} for p in parts):
+            raise AssetError(f"prohibited asset path: {relative}")
+        root = root.resolve()
+        candidate = root.joinpath(*parts)
+        for parent in [candidate, *candidate.parents]:
+            if parent == root:
+                break
+            if parent.is_symlink():
+>               raise AssetError(f"symlink asset path: {relative}")
+E               fetch_assets.AssetError: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main
+
+tools/fetch_assets.py:58: AssetError
+____ ERROR at setup of test_invalid_files_never_get_complete_receipt[empty] ____
+
+    @pytest.fixture
+    def asset():
+>       manifest = manual.assets.load_manifest(manual.assets.DEFAULT_MANIFEST)
+
+tests/test_download_foundationpose.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/fetch_assets.py:89: in load_manifest
+    safe_path(Path.cwd(), target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/data1/defu/zly/nvda/continuation-20261102-v1')
+relative = 'weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main'
+
+    def safe_path(root: Path, relative: str) -> Path:
+        """Resolve a manifest path without escaping the destination or using symlinks."""
+        if not isinstance(relative, str) or not relative or "\\" in relative:
+            raise AssetError("asset paths must be nonempty POSIX relative paths")
+        parts = PurePosixPath(relative).parts
+        if PurePosixPath(relative).is_absolute() or PureWindowsPath(relative).anchor or ".." in parts:
+            raise AssetError(f"unsafe asset path: {relative}")
+        if any(p.lower() in {"track_2", "track2", ".git", ".env"} for p in parts):
+            raise AssetError(f"prohibited asset path: {relative}")
+        root = root.resolve()
+        candidate = root.joinpath(*parts)
+        for parent in [candidate, *candidate.parents]:
+            if parent == root:
+                break
+            if parent.is_symlink():
+>               raise AssetError(f"symlink asset path: {relative}")
+E               fetch_assets.AssetError: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main
+
+tools/fetch_assets.py:58: AssetError
+_______ ERROR at setup of test_existing_manual_files_are_not_overwritten _______
+
+    @pytest.fixture
+    def asset():
+>       manifest = manual.assets.load_manifest(manual.assets.DEFAULT_MANIFEST)
+
+tests/test_download_foundationpose.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/fetch_assets.py:89: in load_manifest
+    safe_path(Path.cwd(), target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/data1/defu/zly/nvda/continuation-20261102-v1')
+relative = 'weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main'
+
+    def safe_path(root: Path, relative: str) -> Path:
+        """Resolve a manifest path without escaping the destination or using symlinks."""
+        if not isinstance(relative, str) or not relative or "\\" in relative:
+            raise AssetError("asset paths must be nonempty POSIX relative paths")
+        parts = PurePosixPath(relative).parts
+        if PurePosixPath(relative).is_absolute() or PureWindowsPath(relative).anchor or ".." in parts:
+            raise AssetError(f"unsafe asset path: {relative}")
+        if any(p.lower() in {"track_2", "track2", ".git", ".env"} for p in parts):
+            raise AssetError(f"prohibited asset path: {relative}")
+        root = root.resolve()
+        candidate = root.joinpath(*parts)
+        for parent in [candidate, *candidate.parents]:
+            if parent == root:
+                break
+            if parent.is_symlink():
+>               raise AssetError(f"symlink asset path: {relative}")
+E               fetch_assets.AssetError: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main
+
+tools/fetch_assets.py:58: AssetError
+_ ERROR at setup of test_default_automation_still_cannot_fetch_or_probe_drive __
+
+    @pytest.fixture
+    def asset():
+>       manifest = manual.assets.load_manifest(manual.assets.DEFAULT_MANIFEST)
+
+tests/test_download_foundationpose.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/fetch_assets.py:89: in load_manifest
+    safe_path(Path.cwd(), target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/data1/defu/zly/nvda/continuation-20261102-v1')
+relative = 'weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main'
+
+    def safe_path(root: Path, relative: str) -> Path:
+        """Resolve a manifest path without escaping the destination or using symlinks."""
+        if not isinstance(relative, str) or not relative or "\\" in relative:
+            raise AssetError("asset paths must be nonempty POSIX relative paths")
+        parts = PurePosixPath(relative).parts
+        if PurePosixPath(relative).is_absolute() or PureWindowsPath(relative).anchor or ".." in parts:
+            raise AssetError(f"unsafe asset path: {relative}")
+        if any(p.lower() in {"track_2", "track2", ".git", ".env"} for p in parts):
+            raise AssetError(f"prohibited asset path: {relative}")
+        root = root.resolve()
+        candidate = root.joinpath(*parts)
+        for parent in [candidate, *candidate.parents]:
+            if parent == root:
+                break
+            if parent.is_symlink():
+>               raise AssetError(f"symlink asset path: {relative}")
+E               fetch_assets.AssetError: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main
+
+tools/fetch_assets.py:58: AssetError
+=================================== FAILURES ===================================
+____________ test_cli_offline_registration_reports_incomplete_pair _____________
+
+argv = ['--register-only', '--root', '/tmp/pytest-of-defu/pytest-0/test_cli_offline_registration_0']
+
+    def main(argv: list[str] | None = None) -> int:
+        parser = argparse.ArgumentParser(description=__doc__)
+        parser.add_argument("--root", type=Path, default=Path("artifacts/preparation"))
+        parser.add_argument("--manifest", type=Path, default=assets.DEFAULT_MANIFEST)
+        parser.add_argument("--ids", nargs="+", choices=IDS, default=list(IDS))
+        parser.add_argument("--register-only", action="store_true", help="Validate existing files and write receipts without network access")
+        args = parser.parse_args(argv)
+        try:
+>           locked = {asset["id"]: asset for asset in assets.load_manifest(args.manifest)["assets"]}
+
+tools/download_foundationpose.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/fetch_assets.py:89: in load_manifest
+    safe_path(Path.cwd(), target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/data1/defu/zly/nvda/continuation-20261102-v1')
+relative = 'weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main'
+
+    def safe_path(root: Path, relative: str) -> Path:
+        """Resolve a manifest path without escaping the destination or using symlinks."""
+        if not isinstance(relative, str) or not relative or "\\" in relative:
+            raise AssetError("asset paths must be nonempty POSIX relative paths")
+        parts = PurePosixPath(relative).parts
+        if PurePosixPath(relative).is_absolute() or PureWindowsPath(relative).anchor or ".." in parts:
+            raise AssetError(f"unsafe asset path: {relative}")
+        if any(p.lower() in {"track_2", "track2", ".git", ".env"} for p in parts):
+            raise AssetError(f"prohibited asset path: {relative}")
+        root = root.resolve()
+        candidate = root.joinpath(*parts)
+        for parent in [candidate, *candidate.parents]:
+            if parent == root:
+                break
+            if parent.is_symlink():
+>               raise AssetError(f"symlink asset path: {relative}")
+E               fetch_assets.AssetError: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main
+
+tools/fetch_assets.py:58: AssetError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-defu/pytest-0/test_cli_offline_registration_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd0a5a5c290>
+
+    def test_cli_offline_registration_reports_incomplete_pair(tmp_path, monkeypatch):
+        monkeypatch.setitem(sys.modules, "gdown", None)
+>       assert manual.main(["--register-only", "--root", str(tmp_path)]) == 1
+
+tests/test_download_foundationpose.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/download_foundationpose.py:125: in main
+    parser.error(str(exc))
+../../runtime/miniconda-py312/lib/python3.12/argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ArgumentParser(prog='__main__.py', usage=None, description='User-run FoundationPose download; never invoked by the aut...ister-only (no network).\n', formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+status = 2
+message = '__main__.py: error: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main\n'
+
+    def exit(self, status=0, message=None):
+        if message:
+            self._print_message(message, _sys.stderr)
+>       _sys.exit(status)
+E       SystemExit: 2
+
+../../runtime/miniconda-py312/lib/python3.12/argparse.py:2637: SystemExit
+----------------------------- Captured stderr call -----------------------------
+usage: __main__.py [-h] [--root ROOT] [--manifest MANIFEST]
+                   [--ids {foundationpose-scorer,foundationpose-refiner} [{foundationpose-scorer,foundationpose-refiner} ...]]
+                   [--register-only]
+__main__.py: error: symlink asset path: weights/cari4d/sam3d_body/torch_home/hub/facebookresearch_dinov3_main
+=========================== short test summary info ============================
+FAILED tests/test_download_foundationpose.py::test_cli_offline_registration_reports_incomplete_pair
+ERROR tests/test_download_foundationpose.py::test_manual_download_uses_fixed_paths_and_records_receipt
+ERROR tests/test_download_foundationpose.py::test_browser_registration_is_offline_and_detects_tampering
+ERROR tests/test_download_foundationpose.py::test_invalid_files_never_get_complete_receipt[missing_config]
+ERROR tests/test_download_foundationpose.py::test_invalid_files_never_get_complete_receipt[html]
+ERROR tests/test_download_foundationpose.py::test_invalid_files_never_get_complete_receipt[empty]
+ERROR tests/test_download_foundationpose.py::test_existing_manual_files_are_not_overwritten
+ERROR tests/test_download_foundationpose.py::test_default_automation_still_cannot_fetch_or_probe_drive
+1 failed, 265 passed, 7 errors in 6.69s

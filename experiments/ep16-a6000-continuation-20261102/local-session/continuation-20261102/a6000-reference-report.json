@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "decoded_output_frames": 360,
+  "fps": 30,
+  "seconds": 40.000444650650024,
+  "peak_torch_allocated_bytes": 1664156672,
+  "parameters_modified": false,
+  "full_human_object_scene": true,
+  "quality_accepted": false,
+  "limitations": [
+    "Migration replay only; existing turn and hand projection failures remain.",
+    "No official score, true contact, or physical scale validation."
+  ]
+}

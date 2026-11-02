@@ -1,0 +1,17 @@
+{
+  "step": 1800,
+  "loss": 28.68770980834961,
+  "collision": 1.9901630878448486,
+  "occlusion": 6.772741794586182,
+  "image_prior": 15.354148864746094,
+  "contact": 2.5857481956481934,
+  "pose_prior": 0.3650168776512146,
+  "smooth": 1.619890570640564,
+  "actual_hand_max_penetration_mm": 0.0,
+  "actual_hand_mean_penetration_mm": 0.0,
+  "source_frames": [
+    74,
+    85
+  ],
+  "seconds": 73.8292543888092
+}

@@ -1,0 +1,12 @@
+{
+  "status": "imports_passed",
+  "GPU_inference_started": false,
+  "versions": {
+    "torch": "2.5.1",
+    "torchvision": "0.20.1",
+    "timm": "1.0.30",
+    "huggingface_hub": "1.33.0",
+    "safetensors": "0.8.0",
+    "roma": "1.8.0"
+  }
+}

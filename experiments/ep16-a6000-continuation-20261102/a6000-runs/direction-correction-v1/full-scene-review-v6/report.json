@@ -1,0 +1,33 @@
+{
+  "status": "full_scene_render_and_diagnostics_completed",
+  "decoded_frames": 360,
+  "fps": 30.0,
+  "seconds": 34.4874370098114,
+  "silhouette_diagnostics": {
+    "all_window": {
+      "baseline_unoccluded_mask_iou": 0.8734448878995825,
+      "candidate_unoccluded_mask_iou": 0.8814528919399449
+    },
+    "temporal_check_odd_frames": {
+      "baseline_unoccluded_mask_iou": 0.8735733448583834,
+      "candidate_unoccluded_mask_iou": 0.8816251190288178
+    }
+  },
+  "hand_box_proxy_baseline_candidate": [
+    {
+      "mean_inside_box_depth_mm": 13.375038122610302,
+      "worst_inside_box_depth_mm": 98.27416599728167,
+      "fraction_positive": 0.4678531520955035
+    },
+    {
+      "mean_inside_box_depth_mm": 11.204586537493338,
+      "worst_inside_box_depth_mm": 98.19021529983729,
+      "fraction_positive": 0.3606168404079266
+    }
+  ],
+  "proxy_scope": "Fixed native hand-surface vertices inside object axis-aligned local bounds. This is a rough proxy, not exact mesh penetration, contact truth or official PEN.",
+  "mask_scope": "Unoccluded object geometry projected to original Native crop versus estimated visible object masks; hand occlusion is not subtracted, masks are not ground truth.",
+  "candidate_accepted": false,
+  "new_native_optimization_steps": 500,
+  "quality_review": "Pending source RGB / baseline / candidate inspection; matching and projection gains are not physical correctness."
+}

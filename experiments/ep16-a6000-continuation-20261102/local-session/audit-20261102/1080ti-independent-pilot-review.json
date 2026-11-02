@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/mundo_editor",
+  "decision": "RECOMMEND_ONE_EXPLICIT_SCOPE_EXCEPTION_NOT_EXECUTION",
+  "scope": "Specified MASt3R OBJECT frontend qualification only, not full RHINO/RePHO/Mundo reproduction.",
+  "not_known_necessary_or_guaranteed": true,
+  "qualification_gates": [
+    "13fixed frames and24ordered adjacent pairs; first compatibility pair included.",
+    "One fixed crop/resize rule with exact mapping and all input/model hashes.",
+    "Single1080Ti batch1/512, max24forward or30min; first incompatibility/OOM stops, no model/precision/crop/budget fallback.",
+    "Object evidence only; background matches cannot establish object motion.",
+    "Distributed non-collinear Source-compatible neighborhoods; networkconfidence/mask/cycle consistency not truth.",
+    "Repeated-pattern ambiguity, insufficient support or background domination =>UNKNOWN/STOP, no threshold or pair search.",
+    "Output raw matches/pointmaps/misses/qualification report; no Native pose update or training."
+  ],
+  "risks": ["1080Ti compatibility/memory","small object detail","background domination","repetitive print mismatches","self-consistent learned-geometry error","metric output not true scale"],
+  "authorization_boundary": "Current no-new-heavyweights restriction requires explicit exception before download/install/inference. Exception does not include training, other models, RePHO stack or automatic later optimization."
+}

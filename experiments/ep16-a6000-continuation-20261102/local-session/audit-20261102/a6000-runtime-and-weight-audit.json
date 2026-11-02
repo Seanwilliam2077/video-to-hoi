@@ -1,0 +1,118 @@
+{
+  "models": [
+    {
+      "path": "/data1/defu/zly/nvda/acquisition-20261020/extracted/cari4d/weights/cari4d/cari4d/2026-08-25-09-35-57/step200000.pth",
+      "bytes": 2084484133,
+      "sha256": "78ff5cb874dd012a272382e3f2d8bc11226d5b7d0ecc739a60fbb4a97a5a5ba3"
+    },
+    {
+      "path": "/data1/defu/zly/nvda/acquisition-20261020/extracted/sam3d-body/weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/model.ckpt",
+      "bytes": 2109129346,
+      "sha256": "b5a2f9d305dd02626b967aa2e86021fba07065df66ce7a7e00ffb9664f150abf"
+    },
+    {
+      "path": "/data1/defu/zly/nvda/acquisition-20261020/extracted/sam3d-body/weights/cari4d/sam3d_body/checkpoints/sam-3d-body-dinov3/assets/mhr_model.pt",
+      "bytes": 696110248,
+      "sha256": "352e271a6c42729c68554ceaea0c955e866970160c31e35506d782dc0f7377bc"
+    }
+  ],
+  "runtime_smoke": {
+    "mode": "nvda",
+    "scope": "migration runtime smoke only; no optimizer, no dataset scoring",
+    "started": 1793518308.4691243,
+    "physical_gpu": "3",
+    "torch": "2.5.1+cu124",
+    "cuda_runtime": "12.4",
+    "device": "NVIDIA RTX 6000 Ada Generation",
+    "capability": [
+      8,
+      9
+    ],
+    "FP16_backward": true,
+    "open3d": "0.20.0",
+    "original_CLI_import": true,
+    "pytorch3d_CUDA_knn": true,
+    "nvdiffrast_CUDA_rasterize": true,
+    "status": "passed",
+    "seconds": 4.817361116409302,
+    "peak_allocated": 17052160
+  },
+  "body_smoke": {
+    "original_frame": 150,
+    "episode": 16,
+    "inference_type": "body",
+    "full_sequence_verified": false,
+    "optimization_started": false,
+    "dino_revision": "6876159a11b4df116f30f667f8c9888617df0751",
+    "dependency_route_change": "Pinned local code instead of unpinned GitHub torch.hub request",
+    "torch": "2.5.1+cu124",
+    "cuda": "12.4",
+    "source_config_sha256": "1012fc3f39cb5e90e3f8fbadf7bded31604bfafdce0321d17a7c1a2d3f08b88d",
+    "test_config_sha256": "3ec49b0a6549facfeef029d12de4bf50285f06696eb9ccf591e384f6da6a6710",
+    "only_config_change": "TRAIN.FP16_TYPE: bfloat16 -> float16",
+    "model_load_seconds": 13.815974572033156,
+    "status": "single_frame_finite",
+    "elapsed_seconds": 14.838986816990655,
+    "peak_memory_bytes": 3610009600,
+    "output_shapes": {
+      "bbox": [
+        4
+      ],
+      "focal_length": [],
+      "pred_keypoints_3d": [
+        70,
+        3
+      ],
+      "pred_keypoints_2d": [
+        70,
+        2
+      ],
+      "pred_vertices": [
+        18439,
+        3
+      ],
+      "pred_cam_t": [
+        3
+      ],
+      "pred_pose_raw": [
+        266
+      ],
+      "global_rot": [
+        3
+      ],
+      "body_pose_params": [
+        133
+      ],
+      "hand_pose_params": [
+        108
+      ],
+      "scale_params": [
+        28
+      ],
+      "shape_params": [
+        45
+      ],
+      "expr_params": [
+        72
+      ],
+      "mask": [
+        1152,
+        1536,
+        1
+      ],
+      "pred_joint_coords": [
+        127,
+        3
+      ],
+      "pred_global_rots": [
+        127,
+        3,
+        3
+      ],
+      "mhr_model_params": [
+        204
+      ]
+    }
+  },
+  "experiment_top_level_count": 33
+}

@@ -1,0 +1,23 @@
+{
+  "changed_pr_fields": [
+    "pose_abs",
+    "pose_abs_postopt"
+  ],
+  "same_pose_aliases": true,
+  "all_frames_finite": true,
+  "same_K": true,
+  "all_human_fields_unchanged": true,
+  "frames_outside_151_209_exactly_unchanged": true,
+  "same_360_original_frame_ids": true,
+  "motion_self_diagnostics_only": {
+    "baseline": {
+      "max_step_rotation_degrees": 12.452338218688965,
+      "max_step_translation_m": 0.017993146553635597
+    },
+    "candidate": {
+      "max_step_rotation_degrees": 12.452338218688965,
+      "max_step_translation_m": 0.017993146553635597
+    }
+  },
+  "note": "Step statistics are self-motion diagnostics, not reference-relative acceleration error or physical accuracy."
+}

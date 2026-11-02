@@ -1,0 +1,33 @@
+{
+  "input": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/source-material-candidate-v6/refined.pth",
+  "object_motion": "All360 rotations AND translations exactly frozen; user accepted turn direction.",
+  "native_mutable_fields": [
+    "mhr_body_pose_cont selected shoulder/elbow/wrist controls",
+    "mhr_hand native PCA108"
+  ],
+  "frozen": [
+    "object pose aliases",
+    "human root",
+    "human translation",
+    "shape",
+    "scale",
+    "face",
+    "camera",
+    "non-arm body controls",
+    "frames0..50 and290..359"
+  ],
+  "correction_curve": "Natural cubic knots every2frames50..290, quintic zero envelope10frames each boundary.",
+  "shoulder_delta_norm_cap_deg": 60,
+  "elbow_delta_cap_deg": 35,
+  "wrist_delta_component_cap_deg": 50,
+  "finger_pca_delta_component_cap": 0.05,
+  "steps": 1600,
+  "batch_frames": 12,
+  "collision": "All2318 native surface vertices per hand plus wholehuman vertices and1/8 face-centroids against actual convex mesh6planes,2mm clearance.",
+  "occlusion": "Where eroded observed object mask excludes observed human, projected hand vertices must lie beyond exact convex-ray exit surface.",
+  "contact": "Closest128 native hand vertices attracted to object surface only70..260; source grasp-window proposal, not measured contact truth.",
+  "image_prior": "New approximate source RGB visible right wrist/elbow annotations, with original hand-shape projection translated to source wrist; other hidden arm uses input prior. None is3D or independent ground truth.",
+  "physics_engine": false,
+  "downloads": 0,
+  "accepted": false
+}

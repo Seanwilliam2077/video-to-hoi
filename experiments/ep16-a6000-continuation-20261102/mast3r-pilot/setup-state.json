@@ -1,0 +1,5 @@
+{
+  "time": 1793596951.3489642,
+  "status": "setup_failed_no_gpu_run",
+  "error": "CalledProcessError(18, ['curl', '--proxy', 'http://127.0.0.1:17897', '--fail', '--location', '--retry', '3', '--retry-delay', '2', '--connect-timeout', '20', '--max-time', '1800', '--continue-at', '-', '--silent', '--show-error', 'https://huggingface.co/naver/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric/resolve/06e7259f34c3060f322df5cb0c7b9094f57e41fc/model.safetensors', '-o', '/data1/defu/zly/nvda/continuation-20261102-v1/mast3r-pilot/model/model.safetensors.partial'])"
+}

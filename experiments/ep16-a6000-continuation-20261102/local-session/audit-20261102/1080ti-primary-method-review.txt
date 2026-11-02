@@ -1,0 +1,61 @@
+# EP16论文方法接入核验：已接通手部仿真，尚未复现完整方法
+
+结论：当前不存在已核验、只复用现有任务资产就能运行的RePHO/RHINO完整推理通路。当前实现确有Mundo式编辑—拟合—Native渲染—独立评审，以及真实MuJoCo手部控制；但它们没有补齐全身策略、共同场景几何和可靠物体运动观测。换引擎或继续训练前，必须区分“盒子真实转向”和“物理跟踪可行”。
+
+本次仅核对一手论文、固定revision的29个作者文本文件，共379558字节，以及现有环境/资产元数据。没有下载任何模型、数据或依赖，没有安装、编译、推理、训练或GPU实验。代码证据与SHA在source-manifest.json，既有环境结果在existing-environment-inventory.json。
+
+## 逐项对照
+
+| 接口/机制 | 当前实际状态 | 作者方法与具体差距 |
+|---|---|---|
+| 编辑agent、数值拟合、实际渲染、独立评审 | 已实现 | 是Mundo式闭环；失败候选已保留，不能据闭环存在认定重建成功 |
+| Mundo官方程序/视频生成器 | 未接入，当前repo未发布 | HEAD仅README与两项图像资产；README计划11月底发布代码/权重。没有可调用的官方World SDK证据 |
+| RePHO人体/动作空间 | 缺失 | 作者采用SMPL-H全身153维动作；当前为NativeMHR与114DOF手部替代模型，不能重命名数组互换 |
+| RePHO仿真后端 | 缺失 | 作者实际调用Isaac Gym，非把MuJoCo接入即可复现；当前零重力、无桌面、质量摩擦假设的手部模型只部分覆盖任务 |
+| 参考/接触/观察合同 | 部分/缺失 | 当前有完整Native轨迹，但没有作者SMPL-H机器人序、手接触标记、物体/地面世界坐标及训练观察向量合同 |
+| 学习跟踪策略 | 缺失 | 当前是惯量/偏置补偿PD与法向反馈；无InterMimic策略或本序列双向训练 |
+| 成功状态自更新与前后传播 | 缺失 | 未按作者的有效rollout/reward/终止机制更新全序列参考，不应把单次回放或反转姿态叫dual propagation |
+| RHINO共同场景与形状 | 部分/缺失 | 当前相机/单位内部一致不等于独立尺度正确；固定近似盒体与人手尚有投影、遮挡和深穿透矛盾 |
+| RHINO神经表示/接触 | 缺失 | 未执行其逐场景SDF学习、共享几何/位姿优化或InteractVLM接触输入；不是换一项接触损失即完成 |
+| 完整作者栈1080Ti兼容性 | 未测试 | 当前Native工作不证明作者1024环境/双策略训练或神经场训练可运行；不估造耗时/显存 |
+
+Mundo博客把编辑/评审循环与视频扩散渲染分开。其多A800性能描述属于后者，不能冒充agent循环成本；生成式补细节也不能作为几何/真实转向证据。[作者博客](https://huggingface.co/blog/Luo-Yihang/mundo-world-model)、[固定README](https://github.com/Luo-Yihang/Mundo/blob/dee7da5417eb9605615e0e8340ec2c31aa48c2c6/README.md)。
+
+## RePHO：实际入口不是“装好引擎后直接推理”
+
+固定HEAD：4fceb14a3eee197ba7abede1c940f384f5d38736。
+
+- convert_motion_format.sh依赖SMPL-H/MANO系列资产、相机与接触文件，并运行明确的骨骼/格式转换。MHR不是可直接塞入该格式的同名参数。[转换入口](https://github.com/dingbang777/RePHO/blob/4fceb14a3eee197ba7abede1c940f384f5d38736/scripts/convert_motion_format.sh)、[转换实现](https://github.com/dingbang777/RePHO/blob/4fceb14a3eee197ba7abede1c940f384f5d38736/scripts/interact_to_tracking_format.py)。
+- train.sh启动前向与后向训练；前向使用InterMimic任务、Traverse_Random初始化。默认环境数1024、rolloutLength300；训练配置resume_from指向预训练student checkpoint。[训练脚本](https://github.com/dingbang777/RePHO/blob/4fceb14a3eee197ba7abede1c940f384f5d38736/scripts/train_dual_forward.sh)、[环境配置](https://github.com/dingbang777/RePHO/blob/4fceb14a3eee197ba7abede1c940f384f5d38736/intermimic/data/cfg/omomo_train_917.yaml)、[策略配置](https://github.com/dingbang777/RePHO/blob/4fceb14a3eee197ba7abede1c940f384f5d38736/intermimic/data/cfg/train/rlg/omomo.yaml)。
+- infer_forward.sh选择已有本序列训练checkpoint及相配ref_hoi/hoi_data，找不到就退出。通用checkpoint并不等于已训练的EP16输出。[推理入口](https://github.com/dingbang777/RePHO/blob/4fceb14a3eee197ba7abede1c940f384f5d38736/scripts/infer_forward.sh)。
+- 实际humanoid动作数为51×3，执行PD目标转力矩；task代码用物理终止/接触/交互条件，并保存更新参考与反向速度符号转换。[驱动](https://github.com/dingbang777/RePHO/blob/4fceb14a3eee197ba7abede1c940f384f5d38736/intermimic/env/tasks/humanoid.py)、[双向参考机制](https://github.com/dingbang777/RePHO/blob/4fceb14a3eee197ba7abede1c940f384f5d38736/intermimic/env/tasks/intermimic.py)。
+
+论文训练的是围绕噪声参考的耦合物理跟踪策略，并利用rollout成功信息传播状态；它没有承诺把任意错误转向改为真实转向。物理约束可以改变/限制物体姿态，但不能把模拟可行等同图像正确。[论文方法3.3–3.5](https://arxiv.org/html/2606.05359v1)。
+
+## RHINO：物体观测、身体对齐、场景训练是不同模块
+
+固定HEAD：a21e0fed83d42363375b6ce4613c5f64b6ea0b96。
+
+物体形状/表观运动来自前景SfM与MASt3R等线索，背景分离真实相机运动；身体2D refinement不是物体朝向估计器。随后共同世界对齐与神经场优化同时处理几何和接触。该链路不能用“人体脸朝哪边”替代盒体转向。[论文3.1–3.4](https://arxiv.org/html/2605.17014v1)。
+
+具体代码中refine_smplx使用Sapiens观测优化身体与手参数；align_smplx依据相机/地平面计算对齐尺度。模型配置同时开放人体、相机、物体位姿，默认100k步；training_schedule区分几何阶段与间歇接触/位姿阶段，而非从第一步强拉全部接触。默认配置的penetration_weight=0、self_penetration_weight=1、interactvlm_contact_weight=.8也说明不能凭论文名称复制权重到当前Native实现。[身体refinement](https://github.com/lxxue/RHINO/blob/a21e0fed83d42363375b6ce4613c5f64b6ea0b96/rhino/preprocessing/refine_smplx.py)、[对齐](https://github.com/lxxue/RHINO/blob/a21e0fed83d42363375b6ce4613c5f64b6ea0b96/rhino/preprocessing/align_smplx.py)、[配置](https://github.com/lxxue/RHINO/blob/a21e0fed83d42363375b6ce4613c5f64b6ea0b96/rhino/confs/model/hoi.yaml)、[阶段实现](https://github.com/lxxue/RHINO/blob/a21e0fed83d42363375b6ce4613c5f64b6ea0b96/rhino/models/training_schedule.py)。
+
+已发布demo/stage checkpoint对应它们自己的场景，不是EP16通用模型。作者报告100k步约18小时/RTX4090，不能据此换算本机1080Ti耗时；完整预处理还涉及多个不在当前任务库存的模型/许可资产。[作者运行说明](https://github.com/lxxue/RHINO/blob/a21e0fed83d42363375b6ce4613c5f64b6ea0b96/README.md)。
+
+## 现有环境与许可库存
+
+只读检查范围为声明的任务根及当前环境。Python3.12.3、Torch2.5.1、MuJoCo3.17.0；模块spec未找到isaacgym、rl_games、smplx。weights顶层只有cari4d/sam2；指定weights与CARI4D目录中未找到所需命名SMPL-H/MANO资产或InterMimic checkpoint。这不是全机器/外部许可不存在的证明。
+
+RePHO说明的是独立Python3.8环境。没有执行安装/试跑，所以1080Ti对完整作者栈仅标“未测试”，不能说显卡一定不支持，也不能说11GB必然够1024并行环境。现有MuJoCo5744步/支路是真实已运行，但与作者全身RL是不同机制。
+
+## 本轮Opus核验与否决
+
+仅一次精简文字、禁工具、UTF8咨询，实际claude-opus-5-5、num_turns1、is_error=false、无web搜索/项目访问。它把BOX转向误读成BODY heading，建议脸/肩事件与root-yaw限制；这条路线已否决，没有实施。其“物理不提供任何heading信息”“RHINO靠身体2D获得heading”也过强或错指模块。不能因为咨询成功就照搬建议。原响应与Codex修正均保留在opus-method-compatibility-20261102-advice.md。
+
+## 唯一建议的下一步：需要一次新模型范围例外
+
+在现有权重/无训练限制内，不继续制造候选。建议仅申请一个MASt3R物体匹配/几何前端资格试验，检验是否能增加此前没有的、分布在物体不同区域的对应证据；它不是已知必需组件，不是完整RHINO，也不保证正确旋转。
+
+具体checkpoint/revision/SHA、约2.75GB大小、许可证来源、固定13帧/24有序pair、单卡batch1/512输入、30分钟GPU上限、OOM/不相容立即停止与独立源图资格门，详见MAST3R-OBJECT-CUE-PILOT-PLAN.md。批准前不下载、装依赖或推理，不启动RL/SDF训练。通过也只产生新观测能力资格，不自动更新Native轨迹或喂给物理。
+
+这次需要确认的原因是当前授权明确排除了新增重量模型/训练；不是常规代码修复或重复逐轮询问。重建方向仍未验收，本轮没有新的优化视频。研究保持ACTIVE，等待这一个范围决定；未获准前只保存证据，不自动试别的模型或重启闭合家族。

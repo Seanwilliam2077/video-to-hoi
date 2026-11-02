@@ -1,0 +1,15 @@
+{
+  "status": "native_hand_contact_optimization_completed",
+  "optimizer": "L-BFGS",
+  "iterations": 60,
+  "closure_evaluations": 70,
+  "seconds": 66.65082144737244,
+  "input_sha256": "366927efac0f6472a1dd0049e0196e80dfaef872b218e90ed413f174bb10e7de",
+  "candidate_sha256": "d7c9d9644f8bcbf12f6d886ec3b473ad962ca8f702e683b74fa10aa21e7e8862",
+  "object_rotation_translation_aliases_all_exact": true,
+  "nonarm_root_camera_scale_shape_frozen": true,
+  "full360frame_ids_preserved": true,
+  "physical_gpu": 1,
+  "accepted": false,
+  "full_scene_review_required": true
+}

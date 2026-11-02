@@ -1,0 +1,15 @@
+{
+  "url": "https://github.com/nvidia-isaac/video_to_data/commits/main.atom?path=reconstruction/modules/v2d_sam3d_body",
+  "entries": [
+    {
+      "id": "tag:github.com,2008:Grit::Commit/dd395a730c5045af73a70483c60125b2154d215d",
+      "title": "[release] Update main to v0.3.0 while preserving documentation (#168)",
+      "updated": "2026-09-17T19:31:48Z"
+    },
+    {
+      "id": "tag:github.com,2008:Grit::Commit/1509e6e6a8bb09069b0889b90704edfd38975052",
+      "title": "Initial public release",
+      "updated": "2026-06-23T01:58:36Z"
+    }
+  ]
+}

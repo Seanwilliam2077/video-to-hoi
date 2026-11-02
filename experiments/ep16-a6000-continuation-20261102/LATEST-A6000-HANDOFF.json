@@ -1,0 +1,511 @@
+{
+  "updated_at_utc": "2026-11-02T12:59:28.990925+00:00",
+  "phase": "USER_REJECTED_HAND_RECONSTRUCTION_REQUIRES_REBUILD",
+  "current_root": "/data1/defu/zly/nvda/continuation-20261102-v1",
+  "convenient_entry": "/data1/defu/zly/nvda/current",
+  "previous_source_handoff": "/data1/defu/zly/nvda/continuation-20261102-v1/source-original/experiments/ep16-joint-direction-20261031/LATEST-RESEARCH-HANDOFF-20261102.json",
+  "authorization": {
+    "source": "Current user request in the Codex chat: migrate the latest code to A6000 and continue optimization there.",
+    "specified_checkpoint_and_bounded_pilot": "Executed on A6000 as the proposed next continuation step. The previous source-only pending-scope state is historical, not the current run state.",
+    "later_network_steering": "All external downloads use a proxy or a mirror; no direct upstream fallback."
+  },
+  "completed": {
+    "migration": {
+      "sha_verified_source_files": 2507,
+      "bytes": 622894621,
+      "path_adapted_files": 412,
+      "original_source_snapshot_preserved": true,
+      "original_a6000_tree_preserved": true
+    },
+    "required_synthetic_suite": {
+      "passed": 273,
+      "log": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/required-tests-clean-source.log",
+      "initial_runtime_tree_failure": "Asset downloader guards correctly rejected runtime weight symlinks. The explicit synthetic suite passed from the clean source copy, with no real asset loading."
+    },
+    "full_native_paired_replay": {
+      "status": "completed",
+      "decoded_output_frames": 360,
+      "fps": 30,
+      "seconds": 40.000444650650024,
+      "peak_torch_allocated_bytes": 1664156672,
+      "parameters_modified": false,
+      "full_human_object_scene": true,
+      "quality_accepted": false,
+      "limitations": [
+        "Migration replay only; existing turn and hand projection failures remain.",
+        "No official score, true contact, or physical scale validation."
+      ]
+    },
+    "mast3r_pilot": {
+      "status": "completed_requires_source_correspondence_review",
+      "forward_calls": 24,
+      "max_forward_calls": 24,
+      "gpu_wall_seconds": 57.655230166972615,
+      "peak_torch_allocated_bytes": 3368056320,
+      "model_sha256": "0a615eb05fa9db654050aa655945ee5696e7c6c1b7f93f1ee8c37249010f6feb",
+      "all_raw_predictions_and_misses_retained": true,
+      "spatial_screen_passed_pairs": 24,
+      "native_parameters_changed": false,
+      "training_performed": false,
+      "other_models_downloaded": false,
+      "full_rotation_recovered": false,
+      "next_gate": "Source-patch review for repetitive texture, hand/grass confusion and background dominance; no automatic native fitting."
+    },
+    "model": {
+      "revision": "06e7259f34c3060f322df5cb0c7b9094f57e41fc",
+      "sha256": "0a615eb05fa9db654050aa655945ee5696e7c6c1b7f93f1ee8c37249010f6feb",
+      "bytes": 2754661648,
+      "source": "hf-mirror.com, exact pinned revision; final original SHA256 verified",
+      "other_models_downloaded": false
+    },
+    "source_mask_semantic_fix": {
+      "published_object_mask_package": "input-evidence-20261022-ep16-object-masks",
+      "published_masks_status_for_object_cue": "REJECTED_SEMANTIC_MISMATCH_STATIONARY_TABLE",
+      "cached_native_postopt_object_masks": "Separately audited at source frames 150/175/190/210 by K_full @ inverse(K_crop); these cover the held box. Do not conflate them with the bad published package.",
+      "new_object_support": "/data1/defu/zly/nvda/continuation-20261102-v1/mast3r-pilot/source-interior-correction-v1/source-box-interiors.json",
+      "support_role": "Positive visible-box interior qualification only; not a replacement full timeline segmentation or official ground truth.",
+      "raw_predictions": "/data1/defu/zly/nvda/continuation-20261102-v1/mast3r-pilot/object-cue-13frames-v1/raw",
+      "trajectory_fit_enabled": false,
+      "reason": "Fixed source/cross-direction/temporal qualification did not establish full-window motion constraints."
+    },
+    "correspondence_qualification": {
+      "status": "NOT_QUALIFIED_FOR_FULL_WINDOW_NATIVE_POSE_UPDATE",
+      "reviewed_source_pairs": [
+        [
+          150,
+          155
+        ],
+        [
+          170,
+          175
+        ],
+        [
+          205,
+          210
+        ]
+      ],
+      "published_mask_semantics": "Rejected: stationary table, despite correct source/video/frame hashes.",
+      "corrected_source_support": "13 source-only positive visible-box interior polygons, reviewed once; no full silhouette or material identity truth implied.",
+      "corrected_candidates_per_pair": [
+        60,
+        88
+      ],
+      "fixed_roundtrip_tolerance_original_pixels": 1.7578125,
+      "first_two_forward_roundtrip_counts": [
+        2,
+        6
+      ],
+      "full_13_frame_tracks": 0,
+      "limits": [
+        "This is a result for this fixed model, crop, matcher, support and association rule; not a proof that monocular rotation recovery is impossible.",
+        "Coarse sampling, repeated texture, viewpoint changes and occlusion can break or alias correspondences.",
+        "Spatial coverage and roundtrip consistency do not certify physical material-point identity."
+      ],
+      "decision": "Retain raw predictions and corrected candidates. Do not fit or promote a new full-window native pose from this evidence; do not tune thresholds to force qualification.",
+      "native_pose_update_started": false,
+      "additional_model_forwards_after_original_24": 0
+    },
+    "actual_optimization_v2": {
+      "updated_at_utc": "2026-11-02T06:55:54.412365+00:00",
+      "status": "TWO_REAL_NATIVE_OBJECT_POSE_OPTIMIZATIONS_COMPLETED",
+      "user_authorization": "Latest user explicitly required correcting unreliable matching and running optimization on A6000, not stopping at checking and analysis. All downloads must use a proxy or a mirror.",
+      "project_root": "/data1/defu/zly/nvda/continuation-20261102-v1",
+      "run_root": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2",
+      "matching_change": {
+        "method": "Correct moving-object Native masks; source-reviewed anchor interiors; cached MASt3R plus source-corner seeds; one-frame subpixel LK with forward/backward, direct anchor-template correlation and no reactivation.",
+        "anchor_frames": [
+          150,
+          165,
+          180,
+          195
+        ],
+        "complete_short_tracks": [
+          24,
+          62,
+          87,
+          25
+        ],
+        "total_complete_short_tracks": 198,
+        "old_gate_not_relabelled_as_passed": "The earlier sparse 5-frame cross-order nearest-grid association still failed. This method instead constructs and verifies four local 15-frame source tracks, rather than requiring one track through all 13 coarse samples.",
+        "fixed_checks": {
+          "LK_FB_pixels": 0.75,
+          "anchor_template_ZNCC": 0.7,
+          "template_size": 11,
+          "mask_erosion_pixels": 2
+        },
+        "remaining_identity_limit": "Image checks reduce mismatches, but repeated texture and initial surface association are not physical ground truth."
+      },
+      "executed": {
+        "point_only": {
+          "steps": 300,
+          "physical_gpu": 2,
+          "seconds": 7.795661211013794,
+          "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2/pose-candidate-v1/refined.pth",
+          "candidate_sha256": "08126edba9a2bc61a93d62f6611728e28cecf34a4fe45eef25bcb80fde844dc9",
+          "reprojection": {
+            "before": {
+              "fit_mean_px": 12.29652325644111,
+              "fit_median_px": 6.071656703948975,
+              "check_mean_px": 11.746555004550768,
+              "check_median_px": 6.194543838500977
+            },
+            "after": {
+              "fit_mean_px": 8.32926077375737,
+              "fit_median_px": 2.732061266899109,
+              "check_mean_px": 7.674083122174547,
+              "check_median_px": 2.3619022369384766
+            }
+          },
+          "scene_diagnostics": {
+            "status": "full_scene_render_and_diagnostics_completed",
+            "decoded_frames": 360,
+            "fps": 30.0,
+            "seconds": 35.303367614746094,
+            "silhouette_diagnostics": {
+              "all_window": {
+                "baseline_unoccluded_mask_iou": 0.8734448878995825,
+                "candidate_unoccluded_mask_iou": 0.8477643672945504
+              },
+              "temporal_check_odd_frames": {
+                "baseline_unoccluded_mask_iou": 0.8735733448583834,
+                "candidate_unoccluded_mask_iou": 0.8469389046035438
+              }
+            },
+            "hand_box_proxy_baseline_candidate": [
+              {
+                "mean_inside_box_depth_mm": 13.375038142304037,
+                "worst_inside_box_depth_mm": 98.27416599728167,
+                "fraction_positive": 0.4678531520955035
+              },
+              {
+                "mean_inside_box_depth_mm": 11.769188302497826,
+                "worst_inside_box_depth_mm": 98.21892017498612,
+                "fraction_positive": 0.4086337854849432
+              }
+            ],
+            "proxy_scope": "Fixed native hand-surface vertices inside object axis-aligned local bounds. This is a rough proxy, not exact mesh penetration, contact truth or official PEN.",
+            "mask_scope": "Unoccluded object geometry projected to original Native crop versus estimated visible object masks; hand occlusion is not subtracted, masks are not ground truth.",
+            "candidate_accepted": false,
+            "new_native_optimization_steps": 300,
+            "quality_review": "Pending source RGB / baseline / candidate inspection; matching and projection gains are not physical correctness."
+          }
+        },
+        "mask_aware": {
+          "steps": 300,
+          "physical_gpu": 1,
+          "seconds": 8.46272897720337,
+          "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2/pose-candidate-v2-mask-aware/refined.pth",
+          "candidate_sha256": "d4c411d0b3ceb04b3a7bad11bc1912bc874d881f3cfc75a716d35000cfa61cb8",
+          "reprojection": {
+            "before": {
+              "fit_mean_px": 12.29652325644111,
+              "fit_median_px": 6.071656703948975,
+              "check_mean_px": 11.746555004550768,
+              "check_median_px": 6.194543838500977
+            },
+            "after": {
+              "fit_mean_px": 9.136344125748858,
+              "fit_median_px": 2.701488733291626,
+              "check_mean_px": 8.525775818267103,
+              "check_median_px": 2.675484776496887
+            }
+          },
+          "scene_diagnostics": {
+            "status": "full_scene_render_and_diagnostics_completed",
+            "decoded_frames": 360,
+            "fps": 30.0,
+            "seconds": 35.15729093551636,
+            "silhouette_diagnostics": {
+              "all_window": {
+                "baseline_unoccluded_mask_iou": 0.8734448878995825,
+                "candidate_unoccluded_mask_iou": 0.8656268697554274
+              },
+              "temporal_check_odd_frames": {
+                "baseline_unoccluded_mask_iou": 0.8735733448583834,
+                "candidate_unoccluded_mask_iou": 0.8648818403496535
+              }
+            },
+            "hand_box_proxy_baseline_candidate": [
+              {
+                "mean_inside_box_depth_mm": 13.37503813909063,
+                "worst_inside_box_depth_mm": 98.27416599728167,
+                "fraction_positive": 0.4678531520955035
+              },
+              {
+                "mean_inside_box_depth_mm": 13.820614374623789,
+                "worst_inside_box_depth_mm": 98.93397527048364,
+                "fraction_positive": 0.44818172817154417
+              }
+            ],
+            "proxy_scope": "Fixed native hand-surface vertices inside object axis-aligned local bounds. This is a rough proxy, not exact mesh penetration, contact truth or official PEN.",
+            "mask_scope": "Unoccluded object geometry projected to original Native crop versus estimated visible object masks; hand occlusion is not subtracted, masks are not ground truth.",
+            "candidate_accepted": false,
+            "new_native_optimization_steps": 300,
+            "quality_review": "Pending source RGB / baseline / candidate inspection; matching and projection gains are not physical correctness."
+          },
+          "change_reason": "The first candidate improved track projection but regressed observed silhouette. The second added a differentiable source silhouette term with the same data, bounds and initialization; no hyperparameter grid."
+        }
+      },
+      "validation": {
+        "source_suite_passed": 273,
+        "additional_synthetic_geometry_tests_passed": 4,
+        "full_video_decodes_per_candidate": 360,
+        "fps": 30,
+        "parameter_invariants": {
+          "changed_pr_fields": [
+            "pose_abs",
+            "pose_abs_postopt"
+          ],
+          "same_pose_aliases": true,
+          "all_frames_finite": true,
+          "same_K": true,
+          "all_human_fields_unchanged": true,
+          "frames_outside_151_209_exactly_unchanged": true,
+          "same_360_original_frame_ids": true,
+          "motion_self_diagnostics_only": {
+            "baseline": {
+              "max_step_rotation_degrees": 12.452338218688965,
+              "max_step_translation_m": 0.017993146553635597
+            },
+            "candidate": {
+              "max_step_rotation_degrees": 12.452338218688965,
+              "max_step_translation_m": 0.017993146553635597
+            }
+          },
+          "note": "Step statistics are self-motion diagnostics, not reference-relative acceleration error or physical accuracy."
+        },
+        "visual_review": {
+          "full_scene_contact_sheet_frames": [
+            0,
+            155,
+            175,
+            200,
+            300,
+            359
+          ],
+          "mask_aware_closeups_reviewed": [
+            175,
+            205
+          ],
+          "short_track_source_packets_reviewed": [
+            150,
+            195
+          ]
+        },
+        "interpretation": "Odd source frames were not used for fitting point loss; these are same-clip temporal development diagnostics, not unseen-video or 3D accuracy."
+      },
+      "preserved": {
+        "original_baseline_sha256": "61decc2bae1b4c5db67c30c7aee521edf61e5c1f5a352e70eec1f03c57234f32",
+        "original_baseline_replaced": false,
+        "human_camera_object_scale_unchanged": true,
+        "source_frames_0_through_150_and_210_through_359_exactly_unchanged": true,
+        "native_object_pose_aliases_consistent": true
+      },
+      "quality_decision": {
+        "accepted_as_final_reconstruction": false,
+        "preferred_for_next_balanced_review": "mask-aware candidate, with the baseline retained",
+        "point_only_tradeoff": "Better point reprojection, worse silhouette.",
+        "mask_aware_tradeoff": "Point-check mean 11.7466 -> 8.5258 px and median 6.1945 -> 2.6755 px. Unoccluded silhouette IoU 0.87357 -> 0.86488 on odd frames, improved over point-only 0.84694 but still below baseline.",
+        "hand_contact": "Human parameters remain frozen and visible hand errors persist. The box-depth proxy is not exact collision/contact or official PEN; no physical correctness claim.",
+        "next_bottleneck": "Material-point-to-mesh association and human hand alignment, rather than server migration or ability to execute optimization."
+      },
+      "network": {
+        "new_checkpoint_downloads": 0,
+        "cached_checkpoint_reused": true,
+        "canonical_hand_surface_asset_restored": {
+          "path": "/mnt/zlydisk/zly/nvda/upstream-reproduction-20261029/third_party/CARI4D_MHR_Win/reconstruction/modules/v2d_cari4d/lib/cari4d/lib_mhr/assets/mhr_hand_surface_spec.npz",
+          "sha256": "65e467ae534281c8c5370b76d672c80cf99b95bc73af9c3ac64d5bea6c7f60c8",
+          "bytes": 47140,
+          "source_host": "campus 1080 Ti",
+          "transport": "Existing campus SOCKS proxy + authenticated SSH",
+          "role": "Canonical MHR hand-surface topology, not challenge geometry",
+          "source_modified": false
+        },
+        "policy": "Proxy or explicit mirror only; no direct-upstream fallback."
+      },
+      "outputs": {
+        "full_comparison_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2/full-scene-review-v3-mask-aware/source-baseline-candidate-360-30fps.mp4",
+        "full_scene_contact_sheet": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2/full-scene-review-v3-mask-aware/full-scene-contact-sheet.jpg",
+        "optimizer_code": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/optimize_object_pose_v3_silhouette.py",
+        "matching_code": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/prepare_refined_tracks_v2.py"
+      },
+      "gpu_jobs_pending": []
+    }
+  },
+  "current_paired_reference": {
+    "sha256": "61decc2bae1b4c5db67c30c7aee521edf61e5c1f5a352e70eec1f03c57234f32",
+    "path": "/data1/defu/zly/nvda/continuation-20261102-v1/experiments/ep16-joint-direction-20261031/joint-green-v1/refined.pth",
+    "accepted": false,
+    "human_object_pair_preserved": true,
+    "native_parameters_changed_this_continuation": false
+  },
+  "next": [
+    "The latest user request was acted on: two actual 300-step native object-pose optimizations completed, with full 360-frame source/baseline/candidate videos. Do not report that pose optimization has not started.",
+    "Use FINAL-RESULT.json and the mask-aware candidate for the next comparison. Neither candidate is accepted as a full physical reconstruction or substituted for the original baseline.",
+    "Further work should improve material-point-to-surface association and human hand alignment. Preserve source/camera/scale/frame identity and the original complete human-object pair. Do not expand pose bounds solely to lower a projection loss.",
+    "Keep all external downloads on a proxy or explicit mirror with pinned revision and SHA checks. This run reused the existing checkpoint and restored one exact canonical MHR topology asset through the campus SOCKS proxy."
+  ],
+  "gpu_jobs_pending": [],
+  "important_outputs": {
+    "full_replay": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/ep16-migrated-reference-v1/ep16-source-and-native-360-30fps.mp4",
+    "bad_mask_evidence": "/data1/defu/zly/nvda/continuation-20261102-v1/mast3r-pilot/object-cue-13frames-v1/source-mask-review.jpg",
+    "corrected_source_regions": "/data1/defu/zly/nvda/continuation-20261102-v1/mast3r-pilot/source-interior-correction-v1/source-region-review.jpg",
+    "temporal_association": "/data1/defu/zly/nvda/continuation-20261102-v1/mast3r-pilot/source-interior-correction-v1/temporal-association-report.json",
+    "qualification_decision": "/data1/defu/zly/nvda/continuation-20261102-v1/mast3r-pilot/source-interior-correction-v1/qualification-decision.json"
+  },
+  "latest_optimization_result": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2/FINAL-RESULT.json",
+  "latest_direction_result": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/FINAL-DIRECTION-RESULT.json",
+  "latest_direction_candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/source-material-candidate-v6/refined.pth",
+  "direction_candidate_accepted": false,
+  "previous_local_delta_candidate_direction_rejected_by_user": true,
+  "direction_correction": {
+    "updated_at_utc": "2026-11-02T08:03:13.802796+00:00",
+    "phase": "SOURCE_MATERIAL_DIRECTION_REOPTIMIZED_REVIEW_CANDIDATE",
+    "accepted_as_final": false,
+    "previous_candidate_user_rejected": "Rotation direction incorrect; never use previous reprojection improvement as acceptance.",
+    "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/source-material-candidate-v6/refined.pth",
+    "full_scene_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/full-scene-review-v6/source-baseline-candidate-360-30fps.mp4",
+    "zoom_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/full-scene-review-v6/source-old-new-object-zoom-360-30fps.mp4",
+    "final_continuous_optimization_steps": 500,
+    "physical_gpu": 1,
+    "method": "Source face geometry with unordered cube corner observations, estimated visible silhouette, coupled unrestricted object rotation/translation, source material-motion intervals and global4-state discrete phase optimization. No old pose ray bindings,10degree cap or forced final heading return.",
+    "source_material_intervals": 41,
+    "evidence_scope": "Same-source development matching and approximate manual geometric junctions, not true3D or independent benchmark validation.",
+    "verification": {
+      "changed_pr_fields": [
+        "pose_abs",
+        "pose_abs_postopt"
+      ],
+      "all_human_fields_unchanged": true,
+      "observation_arrays_unchanged": true,
+      "shared_camera_mesh_scale_unchanged": true,
+      "frames0_60_exact": true,
+      "original_input_sha_verified": true,
+      "original_source_snapshot_preserved": true,
+      "rotation_orthogonality_max_abs": 2.980232238769531e-07,
+      "rotation_det_min": 0.9999997019767761,
+      "full_scene_decoded_frames": 360,
+      "zoom_frames": 360,
+      "fps": 30,
+      "downloads": 0
+    },
+    "silhouette_diagnostics": {
+      "all_window": {
+        "baseline_unoccluded_mask_iou": 0.8734448878995825,
+        "candidate_unoccluded_mask_iou": 0.8814528919399449
+      },
+      "temporal_check_odd_frames": {
+        "baseline_unoccluded_mask_iou": 0.8735733448583834,
+        "candidate_unoccluded_mask_iou": 0.8816251190288178
+      }
+    },
+    "limitations": [
+      "235..240 is a weaker material branch decision; the selected path remains a proposal and full direction is not certified.",
+      "Several asset side faces have uniform brown material. Newly exposed missing texture is not observed video appearance.",
+      "Fixed native hands still have contact/projection/penetration errors. Box proxy is not official PEN.",
+      "Original baseline and failed candidates retained; no result promoted as accepted or submitted."
+    ],
+    "original_reference": "/data1/defu/zly/nvda/continuation-20261102-v1/experiments/ep16-joint-direction-20261031/joint-green-v1/refined.pth"
+  },
+  "latest_hand_contact_result": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/FINAL-HAND-CONTACT-RESULT.json",
+  "latest_hand_contact_candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/refined.pth",
+  "object_turn_visually_accepted_by_user": true,
+  "object_turn_preserved_exactly": true,
+  "hand_object_surface_check_passed": true,
+  "hand_contact_continuation": {
+    "updated_at_utc": "2026-11-02T12:42:14.416120+00:00",
+    "phase": "NATIVE_HAND_OBJECT_SURFACE_INTERPENETRATION_VERIFIED",
+    "input_object_turn_visually_accepted_by_user": true,
+    "input": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/source-material-candidate-v6/refined.pth",
+    "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/refined.pth",
+    "candidate_sha256": "0bdccbbf4ae5cc658ccd4d85116df78b161f9daf002d9ea3cc451840593508d0",
+    "geometric_interpenetration_check_passed": true,
+    "source_grasp_pose_not_certified": true,
+    "official_submission_or_score_claim": false,
+    "changed_pr_fields": [
+      "mhr_body_pose_cont",
+      "mhr_hand"
+    ],
+    "preservation": {
+      "object_all360_rotation_translation_and_aliases_exact": true,
+      "all_camera_observation_arrays_exact": true,
+      "human_root_shape_scale_face_translation_exact": true,
+      "nonarm_native_body_controls_exact": true,
+      "frame0_native_parameters_exact": true,
+      "frames0_50_and290_359_native_parameters_exact": true,
+      "original_alignment_frame_id": "000000",
+      "full_original_frame_ids_exact": true,
+      "original_checkpoint_files_preserved": true,
+      "no_mesh_only_human_displacement": true
+    },
+    "diagnostics": {
+      "before": {
+        "all360_hand_max_penetration_mm": 98.95886806771159,
+        "all360_hand_mean_penetration_mm": 8.040988163282787,
+        "grasp70_260_nearest32_mean_distance_mm": [
+          9.11768090737857,
+          23.870331944050807
+        ],
+        "all360_wholehuman_vertex_max_penetration_mm": 98.95886806771159,
+        "frames_hand_penetration_gt1mm": 209
+      },
+      "after": {
+        "all360_hand_max_penetration_mm": 0.0,
+        "all360_hand_mean_penetration_mm": 0.0,
+        "grasp70_260_nearest32_mean_distance_mm": [
+          11.3239476228799,
+          5.8226975866554485
+        ],
+        "all360_wholehuman_vertex_max_penetration_mm": 0.0,
+        "frames_hand_penetration_gt1mm": 0
+      }
+    },
+    "surface_crossing_check": {
+      "all_canonical_human_triangles": true,
+      "all360frames": true,
+      "interior_tolerance_mm": 0.1,
+      "before_affected_frames": 210,
+      "after_affected_frames": 0,
+      "algorithm": "Triangle-cuboid separating axis theorem,3box axes,9cross axes and triangle normal; every canonical human triangle, every360frame.",
+      "mesh_geometry_contract": "Watertight convex866vertex1728face mesh with6axis planes and matching box volume."
+    },
+    "source_image_diagnostic": {
+      "before": {
+        "approximate_fit_wrist_elbow_mean_error_px": [
+          12.31411014875153,
+          13.06112806341229
+        ],
+        "scope": "Same fitted approximate source annotations,6pixel read uncertainty. Not independent or3D validation."
+      },
+      "after": {
+        "approximate_fit_wrist_elbow_mean_error_px": [
+          8.646659892193869,
+          10.833042706009042
+        ],
+        "scope": "Same fitted approximate source annotations,6pixel read uncertainty. Not independent or3D validation."
+      }
+    },
+    "full_scene_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/full-scene-v11/source-old-new-full-scene-360-30fps.mp4",
+    "hand_zoom_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/full-scene-v11/source-old-new-hand-zoom-360-30fps.mp4",
+    "decoded_frames": 360,
+    "fps": 30,
+    "tests": {
+      "required_explicit_synthetic_suite_passed": 273,
+      "log": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/required-tests.log",
+      "synthetic_triangle_box_sat_and_triangle_interior_lp_fixtures_passed": true
+    },
+    "downloads_this_task": 0,
+    "limitations": [
+      "This removes interpenetration in the current authored object/native human geometry to0.1mm surface tolerance; no hidden-reference accuracy or official PEN claim.",
+      "The exact finger grasp is still approximate: visible wrist/elbow labels are manually read source fit proposals and hidden hand depth uses source-reviewed occlusion roles.",
+      "Closest surface support is not recovered forces, grasp mechanics or independently measured contact.",
+      "Other original reconstruction limitations, including partial object texture, remain."
+    ],
+    "candidate_stage": "v11"
+  },
+  "hand_result_rejected_by_user": true,
+  "hand_reconstruction_accepted": false,
+  "physics_engine_used_for_delivered_hand_candidate": false,
+  "latest_hand_review": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-review-20261102/REVIEW-AND-NEXT-STEPS.json",
+  "previous_geometry_check_scope": "Human-object surfaces only; no hand self-collision, source finger accuracy or dynamics validation."
+}

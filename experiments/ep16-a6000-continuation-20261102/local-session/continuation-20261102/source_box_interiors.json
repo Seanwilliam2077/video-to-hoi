@@ -1,0 +1,27 @@
+{
+  "schema": "track1.source-visible-object-interiors.v1",
+  "episode": 16,
+  "source_video_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "coordinate_system": "Original source ROI [590,490,890,790), pixels; add [590,490] for full source pixels",
+  "provenance": "Agent read the source-only 13-frame contact sheet. Conservative visible box interior polygons were specified before inspecting any raw object-supported match set. No network confidence or match count was used to place polygons.",
+  "meaning": "Positive visible-box interior support only; not a complete silhouette, exact material-point labels or ground truth.",
+  "reason": "Published SAM2 object masks instead cover the stationary table. Original masks and original pilot results are preserved and rejected as object support.",
+  "one_pass": true,
+  "new_model_forwards": 0,
+  "native_parameters_changed": false,
+  "polygons": {
+    "150": [[111,108],[125,103],[153,114],[148,155],[130,169],[111,158]],
+    "155": [[118,100],[139,101],[160,109],[153,146],[135,158],[115,147],[118,129]],
+    "160": [[112,103],[133,103],[151,110],[146,149],[128,159],[108,149],[113,132]],
+    "165": [[108,114],[139,112],[148,122],[145,153],[111,156],[109,139]],
+    "170": [[110,104],[131,105],[150,119],[146,155],[118,164],[111,143]],
+    "175": [[110,103],[130,104],[153,116],[147,153],[117,162],[111,141]],
+    "180": [[109,106],[131,105],[151,117],[146,156],[114,159],[111,140]],
+    "185": [[113,109],[136,110],[157,123],[151,157],[128,163],[115,151]],
+    "190": [[116,108],[139,110],[162,122],[155,155],[129,162],[117,149]],
+    "195": [[112,103],[138,104],[160,115],[152,146],[127,154],[111,142]],
+    "200": [[116,103],[142,104],[160,115],[153,145],[130,155],[113,143]],
+    "205": [[117,104],[143,106],[158,114],[150,145],[130,155],[112,141]],
+    "210": [[113,100],[135,103],[155,117],[144,149],[128,155],[108,137]]
+  }
+}

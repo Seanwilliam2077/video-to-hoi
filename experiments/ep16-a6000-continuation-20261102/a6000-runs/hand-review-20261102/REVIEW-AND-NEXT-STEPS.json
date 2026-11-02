@@ -1,0 +1,79 @@
+{
+  "updated_at_utc": "2026-11-02T12:59:28.990925+00:00",
+  "status": "USER_REJECTED_HAND_RECONSTRUCTION_REQUIRES_REBUILD",
+  "candidate": "native-contact-candidate-v11",
+  "current_candidate_uses_physics_engine": false,
+  "installed_mujoco_version": "3.17.0",
+  "findings": [
+    "Fresh native decoding agrees with cached rendered human geometry within0.001mm in all6sampledframes.",
+    "Hand0 has49proper nonadjacent triangle intersection pairs at frame115 and51at130. This establishes hand self-intersection; not an exhaustive self-collision audit.",
+    "Previous pass checked human-versus-box only, omitted hand self-collision and physical grasp.",
+    "No observed per-finger21landmark fitting was present; small PCA coefficient bounds retained a bad initialization.",
+    "Historical MuJoCo pilot had5744steps but prescribed mocap hands,zero gravity anddynamicobject only; no hand articulation correction. It was rejected andnotused in deliveredv11."
+  ],
+  "audit": {
+    "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/refined.pth",
+    "mujoco_installed_version": "3.17.0",
+    "physics_used_for_this_candidate": false,
+    "same_native_parameter_fresh_decode_check": [
+      {
+        "frame": 96,
+        "fresh_vs_render_cache_max_mm": 0.000476837158203125,
+        "self_triangle_pairs": [
+          0,
+          0
+        ]
+      },
+      {
+        "frame": 115,
+        "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+        "self_triangle_pairs": [
+          49,
+          0
+        ]
+      },
+      {
+        "frame": 130,
+        "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+        "self_triangle_pairs": [
+          51,
+          0
+        ]
+      },
+      {
+        "frame": 175,
+        "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+        "self_triangle_pairs": [
+          0,
+          0
+        ]
+      },
+      {
+        "frame": 220,
+        "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+        "self_triangle_pairs": [
+          0,
+          0
+        ]
+      },
+      {
+        "frame": 240,
+        "fresh_vs_render_cache_max_mm": 0.00035762786865234375,
+        "self_triangle_pairs": [
+          0,
+          0
+        ]
+      }
+    ],
+    "scope": "Proper noncoplanar intersections between nonadjacent triangles within each hand,6review frames; not an exhaustive hand-body collision audit. Positive counts establish self-intersection; zeros do not certify absence.",
+    "seconds": 15.516063690185547
+  },
+  "next_work": [
+    "Re-estimate visible fingers from original RGB hand crops, confidence-weighted21landmarks andsilhouette. Hidden hand uses uncertain temporal/contact hypotheses.",
+    "Verify anatomical hand identity, joint order/axes/units andnative MHR finger decoding; retarget any external MANO initialization through verified fitting, not parameter copying.",
+    "Fit native physical joint angles with anatomical bounds, hand-hand/finger-palm/hand-body andhand-object collisions; solve wrist depth/contact jointly with source image evidence. Preserve accepted object turn reference.",
+    "Build articulated MuJoCo hands/forearms with finite tracking forces andvalidated per-link collision proxies. Validate against full rendered skin mesh.",
+    "Validate dynamicobject undergravity/support, contacts/forces/slip andsourceimage agreement. Prescribed motion or merely callingmj_step is not grasp recovery."
+  ],
+  "acceptance": "Source RGB finger correspondence, anatomical joint plausibility, all collision categories, and actual dynamics evidence are all required; object-only SAT pass is insufficient."
+}

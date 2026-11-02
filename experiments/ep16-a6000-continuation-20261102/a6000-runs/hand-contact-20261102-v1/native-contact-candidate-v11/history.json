@@ -1,0 +1,154 @@
+[
+  {
+    "closure_evaluation": 1,
+    "full241frame_loss": 6857.705222943512,
+    "worst_hand_penetration_mm": 0.0,
+    "components": {
+      "collision": 0.11575608420730626,
+      "hidden_distal_cone": 157.82418443554727,
+      "surface_witness_loss": 0.026479366301129962,
+      "fresh_surface_constraint_loss": 6546.291947614107,
+      "occlusion": 65.39803848808236,
+      "image_prior": 69.9416536829779,
+      "contact": 16.035727227871842,
+      "pose_prior": 0.16005651652812958,
+      "smooth": 0.6310626864433289,
+      "actual_hand_max_penetration_mm": 0.0,
+      "actual_hand_mean_penetration_mm": 0.0
+    },
+    "seconds": 10.191054344177246
+  },
+  {
+    "closure_evaluation": 6,
+    "full241frame_loss": 1865.2994083373874,
+    "worst_hand_penetration_mm": 14.16336727142334,
+    "components": {
+      "collision": 11.052592197672706,
+      "hidden_distal_cone": 370.4253874686913,
+      "surface_witness_loss": 120.47501928129142,
+      "fresh_surface_constraint_loss": 0.0,
+      "occlusion": 73.48071345583156,
+      "image_prior": 76.8576222653211,
+      "contact": 28.446015725986587,
+      "pose_prior": 0.1602271795272827,
+      "smooth": 0.6533939838409426,
+      "actual_hand_max_penetration_mm": 0.9601232303128697,
+      "actual_hand_mean_penetration_mm": 0.0023482458630221205
+    },
+    "seconds": 15.3490731716156
+  },
+  {
+    "closure_evaluation": 11,
+    "full241frame_loss": 528.1185498027385,
+    "worst_hand_penetration_mm": 0.08784979581832886,
+    "components": {
+      "collision": 0.24065027499563713,
+      "hidden_distal_cone": 351.238437028594,
+      "surface_witness_loss": 0.3492352277259304,
+      "fresh_surface_constraint_loss": 0.0,
+      "occlusion": 60.4129585576756,
+      "image_prior": 77.47449062869757,
+      "contact": 32.274837739240084,
+      "pose_prior": 0.16028660535812386,
+      "smooth": 0.6586823463439943,
+      "actual_hand_max_penetration_mm": 0.004374263692198947,
+      "actual_hand_mean_penetration_mm": 7.86285548869673e-08
+    },
+    "seconds": 19.364386796951294
+  },
+  {
+    "closure_evaluation": 16,
+    "full241frame_loss": 523.3399447907551,
+    "worst_hand_penetration_mm": 6.561480522155762,
+    "components": {
+      "collision": 3.3683693243337487,
+      "hidden_distal_cone": 298.44827883075385,
+      "surface_witness_loss": 2.3937030580721763,
+      "fresh_surface_constraint_loss": 0.0,
+      "occlusion": 57.18975046353839,
+      "image_prior": 76.5626191261893,
+      "contact": 32.70223815807168,
+      "pose_prior": 0.16036729514598852,
+      "smooth": 0.6559756994247435,
+      "actual_hand_max_penetration_mm": 0.4142020747869341,
+      "actual_hand_mean_penetration_mm": 0.00013679192893335565
+    },
+    "seconds": 23.36141800880432
+  },
+  {
+    "closure_evaluation": 21,
+    "full241frame_loss": 471.9447134236082,
+    "worst_hand_penetration_mm": 0.15557557344436646,
+    "components": {
+      "collision": 0.3053364703172221,
+      "hidden_distal_cone": 288.58480355254835,
+      "surface_witness_loss": 1.1989426519417425,
+      "fresh_surface_constraint_loss": 0.0,
+      "occlusion": 58.15089889580213,
+      "image_prior": 76.5565043247587,
+      "contact": 32.79338979127496,
+      "pose_prior": 0.16038256883621213,
+      "smooth": 0.6559562683105469,
+      "actual_hand_max_penetration_mm": 0.007746501582292105,
+      "actual_hand_mean_penetration_mm": 1.3924542386630641e-07
+    },
+    "seconds": 27.362899780273438
+  },
+  {
+    "closure_evaluation": 26,
+    "full241frame_loss": 432.2880428430944,
+    "worst_hand_penetration_mm": 1.7146096229553223,
+    "components": {
+      "collision": 0.8067234566906675,
+      "hidden_distal_cone": 253.0791814030453,
+      "surface_witness_loss": 0.011126725455259138,
+      "fresh_surface_constraint_loss": 0.0,
+      "occlusion": 55.96649555935812,
+      "image_prior": 76.69442087387148,
+      "contact": 37.552817677066535,
+      "pose_prior": 0.16050402820110315,
+      "smooth": 0.6561213135719298,
+      "actual_hand_max_penetration_mm": 0.10055316236503886,
+      "actual_hand_mean_penetration_mm": 1.0314811307538871e-05
+    },
+    "seconds": 31.354244232177734
+  },
+  {
+    "closure_evaluation": 31,
+    "full241frame_loss": 414.2403981272611,
+    "worst_hand_penetration_mm": 1.1830999851226807,
+    "components": {
+      "collision": 0.4349265980864663,
+      "hidden_distal_cone": 236.5810842237037,
+      "surface_witness_loss": 0.04664697592374693,
+      "fresh_surface_constraint_loss": 0.0,
+      "occlusion": 58.1600233845691,
+      "image_prior": 76.3262721809609,
+      "contact": 37.54183534962507,
+      "pose_prior": 0.16051559150218966,
+      "smooth": 0.6549267768859861,
+      "actual_hand_max_penetration_mm": 0.05890954282768534,
+      "actual_hand_mean_penetration_mm": 8.403979574187167e-06
+    },
+    "seconds": 35.34519934654236
+  },
+  {
+    "closure_evaluation": 36,
+    "full241frame_loss": 406.5955312598295,
+    "worst_hand_penetration_mm": 0.0,
+    "components": {
+      "collision": 0.28049243958009973,
+      "hidden_distal_cone": 216.1113261543369,
+      "surface_witness_loss": 1.3598506629304707,
+      "fresh_surface_constraint_loss": 0.0,
+      "occlusion": 60.79884528322338,
+      "image_prior": 75.54679590438906,
+      "contact": 36.922083193830424,
+      "pose_prior": 0.1605208814144135,
+      "smooth": 0.652528941631317,
+      "actual_hand_max_penetration_mm": 0.0,
+      "actual_hand_mean_penetration_mm": 0.0
+    },
+    "seconds": 39.33240580558777
+  }
+]

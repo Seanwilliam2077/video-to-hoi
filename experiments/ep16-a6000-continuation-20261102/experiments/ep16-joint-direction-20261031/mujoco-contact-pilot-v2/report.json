@@ -1,0 +1,78 @@
+{
+  "config": {
+    "source_sha256": "bf32e5745e2663fc665ee61dd070117e50263c28e5e8d18569f60e93154dd796",
+    "input_sha256": "61decc2bae1b4c5db67c30c7aee521edf61e5c1f5a352e70eec1f03c57234f32",
+    "steps_per_frame": 16,
+    "fps": 30,
+    "mass_assumption_kg": 0.2,
+    "friction_assumption": 0.6,
+    "gravity": [
+      0,
+      0,
+      0
+    ],
+    "support_plane": false,
+    "tracking_frequency_hz": 5,
+    "hands": "kinematic rigid skin-owner parts; not dynamic human",
+    "reference_frame_for_parts": 150,
+    "mapping_vertex_error_p95_mm": 0.7399507403787265,
+    "mapping_vertex_error_max_mm": 5.511920795336366,
+    "covered_vertices": 4636,
+    "total_vertices": 4636,
+    "parts": 44,
+    "limits": [
+      "Contact-only zero-gravity dynamic regularizer, not complete gravity/support reconstruction",
+      "Convex skin-owner proxies can overfill curved surfaces",
+      "Image direction is not inferred by physics; wrong target may remain wrong",
+      "Physics stage keeps jointly optimized hands fixed; not simultaneous full human dynamics",
+      "No exact mesh PEN or GT accuracy claims"
+    ]
+  },
+  "results": {
+    "dynamics-no-contact": {
+      "mj_step_count": 5744,
+      "simulated_seconds": 11.966666666666148,
+      "frame_count": 360,
+      "contact_frames": 0,
+      "translation_drift_mean_mm": 0.9396640987468471,
+      "translation_drift_max_mm": 3.5050088927171403,
+      "rotation_drift_mean_deg": 0.3556653590940355,
+      "rotation_drift_max_deg": 2.8485988375175753,
+      "worst_proxy_contact_depth_mm": 0.0,
+      "max_contact_force_N": 0.0,
+      "reload_frames_human_equal": true,
+      "warnings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "dynamics-contact": {
+      "mj_step_count": 5744,
+      "simulated_seconds": 11.966666666666148,
+      "frame_count": 360,
+      "contact_frames": 215,
+      "translation_drift_mean_mm": 47.887048159689805,
+      "translation_drift_max_mm": 156.25083711262573,
+      "rotation_drift_mean_deg": 15.420773348985088,
+      "rotation_drift_max_deg": 60.19139932162234,
+      "worst_proxy_contact_depth_mm": 41.16707888411874,
+      "max_contact_force_N": 59.80365860963976,
+      "reload_frames_human_equal": true,
+      "warnings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "accepted": false
+}

@@ -94,3 +94,8 @@ All team pages live on claude.ai and share one navigation bar (team hub, status,
 - Track 1 reference and the four module pages: maintained on claude.ai. Read the live page, edit, and republish to the same URL; their tasks, updates and resources are stored in each page's database.
 
 The page URLs and the navigation rule are in [AGENTS.md](../AGENTS.md).
+
+
+## A6000 continuation snapshot (2026-11-02)
+
+The [EP16 A6000 continuation snapshot](../experiments/ep16-a6000-continuation-20261102/README.md) preserves the latest optimization code, native result checkpoints, full-timeline previews, and hand failure review. The object turn was visually accepted; the hand candidate was rejected, has demonstrated self-intersection, and was produced without a physics engine. Large assets use Git LFS. This is development evidence, not an official submission or a completed physical grasp.

@@ -1,0 +1,51 @@
+{
+  "updated_at_utc": "2026-11-02T08:03:13.802796+00:00",
+  "phase": "SOURCE_MATERIAL_DIRECTION_REOPTIMIZED_REVIEW_CANDIDATE",
+  "accepted_as_final": false,
+  "previous_candidate_user_rejected": "Rotation direction incorrect; never use previous reprojection improvement as acceptance.",
+  "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/source-material-candidate-v6/refined.pth",
+  "full_scene_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/full-scene-review-v6/source-baseline-candidate-360-30fps.mp4",
+  "zoom_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/full-scene-review-v6/source-old-new-object-zoom-360-30fps.mp4",
+  "final_continuous_optimization_steps": 500,
+  "physical_gpu": 1,
+  "method": "Source face geometry with unordered cube corner observations, estimated visible silhouette, coupled unrestricted object rotation/translation, source material-motion intervals and global4-state discrete phase optimization. No old pose ray bindings,10degree cap or forced final heading return.",
+  "source_material_intervals": 41,
+  "evidence_scope": "Same-source development matching and approximate manual geometric junctions, not true3D or independent benchmark validation.",
+  "verification": {
+    "changed_pr_fields": [
+      "pose_abs",
+      "pose_abs_postopt"
+    ],
+    "all_human_fields_unchanged": true,
+    "observation_arrays_unchanged": true,
+    "shared_camera_mesh_scale_unchanged": true,
+    "frames0_60_exact": true,
+    "original_input_sha_verified": true,
+    "original_source_snapshot_preserved": true,
+    "rotation_orthogonality_max_abs": 2.980232238769531e-07,
+    "rotation_det_min": 0.9999997019767761,
+    "full_scene_decoded_frames": 360,
+    "zoom_frames": 360,
+    "fps": 30,
+    "downloads": 0
+  },
+  "silhouette_diagnostics": {
+    "all_window": {
+      "baseline_unoccluded_mask_iou": 0.8734448878995825,
+      "candidate_unoccluded_mask_iou": 0.8814528919399449
+    },
+    "temporal_check_odd_frames": {
+      "baseline_unoccluded_mask_iou": 0.8735733448583834,
+      "candidate_unoccluded_mask_iou": 0.8816251190288178
+    }
+  },
+  "limitations": [
+    "235..240 is a weaker material branch decision; the selected path remains a proposal and full direction is not certified.",
+    "Several asset side faces have uniform brown material. Newly exposed missing texture is not observed video appearance.",
+    "Fixed native hands still have contact/projection/penetration errors. Box proxy is not official PEN.",
+    "Original baseline and failed candidates retained; no result promoted as accepted or submitted."
+  ],
+  "original_reference": "/data1/defu/zly/nvda/continuation-20261102-v1/experiments/ep16-joint-direction-20261031/joint-green-v1/refined.pth",
+  "local_zoom_video": "/home/lonpyer/nvda/direction-correction-20261102/source-old-new-object-zoom.mp4",
+  "local_full_scene_video": "/home/lonpyer/nvda/direction-correction-20261102/source-old-new-full-scene.mp4"
+}

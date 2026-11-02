@@ -1,0 +1,226 @@
+{
+  "updated_at_utc": "2026-11-02T06:55:54.412365+00:00",
+  "status": "TWO_REAL_NATIVE_OBJECT_POSE_OPTIMIZATIONS_COMPLETED",
+  "user_authorization": "Latest user explicitly required correcting unreliable matching and running optimization on A6000, not stopping at checking and analysis. All downloads must use a proxy or a mirror.",
+  "project_root": "/data1/defu/zly/nvda/continuation-20261102-v1",
+  "run_root": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2",
+  "matching_change": {
+    "method": "Correct moving-object Native masks; source-reviewed anchor interiors; cached MASt3R plus source-corner seeds; one-frame subpixel LK with forward/backward, direct anchor-template correlation and no reactivation.",
+    "anchor_frames": [
+      150,
+      165,
+      180,
+      195
+    ],
+    "complete_short_tracks": [
+      24,
+      62,
+      87,
+      25
+    ],
+    "total_complete_short_tracks": 198,
+    "old_gate_not_relabelled_as_passed": "The earlier sparse 5-frame cross-order nearest-grid association still failed. This method instead constructs and verifies four local 15-frame source tracks, rather than requiring one track through all 13 coarse samples.",
+    "fixed_checks": {
+      "LK_FB_pixels": 0.75,
+      "anchor_template_ZNCC": 0.7,
+      "template_size": 11,
+      "mask_erosion_pixels": 2
+    },
+    "remaining_identity_limit": "Image checks reduce mismatches, but repeated texture and initial surface association are not physical ground truth."
+  },
+  "executed": {
+    "point_only": {
+      "steps": 300,
+      "physical_gpu": 2,
+      "seconds": 7.795661211013794,
+      "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2/pose-candidate-v1/refined.pth",
+      "candidate_sha256": "08126edba9a2bc61a93d62f6611728e28cecf34a4fe45eef25bcb80fde844dc9",
+      "reprojection": {
+        "before": {
+          "fit_mean_px": 12.29652325644111,
+          "fit_median_px": 6.071656703948975,
+          "check_mean_px": 11.746555004550768,
+          "check_median_px": 6.194543838500977
+        },
+        "after": {
+          "fit_mean_px": 8.32926077375737,
+          "fit_median_px": 2.732061266899109,
+          "check_mean_px": 7.674083122174547,
+          "check_median_px": 2.3619022369384766
+        }
+      },
+      "scene_diagnostics": {
+        "status": "full_scene_render_and_diagnostics_completed",
+        "decoded_frames": 360,
+        "fps": 30.0,
+        "seconds": 35.303367614746094,
+        "silhouette_diagnostics": {
+          "all_window": {
+            "baseline_unoccluded_mask_iou": 0.8734448878995825,
+            "candidate_unoccluded_mask_iou": 0.8477643672945504
+          },
+          "temporal_check_odd_frames": {
+            "baseline_unoccluded_mask_iou": 0.8735733448583834,
+            "candidate_unoccluded_mask_iou": 0.8469389046035438
+          }
+        },
+        "hand_box_proxy_baseline_candidate": [
+          {
+            "mean_inside_box_depth_mm": 13.375038142304037,
+            "worst_inside_box_depth_mm": 98.27416599728167,
+            "fraction_positive": 0.4678531520955035
+          },
+          {
+            "mean_inside_box_depth_mm": 11.769188302497826,
+            "worst_inside_box_depth_mm": 98.21892017498612,
+            "fraction_positive": 0.4086337854849432
+          }
+        ],
+        "proxy_scope": "Fixed native hand-surface vertices inside object axis-aligned local bounds. This is a rough proxy, not exact mesh penetration, contact truth or official PEN.",
+        "mask_scope": "Unoccluded object geometry projected to original Native crop versus estimated visible object masks; hand occlusion is not subtracted, masks are not ground truth.",
+        "candidate_accepted": false,
+        "new_native_optimization_steps": 300,
+        "quality_review": "Pending source RGB / baseline / candidate inspection; matching and projection gains are not physical correctness."
+      }
+    },
+    "mask_aware": {
+      "steps": 300,
+      "physical_gpu": 1,
+      "seconds": 8.46272897720337,
+      "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2/pose-candidate-v2-mask-aware/refined.pth",
+      "candidate_sha256": "d4c411d0b3ceb04b3a7bad11bc1912bc874d881f3cfc75a716d35000cfa61cb8",
+      "reprojection": {
+        "before": {
+          "fit_mean_px": 12.29652325644111,
+          "fit_median_px": 6.071656703948975,
+          "check_mean_px": 11.746555004550768,
+          "check_median_px": 6.194543838500977
+        },
+        "after": {
+          "fit_mean_px": 9.136344125748858,
+          "fit_median_px": 2.701488733291626,
+          "check_mean_px": 8.525775818267103,
+          "check_median_px": 2.675484776496887
+        }
+      },
+      "scene_diagnostics": {
+        "status": "full_scene_render_and_diagnostics_completed",
+        "decoded_frames": 360,
+        "fps": 30.0,
+        "seconds": 35.15729093551636,
+        "silhouette_diagnostics": {
+          "all_window": {
+            "baseline_unoccluded_mask_iou": 0.8734448878995825,
+            "candidate_unoccluded_mask_iou": 0.8656268697554274
+          },
+          "temporal_check_odd_frames": {
+            "baseline_unoccluded_mask_iou": 0.8735733448583834,
+            "candidate_unoccluded_mask_iou": 0.8648818403496535
+          }
+        },
+        "hand_box_proxy_baseline_candidate": [
+          {
+            "mean_inside_box_depth_mm": 13.37503813909063,
+            "worst_inside_box_depth_mm": 98.27416599728167,
+            "fraction_positive": 0.4678531520955035
+          },
+          {
+            "mean_inside_box_depth_mm": 13.820614374623789,
+            "worst_inside_box_depth_mm": 98.93397527048364,
+            "fraction_positive": 0.44818172817154417
+          }
+        ],
+        "proxy_scope": "Fixed native hand-surface vertices inside object axis-aligned local bounds. This is a rough proxy, not exact mesh penetration, contact truth or official PEN.",
+        "mask_scope": "Unoccluded object geometry projected to original Native crop versus estimated visible object masks; hand occlusion is not subtracted, masks are not ground truth.",
+        "candidate_accepted": false,
+        "new_native_optimization_steps": 300,
+        "quality_review": "Pending source RGB / baseline / candidate inspection; matching and projection gains are not physical correctness."
+      },
+      "change_reason": "The first candidate improved track projection but regressed observed silhouette. The second added a differentiable source silhouette term with the same data, bounds and initialization; no hyperparameter grid."
+    }
+  },
+  "validation": {
+    "source_suite_passed": 273,
+    "additional_synthetic_geometry_tests_passed": 4,
+    "full_video_decodes_per_candidate": 360,
+    "fps": 30,
+    "parameter_invariants": {
+      "changed_pr_fields": [
+        "pose_abs",
+        "pose_abs_postopt"
+      ],
+      "same_pose_aliases": true,
+      "all_frames_finite": true,
+      "same_K": true,
+      "all_human_fields_unchanged": true,
+      "frames_outside_151_209_exactly_unchanged": true,
+      "same_360_original_frame_ids": true,
+      "motion_self_diagnostics_only": {
+        "baseline": {
+          "max_step_rotation_degrees": 12.452338218688965,
+          "max_step_translation_m": 0.017993146553635597
+        },
+        "candidate": {
+          "max_step_rotation_degrees": 12.452338218688965,
+          "max_step_translation_m": 0.017993146553635597
+        }
+      },
+      "note": "Step statistics are self-motion diagnostics, not reference-relative acceleration error or physical accuracy."
+    },
+    "visual_review": {
+      "full_scene_contact_sheet_frames": [
+        0,
+        155,
+        175,
+        200,
+        300,
+        359
+      ],
+      "mask_aware_closeups_reviewed": [
+        175,
+        205
+      ],
+      "short_track_source_packets_reviewed": [
+        150,
+        195
+      ]
+    },
+    "interpretation": "Odd source frames were not used for fitting point loss; these are same-clip temporal development diagnostics, not unseen-video or 3D accuracy."
+  },
+  "preserved": {
+    "original_baseline_sha256": "61decc2bae1b4c5db67c30c7aee521edf61e5c1f5a352e70eec1f03c57234f32",
+    "original_baseline_replaced": false,
+    "human_camera_object_scale_unchanged": true,
+    "source_frames_0_through_150_and_210_through_359_exactly_unchanged": true,
+    "native_object_pose_aliases_consistent": true
+  },
+  "quality_decision": {
+    "accepted_as_final_reconstruction": false,
+    "preferred_for_next_balanced_review": "mask-aware candidate, with the baseline retained",
+    "point_only_tradeoff": "Better point reprojection, worse silhouette.",
+    "mask_aware_tradeoff": "Point-check mean 11.7466 -> 8.5258 px and median 6.1945 -> 2.6755 px. Unoccluded silhouette IoU 0.87357 -> 0.86488 on odd frames, improved over point-only 0.84694 but still below baseline.",
+    "hand_contact": "Human parameters remain frozen and visible hand errors persist. The box-depth proxy is not exact collision/contact or official PEN; no physical correctness claim.",
+    "next_bottleneck": "Material-point-to-mesh association and human hand alignment, rather than server migration or ability to execute optimization."
+  },
+  "network": {
+    "new_checkpoint_downloads": 0,
+    "cached_checkpoint_reused": true,
+    "canonical_hand_surface_asset_restored": {
+      "path": "/mnt/zlydisk/zly/nvda/upstream-reproduction-20261029/third_party/CARI4D_MHR_Win/reconstruction/modules/v2d_cari4d/lib/cari4d/lib_mhr/assets/mhr_hand_surface_spec.npz",
+      "sha256": "65e467ae534281c8c5370b76d672c80cf99b95bc73af9c3ac64d5bea6c7f60c8",
+      "bytes": 47140,
+      "source_host": "campus 1080 Ti",
+      "transport": "Existing campus SOCKS proxy + authenticated SSH",
+      "role": "Canonical MHR hand-surface topology, not challenge geometry",
+      "source_modified": false
+    },
+    "policy": "Proxy or explicit mirror only; no direct-upstream fallback."
+  },
+  "outputs": {
+    "full_comparison_video": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2/full-scene-review-v3-mask-aware/source-baseline-candidate-360-30fps.mp4",
+    "full_scene_contact_sheet": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/matching-optimization-v2/full-scene-review-v3-mask-aware/full-scene-contact-sheet.jpg",
+    "optimizer_code": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/optimize_object_pose_v3_silhouette.py",
+    "matching_code": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/prepare_refined_tracks_v2.py"
+  },
+  "gpu_jobs_pending": []
+}

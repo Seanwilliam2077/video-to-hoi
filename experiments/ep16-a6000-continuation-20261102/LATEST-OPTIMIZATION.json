@@ -1,0 +1,22 @@
+{
+  "result": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/FINAL-HAND-CONTACT-RESULT.json",
+  "candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/refined.pth",
+  "accepted_as_final": false,
+  "original_reference_unchanged": true,
+  "updated_at_utc": "2026-11-02T12:59:28.990925+00:00",
+  "latest_direction_result": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/FINAL-DIRECTION-RESULT.json",
+  "latest_direction_candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/source-material-candidate-v6/refined.pth",
+  "direction_candidate_accepted": false,
+  "previous_local_delta_candidate_direction_rejected_by_user": true,
+  "latest_hand_contact_result": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/FINAL-HAND-CONTACT-RESULT.json",
+  "latest_hand_contact_candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/refined.pth",
+  "object_turn_visually_accepted_by_user": true,
+  "object_turn_preserved_exactly": true,
+  "hand_object_surface_check_passed": true,
+  "geometry_interpenetration_fix_verified": true,
+  "hand_result_rejected_by_user": true,
+  "hand_reconstruction_accepted": false,
+  "physics_engine_used_for_delivered_hand_candidate": false,
+  "latest_hand_review": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/hand-review-20261102/REVIEW-AND-NEXT-STEPS.json",
+  "previous_geometry_check_scope": "Human-object surfaces only; no hand self-collision, source finger accuracy or dynamics validation."
+}

@@ -1,0 +1,107 @@
+{
+  "status": "framewise_template_checked_tracks_ready",
+  "groups": [
+    {
+      "anchor": 150,
+      "seed_points": 91,
+      "full_short_tracks": 24,
+      "per_frame_survivors": [
+        91,
+        91,
+        91,
+        90,
+        86,
+        86,
+        85,
+        83,
+        76,
+        68,
+        66,
+        53,
+        37,
+        26,
+        24,
+        24
+      ],
+      "track_observations": 1077
+    },
+    {
+      "anchor": 165,
+      "seed_points": 76,
+      "full_short_tracks": 62,
+      "per_frame_survivors": [
+        76,
+        76,
+        76,
+        76,
+        74,
+        72,
+        67,
+        67,
+        66,
+        64,
+        63,
+        63,
+        63,
+        62,
+        62,
+        62
+      ],
+      "track_observations": 1089
+    },
+    {
+      "anchor": 180,
+      "seed_points": 93,
+      "full_short_tracks": 87,
+      "per_frame_survivors": [
+        93,
+        93,
+        93,
+        93,
+        92,
+        92,
+        92,
+        92,
+        92,
+        92,
+        91,
+        91,
+        91,
+        90,
+        89,
+        87
+      ],
+      "track_observations": 1463
+    },
+    {
+      "anchor": 195,
+      "seed_points": 91,
+      "full_short_tracks": 25,
+      "per_frame_survivors": [
+        91,
+        91,
+        90,
+        90,
+        90,
+        90,
+        89,
+        73,
+        62,
+        50,
+        35,
+        33,
+        29,
+        28,
+        25,
+        25
+      ],
+      "track_observations": 991
+    }
+  ],
+  "seconds": 1.8549840450286865,
+  "new_neural_inference_calls": 0,
+  "native_parameters_changed": false,
+  "source_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+  "input_bundle_sha256": "61decc2bae1b4c5db67c30c7aee521edf61e5c1f5a352e70eec1f03c57234f32",
+  "limits": "Short-track survival is not physical identity truth. Pose fitting uses explicit surface-binding assumptions and full-scene review."
+}

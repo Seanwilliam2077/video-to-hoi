@@ -1,0 +1,11 @@
+{
+  "steps_continuous_optimizer": 500,
+  "discrete_branch_optimizer_states": 4,
+  "source_intervals": 41,
+  "continuous_source_candidate": "/data1/defu/zly/nvda/continuation-20261102-v1/a6000-runs/direction-correction-v1/source-material-candidate-v5/refined.pth",
+  "new_branch_start_frames": [
+    240
+  ],
+  "candidate_sha256": "366927efac0f6472a1dd0049e0196e80dfaef872b218e90ed413f174bb10e7de",
+  "accepted": false
+}

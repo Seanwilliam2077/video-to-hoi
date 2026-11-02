@@ -1,0 +1,42 @@
+{
+  "url": "https://huggingface.co/api/models/facebook/sam-3d-body-dinov3?blobs=true",
+  "sha": "11aaa346c7204874a1cbafe3d39a979080b2c55a",
+  "lastModified": "2025-12-10T18:45:19.000Z",
+  "files": [
+    {
+      "rfilename": "LICENSE",
+      "blobId": "e58d758cc3d92e6d1a57b52f7e4d203d02a67e98",
+      "size": 8204
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "87854edda30f437223c3103f1c0d33b78815acef",
+      "size": 5761
+    },
+    {
+      "rfilename": "assets/mhr_model.pt",
+      "blobId": "6e67294a1b91c304465a0e3392ea8ab9c4d81af9",
+      "size": 696110248,
+      "lfs": {
+        "sha256": "352e271a6c42729c68554ceaea0c955e866970160c31e35506d782dc0f7377bc",
+        "size": 696110248,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "model.ckpt",
+      "blobId": "245c34983d39a78fa4c1b42d2f5f60cf918fb102",
+      "size": 2109129346,
+      "lfs": {
+        "sha256": "b5a2f9d305dd02626b967aa2e86021fba07065df66ce7a7e00ffb9664f150abf",
+        "size": 2109129346,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model_config.yaml",
+      "blobId": "c43c46e52f41c76094a6fdfe12aee0348213a82b",
+      "size": 1488
+    }
+  ]
+}

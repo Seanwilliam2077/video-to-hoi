@@ -1,0 +1,84 @@
+"""Fixed accepted object motion, native articulated arm/hand contact continuation."""
+from pathlib import Path
+import os,json,time,hashlib,copy,signal
+import numpy as np,cv2,torch
+from scipy.interpolate import CubicSpline
+from pytorch3d.transforms import axis_angle_to_matrix
+from lib_mhr import MHRLayer
+from tools.render_mhr_wild_inference import _params
+R=Path('/data1/defu/zly/nvda/continuation-20261102-v1');D=R/'a6000-runs/hand-contact-20261102-v1';O=D/'native-contact-candidate-v10';O.mkdir(exist_ok=False);assert os.environ['CUDA_VISIBLE_DEVICES']=='1';torch.set_num_threads(4);torch.manual_seed(7);start=time.time();src=R/'a6000-runs/direction-correction-v1/source-material-candidate-v6/refined.pth';b=torch.load(src,map_location='cpu',weights_only=False);g=np.load(D/'input-geometry.npz');layer=MHRLayer.from_mhr_assets(mhr_assets_root=os.environ['MHR_ASSETS_ROOT'],device='cuda');frames=np.arange(50,291);N=len(frames);knots=np.arange(50,291,2);basis=CubicSpline(knots,np.eye(len(knots)),axis=0,bc_type='natural')(frames);envelope=np.minimum(np.clip((frames-50)/10,0,1),np.clip((290-frames)/10,0,1));envelope=envelope**3*(10+envelope*(-15+6*envelope))
+def t(x,dtype=torch.float32):return torch.tensor(x,device='cuda',dtype=dtype)
+W=t(basis);E=t(envelope[:,None]);params0=_params(b['pr'],slice(50,291),'cuda');body0=params0['mhr_body_pose_cont'];hand0=params0['mhr_hand'];T=t(b['pr']['pose_abs'][frames]);K=t(b['observations']['K_full'][frames]);KC=t(b['observations']['postopt_K_rois'][frames]);refv=t(g['vertices'][frames]);refk=t(g['keypoints'][frames]);hids=t(g['hand_vertex_ids'],torch.long);faces=t(g['human_faces'],torch.long);normals=t(g['convex_planes'][:,:3]);offset=t(g['convex_planes'][:,3]);nworld=torch.einsum('bij,pj->bpi',T[:,:3,:3],normals);dworld=offset[None]-(nworld*T[:,None,:3,3]).sum(-1)
+mask=np.asarray(b['observations']['postopt_object_mask'][frames],np.float32);human=np.asarray(b['observations']['postopt_human_mask'][frames],np.float32);mask=np.stack([cv2.erode((x*(1-y)>.5).astype(np.uint8),np.ones((3,3),np.uint8)).astype(np.float32) for x,y in zip(mask,human)]);OM=t(mask[:,None]);raw=torch.nn.Parameter(torch.zeros((len(knots),122),device='cuda'));previous=np.load(D/'native-contact-candidate-v9/control-knots.npz');raw.data.copy_(t(previous['raw']));opt=torch.optim.Adam([raw],lr=.004)
+from scipy.interpolate import PchipInterpolator
+ann=json.loads((D/'source_arm_junctions.json').read_text());at=np.array([int(x) for x in ann['frames']]);av=np.array([ann['frames'][str(x)] for x in at]);targets=PchipInterpolator(at,av,axis=0)(np.clip(frames,at[0],at[-1]));jointids=[7,8,62,41]
+def initial_project(points,kk):
+ q=torch.einsum('bij,bnj->bni',kk,points);return q[...,:2]/q[...,2:]
+initial_joint_uv=initial_project(refk[:,jointids],K);joint_uv_target=initial_joint_uv.clone();joint_uv_target[:,3]=initial_joint_uv[:,3]+E*(t(targets[:,0])-initial_joint_uv[:,3]);joint_uv_target[:,1]=initial_joint_uv[:,1]+E*(t(targets[:,1])-initial_joint_uv[:,1]);near_uv_shift=joint_uv_target[:,3]-initial_joint_uv[:,3]
+# Human-only source support tells visible fingers to remain in front of the object.
+HM=t(np.stack([cv2.erode((x>.5).astype(np.uint8),np.ones((3,3),np.uint8)).astype(np.float32) for x in human])[:,None])
+# Observed hidden distal hand support: it must stay within the object's image cone,
+# not escape upward into background where a ray no longer hits the object.
+blo=g['object_vertices'].min(0);bhi=g['object_vertices'].max(0);corners=np.array([[x,y,z] for x in [blo[0],bhi[0]] for y in [blo[1],bhi[1]] for z in [blo[2],bhi[2]]]);coneN=np.zeros((N,8,2));coneD=np.full((N,8),-1e6)
+for jj,f in enumerate(frames):
+ pose=b['pr']['pose_abs'][f];p=corners@pose[:3,:3].T+pose[:3,3];p=p@b['observations']['K_full'][f].T;uv=p[:,:2]/p[:,2:];hull=cv2.convexHull(uv.astype(np.float32))[:,0];e=np.roll(hull,-1,axis=0)-hull;nn=np.stack([e[:,1],-e[:,0]],1);nn/=np.linalg.norm(nn,axis=1,keepdims=True);dd=-(nn*hull).sum(1);flip=nn@hull.mean(0)+dd>0;nn[flip]*=-1;dd[flip]*=-1;coneN[jj,:len(nn)]=nn;coneD[jj,:len(nn)]=dd
+CN=t(coneN);CD=t(coneD);distal=(torch.linalg.vector_norm(refv[:,hids[0]]-refk[:,62,None],dim=-1).median(0).values>.035);assert int(distal.sum())>500
+ww0=np.load(D/'surface-witnesses-v8.npz');ww1=np.load(D/'surface-witnesses-v9.npz');WI=t(np.concatenate([ww0['vertex_indices'],ww1['vertex_indices']],1),torch.long);WB=t(np.concatenate([ww0['barycentric_weights'],ww1['barycentric_weights']],1));WM=t(np.concatenate([ww0['mask'],ww1['mask']],1))
+# Physical shoulder increments plus valid sin/cos elbow/wrist increments; native PCA fingers.
+shoulder_cap=np.deg2rad(60);pair_cap=t(np.deg2rad([35,50,50,50,35,50,50,50]));protocol={'input':str(src),'object_motion':'All360 rotations AND translations exactly frozen; user accepted turn direction.','native_mutable_fields':['mhr_body_pose_cont selected shoulder/elbow/wrist controls','mhr_hand native PCA108'],'frozen':['object pose aliases','human root','human translation','shape','scale','face','camera','non-arm body controls','frames0..50 and290..359'],'correction_curve':'Natural cubic knots every2frames50..290, quintic zero envelope10frames each boundary.','shoulder_delta_norm_cap_deg':60,'elbow_delta_cap_deg':35,'wrist_delta_component_cap_deg':50,'finger_pca_delta_component_cap':.05,'steps':1800,'batch_frames':12,'collision':'All2318 native surface vertices per hand plus wholehuman vertices and1/8 face-centroids against actual convex mesh6planes,2mm clearance.','occlusion':'Source-reviewed grasp70..260: canonical left hand is behind box, right hand visible on near side. Exact ray-exit and ray-entry constraints by anatomical side; coarse Native object/person masks are NOT finger-level visibility truth.','contact':'Closest128 native hand vertices attracted to object surface only70..260; source grasp-window proposal, not measured contact truth.','image_prior':'New approximate source RGB visible right wrist/elbow annotations, with original hand-shape projection translated to source wrist; other hidden arm uses input prior. None is3D or independent ground truth.','physics_engine':False,'downloads':0,'accepted':False};(O/'protocol.json').write_text(json.dumps(protocol,indent=2))
+# Initialize native buffers outside inference_mode, freeze model weights, retain input derivatives.
+with torch.no_grad():warm=layer.mhr_forward({k:v[:1] for k,v in params0.items()})
+layer.backend.head.requires_grad_(False)
+def controls(hand_gain=1.):
+ x=W@raw;sx=x[:,:6].reshape(N,2,3);sh=shoulder_cap*sx/torch.sqrt(1+sx.square().sum(-1,keepdim=True));pa=torch.tanh(x[:,6:14])*pair_cap;hp=.05*torch.tanh(x[:,14:])*hand_gain;return sh*E[:,None],pa*E,hp*E
+
+def decode(ids,hand_gain=1.):
+ sh,pa,hp=controls(hand_gain);p={k:v[ids] for k,v in params0.items()};body=body0[ids].clone()
+ for side,col in enumerate([42,54]):
+  columns=body0[ids,col:col+6].reshape(-1,2,3).transpose(1,2);new=axis_angle_to_matrix(sh[ids,side])@columns;body[:,col:col+6]=new.transpose(1,2).reshape(-1,6)
+ pairs=body0[ids,150:166].reshape(-1,8,2);s,c=pa[ids].sin(),pa[ids].cos();y=pairs[...,0]*c+pairs[...,1]*s;x=pairs[...,1]*c-pairs[...,0]*s;body[:,150:166]=torch.stack([y,x],-1).reshape(-1,16);p['mhr_body_pose_cont']=body;p['mhr_hand']=hand0[ids]+hp[ids];return layer.mhr_forward(p),p
+
+def sdf(points,ids):
+ local=(points-T[ids,None,:3,3])@T[ids,:3,:3];return (local@normals.T+offset).amax(-1)
+def project(points,kk):
+ q=torch.einsum('bij,bnj->bni',kk,points);return q[...,:2]/q[...,2:]
+
+def loss(ids,hand_gain=1.,stage=1.):
+ out,_=decode(ids,hand_gain);v=out.vertices;hands=v[:,hids].reshape(len(ids),-1,3);ss=sdf(hands,ids);pen=torch.relu(.002-ss);pc=10*(pen/.01).square().mean()+300*(pen.reshape(len(ids),2,-1).amax(-1)/.005).square().mean();allpts=torch.cat([v,v[:,faces].mean(2),.5*(v[:,faces[:,0]]+v[:,faces[:,1]]),.5*(v[:,faces[:,1]]+v[:,faces[:,2]]),.5*(v[:,faces[:,2]]+v[:,faces[:,0]])],1);sp=sdf(allpts,ids);ap=torch.relu(.001-sp);pc=pc+80*(ap.topk(64,dim=1).values/.005).square().mean()
+ uv=project(hands,KC[ids]);grid=(uv/255*2-1)[:,None];source_obj=fixed_source_obj[ids];rays=hands/hands[...,2:];coef=torch.einsum('bnj,bpj->bnp',rays,nworld[ids]);den=torch.where(coef.abs()>1e-7,coef,torch.ones_like(coef));z=-dworld[ids,None]/den;exit=torch.where(coef>1e-7,z,torch.full_like(z,1e4)).amin(-1);entry=torch.where(coef< -1e-7,z,torch.full_like(z,-1e4)).amax(-1);hit=(exit>=entry)&(exit>0)&(exit<10);active_occ=t(((frames[ids.detach().cpu().numpy()]>=70)&(frames[ids.detach().cpu().numpy()]<=260)))[:,None];occ=100*((torch.relu(exit[:,:2318]+.002-hands[:,:2318,2])/.03).square()*hit[:,:2318]*active_occ).mean()+100*((torch.relu(hands[:,2318:,2]-(entry[:,2318:]-.002))/.03).square()*hit[:,2318:]*active_occ).mean()
+ # Retain image location while allowing depth and wrist reorientation.
+ jointids=[7,8,62,41];up=project(out.keypoints[:,jointids],K[ids]);ur=joint_uv_target[ids];joint_tolerance=t([8,6,8,6])[None,:,None];image=100*(torch.relu((up-ur).abs()-joint_tolerance)/joint_tolerance).square().mean()+.5*((up-ur)/joint_tolerance).square().mean();hu=project(hands,K[ids]);href=project(refv[ids][:,hids].reshape(len(ids),-1,3),K[ids]);href[:,2318:]+=near_uv_shift[ids,None];image=image+50*(torch.relu(torch.linalg.vector_norm(hu[:,2318:]-href[:,2318:],dim=-1)-7)/7).square().mean()+.1*((hu[:,2318:]-href[:,2318:])/7).square().mean()
+ dist=ss.reshape(len(ids),2,-1).abs().topk(128,dim=-1,largest=False).values.mean(-1);active=((frames[ids.detach().cpu().numpy()]>=70)&(frames[ids.detach().cpu().numpy()]<=260));ct=20.*((dist/.01).square()*t(active)[:,None]).mean() if hand_gain>0 else ss.sum()*0
+ sh,pa,hp=controls(hand_gain);prior=.08*((sh/.35).square().mean()+(pa/.5).square().mean())+.1*10*(hp/.05).square().mean();smooth=.05*((sh[2:]-2*sh[1:-1]+sh[:-2])/.02).square().mean()+.05*((pa[2:]-2*pa[1:-1]+pa[:-2])/.02).square().mean()+.01*((hp[2:]-2*hp[1:-1]+hp[:-2])/.02).square().mean();hidden_uv=hu[:,:2318][:,distal];outside=(torch.einsum('bnj,bej->bne',hidden_uv,CN[ids])+CD[ids,None]).amax(-1);cone=200*((torch.relu(outside+1)/5).square()*active_occ).mean();wv=(v[torch.arange(len(ids),device='cuda')[:,None,None],WI[ids]]*WB[ids,...,None]).sum(2);ws=sdf(wv,ids);wp=torch.relu(.002-ws)*WM[ids];wloss=1000*(wp.amax(1)/.003).square().mean();target3=torch.nn.functional.smooth_l1_loss(out.keypoints[:,jointids],target3d[ids],beta=.02)/.02;total=10*stage*pc+stage*occ+image+ct+prior+smooth+cone+10*wloss+(1-stage)*50*target3
+ return total,{'collision':pc,'hidden_distal_cone':cone,'surface_witness_loss':wloss,'occlusion':occ,'image_prior':image,'contact':ct,'pose_prior':prior,'smooth':smooth,'actual_hand_max_penetration_mm':torch.relu(-ss).max()*1000,'actual_hand_mean_penetration_mm':torch.relu(-ss).mean()*1000}
+with torch.no_grad():
+ refhands=refv[:,hids].reshape(N,-1,3);refuv_full=project(refhands,K);refuv_full[:,2318:]+=near_uv_shift[:,None];uvh=torch.cat([refuv_full,torch.ones_like(refuv_full[...,:1])],-1);camray=torch.einsum('bij,bnj->bni',torch.linalg.inv(K),uvh);crop=torch.einsum('bij,bnj->bni',KC,camray);refuv=crop[...,:2]/crop[...,2:];fixed_source_human=torch.nn.functional.grid_sample(HM,(refuv/255*2-1)[:,None],align_corners=True,padding_mode='zeros')[:,0,0];fixed_source_obj=torch.nn.functional.grid_sample(OM,(refuv/255*2-1)[:,None],align_corners=True,padding_mode='zeros')[:,0,0];rays=camray;co=torch.einsum('bnj,bpj->bnp',rays,nworld);den=torch.where(co.abs()>1e-7,co,torch.ones_like(co));zz=-dworld[:,None]/den;exit0=torch.where(co>1e-7,zz,torch.full_like(zz,1e4)).amin(-1);entry0=torch.where(co< -1e-7,zz,torch.full_like(zz,-1e4)).amax(-1);fixed_source_obj*=((exit0>=entry0)&(exit0>0)&(exit0<10));fixed_source_human*=((exit0>=entry0)&(exit0>0)&(exit0<10));fixed_source_human[:,:2318]=0;validray=(exit0>=entry0)&(entry0>0)&(exit0<10);far_delta=torch.where(validray[:,:2318],exit0[:,:2318]+.003-refhands[:,:2318,2],torch.zeros_like(exit0[:,:2318])).amax(1).clamp(0,.30);near_delta=torch.where(validray[:,2318:],refhands[:,2318:,2]-entry0[:,2318:]+.003,torch.zeros_like(entry0[:,2318:])).amax(1).clamp(0,.15);left_target_z=refk[:,62,2]+far_delta;targetz=refk[:,jointids,2].clone();targetz[:,0]+=far_delta;targetz[:,1]-=.5*near_delta;targetz[:,2]+=far_delta;targetz[:,3]-=near_delta;u3=torch.cat([joint_uv_target,torch.ones_like(joint_uv_target[...,:1])],-1);target3d=torch.einsum('bij,bnj->bni',torch.linalg.inv(K),u3)*targetz[...,None]
+# Real input identity and analytic ray/inside sign fixtures before an actual update.
+with torch.no_grad():out,p=decode(t([125],torch.long));zeroerr=float((out.vertices-refv[125:126]).abs().max());assert np.isfinite(zeroerr),zeroerr
+plane_test=torch.tensor([[1.,0,0],[-1.,0,0],[0,1.,0],[0,-1.,0],[0,0,1.],[0,0,-1.]],device='cuda');test=torch.tensor([[0,0,0],[.12,0,0]],device='cuda');assert torch.allclose((test@plane_test.T-.1).amax(1),torch.tensor([-.1,.02],device='cuda'),atol=1e-6)
+(O/'preflight.json').write_text(json.dumps({'warm_start_decode_delta_from_original_max_abs_m':zeroerr,'inside_sign_fixture_passed':True},indent=2));rng=np.random.default_rng(7);history=[];order=[]
+protocol.update({'optimizer':'Deterministic full241frame L-BFGS with gradient accumulation, strong-Wolfe line search','max_optimizer_iterations':60,'previous_adam_candidate':'v9','collision_weight_multiplier':10,'surface_witness_sets':['v8','v9'],'steps':'Actual iteration and closure counts in report; not1800Adamupdates'})
+(O/'protocol.json').write_text(json.dumps(protocol,indent=2));opt=torch.optim.LBFGS([raw],lr=1.,max_iter=60,max_eval=110,tolerance_grad=1e-6,tolerance_change=1e-8,history_size=20,line_search_fn='strong_wolfe');calls=0
+
+def closure():
+ global calls
+ opt.zero_grad(set_to_none=True);score=0.;sums={};worst=0.
+ for lo in range(0,N,12):
+  ids=torch.arange(lo,min(lo+12,N),device='cuda');value,mm=loss(ids,1.,1.);assert torch.isfinite(value);weight=len(ids)/N;(value*weight).backward();score+=float(value.detach())*weight
+  for name,val in mm.items():sums[name]=sums.get(name,0.)+float(val.detach())*weight
+  worst=max(worst,float(mm['actual_hand_max_penetration_mm'].detach()))
+ assert torch.isfinite(raw.grad).all();calls+=1
+ if calls%5==1:
+  row={'closure_evaluation':calls,'full241frame_loss':score,'worst_hand_penetration_mm':worst,'components':sums,'seconds':time.time()-start};history.append(row);(O/'state.json').write_text(json.dumps(row,indent=2));print(json.dumps(row),flush=True)
+ return raw.new_tensor(score)
+opt.step(closure);optimizer_iterations=int(opt.state[raw]['n_iter']);print('DETERMINISTIC_POLISH',optimizer_iterations,'iterations',calls,'closures',flush=True)
+# Native parameters are authoritative. No mesh-only displacement is exported.
+outbundle=copy.deepcopy(b)
+with torch.no_grad():
+ for lo in range(0,N,12):
+  ids=torch.arange(lo,min(lo+12,N),device='cuda');_,p=decode(ids);outbundle['pr']['mhr_body_pose_cont'][frames[lo:lo+len(ids)]]=p['mhr_body_pose_cont'].cpu().numpy();outbundle['pr']['mhr_hand'][frames[lo:lo+len(ids)]]=p['mhr_hand'].cpu().numpy()
+for key in b['pr']:
+ if key not in ['mhr_body_pose_cont','mhr_hand']:assert np.array_equal(b['pr'][key],outbundle['pr'][key],equal_nan=True),key
+ else:
+  assert np.array_equal(b['pr'][key][:51],outbundle['pr'][key][:51]);assert np.array_equal(b['pr'][key][290:],outbundle['pr'][key][290:])
+non=np.setdiff1d(np.arange(260),np.r_[42:48,54:60,150:166]);assert np.array_equal(b['pr']['mhr_body_pose_cont'][:,non],outbundle['pr']['mhr_body_pose_cont'][:,non]);outbundle['experimental_hand_contact']={'protocol':str(O/'protocol.json'),'accepted':False,'native_arm_and_hand_parameter_update':True,'object_poses_exactly_unchanged':True};torch.save(outbundle,O/'refined.pth');np.savez_compressed(O/'control-knots.npz',knots=knots,raw=raw.detach().cpu().numpy());(O/'history.json').write_text(json.dumps(history,indent=2));(O/'report.json').write_text(json.dumps({'status':'native_hand_contact_optimization_completed','optimizer':'L-BFGS','iterations':optimizer_iterations,'closure_evaluations':calls,'seconds':time.time()-start,'input_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'candidate_sha256':hashlib.sha256((O/'refined.pth').read_bytes()).hexdigest(),'object_rotation_translation_aliases_all_exact':True,'nonarm_root_camera_scale_shape_frozen':True,'full360frame_ids_preserved':True,'physical_gpu':1,'accepted':False,'full_scene_review_required':True},indent=2));print('NATIVE_CONTACT_CANDIDATE_COMPLETED',flush=True)

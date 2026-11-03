@@ -121,6 +121,37 @@ def test_assemble_requires_an_empty_output(tmp_path):
         assembly.assemble(human, objects, tmp_path / 'out', episodes=[0])
 
 
+def test_temporal_smoothing_damps_jitter_and_keeps_proper_rotations():
+    frames = 60
+    rng = np.random.default_rng(0)
+    pose = np.zeros((frames, 136), dtype=np.float32)
+    pose[:, :3] = np.linspace(0, 3, frames)[:, None] + rng.normal(0, 0.2, (frames, 3))
+    pose[:, 3] = np.linspace(3.0, 3.4, frames)
+    pose[frames // 2:, 3] -= 2 * np.pi  # the same continuous angle, wrapped
+    angle = np.linspace(0, 1, frames) + rng.normal(0, 0.05, frames)
+    rotation = np.stack([[[np.cos(a), -np.sin(a), 0], [np.sin(a), np.cos(a), 0], [0, 0, 1]] for a in angle])
+    translation = np.column_stack([np.linspace(0, 1, frames), np.zeros(frames), np.full(frames, 3.0)]) + rng.normal(0, 0.01, (frames, 3))
+    smoothed_pose, smoothed_rotation, smoothed_translation = assembly.smooth_tracks(pose, rotation, translation, 3.0)
+
+    def jitter(values):
+        return np.abs(np.diff(values, n=2, axis=0)).mean()
+
+    assert smoothed_pose.dtype == np.float32 and smoothed_pose.shape == pose.shape
+    assert jitter(smoothed_pose[:, :3]) < 0.2 * jitter(pose[:, :3])
+    assert jitter(smoothed_translation) < 0.2 * jitter(translation)
+    assert np.abs(np.diff(smoothed_pose[:, 3])).max() < 0.01  # no smeared 2*pi wrap
+    np.testing.assert_allclose(smoothed_rotation @ smoothed_rotation.transpose(0, 2, 1), np.tile(np.eye(3), (frames, 1, 1)), atol=1e-9)
+    np.testing.assert_allclose(np.linalg.det(smoothed_rotation), 1.0, atol=1e-9)
+
+
+def test_assemble_records_temporal_smoothing(tmp_path):
+    human, objects = build(tmp_path)
+    report = assembly.assemble(human, objects, tmp_path / 'out', episodes=[0], temporal_sigma=2.0)
+    assert report['temporal_smoothing']['sigma_frames'] == 2.0
+    assert report['episodes'][0]['shared_scene_screen']['residual_max_m'] == 0.0
+    assert set(report['episodes'][0]['temporal_smoothing_shift_m']) == {'human_root_median', 'human_root_max', 'object_median', 'object_max'}
+
+
 def test_episode_list():
     assert assembly.episode_list('0-2,16') == [0, 1, 2, 16]
     assert assembly.episode_list('all') == list(range(30))

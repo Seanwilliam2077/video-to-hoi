@@ -5,3 +5,5 @@ deployment/model-redistribution.json text eol=lf
 docs/evidence/reference-answers-20261003.txt -text
 # Keep published Body delivery evidence byte-identical to its immutable archive.
 deliveries/platform/body-inputs-track1-20261016/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Keep the Object generating-source snapshot byte-identical to its published handoff hashes.
+deliveries/object/object-temporal-track1-20261102-v1/runtime-sources/** -text

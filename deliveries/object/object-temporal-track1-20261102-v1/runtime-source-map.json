@@ -1,0 +1,87 @@
+[
+  {
+    "original_path": "tools/windows/build_bpy_box_asset.py",
+    "sha256": "c9c6dec266e51eaf7ea37368b598e10a1ee0c94c9d4db375c810b95f23f4e9aa",
+    "path": "runtime-sources/c9c6dec266e51eaf7ea37368b598e10a1ee0c94c9d4db375c810b95f23f4e9aa/tools/windows/build_bpy_box_asset.py"
+  },
+  {
+    "original_path": "src/v2hoi/temporal_object_runtime.py",
+    "sha256": "e888e98b5e163de93282dff844a9a9e18900b1ceb39f43bb3359afbcbc932374",
+    "path": "runtime-sources/e888e98b5e163de93282dff844a9a9e18900b1ceb39f43bb3359afbcbc932374/src/v2hoi/temporal_object_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/temporal_object.py",
+    "sha256": "f9d345f959010b5d6bb61b3c12980044ee9f61ecf45a570d852e961f34351ef8",
+    "path": "runtime-sources/f9d345f959010b5d6bb61b3c12980044ee9f61ecf45a570d852e961f34351ef8/src/v2hoi/temporal_object.py"
+  },
+  {
+    "original_path": "src/v2hoi/physics_fp_runtime.py",
+    "sha256": "5d960fdfed902724f78c7b61499bc30c9608d47dee1eed13b64cb79075485a15",
+    "path": "runtime-sources/5d960fdfed902724f78c7b61499bc30c9608d47dee1eed13b64cb79075485a15/src/v2hoi/physics_fp_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/temporal_bundle_runtime.py",
+    "sha256": "d91bb26e2bbda61494b6ba313d1f52e25fdf26d2837f0e203c4912e4e1b46ec8",
+    "path": "runtime-sources/d91bb26e2bbda61494b6ba313d1f52e25fdf26d2837f0e203c4912e4e1b46ec8/src/v2hoi/temporal_bundle_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/physics_dynamic_runtime.py",
+    "sha256": "dba4d14d0e8a4bc5e3a002f79b4da51d8a1d8d3ee9b10333e1d2a52eaca8e41e",
+    "path": "runtime-sources/dba4d14d0e8a4bc5e3a002f79b4da51d8a1d8d3ee9b10333e1d2a52eaca8e41e/src/v2hoi/physics_dynamic_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/physics_motion_runtime.py",
+    "sha256": "7ea91ff9b04514a3ae19cbd2adce339b05c68175eaf0fcd2afd58e5b4e32175d",
+    "path": "runtime-sources/7ea91ff9b04514a3ae19cbd2adce339b05c68175eaf0fcd2afd58e5b4e32175d/src/v2hoi/physics_motion_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/image_motion.py",
+    "sha256": "c5c6a431afea1186c679de92cad3e377ace91130e8768acd70abd956ea785b83",
+    "path": "runtime-sources/c5c6a431afea1186c679de92cad3e377ace91130e8768acd70abd956ea785b83/src/v2hoi/image_motion.py"
+  },
+  {
+    "original_path": "src/v2hoi/object_refine_runtime.py",
+    "sha256": "c1c0c77fa0685306220abedcc4858005484d9e5bea209213bd1fa292280a3280",
+    "path": "runtime-sources/c1c0c77fa0685306220abedcc4858005484d9e5bea209213bd1fa292280a3280/src/v2hoi/object_refine_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/sparse_contact.py",
+    "sha256": "0be153829caf798ba93413aac31bc4ba9174db3e1b8077871fcea8e8524f7b4d",
+    "path": "runtime-sources/0be153829caf798ba93413aac31bc4ba9174db3e1b8077871fcea8e8524f7b4d/src/v2hoi/sparse_contact.py"
+  },
+  {
+    "original_path": "src/v2hoi/temporal_ring_runtime.py",
+    "sha256": "c32f2cf993557684a8f29b3d39790741c45ec3aab2c11bddabaf845f3d0a7f9d",
+    "path": "runtime-sources/c32f2cf993557684a8f29b3d39790741c45ec3aab2c11bddabaf845f3d0a7f9d/src/v2hoi/temporal_ring_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/ring_geometry.py",
+    "sha256": "125e69726c0c96652fba4d4eb41b4e06ad9b2ef1fe9a16956bcdae6654cab7d7",
+    "path": "runtime-sources/125e69726c0c96652fba4d4eb41b4e06ad9b2ef1fe9a16956bcdae6654cab7d7/src/v2hoi/ring_geometry.py"
+  },
+  {
+    "original_path": "src/v2hoi/temporal_ring_tolerant_runtime.py",
+    "sha256": "b1136da849710f95da74e3afeb660b01c337d82c0460b8c9c04f376d152dfdd0",
+    "path": "runtime-sources/b1136da849710f95da74e3afeb660b01c337d82c0460b8c9c04f376d152dfdd0/src/v2hoi/temporal_ring_tolerant_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/temporal_ring_supported_runtime.py",
+    "sha256": "4fd0e165ea8c024d1de8150678d5b904bcf06b67a9b1eeaf8a66ce9fdbaa52fa",
+    "path": "runtime-sources/4fd0e165ea8c024d1de8150678d5b904bcf06b67a9b1eeaf8a66ce9fdbaa52fa/src/v2hoi/temporal_ring_supported_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/temporal_supported_runtime.py",
+    "sha256": "7fb44d4589a89141b8e9b688b15df1e5c425e8507e079162577f0fc910a9b54e",
+    "path": "runtime-sources/7fb44d4589a89141b8e9b688b15df1e5c425e8507e079162577f0fc910a9b54e/src/v2hoi/temporal_supported_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/temporal_uniform_shape_runtime.py",
+    "sha256": "b88929d803e5f34af81ca818199f441ab434dff487a736066e5a6e70dfd1ed2c",
+    "path": "runtime-sources/b88929d803e5f34af81ca818199f441ab434dff487a736066e5a6e70dfd1ed2c/src/v2hoi/temporal_uniform_shape_runtime.py"
+  },
+  {
+    "original_path": "src/v2hoi/temporal_projected_scale_runtime.py",
+    "sha256": "23edec720f00f2fb3d4b10486732fc09ec654f07735468e2b059b0830a4b3368",
+    "path": "runtime-sources/23edec720f00f2fb3d4b10486732fc09ec654f07735468e2b059b0830a4b3368/src/v2hoi/temporal_projected_scale_runtime.py"
+  }
+]

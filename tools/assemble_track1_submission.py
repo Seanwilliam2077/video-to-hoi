@@ -187,26 +187,33 @@ def scene_screen(pose, coco17):
     return result
 
 
-def smooth_tracks(pose, rotation, translation, sigma):
+def smooth_tracks(pose, rotation, translation, sigma, object_sigma=None):
     """Gaussian temporal smoothing over original frames, repeating the edge frames.
 
-    Native pose angles are unwrapped and object quaternions sign-aligned first,
-    so the filter never averages across a 2*pi or q/-q jump.
+    sigma applies to the Human and object_sigma (default: sigma) to the Object;
+    zero leaves that track unchanged. Native pose angles are unwrapped and object
+    quaternions sign-aligned first, so the filter never averages across a 2*pi
+    or q/-q jump.
     """
     from scipy.ndimage import gaussian_filter1d
     from scipy.spatial.transform import Rotation
 
-    def smooth(values):
-        return gaussian_filter1d(values, sigma, axis=0, mode='nearest')
-
+    object_sigma = sigma if object_sigma is None else object_sigma
     pose = np.asarray(pose, dtype=np.float64)
-    smoothed_pose = np.concatenate([smooth(pose[:, :3]), smooth(np.unwrap(pose[:, 3:], axis=0))], axis=1)
-    quaternion = Rotation.from_matrix(rotation).as_quat()
-    for frame in range(1, len(quaternion)):
-        if quaternion[frame] @ quaternion[frame - 1] < 0:
-            quaternion[frame] = -quaternion[frame]
-    smoothed_rotation = Rotation.from_quat(smooth(quaternion)).as_matrix()
-    return smoothed_pose.astype(np.float32), smoothed_rotation, smooth(np.asarray(translation, dtype=np.float64))
+    rotation, translation = np.asarray(rotation, dtype=np.float64), np.asarray(translation, dtype=np.float64)
+    if sigma:
+        def smooth(values):
+            return gaussian_filter1d(values, sigma, axis=0, mode='nearest')
+        pose = np.concatenate([smooth(pose[:, :3]), smooth(np.unwrap(pose[:, 3:], axis=0))], axis=1)
+    if object_sigma:
+        def smooth(values):
+            return gaussian_filter1d(values, object_sigma, axis=0, mode='nearest')
+        quaternion = Rotation.from_matrix(rotation).as_quat()
+        for frame in range(1, len(quaternion)):
+            if quaternion[frame] @ quaternion[frame - 1] < 0:
+                quaternion[frame] = -quaternion[frame]
+        rotation, translation = Rotation.from_quat(smooth(quaternion)).as_matrix(), smooth(translation)
+    return pose.astype(np.float32), rotation, translation
 
 
 def git_state():
@@ -215,9 +222,11 @@ def git_state():
     return {'commit': run('rev-parse', 'HEAD'), 'uncommitted_changes': bool(run('status', '--porcelain'))}
 
 
-def assemble(human_root, object_root, output, episodes=EPISODES, allow_screen_failures=False, temporal_sigma=0.0):
+def assemble(human_root, object_root, output, episodes=EPISODES, allow_screen_failures=False,
+             temporal_sigma=0.0, object_sigma=None):
     output = Path(output)
-    require(temporal_sigma >= 0, 'temporal_sigma must be nonnegative')
+    object_sigma = temporal_sigma if object_sigma is None else object_sigma
+    require(temporal_sigma >= 0 and object_sigma >= 0, 'Smoothing widths must be nonnegative')
     require(not output.exists() or not any(output.iterdir()), f'Output must be a new or empty directory: {output}')
     manifest, rows, files = load_object_handoff(object_root)
     prepared = []
@@ -248,8 +257,8 @@ def assemble(human_root, object_root, output, episodes=EPISODES, allow_screen_fa
             'same_mhr_model': source.get('mhr_model_sha256') == context.get('decoder', {}).get('mhr_model_sha256'),
             'shared_scene_screen': screen}
         pose = human['pose']
-        if temporal_sigma:
-            smoothed = smooth_tracks(pose, rotation, translation, temporal_sigma)
+        if temporal_sigma or object_sigma:
+            smoothed = smooth_tracks(pose, rotation, translation, temporal_sigma, object_sigma)
             root_shift = np.linalg.norm((smoothed[0][:, :3] - pose[:, :3]) * 0.1, axis=1)
             object_shift = np.linalg.norm(smoothed[2] - translation, axis=1)
             record['temporal_smoothing_shift_m'] = {
@@ -269,9 +278,10 @@ def assemble(human_root, object_root, output, episodes=EPISODES, allow_screen_fa
         'schema': 'v2hoi.track1-submission-assembly.v1', 'assembler': git_state(),
         'object_delivery': manifest['delivery_id'], 'object_manifest_sha256': sha256(Path(object_root) / 'manifest.json'),
         'human_iteration': 'sam-mediapipe-20261021 (selected baseline)', 'screen_limits_m': SCREEN,
-        'temporal_smoothing': {'sigma_frames': temporal_sigma, 'method': (
+        'temporal_smoothing': {'sigma_frames': temporal_sigma, 'object_sigma_frames': object_sigma, 'method': (
             'Gaussian over original frames, nearest edges: native pose (angles unwrapped), object translation and '
-            'sign-aligned object quaternions; the screen uses the unsmoothed Human') if temporal_sigma else 'none'},
+            'sign-aligned object quaternions; the screen uses the unsmoothed Human')
+            if temporal_sigma or object_sigma else 'none'},
         'screen_failures': failed, 'episodes': [entry[-1] for entry in prepared],
         'scope': 'Official episode-file format and structural pairing only; no score, reference alignment or quality acceptance'}
     write_json(output / 'assembly.json', report)
@@ -382,7 +392,9 @@ def main(argv=None):
     build.add_argument('--out', type=Path, required=True, help='new or empty episodes directory')
     build.add_argument('--allow-screen-failures', action='store_true')
     build.add_argument('--temporal-sigma', type=float, default=0.0,
-                       help='Gaussian smoothing width in frames for Human pose and Object pose (default: none)')
+                       help='Gaussian smoothing width in frames for the Human pose (default: none)')
+    build.add_argument('--object-sigma', type=float, default=None,
+                       help='Gaussian smoothing width in frames for the Object pose (default: --temporal-sigma)')
     official = commands.add_parser('pack', help='run the kit packer, then verify the Parquet')
     check = commands.add_parser('verify', help='reload a packed Parquet against the episode files')
     for command in (official, check):
@@ -396,7 +408,7 @@ def main(argv=None):
         fetch_human(args.catalog, args.out, args.episodes)
     elif args.command == 'assemble':
         report = assemble(args.human, args.objects, args.out, allow_screen_failures=args.allow_screen_failures,
-                          temporal_sigma=args.temporal_sigma)
+                          temporal_sigma=args.temporal_sigma, object_sigma=args.object_sigma)
         print(json.dumps({'episodes': len(report['episodes']), 'screen_failures': report['screen_failures'],
                           'report': str(args.out / 'assembly.json')}, indent=2))
     else:

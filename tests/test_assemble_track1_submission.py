@@ -144,6 +144,18 @@ def test_temporal_smoothing_damps_jitter_and_keeps_proper_rotations():
     np.testing.assert_allclose(np.linalg.det(smoothed_rotation), 1.0, atol=1e-9)
 
 
+def test_human_and_object_smoothing_widths_are_independent():
+    rng = np.random.default_rng(1)
+    pose = rng.normal(0, 1, (20, 136)).astype(np.float32)
+    rotation, translation = np.tile(np.eye(3), (20, 1, 1)), rng.normal(0, 1, (20, 3))
+    human_only = assembly.smooth_tracks(pose, rotation, translation, 2.0, object_sigma=0)
+    np.testing.assert_array_equal(human_only[2], translation)
+    assert not np.allclose(human_only[0], pose)
+    object_only = assembly.smooth_tracks(pose, rotation, translation, 0, object_sigma=2.0)
+    np.testing.assert_array_equal(object_only[0], pose)
+    assert not np.allclose(object_only[2], translation)
+
+
 def test_assemble_records_temporal_smoothing(tmp_path):
     human, objects = build(tmp_path)
     report = assembly.assemble(human, objects, tmp_path / 'out', episodes=[0], temporal_sigma=2.0)

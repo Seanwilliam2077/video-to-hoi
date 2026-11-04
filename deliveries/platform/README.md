@@ -2,7 +2,7 @@
 
 Submit a small delivery record at **`deliveries/platform/<unique-delivery-id>/README.md`** using the [shared template](../TEMPLATE.md), and open a PR to `main`. Any member may contribute.
 
-Current delivery: [all 30 videos ready for standalone Body input](body-inputs-track1-20261016/README.md). All 16,563 source frames have target-human masks, estimated intrinsics and reviewed inputs. The complete gate, native readers and same-host relocated archive check passed; Body inference and second-host execution remain separate. The [earlier raw preparation record](raw-track1-20261015/README.md) is retained as history.
+Latest delivery: [first official Track 1 submissions](track1-submission-20261103/README.md), which assemble the published Human and Object results for all 30 videos and record every public score. Earlier delivery: [all 30 videos ready for standalone Body input](body-inputs-track1-20261016/README.md). All 16,563 source frames have target-human masks, estimated intrinsics and reviewed inputs. The complete gate, native readers and same-host relocated archive check passed; Body inference and second-host execution remain separate. The [earlier raw preparation record](raw-track1-20261015/README.md) is retained as history.
 
 | Work | Existing code or plan location |
 | --- | --- |

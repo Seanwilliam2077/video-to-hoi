@@ -56,6 +56,13 @@ uncommitted runtime changes. There is no published generating commit or code PR.
 The release tag points to existing remote commit
 `fb0bac9f02d346d32e086036c80f7c3041978d56` solely as a storage anchor.
 
+Added 2026-11-03 for the Track 1 submission: the archive's 17 runtime source
+files are committed byte-for-byte under [runtime-sources/](runtime-sources/),
+with [runtime-source-map.json](runtime-source-map.json) and
+[source-identity.json](source-identity.json); every file matches its recorded
+SHA-256. The base commit `e08086c` is still unpublished, so this snapshot covers
+the runtime changes but not the rest of that local checkout.
+
 The package is self-contained for saved video review and object-state inspection.
 Rerunning inference also needs the original matching video/mask/depth inputs,
 licensed model dependencies and environment; those are not mirrored here.

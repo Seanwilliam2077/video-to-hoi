@@ -58,6 +58,7 @@ jobs:
           tests/test_package_body_handoff.py
           tests/test_delivery_catalog.py
           tests/test_object_catalog.py
+          tests/test_assemble_track1_submission.py
       - run: python tools/progress_board.py validate
       - run: python tools/build_delivery_catalog.py --check
       - run: python tools/build_object_catalog.py --check

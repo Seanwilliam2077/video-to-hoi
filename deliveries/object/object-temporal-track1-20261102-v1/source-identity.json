@@ -1,0 +1,8 @@
+{
+  "local_branch": "windows-cari4d",
+  "local_base_commit": "e08086c2903e61b581b824f44b3b5fe54aedbb2f",
+  "generating_commit_published": false,
+  "exact_generating_runtime": "runtime-source-map.json",
+  "source_policy": "Only the 30 Track 1 source videos and their own derived observations/assets",
+  "note": "Runtime source hashes, not the release tag commit, identify the generating implementation"
+}

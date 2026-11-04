@@ -164,8 +164,8 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
 
   <header>
     <div>
-      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 11 月 2 日</div>
-      <h1>物体交接与 30 段完整影像已备齐，等待验收</h1>
+      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 11 月 3 日</div>
+      <h1>已完成正式比赛提交，动作流畅度排名升到中游</h1>
     </div>
     <div class="count">
       <div class="l">距比赛截止还有</div>
@@ -177,7 +177,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>比赛给的 30 段视频现已有物体交接材料和完整人物、物品对照影像，下载内容已核对，可交给队友逐段检查。部分朝向、尺寸和握持仍有偏差，完整不代表准确。公开看板的物体登记和播放入口已准备，等待审核后上线；正式比赛提交尚未进行，没有新增比赛成绩。</p>
+  <p class="lead"><b>一句话：</b>11 月 3 日已完成正式比赛提交，30 段视频全部拿到官方成绩。首版的动作抖动明显，加入动作平滑后，两项“动作像不像”从最后几名升到约 57 支队伍中的第 25–26 名；两项“准不准”排第 37–38 名，“手是否穿进物体”排第 55 名，仍明显落后。截止前还可以继续提交改进版本。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -334,14 +334,15 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
       <li class="done"><div class="t">搭建框架</div><div class="s">基础检查已实现</div><div class="d">真实流程待接入</div></li>
       <li class="now"><div class="t">接入 AI 模型</div><div class="s">30 段准备完成</div><div class="d">人体三维还原待运行</div></li>
       <li class="stuck"><div class="t">第一批结果</div><div class="s">待完整验收</div><div class="d">原目标 10 月 8 日</div></li>
-      <li class="now"><div class="t">全部出结果</div><div class="s">物体交接已齐</div><div class="d">完整影像可看，质量待验收</div></li>
-      <li class="next"><div class="t">优化与提交</div><div class="s">未开始</div><div class="d">截止 11 月 4 日</div></li>
+      <li class="now"><div class="t">全部出结果</div><div class="s">30 段已用于提交</div><div class="d">质量仍待验收</div></li>
+      <li class="now"><div class="t">优化与提交</div><div class="s">已提交，继续优化</div><div class="d">截止 11 月 4 日</div></li>
     </ol>
   </section>
 
   <section>
     <h2>已经完成的</h2>
     <ul class="done-list">
+      <li>11 月 3 日完成正式比赛提交：把 30 段的人体和物体结果组装成主办方要求的格式，提交前自动核对格式、每一帧的数值，以及人体和物体两部分是否对得上，全部通过，30 段视频都拿到了官方成绩。首版的两项“动作像不像”排在最后几名，原因是逐帧结果来回抖动；加入动作平滑后，这两项升到约 57 支队伍中的第 25–26 名，“准不准”两项也略有提高。每一版成绩都能对应到保存好的程序和文件。</li>
       <li>已发布全部 30 段物体交接材料和完整人物、物品影像，并核对完整性与下载内容；看板中的物体记录及播放入口已准备，等待审核。动作质量、不同成员结果能否衔接，以及正式比赛提交仍待验收。</li>
       <li>已在项目主页加入<a href="https://seanwilliam2077.github.io/video-to-hoi/" target="_blank" rel="noopener">30 段视频交付看板</a>入口。现在可以点开每段视频的各环节，查看已经递交的内容、真实检查图片、下载位置与缺少的材料，并分享某一次交付的链接。人体还原前的准备与实际还原结果分别显示，真实还原结果仍须检查。</li>
       <li>已处理比赛给的全部 30 段原始视频：每一帧都提取了目标人物的区域，各段分别估计相机的视角；每段的开头、中间、结尾及其他抽样画面均已复查。材料已作为<a href="https://github.com/Seanwilliam2077/video-to-hoi/releases/tag/body-inputs-track1-20261016" target="_blank" rel="noopener">人体还原交接包</a>提供下载。</li>
@@ -401,10 +402,15 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <p style="margin:4px 0 0">部分人体和物理方案的模型文件需要有访问条件的成员手动下载或单独申请使用权限；有些材料不允许公开转发。较早方案的完整软件环境和服务器适配也未完成。</p>
         <div class="need">接手相关任务的成员按本次运行需要补齐材料和使用权限，由熟悉对应设备的成员协助适配。</div>
       </div>
+      <div class="issue">
+        <b>形状准确度和手与物体的接触仍明显落后</b>
+        <p style="margin:4px 0 0">人体和物体“准不准”排在约 57 支队伍的第 37–38 名，“手是否穿进物体”排第 55 名。动作平滑只解决了抖动，物体的尺寸、朝向和手的握持位置还需要真正改进，其中一段的物体只是一个方盒。</p>
+        <div class="need">负责物体和人体的成员评估截止前能否快速改进物体朝向和手的位置；每个新版本都先通过同样的自动核对，再由当前执行人提交并记录。</div>
+      </div>
       <div class="issue mid">
-        <b>正式提交工具已公布，我们还没有完成对接</b>
-        <p style="margin:4px 0 0">需要确认人体、物体和每一帧的动作在交给主办方后仍保持正确。新工具可帮助核对规则，但我们仍看不到比赛的标准答案。</p>
-        <div class="need">接手转换和人体检查任务的成员完成交接验证；当前对接主办方的成员确认物体定位方式及能否合用同一物体的多段视频。</div>
+        <b>物体结果所基于的那一版程序还没有公开保存</b>
+        <p style="margin:4px 0 0">主办方赛后会核对每次提交所用的程序。物体部分改动过的程序已经和提交一起保存，但它所基于的那一版还只在队友的电脑上。</p>
+        <div class="need">负责物体的队友把那一版上传保存；之后可以用同样的结果重新提交一次，成绩不会变化。</div>
       </div>
       <div class="issue mid">
         <b>局部试验还不能证明整套方案可用</b>
@@ -422,18 +428,19 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <tbody>
           <tr><td class="date">10 月 1 日</td><td>服务器和模型使用权限到位</td><td><span class="tag stuck">有风险，待服务器</span></td></tr>
           <tr><td class="date">10 月 8 日</td><td>拿到第一批结果（2 段视频）</td><td><span class="tag stuck">有风险</span></td></tr>
-          <tr><td class="date">10 月 15 日</td><td>30 段视频全部出结果，第一次正式提交</td><td><span class="tag now">物体材料已齐，提交未完成</span></td></tr>
+          <tr><td class="date">10 月 15 日</td><td>30 段视频全部出结果，第一次正式提交</td><td><span class="tag now">11 月 3 日已完成首次提交</span></td></tr>
           <tr><td class="date">10 月 29 日</td><td>攻克难点：细长物体、大件家具、人坐在物体上等情况</td><td><span class="tag next">未开始</span></td></tr>
-          <tr><td class="date">11 月 4 日</td><td>比赛截止前集中优化和提交</td><td><span class="tag next">未开始</span></td></tr>
+          <tr><td class="date">11 月 4 日</td><td>比赛截止前集中优化和提交</td><td><span class="tag now">进行中，已提交平滑版本</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="muted" style="margin-top:12px">比赛期间本赛道每周最多提交 5 次，最后 3 天不限次数。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。以上保留原有目标日期，不代表重新承诺；首批完整结果尚未验收，后续时间有风险。本轮已完成全部 30 段人体还原前的准备及交接检查；完整三维结果尚未验收。</p>
+    <p class="muted" style="margin-top:12px">目前每个评分项每天可提交 20 次。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。以上保留原有目标日期，不代表重新承诺；首批完整结果尚未验收，后续时间有风险。本轮已完成全部 30 段人体还原前的准备及交接检查；完整三维结果尚未验收。</p>
   </section>
 
   <section>
     <h2>需要支持的事</h2>
     <ol class="asks">
+      <li><b>确定截止前的最终版本</b>目前最好的是加入动作平滑的版本。截止前若有新的改进，先通过自动核对再提交，并在比赛页面选定最终计分的版本。</li>
       <li><b>接续全部视频的人体还原</b>已备齐 30 段准备材料；由当前具备条件的成员接收，先核对文件，再完成逐段人体还原和复查，不必重复本次预处理。</li>
       <li><b>为当前任务提供可用设备</b>准备运行时核对设备、可用时间、文件交接方式和缺少的材料；大家可以使用不同服务器，按实际运行记录选择合适设备。</li>
       <li><b>让小任务能随时接续</b>每项任务写清输入、预期结果、完成条件和剩余问题；当次执行人和复核人随任务记录，成员可以自由转到其他工作。</li>
@@ -442,7 +449,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   </section>
 
 
-  <footer>数据截至 2026 年 11 月 2 日；本次更新：30 段物体交接与完整人物、物品影像已发布，下载内容已核对。公开看板的物体登记和播放入口已准备，等待审核后上线；动作质量和交接衔接仍需验收，正式比赛提交尚未进行，没有新增比赛成绩。本页在线版本尚待同步。只用比赛给的 30 段视频。技术细节见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 11 月 3 日；本次更新：已完成正式比赛提交并取得官方成绩；加入动作平滑后，两项动作成绩升到中游；形状准确度和手与物体的接触仍落后。只用比赛给的 30 段视频。技术细节见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

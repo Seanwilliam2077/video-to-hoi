@@ -1,0 +1,370 @@
+{
+  "code_commit_url": "https://github.com/Seanwilliam2077/video-to-hoi/commit/5dcc1b6fa3657c20521c31daa05a1110d8db058c",
+  "episodes": [
+    {
+      "episode": 0,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 1024,
+      "scored_frames": 169
+    },
+    {
+      "episode": 1,
+      "first_scored_frame": 151,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 1024,
+      "scored_frames": 174
+    },
+    {
+      "episode": 2,
+      "first_scored_frame": 236,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 1024,
+      "scored_frames": 84
+    },
+    {
+      "episode": 3,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 640,
+      "scored_frames": 340
+    },
+    {
+      "episode": 4,
+      "first_scored_frame": 125,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 640,
+      "scored_frames": 519
+    },
+    {
+      "episode": 5,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 640,
+      "scored_frames": 412
+    },
+    {
+      "episode": 6,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 388,
+      "scored_frames": 636
+    },
+    {
+      "episode": 7,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 388,
+      "scored_frames": 597
+    },
+    {
+      "episode": 8,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 388,
+      "scored_frames": 454
+    },
+    {
+      "episode": 9,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 540,
+      "scored_frames": 325
+    },
+    {
+      "episode": 10,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 540,
+      "scored_frames": 418
+    },
+    {
+      "episode": 11,
+      "first_scored_frame": 0,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 540,
+      "scored_frames": 803
+    },
+    {
+      "episode": 12,
+      "first_scored_frame": 69,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 1004,
+      "scored_frames": 209
+    },
+    {
+      "episode": 13,
+      "first_scored_frame": 75,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 748,
+      "scored_frames": 106
+    },
+    {
+      "episode": 14,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 748,
+      "scored_frames": 83
+    },
+    {
+      "episode": 15,
+      "first_scored_frame": 81,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 1728,
+      "scored_frames": 356
+    },
+    {
+      "episode": 16,
+      "first_scored_frame": 50,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 216,
+      "scored_frames": 240
+    },
+    {
+      "episode": 17,
+      "first_scored_frame": 75,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 216,
+      "scored_frames": 277
+    },
+    {
+      "episode": 18,
+      "first_scored_frame": 72,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 460,
+      "scored_frames": 420
+    },
+    {
+      "episode": 19,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 460,
+      "scored_frames": 283
+    },
+    {
+      "episode": 20,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 460,
+      "scored_frames": 375
+    },
+    {
+      "episode": 21,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 92,
+      "scored_frames": 347
+    },
+    {
+      "episode": 22,
+      "first_scored_frame": 18,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 92,
+      "scored_frames": 452
+    },
+    {
+      "episode": 23,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 92,
+      "scored_frames": 399
+    },
+    {
+      "episode": 24,
+      "first_scored_frame": 61,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 972,
+      "scored_frames": 242
+    },
+    {
+      "episode": 25,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 972,
+      "scored_frames": 219
+    },
+    {
+      "episode": 26,
+      "first_scored_frame": 85,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 972,
+      "scored_frames": 281
+    },
+    {
+      "episode": 27,
+      "first_scored_frame": 84,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 784,
+      "scored_frames": 243
+    },
+    {
+      "episode": 28,
+      "first_scored_frame": 90,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 784,
+      "scored_frames": 147
+    },
+    {
+      "episode": 29,
+      "first_scored_frame": 38,
+      "max_parameter_error": 0.0,
+      "mesh_extent_ratio": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "packed_faces": 784,
+      "scored_frames": 267
+    }
+  ],
+  "passed": true,
+  "rows": 740780,
+  "scope": "Row set, parameter round trip and mesh validity; no score or upload",
+  "submission": "data/submission-inputs/candidate-5dcc1b6-h6-o16/track1.parquet (local, not in Git)",
+  "submission_sha256": "32f7c612d2e1cb95b5ab301872c55d8346c31e655a91fb0945823da39b2ec300"
+}

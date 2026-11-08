@@ -4,6 +4,8 @@ Updated 2026-10-03 for the current reconstruction pipeline and replacement refer
 
 **Verdict: the current pipeline is not ready for a compliant final submission.** The native-MHR reference diagnostic implements the required evaluation structure with explicit permitted inputs. The reconstruction runtime still uses fake stages, a pass-through refiner and an internal v1 exporter. Diagnostic code and synthetic tests do not establish real reconstruction, official export or official equivalence.
 
+**2026-11-08 note:** the competition entries were produced outside this pipeline. [tools/assemble_track1_submission.py](../tools/assemble_track1_submission.py) assembled the published native-MHR Human parameters and the Object handoff for all 30 episodes and every original frame. The official packer and a read-back check then produced the Parquet. The findings below still describe the registered pipeline and were not re-audited for that path. See the [post-competition assessment](assessment-20261108.md).
+
 ## Requirement-by-requirement findings
 
 | Final requirement | Current implementation | Verdict and required evidence |

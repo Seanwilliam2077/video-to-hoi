@@ -47,6 +47,22 @@ All values are lower-is-better public leaderboard scores. Ranks come from the do
 
 Best public rank per metric: CD-H 37/58, CD-O 38/57, ACC-H 26/57, ACC-O 25/57, PEN 55/57. The first round ranked 48, 40, 57, 51 and 55. The proposed final submission IDs are 57951767 (CD-H), 57951770 (CD-O), 57951775 (ACC-H), 57951780 (ACC-O) and 57951786 (PEN).
 
+### Final leaderboard, added 2026-11-08
+
+The leaderboards closed on 2026-11-04 at 17:00 EST. The team is `SeanSiu2077`. The final leaderboards, downloaded on 2026-11-08, keep each team's best entry per metric:
+
+| Metric | Our score | Final rank |
+| --- | ---: | ---: |
+| CD-H | 15.040 | 39 / 60 |
+| CD-O | 26.080 | 37 / 59 |
+| ACC-H | 0.1386 | 25 / 59 |
+| ACC-O | 0.0734 | 27 / 59 |
+| PEN | 0.0580 | 57 / 59 |
+
+- Ranks shifted from the session-end figures above because more teams joined and scores changed.
+- For the latest submissions listed on the CD-H, CD-O, ACC-H and ACC-O boards, the private score equals the public score.
+- The [post-competition assessment](../../../docs/assessment-20261108.md) has the medians, the per-board best entries and the improvement order.
+
 ## Producer checks
 
 | Check | Result |

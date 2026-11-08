@@ -16,6 +16,7 @@ In the planned real pipeline, the human supplies a scale prior for the object mo
 
 Members work across all four modules with floating roles. Module labels define input/output boundaries; concurrent tasks use separate branches and result directories. Every stage has a fake backend, so `main` runs end to end from day one and each module replaces its fakes with real models.
 
+- [assessment-20261108.md](assessment-20261108.md): final leaderboard results, how the submitted entry was built, unmerged branch work and the prioritized improvement list.
 - [workflow.md](workflow.md): why the modules are cut this way, how each one develops independently, and the merge gate.
 - [Module submissions](../deliveries/README.md): the four delivery folders, shared record template, code PRs, check/review evidence and large-output locations. Post progress in the corresponding live module page as well; Git commits do not update those pages.
 - [platform-plan.md](platform-plan.md): Module 1 scope, existing progress, proposed implementation rounds and team discussion checklist.

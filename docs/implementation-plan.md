@@ -4,6 +4,8 @@ Updated 2026-10-15. This delivery backlog implements the video-driven architectu
 
 ## Foundation delivery status
 
+**2026-11-08 post-competition update:** the leaderboards closed on 2026-11-04. The submitted entry assembled the published Human and Object deliveries outside the stage pipeline, with temporal smoothing in the assembler. That does not close P2-P5 or any G0-G4 gate below. The [post-competition assessment](assessment-20261108.md) records the final ranks, the unmerged `human` and physics work, and the improvement order. Penetration is the largest gap, and contact repairs follow P4.2.
+
 **2026-10-15 platform planning update:** [platform-plan.md](platform-plan.md) makes Module 1's proposed input, adapter, transport, scene/export and experiment capabilities explicit. Its three rounds elaborate the existing backlog without implementing new runtime behavior, closing gates or changing milestone dates. The team discussion selects small task-scoped deliveries with floating participation.
 
 **2026-10-15 internal delivery increment:** the six v1 stages now have fresh-attempt execution, typed output

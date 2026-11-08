@@ -43,6 +43,7 @@ h1 { font-size: 30px; line-height: 1.3; margin: 4px 0 0; text-wrap: balance; }
 .count .l { color: var(--muted); font-size: 13px; line-height: 1.6; }
 .clock { display: flex; gap: 6px; justify-content: flex-end; margin: 8px 0 6px; font-size: 13px; color: var(--muted); }
 @media (max-width: 640px) { .clock { justify-content: flex-start; } }
+.clock[hidden] { display: none; }
 .clock span { display: inline-flex; align-items: baseline; gap: 2px; }
 .clock b { display: inline-block; min-width: 2.2ch; padding: 2px 5px; border-radius: 6px; background: var(--subtle); border: 1px solid var(--border); color: var(--fg); font-size: 18px; text-align: center; font-variant-numeric: tabular-nums; }
 section { margin-top: 40px; }
@@ -100,6 +101,7 @@ thead th { border-top: 0; color: var(--muted); font-weight: 600; font-size: 14px
 td.date { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 600; }
 .tag { display: inline-block; border-radius: 2em; padding: 0 10px; font-size: 13px; font-weight: 600; line-height: 24px; white-space: nowrap; }
 .tag.now { color: var(--now); background: var(--now-bg); }
+.tag.done { color: var(--done); background: var(--done-bg); }
 .tag.stuck { color: var(--stuck); background: var(--stuck-bg); }
 .tag.next { color: var(--next); background: var(--next-bg); }
 .tablewrap { overflow-x: auto; }
@@ -164,11 +166,11 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
 
   <header>
     <div>
-      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 11 月 3 日</div>
-      <h1>已完成正式比赛提交，动作流畅度排名升到中游</h1>
+      <div class="eyebrow">NVIDIA 视频转数据挑战赛（V2D）· 项目进展 · 2026 年 11 月 8 日</div>
+      <h1>比赛已结束：动作流畅度在中游，手与物体的接触差距最大</h1>
     </div>
     <div class="count">
-      <div class="l">距比赛截止还有</div>
+      <div class="l">比赛截止倒计时</div>
       <div class="n" id="cd-days">-- 天</div>
       <div class="clock" id="cd-clock" role="timer" aria-label="距比赛截止的剩余时间">
         <span><b id="cd-h">--</b>时</span><span><b id="cd-m">--</b>分</span><span><b id="cd-s">--</b>秒</span>
@@ -177,7 +179,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     </div>
   </header>
 
-  <p class="lead"><b>一句话：</b>11 月 3 日已完成正式比赛提交，30 段视频全部拿到官方成绩。首版的动作抖动明显，加入动作平滑后，两项“动作像不像”从最后几名升到约 57 支队伍中的第 25–26 名；两项“准不准”排第 37–38 名，“手是否穿进物体”排第 55 名，仍明显落后。截止前还可以继续提交改进版本。</p>
+  <p class="lead"><b>一句话：</b>比赛已于北京时间 11 月 5 日早 6 点截止，最终成绩已经确定。在约 60 支队伍中，两项“动作像不像”排第 25 和 27 名，处在中间水平；两项“准不准”排第 37 和 39 名，略低于中间水平；“手是否穿进物体”排第 57 名，差距最大。后续改进先解决手与物体的接触，再提高物体和人体形状的准确度。</p>
 
   <section>
     <h2>我们在做什么</h2>
@@ -332,16 +334,17 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
     <ol class="steps">
       <li class="done"><div class="t">读懂规则</div><div class="s">已替换旧要求</div><div class="d">评分检查同步更新</div></li>
       <li class="done"><div class="t">搭建框架</div><div class="s">基础检查已实现</div><div class="d">真实流程待接入</div></li>
-      <li class="now"><div class="t">接入 AI 模型</div><div class="s">30 段准备完成</div><div class="d">人体三维还原待运行</div></li>
+      <li class="now"><div class="t">接入 AI 模型</div><div class="s">人体和物体已运行</div><div class="d">尚未接入统一流程</div></li>
       <li class="stuck"><div class="t">第一批结果</div><div class="s">待完整验收</div><div class="d">原目标 10 月 8 日</div></li>
       <li class="now"><div class="t">全部出结果</div><div class="s">30 段已用于提交</div><div class="d">质量仍待验收</div></li>
-      <li class="now"><div class="t">优化与提交</div><div class="s">已提交，继续优化</div><div class="d">截止 11 月 4 日</div></li>
+      <li class="done"><div class="t">优化与提交</div><div class="s">比赛已结束</div><div class="d">最终成绩已确定</div></li>
     </ol>
   </section>
 
   <section>
     <h2>已经完成的</h2>
     <ul class="done-list">
+      <li>11 月 8 日整理了比赛结束后的完整情况，写进项目资料：最终成绩和排名、提交版本是怎么做出来的、各成员还没有并入主线的试验、需要更新的资料，以及按差距大小排列的改进清单，方便后续接手。</li>
       <li>11 月 3 日完成正式比赛提交：把 30 段的人体和物体结果组装成主办方要求的格式，提交前自动核对格式、每一帧的数值，以及人体和物体两部分是否对得上，全部通过，30 段视频都拿到了官方成绩。首版的两项“动作像不像”排在最后几名，原因是逐帧结果来回抖动；加入动作平滑后，这两项升到约 57 支队伍中的第 25–26 名，“准不准”两项也略有提高。每一版成绩都能对应到保存好的程序和文件。</li>
       <li>已发布全部 30 段物体交接材料和完整人物、物品影像，并核对完整性与下载内容；看板中的物体记录及播放入口已准备，等待审核。动作质量、不同成员结果能否衔接，以及正式比赛提交仍待验收。</li>
       <li>已在项目主页加入<a href="https://seanwilliam2077.github.io/video-to-hoi/" target="_blank" rel="noopener">30 段视频交付看板</a>入口。现在可以点开每段视频的各环节，查看已经递交的内容、真实检查图片、下载位置与缺少的材料，并分享某一次交付的链接。人体还原前的准备与实际还原结果分别显示，真实还原结果仍须检查。</li>
@@ -393,9 +396,9 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <div class="need">准备运行某项任务的成员核对本次设备、可用时间和操作方式，留下实际运行记录；设备不合适时，将同一任务交给具备条件的成员继续。</div>
       </div>
       <div class="issue mid">
-        <b>人体准备材料已就绪，接收方运行仍待完成</b>
-        <p style="margin:4px 0 0">全部 30 段人体准备材料已完成真实处理和重新打开后的核对，可以交给下一步。尚未在另一位成员的机器上完成接收与人体三维还原；物体交接已有，接收方仍须核对与人体结果是否对应。</p>
-        <div class="need">接手人体任务的成员下载交接包，在本次使用的机器上先做自动核对，再运行人体还原并检查完整视频；留下本次设备、执行和复核记录。</div>
+        <b>人体和物理两块的部分试验还没有并入主线</b>
+        <p style="margin:4px 0 0">10 月底到 11 月初，人体和物理两块做了改进手部和接触的试验，结果仍留在各自的工作记录里。其中有的小幅改善，但都还没有通过检查；试验材料也较大。</p>
+        <div class="need">做这些试验的成员决定哪些保留、哪些归档；较大的试验材料改放到统一的存储位置，主线只保留说明和检查记录。</div>
       </div>
       <div class="issue mid">
         <b>部分后续方案和服务器运行软件尚未备齐</b>
@@ -403,14 +406,14 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
         <div class="need">接手相关任务的成员按本次运行需要补齐材料和使用权限，由熟悉对应设备的成员协助适配。</div>
       </div>
       <div class="issue">
-        <b>形状准确度和手与物体的接触仍明显落后</b>
-        <p style="margin:4px 0 0">人体和物体“准不准”排在约 57 支队伍的第 37–38 名，“手是否穿进物体”排第 55 名。动作平滑只解决了抖动，物体的尺寸、朝向和手的握持位置还需要真正改进，其中一段的物体只是一个方盒。</p>
-        <div class="need">负责物体和人体的成员评估截止前能否快速改进物体朝向和手的位置；每个新版本都先通过同样的自动核对，再由当前执行人提交并记录。</div>
+        <b>手与物体的接触差距最大，形状准确度也落后</b>
+        <p style="margin:4px 0 0">最终排名中，“手是否穿进物体”在约 60 支队伍里排第 57 名；人体和物体“准不准”分别排第 39 和 37 名。目前人体和物体是分开还原的，手经常陷进物体里；动作平滑只解决了抖动，还让这一项略微变差。物体的尺寸和朝向也需要改进，其中一段的物体只是一个方盒。</p>
+        <div class="need">先做一个能在本地检查“手是否穿进物体”的工具（这一项只用我们自己的结果就能检查，不需要比赛的标准答案），找出问题最严重的视频和片段；再由人体和物理方向的成员依据视频画面修正手的握持位置，不能只是把手挪开来换取分数。物体方向的成员随后改进尺寸和朝向。</div>
       </div>
       <div class="issue mid">
         <b>物体结果所基于的那一版程序还没有公开保存</b>
         <p style="margin:4px 0 0">主办方赛后会核对每次提交所用的程序。物体部分改动过的程序已经和提交一起保存，但它所基于的那一版还只在队友的电脑上。</p>
-        <div class="need">负责物体的队友把那一版上传保存；之后可以用同样的结果重新提交一次，成绩不会变化。</div>
+        <div class="need">负责物体的队友尽快把那一版上传保存，以便主办方核对。</div>
       </div>
       <div class="issue mid">
         <b>局部试验还不能证明整套方案可用</b>
@@ -430,18 +433,18 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
           <tr><td class="date">10 月 8 日</td><td>拿到第一批结果（2 段视频）</td><td><span class="tag stuck">有风险</span></td></tr>
           <tr><td class="date">10 月 15 日</td><td>30 段视频全部出结果，第一次正式提交</td><td><span class="tag now">11 月 3 日已完成首次提交</span></td></tr>
           <tr><td class="date">10 月 29 日</td><td>攻克难点：细长物体、大件家具、人坐在物体上等情况</td><td><span class="tag next">未开始</span></td></tr>
-          <tr><td class="date">11 月 4 日</td><td>比赛截止前集中优化和提交</td><td><span class="tag now">进行中，已提交平滑版本</span></td></tr>
+          <tr><td class="date">11 月 4 日</td><td>比赛截止前集中优化和提交</td><td><span class="tag done">已截止，最终成绩已确定</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="muted" style="margin-top:12px">目前每个评分项每天可提交 20 次。获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。以上保留原有目标日期，不代表重新承诺；首批完整结果尚未验收，后续时间有风险。本轮已完成全部 30 段人体还原前的准备及交接检查；完整三维结果尚未验收。</p>
+    <p class="muted" style="margin-top:12px">比赛已于美东时间 11 月 4 日截止，获奖名单在 11 月 12 日的 CoRL 2026 会议上公布。赛后的改进不再计入本次比赛排名。以上保留原有目标日期，不代表重新承诺；30 段人体和物体结果已用于提交，但还原质量尚未验收。</p>
   </section>
 
   <section>
     <h2>需要支持的事</h2>
     <ol class="asks">
-      <li><b>确定截止前的最终版本</b>目前最好的是加入动作平滑的版本。截止前若有新的改进，先通过自动核对再提交，并在比赛页面选定最终计分的版本。</li>
-      <li><b>接续全部视频的人体还原</b>已备齐 30 段准备材料；由当前具备条件的成员接收，先核对文件，再完成逐段人体还原和复查，不必重复本次预处理。</li>
+      <li><b>确定赛后是否继续改进</b>比赛已结束。如果继续投入，建议先解决手与物体的接触，再提高物体和人体形状的准确度；每项改进仍要先通过自动核对，并保留失败记录。</li>
+      <li><b>整理尚未合并的试验</b>请做过人体和物理试验的成员确定哪些试验值得保留，并把较大的材料移到统一的存储位置。</li>
       <li><b>为当前任务提供可用设备</b>准备运行时核对设备、可用时间、文件交接方式和缺少的材料；大家可以使用不同服务器，按实际运行记录选择合适设备。</li>
       <li><b>让小任务能随时接续</b>每项任务写清输入、预期结果、完成条件和剩余问题；当次执行人和复核人随任务记录，成员可以自由转到其他工作。</li>
       <li><b>明确接力与改进的检查顺序</b>先记录本次准备材料在接收机器上的核对和后续运行，再补齐物体结果及最终交付。研究改进对照同一版原始结果，保留失败案例，避免更换准备材料后仍沿用旧检查。</li>
@@ -449,7 +452,7 @@ td.who-cell.r1 { --c: var(--r1); } td.who-cell.r2 { --c: var(--r2); } td.who-cel
   </section>
 
 
-  <footer>数据截至 2026 年 11 月 3 日；本次更新：已完成正式比赛提交并取得官方成绩；加入动作平滑后，两项动作成绩升到中游；形状准确度和手与物体的接触仍落后。只用比赛给的 30 段视频。技术细节见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
+  <footer>数据截至 2026 年 11 月 8 日；本次更新：比赛已截止，记录最终排名；整理赛后改进清单和尚未并入主线的试验。只用比赛给的 30 段视频。技术细节见 <a href="https://github.com/Seanwilliam2077/video-to-hoi" target="_blank" rel="noopener">项目仓库</a>。</footer>
 </div>
 
 <script>

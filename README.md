@@ -10,6 +10,8 @@ The plan starts with one real CARI4D baseline, then permits bounded corrections 
 
 ## Team hub
 
+**[Open the contact-refinement team plan](https://seanwilliam2077.github.io/video-to-hoi/team-contact-plan.html)** for playable video examples, Sean's model and training oversight, three teammate work packages, deliverables and a proposed ten-working-day pilot. Historical evidence and planned work are labeled separately.
+
 **[Open the team hub](https://claude.ai/artifact/JAeDzfVxpRezsW73C26M4S)** for the project status, Track 1 reference and four module pages. Post work updates in each module page's **Progress** section; use Tasks for current work and Resources for reading. Project status remains available inside the hub. Roles float: any member may contribute across modules.
 
 **[Open the 30-video progress board →](https://seanwilliam2077.github.io/video-to-hoi/)** — Open a preparation item or video stage to inspect submitted files, real mask review images, camera values, check receipts and package paths. Separate counters track Body inputs and reconstruction results; share a specific delivery using its record link. The public page needs no sign-in and updates automatically when board changes merge into `main`.

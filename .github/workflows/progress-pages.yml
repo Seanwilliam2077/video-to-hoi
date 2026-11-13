@@ -6,7 +6,9 @@ on:
     paths:
       - ".github/workflows/progress-pages.yml"
       - "docs/progress-board/**"
+      - "docs/team-contact-plan.html"
       - "docs/track1-videos/index.html"
+      - "docs/track1-videos/media/**"
       - "tracking/**"
       - "tools/progress_board.py"
       - "tools/build_delivery_catalog.py"
@@ -52,6 +54,11 @@ jobs:
           mkdir -p _site
           cp docs/progress-board/index.html docs/progress-board/app.js docs/progress-board/core.js docs/progress-board/style.css docs/progress-board/delivery-view.js docs/progress-board/delivery-view.css _site/
           cp -R docs/progress-board/previews _site/previews
+          cp docs/team-contact-plan.html _site/team-contact-plan.html
+          mkdir -p _site/track1-videos/media
+          for episode in ep00 ep12 ep16; do
+            cp "docs/track1-videos/media/${episode}.jpg" "docs/track1-videos/media/${episode}.mp4" _site/track1-videos/media/
+          done
           cp tracking/board.json _site/board.json
           cp tracking/delivery-catalog.json _site/delivery-catalog.json
           cp tracking/human-catalog.json _site/human-catalog.json

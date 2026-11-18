@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="One foam-block grip, from left- and right-hand labels to a real repair and its acceptance decision. Includes the synchronized comparison and the underlying measurements.">
-  <title>EP16 · Repairing a foam-block grip | Video-to-HOI</title>
+  <meta name="description" content="One real failure on a foam-block grip, followed by a four-person plan to train and test a hand–object contact repair model.">
+  <title>Training a hand–object contact repair model | Video-to-HOI</title>
   <style>
     :root {
       color-scheme: light;
@@ -31,7 +31,7 @@
     h2 { font-size: clamp(1.95rem, 3.8vw, 2.85rem); margin-bottom: 14px; }
     h3 { line-height: 1.25; font-size: 1.15rem; letter-spacing: -.015em; }
     section { border-top: 1px solid var(--line); padding-block: clamp(28px, 4.5vw, 48px); }
-    .hero { border: 0; padding-top: clamp(26px, 4vw, 48px); }
+    .hero { border: 0; padding-top: 24px; }
     .intro { font-size: clamp(1.04rem, 1.6vw, 1.18rem); color: var(--muted); max-width: 77ch; margin-bottom: 21px; }
     .player { background: #14271f; border-radius: 9px; overflow: hidden; }
     video { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 492; }
@@ -49,9 +49,6 @@
     .controls button:hover { background: var(--pale); }
     .readout { margin-top: 11px; font-size: .91rem; font-variant-numeric: tabular-nums; color: var(--muted); }
     .readout b { color: var(--ink); }
-    .prose > p, .prose > ol, .prose > ul { max-width: 80ch; }
-    .prose > p + p, .prose > h3, .prose > details { margin-top: 16px; }
-    .prose ol, .prose ul { padding-left: 1.35rem; }
     li + li { margin-top: 9px; }
     .labels { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr); gap: 28px; align-items: start; margin-top: 20px; }
     .labels img { width: 100%; height: auto; display: block; border-radius: 7px; }
@@ -63,20 +60,29 @@
     .labels .table-wrap { margin-top: 0; }
     .downloads a { font-weight: 650; font-size: .9rem; }
     .decision { padding: 16px 19px; background: var(--warm); border-left: 3px solid var(--rust); margin-block: 15px; }
+    .decision { max-width: 81ch; }
     .decision strong { color: var(--rust); }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 17px 0; }
-    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 19px; }
-    .card h3 { margin-bottom: 8px; }
-    .card p + p { margin-top: 9px; }
-    .card p { font-size: .94rem; }
-    .card.model { background: var(--pale); }
+    .page-title { margin: clamp(24px, 4vw, 45px) 0 0; max-width: 24ch; }
+    .hero h2 { font-size: clamp(1.55rem, 3vw, 2.2rem); }
+    .evidence { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+    .evidence[open] { padding-bottom: 6px; }
+    .evidence > p { max-width: 81ch; margin-top: 9px; }
+    .training-plan > .intro { max-width: 78ch; }
+    .steps { counter-reset: train-step; }
+    .step { counter-increment: train-step; border-top: 1px solid var(--line); padding: 19px 0 18px 52px; position: relative; }
+    .step::before { content: counter(train-step); position: absolute; top: 19px; left: 0; width: 35px; height: 35px; display: grid; place-items: center; background: var(--pale); color: var(--green); border-radius: 50%; font-weight: 700; }
+    .step h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); }
+    .step p { margin-top: 9px; max-width: 78ch; }
+    .step .owner { color: var(--green); margin-top: 3px; font-size: .9rem; font-weight: 650; }
+    .step .handoff { background: var(--pale); padding: 9px 12px; border-left: 2px solid #99b7a0; }
+    .step .table-wrap { max-width: 80ch; }
     summary { color: var(--green); font-weight: 650; cursor: pointer; }
     details p, details li { font-size: .92rem; }
     details[open] > summary { margin-bottom: 8px; }
     footer { padding-block: 24px; border-top: 1px solid var(--line); font-size: .85rem; color: var(--muted); }
     @media (max-width: 700px) {
       .wrap { width: calc(100% - 32px); }
-      .labels, .grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      .labels { grid-template-columns: minmax(0, 1fr); gap: 12px; }
       .labels figure { max-width: 530px; }
       nav { gap: 12px; }
       nav a { font-size: .8rem; }
@@ -86,18 +92,20 @@
       nav { gap: 7px; }
       .brand { font-size: 1rem; }
       .score { min-width: 350px; }
+      .step { padding-left: 0; padding-top: 54px; }
     }
   </style>
 </head>
 <body>
   <header><div class="wrap">
     <a class="brand" href="#watch">video→hoi</a>
-    <nav aria-label="Guide sections"><a href="#watch">Video</a><a href="#labels">Labels</a><a href="#training">Repair</a><a href="#experiments">Checks</a><a href="#people">Roles</a></nav>
+    <nav aria-label="Guide sections"><a href="#watch">1. The problem</a><a href="#training">2. Train the model</a></nav>
   </div></header>
   <main class="wrap">
-    <section class="hero" id="watch" aria-labelledby="title">
-      <h1 id="title">Repairing a foam-block grip</h1>
-      <p class="intro">In EP16, a person turns a foam block while holding it. Follow the same four seconds from camera evidence to the team’s decision on a real repair. Watch the right fingers on the near face, then look for the left hand behind the block.</p>
+    <h1 class="page-title">Training a model to repair hand–object contact</h1>
+    <section class="hero" id="watch" aria-labelledby="problem-title">
+      <h2 id="problem-title">1. What goes wrong in the foam-block grip?</h2>
+      <p class="intro">In EP16, the person’s right hand holds a rotating foam block. The left hand is mostly hidden. In the starting reconstruction, parts of the hands pass through the block. The attempted repair draws the hands toward its surface under the assumption that both are grasping.</p>
       <fieldset class="view-switch" aria-label="Choose the view for the same EP16 clip" hidden>
         <label><input type="radio" name="view" value="compare" checked> Before and after</label>
         <label><input type="radio" name="view" value="camera"> Camera only for labeling</label>
@@ -115,11 +123,9 @@
       </div>
       <p class="readout">Original frame <b id="frame">90</b> <span id="frame-note">The visible right hand is already holding the block.</span></p>
       <div class="downloads"><a href="ep16-contact/ep16-contact-comparison.mp4" download="ep16-contact-comparison.mp4">Download the comparison video</a></div>
-    </section>
-
-    <section class="prose" id="labels" aria-labelledby="labels-title">
-      <h2 id="labels-title">1. Label what the camera shows</h2>
-      <p>Use the person’s own left and right. The right forearm enters from screen left. Record one row per hand for each stretch of the same action. Keep the original frame numbers when sharing labels with the replay and training teams.</p>
+      <div class="decision"><strong>Why the team rejected the repair.</strong> Frames with a sampled hand point more than 1 mm inside the block fell from 120 of 120 to zero. Yet at frames 115 and 130, the left hand’s own surface crossed itself in 49 and 51 triangle pairs. A usable repair has to preserve the visible grip and a plausible hand shape, including where the camera cannot confirm contact.</div>
+      <details class="evidence" id="labels">
+        <summary>See the original hand labels and screenshots</summary>
       <div class="labels">
         <figure>
           <img src="ep16-contact/label-evidence.jpg" width="1000" height="826" loading="lazy" alt="Four original frames with R and L marking the person’s forearms. The right fingers follow the near face of the foam block. The opposite hand is mostly hidden.">
@@ -141,22 +147,10 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="prose" id="training" aria-labelledby="repair-title">
-      <h2 id="repair-title">2. Follow the repair from v6 to v11</h2>
-      <p>The two reconstructions in the movie come from the project’s archived EP16 experiment. Its solver used an earlier assumption that both hands were grasping. The labels above were made afterward from the original footage. They show where a future repair should use less guidance.</p>
-      <ol>
-        <li><b>Fix what the hand should follow.</b> Start from v6. Keep the camera, body size, body root and the block’s position and rotation fixed in each frame. The block still turns exactly as it did in v6.</li>
-        <li><b>Adjust the grip.</b> The solver could change the shoulder, elbow, wrist and fingers. It penalized hand points inside the block, drew nearby hand points toward its surface during the assumed grasp, and kept successive adjustments smooth. Rough image marks on the visible right wrist and elbow helped place the arm.</li>
-        <li><b>Render and inspect.</b> Show the original and adjusted poses from the same camera. Pause at frames 115 and 130. The near hand sits closer to the block, but the far fingers are hidden in the camera image. Use the hand mesh to check whether those fingers have folded through each other.</li>
-      </ol>
-      <p><b>For the next run,</b> use the visible right-hand hold to guide contact. Give the uncertain left hand no pull toward the block. Allow a small correction there only when the geometry supports it, and check for intersections within each hand. Keep the starting pose available if the candidate fails.</p>
-    </section>
-
-    <section class="prose" id="experiments" aria-labelledby="checks-title">
-      <h2 id="checks-title">3. Decide whether to keep the repair</h2>
-      <div class="decision"><strong>Reject v11.</strong> The adjusted hand points cleared the block. Parts of the modeled left hand still passed through each other at frames 115 and 130.</div>
+      </details>
+      <details class="evidence" id="experiments">
+        <summary>Inspect the repair settings and measured results</summary>
+        <p>The archived v11 solver kept the same camera, body size and block motion as v6. It adjusted arm and hand joints across frames, using surface distance and rough visible arm marks to guide the fit. The camera-only labels on this page were made after that experiment.</p>
       <div class="table-wrap"><table class="score" aria-label="Measured checks for original frames 90 through 209">
         <thead><tr><th scope="col">Check</th><th scope="col">Before · v6</th><th scope="col">After · v11</th></tr></thead>
         <tbody>
@@ -170,32 +164,8 @@
       <p>The distance measure averages the 32 closest hand points to the block’s surface in each frame. A point can be close on either side of the surface. Read it alongside depth, source footage and the hand-shape check. These millimeter values describe the reconstruction.</p>
       <p><b>Repeat the check.</b> Open the frame measurements below. Filter by original frame 115, then 130. Read the left-hand crossing count and replay each moment above. The crossing audit covered four frames in this window (96, 115, 130 and 175). Blank cells mean unchecked. The two confirmed failures are enough to reject the candidate.</p>
       <div class="downloads"><a href="ep16-contact/ep16-90-209-metrics.csv" download="ep16-90-209-metrics.csv">120 measured frames (CSV)</a></div>
-    </section>
-
-    <section class="prose" id="people" aria-labelledby="roles-title">
-      <h2 id="roles-title">4. What each teammate hands over</h2>
-      <div class="grid">
-        <article class="card"><h3>Foundation · Video labeling</h3>
-          <p>Replay frames 90–209 using only the camera view. Label each hand independently of the fit. Check frame 106 and document why the left contact stays uncertain.</p>
-          <p><b>Deliver</b> the two interval rows, expanded frame labels and a record of any changes after human review.</p></article>
-        <article class="card"><h3>Foundation · Replay and measurement</h3>
-          <p>Align v6 and v11 by original frame ID. Review the labels independently, replay the same camera crop, and reproduce the counts from the measurement file.</p>
-          <p><b>Deliver</b> the synchronized movie, the 120-row score sheet and the decision with the two failing frame IDs.</p></article>
-        <article class="card model"><h3>Training · Contact recognition</h3>
-          <p>Build a reader that returns the right-hand positive label and masks the left-hand unknown. Feed short video crops around each frame to a small model that predicts touch. Keep the right-hand hold together when splitting data.</p>
-          <p><b>Deliver</b> a per-hand prediction file with frame ID, state and confidence. Use EP16 to test the pipeline. Learning release, near misses and confidence thresholds requires independently labeled events and separate validation objects.</p></article>
-        <article class="card model"><h3>Training · Pose repair and model lead</h3>
-          <p>Use reviewed, plausible poses as training targets. Add a small known joint error and train the repair to undo it. Include good poses with zero change. Skip v11’s failed left-hand poses as training targets.</p>
-          <p><b>Deliver</b> a new same-camera candidate and the same checks. Compare a rule-based repair and the trained repair using identical contact predictions. Approve a version only after it preserves the visible grip and passes the geometry checks.</p></article>
-      </div>
-      <details id="training-handoff"><summary>How the two trainers use this handoff</summary>
-        <ol>
-          <li><b>Train recognition.</b> Keep the existing image encoder fixed. Show about half a second around each labeled frame, with both the hand and target in the crop. Teach the model “touch” on the visible right hand and skip the hidden left-hand answer. This window contributes one hold. Collect distinct clear, touching and release events before fitting a classifier. Keep all footage of the same object in one data group.</li>
-          <li><b>Train repair.</b> From independently reviewed training poses, save pairs of an unaltered grip and a version with a small added wrist or finger error. Train the model to recover the reviewed pose using the starting pose, the nearby object surface and the predicted touch confidence. Keep adjustments within joint limits. Include unchanged poses and measure performance on naturally occurring errors.</li>
-          <li><b>Isolate each contribution.</b> Give the same rule-based repair contact from distance alone, then from reviewed labels, then from model predictions. With those predictions fixed, compare rule-based and learned pose repair. Choose confidence and movement limits on validation objects. Record acceptable changes in depth, image alignment and timing before the final test.</li>
-        </ol>
       </details>
-      <details id="sources"><summary>Source footage, repair settings and audit records</summary>
+      <details class="evidence" id="sources"><summary>Source footage, repair settings and audit records</summary>
         <ul>
           <li><a href="https://huggingface.co/datasets/nvidia/video_to_data_challenge/blob/5f68335f3acc802033d1e80728c1633197521de8/track_1/videos/chunk-000/observation.images.exo_camera/episode_000016.mp4">Original EP16 camera recording</a> · Start at 3.0 seconds in the full recording.</li>
           <li><a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/f3fcd2cfaae9a2325f11bbe53657117a0f4242cf/experiments/ep16-a6000-continuation-20261102/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/protocol.json">v11 repair settings</a> · <a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/f3fcd2cfaae9a2325f11bbe53657117a0f4242cf/experiments/ep16-a6000-continuation-20261102/a6000-runs/render_contact_pair.py">Paired camera renderer</a></li>
@@ -204,9 +174,69 @@
         </ul>
       </details>
     </section>
+
+    <section class="training-plan" id="training" aria-labelledby="training-title">
+      <h2 id="training-title">2. How to train a contact repair model</h2>
+      <p class="intro">Give the model a short piece of video and the existing 3D hand and object poses. For each hand, it should return a corrected pose or keep the starting pose. Build two pieces that work together: one reads contact from the video, and the other learns how much to move the wrist and fingers.</p>
+      <div class="steps" id="people">
+        <article class="step">
+          <h3>Prepare examples that another person can replay</h3>
+          <p class="owner">Foundation team · Replay and measurement</p>
+          <p>Load the original video, the reconstructed hands, the object surface and the camera. Draw the starting poses over the image. Check that the same hand and object line up on the same original frame. For each hand, save a short crop that shows both it and the object, plus their 3D poses. About half a second (15 frames at 30 fps) is a starting window.</p>
+          <p>Assign whole objects to three groups before making crops. For the ten Track 1 objects, a proposed split is six for learning, two for choosing settings and two for the final test. Keep EP16 in development because it helped design the method. Record earlier use of any proposed test object.</p>
+          <p class="handoff"><b>Hand over</b> a replayable baseline and a list linking every window to its object, episode, hand, original frame and data group.</p>
+        </article>
+
+        <article class="step">
+          <h3>Label the action and collect trustworthy poses</h3>
+          <p class="owner">Foundation team · Video labeling, checked by the replay partner</p>
+          <p>Watch the camera view alone. For each hand, mark intervals as <b>touching</b>, <b>clear</b> or <b>cannot tell</b>. Record the first visible touch and release. Include reaches that stop short and hands that hover after release. If a hand is hidden, keep that row and skip the uncertain answer during training.</p>
+          <p>Separately, inspect the starting 3D poses against the image and object. Save poses that pass checks for visible alignment, object penetration and fingers crossing each other. These become examples of a plausible pose. For EP16, the right-hand label supplies <em>one hold</em>, and the rejected left-hand pose stays out of the target set. Collect multiple distinct holds, releases and clear intervals across objects.</p>
+          <p class="handoff"><b>Hand over</b> reviewed contact labels, a list of usable pose targets, and event counts by object. A long hold counts as one event.</p>
+        </article>
+
+        <article class="step">
+          <h3>Train the model to recognize contact</h3>
+          <p class="owner">Training team · Contact recognition</p>
+          <p>Keep a pretrained image reader fixed. Train a small network on its features across the short video window. For each hand at the center frame, predict a probability of touch. Compare the prediction with the reviewed answer and update the network on visible “touching” and “clear” labels. Sample enough first touches, releases and near misses that long holds cannot dominate training.</p>
+          <p>On validation objects, count missed touches, false touches and frames of delay at release. Choose the saved version and confidence cutoff there. A low-confidence prediction leaves contact attraction off. Add a hold-versus-slide prediction once both actions have enough reviewed examples.</p>
+          <p class="handoff"><b>Hand over</b> saved weights, the cutoff and one row per hand and frame with its predicted state and confidence.</p>
+        </article>
+
+        <article class="step">
+          <h3>Train the model to correct the hand pose</h3>
+          <p class="owner">Training team · Pose repair and model lead</p>
+          <p>Start with a reviewed pose from the training group. Add a small, known wrist or finger error. Give the repair model this altered pose, the nearby object surface and the contact prediction. Its target is the joint adjustment that restores the reviewed pose. Also show unchanged poses with a target adjustment of zero. Generate predictions for each training object with a contact reader fitted to the other training objects. Keep the validation and test objects out of that fitting step.</p>
+          <p>First check that the network can undo one known error and leave a good grip alone. Then train it on batches of short sequences to predict small changes in wrist and finger angles. Penalize errors against the target, hand points entering the object and fingers crossing each other. Check that the adjusted hand still lines up with the video. During a confident hold, limit slipping along the object. Allow surface motion during a slide and turn off attraction at release. Keep object motion and camera fixed. If the hand is hidden and the proposed change cannot pass the shape and image checks, keep its original pose.</p>
+          <p class="handoff"><b>Hand over</b> repair weights and a repeatable run that saves corrected poses, same-frame overlays and a reason whenever it keeps the original pose.</p>
+        </article>
+
+        <article class="step">
+          <h3>Test on real mistakes and decide what to adopt</h3>
+          <p class="owner">Replay partner scores · Model lead signs off</p>
+          <p>Use natural errors on validation footage to choose movement limits. Before opening reserved test results, write down the required improvement and allowed changes in image fit, timing and geometry. Freeze both models and their settings. Run these comparisons on identical frames.</p>
+          <div class="table-wrap"><table aria-label="Comparisons for evaluating the proposed model">
+            <thead><tr><th scope="col">Question</th><th scope="col">What to compare</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Did reading the video help?</th><td>Use the same simple repair with contact estimated by distance, predicted by the reader, and marked by reviewers. Score missed touches and release timing.</td></tr>
+              <tr><th scope="row">Did learning the correction help?</th><td>Give identical contact predictions to a rule-based repair and the learned repair. Compare both with the original pose for contact gap, slipping, object penetration, hand self-intersections and image fit.</td></tr>
+            </tbody>
+          </table></div>
+          <p class="handoff"><b>Hand over</b> the scores by object, a matched replay of the worst failure and a keep-or-revise decision. If a candidate folds fingers through each other, reject that change even when the fingers clear the object. Check that the exported result reopens with every original frame.</p>
+        </article>
+      </div>
+    </section>
   </main>
   <footer><div class="wrap">Video-to-HOI · EP16 contact repair guide</div></footer>
   <script>
+    // Previously shared evidence links should also reveal their supporting table.
+    function revealLinkedEvidence() {
+      const target = document.getElementById(location.hash.slice(1));
+      if (target instanceof HTMLDetailsElement) target.open = true;
+    }
+    window.addEventListener('hashchange', revealLinkedEvidence);
+    revealLinkedEvidence();
+
     const player = document.getElementById('player');
     const viewSwitch = document.querySelector('.view-switch');
     viewSwitch.hidden = false;

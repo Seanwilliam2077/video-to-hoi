@@ -1,0 +1,3 @@
+episode,target,actor_hand,first_frame_inclusive,last_frame_inclusive,touch_state,action,visibility,use_for_contact_supervision,touch_onset,touch_release
+EP16,foam_block,right,90,209,touching,holding,visible near-side hand,yes,already touching at first frame,still touching at last frame
+EP16,foam_block,left,90,209,cannot_tell,cannot_tell,far-side hand largely hidden by block,no,unobservable,unobservable

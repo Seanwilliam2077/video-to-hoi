@@ -1,0 +1,148 @@
+{
+  "case": "EP16 foam block, original frames 90 through 209 inclusive",
+  "annotations": {
+    "episode": "EP16",
+    "target": "foam block",
+    "first_original_frame": 90,
+    "last_original_frame_inclusive": 209,
+    "frame_count": 120,
+    "fps": 30,
+    "original_resolution": [
+      1536,
+      1152
+    ],
+    "source_url": "https://huggingface.co/datasets/nvidia/video_to_data_challenge/resolve/5f68335f3acc802033d1e80728c1633197521de8/track_1/videos/chunk-000/observation.images.exo_camera/episode_000016.mp4",
+    "source_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+    "source_hash_matched_to": "deliveries/platform/body-inputs-track1-20261016/episodes/episode_000016/input.json on Seanwilliam2077/video-to-hoi main",
+    "annotation_method": "single RGB-only visual review by an AI assistant",
+    "reviewed_inputs": "All 120 native-resolution decoded RGB hand crops, plus context from the full shot. No reconstruction, candidate overlays, contact distance, optimization output or reference labels were used in this review.",
+    "crop_xyxy_original_pixels": [
+      570,
+      528,
+      810,
+      683
+    ],
+    "laterality": "Actor anatomical right is the near hand entering from screen left. Letter tags point to the corresponding forearms.",
+    "touching_right": "Right fingers visible on near face or near edge as the object turns. Holding describes the coarse action. The video cannot verify a fixed contact point at each fingertip.",
+    "unknown_left": "The distal left forearm disappears behind the block. In some frames fingertips protrude beyond its far edge, but the far-side contact surface remains hidden. Contact may occur; this example masks that label.",
+    "events": "One ongoing visible right-hand hold spans the crop. Its onset and release are censored. No scored release, slide or clear negative event here.",
+    "support_counts": {
+      "judged_hand_frames": 120,
+      "unknown_hand_frames": 120,
+      "all_hand_frames": 240,
+      "visible_right_gaps": 0
+    },
+    "example_frames": {
+      "90": "The near hand is already on the block.",
+      "106": "Far fingertips peek out beyond the edge.",
+      "162": "The near hand stays on the turning block.",
+      "209": "The same hold continues at the end."
+    },
+    "review_limit": "Single-view interpretation by one AI reviewer. Independent teammate sign-off is pending. This is a visual label, not measured 3D contact or contact depth.",
+    "additional_blind_spot_check": {
+      "method": "A second AI read only the original RGB at six frames. Team human review is pending.",
+      "frames": [
+        90,
+        106,
+        115,
+        130,
+        162,
+        209
+      ],
+      "observations": "Near-side anatomical right fingers lie across the block at 90 and 130. Right-hand contact looks probable at the other four, including the more open fingers at 115 and 162. The left touch surface is hidden even at 106 when fingertips extend beyond the edge. No clear whole-hand release in these six frames."
+    }
+  },
+  "comparison_movie": {
+    "source_repo_commit": "f3fcd2cfaae9a2325f11bbe53657117a0f4242cf",
+    "source_pair_path": "experiments/ep16-a6000-continuation-20261102/assets/hand-v11-rejected-hand-zoom.mp4",
+    "source_pair_sha256": "fb94cd54a9317249f77c90905ae74b6b5e6df957ffd1af5385bf9619fdfbc653",
+    "source_rgb_sha256": "a37a978ef0f3d0eeaad74f2ed75fb32502d8a1a047587291c14433d052f9eb74",
+    "actual_frame_ids_inclusive": [
+      90,
+      209
+    ],
+    "render_script": "experiments/ep16-a6000-continuation-20261102/a6000-runs/render_contact_pair.py",
+    "column_order": [
+      "EP16 camera footage",
+      "direction v6 hands before",
+      "native hand candidate v11 after (rejected)"
+    ],
+    "fixed_crop_original_coordinates_xyxy_halfopen": [
+      605,
+      530,
+      805,
+      730
+    ],
+    "crop_original_vs_archived_rgb_mean_absolute_byte_error": {
+      "mean": 1.893,
+      "max": 1.938
+    },
+    "geometry_render_before_vs_after_mean_absolute_pixel_difference": {
+      "min": 2.4267,
+      "mean": 6.4968
+    },
+    "output": "ep16-contact-comparison.mp4",
+    "sha256": "b85010d063805ae9d69ed2422c1bd8ee825b9e3cb33041991a1db5dc607721ec",
+    "bytes": 655269,
+    "frames": 120,
+    "duration_s": 4.0,
+    "fps": 30.0,
+    "dimensions": [
+      1200,
+      492
+    ],
+    "codec": "h264",
+    "pix_fmt": "yuv420p(progressive)"
+  },
+  "measurements": {
+    "before": {
+      "frames": 120,
+      "frames_max_hand_vertex_depth_above_1mm": 120,
+      "max_hand_vertex_depth_mm": 98.95886806771159,
+      "first_frame_with_max": 115,
+      "mean_of_nearest32_surface_distances_mm": {
+        "left": 5.282155910802189,
+        "right": 25.2714004482084
+      }
+    },
+    "after": {
+      "frames": 120,
+      "frames_max_hand_vertex_depth_above_1mm": 0,
+      "max_hand_vertex_depth_mm": 0.0,
+      "first_frame_with_max": 90,
+      "mean_of_nearest32_surface_distances_mm": {
+        "left": 13.01554967091521,
+        "right": 5.857396797132139
+      }
+    },
+    "audited_frames_in_window": {
+      "96": [
+        0,
+        0
+      ],
+      "115": [
+        49,
+        0
+      ],
+      "130": [
+        51,
+        0
+      ],
+      "175": [
+        0,
+        0
+      ]
+    },
+    "complete_rows": 120,
+    "source": "https://github.com/Seanwilliam2077/video-to-hoi/blob/f3fcd2cfaae9a2325f11bbe53657117a0f4242cf/experiments/ep16-a6000-continuation-20261102/a6000-runs/hand-contact-20261102-v1/full-scene-v11/by-frame.json",
+    "audit": "https://github.com/Seanwilliam2077/video-to-hoi/blob/f3fcd2cfaae9a2325f11bbe53657117a0f4242cf/experiments/ep16-a6000-continuation-20261102/a6000-runs/hand-review-20261102/audit.json",
+    "render_source": "https://github.com/Seanwilliam2077/video-to-hoi/blob/f3fcd2cfaae9a2325f11bbe53657117a0f4242cf/experiments/ep16-a6000-continuation-20261102/a6000-runs/render_contact_pair.py",
+    "protocol": "https://github.com/Seanwilliam2077/video-to-hoi/blob/f3fcd2cfaae9a2325f11bbe53657117a0f4242cf/experiments/ep16-a6000-continuation-20261102/a6000-runs/hand-contact-20261102-v1/native-contact-candidate-v11/protocol.json",
+    "acceptance": "https://github.com/Seanwilliam2077/video-to-hoi/blob/f3fcd2cfaae9a2325f11bbe53657117a0f4242cf/experiments/ep16-a6000-continuation-20261102/a6000-runs/hand-review-20261102/REVIEW-AND-NEXT-STEPS.json"
+  },
+  "decision": {
+    "candidate": "v11",
+    "status": "rejected in the archived review",
+    "scope": "Archive optimization used a broader two-hand grasp assumption. The new RGB interval labels were prepared after the run. All displayed scores have been recomputed for this 120-frame window from the archived per-frame measurements. No new model training or new native pose solve is claimed."
+  }
+}

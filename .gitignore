@@ -20,3 +20,4 @@ dist/
 wheelhouse/
 # Track 1 video previews for docs/track1-videos/index.html (full videos stay in data/)
 !docs/track1-videos/media/*.mp4
+!docs/ep16-contact/ep16-contact-comparison.mp4

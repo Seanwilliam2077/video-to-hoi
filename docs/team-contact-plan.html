@@ -76,6 +76,9 @@
     .step .owner { color: var(--green); margin-top: 3px; font-size: .9rem; font-weight: 650; }
     .step .handoff { background: var(--pale); padding: 9px 12px; border-left: 2px solid #99b7a0; }
     .step .table-wrap { max-width: 80ch; }
+    .step ul { max-width: 78ch; padding-left: 1.25rem; margin: 10px 0; }
+    .datasets { border-top: 1px solid var(--line); padding-top: 18px; }
+    .datasets p { max-width: 78ch; margin-top: 8px; }
     summary { color: var(--green); font-weight: 650; cursor: pointer; }
     details p, details li { font-size: .92rem; }
     details[open] > summary { margin-bottom: 8px; }
@@ -177,7 +180,7 @@
 
     <section class="training-plan" id="training" aria-labelledby="training-title">
       <h2 id="training-title">2. How to train a contact repair model</h2>
-      <p class="intro">Give the model a short piece of video and the existing 3D hand and object poses. For each hand, it should return a corrected pose or keep the starting pose. Build two pieces that work together: one reads contact from the video, and the other learns how much to move the wrist and fingers.</p>
+      <p class="intro">Give the model half a second of video and the existing 3D hand and object poses. <a href="#contact-reader">Training member 1</a> teaches it to judge whether each hand touches the target. <a href="#pose-repair">Training member 2</a> uses that judgment to make small wrist and finger adjustments. A good pose can pass through with zero change.</p>
       <div class="steps" id="people">
         <article class="step">
           <h3>Prepare examples that another person can replay</h3>
@@ -187,28 +190,35 @@
           <p class="handoff"><b>Hand over</b> a replayable baseline and a list linking every window to its object, episode, hand, original frame and data group.</p>
         </article>
 
-        <article class="step">
-          <h3>Label the action and collect trustworthy poses</h3>
+        <article class="step" id="track1-labels">
+          <h3>Fill the gaps in the Track 1 labels</h3>
           <p class="owner">Foundation team · Video labeling, checked by the replay partner</p>
-          <p>Watch the camera view alone. For each hand, mark intervals as <b>touching</b>, <b>clear</b> or <b>cannot tell</b>. Record the first visible touch and release. Include reaches that stop short and hands that hover after release. If a hand is hidden, keep that row and skip the uncertain answer during training.</p>
-          <p>Separately, inspect the starting 3D poses against the image and object. Save poses that pass checks for visible alignment, object penetration and fingers crossing each other. These become examples of a plausible pose. For EP16, the right-hand label supplies <em>one hold</em>, and the rejected left-hand pose stays out of the target set. Collect multiple distinct holds, releases and clear intervals across objects.</p>
-          <p class="handoff"><b>Hand over</b> reviewed contact labels, a list of usable pose targets, and event counts by object. A long hold counts as one event.</p>
+          <p>EP16 gives us one ongoing right-hand hold and a hidden left hand. Use the camera view alone to find these missing events across Track 1 objects. Record the target object, the person’s left or right hand, and the original start and end frames for each interval.</p>
+          <ul>
+            <li><b>Near miss.</b> Mark a hand that approaches the target but leaves a visible gap as <em>clear</em>.</li>
+            <li><b>First touch.</b> Record the first frame where contact is visible, then mark the touching interval. If the motion is clear, add <em>holding</em> or <em>sliding</em>.</li>
+            <li><b>Release.</b> Record the first frame where a gap reappears. Include the clear frames afterward, even if the hand stays close.</li>
+            <li><b>Occlusion and reappearance.</b> Mark the hidden interval <em>cannot tell</em> and label the first visible state when the hand returns. If the transition happened out of sight, record its possible frame range.</li>
+          </ul>
+          <p>In a separate pass, overlay the starting 3D hands on the footage. Save plausible poses for the repair trainer only after checking image alignment, penetration into the object and fingers passing through each other. Exclude the failed v11 left-hand poses from those targets.</p>
+          <p class="handoff"><b>Hand over</b> reviewed intervals, a count of distinct events per object and a list of usable pose targets. Keep unknown rows in the file and leave them out of touch supervision.</p>
         </article>
 
-        <article class="step">
-          <h3>Train the model to recognize contact</h3>
-          <p class="owner">Training team · Contact recognition</p>
-          <p>Keep a pretrained image reader fixed. Train a small network on its features across the short video window. For each hand at the center frame, predict a probability of touch. Compare the prediction with the reviewed answer and update the network on visible “touching” and “clear” labels. Sample enough first touches, releases and near misses that long holds cannot dominate training.</p>
-          <p>On validation objects, count missed touches, false touches and frames of delay at release. Choose the saved version and confidence cutoff there. A low-confidence prediction leaves contact attraction off. Add a hold-versus-slide prediction once both actions have enough reviewed examples.</p>
-          <p class="handoff"><b>Hand over</b> saved weights, the cutoff and one row per hand and frame with its predicted state and confidence.</p>
+        <article class="step" id="contact-reader">
+          <h3>Teach the computer to spot a touch</h3>
+          <p class="owner">Training member 1 · Contact recognition</p>
+          <p>For each hand, crop the hand and target together across 15 frames. Keep the pretrained image reader fixed. Train a small sequence model to predict the chance of touch at the middle frame, using the reviewed <em>touching</em> and <em>clear</em> labels. Give first touches, releases and near misses enough examples of their own.</p>
+          <p>On validation objects, count false touches, missed touches and how many frames early or late the model calls a release. Choose the model version and confidence cutoff there. Start with one decision per hand. Add hold versus slide, or finger and palm contact regions, when reviewed labels support that level of detail.</p>
+          <p class="handoff"><b>Give training member 2</b> the saved model, its cutoff, and a file listing the episode, original frame, hand, target, predicted state and confidence.</p>
         </article>
 
-        <article class="step">
+        <article class="step" id="pose-repair">
           <h3>Train the model to correct the hand pose</h3>
-          <p class="owner">Training team · Pose repair and model lead</p>
+          <p class="owner">Training member 2 · Pose repair and model lead</p>
           <p>Start with a reviewed pose from the training group. Add a small, known wrist or finger error. Give the repair model this altered pose, the nearby object surface and the contact prediction. Its target is the joint adjustment that restores the reviewed pose. Also show unchanged poses with a target adjustment of zero. Generate predictions for each training object with a contact reader fitted to the other training objects. Keep the validation and test objects out of that fitting step.</p>
-          <p>First check that the network can undo one known error and leave a good grip alone. Then train it on batches of short sequences to predict small changes in wrist and finger angles. Penalize errors against the target, hand points entering the object and fingers crossing each other. Check that the adjusted hand still lines up with the video. During a confident hold, limit slipping along the object. Allow surface motion during a slide and turn off attraction at release. Keep object motion and camera fixed. If the hand is hidden and the proposed change cannot pass the shape and image checks, keep its original pose.</p>
+          <p>Check that the model can undo one known error and leave a good grip alone. Then train on short sequences. Penalize wrong joint corrections, hand points entering the object and fingers crossing each other. Keep the camera and object motion fixed. Turn off the pull toward the object on release or when contact is uncertain. For EP16, this means the hidden left hand still gets a shape check. When hold and slide labels are available, steady a held contact point and let a sliding one travel along the surface.</p>
           <p class="handoff"><b>Hand over</b> repair weights and a repeatable run that saves corrected poses, same-frame overlays and a reason whenever it keeps the original pose.</p>
+          <p class="note">ContactOpt is a research example of predicting likely contact regions and using them to refine a hand pose. <a href="https://arxiv.org/abs/2104.07267">Read the ContactOpt paper</a>.</p>
         </article>
 
         <article class="step">
@@ -225,6 +235,18 @@
           <p class="handoff"><b>Hand over</b> the scores by object, a matched replay of the worst failure and a keep-or-revise decision. If a candidate folds fingers through each other, reject that change even when the fingers clear the object. Check that the exported result reopens with every original frame.</p>
         </article>
       </div>
+      <aside class="datasets" id="datasets" aria-labelledby="datasets-title">
+        <h3 id="datasets-title">Public datasets for a separate research study</h3>
+        <p>The project uses Track 1 footage and its own reviewed labels for training and evaluation. For a separate study, choose a public dataset by the question you want to answer. <a href="https://github.com/Seanwilliam2077/video-to-hoi/blob/main/docs/workflow.md#track-1-only-data-rule">Project data rules</a>.</p>
+        <div class="table-wrap"><table aria-labelledby="datasets-title">
+          <thead><tr><th scope="col">Dataset</th><th scope="col">What is labeled?</th><th scope="col">Where it helps</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">100 Days of Hands (100DOH)</th><td>About 100,000 video frames with hand boxes, left or right hand, contact state and a box around the contacted object.</td><td>Train the reader to link a hand to its target. Exact release timing still needs consecutive labeled frames. <a href="https://github.com/ddshan/hand_object_detector#data-preparation">Authors’ data and download instructions</a>.</td></tr>
+            <tr><th scope="row">ARCTIC</th><td>2.1 million multi-view frames with moving 3D meshes of both hands and the object. Contact is estimated from the fitted surfaces.</td><td>Teach the repair model to recover a reviewed pose after a small joint error. <a href="https://arctic.is.tuebingen.mpg.de/">Official project and data</a> · <a href="https://arctic.is.tue.mpg.de/license.html">Research use terms</a>.</td></tr>
+            <tr><th scope="row">ContactPose</th><td>2,306 grasps from 50 people using 25 objects. Thermal images show which parts of the object were touched during a grasp, paired with hand pose and color and depth images.</td><td>Learn where contact occurs in a steady grip. Use video sequences for onset and release. <a href="https://github.com/facebookresearch/ContactPose">Official samples and dataset access</a>.</td></tr>
+          </tbody>
+        </table></div>
+      </aside>
     </section>
   </main>
   <footer><div class="wrap">Video-to-HOI · EP16 contact repair guide</div></footer>

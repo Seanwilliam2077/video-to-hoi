@@ -179,13 +179,13 @@
     </section>
 
     <section class="training-plan" id="training" aria-labelledby="training-title">
-      <h2 id="training-title">2. How to train a contact repair model</h2>
-      <p class="intro">Give the model half a second of video and the existing 3D hand and object poses. <a href="#contact-reader">Training member 1</a> teaches it to judge whether each hand touches the target. <a href="#pose-repair">Training member 2</a> uses that judgment to make small wrist and finger adjustments. A good pose can pass through with zero change.</p>
+      <h2 id="training-title">2. Train the contact repair model from scratch</h2>
+      <p class="intro">Start both parts of the contact model with random weights. <a href="#contact-reader">Training member 1</a> teaches it to recognize touch from Track 1 video. <a href="#pose-repair">Training member 2</a> teaches it to correct a wrist or finger. The existing 3D reconstruction supplies the hand pose that needs repair and the object surface. A plausible grip should pass through with zero movement.</p>
       <div class="steps" id="people">
         <article class="step">
           <h3>Prepare examples that another person can replay</h3>
           <p class="owner">Foundation team · Replay and measurement</p>
-          <p>Load the original video, the reconstructed hands, the object surface and the camera. Draw the starting poses over the image. Check that the same hand and object line up on the same original frame. For each hand, save a short crop that shows both it and the object, plus their 3D poses. About half a second (15 frames at 30 fps) is a starting window.</p>
+          <p>Load the original video, the reconstructed hands, the object surface and the camera. Draw the starting poses over the image. Check that the same hand and object line up on the same original frame. Save the original image area that shows both hands and the object. Use the same camera crop across episodes. Store the existing 3D poses separately for the repair step. About half a second (15 frames at 30 fps) is a starting window.</p>
           <p>Assign whole objects to three groups before making crops. For the ten Track 1 objects, a proposed split is six for learning, two for choosing settings and two for the final test. Keep EP16 in development because it helped design the method. Record earlier use of any proposed test object.</p>
           <p class="handoff"><b>Hand over</b> a replayable baseline and a list linking every window to its object, episode, hand, original frame and data group.</p>
         </article>
@@ -207,15 +207,15 @@
         <article class="step" id="contact-reader">
           <h3>Teach the computer to spot a touch</h3>
           <p class="owner">Training member 1 · Contact recognition</p>
-          <p>For each hand, crop the hand and target together across 15 frames. Keep the pretrained image reader fixed. Train a small sequence model to predict the chance of touch at the middle frame, using the reviewed <em>touching</em> and <em>clear</em> labels. Give first touches, releases and near misses enough examples of their own.</p>
-          <p>On validation objects, count false touches, missed touches and how many frames early or late the model calls a release. Choose the model version and confidence cutoff there. Start with one decision per hand. Add hold versus slide, or finger and palm contact regions, when reviewed labels support that level of detail.</p>
-          <p class="handoff"><b>Give training member 2</b> the saved model, its cutoff, and a file listing the episode, original frame, hand, target, predicted state and confidence.</p>
+          <p>Build a small image network and initialize every layer at random. Give it 15 consecutive original frames showing the hands and target. At the middle frame it gives two answers, one chance of touching for each hand. Train every layer on reviewed Track 1 <em>touching</em> and <em>clear</em> labels. Include approaches, releases and near misses. Keep camera crops identical at training and replay.</p>
+          <p>Train a second small touch reader from random weights using the starting 3D reconstruction. Give it each hand’s distance to the object and how they move across the same 15 frames. This version needs a reconstructed scene at replay. Compare both readers on whole objects held out of training, then count false touches, missed touches and how many frames early or late each reader calls a release. Choose the model version and confidence cutoff there. Start with one decision per hand. Add hold versus slide, or finger and palm contact regions, when reviewed labels support that level of detail.</p>
+          <p class="handoff"><b>Give training member 2</b> the saved model, the random seed, a record of its initial and trained weights, its cutoff, and a file listing the episode, original frame, hand, target, predicted state and confidence.</p>
         </article>
 
         <article class="step" id="pose-repair">
           <h3>Train the model to correct the hand pose</h3>
           <p class="owner">Training member 2 · Pose repair and model lead</p>
-          <p>Start with a reviewed pose from the training group. Add a small, known wrist or finger error. Give the repair model this altered pose, the nearby object surface and the contact prediction. Its target is the joint adjustment that restores the reviewed pose. Also show unchanged poses with a target adjustment of zero. Generate predictions for each training object with a contact reader fitted to the other training objects. Keep the validation and test objects out of that fitting step.</p>
+          <p>Initialize a small correction network at random. Start with a plausible pose from the training group and add a small, known wrist or finger error. Keep all versions of that pose in the same data group. Give the repair model this altered pose, the nearby object surface and the contact prediction. Its target is the joint adjustment that restores the reference pose. Mark provisional references for human review. Also show unchanged poses with a target adjustment of zero. Generate predictions for each training object with a contact reader fitted to the other training objects. Keep the validation and test objects out of that fitting step.</p>
           <p>Check that the model can undo one known error and leave a good grip alone. Then train on short sequences. Penalize wrong joint corrections, hand points entering the object and fingers crossing each other. Keep the camera and object motion fixed. Turn off the pull toward the object on release or when contact is uncertain. For EP16, this means the hidden left hand still gets a shape check. When hold and slide labels are available, steady a held contact point and let a sliding one travel along the surface.</p>
           <p class="handoff"><b>Hand over</b> repair weights and a repeatable run that saves corrected poses, same-frame overlays and a reason whenever it keeps the original pose.</p>
           <p class="note">ContactOpt is a research example of predicting likely contact regions and using them to refine a hand pose. <a href="https://arxiv.org/abs/2104.07267">Read the ContactOpt paper</a>.</p>
@@ -229,7 +229,7 @@
             <thead><tr><th scope="col">Question</th><th scope="col">What to compare</th></tr></thead>
             <tbody>
               <tr><th scope="row">Did reading the video help?</th><td>Use the same simple repair with contact estimated by distance, predicted by the reader, and marked by reviewers. Score missed touches and release timing.</td></tr>
-              <tr><th scope="row">Did learning the correction help?</th><td>Give identical contact predictions to a rule-based repair and the learned repair. Compare both with the original pose for contact gap, slipping, object penetration, hand self-intersections and image fit.</td></tr>
+              <tr><th scope="row">Did learning the correction help?</th><td>Give identical contact predictions to a rule-based repair and the learned repair. Compare both with the original pose for contact gap, slipping, object penetration, hand self-intersections and image fit. Separately measure how much the model moves an already plausible grip.</td></tr>
             </tbody>
           </table></div>
           <p class="handoff"><b>Hand over</b> the scores by object, a matched replay of the worst failure and a keep-or-revise decision. If a candidate folds fingers through each other, reject that change even when the fingers clear the object. Check that the exported result reopens with every original frame.</p>
